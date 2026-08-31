@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Data (large files)
+data/raw/atp/*.csv
+data/processed/*.csv
+data/models/*.joblib
+
+# Nested clone (use data/raw/atp in CI)
+tennis/
+
+# OS
+.DS_Store
+Thumbs.db

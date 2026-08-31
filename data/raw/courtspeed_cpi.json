@@ -1,0 +1,103 @@
+{
+  "tournaments": [
+    {
+      "name": "Australian Open Aus Open",
+      "surface": "Hard",
+      "cpi_latest": 50.0,
+      "cpi_3yr": null,
+      "years": {}
+    },
+    {
+      "name": "Indian Wells",
+      "surface": "Hard",
+      "cpi_latest": 35.6,
+      "cpi_3yr": 35.6,
+      "years": {}
+    },
+    {
+      "name": "Miami",
+      "surface": "Hard",
+      "cpi_latest": 39.0,
+      "cpi_3yr": 39.0,
+      "years": {}
+    },
+    {
+      "name": "Monte Carlo",
+      "surface": "Clay",
+      "cpi_latest": 28.8,
+      "cpi_3yr": 28.8,
+      "years": {}
+    },
+    {
+      "name": "Madrid",
+      "surface": "Clay",
+      "cpi_latest": 27.4,
+      "cpi_3yr": 27.4,
+      "years": {}
+    },
+    {
+      "name": "Rome",
+      "surface": "Clay",
+      "cpi_latest": 28.1,
+      "cpi_3yr": 28.1,
+      "years": {}
+    },
+    {
+      "name": "Roland Garros",
+      "surface": "Clay",
+      "cpi_latest": 21.0,
+      "cpi_3yr": null,
+      "years": {}
+    },
+    {
+      "name": "Wimbledon",
+      "surface": "Grass",
+      "cpi_latest": 37.0,
+      "cpi_3yr": null,
+      "years": {}
+    },
+    {
+      "name": "Canadian Open Canada",
+      "surface": "Hard",
+      "cpi_latest": 39.8,
+      "cpi_3yr": 39.8,
+      "years": {}
+    },
+    {
+      "name": "Cincinnati",
+      "surface": "Hard",
+      "cpi_latest": 39.4,
+      "cpi_3yr": 39.4,
+      "years": {}
+    },
+    {
+      "name": "US Open",
+      "surface": "Hard",
+      "cpi_latest": 42.8,
+      "cpi_3yr": 42.8,
+      "years": {}
+    },
+    {
+      "name": "Shanghai",
+      "surface": "Hard",
+      "cpi_latest": 37.9,
+      "cpi_3yr": 37.9,
+      "years": {}
+    },
+    {
+      "name": "Paris",
+      "surface": "Hard",
+      "cpi_latest": 40.3,
+      "cpi_3yr": 40.3,
+      "years": {}
+    },
+    {
+      "name": "ATP Finals",
+      "surface": "Hard",
+      "cpi_latest": 41.3,
+      "cpi_3yr": 41.3,
+      "years": {}
+    }
+  ],
+  "source": "https://courtspeed.com/"
+}

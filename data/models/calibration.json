@@ -1,0 +1,53 @@
+{
+  "backtest_summary": {
+    "ok": true,
+    "n_bets": 5883,
+    "roi": 0.1159,
+    "hit_rate": 0.487,
+    "mean_ev": 0.5404,
+    "realization": 0.2144,
+    "final_bankroll": 12.8716,
+    "max_drawdown": -0.2032,
+    "by_surface": [
+      {
+        "surface": "Clay",
+        "n": 1768,
+        "roi": 0.12364288068095182,
+        "hit_rate": 0.4915158371040724
+      },
+      {
+        "surface": "Grass",
+        "n": 896,
+        "roi": 0.29511510852652345,
+        "hit_rate": 0.5044642857142857
+      },
+      {
+        "surface": "Hard",
+        "n": 3219,
+        "roi": 0.06160070822287026,
+        "hit_rate": 0.4796520658589624
+      }
+    ]
+  },
+  "by_surface": [
+    {
+      "surface": "Clay",
+      "n": 1768,
+      "roi": 0.12364288068095182,
+      "hit_rate": 0.4915158371040724
+    },
+    {
+      "surface": "Grass",
+      "n": 896,
+      "roi": 0.29511510852652345,
+      "hit_rate": 0.5044642857142857
+    },
+    {
+      "surface": "Hard",
+      "n": 3219,
+      "roi": 0.06160070822287026,
+      "hit_rate": 0.4796520658589624
+    }
+  ],
+  "min_ev_play": 0.025
+}
