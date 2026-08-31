@@ -95,6 +95,8 @@ def _predict_from_betfair(
         odd_a, odd_b = ev.get("odd_a"), ev.get("odd_b")
         if not player_a or not player_b or not odd_a or not odd_b:
             continue
+        if float(odd_a) <= 1.01 or float(odd_b) <= 1.01:
+            continue
 
         key = "|".join(sorted([_norm_name(player_a), _norm_name(player_b)]))
         if key in seen:

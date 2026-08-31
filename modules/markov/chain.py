@@ -23,50 +23,39 @@ def tiebreak_win_prob(p_a: float, p_b: float, first_server_a: bool = True) -> fl
     """P(A vince tiebreak) con sequenza ABBA, p_a = P(A vince punto al servizio)."""
     p_a = max(0.01, min(0.99, p_a))
     p_b = max(0.01, min(0.99, p_b))
-    p_b_return = 1.0 - p_b  # P(A vince punto in risposta quando B serve)
+    p_b_return = 1.0 - p_b
+    first = 0 if first_server_a else 1
+    max_pts = 28  # copre tiebreak lunghi (es. 15-13) senza ricorsione profonda
+    memo: dict[tuple[int, int], float] = {}
 
-    memo: dict[tuple, float] = {}
+    def server_at(n: int) -> int:
+        if n == 0:
+            return first
+        if n == 1:
+            return 1 - first
+        k = (n - 1) // 2
+        return (1 - first) if k % 2 == 0 else first
 
-    def dp(a_pts: int, b_pts: int, server: int, streak: int) -> float:
-        """server: 0=A serve, 1=B serve. streak: punti consecutivi stesso server."""
-        if a_pts >= 7 and a_pts - b_pts >= 2:
-            return 1.0
-        if b_pts >= 7 and b_pts - a_pts >= 2:
-            return 0.0
-        key = (a_pts, b_pts, server, streak)
-        if key in memo:
-            return memo[key]
+    for a_pts in range(max_pts + 1):
+        for b_pts in range(max_pts + 1):
+            if a_pts >= 7 and a_pts - b_pts >= 2:
+                memo[(a_pts, b_pts)] = 1.0
+            elif b_pts >= 7 and b_pts - a_pts >= 2:
+                memo[(a_pts, b_pts)] = 0.0
 
-        if server == 0:
-            p_win_pt = p_a
-        else:
-            p_win_pt = p_b_return
+    for total in range(2 * max_pts, -1, -1):
+        for a_pts in range(max(0, total - max_pts), min(total, max_pts) + 1):
+            b_pts = total - a_pts
+            key = (a_pts, b_pts)
+            if key in memo:
+                continue
+            srv = server_at(a_pts + b_pts)
+            p_win_pt = p_a if srv == 0 else p_b_return
+            p_win = memo.get((a_pts + 1, b_pts), 0.5)
+            p_lose = memo.get((a_pts, b_pts + 1), 0.5)
+            memo[key] = p_win_pt * p_win + (1 - p_win_pt) * p_lose
 
-        # ABBA: dopo 1 punto cambia server, dopo altri 2 cambia di nuovo
-        if streak == 0:
-            next_streak = 1
-            next_server = server
-        elif streak == 1:
-            next_streak = 0
-            next_server = 1 - server
-        else:
-            next_streak = 0
-            next_server = 1 - server
-
-        p_if_win = dp(a_pts + 1, b_pts, next_server, next_streak) if server == 0 or True else dp(a_pts + 1, b_pts, next_server, next_streak)
-        if server == 0:
-            p_win = dp(a_pts + 1, b_pts, next_server, next_streak)
-            p_lose = dp(a_pts, b_pts + 1, next_server, next_streak)
-        else:
-            p_win = dp(a_pts + 1, b_pts, next_server, next_streak)
-            p_lose = dp(a_pts, b_pts + 1, next_server, next_streak)
-
-        result = p_win_pt * p_win + (1 - p_win_pt) * p_lose
-        memo[key] = result
-        return result
-
-    start_server = 0 if first_server_a else 1
-    return dp(0, 0, start_server, 0)
+    return memo.get((0, 0), 0.5)
 
 
 def set_win_prob(p_hold_a: float, p_hold_b: float, *, first_server_a: bool = True) -> float:
