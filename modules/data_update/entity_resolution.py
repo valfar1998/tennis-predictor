@@ -102,7 +102,16 @@ def _resolve_unique_lastname(name: str, candidates: list[str]) -> str | None:
 
 
 def resolve_name(name: str, *, candidates: list[str] | None = None, aliases: dict | None = None) -> str:
-    """Risolve un nome verso la forma canonica usando alias e fuzzy match."""
+    """Risolve un nome verso la forma canonica: registry SQLite → alias JSON → fuzzy."""
+    try:
+        from modules.data_update.player_registry import resolve_canonical
+
+        canon = resolve_canonical(name)
+        if canon:
+            return canon
+    except Exception:
+        pass
+
     aliases = aliases or load_aliases()
     norm = _norm_name(name)
     if norm in aliases:
@@ -172,3 +181,120 @@ def match_players_to_odds(
         if match and match[1] >= threshold:
             mapping[odds_name] = match[0]
     return mapping
+
+
+def player_side_match(a: str, b: str) -> bool:
+    """True se a e b indicano lo stesso giocatore (cognome / fuzzy leggero)."""
+    a_n, b_n = _norm_name(a), _norm_name(b)
+    if not a_n or not b_n:
+        return False
+    if a_n == b_n:
+        return True
+    if _last_name(a) and _last_name(a) == _last_name(b):
+        return True
+    if len(a_n) >= 4 and len(b_n) >= 4 and (a_n in b_n or b_n in a_n):
+        return True
+    return False
+
+
+def align_odds_to_players(
+    player_a: str,
+    player_b: str,
+    odd_a: float | None,
+    odd_b: float | None,
+    *,
+    runner_a: str | None = None,
+    runner_b: str | None = None,
+) -> dict:
+    """Garantisce odd_a → player_a e odd_b → player_b (swap se runner invertiti)."""
+    oa = float(odd_a) if odd_a and float(odd_a) > 1.01 else None
+    ob = float(odd_b) if odd_b and float(odd_b) > 1.01 else None
+    out = {
+        "odd_a": oa,
+        "odd_b": ob,
+        "swapped": False,
+        "verified": False,
+        "blocked": oa is None or ob is None,
+    }
+    if out["blocked"]:
+        return out
+
+    ra = str(runner_a or player_a).strip()
+    rb = str(runner_b or player_b).strip()
+    direct = player_side_match(ra, player_a) and player_side_match(rb, player_b)
+    swap = player_side_match(ra, player_b) and player_side_match(rb, player_a)
+
+    if swap and not direct:
+        out["odd_a"] = ob
+        out["odd_b"] = oa
+        out["swapped"] = True
+        out["verified"] = True
+    elif direct:
+        out["verified"] = True
+    elif player_side_match(player_a, ra) or player_side_match(player_b, rb):
+        out["verified"] = True
+    else:
+        out["blocked"] = True
+        out["reason"] = "runner non allineati a player_a/player_b"
+
+    return out
+
+
+def detect_model_odds_inversion(
+    p_win_a: float,
+    odd_a: float | None,
+    odd_b: float | None,
+    *,
+    prob_gap: float = 0.12,
+    odds_ratio: float = 1.15,
+) -> bool:
+    """True se il favorito modello ha la quota più alta (probabile inversione)."""
+    if not odd_a or not odd_b:
+        return False
+    oa, ob = float(odd_a), float(odd_b)
+    p = float(p_win_a)
+    if p >= 0.5 + prob_gap and oa > ob * odds_ratio:
+        return True
+    if p <= 0.5 - prob_gap and oa * odds_ratio < ob:
+        return True
+    return False
+
+
+def dataset_match_count(player_id: int | None, matches: pd.DataFrame | None) -> int:
+    """Match registrati TML/Sackmann per giocatore."""
+    if player_id is None or matches is None or matches.empty:
+        return 0
+    pid = int(player_id)
+    w = (matches["winner_id"] == pid).sum()
+    l = (matches["loser_id"] == pid).sum()
+    return int(w + l)
+
+
+def shrink_rating_low_sample(
+    rating: float,
+    n_matches: int,
+    *,
+    prior: float | None = None,
+) -> float:
+    """Shrink Elo verso prior se pochi match in dataset storico."""
+    from modules.constants import DATASET_LOW_SAMPLE, DATASET_PRIOR_WEIGHT, ELO_START
+
+    if n_matches >= DATASET_LOW_SAMPLE:
+        return rating
+    p = prior if prior is not None else ELO_START
+    k = DATASET_PRIOR_WEIGHT
+    n = max(0, int(n_matches))
+    return (n * rating + k * p) / (n + k)
+
+
+def enrich_pressure_profile(profile: dict | None, player_id: int | None, matches: pd.DataFrame | None) -> dict:
+    """Aggiunge n_dataset per shrinkage bayesiano su low sample."""
+    out = dict(profile or {})
+    n_ds = dataset_match_count(player_id, matches)
+    out["n_dataset"] = n_ds
+    n_mcp = int(out.get("n_matches") or out.get("n_charted") or 0)
+    if n_mcp and n_ds:
+        out["n_effective"] = min(n_mcp, n_ds)
+    else:
+        out["n_effective"] = n_mcp or n_ds
+    return out

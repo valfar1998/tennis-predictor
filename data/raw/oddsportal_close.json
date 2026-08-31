@@ -1,0 +1,29 @@
+{
+  "updated_at": "2026-08-31T12:46:14.069451+00:00",
+  "rows": [
+    {
+      "date": "2025-09-07",
+      "winner": "Alcaraz C.",
+      "loser": "Sinner J.",
+      "psw": 2.15,
+      "psl": 1.75,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-09-06",
+      "winner": "Sinner J.",
+      "loser": "Auger-Aliassime F.",
+      "psw": 1.03,
+      "psl": 17.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-09-05",
+      "winner": "Alcaraz C.",
+      "loser": "Djokovic N.",
+      "psw": 1.25,
+      "psl": 4.0,
+      "bookmaker": "bet365.it"
+    }
+  ]
+}

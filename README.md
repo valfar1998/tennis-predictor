@@ -51,7 +51,7 @@ Per ATP live usa **infotennis** o **seeder** come bridge.
 cd tennis-predictor
 pip install -r requirements.txt
 cp .env.example .env
-# Imposta SACKMANN_ATP_PATH nel .env
+# Scarica i repo dati in lib/ (vedi PROJECT_BRIEF) oppure lascia i default lib/
 ```
 
 ## Utilizzo
@@ -78,7 +78,9 @@ streamlit run app.py
 tennis-predictor/
 ├── main.py                 # CLI orchestrator
 ├── app.py                  # Dashboard Streamlit
+├── lib/                    # Repo dati esterni (Sackmann, MCP, infotennis, …)
 ├── modules/
+│   ├── lib_paths.py        # Default path sotto lib/
 │   ├── data_update/        # Ingestion, scrapers, weather, altitude
 │   ├── dataset_loader/     # Merge match + odds
 │   ├── feature_engineering/# Elo, H2H, fatica, form

@@ -7,6 +7,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from modules.constants import MIN_EDGE
+
 ROOT = Path(__file__).resolve().parents[2]
 MODELS = ROOT / "data" / "models"
 CAL_PATH = MODELS / "calibration.json"
@@ -112,11 +114,38 @@ def learn_from_settled(*, force: bool = False) -> dict[str, Any]:
     if sig.get("moneyway_hit_rate") and sig.get("moneyway_n", 0) >= 5:
         ol["moneyway_boost"] = min(0.06, max(0.0, sig["moneyway_hit_rate"] - 0.5) * 0.12)
 
-    if report.get("roi_all") is not None and report["roi_all"] < -0.05:
-        ol["min_edge_suggested"] = 0.035
-    elif report.get("hit_rate", 0) >= 0.55:
-        ol["min_edge_suggested"] = 0.025
+    lean = band_stats.get("lean", {})
+    playable = band_stats.get("playable", {})
+    if (lean.get("n") or 0) >= 6 and (lean.get("hit_rate") or 1) < 0.42:
+        ol["lean_underperform"] = True
+        ol["lean_hit_rate"] = lean.get("hit_rate")
     else:
+        ol.pop("lean_underperform", None)
+    if (playable.get("n") or 0) >= 6 and (playable.get("hit_rate") or 1) < 0.48:
+        ol["playable_underperform"] = True
+    else:
+        ol.pop("playable_underperform", None)
+
+    try:
+        from modules.advisor.live_metrics import compute_bcr
+
+        bcr = compute_bcr(pinnacle_only=True)
+        report["bcr_pinnacle"] = bcr
+        if (bcr.get("n") or 0) >= 15 and bcr.get("bcr") is not None:
+            if bcr["bcr"] < 0.52:
+                ol["min_edge_suggested"] = max(float(ol.get("min_edge_suggested") or 0.025), 0.035)
+                ol["bcr_adjustment"] = "raised_min_edge_low_bcr"
+            elif bcr["bcr"] >= 0.58:
+                ol["min_edge_suggested"] = min(float(ol.get("min_edge_suggested") or 0.03), 0.025)
+                ol["bcr_adjustment"] = "confirmed_edge"
+    except Exception:
+        pass
+
+    if report.get("roi_all") is not None and report["roi_all"] < -0.05:
+        ol["min_edge_suggested"] = max(float(ol.get("min_edge_suggested") or 0.025), 0.035)
+    elif report.get("hit_rate", 0) >= 0.55 and ol.get("bcr_adjustment") != "raised_min_edge_low_bcr":
+        ol["min_edge_suggested"] = min(float(ol.get("min_edge_suggested") or 0.03), 0.025)
+    elif "min_edge_suggested" not in ol:
         ol["min_edge_suggested"] = 0.03
 
     ol["last_n_settled"] = len(settled)
@@ -130,6 +159,28 @@ def learn_from_settled(*, force: bool = False) -> dict[str, Any]:
     return report
 
 
+def effective_min_edge() -> float:
+    """Soglia edge da pick chiuse (online learn); fallback a MIN_EDGE."""
+    cal = _load_cal()
+    ol = cal.get("online_learn") or {}
+    n = int(ol.get("last_n_settled") or 0)
+    if n >= MIN_SETTLED:
+        return float(ol.get("min_edge_suggested") or MIN_EDGE)
+    return MIN_EDGE
+
+
+def effective_alert_min_playability() -> int:
+    """Soglia giocabilità alert Telegram appresa da Strong/Premium hit rate."""
+    from modules.advisor.playability import MIN_PLAY_ALERT
+
+    cal = _load_cal()
+    ol = cal.get("online_learn") or {}
+    n = int(ol.get("last_n_settled") or 0)
+    if n >= 8 and ol.get("alert_min_suggested") is not None:
+        return int(ol["alert_min_suggested"])
+    return MIN_PLAY_ALERT
+
+
 def learned_playability_boost(pred: dict) -> float:
     """Piccolo boost 0–0.08 da segnali mercato se online_learn lo suggerisce."""
     cal = _load_cal()
@@ -141,3 +192,17 @@ def learned_playability_boost(pred: dict) -> float:
     if sig.get("volume_pct_pick") is not None and ol.get("moneyway_boost"):
         boost += float(ol["moneyway_boost"]) * 0.5
     return min(0.08, boost)
+
+
+def learned_playability_adjustment(pred: dict) -> float:
+    """Boost segnali mercato - penalità bande deboli se storico negativo."""
+    boost = learned_playability_boost(pred)
+    cal = _load_cal()
+    ol = cal.get("online_learn") or {}
+    band = str(pred.get("playability_band") or "")
+    penalty = 0.0
+    if band == "lean" and ol.get("lean_underperform"):
+        penalty = 0.06
+    elif band == "playable" and ol.get("playable_underperform"):
+        penalty = 0.03
+    return max(-0.08, min(0.08, boost - penalty))

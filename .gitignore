@@ -16,9 +16,10 @@ data/raw/betfair_odds.json
 data/raw/arbworld_moneyway.json
 data/raw/oddssafari_dropping.json
 data/processed/upcoming_predictions.json
-data/processed/our_history.sqlite*
+data/processed/our_history.sqlite-wal
+data/processed/our_history.sqlite-shm
 data/processed/telegram_alerts_sent.json
-data/models/online_learn_report.json
+# our_history.sqlite, calibration.json, live_metrics.json → tracciati da auto-learn.yml
 data/raw/tennis_abstract_elo*.json
 data/raw/tennis_data_sync.json
 data/raw/tennis_livescore.json
@@ -29,6 +30,7 @@ data/raw/venue_altitude.json
 
 # Nested clone (use data/raw/atp in CI)
 tennis/
+lib/
 
 # OS
 .DS_Store

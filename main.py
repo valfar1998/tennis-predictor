@@ -17,6 +17,8 @@ load_dotenv(ROOT / ".env")
 
 def cmd_sync(args: argparse.Namespace) -> None:
     from modules.data_update.sackmann import sync_sackmann_atp, sync_sackmann_wta
+    from modules.data_update.tml import sync_tml
+    from modules.data_update.player_registry import registry_stats, sync_sackmann_players, sync_tml_players
     from modules.data_update.tennis_data_odds import download_tennis_data_odds
     from modules.data_update.charting import sync_charting_data
     from modules.data_update.tennis_abstract import fetch_all_tennis_abstract_elo
@@ -29,6 +31,14 @@ def cmd_sync(args: argparse.Namespace) -> None:
     from modules.data_update.seeder_bridge import export_seeder_data
     import pandas as pd
 
+    print("TML Database:", sync_tml(clone=args.copy, pull=True))
+    try:
+        print("Player registry ATP:", sync_sackmann_players(tour="ATP"))
+        print("Player registry WTA:", sync_sackmann_players(tour="WTA"))
+        print("Player registry TML:", sync_tml_players())
+        print("Registry stats:", registry_stats())
+    except Exception as exc:
+        print(f"Player registry skip: {exc}")
     print("Sackmann ATP:", sync_sackmann_atp(copy=args.copy))
     try:
         print("Sackmann WTA:", sync_sackmann_wta(copy=args.copy))
@@ -69,10 +79,15 @@ def cmd_build(args: argparse.Namespace) -> None:
 
 
 def cmd_features(args: argparse.Namespace) -> None:
-    from modules.feature_engineering import FeatureEngineer
-    fe = FeatureEngineer()
-    df = fe.build()
-    print(f"features.csv: {len(df)} righe")
+    from modules.feature_engineering.feature_store import FEATURES_PARQUET, build_feature_store
+    df = build_feature_store(force=args.force)
+    print(f"features: {len(df)} righe -> {FEATURES_PARQUET}")
+
+
+def cmd_retrain(args: argparse.Namespace) -> None:
+    from scripts.run_retrain_pipeline import run_full_ml_pipeline
+    result = run_full_ml_pipeline(min_year=args.min_year, force_features=args.force)
+    print(json.dumps(result, indent=2, default=str))
 
 
 def cmd_train(args: argparse.Namespace) -> None:
@@ -88,17 +103,61 @@ def cmd_backtest(args: argparse.Namespace) -> None:
     print(json.dumps(result, indent=2, default=str))
 
 
+def cmd_scrape_oddsportal(args: argparse.Namespace) -> None:
+    from modules.data_update.oddsportal_scraper import scrape_oddsportal_close
+
+    result = scrape_oddsportal_close(
+        max_matches=args.max_matches,
+        enrich_h2h=not args.no_h2h,
+        headless=not args.headed,
+    )
+    print(json.dumps(result, indent=2, ensure_ascii=False))
+
+
 def cmd_learn(args: argparse.Namespace) -> None:
+    from modules.advisor.live_metrics import format_bcr_status, run_live_audit
     from modules.data_update.history import history_summary, settle_pending
 
     out = settle_pending(learn=not args.no_learn)
     print(json.dumps(out, indent=2, default=str))
     print("Summary:", json.dumps(history_summary(), indent=2))
+    audit = run_live_audit(refresh_slippage=True)
+    print(format_bcr_status(audit.get("bcr_pinnacle", {})))
+    if audit.get("slippage", {}).get("recommendation"):
+        print("Slippage:", audit["slippage"]["recommendation"])
+
+
+def cmd_metrics(args: argparse.Namespace) -> None:
+    from modules.advisor.live_metrics import format_bcr_status, run_live_audit
+
+    audit = run_live_audit(refresh_slippage=not args.no_slippage)
+    print(json.dumps(audit, indent=2, ensure_ascii=False))
+    print(format_bcr_status(audit.get("bcr_pinnacle", {})))
+    slip = audit.get("slippage") or {}
+    if slip.get("recommendation"):
+        print("Slippage:", slip["recommendation"])
+    print(f"Report: data/processed/live_metrics.json")
 
 
 def cmd_predict(args: argparse.Namespace) -> None:
+    from modules.advisor.live_metrics import format_bcr_status, run_live_audit
+    from modules.advisor.risk_controls import circuit_breaker_status
     from modules.data_update.upcoming import build_upcoming
     from modules.notify.alerts import dispatch_alerts
+
+    cb = circuit_breaker_status()
+    if cb["active"]:
+        print(
+            f"Circuit breaker ATTIVO — MIN_EDGE {cb['base_min_edge']:.1%} → {cb['min_edge']:.1%} "
+            f"(DD {cb['current_drawdown']:.1%}, streak {cb['streak_loss_units']:.1f} unit)"
+        )
+
+    try:
+        from modules.advisor.slippage_audit import refresh_slippage_snapshots
+
+        refresh_slippage_snapshots()
+    except Exception:
+        pass
 
     preds = build_upcoming()
     print(f"Predizioni: {len(preds)}")
@@ -109,6 +168,10 @@ def cmd_predict(args: argparse.Namespace) -> None:
         print(f"Alert Telegram inviati: {result.get('n_sent', 0)}")
     out = ROOT / "data" / "processed" / "upcoming_predictions.json"
     print(f"Salvato in {out}")
+
+    if args.metrics:
+        audit = run_live_audit(refresh_slippage=False)
+        print(format_bcr_status(audit.get("bcr_pinnacle", {})))
 
 
 def cmd_full(args: argparse.Namespace) -> None:
@@ -134,17 +197,36 @@ def main() -> None:
     p_build.add_argument("--min-year", type=int, default=2000)
     p_build.set_defaults(func=cmd_build)
 
-    sub.add_parser("features", help="Calcola features.csv").set_defaults(func=cmd_features)
+    p_feat = sub.add_parser("features", help="Calcola feature store (Parquet + CSV)")
+    p_feat.add_argument("--force", action="store_true", help="Ricalcola anche se cache valida")
+    p_feat.set_defaults(func=cmd_features)
+
+    p_retrain = sub.add_parser("retrain", help="Pipeline ML completa (TML + feature store + stacker)")
+    p_retrain.add_argument("--min-year", type=int, default=2010)
+    p_retrain.add_argument("--force", action="store_true", help="Ricalcola feature store")
+    p_retrain.set_defaults(func=cmd_retrain)
+
     sub.add_parser("train", help="Training XGBoost").set_defaults(func=cmd_train)
     sub.add_parser("backtest", help="Backtest su OOF").set_defaults(func=cmd_backtest)
 
     p_pred = sub.add_parser("predict", help="Genera predizioni upcoming")
     p_pred.add_argument("--notify", action="store_true", help="Invia alert Telegram")
+    p_pred.add_argument("--metrics", action="store_true", help="Stampa BCR/slippage dopo predict")
     p_pred.set_defaults(func=cmd_predict)
+
+    p_metrics = sub.add_parser("metrics", help="Audit fase live: BCR Pinnacle + slippage Telegram")
+    p_metrics.add_argument("--no-slippage", action="store_true", help="Non aggiornare snapshot T+3min")
+    p_metrics.set_defaults(func=cmd_metrics)
 
     p_learn = sub.add_parser("learn", help="Chiude pick pendenti e aggiorna calibration.json")
     p_learn.add_argument("--no-learn", action="store_true", help="Solo settle, senza online learn")
     p_learn.set_defaults(func=cmd_learn)
+
+    p_op = sub.add_parser("scrape-oddsportal", help="Scrape quote chiusura OddsPortal (Playwright)")
+    p_op.add_argument("--max-matches", type=int, default=80)
+    p_op.add_argument("--no-h2h", action="store_true")
+    p_op.add_argument("--headed", action="store_true")
+    p_op.set_defaults(func=cmd_scrape_oddsportal)
 
     p_full = sub.add_parser("full", help="Pipeline completa")
     p_full.add_argument("--copy", action="store_true")

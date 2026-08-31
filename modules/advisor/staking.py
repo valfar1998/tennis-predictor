@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from modules.constants import KELLY_CAP, KELLY_FRACTION, MIN_EDGE, MIN_PROB_PLAY
+from modules.constants import KELLY_CAP, KELLY_CAP_BY_LEVEL, KELLY_FRACTION, MIN_EDGE, MIN_PROB_PLAY
 
 
 def kelly_full(prob: float, odds: float) -> float:
@@ -25,6 +25,14 @@ def fractional_kelly(
 ) -> float:
     stake = kelly_full(prob, odds) * fraction
     return float(min(max(stake, 0.0), cap))
+
+
+def kelly_cap_for_level(level: str | None = None, tourney: str | None = None) -> float:
+    """Cap Kelly per livello torneo (Grand Slam vs Challenger/ITF)."""
+    from modules.advisor.risk_controls import infer_tourney_level
+
+    code = infer_tourney_level(tourney, level)
+    return float(KELLY_CAP_BY_LEVEL.get(code, KELLY_CAP_BY_LEVEL.get("A", KELLY_CAP)))
 
 
 def clv_prob(odds_bet: float | None, odds_close: float | None) -> float | None:

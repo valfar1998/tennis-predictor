@@ -58,6 +58,9 @@ _EXTRA_COLS = (
     ("dropping_pct", "REAL"),
     ("dropping_aligned", "INTEGER"),
     ("winner", "TEXT"),
+    ("close_source", "TEXT"),
+    ("close_odds_a", "REAL"),
+    ("close_odds_b", "REAL"),
 )
 
 
@@ -100,8 +103,8 @@ def archive_prediction(pred: dict[str, Any]) -> None:
             (match_key, date, player_a, player_b, surface, tourney, tour, pick, action,
              probability, odds, ev, ev_pct, kelly, odds_source, p_markov, p_elo, p_ml,
              playability, playability_band, moneyway_vol_pct, dropping_pct, dropping_aligned,
-             clv, beat_close, saved_at)
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+             clv, beat_close, close_source, close_odds_a, close_odds_b, saved_at)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
             (
                 key,
                 str(pred.get("date") or "")[:10],
@@ -128,6 +131,9 @@ def archive_prediction(pred: dict[str, Any]) -> None:
                 aligned,
                 pred.get("clv") or rec.get("clv"),
                 int(rec.get("beat_close")) if rec.get("beat_close") is not None else None,
+                pred.get("close_source") or rec.get("close_source"),
+                rec.get("close_a") or (pred.get("close_odds") or {}).get("a"),
+                rec.get("close_b") or (pred.get("close_odds") or {}).get("b"),
                 datetime.now(timezone.utc).isoformat(),
             ),
         )
@@ -245,8 +251,62 @@ def settle_from_sackmann(*, days: int = 14) -> dict[str, Any]:
     return summary
 
 
+def refresh_clv_close(*, days: int = 14) -> dict[str, Any]:
+    """Aggiorna CLV su pick pendenti con quote di chiusura a cascata."""
+    from modules.advisor.clv_live import clv_vs_close, resolve_close_odds
+
+    updated = 0
+    with _conn() as c:
+        c.row_factory = sqlite3.Row
+        pending = c.execute(
+            """SELECT * FROM matches
+               WHERE hit IS NULL AND action = 'bet'
+               AND (clv IS NULL OR close_source IS NULL)"""
+        ).fetchall()
+        for rec in pending:
+            rec = dict(rec)
+            pa, pb = str(rec["player_a"]), str(rec["player_b"])
+            day = str(rec.get("date") or "")[:10]
+            close = resolve_close_odds(pa, pb, date=day, tour=str(rec.get("tour") or "ATP"))
+            if not close:
+                continue
+            pick = str(rec.get("pick") or "")
+            side = "A" if _last_name(pick) == _last_name(pa) else "B"
+            info = clv_vs_close(
+                pick_side=side,
+                odds_bet=float(rec["odds"]),
+                close_a=close.get("a"),
+                close_b=close.get("b"),
+                source=str(close.get("source") or "close"),
+            )
+            if info.get("clv") is None:
+                continue
+            c.execute(
+                """UPDATE matches SET clv=?, beat_close=?, close_source=?, close_odds_a=?, close_odds_b=?
+                   WHERE match_key=?""",
+                (
+                    info["clv"],
+                    int(info["beat_close"]) if info.get("beat_close") is not None else None,
+                    info.get("close_source"),
+                    close.get("a"),
+                    close.get("b"),
+                    rec["match_key"],
+                ),
+            )
+            updated += 1
+        c.commit()
+    return {"clv_refreshed": updated}
+
+
+def _last_name(name: str) -> str:
+    from modules.data_update.entity_resolution import _last_name as ln
+
+    return ln(name)
+
+
 def settle_pending(*, learn: bool = True) -> dict[str, Any]:
-    out = settle_from_sackmann()
+    out = refresh_clv_close()
+    out.update(settle_from_sackmann())
     if learn:
         try:
             from modules.advisor.online_learn import learn_from_settled

@@ -8,6 +8,11 @@ import pandas as pd
 
 from modules.data_update.charting import player_pressure_profile
 from modules.data_update.cpi import lookup_cpi
+from modules.data_update.entity_resolution import (
+    dataset_match_count,
+    enrich_pressure_profile,
+    shrink_rating_low_sample,
+)
 from modules.feature_engineering.travel import travel_km, timezone_shift_hours
 from modules.feature_engineering.features import FEATURE_COLS
 
@@ -131,8 +136,14 @@ def build_live_features(
     }
 
     tour = "w" if "wta" in str(tourney_name or "").lower() or "women" in str(tourney_name or "").lower() else "m"
-    feat["_pressure_a"] = player_pressure_profile(player_a, tour=tour)
-    feat["_pressure_b"] = player_pressure_profile(player_b, tour=tour)
+    feat["_pressure_a"] = enrich_pressure_profile(
+        player_pressure_profile(player_a, tour=tour), pid_a, m
+    )
+    feat["_pressure_b"] = enrich_pressure_profile(
+        player_pressure_profile(player_b, tour=tour), pid_b, m
+    )
+    feat["n_dataset_a"] = float(dataset_match_count(pid_a, m))
+    feat["n_dataset_b"] = float(dataset_match_count(pid_b, m))
     out = {k: float(feat.get(k, 0.0) or 0.0) for k in FEATURE_COLS}
     out["_pressure_a"] = feat.get("_pressure_a")
     out["_pressure_b"] = feat.get("_pressure_b")

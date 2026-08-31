@@ -1,0 +1,53 @@
+# Aggiorna cache quote chiusura OddsPortal + refresh CLV in our_history.sqlite
+
+name: OddsPortal CLV refresh
+
+on:
+  schedule:
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+
+jobs:
+  clv-refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Dipendenze + Playwright Chromium
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install chromium
+
+      - uses: actions/cache/restore@v4
+        with:
+          path: |
+            data/processed/our_history.sqlite
+            data/raw/oddsportal_close.json
+          key: tennis-history-v1
+          restore-keys: tennis-history-v1
+
+      - name: Scrape OddsPortal closing odds
+        env:
+          PYTHONUTF8: "1"
+          ODDSPORTAL_LOCALE: en-GB
+        run: python scripts/scrape_oddsportal_close.py --max-matches 60
+
+      - name: Refresh CLV su pick pendenti
+        env:
+          PYTHONUTF8: "1"
+        run: python -c "from modules.data_update.history import refresh_clv_close; print(refresh_clv_close())"
+
+      - uses: actions/cache/save@v4
+        if: always() && hashFiles('data/processed/our_history.sqlite') != ''
+        with:
+          path: |
+            data/processed/our_history.sqlite
+            data/raw/oddsportal_close.json
+          key: tennis-history-v1

@@ -1,4 +1,4 @@
-"""Markov con P(serve) dinamica: break point, tiebreak clutch."""
+"""Markov con P(serve) dinamica: break point, tiebreak clutch + shrinkage MCP."""
 
 from __future__ import annotations
 
@@ -10,9 +10,43 @@ from modules.markov.chain import (
     tiebreak_win_prob,
 )
 
+from modules.constants import (
+    CIRCUIT_BP_SAVE,
+    CIRCUIT_TB_CLUTCH,
+    DATASET_LOW_SAMPLE,
+    DATASET_PRIOR_WEIGHT,
+    MCP_MIN_MATCHES,
+    MCP_PRIOR_WEIGHT,
+)
+
 
 def _clamp(p: float, lo: float = 0.45, hi: float = 0.78) -> float:
     return max(lo, min(hi, p))
+
+
+def _adaptive_prior_weight(n_matches: int) -> float:
+    if int(n_matches or 0) < DATASET_LOW_SAMPLE:
+        return DATASET_PRIOR_WEIGHT
+    return MCP_PRIOR_WEIGHT
+
+
+def bayesian_shrink(
+    observed: float | None,
+    circuit_mean: float,
+    n_matches: int,
+    *,
+    min_matches: int = MCP_MIN_MATCHES,
+    prior_weight: float | None = None,
+) -> float:
+    """Regolarizza verso la media circuito se pochi match (MCP o dataset < 15)."""
+    if observed is None:
+        return circuit_mean
+    n = max(0, int(n_matches or 0))
+    threshold = max(min_matches, DATASET_LOW_SAMPLE)
+    if n >= threshold:
+        return observed
+    k = prior_weight if prior_weight is not None else _adaptive_prior_weight(n)
+    return (n * observed + k * circuit_mean) / (n + k)
 
 
 def dynamic_serve_probs(
@@ -23,20 +57,24 @@ def dynamic_serve_probs(
     bp_save_b: float | None = None,
     tb_clutch_a: float | None = None,
     tb_clutch_b: float | None = None,
-) -> tuple[float, float, float, float]:
+    n_matches_a: int = 0,
+    n_matches_b: int = 0,
+) -> tuple[float, float, float, float, float, float]:
     """Restituisce P(serve) standard e sotto pressione per A e B."""
-    bp_a = bp_save_a if bp_save_a is not None else p_serve_a
-    bp_b = bp_save_b if bp_save_b is not None else p_serve_b
-    tb_a = tb_clutch_a if tb_clutch_a is not None else p_serve_a
-    tb_b = tb_clutch_b if tb_clutch_b is not None else p_serve_b
+    bp_a = bayesian_shrink(bp_save_a, CIRCUIT_BP_SAVE, n_matches_a) if bp_save_a is not None else (
+        bayesian_shrink(None, CIRCUIT_BP_SAVE, n_matches_a) if n_matches_a < MCP_MIN_MATCHES else p_serve_a
+    )
+    bp_b = bayesian_shrink(bp_save_b, CIRCUIT_BP_SAVE, n_matches_b) if bp_save_b is not None else (
+        bayesian_shrink(None, CIRCUIT_BP_SAVE, n_matches_b) if n_matches_b < MCP_MIN_MATCHES else p_serve_b
+    )
+    tb_a = bayesian_shrink(tb_clutch_a, CIRCUIT_TB_CLUTCH, n_matches_a) if tb_clutch_a is not None else p_serve_a
+    tb_b = bayesian_shrink(tb_clutch_b, CIRCUIT_TB_CLUTCH, n_matches_b) if tb_clutch_b is not None else p_serve_b
 
-    # BP: leggermente più conservativo se save rate basso
     p_bp_a = _clamp(0.65 * p_serve_a + 0.35 * bp_a)
     p_bp_b = _clamp(0.65 * p_serve_b + 0.35 * bp_b)
     p_tb_a = _clamp(0.55 * p_serve_a + 0.45 * tb_a)
     p_tb_b = _clamp(0.55 * p_serve_b + 0.45 * tb_b)
     return p_serve_a, p_serve_b, p_bp_a, p_bp_b, p_tb_a, p_tb_b
-
 
 def match_win_prob_pressure(
     p_serve_a: float,
@@ -48,6 +86,8 @@ def match_win_prob_pressure(
     bp_save_b: float | None = None,
     tb_clutch_a: float | None = None,
     tb_clutch_b: float | None = None,
+    n_matches_a: int = 0,
+    n_matches_b: int = 0,
     bp_game_weight: float = 0.12,
 ) -> float:
     """P(A vince) con hold standard + mix BP e tiebreak clutch."""
@@ -58,6 +98,8 @@ def match_win_prob_pressure(
         bp_save_b=bp_save_b,
         tb_clutch_a=tb_clutch_a,
         tb_clutch_b=tb_clutch_b,
+        n_matches_a=n_matches_a,
+        n_matches_b=n_matches_b,
     )
 
     hold_a = game_win_prob(p_a)
@@ -152,6 +194,8 @@ def estimate_serve_probs_full(
     )
     pa = pressure_a or {}
     pb = pressure_b or {}
+    n_a = int(pa.get("n_effective") or pa.get("n_matches") or pa.get("n_dataset") or pa.get("n_charted") or 0)
+    n_b = int(pb.get("n_effective") or pb.get("n_matches") or pb.get("n_dataset") or pb.get("n_charted") or 0)
     p_static = match_win_prob(p_serve_a, p_serve_b, best_of=best_of)
     p_dynamic = match_win_prob_pressure(
         p_serve_a,
@@ -161,6 +205,8 @@ def estimate_serve_probs_full(
         bp_save_b=pb.get("bp_save_rate"),
         tb_clutch_a=pa.get("tb_clutch"),
         tb_clutch_b=pb.get("tb_clutch"),
+        n_matches_a=n_a,
+        n_matches_b=n_b,
     )
     return {
         "p_serve_a": round(p_serve_a, 4),
@@ -169,4 +215,6 @@ def estimate_serve_probs_full(
         "p_markov": round(0.35 * p_static + 0.65 * p_dynamic, 4),
         "pressure_a": pa,
         "pressure_b": pb,
+        "mcp_shrink_a": n_a < DATASET_LOW_SAMPLE,
+        "mcp_shrink_b": n_b < DATASET_LOW_SAMPLE,
     }

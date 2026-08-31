@@ -45,7 +45,9 @@ jobs:
       - name: Scarica storico e allena
         env:
           PYTHONUTF8: "1"
-        run: python scripts/cloud_bootstrap.py
+        run: |
+          python -c "from modules.data_update.tml import sync_tml; print(sync_tml(clone=True, pull=True))"
+          python scripts/run_retrain_pipeline.py
 
       - name: Settle + apprendimento online
         env:
@@ -60,7 +62,10 @@ jobs:
             data/models/best_model.joblib
             data/models/calibration.json
             data/models/oof_predictions.joblib
+            data/models/stacker.joblib
+            data/models/meta_learner.joblib
             data/processed/features.csv
+            data/processed/features_v2.parquet
           if-no-files-found: warn
           retention-days: 14
 
@@ -69,7 +74,9 @@ jobs:
           path: |
             data/models/best_model.joblib
             data/models/calibration.json
+            data/models/meta_learner.joblib
             data/processed/features.csv
+            data/processed/features_v2.parquet
           key: tennis-model-${{ github.run_id }}
 
       - uses: actions/cache/restore@v4

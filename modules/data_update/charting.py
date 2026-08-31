@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-import os
 import shutil
 import zipfile
 from io import BytesIO
@@ -13,6 +12,7 @@ from urllib.request import Request, urlopen
 import pandas as pd
 
 from modules.data_update.cache_policy import is_fresh
+from modules.lib_paths import LIB_MCP, env_or_lib
 
 ROOT = Path(__file__).resolve().parents[2]
 CHARTING_DIR = ROOT / "data" / "raw" / "charting"
@@ -21,14 +21,9 @@ UA = "Mozilla/5.0 (compatible; tennis-predictor/1.0)"
 
 
 def _resolve_source() -> Path | None:
-    env = os.environ.get("MCP_CHARTING_PATH", "").strip()
-    if env:
-        p = Path(env)
-        if p.exists():
-            return p
-    local = Path(r"C:\Users\valba\Downloads\tennis_MatchChartingProject-master")
-    if local.exists():
-        return local
+    p = env_or_lib("MCP_CHARTING_PATH", LIB_MCP)
+    if p:
+        return p
     if CHARTING_DIR.exists() and list(CHARTING_DIR.glob("charting-*-matches.csv")):
         return CHARTING_DIR
     return None

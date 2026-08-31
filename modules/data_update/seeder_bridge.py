@@ -7,27 +7,33 @@ from pathlib import Path
 
 import pandas as pd
 
+from modules.lib_paths import LIB_SEEDER, env_or_lib, resolve_sqlite_url, seeder_db_url
+
 ROOT = Path(__file__).resolve().parents[2]
 EXPORT_DIR = ROOT / "data" / "raw" / "seeder"
 
 
 def _db_url() -> str | None:
-    return os.environ.get("SEEDER_DB_CONN_STR", "").strip() or None
+    custom = os.environ.get("SEEDER_DB_CONN_STR", "").strip()
+    if custom:
+        return resolve_sqlite_url(custom)
+    seeder = env_or_lib("SEEDER_PATH", LIB_SEEDER)
+    if seeder and (seeder / "seeder.db").exists():
+        return f"sqlite:///{(seeder / 'seeder.db').resolve().as_posix()}"
+    db = LIB_SEEDER / "seeder.db"
+    if db.exists():
+        return seeder_db_url()
+    return None
 
 
 def export_seeder_data() -> dict:
     """Esporta match e odds da DB seeder (SQLite/MySQL) in CSV."""
     conn_str = _db_url()
     if not conn_str:
-        seeder_local = Path(os.environ.get("SEEDER_PATH", r"C:\Users\valba\Downloads\seeder-main"))
-        sqlite = seeder_local / "seeder.db"
-        if sqlite.exists():
-            conn_str = f"sqlite:///{sqlite}"
-        else:
-            return {
-                "ok": False,
-                "error": "Imposta SEEDER_DB_CONN_STR o esegui seeder crawl prima",
-            }
+        return {
+            "ok": False,
+            "error": "Imposta SEEDER_DB_CONN_STR, copia seeder in lib/seeder-main o esegui crawl",
+        }
 
     try:
         from sqlalchemy import create_engine, text

@@ -1,0 +1,23 @@
+{
+  "active": false,
+  "min_edge": 0.025,
+  "base_min_edge": 0.025,
+  "stress_min_edge": 0.045,
+  "triggers": {
+    "streak_loss_units": false,
+    "drawdown": false
+  },
+  "thresholds": {
+    "streak_loss_units": 11.0,
+    "drawdown_pct": 0.15
+  },
+  "bankroll": 1.0,
+  "peak": 1.0,
+  "max_drawdown": 0.0,
+  "current_drawdown": 0.0,
+  "streak_loss_units": 0.0,
+  "max_streak_loss_units": 0.0,
+  "consecutive_losses": 0,
+  "n_settled": 0,
+  "updated_at": "2026-08-31T13:02:25.010197+00:00"
+}

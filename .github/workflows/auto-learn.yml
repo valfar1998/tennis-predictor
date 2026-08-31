@@ -1,0 +1,99 @@
+# Settle pick pendenti + online learn + audit BCR — persistenza stato su Git.
+# 04:00 e 16:00 UTC (~06:00 / 18:00 IT estate).
+name: Automated Settle & Online Learn
+
+on:
+  schedule:
+    - cron: "0 4 * * *"
+    - cron: "0 16 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  settle-and-learn:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Mirror Sackmann ATP/WTA (se assente in CI)
+        env:
+          PYTHONUTF8: "1"
+        run: |
+          python - <<'PY'
+          import json, sys
+          from pathlib import Path
+          sys.path.insert(0, ".")
+          from modules.data_update.sackmann import clone_sackmann_tour
+          for tour in ("atp", "wta"):
+              info = clone_sackmann_tour(tour=tour, dest=Path(f"data/raw/{tour}"))
+              print(tour, json.dumps(info, ensure_ascii=False))
+          PY
+
+      - name: Sync latest match results (TML + Sackmann)
+        env:
+          PYTHONUTF8: "1"
+        run: python main.py sync
+
+      - name: Execute settle & online calibration
+        env:
+          PYTHONUTF8: "1"
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python scripts/auto_learn_cloud.py --notify
+
+      - name: Audit live metrics & BCR (Pinnacle)
+        env:
+          PYTHONUTF8: "1"
+        run: python main.py metrics
+
+      - name: Checkpoint SQLite WAL
+        run: |
+          python - <<'PY'
+          import sqlite3
+          from pathlib import Path
+          db = Path("data/processed/our_history.sqlite")
+          if db.is_file():
+              c = sqlite3.connect(db)
+              c.execute("PRAGMA wal_checkpoint(TRUNCATE)")
+              c.close()
+              print("WAL checkpoint OK")
+          else:
+              print("SQLite assente, skip checkpoint")
+          PY
+
+      - name: Commit & push updated state
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          git add -f \
+            data/processed/our_history.sqlite \
+            data/models/calibration.json \
+            data/models/online_learn_report.json \
+            data/processed/live_metrics.json \
+            data/processed/risk_state.json \
+            2>/dev/null || true
+
+          if git diff --staged --quiet; then
+            echo "Nessun aggiornamento di stato da salvare."
+          else
+            git commit -m "auto-learn: settle, ricalibrazione online e audit BCR [skip ci]"
+            git push
+          fi

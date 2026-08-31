@@ -61,6 +61,17 @@ def _serve_win_pct(w_svpt, w_won) -> float | None:
     return float(w_won) / float(w_svpt)
 
 
+def _safe_odds_key(dt, winner: str, loser: str) -> str | None:
+    """Chiave join odds; None se data invalida (NaT)."""
+    ts = pd.Timestamp(dt)
+    if pd.isna(ts):
+        return None
+    w, l = str(winner or "").strip(), str(loser or "").strip()
+    if not w or not l or w.lower() in ("nan", "none") or l.lower() in ("nan", "none"):
+        return None
+    return odds_match_key(ts.strftime("%Y-%m-%d"), w, l)
+
+
 def add_serve_stats(df: pd.DataFrame) -> pd.DataFrame:
     """Calcola P(serve win) osservata per winner e loser."""
     out = df.copy()
@@ -103,7 +114,7 @@ class DatasetLoader:
         date_col = next((c for c in ("Date", "date", "DATE") if c in o.columns), None)
         if not date_col:
             return matches
-        o["match_date"] = pd.to_datetime(o[date_col], errors="coerce")
+        o["match_date"] = pd.to_datetime(o[date_col], errors="coerce", dayfirst=True)
         w_col = next((c for c in ("Winner", "winner", "Winner") if c in o.columns), None)
         l_col = next((c for c in ("Loser", "loser", "Loser") if c in o.columns), None)
         if not w_col or not l_col:
@@ -117,21 +128,17 @@ class DatasetLoader:
         o["odds_winner"] = pd.to_numeric(o[ps_col], errors="coerce")
         o["odds_loser"] = pd.to_numeric(o[pl_col], errors="coerce") if pl_col else None
         o["odds_key"] = o.apply(
-            lambda r: odds_match_key(
-                pd.Timestamp(r["match_date"]).strftime("%Y-%m-%d"),
-                str(r[w_col]),
-                str(r[l_col]),
-            ),
+            lambda r: _safe_odds_key(r["match_date"], r[w_col], r[l_col]),
             axis=1,
         )
+        o = o.dropna(subset=["odds_key"])
+        if o.empty:
+            return matches
+
         m = matches.copy()
-        m["tourney_date"] = pd.to_datetime(m["tourney_date"])
+        m["tourney_date"] = pd.to_datetime(m["tourney_date"], errors="coerce")
         m["odds_key"] = m.apply(
-            lambda r: odds_match_key(
-                pd.Timestamp(r["tourney_date"]).strftime("%Y-%m-%d"),
-                str(r["winner_name"]),
-                str(r["loser_name"]),
-            ),
+            lambda r: _safe_odds_key(r["tourney_date"], r["winner_name"], r["loser_name"]),
             axis=1,
         )
         merged = m.merge(

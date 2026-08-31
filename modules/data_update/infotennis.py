@@ -3,23 +3,18 @@
 from __future__ import annotations
 
 import json
-import os
 from pathlib import Path
 
 import pandas as pd
+
+from modules.lib_paths import LIB_INFOTENNIS, env_or_lib
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT_DIR = ROOT / "data" / "raw" / "infotennis"
 
 
 def _resolve_source() -> Path | None:
-    env = os.environ.get("INFOTENNIS_PATH", "").strip()
-    if env:
-        p = Path(env)
-        if p.exists():
-            return p
-    local = Path(r"C:\Users\valba\Downloads\infotennis-main")
-    return local if local.exists() else None
+    return env_or_lib("INFOTENNIS_PATH", LIB_INFOTENNIS)
 
 
 def sync_infotennis_data(*, copy: bool = False) -> dict:

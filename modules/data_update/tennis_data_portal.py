@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 import re
+import warnings
 import zipfile
 from io import BytesIO
 from pathlib import Path
@@ -40,9 +41,20 @@ def _download_bytes(url: str, *, timeout: int = 60) -> bytes | None:
         return None
 
 
+def _read_tennis_data_xlsx(data: bytes) -> pd.DataFrame:
+    """Legge .xlsx tennis-data.co.uk (openpyxl ignora estensioni Excel non standard)."""
+    with warnings.catch_warnings():
+        warnings.filterwarnings(
+            "ignore",
+            message="Unknown extension is not supported and will be removed",
+            category=UserWarning,
+        )
+        return pd.read_excel(BytesIO(data), engine="openpyxl")
+
+
 def _save_xlsx_as_csv(data: bytes, dest: Path) -> bool:
     try:
-        df = pd.read_excel(BytesIO(data), engine="openpyxl")
+        df = _read_tennis_data_xlsx(data)
         dest.parent.mkdir(parents=True, exist_ok=True)
         df.to_csv(dest, index=False)
         return True

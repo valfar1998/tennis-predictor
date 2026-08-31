@@ -8,6 +8,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from modules.lib_paths import LIB_ATP, LIB_SACKMANN_ATP, LIB_SACKMANN_WTA, sackmann_archive_path
+
 ROOT = Path(__file__).resolve().parents[2]
 RAW_ATP = ROOT / "data" / "raw" / "atp"
 RAW_WTA = ROOT / "data" / "raw" / "wta"
@@ -115,27 +117,45 @@ def clone_sackmann_tour(*, tour: str, dest: Path | None = None) -> dict:
         shutil.rmtree(tmp, ignore_errors=True)
 
 
+def _path_from_env(value: str) -> Path | None:
+    if not value.strip():
+        return None
+    p = Path(value.strip())
+    if not p.is_absolute():
+        p = ROOT / p
+    return p if p.exists() else None
+
+
 def _resolve_source(tour: str) -> Path:
     cfg = _TOUR_CFG[tour.lower()]
     prefix = cfg["prefix"]
+    tour_key = tour.lower()
 
-    archive = os.environ.get("SACKMANN_ARCHIVE_PATH", "").strip()
+    archive = sackmann_archive_path()
     if archive:
-        sub = Path(archive) / tour.lower()
+        sub = archive / tour_key
         if _tour_ready(sub, prefix):
             return sub
 
     env = os.environ.get(cfg["env_var"], "").strip()
     if env:
-        p = Path(env)
-        if p.exists():
+        p = _path_from_env(env)
+        if p and _tour_ready(p, prefix):
             return p
+
+    lib_tour = LIB_SACKMANN_ATP if tour_key == "atp" else LIB_SACKMANN_WTA
+    if _tour_ready(lib_tour, prefix):
+        return lib_tour
+
+    if tour_key == "atp" and _tour_ready(LIB_ATP, prefix):
+        return LIB_ATP
+
     local = cfg["raw_dir"]
     if local.exists() and any(local.glob(f"{prefix}_matches_*.csv")):
         return local
     raise FileNotFoundError(
         f"Dati Sackmann {tour.upper()} non trovati. "
-        f"Imposta SACKMANN_ARCHIVE_PATH, {cfg['env_var']} o copia i CSV in {local}/"
+        f"Imposta SACKMANN_ARCHIVE_PATH, {cfg['env_var']}, copia in lib/ o in {local}/"
     )
 
 
@@ -230,8 +250,15 @@ def load_sackmann_matches(
 
 
 def load_tour_matches(*, min_year: int = 1990, max_year: int | None = None) -> pd.DataFrame:
-    """Carica match ATP (compatibilità retro)."""
-    return load_sackmann_matches(tour="atp", min_year=min_year, max_year=max_year)
+    """Carica match ATP: TML primario + fallback Sackmann."""
+    from modules.data_update.tml import load_tml_matches, merge_atp_primary_tml
+
+    tml = load_tml_matches(min_year=min_year, max_year=max_year)
+    try:
+        sack = load_sackmann_matches(tour="atp", min_year=min_year, max_year=max_year)
+    except FileNotFoundError:
+        sack = pd.DataFrame()
+    return merge_atp_primary_tml(tml, sack)
 
 
 def ensure_sackmann_atp(*, clone: bool = True) -> dict:

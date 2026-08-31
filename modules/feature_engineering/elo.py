@@ -44,7 +44,7 @@ class PlayerElo:
         base_weight: float | None = None,
     ) -> float:
         """Elo con peso superficie modulato dal CPI torneo (campo rapido → più peso surface)."""
-        w = base_weight if base_weight is not None else self.surface_weight
+        w = base_weight if base_weight is not None else ELO_SURFACE_WEIGHT
         if cpi_norm is not None:
             # cpi_norm ~0.85 slow … 1.15 fast (da cpi.py)
             adj = (float(cpi_norm) - 1.0) * 0.25

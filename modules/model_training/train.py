@@ -28,6 +28,8 @@ class ModelTrainer:
             features = FeatureEngineer().build()
 
         df = features.dropna(subset=[c for c in self.feature_cols if c in features.columns]).copy()
+        if "tourney_date" in df.columns:
+            df = df.sort_values("tourney_date", kind="mergesort").reset_index(drop=True)
         cols = [c for c in self.feature_cols if c in df.columns]
         X = df[cols].astype(float).fillna(0)
         y = df["label"].astype(int)

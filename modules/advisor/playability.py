@@ -71,7 +71,8 @@ def _kelly_score(rec: dict | None) -> float:
     k = float(rec.get("kelly") or 0)
     if k <= 0:
         return 0.0
-    return _clip(k / max(KELLY_CAP, 1e-6))
+    cap = float(rec.get("kelly_cap") or KELLY_CAP)
+    return _clip(k / max(cap, 1e-6))
 
 
 def _market_quality(pred: dict, rec: dict | None) -> float:
@@ -128,6 +129,16 @@ def _dropping_score(
 ) -> tuple[float, dict]:
     if not dropping or not rec:
         return 0.5, {}
+    from modules.advisor.advise import steam_eroded_reasons
+
+    if steam_eroded_reasons(rec, dropping_row=dropping):
+        return 0.15, {
+            "drop_pct": float(dropping.get("drop_pct") or 0),
+            "aligned_with_pick": True,
+            "steam_eroded": True,
+            "source": "oddssafari",
+        }
+
     drop = float(dropping.get("drop_pct") or 0)
     side = str(dropping.get("side") or "")
     pick_side = rec.get("side")
@@ -173,9 +184,9 @@ def compute_playability(
         + 0.12 * drop_n
     )
     try:
-        from modules.advisor.online_learn import learned_playability_boost
+        from modules.advisor.online_learn import learned_playability_adjustment
 
-        raw += learned_playability_boost(advised)
+        raw += learned_playability_adjustment(advised)
     except Exception:
         pass
     score = round(100 * _clip(raw), 1)

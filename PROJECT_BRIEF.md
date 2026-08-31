@@ -12,26 +12,45 @@ Sistema predittivo tennis da zero, adattando il framework calcistico esistente. 
 ## Layer predittivo (3 livelli + meta-learner)
 
 1. **Elo multisuperficie + CPI** — K adattivo, decay inattività, blend global/surface modulato dal **Court Speed Index** del torneo (`blended_with_cpi`: campo veloce → più peso rating superficie)
-2. **Markov dinamico** — Barnett & Clarke con **P(serve) sotto pressione**: break point e tiebreak clutch da Match Charting Project (`modules/markov/pressure.py`)
-3. **ML (XGBoost)** — feature avanzate: fatica 7/14 gg, **viaggio Haversine**, jet lag, **hold vs break**, CPI, H2H, form
-4. **Meta-learner (stacking)** — regressione logistica su OOF che sostituisce i pesi fissi 40/25/35 (`modules/model_training/stacker.py`), minimizza Brier Score
+2. **Markov dinamico** — Barnett & Clarke con **P(serve) sotto pressione**: break point e tiebreak clutch da Match Charting Project (`modules/markov/pressure.py`). **Bayesian shrinkage**: se un giocatore ha **<5 match chartati** MCP, le statistiche sotto pressione regolarizzano verso la media circuito (`CIRCUIT_BP_SAVE ≈ 0.635`)
+3. **ML (XGBoost)** — feature avanzate: fatica 7/14 gg, **viaggio Haversine**, jet lag, **hold vs break**, CPI, H2H, form. Training con **TimeSeriesSplit** (sort strict per `tourney_date`)
+4. **Meta-learner (stacking)** — regressione logistica su **OOF temporale** (`TimeSeriesSplit`, mai K-Fold casuale) che sostituisce i pesi fissi 40/25/35 (`modules/model_training/stacker.py`). Calibrazione via **Brier OOF** (non in-sample)
 
-Fonti dati esterne integrate / referenziate:
+Fonti dati esterne integrate / referenziate (cartelle in `lib/`):
 
-| Repo locale | Uso nel predictor |
-|-------------|-------------------|
+| Repo locale (`lib/`) | Uso nel predictor |
+|----------------------|-------------------|
 | `tennis_MatchChartingProject-master` | BP save, tiebreak clutch, profilo servizio MCP |
 | `tennis-sackmann-archive-main` | Storico ATP/WTA + settle |
-| `TML-Database-master` | Alternativa Sackmann con ATP ID (futuro loader) |
-| `tennis-crystal-ball-master` | Riferimento court-speed formula, ensemble UTS |
+| `tennis_atp-master` | Fallback ATP se manca sottocartella archive |
+| `TML-Database-master` | Sorgente primaria ATP (merge con Sackmann gap-fill) |
+| `infotennis-main` | Keystats ATP live (bridge scraper) |
+| `seeder-main` | Odds TennisExplorer (SQLite opzionale) |
 | `tennisgnn_predictions-main` | Benchmark Brier/ROI su clay 2025 |
 
 ## Betting
 
 - De-vig: Shin (default) o Power
 - EV = P_model × quota - 1
-- Kelly: γ=0.20, cap 1.8% bankroll
+- Kelly: γ=0.20, cap **dinamico per livello torneo** (`risk_controls.py` / `advise.py`)
 - Regole ritiro: matrice per bookmaker (1-ball, 1-set, full void)
+
+### Kelly cap per liquidità torneo
+
+| Livello | Cap bankroll |
+|---------|--------------|
+| Grand Slam / Masters 1000 / Finals | **1.8%** |
+| ATP/WTA Tour (250/500) | **1.2%** |
+| Challenger | **1.0%** |
+| ITF | **0.8%** |
+
+### Controlli rischio esecuzione (`modules/advisor/risk_controls.py`)
+
+| Controllo | Regola | Effetto |
+|-----------|--------|---------|
+| **Circuit breaker** | Drawdown corrente >15% **oppure** streak perdite ≥11 unità (1% ciascuna) | `MIN_EDGE` 2.5% → **4.5%** |
+| **Esposizione giornaliera** | ≥6 bet stesso giorno + stesso torneo | Kelly scalato per cap totale **6%** bankroll |
+| Stato persistito | `data/processed/risk_state.json` | Audit + `python main.py predict` stampa alert se attivo |
 
 ## Metriche chiave
 
@@ -69,27 +88,37 @@ Fonte storica match, ranking e giocatori (Jeff Sackmann / Tennis Abstract, licen
 [Aneeshers/tennis-sackmann-archive](https://github.com/Aneeshers/tennis-sackmann-archive) — stessi CSV, snapshot aggiornato (ATP + WTA + slam point-by-point):
 
 ```
-tennis-sackmann-archive-main/
-├── atp/                    ← atp_matches_*.csv, atp_players.csv
-├── wta/                    ← wta_matches_*.csv, wta_players.csv
-└── slam_pointbypoint/
+lib/
+├── tennis-sackmann-archive-main/
+│   ├── atp/                    ← atp_matches_*.csv, atp_players.csv
+│   └── wta/                    ← wta_matches_*.csv, wta_players.csv
+├── tennis_MatchChartingProject-master/
+├── infotennis-main/
+├── seeder-main/
+├── tennis_atp-master/
+├── TML-Database-master/
+└── tennisgnn_predictions-main/
 ```
 
 ### Configurazione `.env`
 
-**Opzione consigliata** — una variabile per entrambi i tour:
+**Opzione consigliata** — una variabile per entrambi i tour (path relativi alla root del progetto):
 
 ```env
-SACKMANN_ARCHIVE_PATH=C:\Users\valba\Downloads\tennis-sackmann-archive-main
+SACKMANN_ARCHIVE_PATH=lib/tennis-sackmann-archive-main
+MCP_CHARTING_PATH=lib/tennis_MatchChartingProject-master
+INFOTENNIS_PATH=lib/infotennis-main
+SEEDER_PATH=lib/seeder-main
 ```
 
-Il modulo `sackmann.py` risolve automaticamente `{ARCHIVE}/atp` e `{ARCHIVE}/wta`.
+Il modulo `sackmann.py` risolve automaticamente `{ARCHIVE}/atp` e `{ARCHIVE}/wta`.  
+Se `.env` è vuoto, i moduli usano gli stessi default sotto `lib/` (`modules/lib_paths.py`).
 
 **Opzione alternativa** — percorsi singoli (sovrascrivono l'archive):
 
 ```env
-SACKMANN_ATP_PATH=C:\...\tennis-sackmann-archive-main\atp
-SACKMANN_WTA_PATH=C:\...\tennis-sackmann-archive-main\wta
+SACKMANN_ATP_PATH=lib/tennis-sackmann-archive-main/atp
+SACKMANN_WTA_PATH=lib/tennis-sackmann-archive-main/wta
 ```
 
 **Opzione cloud / CI** — download automatico se i CSV locali mancano:
@@ -98,7 +127,7 @@ SACKMANN_WTA_PATH=C:\...\tennis-sackmann-archive-main\wta
 python -c "from modules.data_update.sackmann import clone_sackmann_tour; print(clone_sackmann_tour(tour='wta'))"
 ```
 
-Ordine di risoluzione in `sackmann.py`: `SACKMANN_ARCHIVE_PATH` → `SACKMANN_*_PATH` → `data/raw/{atp|wta}/` → clone mirror GitHub.
+Ordine di risoluzione in `sackmann.py`: `SACKMANN_ARCHIVE_PATH` → `SACKMANN_*_PATH` → `lib/` (archive, `tennis_atp-master`) → `data/raw/{atp|wta}/` → clone mirror GitHub.
 
 ### Setup Elo WTA
 
@@ -106,7 +135,102 @@ Ordine di risoluzione in `sackmann.py`: `SACKMANN_ARCHIVE_PATH` → `SACKMANN_*_
 2. **Tennis Abstract WTA** (automatico): scaricato a ogni `predict` → `data/raw/tennis_abstract_elo_wta.json`
 3. **Tour detection**: tornei con "Women's" / "WTA" usano engine WTA separato
 
-Senza CSV WTA il sistema usa **Tennis Abstract + nomi charting** (fallback TA-only, predizioni possibili ma Elo meno ricco).
+Senza CSV WTA il sistema usa **Tennis Abstract + nomi charting** (fallback TA-only, predizioni possibili ma Elo meno ricchio).
+
+---
+
+## TML-Database (sorgente primaria ATP)
+
+Modulo: `modules/data_update/tml.py`
+
+| Priorità | Sorgente | Tour |
+|----------|----------|------|
+| 1 | `lib/TML-Database-master` o `data/raw/tml` (git pull) | ATP |
+| 2 | Sackmann archive (`load_sackmann_matches`) | ATP gap-fill |
+| — | Sackmann WTA | WTA only |
+
+`load_tour_matches()` esegue merge per chiave `(data, winner, loser)`: TML vince sui duplicati.
+
+```bash
+python -c "from modules.data_update.tml import sync_tml; print(sync_tml())"
+python main.py sync    # include sync TML
+```
+
+Env opzionale: `TML_PATH=lib/TML-Database-master`
+
+---
+
+## CLV live senza API a pagamento
+
+Modulo: `modules/advisor/clv_live.py`
+
+Cascade quote di chiusura (costo zero):
+
+1. **Pinnacle guest API** — `modules/data_update/pinnacle_guest.py`
+2. **Betfair LTP/back de-vigged** — proxy Pinnacle (r≈0.98 su tabelloni ATP/WTA)
+3. **OddsPortal cache** — `data/raw/oddsportal_close.json` (job `.github/workflows/oddsportal-clv.yml`)
+   Scraper Playwright: `python scripts/scrape_oddsportal_close.py` o `python main.py scrape-oddsportal`
+   Per **Pinnacle** in geo IT/EU: imposta `ODDSPORTAL_PROXY` (proxy Malta/UK) nel `.env`
+4. **tennis-data.co.uk** — storico PSW/PSL
+
+`resolve_close_odds()` usato in `upcoming.py` → `advise.py`.  
+`refresh_clv_close()` in `history.py` aggiorna pick pendenti prima del settle.
+
+---
+
+## Pipeline retrain + meta-learner
+
+| Step | Comando / file |
+|------|----------------|
+| Feature store Parquet | `data/processed/features_v2.parquet` via `feature_store.py` |
+| Retrain orchestrato | `python scripts/run_retrain_pipeline.py` o `python main.py retrain` |
+| Meta-learner | `data/models/meta_learner.joblib` (+ alias `stacker.joblib`) |
+| OOF temporale | `data/models/stacker_oof.joblib` — predizioni out-of-fold per fold |
+| Calibrazione stacker | `data/models/calibration.json` → `brier_oof`, `brier_insample`, `cv: TimeSeriesSplit` |
+| Fallback blend | 40/25/35 se meta-learner assente (`stacker.py`) |
+| Cloud CI | `cloud-train.yml` → sync TML + `run_retrain_pipeline.py` |
+
+**Anti-leakage stacker:** i dati sono ordinati strict per `tourney_date` (`mergesort`) prima del fit. Le predizioni OOF del meta-learner usano **solo** `TimeSeriesSplit(n_splits=5)` — ogni fold addestra solo su match storicamente antecedenti. Il modello finale viene rifittato sull'intero dataset ordinato per il deploy live.
+
+```bash
+python main.py retrain --min-year 2010
+python main.py features --force
+python main.py train   # XGBoost + stacker con TSCV
+```
+
+---
+
+## Robustezza quantitativa
+
+| Rischio | Mitigazione | Modulo |
+|---------|-------------|--------|
+| **Temporal leakage** (OOF stacker / XGBoost) | Sort per data + `TimeSeriesSplit`; Brier OOF ≠ in-sample | `stacker.py`, `train.py` |
+| **MCP copertura asimmetrica** (Big Match vs early rounds) | Bayesian shrinkage verso media circuito se `<5` match chartati | `pressure.py` |
+| **Entity resolution** (TML / Betfair / OddsPortal) | Registry SQLite con ID Sackmann/TML + alias; fuzzy solo come fallback | `player_registry.py`, `entity_resolution.py` |
+| **Steam su dropping odds** | EV calcolato sempre sulla **quota corrente**; scarto se lo steam ha eroso il margine | `advise.py`, `playability.py` |
+
+### Player registry (SQLite)
+
+Path: `data/processed/player_registry.sqlite`
+
+```bash
+python main.py sync   # include sync Sackmann players + TML link + registry
+```
+
+Ordine risoluzione nome in `resolve_name()`:
+
+1. **Registry SQLite** (`lookup_player_id` → `canonical_name`)
+2. Alias JSON (`player_aliases.json`)
+3. Fuzzy match runtime (`rapidfuzz`)
+
+### Filtro steam (dropping odds)
+
+In `advise.py`, se il dropping è **allineato** al pick ma:
+
+- `EV(quota_corrente) < MIN_EDGE`, oppure
+- il margine è calato >45% rispetto all'open (`erosion_ratio = 0.55`)
+
+→ `action: "no_bet"` con motivo `steam: ...`. In `playability.py` il componente dropping scende a **0.15** (`steam_eroded: true`).
 
 ---
 
@@ -157,8 +281,8 @@ Comando principale: `python main.py predict` (o pulsante **Aggiorna calendario**
 | **Livescore** | `tennis_livescore.py` | `livescore.tennis-data.co.uk` → cache JSON |
 | Moneyway volume | `market_signals.py` → [Arbworld 1x2](https://arbworld.net/moneyway/tennis/1x2) | `arbworld_moneyway.json` |
 | Dropping odds | `market_signals.py` → [OddsSafari sport 30](https://www.oddssafari.com/dropping-odds/sports/30) | `oddssafari_dropping.json` |
-| OddsPortal | *non integrato* — vedi sezione [Fonti mercato esterne](#fonti-mercato-esterne) | — |
-| Entity resolution | `entity_resolution.py` | Nomi Betfair → ATP + WTA (charting) |
+| OddsPortal close | `oddsportal_scraper.py` (Playwright) | `data/raw/oddsportal_close.json` — job `oddsportal-clv.yml` |
+| Entity resolution | `entity_resolution.py` + **`player_registry.py`** | Registry SQLite (ID ATP/WTA) → alias JSON → fuzzy |
 
 Cache segnali mercato: **30 min**. Betfair: **1 h** (o cache se API non disponibile).
 
@@ -167,11 +291,11 @@ Cache segnali mercato: **30 min**. Betfair: **1 h** (o cache se API non disponib
 Per ogni evento Betfair (fallback: match recenti Sackmann con quote storiche):
 
 1. **Tour detection** — `Women's US Open` → WTA, `Men's US Open` → ATP
-2. **Risoluzione giocatori** — alias, fuzzy match, formato abbreviato (`H Dart` → `Harriet Dart`)
+2. **Risoluzione giocatori** — registry SQLite → alias JSON → fuzzy (`H Dart` → `Harriet Dart`)
 3. **Elo + CPI** — `blended_with_cpi()` modula peso superficie per velocità campo
-4. **Markov dinamico** — BP save + tiebreak clutch (MCP) via `pressure.py`
+4. **Markov dinamico** — BP save + tiebreak clutch (MCP) via `pressure.py`; shrinkage se `<5` match chartati
 5. **ML live** — `live_features.py` → XGBoost con fatica/viaggio/hold-break
-6. **Stacking** — meta-learner logistico su OOF (Brier), sostituisce blend fisso
+6. **Stacking** — meta-learner logistico su **OOF temporale** (`TimeSeriesSplit`), Brier OOF
 
 Output: `p_win_a`, componenti, `cpi_norm`, `pressure_used`, `tour`, `model_low_confidence`.
 
@@ -181,11 +305,12 @@ Vedi sezione [Layer predittivo](#layer-preditivo-3-livelli--meta-learner) e modu
 
 | Miglioramento | Modulo |
 |---------------|--------|
-| Markov clutch/BP | `modules/markov/pressure.py` |
+| Markov clutch/BP + shrinkage MCP | `modules/markov/pressure.py` |
 | Elo × CPI | `modules/feature_engineering/elo.py` |
 | Feature viaggio/hold-break | `modules/feature_engineering/features.py`, `live_features.py` |
-| Meta-learner | `modules/model_training/stacker.py` |
-| CLV Pinnacle | `modules/advisor/pinnacle_clv.py` |
+| Meta-learner OOF temporale | `modules/model_training/stacker.py` |
+| Player registry SQLite | `modules/data_update/player_registry.py` |
+| CLV Pinnacle | `modules/advisor/pinnacle_clv.py`, `clv_live.py` |
 
 ### 3. Value bet (consiglio scommessa)
 
@@ -201,10 +326,11 @@ Modulo `advise.py` + `value.py`:
 
 | Filtro | Soglia |
 |--------|--------|
-| EV minimo | ≥ 2.5% (`MIN_EDGE`) |
+| EV minimo | ≥ 2.5% (`MIN_EDGE`) — calcolato sulla **quota corrente** |
 | Probabilità minima | ≥ 38% (`MIN_PROB_PLAY`) |
 | Modello incerto | giocatore/i non identificati nel database |
 | Artefatto 50/50 | `P ≈ 50%` e `P_elo ≈ 50%` senza ML |
+| **Steam eroso** | dropping allineato al pick ma EV corrente sotto soglia o margine eroso >45% vs open |
 
 Se passa i filtri → `action: "bet"` + `recommended` (pick, quota, `ev`, `ev_pct`, Kelly).
 
@@ -311,11 +437,12 @@ Interpretazione: favorito con >70% volume = segnale sharp; underdog con poco vol
 
 ### 6. Dropping odds (peso 12%) — OddsSafari
 
-Movimento quote verso il nostro pick.
+Movimento quote verso il nostro pick. **Non seguire ciecamente il dropping**: l'edge si valuta sulla quota **corrente**, non sull'open.
 
 | Scenario | Score |
 |----------|-------|
-| Drop ≥10% **allineato** al pick | 0.55 + drop/40 (max ~1.0) |
+| **Steam eroso** (EV corrente sotto soglia o margine eroso vs open) | **0.15** — pick bloccato anche in `advise.py` |
+| Drop ≥10% **allineato** al pick (margine ancora valido) | 0.55 + drop/40 (max ~1.0) |
 | Drop 5–10% allineato | 0.45 + drop/50 |
 | Drop ≥10% **contro** il pick | 0.35 − drop/80 (penalizza) |
 | Nessun segnale / non trovato | neutro **0.5** |
@@ -350,6 +477,30 @@ Ogni run esegue `scripts/notify_cloud.py`:
 5. **Telegram** — alert solo Strong+ (≥75), con dettaglio Moneyway/Drop
 
 Cache persistenti tra run: `our_history.sqlite`, `telegram_alerts_sent.json`, segnali mercato, Betfair session.
+
+### Apprendimento online automatico (GitHub Actions)
+
+Workflow: `.github/workflows/auto-learn.yml` — cron **04:00 e 16:00 UTC** + `workflow_dispatch`.
+
+| Step | Comando | Effetto |
+|------|---------|---------|
+| Sync risultati | `python main.py sync` | TML + Sackmann ATP/WTA aggiornati |
+| Settle + learn | `python scripts/auto_learn_cloud.py --notify` | Chiude pick, aggiorna `calibration.json` |
+| Audit BCR | `python main.py metrics` | `live_metrics.json` |
+| Git push | commit `[skip ci]` | Persiste SQLite + JSON tra le run |
+
+**Cosa impara il sistema** (≥12 pick chiuse, in `calibration.json` → `online_learn`):
+
+| Parametro appreso | Applica a |
+|-------------------|-----------|
+| `min_edge_suggested` | Soglia EV in `predict` (via `effective_min_edge()`) |
+| `alert_min_suggested` | Soglia Telegram Strong (75 vs 80) |
+| `dropping_boost` / `moneyway_boost` | Giocabilità (`learned_playability_adjustment`) |
+| Penalità bande Lean/Playable | Se hit rate storico basso |
+| BCR Pinnacle <52% (n≥15) | Alza `min_edge_suggested` a 3.5% |
+
+Requisiti GitHub: **Settings → Actions → Workflow permissions → Read and write**.  
+Segreti opzionali: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` (riepilogo post-learn).
 
 Job giornaliero (`cloud-train.yml`, 07:00 IT): train XGBoost + stesso flusso notify + `cloud_learn.py`.
 
@@ -393,6 +544,44 @@ Report dettagliato: `data/models/online_learn_report.json`.
 
 ---
 
+## Fase live — paper trading / shadow period
+
+**Regola:** non modificare struttura modello (stacker/XGBoost/Markov) per i prossimi **200–300 match**. Monitorare solo metriche di esecuzione.
+
+### KPI primario: BCR Pinnacle
+
+| Metrica | Target | Fonte |
+|---------|--------|-------|
+| **Beat Closing Rate** (quota bet > chiusura Pinnacle de-vigged) | **> 55%** | `our_history.sqlite` → `beat_close` + `close_source` Pinnacle |
+
+ROI sui primi 100 bet è **varianza** — il BCR conferma edge matematico vs mercato sharp.
+
+```bash
+python main.py metrics          # audit BCR + slippage → live_metrics.json
+python main.py learn            # settle + BCR aggiornato
+python main.py predict --metrics
+```
+
+Report: `data/processed/live_metrics.json`
+
+### Audit slippage Telegram
+
+Tabella `alert_log` in `our_history.sqlite` — ogni alert registra `odds_at_alert`, `ev_at_alert`.
+
+- Snapshot **T+3 min** su cache Betfair (`refresh_slippage_snapshots`)
+- **Steam entro 3 min:** quota pick cala >3% → flag `steam_within_3m`
+- Se steam >40% degli alert: valutare cron Betfair ogni **10–15 min** pre-match
+
+### Transizione superficie (solo inferenza live)
+
+Modulo `surface_transition.py` — primi **7 giorni** dopo cambio stagione (Clay giu, Grass giu, Hard ago):
+
+- Moltiplicatore peso Elo surface: **0.50 → 1.00** (più peso rating global)
+- Metadato `surface_transition` nelle predizioni Betfair
+- **Non** modifica training/backtest Elo engine
+
+---
+
 ## Esecuzione rapida
 
 ```bash
@@ -402,8 +591,11 @@ python main.py predict
 # Analisi + invio Telegram (se credenziali in .env)
 python main.py predict --notify
 
-# Chiudi pick pendenti + apprendimento
+# Chiudi pick pendenti + apprendimento + BCR
 python main.py learn
+
+# Audit fase live (BCR Pinnacle + slippage)
+python main.py metrics
 
 # Verifica dati Sackmann (ATP + WTA)
 python -c "from modules.data_update.sackmann import sync_sackmann_atp, sync_sackmann_wta; print(sync_sackmann_atp()); print(sync_sackmann_wta())"
@@ -425,19 +617,12 @@ Tre siti utili per arricchire l'analisi. Stato attuale nel progetto:
 | Fonte | URL | Utile? | Stato | Cosa aggiunge |
 |-------|-----|--------|-------|---------------|
 | **Arbworld Moneyway** | [arbworld.net/moneyway/tennis/1x2](https://arbworld.net/moneyway/tennis/1x2) | ✅ Sì | **Integrato** | Volume % scommesso su Betfair per lato, liquidità £ — componente **moneyway** (13%) della giocabilità |
-| **OddsSafari Dropping** | [oddssafari.com/dropping-odds/sports/30](https://www.oddssafari.com/dropping-odds/sports/30) | ✅ Sì | **Integrato** | Quote in calo per match tennis — componente **dropping_odds** (12%). Drop allineato al pick alza lo score; drop contro lo abbassa |
-| **OddsPortal** | [oddsportal.com/tennis](https://www.oddsportal.com/tennis/) | ⚠️ Utile ma difficile | **Non integrato** | Confronto multi-book, linee di apertura/chiusura, movimenti quote Pinnacle/B365 — ideale per **CLV** e overround cross-book |
+| **OddsSafari Dropping** | [oddssafari.com/dropping-odds/sports/30](https://www.oddssafari.com/dropping-odds/sports/30) | ✅ Sì | **Integrato** | Quote in calo — componente **dropping_odds** (12%). Bonus solo se margine ancora valido sulla quota corrente; steam eroso → no-bet |
+| **OddsPortal** | [oddsportal.com/tennis](https://www.oddsportal.com/tennis/) | ⚠️ Utile | **Parziale** | Scraper Playwright → `oddsportal_close.json` per CLV close; geo IT può richiedere `ODDSPORTAL_PROXY` |
 
-### Perché OddsPortal non è ancora integrato
+### OddsPortal — integrazione parziale (CLV close)
 
-- Sito **JavaScript-heavy** (tabella renderizzata lato client): scraping HTML semplice insufficiente
-- Servirebbe browser headless (Playwright) o API a pagamento
-- **Betfair** copre già quote live per il value bet; **OddsSafari** copre i dropping
-
-### Valore aggiunto se integrassimo OddsPortal
-
-- Verificare se la nostra quota Betfair batte la **chiusura Pinnacle** (CLV)
-- Penalizzare pick dove solo un book offre value (mercato non allineato)
-- Conferma indipendente dei movimenti già visti su OddsSafari
-
-**Priorità consigliata:** OddsPortal = nice-to-have; Arbworld + OddsSafari + Betfair coprono già il flusso MVP.
+- Scraper **Playwright** attivo: `python main.py scrape-oddsportal` → `data/raw/oddsportal_close.json`
+- Usato in cascade CLV (`clv_live.py`) come fallback dopo Pinnacle guest e Betfair LTP
+- Limiti: geo IT reindirizza a `centroquote.it`; Pinnacle spesso assente senza `ODDSPORTAL_PROXY`
+- Non ancora integrato: confronto multi-book live in giocabilità / value bet

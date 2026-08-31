@@ -15,7 +15,6 @@ from modules.data_update.entity_resolution import _norm_name, build_player_index
 from modules.data_update.history import archive_prediction
 from modules.data_update.sackmann import ensure_sackmann_wta, load_tour_matches, load_wta_matches
 from modules.data_update.tennis_abstract import lookup_ta_elo
-from modules.data_update.tennis_data_portal import lookup_pinnacle_odds
 from modules.data_update.tennis_livescore import fetch_tennis_livescore
 from modules.feature_engineering.elo import EloEngine, expected_score
 from modules.feature_engineering.live_features import build_live_features
@@ -162,23 +161,35 @@ def _player_elo(
     surface: str,
     candidates: list[str],
     tourney_name: str | None = None,
-) -> float:
+    match_date: str | None = None,
+) -> tuple[float, dict | None]:
     from modules.data_update.cpi import lookup_cpi
+    from modules.constants import ELO_SURFACE_WEIGHT
+    from modules.data_update.entity_resolution import dataset_match_count, shrink_rating_low_sample
+    from modules.feature_engineering.surface_transition import (
+        transition_context,
+        transition_surface_weight,
+    )
 
     resolved = resolve_name(name, candidates=candidates)
     pid = bundle.name_to_id.get(_norm_name(resolved))
     ta = lookup_ta_elo(resolved, surface, tour=bundle.tour)
     cpi = lookup_cpi(tourney_name or "", surface=surface)
+    surf_w = transition_surface_weight(ELO_SURFACE_WEIGHT, surface, match_date)
+    trans = transition_context(surface, match_date)
 
     if pid and pid in bundle.elo_engine.players:
         pe = bundle.elo_engine.players[pid]
-        elo = pe.blended_with_cpi(surface, cpi) if cpi else pe.blended(surface)
+        elo = pe.blended_with_cpi(surface, cpi, base_weight=surf_w) if cpi else pe.blended(surface, surf_w)
+        n_ds = dataset_match_count(pid, bundle.matches)
+        elo = shrink_rating_low_sample(elo, n_ds)
+        trans = {**trans, "n_dataset": n_ds, "elo_shrunk": n_ds < 15}
         if ta:
-            return 0.6 * elo + 0.4 * ta
-        return elo
+            return 0.6 * elo + 0.4 * ta, trans
+        return elo, trans
     if ta:
-        return ta
-    return 1500.0
+        return ta, trans
+    return 1500.0, trans
 
 
 def _predict_from_betfair(
@@ -188,6 +199,7 @@ def _predict_from_betfair(
     *,
     moneyway_rows: list[dict] | None = None,
     dropping_rows: list[dict] | None = None,
+    min_edge: float | None = None,
 ) -> list[dict]:
     predictions: list[dict] = []
     seen: set[str] = set()
@@ -202,6 +214,20 @@ def _predict_from_betfair(
         if float(odd_a) <= 1.01 or float(odd_b) <= 1.01:
             continue
 
+        from modules.data_update.entity_resolution import align_odds_to_players
+
+        odds_aligned = align_odds_to_players(
+            player_a,
+            player_b,
+            odd_a,
+            odd_b,
+            runner_a=ev.get("runner_a"),
+            runner_b=ev.get("runner_b"),
+        )
+        if odds_aligned.get("blocked"):
+            continue
+        odd_a, odd_b = odds_aligned["odd_a"], odds_aligned["odd_b"]
+
         key = "|".join(sorted([_norm_name(player_a), _norm_name(player_b)]))
         if key in seen:
             continue
@@ -212,8 +238,14 @@ def _predict_from_betfair(
         tour = bundle.tour
         surface = _infer_surface(competition)
 
-        elo_a = _player_elo(bundle, player_a, surface=surface, candidates=all_cands, tourney_name=competition)
-        elo_b = _player_elo(bundle, player_b, surface=surface, candidates=all_cands, tourney_name=competition)
+        elo_a, trans_a = _player_elo(
+            bundle, player_a, surface=surface, candidates=all_cands,
+            tourney_name=competition, match_date=str(ev.get("commence_time") or "")[:10],
+        )
+        elo_b, trans_b = _player_elo(
+            bundle, player_b, surface=surface, candidates=all_cands,
+            tourney_name=competition, match_date=str(ev.get("commence_time") or "")[:10],
+        )
 
         ta_a = lookup_ta_elo(player_a, surface, tour=tour)
         ta_b = lookup_ta_elo(player_b, surface, tour=tour)
@@ -253,18 +285,65 @@ def _predict_from_betfair(
             features=live_feat,
             tour=tour,
         )
+
+        from modules.data_update.entity_resolution import detect_model_odds_inversion
+
+        if detect_model_odds_inversion(pred.get("p_win_a", 0.5), odd_a, odd_b):
+            odd_a, odd_b = odd_b, odd_a
+            pred["odds_inversion_corrected"] = True
+            odds_aligned = align_odds_to_players(
+                player_a, player_b, odd_a, odd_b,
+                runner_a=player_a, runner_b=player_b,
+            )
+            odd_a, odd_b = odds_aligned["odd_a"], odds_aligned["odd_b"]
+
         pred["date"] = str(ev.get("commence_time") or "")[:10]
         pred["tourney"] = ev.get("competition")
+        from modules.advisor.risk_controls import infer_tourney_level
+
+        pred["tourney_level"] = infer_tourney_level(pred["tourney"])
         pred["tour"] = tour
         pred["betfair_event_id"] = ev.get("event_id")
         pred["model_low_confidence"] = not (resolved_a and resolved_b)
         pred["players_resolved"] = {"a": resolved_a, "b": resolved_b}
+        if trans_a.get("in_transition") or trans_b.get("in_transition"):
+            pred["surface_transition"] = {
+                "a": trans_a,
+                "b": trans_b,
+                "note": "peso Elo surface ridotto (primi 7 gg cambio stagione)",
+            }
 
-        ps = lookup_pinnacle_odds(player_a, player_b, date=pred["date"], tour=tour)
-        if ps:
-            pred["pinnacle_odds"] = ps
+        if odds_aligned.get("swapped") or ev.get("odds_swapped"):
+            pred["odds_swapped"] = True
+        pred["odds_verified"] = odds_aligned.get("verified", ev.get("odds_verified"))
+        pred["book_odds"] = {"a": odd_a, "b": odd_b}
 
-        advised = advise(pred, float(odd_a), float(odd_b), source="betfair")
+        from modules.advisor.clv_live import resolve_close_odds
+
+        close = resolve_close_odds(
+            player_a,
+            player_b,
+            date=pred["date"],
+            tour=tour,
+            betfair_event_id=ev.get("event_id"),
+            betfair_odds={"a": odd_a, "b": odd_b},
+        )
+        if close:
+            pred["close_odds"] = close
+            pred["pinnacle_odds"] = close  # backward compat
+
+        from modules.data_update.market_signals import lookup_dropping
+
+        drop_row = lookup_dropping(player_a, player_b, rows=dropping_rows)
+
+        advised = advise(
+            pred,
+            float(odd_a),
+            float(odd_b),
+            source="betfair",
+            dropping_row=drop_row,
+            min_edge=min_edge,
+        )
         advised["odds_source"] = "betfair"
         advised["book_odds"] = {"a": odd_a, "b": odd_b}
         advised = enrich_playability(
@@ -286,6 +365,7 @@ def _predict_from_sackmann_recent(
     moneyway_rows: list[dict] | None = None,
     dropping_rows: list[dict] | None = None,
     all_candidates: list[str] | None = None,
+    min_edge: float | None = None,
 ) -> list[dict]:
     """Fallback: match recenti Sackmann con quote storiche mergeate."""
     matches = bundle.matches
@@ -348,16 +428,22 @@ def _predict_from_sackmann_recent(
         except Exception:
             pass
 
+        from modules.data_update.market_signals import lookup_dropping
+
+        drop_row = lookup_dropping(wname, lname, rows=dropping_rows)
+
         if bf_match:
             advised = advise(
                 pred,
                 bf_match.get("odd_a"),
                 bf_match.get("odd_b"),
                 source="betfair",
+                dropping_row=drop_row,
+                min_edge=min_edge,
             )
             advised["odds_source"] = "betfair"
         else:
-            advised = advise(pred, ow, ol, source="book")
+            advised = advise(pred, ow, ol, source="book", dropping_row=drop_row, min_edge=min_edge)
             advised["odds_source"] = "book"
 
         advised = enrich_playability(
@@ -406,6 +492,11 @@ def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[di
     moneyway_rows = load_moneyway_cache()
     dropping_rows = load_dropping_cache()
 
+    from modules.advisor.risk_controls import apply_daily_exposure_limits, get_risk_context
+
+    risk_ctx = get_risk_context()
+    min_edge = float(risk_ctx["min_edge"])
+
     predictor = MatchPredictor()
     predictions: list[dict] = []
 
@@ -422,6 +513,7 @@ def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[di
                     predictor,
                     moneyway_rows=moneyway_rows,
                     dropping_rows=dropping_rows,
+                    min_edge=min_edge,
                 )
         except Exception as exc:
             print(f"betfair skip: {exc}")
@@ -436,8 +528,16 @@ def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[di
                     moneyway_rows=moneyway_rows,
                     dropping_rows=dropping_rows,
                     all_candidates=all_cands,
+                    min_edge=min_edge,
                 )
             )
+
+    predictions = apply_daily_exposure_limits(predictions)
+    for pred in predictions:
+        pred["risk_session"] = {
+            "min_edge": min_edge,
+            "circuit_breaker": risk_ctx["circuit_breaker"]["active"],
+        }
 
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUT_PATH.write_text(json.dumps(predictions, indent=2, default=str), encoding="utf-8")

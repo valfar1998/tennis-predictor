@@ -214,16 +214,9 @@ def _last_name(name: str) -> str:
 
 
 def _player_match(a: str, b: str) -> bool:
-    a_n, b_n = _norm(a), _norm(b)
-    if not a_n or not b_n:
-        return False
-    if a_n == b_n:
-        return True
-    if _last_name(a) and _last_name(a) == _last_name(b):
-        return True
-    if len(a_n) >= 4 and len(b_n) >= 4:
-        return a_n in b_n or b_n in a_n
-    return False
+    from modules.data_update.entity_resolution import player_side_match
+
+    return player_side_match(a, b)
 
 
 def _best_back(runner: dict) -> float | None:
@@ -291,7 +284,7 @@ def _market_books(token: str, app_key: str, market_ids: list[str]) -> list[dict]
             "listMarketBook",
             {
                 "marketIds": chunk,
-                "priceProjection": {"priceData": ["EX_BEST_OFFERS"], "virtualise": True},
+                "priceProjection": {"priceData": ["EX_BEST_OFFERS", "EX_TRADED"], "virtualise": True},
             },
             token,
             app_key,
@@ -362,31 +355,54 @@ def _fetch_catalogue_and_books(token: str, app_key: str, *, days: int) -> list[d
             "competition": row["competition"],
             "odd_a": None,
             "odd_b": None,
+            "runner_a": None,
+            "runner_b": None,
         }
         match_id = row["markets"].get("MATCH_ODDS")
         if match_id and match_id in books:
             names = row["runners"].get("MATCH_ODDS") or {}
-            leftover: list[tuple[str, float]] = []
+            unmatched: list[tuple[str, float]] = []
             for runner in books[match_id].get("runners") or []:
                 sid = runner.get("selectionId")
                 name = names.get(int(sid) if sid is not None else -1, "")
-                price = _best_back(runner)
+                price = _runner_price(runner)
                 if price is None:
                     continue
                 if _player_match(row["player_a"], name):
                     ev["odd_a"] = price
+                    ev["runner_a"] = name
                 elif _player_match(row["player_b"], name):
                     ev["odd_b"] = price
-                else:
-                    leftover.append((name, price))
-            if leftover:
-                for name, price in leftover:
-                    if ev["odd_a"] is None:
+                    ev["runner_b"] = name
+                elif name:
+                    unmatched.append((name, price))
+            if ev["odd_a"] is None or ev["odd_b"] is None:
+                for name, price in unmatched:
+                    if ev["odd_a"] is None and _player_match(row["player_a"], name):
                         ev["odd_a"] = price
-                    elif ev["odd_b"] is None:
+                        ev["runner_a"] = name
+                    elif ev["odd_b"] is None and _player_match(row["player_b"], name):
                         ev["odd_b"] = price
-        if ev["odd_a"] and ev["odd_b"]:
-            events.append(ev)
+                        ev["runner_b"] = name
+            if ev["odd_a"] and ev["odd_b"]:
+                from modules.data_update.entity_resolution import align_odds_to_players
+
+                aligned = align_odds_to_players(
+                    row["player_a"],
+                    row["player_b"],
+                    ev["odd_a"],
+                    ev["odd_b"],
+                    runner_a=ev.get("runner_a"),
+                    runner_b=ev.get("runner_b"),
+                )
+                if aligned.get("blocked"):
+                    continue
+                ev["odd_a"] = aligned["odd_a"]
+                ev["odd_b"] = aligned["odd_b"]
+                if aligned.get("swapped"):
+                    ev["odds_swapped"] = True
+                ev["odds_verified"] = aligned.get("verified", False)
+                events.append(ev)
     return events
 
 
@@ -451,6 +467,60 @@ def load_betfair_cache() -> list[dict]:
         return []
 
 
+def _last_traded(runner: dict) -> float | None:
+    last = runner.get("lastPriceTraded")
+    if last is None:
+        return None
+    try:
+        return round(float(last), 3)
+    except (TypeError, ValueError):
+        return None
+
+
+def _runner_price(runner: dict) -> float | None:
+    """Best back o LTP (Last Traded Price) per chiusura proxy."""
+    return _best_back(runner) or _last_traded(runner)
+
+
+def lookup_betfair_close(
+    player_a: str,
+    player_b: str,
+    *,
+    event_id: str | None = None,
+    match_date: str | None = None,
+    bet_odds: dict | None = None,
+    events: list[dict] | None = None,
+) -> dict | None:
+    """Quote Betfair al kickoff (LTP/back) come proxy chiusura Pinnacle de-vigged."""
+    ev = None
+    if events is None:
+        events = load_betfair_cache()
+    if event_id:
+        for row in events:
+            if str(row.get("event_id")) == str(event_id):
+                ev = row
+                break
+    if ev is None:
+        ev = lookup_betfair_match(player_a, player_b, events=events, match_date=match_date)
+    if not ev:
+        if bet_odds and bet_odds.get("a") and bet_odds.get("b"):
+            return {
+                "a": float(bet_odds["a"]),
+                "b": float(bet_odds["b"]),
+                "source": "betfair_bet_snapshot",
+            }
+        return None
+    oa, ob = ev.get("odd_a"), ev.get("odd_b")
+    if not oa or not ob:
+        return None
+    return {
+        "a": float(oa),
+        "b": float(ob),
+        "source": "betfair_ltp",
+        "event_id": ev.get("event_id"),
+    }
+
+
 def lookup_betfair_match(
     player_a: str,
     player_b: str,
@@ -483,12 +553,35 @@ def lookup_betfair_match(
             except ValueError:
                 pass
         if swap:
+            from modules.data_update.entity_resolution import align_odds_to_players
+
+            aligned = align_odds_to_players(
+                player_a,
+                player_b,
+                ev.get("odd_b"),
+                ev.get("odd_a"),
+                runner_a=ev.get("runner_b"),
+                runner_b=ev.get("runner_a"),
+            )
             return {
                 **ev,
                 "player_a": player_a,
                 "player_b": player_b,
-                "odd_a": ev.get("odd_b"),
-                "odd_b": ev.get("odd_a"),
+                "odd_a": aligned["odd_a"],
+                "odd_b": aligned["odd_b"],
+                "odds_swapped": True,
             }
+        from modules.data_update.entity_resolution import align_odds_to_players
+
+        aligned = align_odds_to_players(
+            player_a,
+            player_b,
+            ev.get("odd_a"),
+            ev.get("odd_b"),
+            runner_a=ev.get("runner_a"),
+            runner_b=ev.get("runner_b"),
+        )
+        if not aligned.get("blocked"):
+            return {**ev, "odd_a": aligned["odd_a"], "odd_b": aligned["odd_b"]}
         return ev
     return None

@@ -1,0 +1,40 @@
+{
+  "phase": "paper_trading",
+  "n_settled": 0,
+  "n_pending": 92,
+  "hit_rate": null,
+  "roi_note": "ROI primi 100 bet guidato dalla varianza - usare BCR Pinnacle come KPI edge",
+  "bcr_pinnacle": {
+    "n": 0,
+    "beats": 0,
+    "bcr": null,
+    "bcr_pct": null,
+    "target": 0.55,
+    "target_pct": 55.0,
+    "pass": null,
+    "avg_clv": null,
+    "pinnacle_only": true
+  },
+  "bcr_all_sources": {
+    "n": 0,
+    "beats": 0,
+    "bcr": null,
+    "bcr_pct": null,
+    "target": 0.55,
+    "target_pct": 55.0,
+    "pass": null,
+    "avg_clv": null,
+    "pinnacle_only": false
+  },
+  "slippage": {
+    "n_alerts": 0,
+    "n_with_t3_snapshot": 0,
+    "steam_within_3m": 0,
+    "steam_within_3m_pct": null,
+    "median_slippage_pct": null,
+    "slippage_window_min": 3,
+    "steam_threshold_pct": 3.0,
+    "recommendation": null
+  },
+  "updated_at": "2026-08-31T13:11:28.071265+00:00"
+}

@@ -9,7 +9,7 @@ from zoneinfo import ZoneInfo
 
 from modules.notify.telegram import load_credentials, send_message, telegram_status
 
-from modules.advisor.playability import MIN_PLAY_ALERT
+from modules.advisor.online_learn import effective_alert_min_playability
 
 ROOT = Path(__file__).resolve().parents[2]
 SENT = ROOT / "data" / "processed" / "telegram_alerts_sent.json"
@@ -17,7 +17,10 @@ KEEP_DAYS = 21
 CHUNK = 8
 BRAND = "TENNIS_PREDICTOR"
 TZ = ZoneInfo("Europe/Rome")
-MIN_PLAYABILITY = MIN_PLAY_ALERT
+
+
+def _min_playability() -> float:
+    return float(effective_alert_min_playability())
 
 
 def _now() -> datetime:
@@ -128,11 +131,11 @@ def dispatch_alerts(predictions: list[dict] | None = None, *, dry_run: bool = Fa
         p for p in rows
         if p.get("action") == "bet"
         and p.get("recommended")
-        and float(p.get("playability") or 0) >= MIN_PLAYABILITY
+        and float(p.get("playability") or 0) >= _min_playability()
     ]
     sent_ids = _load_sent()
     fresh = [p for p in bets if alert_key(p) not in sent_ids]
-    messages = _pack(f"🎯 GIOCA · giocabilità ≥{MIN_PLAYABILITY}", fresh)
+    messages = _pack(f"🎯 GIOCA · giocabilità ≥{int(_min_playability())}", fresh)
 
     sent_n = 0
     if dry_run:
@@ -151,6 +154,15 @@ def dispatch_alerts(predictions: list[dict] | None = None, *, dry_run: bool = Fa
                     for key in ids:
                         sent_ids[key] = now
                     changed = True
+                    try:
+                        from modules.advisor.slippage_audit import log_alert
+
+                        id_set = set(ids)
+                        for p in fresh:
+                            if alert_key(p) in id_set:
+                                log_alert(p, sent_at=now)
+                    except Exception:
+                        pass
             if changed:
                 _save_sent(sent_ids)
 

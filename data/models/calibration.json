@@ -49,5 +49,23 @@
       "hit_rate": 0.4796520658589624
     }
   ],
-  "min_ev_play": 0.025
+  "min_ev_play": 0.025,
+  "stacker": {
+    "weights": {
+      "p_markov": 0.4166,
+      "p_elo": 0.1469,
+      "p_ml": 0.4365
+    },
+    "cols": [
+      "p_markov",
+      "p_elo",
+      "p_ml"
+    ],
+    "brier": 0.2512,
+    "brier_oof": 0.2512,
+    "brier_insample": 0.24895,
+    "cv": "TimeSeriesSplit",
+    "n_splits": 5,
+    "n_train": 800
+  }
 }
