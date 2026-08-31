@@ -36,6 +36,21 @@ class PlayerElo:
         rs = self.surface.get(surface, self.global_rating)
         return weight * rs + (1.0 - weight) * self.global_rating
 
+    def blended_with_cpi(
+        self,
+        surface: str,
+        cpi_norm: float | None = None,
+        *,
+        base_weight: float | None = None,
+    ) -> float:
+        """Elo con peso superficie modulato dal CPI torneo (campo rapido → più peso surface)."""
+        w = base_weight if base_weight is not None else self.surface_weight
+        if cpi_norm is not None:
+            # cpi_norm ~0.85 slow … 1.15 fast (da cpi.py)
+            adj = (float(cpi_norm) - 1.0) * 0.25
+            w = max(0.52, min(0.82, w + adj))
+        return self.blended(surface, w)
+
 
 class EloEngine:
     def __init__(self, *, surface_weight: float = ELO_SURFACE_WEIGHT):

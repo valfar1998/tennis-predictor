@@ -13,9 +13,10 @@ from modules.advisor.advise import advise
 from modules.advisor.playability import enrich_playability, MIN_PLAY_ALERT
 from modules.data_update.entity_resolution import _norm_name, build_player_index, resolve_name
 from modules.data_update.history import archive_prediction
-from modules.data_update.sackmann import ensure_sackmann_wta, load_tour_matches, load_wta_matches, load_wta_matches
+from modules.data_update.sackmann import ensure_sackmann_wta, load_tour_matches, load_wta_matches
 from modules.data_update.tennis_abstract import lookup_ta_elo
-from modules.feature_engineering.elo import EloEngine
+from modules.feature_engineering.elo import EloEngine, expected_score
+from modules.feature_engineering.live_features import build_live_features
 from modules.predictor.predict import MatchPredictor
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -158,13 +159,18 @@ def _player_elo(
     *,
     surface: str,
     candidates: list[str],
+    tourney_name: str | None = None,
 ) -> float:
+    from modules.data_update.cpi import lookup_cpi
+
     resolved = resolve_name(name, candidates=candidates)
     pid = bundle.name_to_id.get(_norm_name(resolved))
     ta = lookup_ta_elo(resolved, surface, tour=bundle.tour)
+    cpi = lookup_cpi(tourney_name or "", surface=surface)
 
     if pid and pid in bundle.elo_engine.players:
-        elo = bundle.elo_engine.players[pid].blended(surface)
+        pe = bundle.elo_engine.players[pid]
+        elo = pe.blended_with_cpi(surface, cpi) if cpi else pe.blended(surface)
         if ta:
             return 0.6 * elo + 0.4 * ta
         return elo
@@ -204,8 +210,8 @@ def _predict_from_betfair(
         tour = bundle.tour
         surface = _infer_surface(competition)
 
-        elo_a = _player_elo(bundle, player_a, surface=surface, candidates=all_cands)
-        elo_b = _player_elo(bundle, player_b, surface=surface, candidates=all_cands)
+        elo_a = _player_elo(bundle, player_a, surface=surface, candidates=all_cands, tourney_name=competition)
+        elo_b = _player_elo(bundle, player_b, surface=surface, candidates=all_cands, tourney_name=competition)
 
         ta_a = lookup_ta_elo(player_a, surface, tour=tour)
         ta_b = lookup_ta_elo(player_b, surface, tour=tour)
@@ -217,6 +223,21 @@ def _predict_from_betfair(
             player_b, candidates=all_cands, bundle=bundle, ta_elo=ta_b,
         )
 
+        pid_a = bundle.name_to_id.get(_norm_name(resolve_name(player_a, candidates=all_cands)))
+        pid_b = bundle.name_to_id.get(_norm_name(resolve_name(player_b, candidates=all_cands)))
+        live_feat = build_live_features(
+            player_a=player_a,
+            player_b=player_b,
+            pid_a=pid_a,
+            pid_b=pid_b,
+            elo_a=elo_a,
+            elo_b=elo_b,
+            surface=surface,
+            best_of=3,
+            tourney_name=competition,
+            matches=bundle.matches,
+        )
+
         pred = predictor.predict_match(
             player_a,
             player_b,
@@ -224,7 +245,11 @@ def _predict_from_betfair(
             elo_b=elo_b,
             surface=surface,
             best_of=3,
+            surface_wr_a=float(live_feat.get("surface_wr_a") or 0.5),
+            surface_wr_b=float(live_feat.get("surface_wr_b") or 0.5),
             tourney_name=competition,
+            features=live_feat,
+            tour=tour,
         )
         pred["date"] = str(ev.get("commence_time") or "")[:10]
         pred["tourney"] = ev.get("competition")

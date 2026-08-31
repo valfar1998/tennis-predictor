@@ -9,11 +9,22 @@ Sistema predittivo tennis da zero, adattando il framework calcistico esistente. 
 - Python 3.10+, pandas, XGBoost, Streamlit, DuckDB-ready
 - Solo fonti gratuite: Sackmann, tennis-data.co.uk, Tennis Abstract, UTS, Open-Meteo, MCP
 
-## Layer predittivo (3 livelli)
+## Layer predittivo (3 livelli + meta-learner)
 
-1. **Elo multisuperficie** — K adattivo, decay inattività, blend global/surface (w≈0.68)
-2. **Markov** — Barnett & Clarke: P(serve) → game → tiebreak ABBA → set → BO3/BO5
-3. **ML** — XGBoost con fatica, H2H, ranking Δ, form superficie, livello torneo
+1. **Elo multisuperficie + CPI** — K adattivo, decay inattività, blend global/surface modulato dal **Court Speed Index** del torneo (`blended_with_cpi`: campo veloce → più peso rating superficie)
+2. **Markov dinamico** — Barnett & Clarke con **P(serve) sotto pressione**: break point e tiebreak clutch da Match Charting Project (`modules/markov/pressure.py`)
+3. **ML (XGBoost)** — feature avanzate: fatica 7/14 gg, **viaggio Haversine**, jet lag, **hold vs break**, CPI, H2H, form
+4. **Meta-learner (stacking)** — regressione logistica su OOF che sostituisce i pesi fissi 40/25/35 (`modules/model_training/stacker.py`), minimizza Brier Score
+
+Fonti dati esterne integrate / referenziate:
+
+| Repo locale | Uso nel predictor |
+|-------------|-------------------|
+| `tennis_MatchChartingProject-master` | BP save, tiebreak clutch, profilo servizio MCP |
+| `tennis-sackmann-archive-main` | Storico ATP/WTA + settle |
+| `TML-Database-master` | Alternativa Sackmann con ATP ID (futuro loader) |
+| `tennis-crystal-ball-master` | Riferimento court-speed formula, ensemble UTS |
+| `tennisgnn_predictions-main` | Benchmark Brier/ROI su clay 2025 |
 
 ## Betting
 
@@ -124,12 +135,24 @@ Per ogni evento Betfair (fallback: match recenti Sackmann con quote storiche):
 
 1. **Tour detection** — `Women's US Open` → WTA, `Men's US Open` → ATP
 2. **Risoluzione giocatori** — alias, fuzzy match, formato abbreviato (`H Dart` → `Harriet Dart`)
-3. **Elo** — engine separato ATP/WTA da Sackmann + blend Tennis Abstract per tour
-3. **Markov** — P(hold serve) → probabilità vittoria match (BO3/BO5)
-4. **ML** — XGBoost (se modello trainato e feature disponibili)
-5. **Blend** — `P(A)` = 40% Markov + 25% Elo + 35% ML (ML assente → solo Markov + Elo)
+3. **Elo + CPI** — `blended_with_cpi()` modula peso superficie per velocità campo
+4. **Markov dinamico** — BP save + tiebreak clutch (MCP) via `pressure.py`
+5. **ML live** — `live_features.py` → XGBoost con fatica/viaggio/hold-break
+6. **Stacking** — meta-learner logistico su OOF (Brier), sostituisce blend fisso
 
-Output: `p_win_a`, `p_markov`, `p_elo`, `p_ml`, `tour` (ATP/WTA), flag `model_low_confidence` se giocatori non identificati.
+Output: `p_win_a`, componenti, `cpi_norm`, `pressure_used`, `tour`, `model_low_confidence`.
+
+### Precisione avanzata (dettaglio)
+
+Vedi sezione [Layer predittivo](#layer-preditivo-3-livelli--meta-learner) e moduli:
+
+| Miglioramento | Modulo |
+|---------------|--------|
+| Markov clutch/BP | `modules/markov/pressure.py` |
+| Elo × CPI | `modules/feature_engineering/elo.py` |
+| Feature viaggio/hold-break | `modules/feature_engineering/features.py`, `live_features.py` |
+| Meta-learner | `modules/model_training/stacker.py` |
+| CLV Pinnacle | `modules/advisor/pinnacle_clv.py` |
 
 ### 3. Value bet (consiglio scommessa)
 
@@ -351,6 +374,9 @@ python main.py learn
 
 # Verifica dati Sackmann (ATP + WTA)
 python -c "from modules.data_update.sackmann import sync_sackmann_atp, sync_sackmann_wta; print(sync_sackmann_atp()); print(sync_sackmann_wta())"
+
+# Training completo (features + XGBoost + stacker)
+python main.py features && python main.py train
 
 # UI locale
 streamlit run app.py --server.port 8502

@@ -39,4 +39,20 @@ def advise(
     enriched["plays"] = plays
     enriched["action"] = best_play["action"]
     enriched["recommended"] = best_play if best_play["action"] == "bet" else None
+
+    if enriched.get("recommended"):
+        from modules.advisor.pinnacle_clv import clv_vs_pinnacle
+
+        ps = enriched.get("pinnacle_odds") or {}
+        side = enriched["recommended"].get("side", "A")
+        clv_info = clv_vs_pinnacle(
+            pick_side=side,
+            odds_bet=float(enriched["recommended"]["odds"]),
+            ps_a=ps.get("a"),
+            ps_b=ps.get("b"),
+        )
+        enriched["recommended"].update({k: v for k, v in clv_info.items() if v is not None})
+        enriched["clv"] = clv_info.get("clv")
+        enriched["beat_close"] = clv_info.get("beat_close")
+
     return enriched

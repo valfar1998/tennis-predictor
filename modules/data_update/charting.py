@@ -97,6 +97,55 @@ def load_charting_matches(*, tour: str = "m") -> pd.DataFrame:
     return pd.read_csv(path, low_memory=False)
 
 
+def player_pressure_profile(player_name: str, *, tour: str = "m") -> dict | None:
+    """Profilo clutch da MCP: BP save, tiebreak/deuce serve win rate."""
+    sync_charting_data()
+    src = _resolve_source()
+    base = CHARTING_DIR if (CHARTING_DIR / f"charting-{tour}-stats-KeyPointsServe.csv").exists() else src
+    if not base:
+        return None
+
+    kp_path = base / f"charting-{tour}-stats-KeyPointsServe.csv"
+    sb_path = base / f"charting-{tour}-stats-SvBreakTotal.csv"
+    if not kp_path.exists():
+        return None
+
+    kp = pd.read_csv(kp_path, low_memory=False)
+    last = str(player_name).strip().split()[-1].lower()
+    rows = kp[kp["player"].str.lower().str.contains(last, na=False)]
+    if rows.empty:
+        return None
+
+    def _pt_rate(sub: pd.DataFrame) -> float | None:
+        pts = sub["pts"].sum()
+        if pts <= 0:
+            return None
+        return float(sub["pts_won"].sum() / pts)
+
+    bp = rows[rows["row"] == "BP"]
+    tb = rows[rows["row"].isin(["4", "5"])]
+    deuce = rows[rows["row"].isin(["d", "a"])]
+
+    profile: dict = {"n_matches": int(rows["match_id"].nunique())}
+    if not bp.empty:
+        profile["bp_save_rate"] = _pt_rate(bp)
+    if not tb.empty:
+        profile["tb_clutch"] = _pt_rate(tb)
+    elif not deuce.empty:
+        profile["tb_clutch"] = _pt_rate(deuce)
+
+    if sb_path.exists():
+        sb = pd.read_csv(sb_path, low_memory=False)
+        sb_p = sb[sb["player"].str.lower().str.contains(last, na=False)]
+        pts = sb_p["pts"].sum()
+        if pts > 0:
+            profile["serve_pt_won"] = float(sb_p["pts_won"].sum() / pts)
+
+    if profile.get("bp_save_rate") is None and profile.get("serve_pt_won"):
+        profile["bp_save_rate"] = profile["serve_pt_won"]
+    return profile if len(profile) > 1 else None
+
+
 def player_serve_profile(player_name: str, *, tour: str = "m") -> dict | None:
     """Profilo servizio medio da MCP per un giocatore."""
     overview = load_charting_overview(tour=tour)

@@ -65,6 +65,7 @@ def run_backtest(
                 "profit": profit,
                 "surface": row.get("surface"),
                 "clv": clv_prob(odds, odds),
+                "note": "CLV richiede quote open vs Pinnacle close distinte",
             })
 
     if not bets:

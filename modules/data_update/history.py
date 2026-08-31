@@ -100,8 +100,8 @@ def archive_prediction(pred: dict[str, Any]) -> None:
             (match_key, date, player_a, player_b, surface, tourney, tour, pick, action,
              probability, odds, ev, ev_pct, kelly, odds_source, p_markov, p_elo, p_ml,
              playability, playability_band, moneyway_vol_pct, dropping_pct, dropping_aligned,
-             saved_at)
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+             clv, beat_close, saved_at)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
             (
                 key,
                 str(pred.get("date") or "")[:10],
@@ -126,6 +126,8 @@ def archive_prediction(pred: dict[str, Any]) -> None:
                 mw,
                 drop,
                 aligned,
+                pred.get("clv") or rec.get("clv"),
+                int(rec.get("beat_close")) if rec.get("beat_close") is not None else None,
                 datetime.now(timezone.utc).isoformat(),
             ),
         )

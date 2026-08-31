@@ -10,6 +10,8 @@ import numpy as np
 import pandas as pd
 
 from modules.feature_engineering.elo import EloEngine, expected_score
+from modules.feature_engineering.travel import travel_km, timezone_shift_hours
+from modules.data_update.cpi import lookup_cpi
 from modules.dataset_loader.loader import load_matches
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -24,12 +26,24 @@ FEATURE_COLS = [
     "h2h_surface_wins_a",
     "fatigue_minutes_7d_a",
     "fatigue_minutes_7d_b",
+    "fatigue_minutes_14d_a",
+    "fatigue_minutes_14d_b",
     "rest_days_a",
     "rest_days_b",
+    "travel_km_a",
+    "travel_km_b",
+    "tz_shift_a",
+    "tz_shift_b",
     "surface_wr_a",
     "surface_wr_b",
+    "hold_pct_a",
+    "hold_pct_b",
+    "break_pct_a",
+    "break_pct_b",
+    "hold_break_edge",
     "form_wr_10_a",
     "form_wr_10_b",
+    "cpi_norm",
     "level_weight",
     "best_of",
     "is_bo5",
@@ -52,8 +66,16 @@ def _flip_perspective(feat: dict) -> dict:
     flipped["fatigue_minutes_7d_a"], flipped["fatigue_minutes_7d_b"] = (
         feat["fatigue_minutes_7d_b"], feat["fatigue_minutes_7d_a"]
     )
+    flipped["fatigue_minutes_14d_a"], flipped["fatigue_minutes_14d_b"] = (
+        feat.get("fatigue_minutes_14d_b"), feat.get("fatigue_minutes_14d_a")
+    )
     flipped["rest_days_a"], flipped["rest_days_b"] = feat["rest_days_b"], feat["rest_days_a"]
+    flipped["travel_km_a"], flipped["travel_km_b"] = feat.get("travel_km_b"), feat.get("travel_km_a")
+    flipped["tz_shift_a"], flipped["tz_shift_b"] = feat.get("tz_shift_b"), feat.get("tz_shift_a")
     flipped["surface_wr_a"], flipped["surface_wr_b"] = feat["surface_wr_b"], feat["surface_wr_a"]
+    flipped["hold_pct_a"], flipped["hold_pct_b"] = feat.get("hold_pct_b"), feat.get("hold_pct_a")
+    flipped["break_pct_a"], flipped["break_pct_b"] = feat.get("break_pct_b"), feat.get("break_pct_a")
+    flipped["hold_break_edge"] = -(feat.get("hold_break_edge") or 0)
     flipped["form_wr_10_a"], flipped["form_wr_10_b"] = feat["form_wr_10_b"], feat["form_wr_10_a"]
     if feat.get("mkt_p_a") is not None:
         flipped["mkt_p_a"] = 1.0 - feat["mkt_p_a"]
@@ -67,6 +89,9 @@ class FeatureEngineer:
         self.h2h: dict[tuple, list] = defaultdict(list)
         self.recent: dict[int, list] = defaultdict(list)
         self.surface_form: dict[tuple, list] = defaultdict(list)
+        self.bp_save: dict[int, list] = defaultdict(list)
+        self.bp_break: dict[int, list] = defaultdict(list)
+        self.last_tourney: dict[int, str] = {}
 
     def _pair_key(self, a: int, b: int) -> tuple:
         return (min(a, b), max(a, b))
@@ -108,12 +133,40 @@ class FeatureEngineer:
         surf_wins = sum(1 for w, s in matches if w == perspective and s == surface)
         return wins_a, surf_wins
 
-    def _update_state(self, winner_id: int, loser_id: int, surface: str, dt, minutes: float):
+    def _rolling_mean(self, vals: list, n: int = 12, default: float = 0.5) -> float:
+        if not vals:
+            return default
+        chunk = vals[-n:]
+        return sum(chunk) / len(chunk)
+
+    def _bp_stats(self, row, prefix: str) -> tuple[float | None, float | None]:
+        faced = row.get(f"{prefix}_bpFaced")
+        saved = row.get(f"{prefix}_bpSaved")
+        if pd.notna(faced) and float(faced) > 0 and pd.notna(saved):
+            save_rate = float(saved) / float(faced)
+            break_rate = 1.0 - save_rate
+            return save_rate, break_rate
+        return None, None
+
+    def _update_state(self, winner_id: int, loser_id: int, surface: str, dt, minutes: float, row):
         key = self._pair_key(winner_id, loser_id)
         self.h2h[key].append((winner_id, surface))
+        tourney = str(row.get("tourney_name") or "")
         for pid, won in [(winner_id, 1), (loser_id, 0)]:
             self.recent[pid].append((dt, minutes))
             self.surface_form[(pid, surface)].append(won)
+            self.last_tourney[pid] = tourney
+
+        w_save, _ = self._bp_stats(row, "w")
+        l_save, l_break = self._bp_stats(row, "l")
+        if w_save is not None:
+            self.bp_save[winner_id].append(w_save)
+        if l_break is not None:
+            self.bp_break[winner_id].append(l_break)
+        if l_save is not None:
+            self.bp_save[loser_id].append(l_save)
+        if w_save is not None:
+            self.bp_break[loser_id].append(1.0 - w_save)
 
     def build(self, matches: pd.DataFrame | None = None, *, save: bool = True) -> pd.DataFrame:
         matches = matches if matches is not None else load_matches()
@@ -149,6 +202,21 @@ class FeatureEngineer:
                 mkt_or = total
 
             level_w = {"G": 1.0, "M": 0.85, "A": 0.7, "C": 0.5}.get(level, 0.65)
+            tourney = str(row.get("tourney_name") or "")
+            cpi = lookup_cpi(tourney, surface=surface)
+
+            hold_w = self._rolling_mean(self.bp_save.get(wid, []))
+            hold_l = self._rolling_mean(self.bp_save.get(lid, []))
+            break_w = self._rolling_mean(self.bp_break.get(wid, []))
+            break_l = self._rolling_mean(self.bp_break.get(lid, []))
+            hold_break_edge = hold_w - break_l
+
+            prev_w = self.last_tourney.get(wid)
+            prev_l = self.last_tourney.get(lid)
+            tkm_w = travel_km(prev_w, tourney) if prev_w else None
+            tkm_l = travel_km(prev_l, tourney) if prev_l else None
+            tz_w = timezone_shift_hours(prev_w, tourney) if prev_w else None
+            tz_l = timezone_shift_hours(prev_l, tourney) if prev_l else None
 
             feat = {
                 "tourney_date": dt,
@@ -170,12 +238,24 @@ class FeatureEngineer:
                 "h2h_surface_wins_a": h2h_surf,
                 "fatigue_minutes_7d_a": self._fatigue(wid, dt),
                 "fatigue_minutes_7d_b": self._fatigue(lid, dt),
+                "fatigue_minutes_14d_a": self._fatigue(wid, dt, window_days=14),
+                "fatigue_minutes_14d_b": self._fatigue(lid, dt, window_days=14),
                 "rest_days_a": self._rest_days(wid, dt),
                 "rest_days_b": self._rest_days(lid, dt),
+                "travel_km_a": tkm_w,
+                "travel_km_b": tkm_l,
+                "tz_shift_a": tz_w,
+                "tz_shift_b": tz_l,
                 "surface_wr_a": self._surface_wr(wid, surface),
                 "surface_wr_b": self._surface_wr(lid, surface),
+                "hold_pct_a": hold_w,
+                "hold_pct_b": hold_l,
+                "break_pct_a": break_w,
+                "break_pct_b": break_l,
+                "hold_break_edge": hold_break_edge,
                 "form_wr_10_a": self._form_wr(wid),
                 "form_wr_10_b": self._form_wr(lid),
+                "cpi_norm": cpi if cpi is not None else 1.0,
                 "level_weight": level_w,
                 "mkt_p_a": mkt_p_a,
                 "mkt_overround": mkt_or,
@@ -187,7 +267,7 @@ class FeatureEngineer:
             rows.append(_flip_perspective(feat))
 
             elo_engine.update(wid, lid, surface=surface, level=level, match_date=dt)
-            self._update_state(wid, lid, surface, dt, minutes)
+            self._update_state(wid, lid, surface, dt, minutes, row)
 
         out = pd.DataFrame(rows)
         if save:
