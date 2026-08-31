@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from modules.advisor.staking import fractional_kelly, no_bet_reasons
+from modules.advisor.staking import fractional_kelly, model_uncertainty_reasons, no_bet_reasons
 from modules.advisor.value import enrich_value
 from modules.constants import MIN_EDGE
 
@@ -24,8 +24,9 @@ def advise(
         return enriched
 
     plays = []
+    uncertainty = model_uncertainty_reasons(enriched)
     for pick in value["picks"]:
-        reasons = no_bet_reasons(pick, min_edge=min_edge)
+        reasons = no_bet_reasons(pick, min_edge=min_edge) + uncertainty
         kelly = fractional_kelly(pick["probability"], pick["odds"]) if not reasons else 0.0
         plays.append({
             **pick,

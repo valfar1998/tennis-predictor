@@ -12,22 +12,42 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 SACKMANN_REPO = "https://github.com/JeffSackmann/tennis_atp.git"
+SACKMANN_WTA_REPO = "https://github.com/JeffSackmann/tennis_wta.git"
 ATP_DIR = ROOT / "data" / "raw" / "atp"
+WTA_DIR = ROOT / "data" / "raw" / "wta"
 MIN_YEAR = 2010
 
 
-def _ensure_sackmann() -> None:
-    if (ATP_DIR / "atp_players.csv").is_file() and any(ATP_DIR.glob("atp_matches_*.csv")):
-        print("Sackmann: cache locale OK")
+def _ensure_sackmann_tour(*, repo: str, dest: Path, players_file: str, match_glob: str) -> None:
+    if (dest / players_file).is_file() and any(dest.glob(match_glob)):
+        print(f"Sackmann {dest.name}: cache locale OK")
         return
-    if ATP_DIR.exists():
-        shutil.rmtree(ATP_DIR, ignore_errors=True)
-    ATP_DIR.mkdir(parents=True, exist_ok=True)
+    if dest.exists():
+        shutil.rmtree(dest, ignore_errors=True)
+    dest.mkdir(parents=True, exist_ok=True)
     subprocess.run(
-        ["git", "clone", "--depth", "1", SACKMANN_REPO, str(ATP_DIR)],
+        ["git", "clone", "--depth", "1", repo, str(dest)],
         check=True,
     )
-    print("Sackmann: clone completato")
+    print(f"Sackmann {dest.name}: clone completato")
+
+
+def _ensure_sackmann() -> None:
+    _ensure_sackmann_tour(
+        repo=SACKMANN_REPO,
+        dest=ATP_DIR,
+        players_file="atp_players.csv",
+        match_glob="atp_matches_*.csv",
+    )
+    try:
+        _ensure_sackmann_tour(
+            repo=SACKMANN_WTA_REPO,
+            dest=WTA_DIR,
+            players_file="wta_players.csv",
+            match_glob="wta_matches_*.csv",
+        )
+    except subprocess.CalledProcessError as exc:
+        print(f"Sackmann WTA clone fallito (opzionale): {exc}")
 
 
 def main() -> None:
@@ -39,7 +59,10 @@ def main() -> None:
 
     _ensure_sackmann()
 
+    from modules.data_update.tennis_abstract import fetch_all_tennis_abstract_elo
     from modules.data_update.tennis_data_odds import download_tennis_data_odds
+
+    fetch_all_tennis_abstract_elo(force=True)
     from modules.dataset_loader import DatasetLoader
     from modules.feature_engineering import FeatureEngineer
     from modules.model_training import ModelTrainer

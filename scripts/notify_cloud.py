@@ -43,6 +43,21 @@ def main() -> None:
         info["betfair_ok"] = False
         print(f"betfair_soft_fail: {exc}")
 
+    try:
+        from modules.data_update.market_signals import sync_market_signals
+
+        sig = sync_market_signals(force=True)
+        info["market_signals"] = sig
+    except Exception as exc:
+        info["market_signals_error"] = str(exc)
+
+    try:
+        from modules.data_update.history import settle_pending
+
+        info["settle"] = settle_pending(learn=True)
+    except Exception as exc:
+        info["settle_error"] = str(exc)
+
     preds = build_upcoming(use_betfair=True)
     alerts = dispatch_alerts(preds)
     info.update({

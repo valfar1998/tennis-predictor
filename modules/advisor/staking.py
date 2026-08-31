@@ -54,6 +54,23 @@ def no_bet_reasons(play: dict[str, Any], *, min_edge: float = MIN_EDGE) -> list[
     return reasons
 
 
+def model_uncertainty_reasons(prediction: dict) -> list[str]:
+    reasons: list[str] = []
+    if prediction.get("model_low_confidence"):
+        reasons.append("modello incerto: uno o entrambi i giocatori non identificati nel database")
+    p = prediction.get("p_win_a")
+    p_elo = prediction.get("p_elo")
+    if (
+        p is not None
+        and p_elo is not None
+        and prediction.get("p_ml") is None
+        and abs(float(p) - 0.5) < 0.04
+        and abs(float(p_elo) - 0.5) < 0.04
+    ):
+        reasons.append("modello ~50/50 senza ML: probabile artefatto, non edge reale")
+    return reasons
+
+
 def apply_retirement_filter(
     play: dict,
     *,

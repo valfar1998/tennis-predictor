@@ -9,12 +9,15 @@ from zoneinfo import ZoneInfo
 
 from modules.notify.telegram import load_credentials, send_message, telegram_status
 
+from modules.advisor.playability import MIN_PLAY_ALERT
+
 ROOT = Path(__file__).resolve().parents[2]
 SENT = ROOT / "data" / "processed" / "telegram_alerts_sent.json"
 KEEP_DAYS = 21
 CHUNK = 8
 BRAND = "TENNIS_PREDICTOR"
 TZ = ZoneInfo("Europe/Rome")
+MIN_PLAYABILITY = MIN_PLAY_ALERT
 
 
 def _now() -> datetime:
@@ -74,16 +77,34 @@ def _format_bet(pred: dict) -> str:
     odds = rec.get("odds")
     p = rec.get("probability", 0)
     ev = rec.get("ev", 0)
+    ev_pct = rec.get("ev_pct", float(ev) * 100)
     kelly = rec.get("kelly", 0)
+    sig = pred.get("market_signals") or {}
+    parts = pred.get("playability_parts") or {}
 
     meta = " · ".join(x for x in (date, tourney) if x)
     lines = [
         meta or date,
         f"{player_a} vs {player_b}",
         f"Pick: {pick} @ {odds}",
-        f"P={float(p):.1%} | EV={float(ev):+.1%} | Kelly={float(kelly):.2%}",
-        f"Fonte quote: {source} | Superficie: {surface}",
+        f"P={float(p):.1%} | EV={float(ev_pct):+.1f}% | Kelly={float(kelly):.2%}",
+        f"Giocabilità: {int(pred.get('playability') or 0)}/100 ({pred.get('playability_label') or '—'})",
     ]
+    mw = sig.get("volume_pct_pick")
+    drop = sig.get("drop_pct")
+    if mw is not None or drop is not None:
+        sig_bits = []
+        if mw is not None:
+            sig_bits.append(f"Moneyway {float(mw):.0f}% vol")
+        if drop is not None:
+            tag = "allineato" if sig.get("aligned_with_pick") else "contro pick"
+            sig_bits.append(f"Drop {float(drop):.0f}% ({tag})")
+        lines.append("Segnali: " + " · ".join(sig_bits))
+    if parts.get("moneyway") is not None:
+        lines.append(
+            f"Score MW={parts['moneyway']:.2f} Drop={parts.get('dropping_odds', 0):.2f}"
+        )
+    lines.append(f"Fonte quote: {source} | Superficie: {surface}")
     return "\n".join(lines)
 
 
@@ -103,10 +124,15 @@ def _pack(title: str, items: list[dict]) -> list[tuple[str, list[str]]]:
 def dispatch_alerts(predictions: list[dict] | None = None, *, dry_run: bool = False) -> dict:
     """Invia solo value bet nuovi (dedup su telegram_alerts_sent.json)."""
     rows = predictions or []
-    bets = [p for p in rows if p.get("action") == "bet" and p.get("recommended")]
+    bets = [
+        p for p in rows
+        if p.get("action") == "bet"
+        and p.get("recommended")
+        and float(p.get("playability") or 0) >= MIN_PLAYABILITY
+    ]
     sent_ids = _load_sent()
     fresh = [p for p in bets if alert_key(p) not in sent_ids]
-    messages = _pack("🎯 VALUE BET · EV positivo", fresh)
+    messages = _pack(f"🎯 GIOCA · giocabilità ≥{MIN_PLAYABILITY}", fresh)
 
     sent_n = 0
     if dry_run:

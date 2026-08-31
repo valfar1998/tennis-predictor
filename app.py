@@ -43,48 +43,77 @@ with tab_cal:
         )
     else:
         bets = [p for p in preds if p.get("action") == "bet"]
-        c1, c2, c3 = st.columns(3)
+        playable = [p for p in preds if float(p.get("playability") or 0) >= 60]
+        alertable = [p for p in preds if float(p.get("playability") or 0) >= 75]
+        c1, c2, c3, c4, c5 = st.columns(5)
         c1.metric("Match analizzati", len(preds))
-        c2.metric("Value bet", len(bets))
-        c3.metric("Fonte quote", preds[0].get("odds_source", "—") if preds else "—")
+        c2.metric("Value bet (EV+)", len(bets))
+        c3.metric("Giocabili ≥60", len(playable))
+        c4.metric("Alert ≥75", len(alertable))
+        c5.metric("Fonte quote", preds[0].get("odds_source", "—") if preds else "—")
+        st.caption(
+            "**Giocabilità 0–100** (stile football-predictor): combina value/EV, accordo modelli "
+            "(Markov/Elo/ML), Kelly, qualità mercato (Betfair, overround, torneo), volume Moneyway "
+            "(Arbworld) e dropping odds (OddsSafari). Alert Telegram solo ≥75."
+        )
 
         rows = []
         for p in preds:
             rec = p.get("recommended") or {}
+            ev = rec.get("ev")
+            ev_pct = rec.get("ev_pct")
+            if ev_pct is None and ev is not None:
+                ev_pct = round(float(ev) * 100, 2)
             rows.append({
                 "Data": str(p.get("date") or "")[:10],
                 "Torneo": p.get("tourney") or "",
                 "Match": f"{p.get('player_a')} vs {p.get('player_b')}",
                 "Superficie": p.get("surface") or "",
                 "P(A)": p.get("p_win_a"),
+                "Giocabilità": p.get("playability"),
+                "Band": p.get("playability_label") or "",
                 "Azione": p.get("action") or "no_bet",
                 "Pick": rec.get("player") if rec else "",
                 "Quota": rec.get("odds") if rec else None,
-                "EV": rec.get("ev") if rec else None,
+                "EV %": f"{ev_pct:+.1f}%" if ev_pct is not None else "",
+                "Tour": p.get("tour") or "",
                 "Fonte": p.get("odds_source") or "",
             })
         st.subheader("Calendario")
-        st.dataframe(
-            pd.DataFrame(rows).sort_values(["Data", "Torneo"], na_position="last"),
-            use_container_width=True,
-            hide_index=True,
+        df_cal = pd.DataFrame(rows).sort_values(
+            ["Giocabilità", "Data", "Torneo"],
+            ascending=[False, True, True],
+            na_position="last",
         )
+        st.dataframe(df_cal, use_container_width=True, hide_index=True)
 
         st.subheader("Dettaglio match")
-        for p in preds[:30]:
+        for p in sorted(preds, key=lambda x: float(x.get("playability") or 0), reverse=True)[:30]:
             rec = p.get("recommended")
-            icon = "✅" if p.get("action") == "bet" else "⬜"
-            with st.expander(f"{icon} {p.get('player_a')} vs {p.get('player_b')} — {p.get('surface')}"):
-                col1, col2, col3 = st.columns(3)
+            play = int(p.get("playability") or 0)
+            icon = "✅" if play >= 75 and p.get("action") == "bet" else "⬜"
+            with st.expander(
+                f"{icon} [{play}/100] {p.get('player_a')} vs {p.get('player_b')} — {p.get('surface')}"
+            ):
+                col1, col2, col3, col4 = st.columns(4)
                 col1.metric("P(A)", f"{p.get('p_win_a', 0):.1%}")
                 col2.metric("Markov", f"{p.get('p_markov', 0):.1%}")
                 col3.metric("Elo", f"{p.get('p_elo', 0):.1%}")
+                col4.metric("Giocabilità", f"{play}/100")
                 if rec:
                     st.success(
                         f"**{rec['player']}** @ {rec['odds']} | "
                         f"EV {rec['ev']:+.1%} | Kelly {rec['kelly']:.2%} | "
-                        f"Fonte: {p.get('odds_source', 'book')}"
+                        f"Fonte: {p.get('odds_source', 'book')} | {p.get('playability_label', '')}"
                     )
+                    parts = p.get("playability_parts") or {}
+                    if parts:
+                        st.caption(
+                            "Componenti: value {value:.0%} · modelli {model_agreement:.0%} · "
+                            "mercato {market_quality:.0%} · moneyway {moneyway:.0%} · drop {dropping_odds:.0%}".format(
+                                **{k: parts.get(k, 0) for k in parts}
+                            )
+                        )
                 else:
                     st.info("Nessun value bet sopra soglia")
 
@@ -152,14 +181,17 @@ with tab_data:
         st.caption(f"Totale righe: {sum(1 for _ in open(matches_path)) - 1}")
 
 with tab_elo:
-    st.subheader("Elo Tennis Abstract (scraping)")
-    ta_path = ROOT / "data" / "raw" / "tennis_abstract_elo.json"
+    st.subheader("Elo Tennis Abstract (ATP + WTA)")
+    ta_atp = ROOT / "data" / "raw" / "tennis_abstract_elo.json"
+    ta_wta = ROOT / "data" / "raw" / "tennis_abstract_elo_wta.json"
     if st.button("Scarica Elo da Tennis Abstract"):
-        from modules.data_update.tennis_abstract import fetch_tennis_abstract_elo
-        result = fetch_tennis_abstract_elo(force=True)
+        from modules.data_update.tennis_abstract import fetch_all_tennis_abstract_elo
+        result = fetch_all_tennis_abstract_elo(force=True)
         st.json(result)
-    if ta_path.exists():
-        data = json.loads(ta_path.read_text(encoding="utf-8"))
-        players = data.get("players", [])[:50]
-        if players:
-            st.dataframe(pd.DataFrame(players), use_container_width=True)
+    for label, path in (("ATP", ta_atp), ("WTA", ta_wta)):
+        if path.exists():
+            data = json.loads(path.read_text(encoding="utf-8"))
+            players = data.get("players", [])[:30]
+            if players:
+                st.caption(f"{label} — top 30")
+                st.dataframe(pd.DataFrame(players), use_container_width=True)

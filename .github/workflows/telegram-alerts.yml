@@ -21,9 +21,31 @@ jobs:
       - name: Dipendenze
         run: pip install -r requirements.txt
 
-      - name: Dati Sackmann (minimo per Elo)
+      - name: Dati Sackmann (ATP + WTA per Elo e settle)
         run: |
           git clone --depth 1 https://github.com/JeffSackmann/tennis_atp.git data/raw/atp
+          git clone --depth 1 https://github.com/JeffSackmann/tennis_wta.git data/raw/wta || true
+
+      - uses: actions/cache/restore@v4
+        id: history-cache
+        with:
+          path: |
+            data/processed/our_history.sqlite
+            data/processed/our_history.sqlite-wal
+            data/processed/our_history.sqlite-shm
+          key: tennis-history-v1
+          restore-keys: |
+            tennis-history-v1
+            tennis-history-
+
+      - uses: actions/cache/restore@v4
+        with:
+          path: |
+            data/raw/arbworld_moneyway.json
+            data/raw/oddssafari_dropping.json
+          key: tennis-market-signals-${{ github.run_id }}
+          restore-keys: |
+            tennis-market-signals-
 
       - uses: actions/cache/restore@v4
         with:
@@ -81,3 +103,20 @@ jobs:
         with:
           path: data/processed/telegram_alerts_sent.json
           key: tennis-telegram-sent-${{ github.run_id }}
+
+      - uses: actions/cache/save@v4
+        if: always() && hashFiles('data/processed/our_history.sqlite') != ''
+        with:
+          path: |
+            data/processed/our_history.sqlite
+            data/processed/our_history.sqlite-wal
+            data/processed/our_history.sqlite-shm
+          key: tennis-history-v1
+
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: |
+            data/raw/arbworld_moneyway.json
+            data/raw/oddssafari_dropping.json
+          key: tennis-market-signals-${{ github.run_id }}

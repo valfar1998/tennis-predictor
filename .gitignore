@@ -12,6 +12,15 @@ data/models/*.joblib
 data/raw/betfair.appkey
 data/raw/betfair.session.json
 data/raw/betfair_odds.json
+data/raw/arbworld_moneyway.json
+data/raw/oddssafari_dropping.json
+data/processed/upcoming_predictions.json
+data/processed/our_history.sqlite*
+data/processed/telegram_alerts_sent.json
+data/models/online_learn_report.json
+data/raw/tennis_abstract_elo*.json
+data/raw/tennisratio_rankings.json
+data/raw/venue_altitude.json
 
 # Nested clone (use data/raw/atp in CI)
 tennis/

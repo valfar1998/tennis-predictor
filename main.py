@@ -16,10 +16,10 @@ load_dotenv(ROOT / ".env")
 
 
 def cmd_sync(args: argparse.Namespace) -> None:
-    from modules.data_update.sackmann import sync_sackmann_atp
+    from modules.data_update.sackmann import sync_sackmann_atp, sync_sackmann_wta
     from modules.data_update.tennis_data_odds import download_tennis_data_odds
     from modules.data_update.charting import sync_charting_data
-    from modules.data_update.tennis_abstract import fetch_tennis_abstract_elo
+    from modules.data_update.tennis_abstract import fetch_all_tennis_abstract_elo
     from modules.data_update.uts import fetch_uts_cpi
     from modules.data_update.courtspeed import fetch_courtspeed_cpi
     from modules.data_update.tennisratio import fetch_tennisratio_rankings
@@ -30,10 +30,18 @@ def cmd_sync(args: argparse.Namespace) -> None:
     import pandas as pd
 
     print("Sackmann ATP:", sync_sackmann_atp(copy=args.copy))
+    try:
+        print("Sackmann WTA:", sync_sackmann_wta(copy=args.copy))
+    except FileNotFoundError as exc:
+        from modules.data_update.sackmann import ensure_sackmann_wta
+        ensured = ensure_sackmann_wta(clone=True)
+        print(f"Sackmann WTA auto: {ensured}")
+        if not ensured.get("ok"):
+            print(f"Sackmann WTA skip: {exc}")
     print("Tennis-data odds:", download_tennis_data_odds(force=args.force))
     if args.extra:
         print("Charting MCP:", sync_charting_data(force=args.force, copy=True))
-        print("Tennis Abstract Elo:", fetch_tennis_abstract_elo(force=args.force))
+        print("Tennis Abstract Elo:", fetch_all_tennis_abstract_elo(force=args.force))
         print("CourtSpeed CPI:", fetch_courtspeed_cpi(force=args.force))
         print("UTS CPI (fallback):", fetch_uts_cpi(force=args.force))
         print("TennisRatio skills:", fetch_tennisratio_rankings(force=args.force))
@@ -72,6 +80,14 @@ def cmd_backtest(args: argparse.Namespace) -> None:
     from modules.calibration import run_backtest
     result = run_backtest()
     print(json.dumps(result, indent=2, default=str))
+
+
+def cmd_learn(args: argparse.Namespace) -> None:
+    from modules.data_update.history import history_summary, settle_pending
+
+    out = settle_pending(learn=not args.no_learn)
+    print(json.dumps(out, indent=2, default=str))
+    print("Summary:", json.dumps(history_summary(), indent=2))
 
 
 def cmd_predict(args: argparse.Namespace) -> None:
@@ -119,6 +135,10 @@ def main() -> None:
     p_pred = sub.add_parser("predict", help="Genera predizioni upcoming")
     p_pred.add_argument("--notify", action="store_true", help="Invia alert Telegram")
     p_pred.set_defaults(func=cmd_predict)
+
+    p_learn = sub.add_parser("learn", help="Chiude pick pendenti e aggiorna calibration.json")
+    p_learn.add_argument("--no-learn", action="store_true", help="Solo settle, senza online learn")
+    p_learn.set_defaults(func=cmd_learn)
 
     p_full = sub.add_parser("full", help="Pipeline completa")
     p_full.add_argument("--copy", action="store_true")

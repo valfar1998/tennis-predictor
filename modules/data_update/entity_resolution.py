@@ -59,6 +59,48 @@ def build_player_index(players_df: pd.DataFrame) -> dict[int, str]:
     return idx
 
 
+def _resolve_initial_lastname(name: str, candidates: list[str]) -> str | None:
+    """Risolve formati Betfair tipo 'H Dart' o 'Pe Stearns'."""
+    parts = str(name or "").replace(".", " ").split()
+    if len(parts) < 2:
+        return None
+    prefix, last = parts[0].lower(), parts[-1].lower()
+    if len(last) < 3 or len(prefix) > 3:
+        return None
+
+    def _matches(cand: str) -> bool:
+        cp = cand.replace(".", " ").split()
+        if not cp:
+            return False
+        cand_last = cp[-1].lower() if len(cp[-1]) > 2 else cp[0].lower()
+        if cand_last != last:
+            return False
+        first = cp[0].lower()
+        if prefix == first:
+            return True
+        if first.startswith(prefix):
+            return True
+        if prefix.startswith(first[: max(1, len(prefix))]):
+            return True
+        return first[:1] == prefix[:1]
+
+    hits = [c for c in candidates if _matches(c)]
+    if len(hits) == 1:
+        return hits[0]
+    return None
+
+
+def _resolve_unique_lastname(name: str, candidates: list[str]) -> str | None:
+    parts = str(name or "").replace(".", " ").split()
+    if len(parts) != 1:
+        return None
+    last = parts[0].lower()
+    hits = [c for c in candidates if _last_name(c) == last]
+    if len(hits) == 1:
+        return hits[0]
+    return None
+
+
 def resolve_name(name: str, *, candidates: list[str] | None = None, aliases: dict | None = None) -> str:
     """Risolve un nome verso la forma canonica usando alias e fuzzy match."""
     aliases = aliases or load_aliases()
@@ -71,8 +113,24 @@ def resolve_name(name: str, *, candidates: list[str] | None = None, aliases: dic
         return aliases[key]
 
     if candidates:
+        by_init = _resolve_initial_lastname(name, candidates)
+        if by_init:
+            return by_init
+        by_last = _resolve_unique_lastname(name, candidates)
+        if by_last:
+            return by_last
         match = process.extractOne(name, candidates, scorer=fuzz.token_sort_ratio)
         if match and match[1] >= 88:
+            return match[0]
+        qparts = str(name).replace(".", " ").split()
+        if len(qparts) >= 2 and len(qparts[0]) <= 3:
+            pref = qparts[0].lower()
+            same_last = [c for c in candidates if _last_name(c) == _last_name(name)]
+            pref_hits = [c for c in same_last if c.split()[0].lower().startswith(pref)]
+            if len(pref_hits) == 1:
+                return pref_hits[0]
+        match = process.extractOne(name, candidates, scorer=fuzz.WRatio)
+        if match and match[1] >= 82 and _last_name(match[0]) == _last_name(name):
             return match[0]
 
     return str(name).strip()

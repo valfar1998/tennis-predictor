@@ -47,6 +47,11 @@ jobs:
           PYTHONUTF8: "1"
         run: python scripts/cloud_bootstrap.py
 
+      - name: Settle + apprendimento online
+        env:
+          PYTHONUTF8: "1"
+        run: python scripts/cloud_learn.py
+
       - name: Upload modello (artefatto)
         uses: actions/upload-artifact@v4
         with:
@@ -73,6 +78,15 @@ jobs:
           key: tennis-telegram-sent-${{ github.run_id }}
           restore-keys: |
             tennis-telegram-sent-
+
+      - uses: actions/cache/restore@v4
+        with:
+          path: |
+            data/raw/arbworld_moneyway.json
+            data/raw/oddssafari_dropping.json
+          key: tennis-market-signals-${{ github.run_id }}
+          restore-keys: |
+            tennis-market-signals-
 
       - uses: actions/cache/restore@v4
         with:
@@ -106,6 +120,14 @@ jobs:
         with:
           path: data/processed/telegram_alerts_sent.json
           key: tennis-telegram-sent-${{ github.run_id }}
+
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: |
+            data/raw/arbworld_moneyway.json
+            data/raw/oddssafari_dropping.json
+          key: tennis-market-signals-${{ github.run_id }}
 
       - uses: actions/cache/save@v4
         if: always() && hashFiles('data/processed/our_history.sqlite') != ''
