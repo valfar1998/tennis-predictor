@@ -17,6 +17,8 @@ def advise(
     min_edge: float = MIN_EDGE,
 ) -> dict:
     enriched = enrich_value(prediction, odds_a, odds_b, source=source, method=devig_method)
+    if prediction.get("pinnacle_odds"):
+        enriched["pinnacle_odds"] = prediction["pinnacle_odds"]
     value = enriched.get("value")
     if not value:
         enriched["action"] = "no_bet"

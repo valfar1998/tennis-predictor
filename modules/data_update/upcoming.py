@@ -15,6 +15,8 @@ from modules.data_update.entity_resolution import _norm_name, build_player_index
 from modules.data_update.history import archive_prediction
 from modules.data_update.sackmann import ensure_sackmann_wta, load_tour_matches, load_wta_matches
 from modules.data_update.tennis_abstract import lookup_ta_elo
+from modules.data_update.tennis_data_portal import lookup_pinnacle_odds
+from modules.data_update.tennis_livescore import fetch_tennis_livescore
 from modules.feature_engineering.elo import EloEngine, expected_score
 from modules.feature_engineering.live_features import build_live_features
 from modules.predictor.predict import MatchPredictor
@@ -258,6 +260,10 @@ def _predict_from_betfair(
         pred["model_low_confidence"] = not (resolved_a and resolved_b)
         pred["players_resolved"] = {"a": resolved_a, "b": resolved_b}
 
+        ps = lookup_pinnacle_odds(player_a, player_b, date=pred["date"], tour=tour)
+        if ps:
+            pred["pinnacle_odds"] = ps
+
         advised = advise(pred, float(odd_a), float(odd_b), source="betfair")
         advised["odds_source"] = "betfair"
         advised["book_odds"] = {"a": odd_a, "b": odd_b}
@@ -385,6 +391,16 @@ def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[di
         return []
 
     from modules.data_update.market_signals import sync_market_signals, load_dropping_cache, load_moneyway_cache
+    from modules.data_update.tennis_data_odds import download_tennis_data_odds
+
+    try:
+        download_tennis_data_odds(force=False)
+    except Exception as exc:
+        print(f"tennis-data skip: {exc}")
+    try:
+        fetch_tennis_livescore(force=False)
+    except Exception as exc:
+        print(f"livescore skip: {exc}")
 
     sync_market_signals(force=False)
     moneyway_rows = load_moneyway_cache()

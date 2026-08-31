@@ -39,6 +39,12 @@ def cmd_sync(args: argparse.Namespace) -> None:
         if not ensured.get("ok"):
             print(f"Sackmann WTA skip: {exc}")
     print("Tennis-data odds:", download_tennis_data_odds(force=args.force))
+    try:
+        from modules.data_update.tennis_livescore import fetch_tennis_livescore
+
+        print("Tennis livescore:", fetch_tennis_livescore(force=args.force))
+    except Exception as exc:
+        print(f"Tennis livescore skip: {exc}")
     if args.extra:
         print("Charting MCP:", sync_charting_data(force=args.force, copy=True))
         print("Tennis Abstract Elo:", fetch_all_tennis_abstract_elo(force=args.force))

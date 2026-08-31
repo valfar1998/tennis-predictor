@@ -20,6 +20,10 @@ data/processed/our_history.sqlite*
 data/processed/telegram_alerts_sent.json
 data/models/online_learn_report.json
 data/raw/tennis_abstract_elo*.json
+data/raw/tennis_data_sync.json
+data/raw/tennis_livescore.json
+data/raw/odds/wta/
+data/raw/odds/tournaments/
 data/raw/tennisratio_rankings.json
 data/raw/venue_altitude.json
 

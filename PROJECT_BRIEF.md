@@ -110,6 +110,37 @@ Senza CSV WTA il sistema usa **Tennis Abstract + nomi charting** (fallback TA-on
 
 ---
 
+## Tennis-Data.co.uk (quote + risultati)
+
+Portale [tennis-data.co.uk](http://www.tennis-data.co.uk/) di Joseph Buchdahl — **dati gratuiti** (CSV/Excel).
+
+Modulo: `modules/data_update/tennis_data_portal.py`
+
+| Tipo dati | URL remoto | Cache locale |
+|-----------|------------|--------------|
+| Stagione ATP | `/{year}/{year}.xlsx` | `data/raw/odds/{year}.csv` |
+| Torneo ATP | `/{year}/{slug}.csv` | `data/raw/odds/tournaments/` |
+| Torneo WTA | `/{year}w/{slug}.csv` | `data/raw/odds/wta/{slug}_{year}.csv` |
+| Livescore | [livescore.tennis-data.co.uk](http://livescore.tennis-data.co.uk/) | `data/raw/tennis_livescore.json` |
+
+**Sync automatico** (cache 7 gg stagioni, 3 gg tornei):
+
+```bash
+python main.py sync          # include tennis-data + livescore
+python -c "from modules.data_update.tennis_data_portal import sync_tennis_data_portal; print(sync_tennis_data_portal())"
+```
+
+Tornei prioritari scaricati: Grand Slam + Masters 1000, **ATP e WTA**.
+
+**Integrazione analisi:**
+- Colonne **PSW/PSL** (Pinnacle) → CLV via `lookup_pinnacle_odds()` + `pinnacle_clv.py`
+- Merge storico in training/backtest (`load_odds_all()`)
+- A ogni `predict`, sync leggero se cache scaduta
+
+**Livescore:** widget LiveXscores — parsing best-effort; può fallire se Cloudflare blocca i bot.
+
+---
+
 ## Pipeline di analisi (live)
 
 Comando principale: `python main.py predict` (o pulsante **Aggiorna calendario** in Streamlit, porta 8502).
@@ -122,6 +153,8 @@ Comando principale: `python main.py predict` (o pulsante **Aggiorna calendario**
 | Match storici Sackmann WTA | `sackmann.py` | Elo engine WTA (`SACKMANN_ARCHIVE_PATH/wta` o `data/raw/wta/`) |
 | Elo Tennis Abstract | `tennis_abstract.py` | ATP + WTA cache JSON |
 | Quote live | `betfair.py` | `data/raw/betfair_odds.json` |
+| **Tennis-Data.co.uk** | `tennis_data_portal.py` | Quote ATP stagioni + tornei ATP/WTA (PSW/PSL Pinnacle) |
+| **Livescore** | `tennis_livescore.py` | `livescore.tennis-data.co.uk` → cache JSON |
 | Moneyway volume | `market_signals.py` → [Arbworld 1x2](https://arbworld.net/moneyway/tennis/1x2) | `arbworld_moneyway.json` |
 | Dropping odds | `market_signals.py` → [OddsSafari sport 30](https://www.oddssafari.com/dropping-odds/sports/30) | `oddssafari_dropping.json` |
 | OddsPortal | *non integrato* — vedi sezione [Fonti mercato esterne](#fonti-mercato-esterne) | — |
