@@ -41,7 +41,8 @@ Data (Sackmann + tennis-data + scrapers gratuiti)
 | **Open-Meteo** | `weather.py` | Meteo pre-match |
 | **Altitudine** | `altitude.py` | Correzione tornei ad alta quota |
 
-**Non integrati** (Cloudflare/account): atptour.com diretto, wtatennis.com diretto, Betfair, Pinnacle API.
+**Non integrati** (Cloudflare/account): atptour.com diretto, wtatennis.com diretto, Pinnacle API.
+**Quote live:** Betfair Exchange (`betfair.py`) per value bet vs modello.
 Per ATP live usa **infotennis** o **seeder** come bridge.
 
 ## Setup

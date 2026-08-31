@@ -9,6 +9,9 @@ venv/
 data/raw/atp/*.csv
 data/processed/*.csv
 data/models/*.joblib
+data/raw/betfair.appkey
+data/raw/betfair.session.json
+data/raw/betfair_odds.json
 
 # Nested clone (use data/raw/atp in CI)
 tennis/

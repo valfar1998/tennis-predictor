@@ -76,15 +76,15 @@ def cmd_backtest(args: argparse.Namespace) -> None:
 
 def cmd_predict(args: argparse.Namespace) -> None:
     from modules.data_update.upcoming import build_upcoming
-    from modules.notify.telegram import alert_value_bets
+    from modules.notify.alerts import dispatch_alerts
 
     preds = build_upcoming()
     print(f"Predizioni: {len(preds)}")
     bets = [p for p in preds if p.get("action") == "bet"]
     print(f"Value bet: {len(bets)}")
     if args.notify and bets:
-        sent = alert_value_bets(bets)
-        print(f"Alert Telegram inviati: {sent}")
+        result = dispatch_alerts(preds)
+        print(f"Alert Telegram inviati: {result.get('n_sent', 0)}")
     out = ROOT / "data" / "processed" / "upcoming_predictions.json"
     print(f"Salvato in {out}")
 

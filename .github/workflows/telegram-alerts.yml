@@ -1,0 +1,83 @@
+name: TENNIS_PREDICTOR — Telegram alerts
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Dipendenze
+        run: pip install -r requirements.txt
+
+      - name: Dati Sackmann (minimo per Elo)
+        run: |
+          git clone --depth 1 https://github.com/JeffSackmann/tennis_atp.git data/raw/atp
+
+      - uses: actions/cache/restore@v4
+        with:
+          path: |
+            data/models/best_model.joblib
+            data/models/calibration.json
+            data/processed/features.csv
+          key: tennis-model-${{ github.run_id }}
+          restore-keys: |
+            tennis-model-
+
+      - uses: actions/cache/restore@v4
+        with:
+          path: data/processed/upcoming_predictions.json
+          key: tennis-upcoming-${{ github.run_id }}
+          restore-keys: |
+            tennis-upcoming-
+
+      - uses: actions/cache/restore@v4
+        with:
+          path: data/processed/telegram_alerts_sent.json
+          key: tennis-telegram-sent-${{ github.run_id }}
+          restore-keys: |
+            tennis-telegram-sent-
+
+      - uses: actions/cache/restore@v4
+        with:
+          path: |
+            data/raw/betfair_odds.json
+            data/raw/betfair.session.json
+          key: tennis-betfair-${{ github.run_id }}
+          restore-keys: |
+            tennis-betfair-
+
+      - name: Predizioni + Telegram (no train)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          BETFAIR_APP_KEY: ${{ secrets.BETFAIR_APP_KEY }}
+          BETFAIR_USERNAME: ${{ secrets.BETFAIR_USERNAME }}
+          BETFAIR_PASSWORD: ${{ secrets.BETFAIR_PASSWORD }}
+          PYTHONUTF8: "1"
+        run: python scripts/notify_cloud.py
+
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: |
+            data/raw/betfair_odds.json
+            data/raw/betfair.session.json
+          key: tennis-betfair-${{ github.run_id }}
+
+      - uses: actions/cache/save@v4
+        if: always() && hashFiles('data/processed/telegram_alerts_sent.json') != ''
+        with:
+          path: data/processed/telegram_alerts_sent.json
+          key: tennis-telegram-sent-${{ github.run_id }}
