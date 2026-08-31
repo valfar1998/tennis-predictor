@@ -21,10 +21,17 @@ jobs:
       - name: Dipendenze
         run: pip install -r requirements.txt
 
-      - name: Dati Sackmann (ATP + WTA per Elo e settle)
+      - name: Dati Sackmann ATP/WTA (mirror se JeffSackmann 404)
         run: |
-          git clone --depth 1 https://github.com/JeffSackmann/tennis_atp.git data/raw/atp
-          git clone --depth 1 https://github.com/JeffSackmann/tennis_wta.git data/raw/wta || true
+          python - <<'PY'
+          import json, sys
+          from pathlib import Path
+          sys.path.insert(0, ".")
+          from modules.data_update.sackmann import clone_sackmann_tour
+          for tour in ("atp", "wta"):
+              info = clone_sackmann_tour(tour=tour, dest=Path(f"data/raw/{tour}"))
+              print(tour, json.dumps(info, ensure_ascii=False))
+          PY
 
       - uses: actions/cache/restore@v4
         id: history-cache

@@ -45,13 +45,57 @@ Sistema predittivo tennis da zero, adattando il framework calcistico esistente. 
 
 *(Betfair Exchange è integrato opzionalmente via `.env` per quote live.)*
 
+---
+
+## Dati Sackmann ATP / WTA
+
+Fonte storica match, ranking e giocatori (Jeff Sackmann / Tennis Abstract, licenza CC BY-NC-SA 4.0).
+
+> **Nota (2026):** i repo GitHub originali [JeffSackmann/tennis_atp](https://github.com/JeffSackmann/tennis_atp) e [JeffSackmann/tennis_wta](https://github.com/JeffSackmann/tennis_wta) risultano **404** (rimossi o non raggiungibili). Usare il **mirror archive**.
+
+### Mirror consigliato
+
+[Aneeshers/tennis-sackmann-archive](https://github.com/Aneeshers/tennis-sackmann-archive) — stessi CSV, snapshot aggiornato (ATP + WTA + slam point-by-point):
+
+```
+tennis-sackmann-archive-main/
+├── atp/                    ← atp_matches_*.csv, atp_players.csv
+├── wta/                    ← wta_matches_*.csv, wta_players.csv
+└── slam_pointbypoint/
+```
+
+### Configurazione `.env`
+
+**Opzione consigliata** — una variabile per entrambi i tour:
+
+```env
+SACKMANN_ARCHIVE_PATH=C:\Users\valba\Downloads\tennis-sackmann-archive-main
+```
+
+Il modulo `sackmann.py` risolve automaticamente `{ARCHIVE}/atp` e `{ARCHIVE}/wta`.
+
+**Opzione alternativa** — percorsi singoli (sovrascrivono l'archive):
+
+```env
+SACKMANN_ATP_PATH=C:\...\tennis-sackmann-archive-main\atp
+SACKMANN_WTA_PATH=C:\...\tennis-sackmann-archive-main\wta
+```
+
+**Opzione cloud / CI** — download automatico se i CSV locali mancano:
+
+```bash
+python -c "from modules.data_update.sackmann import clone_sackmann_tour; print(clone_sackmann_tour(tour='wta'))"
+```
+
+Ordine di risoluzione in `sackmann.py`: `SACKMANN_ARCHIVE_PATH` → `SACKMANN_*_PATH` → `data/raw/{atp|wta}/` → clone mirror GitHub.
+
 ### Setup Elo WTA
 
-1. **Sackmann WTA** (opzionale, migliora Elo storico): clona [JeffSackmann/tennis_wta](https://github.com/JeffSackmann/tennis_wta) in `data/raw/wta/` oppure imposta `SACKMANN_WTA_PATH` nel `.env`
+1. **Sackmann WTA** — da archive (cartella `wta/`) per Elo storico e settle pick
 2. **Tennis Abstract WTA** (automatico): scaricato a ogni `predict` → `data/raw/tennis_abstract_elo_wta.json`
 3. **Tour detection**: tornei con "Women's" / "WTA" usano engine WTA separato
 
-Senza CSV Sackmann WTA, il sistema usa **Tennis Abstract + nomi charting** (fallback TA-only).
+Senza CSV WTA il sistema usa **Tennis Abstract + nomi charting** (fallback TA-only, predizioni possibili ma Elo meno ricco).
 
 ---
 
@@ -63,8 +107,8 @@ Comando principale: `python main.py predict` (o pulsante **Aggiorna calendario**
 
 | Step | Modulo | Output |
 |------|--------|--------|
-| Match storici Sackmann ATP | `sackmann.py` | Elo engine ATP (`data/raw/atp/`) |
-| Match storici Sackmann WTA | `sackmann.py` | Elo engine WTA (`data/raw/wta/`) |
+| Match storici Sackmann ATP | `sackmann.py` | Elo engine ATP (`SACKMANN_ARCHIVE_PATH/atp` o `data/raw/atp/`) |
+| Match storici Sackmann WTA | `sackmann.py` | Elo engine WTA (`SACKMANN_ARCHIVE_PATH/wta` o `data/raw/wta/`) |
 | Elo Tennis Abstract | `tennis_abstract.py` | ATP + WTA cache JSON |
 | Quote live | `betfair.py` | `data/raw/betfair_odds.json` |
 | Moneyway volume | `market_signals.py` → [Arbworld 1x2](https://arbworld.net/moneyway/tennis/1x2) | `arbworld_moneyway.json` |
@@ -304,6 +348,9 @@ python main.py predict --notify
 
 # Chiudi pick pendenti + apprendimento
 python main.py learn
+
+# Verifica dati Sackmann (ATP + WTA)
+python -c "from modules.data_update.sackmann import sync_sackmann_atp, sync_sackmann_wta; print(sync_sackmann_atp()); print(sync_sackmann_wta())"
 
 # UI locale
 streamlit run app.py --server.port 8502

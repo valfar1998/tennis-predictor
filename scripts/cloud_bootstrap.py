@@ -3,51 +3,25 @@
 from __future__ import annotations
 
 import json
-import subprocess
 import sys
-import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-SACKMANN_REPO = "https://github.com/JeffSackmann/tennis_atp.git"
-SACKMANN_WTA_REPO = "https://github.com/JeffSackmann/tennis_wta.git"
 ATP_DIR = ROOT / "data" / "raw" / "atp"
 WTA_DIR = ROOT / "data" / "raw" / "wta"
 MIN_YEAR = 2010
 
 
-def _ensure_sackmann_tour(*, repo: str, dest: Path, players_file: str, match_glob: str) -> None:
-    if (dest / players_file).is_file() and any(dest.glob(match_glob)):
-        print(f"Sackmann {dest.name}: cache locale OK")
-        return
-    if dest.exists():
-        shutil.rmtree(dest, ignore_errors=True)
-    dest.mkdir(parents=True, exist_ok=True)
-    subprocess.run(
-        ["git", "clone", "--depth", "1", repo, str(dest)],
-        check=True,
-    )
-    print(f"Sackmann {dest.name}: clone completato")
-
-
 def _ensure_sackmann() -> None:
-    _ensure_sackmann_tour(
-        repo=SACKMANN_REPO,
-        dest=ATP_DIR,
-        players_file="atp_players.csv",
-        match_glob="atp_matches_*.csv",
-    )
-    try:
-        _ensure_sackmann_tour(
-            repo=SACKMANN_WTA_REPO,
-            dest=WTA_DIR,
-            players_file="wta_players.csv",
-            match_glob="wta_matches_*.csv",
-        )
-    except subprocess.CalledProcessError as exc:
-        print(f"Sackmann WTA clone fallito (opzionale): {exc}")
+    from modules.data_update.sackmann import clone_sackmann_tour
+
+    for tour, dest in (("atp", ATP_DIR), ("wta", WTA_DIR)):
+        info = clone_sackmann_tour(tour=tour, dest=dest)
+        print(f"Sackmann {tour.upper()}:", json.dumps(info, ensure_ascii=False))
+        if tour == "atp" and not info.get("ok"):
+            raise SystemExit(f"bootstrap: mancano dati ATP — {info.get('error')}")
 
 
 def main() -> None:

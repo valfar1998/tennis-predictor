@@ -7,6 +7,7 @@ venv/
 
 # Data (large files)
 data/raw/atp/*.csv
+data/raw/wta/*.csv
 data/processed/*.csv
 data/models/*.joblib
 data/raw/betfair.appkey

@@ -13,6 +13,10 @@ RAW_ATP = ROOT / "data" / "raw" / "atp"
 RAW_WTA = ROOT / "data" / "raw" / "wta"
 PROCESSED = ROOT / "data" / "processed"
 
+# JeffSackmann/tennis_* possono risultare 404 su GitHub (rimossi o non raggiungibili).
+# Mirror pubblico con gli stessi CSV (snapshot giu 2026):
+SACKMANN_ARCHIVE = "https://github.com/Aneeshers/tennis-sackmann-archive.git"
+
 _TOUR_CFG = {
     "atp": {
         "env_var": "SACKMANN_ATP_PATH",
@@ -29,20 +33,109 @@ _TOUR_CFG = {
 }
 
 
+def _tour_ready(dest: Path, prefix: str) -> bool:
+    return (dest / f"{prefix}_players.csv").is_file() and any(dest.glob(f"{prefix}_matches_*.csv"))
+
+
+def clone_sackmann_tour(*, tour: str, dest: Path | None = None) -> dict:
+    """Scarica CSV Sackmann: repo originale JeffSackmann, fallback mirror archive."""
+    import subprocess
+
+    tour = tour.lower()
+    if tour not in _TOUR_CFG:
+        raise ValueError(f"Tour non supportato: {tour}")
+    cfg = _TOUR_CFG[tour]
+    prefix = cfg["prefix"]
+    dest = dest or cfg["raw_dir"]
+
+    if _tour_ready(dest, prefix):
+        return {"ok": True, "source": "local", "path": str(dest)}
+
+    dest.mkdir(parents=True, exist_ok=True)
+    if any(dest.iterdir()):
+        shutil.rmtree(dest, ignore_errors=True)
+        dest.mkdir(parents=True, exist_ok=True)
+
+    try:
+        subprocess.run(
+            ["git", "clone", "--depth", "1", cfg["repo"], str(dest)],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=180,
+        )
+        if _tour_ready(dest, prefix):
+            return {"ok": True, "source": "jeffsackmann", "path": str(dest)}
+    except Exception as exc:
+        primary_err = str(exc)
+
+    tmp = dest.parent / f".sackmann_{tour}_clone"
+    shutil.rmtree(tmp, ignore_errors=True)
+    try:
+        subprocess.run(
+            [
+                "git", "clone", "--depth", "1", "--filter=blob:none", "--sparse",
+                SACKMANN_ARCHIVE, str(tmp),
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=240,
+        )
+        subprocess.run(
+            ["git", "-C", str(tmp), "sparse-checkout", "set", tour],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=120,
+        )
+        src = tmp / tour
+        if not _tour_ready(src, prefix):
+            raise FileNotFoundError(f"mirror senza CSV in {tour}/")
+        shutil.rmtree(dest, ignore_errors=True)
+        shutil.copytree(src, dest)
+        return {
+            "ok": True,
+            "source": "archive_mirror",
+            "path": str(dest),
+            "mirror": SACKMANN_ARCHIVE,
+            "note": "JeffSackmann/tennis_{} non disponibile; usato mirror".format(tour),
+        }
+    except Exception as exc:
+        return {
+            "ok": False,
+            "error": str(exc),
+            "primary_error": locals().get("primary_err"),
+            "hint": (
+                f"Scarica manualmente da {SACKMANN_ARCHIVE} (cartella {tour}/) "
+                f"e imposta {cfg['env_var']}"
+            ),
+        }
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
 def _resolve_source(tour: str) -> Path:
     cfg = _TOUR_CFG[tour.lower()]
+    prefix = cfg["prefix"]
+
+    archive = os.environ.get("SACKMANN_ARCHIVE_PATH", "").strip()
+    if archive:
+        sub = Path(archive) / tour.lower()
+        if _tour_ready(sub, prefix):
+            return sub
+
     env = os.environ.get(cfg["env_var"], "").strip()
     if env:
         p = Path(env)
         if p.exists():
             return p
     local = cfg["raw_dir"]
-    prefix = cfg["prefix"]
     if local.exists() and any(local.glob(f"{prefix}_matches_*.csv")):
         return local
     raise FileNotFoundError(
         f"Dati Sackmann {tour.upper()} non trovati. "
-        f"Imposta {cfg['env_var']} o copia i CSV in {local}/"
+        f"Imposta SACKMANN_ARCHIVE_PATH, {cfg['env_var']} o copia i CSV in {local}/"
     )
 
 
@@ -66,8 +159,9 @@ def sync_sackmann_tour(*, tour: str = "atp", copy: bool = False, min_year: int =
                 dst = raw_dir / f.name
                 if not dst.exists() or dst.stat().st_mtime < f.stat().st_mtime:
                     shutil.copy2(f, dst)
-
-    data_dir = raw_dir if (raw_dir / f"{prefix}_players.csv").exists() else src
+        data_dir = raw_dir
+    else:
+        data_dir = src
     match_files = sorted(
         f for f in data_dir.glob(f"{prefix}_matches_*.csv")
         if "doubles" not in f.name and "futures" not in f.name and "qual_chall" not in f.name
@@ -140,33 +234,18 @@ def load_tour_matches(*, min_year: int = 1990, max_year: int | None = None) -> p
     return load_sackmann_matches(tour="atp", min_year=min_year, max_year=max_year)
 
 
+def ensure_sackmann_atp(*, clone: bool = True) -> dict:
+    """Assicura dati ATP in data/raw/atp."""
+    if not clone:
+        return {"ok": _tour_ready(RAW_ATP, "atp"), "path": str(RAW_ATP)}
+    return clone_sackmann_tour(tour="atp")
+
+
 def ensure_sackmann_wta(*, clone: bool = True) -> dict:
-    """Assicura dati WTA in data/raw/wta (clone git se assente)."""
-    cfg = _TOUR_CFG["wta"]
-    raw_dir = cfg["raw_dir"]
-    if (raw_dir / "wta_players.csv").is_file() and any(raw_dir.glob("wta_matches_*.csv")):
-        return {"ok": True, "source": "local", "path": str(raw_dir)}
-
-    if clone:
-        import subprocess
-
-        raw_dir.mkdir(parents=True, exist_ok=True)
-        try:
-            if any(raw_dir.iterdir()):
-                import shutil
-                shutil.rmtree(raw_dir, ignore_errors=True)
-                raw_dir.mkdir(parents=True, exist_ok=True)
-            subprocess.run(
-                ["git", "clone", "--depth", "1", cfg["repo"], str(raw_dir)],
-                check=True,
-                capture_output=True,
-                text=True,
-            )
-            return {"ok": True, "source": "git", "path": str(raw_dir)}
-        except Exception as exc:
-            return {"ok": False, "error": str(exc), "hint": f"Imposta {cfg['env_var']} con i CSV WTA"}
-
-    return {"ok": False, "error": "dati WTA assenti"}
+    """Assicura dati WTA in data/raw/wta (mirror archive se JeffSackmann 404)."""
+    if not clone:
+        return {"ok": _tour_ready(RAW_WTA, "wta"), "path": str(RAW_WTA)}
+    return clone_sackmann_tour(tour="wta")
 
 
 def load_wta_matches(*, min_year: int = 1990, max_year: int | None = None) -> pd.DataFrame:
