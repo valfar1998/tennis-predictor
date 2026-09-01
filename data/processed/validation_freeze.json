@@ -1,0 +1,10 @@
+{
+  "active": true,
+  "started_at": "2026-09-01",
+  "target_n": 250,
+  "min_n": 200,
+  "max_n": 300,
+  "bcr_target": 0.55,
+  "pinnacle_only": true,
+  "policy": "Nessuna modifica strutturale a pesi, feature o retrain ML fino al completamento della finestra. Solo settle + metriche BCR."
+}

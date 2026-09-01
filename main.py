@@ -116,8 +116,10 @@ def cmd_scrape_oddsportal(args: argparse.Namespace) -> None:
 
 def cmd_learn(args: argparse.Namespace) -> None:
     from modules.advisor.live_metrics import format_bcr_status, run_live_audit
+    from modules.advisor.validation_freeze import format_freeze_banner
     from modules.data_update.history import history_summary, settle_pending
 
+    print(format_freeze_banner())
     out = settle_pending(learn=not args.no_learn)
     print(json.dumps(out, indent=2, default=str))
     print("Summary:", json.dumps(history_summary(), indent=2))
@@ -129,7 +131,9 @@ def cmd_learn(args: argparse.Namespace) -> None:
 
 def cmd_metrics(args: argparse.Namespace) -> None:
     from modules.advisor.live_metrics import format_bcr_status, run_live_audit
+    from modules.advisor.validation_freeze import format_freeze_banner
 
+    print(format_freeze_banner())
     audit = run_live_audit(refresh_slippage=not args.no_slippage)
     print(json.dumps(audit, indent=2, ensure_ascii=False))
     print(format_bcr_status(audit.get("bcr_pinnacle", {})))
@@ -142,9 +146,11 @@ def cmd_metrics(args: argparse.Namespace) -> None:
 def cmd_predict(args: argparse.Namespace) -> None:
     from modules.advisor.live_metrics import format_bcr_status, run_live_audit
     from modules.advisor.risk_controls import circuit_breaker_status
+    from modules.advisor.validation_freeze import format_freeze_banner
     from modules.data_update.upcoming import build_upcoming
     from modules.notify.alerts import dispatch_alerts
 
+    print(format_freeze_banner())
     cb = circuit_breaker_status()
     if cb["active"]:
         print(

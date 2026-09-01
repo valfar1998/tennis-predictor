@@ -33,11 +33,16 @@ def notify_learn_summary(*, settle: dict, learn: dict | None, audit: dict) -> bo
         f"Pick settle totali: {learn.get('n_settled') if learn else '—'}\n"
         f"Hit rate: {(learn.get('hit_rate') if learn else None) or '—'}\n"
         f"BCR Pinnacle: {bcr_txt}\n"
-        f"MIN_EDGE appreso: {ol.get('min_edge_suggested', '—')}\n"
-        f"Soglia alert: {ol.get('alert_min_suggested', '—')}\n"
-        f"Dropping boost: {ol.get('dropping_boost', 0)}\n"
-        f"Moneyway boost: {ol.get('moneyway_boost', 0)}"
     )
+    if is_frozen():
+        text += "🔒 FREEZE validazione: pesi invariati (solo metriche)\n"
+    else:
+        text += (
+            f"MIN_EDGE appreso: {ol.get('min_edge_suggested', '—')}\n"
+            f"Soglia alert: {ol.get('alert_min_suggested', '—')}\n"
+            f"Dropping boost: {ol.get('dropping_boost', 0)}\n"
+            f"Moneyway boost: {ol.get('moneyway_boost', 0)}"
+        )
     return bool(send_message(text))
 
 
@@ -54,7 +59,9 @@ def main() -> None:
 
     from modules.data_update.history import settle_pending
     from modules.advisor.live_metrics import format_bcr_status, run_live_audit
+    from modules.advisor.validation_freeze import format_freeze_banner, is_frozen
 
+    print(format_freeze_banner())
     settle_out = settle_pending(learn=True)
     learn_out = settle_out.get("online_learn")
     if isinstance(learn_out, dict):

@@ -74,7 +74,7 @@ def compute_execution_summary() -> dict[str, Any]:
         else "Campione >=100: ROI diventa informativo oltre al BCR"
     )
 
-    return {
+    out = {
         "phase": "paper_trading",
         "n_settled": settled_n,
         "n_pending": hist.get("n_pending"),
@@ -85,6 +85,13 @@ def compute_execution_summary() -> dict[str, Any]:
         "slippage": slippage_summary(),
         "updated_at": datetime.now(timezone.utc).isoformat(),
     }
+    try:
+        from modules.advisor.validation_freeze import governance_status
+
+        out["governance"] = governance_status()
+    except Exception:
+        pass
+    return out
 
 
 def save_live_metrics(report: dict[str, Any] | None = None) -> Path:

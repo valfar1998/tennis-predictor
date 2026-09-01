@@ -28,6 +28,19 @@ def _log(msg: str) -> None:
 
 
 def run_full_ml_pipeline(*, min_year: int | None = None, force_features: bool | None = None) -> dict:
+    from modules.advisor.validation_freeze import blocks_model_retrain, governance_status
+
+    if blocks_model_retrain():
+        status = governance_status()
+        _log("VALIDATION FREEZE: retrain ML saltato — architettura congelata")
+        _log(json.dumps(status, ensure_ascii=False, default=str))
+        return {
+            "ok": True,
+            "skipped": "validation_freeze",
+            "reason": "Nessun retrain durante finestra validazione 200-300 match BCR Pinnacle",
+            "governance": status,
+        }
+
     from modules.data_update.tml import sync_tml
     from modules.data_update.sackmann import clone_sackmann_tour
     from modules.data_update.tennis_data_odds import download_tennis_data_odds

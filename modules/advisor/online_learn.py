@@ -43,6 +43,8 @@ def _roi(rows: list[dict]) -> float | None:
 
 
 def learn_from_settled(*, force: bool = False) -> dict[str, Any]:
+    from modules.advisor.validation_freeze import blocks_online_learn_writes
+
     from modules.data_update.history import load_history
 
     rows = load_history(limit=2000)
@@ -98,6 +100,14 @@ def learn_from_settled(*, force: bool = False) -> dict[str, Any]:
 
     cal = _load_cal()
     ol = cal.get("online_learn") or {}
+
+    if blocks_online_learn_writes():
+        report["online_learn"] = ol
+        report["online_learn_skipped"] = "validation_freeze: report-only, calibration.json invariato"
+        report["ok"] = True
+        report["validation_freeze"] = True
+        REPORT_PATH.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
+        return report
 
     strong = band_stats.get("strong", {})
     premium = band_stats.get("premium", {})
@@ -161,6 +171,10 @@ def learn_from_settled(*, force: bool = False) -> dict[str, Any]:
 
 def effective_min_edge() -> float:
     """Soglia edge da pick chiuse (online learn); fallback a MIN_EDGE."""
+    from modules.advisor.validation_freeze import blocks_online_learn_writes
+
+    if blocks_online_learn_writes():
+        return MIN_EDGE
     cal = _load_cal()
     ol = cal.get("online_learn") or {}
     n = int(ol.get("last_n_settled") or 0)
@@ -172,7 +186,10 @@ def effective_min_edge() -> float:
 def effective_alert_min_playability() -> int:
     """Soglia giocabilità alert Telegram appresa da Strong/Premium hit rate."""
     from modules.advisor.playability import MIN_PLAY_ALERT
+    from modules.advisor.validation_freeze import blocks_playability_learned_adjustments
 
+    if blocks_playability_learned_adjustments():
+        return MIN_PLAY_ALERT
     cal = _load_cal()
     ol = cal.get("online_learn") or {}
     n = int(ol.get("last_n_settled") or 0)
@@ -183,6 +200,10 @@ def effective_alert_min_playability() -> int:
 
 def learned_playability_boost(pred: dict) -> float:
     """Piccolo boost 0–0.08 da segnali mercato se online_learn lo suggerisce."""
+    from modules.advisor.validation_freeze import blocks_playability_learned_adjustments
+
+    if blocks_playability_learned_adjustments():
+        return 0.0
     cal = _load_cal()
     ol = cal.get("online_learn") or {}
     boost = 0.0

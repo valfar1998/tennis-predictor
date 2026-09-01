@@ -556,9 +556,24 @@ Report dettagliato: `data/models/online_learn_report.json`.
 
 ROI sui primi 100 bet è **varianza** — il BCR conferma edge matematico vs mercato sharp.
 
+### Finestra validazione live (FREEZE attivo)
+
+**Priorità assoluta:** accumulare **200–300 match** settle con chiusura Pinnacle senza toccare l'architettura.
+
+| Regola | Stato |
+|--------|--------|
+| Online learn → `calibration.json` | **BLOCCATO** (solo report in `online_learn_report.json`) |
+| Retrain ML (CI `cloud-train`, `weekly-train`) | **BLOCCATO** |
+| Boost giocabilità appresi (moneyway/dropping) | **BLOCCATI** |
+| Settle pick + BCR audit | **ATTIVO** |
+| Predict + Telegram | **ATTIVO** |
+| Circuit breaker drawdown (capitale) | **ATTIVO** (non è learning) |
+
+Config: `data/processed/validation_freeze.json` — disattiva con `LIVE_VALIDATION_FREEZE=0` solo a finestra completata.
+
 ```bash
-python main.py metrics          # audit BCR + slippage → live_metrics.json
-python main.py learn            # settle + BCR aggiornato
+python main.py metrics          # BCR + avanzamento finestra → live_metrics.json
+python main.py learn            # settle only (no weight updates)
 python main.py predict --metrics
 ```
 
