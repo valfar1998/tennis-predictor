@@ -159,6 +159,35 @@ def _last_name(name: str) -> str:
     return parts[-1].lower()
 
 
+def _last_name_series(names: pd.Series) -> pd.Series:
+    """Versione vettorizzata di _last_name (cache su valori unici)."""
+    s = names.fillna("").astype(str).str.strip()
+    uniques = s.unique()
+    mapping = {u: _last_name(u) for u in uniques if u}
+    return s.map(mapping).fillna("")
+
+
+def vector_odds_match_keys(
+    dates: pd.Series,
+    winners: pd.Series,
+    losers: pd.Series,
+) -> pd.Series:
+    """Chiavi join odds/match; NaN dove data o nomi invalidi."""
+    d = pd.to_datetime(dates, errors="coerce")
+    w = winners.fillna("").astype(str).str.strip()
+    l = losers.fillna("").astype(str).str.strip()
+    bad = {"nan", "none", ""}
+    valid = d.notna() & ~w.str.lower().isin(bad) & ~l.str.lower().isin(bad)
+    keys = pd.Series(pd.NA, index=dates.index, dtype=object)
+    if not valid.any():
+        return keys
+    dstr = d.dt.strftime("%Y-%m-%d")
+    keys.loc[valid] = (
+        dstr[valid] + "|" + _last_name_series(w[valid]) + "|" + _last_name_series(l[valid])
+    )
+    return keys
+
+
 def odds_match_key(date_str: str, winner: str, loser: str) -> str:
     return f"{date_str}|{_last_name(winner)}|{_last_name(loser)}"
 

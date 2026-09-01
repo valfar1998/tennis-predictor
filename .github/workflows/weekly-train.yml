@@ -10,7 +10,7 @@ on:
 jobs:
   train:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 360
     steps:
       - uses: actions/checkout@v4
 
@@ -26,6 +26,8 @@ jobs:
       - name: Scarica storico e allena
         env:
           PYTHONUTF8: "1"
+          CLOUD_MIN_YEAR: "2010"
+          CLOUD_FORCE_FEATURES: "1"
         run: python scripts/cloud_bootstrap.py
 
       - name: Upload artefatti modello

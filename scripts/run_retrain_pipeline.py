@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import json
+import os
 import sys
+import time
 import warnings
 from pathlib import Path
 
@@ -21,7 +23,11 @@ from dotenv import load_dotenv
 load_dotenv(ROOT / ".env")
 
 
-def run_full_ml_pipeline(*, min_year: int = 2010, force_features: bool = False) -> dict:
+def _log(msg: str) -> None:
+    print(msg, flush=True)
+
+
+def run_full_ml_pipeline(*, min_year: int | None = None, force_features: bool | None = None) -> dict:
     from modules.data_update.tml import sync_tml
     from modules.data_update.sackmann import clone_sackmann_tour
     from modules.data_update.tennis_data_odds import download_tennis_data_odds
@@ -29,30 +35,47 @@ def run_full_ml_pipeline(*, min_year: int = 2010, force_features: bool = False) 
     from modules.feature_engineering.feature_store import FEATURES_PARQUET, build_feature_store
     from modules.model_training import ModelTrainer
 
-    print("1/5 Sync TML (ATP primario)...")
-    tml_info = sync_tml(clone=True, pull=True)
-    print(json.dumps(tml_info, ensure_ascii=False))
+    if min_year is None:
+        min_year = int(os.environ.get("CLOUD_MIN_YEAR", "2010"))
+    if force_features is None:
+        force_features = os.environ.get("CLOUD_FORCE_FEATURES", "0").strip().lower() in (
+            "1",
+            "true",
+            "yes",
+        )
 
-    print("2/5 Sync Sackmann WTA fallback...")
+    t0 = time.perf_counter()
+
+    _log("1/5 Sync TML (ATP primario)...")
+    tml_info = sync_tml(clone=True, pull=True)
+    _log(json.dumps(tml_info, ensure_ascii=False))
+
+    _log("2/5 Sync Sackmann WTA fallback...")
     for tour in ("wta",):
         try:
             info = clone_sackmann_tour(tour=tour, dest=ROOT / "data" / "raw" / tour)
-            print(f"Sackmann {tour}:", json.dumps(info, ensure_ascii=False))
+            _log(f"Sackmann {tour}: {json.dumps(info, ensure_ascii=False)}")
         except Exception as exc:
-            print(f"Sackmann {tour} skip: {exc}")
+            _log(f"Sackmann {tour} skip: {exc}")
 
-    print("3/5 Odds tennis-data.co.uk...")
+    _log("3/5 Odds tennis-data.co.uk...")
     odds_info = download_tennis_data_odds(force=False)
-    print(json.dumps(odds_info, ensure_ascii=False, default=str))
+    _log(json.dumps(odds_info, ensure_ascii=False, default=str))
 
-    print("4/5 Build matches + feature store Parquet...")
+    _log(f"4/5 Build matches + feature store (min_year={min_year}, force_features={force_features})...")
+    t_feat = time.perf_counter()
     loader = DatasetLoader(min_year=min_year)
     matches = loader.build()
     features = build_feature_store(force=force_features)
-    print(f"matches={len(matches)} features={len(features)} parquet={FEATURES_PARQUET}")
+    _log(
+        f"matches={len(matches)} features={len(features)} parquet={FEATURES_PARQUET} "
+        f"elapsed={time.perf_counter() - t_feat:.0f}s"
+    )
 
-    print("5/5 Training XGBoost + meta-learner...")
+    _log("5/5 Training XGBoost + meta-learner...")
+    t_train = time.perf_counter()
     metrics = ModelTrainer().train(features)
+    _log(f"training elapsed={time.perf_counter() - t_train:.0f}s total={time.perf_counter() - t0:.0f}s")
 
     stacker = metrics.get("stacker") or {}
     brier = stacker.get("brier") or metrics.get("brier")

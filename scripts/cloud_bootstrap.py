@@ -17,7 +17,12 @@ warnings.filterwarnings(
     category=UserWarning,
 )
 
-MIN_YEAR = 2010
+MIN_YEAR = int(__import__("os").environ.get("CLOUD_MIN_YEAR", "2010"))
+FORCE_FEATURES = __import__("os").environ.get("CLOUD_FORCE_FEATURES", "0").strip().lower() in (
+    "1",
+    "true",
+    "yes",
+)
 
 
 def main() -> None:
@@ -29,7 +34,7 @@ def main() -> None:
 
     from scripts.run_retrain_pipeline import run_full_ml_pipeline
 
-    result = run_full_ml_pipeline(min_year=MIN_YEAR, force_features=True)
+    result = run_full_ml_pipeline(min_year=MIN_YEAR, force_features=FORCE_FEATURES)
     print(json.dumps(result, indent=2, default=str))
 
     model = ROOT / "data" / "models" / "best_model.joblib"

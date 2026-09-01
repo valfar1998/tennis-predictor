@@ -10,7 +10,7 @@ on:
 jobs:
   train:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 360
     steps:
       - uses: actions/checkout@v4
 
@@ -42,12 +42,24 @@ jobs:
           restore-keys: |
             tennis-upcoming-
 
+      - uses: actions/cache/restore@v4
+        id: features-cache
+        with:
+          path: |
+            data/processed/matches.csv
+            data/processed/features.csv
+            data/processed/features_v2.parquet
+          key: tennis-features-v1
+          restore-keys: |
+            tennis-features-v1
+            tennis-features-
+
       - name: Scarica storico e allena
         env:
           PYTHONUTF8: "1"
-        run: |
-          python -c "from modules.data_update.tml import sync_tml; print(sync_tml(clone=True, pull=True))"
-          python scripts/run_retrain_pipeline.py
+          CLOUD_MIN_YEAR: "2010"
+          CLOUD_FORCE_FEATURES: "0"
+        run: python scripts/run_retrain_pipeline.py
 
       - name: Settle + apprendimento online
         env:
@@ -144,6 +156,15 @@ jobs:
             data/processed/our_history.sqlite-wal
             data/processed/our_history.sqlite-shm
           key: tennis-history-v1
+
+      - uses: actions/cache/save@v4
+        if: always() && hashFiles('data/processed/features_v2.parquet') != ''
+        with:
+          path: |
+            data/processed/matches.csv
+            data/processed/features.csv
+            data/processed/features_v2.parquet
+          key: tennis-features-v1
 
       - uses: actions/cache/save@v4
         if: always() && hashFiles('data/processed/upcoming_predictions.json') != ''
