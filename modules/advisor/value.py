@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-REAL_SOURCES = {"pinnacle", "ps", "betfair", "book", "b365"}
+REAL_SOURCES = {"pinnacle", "ps", "betfair", "book", "b365", "kambi_unibet", "unibet", "kambi"}
 
 
 def is_real_odds(source: str | None, odds: float | None) -> bool:

@@ -2,6 +2,18 @@
 
 from __future__ import annotations
 
+import sys
+
+
+def _safe_text(msg: str) -> str:
+    text = str(msg or "")
+    enc = getattr(sys.stdout, "encoding", None) or "utf-8"
+    try:
+        text.encode(enc)
+        return text
+    except (UnicodeEncodeError, LookupError):
+        return text.encode(enc, errors="replace").decode(enc, errors="replace")
+
 
 def pct(step: int, total: int) -> int:
     if total <= 0:
@@ -18,16 +30,16 @@ def format_step(step: int, total: int, msg: str) -> str:
 
 
 def log_step(step: int, total: int, msg: str) -> None:
-    print(format_step(step, total, msg), flush=True)
+    print(_safe_text(format_step(step, total, msg)), flush=True)
 
 
 def log_item(current: int, total: int, msg: str, *, indent: bool = True) -> None:
     prefix = "  " if indent else ""
-    print(f"{prefix}[{pct(current, total):3d}%] {current}/{total} — {msg}", flush=True)
+    print(_safe_text(f"{prefix}[{pct(current, total):3d}%] {current}/{total} — {msg}"), flush=True)
 
 
 def log_done(msg: str) -> None:
-    print(f"[100%] — {msg}", flush=True)
+    print(_safe_text(f"[100%] — {msg}"), flush=True)
 
 
 class OpProgress:
@@ -43,7 +55,7 @@ class OpProgress:
         line = format_step(self.step, self.total, msg)
         if self.label:
             line = f"{self.label} {line}"
-        print(line, flush=True)
+        print(_safe_text(line), flush=True)
         return self.step
 
     def item(self, current: int, item_total: int, msg: str) -> None:
@@ -52,7 +64,7 @@ class OpProgress:
             line = f"{self.label}   {line}"
         else:
             line = f"  {line}"
-        print(line, flush=True)
+        print(_safe_text(line), flush=True)
 
     def milestone(self, current: int, item_total: int, msg: str, *, every: int = 1) -> None:
         """Log solo a intervalli (evita spam su loop lunghi)."""

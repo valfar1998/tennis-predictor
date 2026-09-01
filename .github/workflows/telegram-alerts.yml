@@ -94,6 +94,7 @@ jobs:
           BETFAIR_APP_KEY: ${{ secrets.BETFAIR_APP_KEY }}
           BETFAIR_USERNAME: ${{ secrets.BETFAIR_USERNAME }}
           BETFAIR_PASSWORD: ${{ secrets.BETFAIR_PASSWORD }}
+          KAMBI_UNIBET_ENABLED: "1"
           PYTHONUTF8: "1"
         run: python scripts/notify_cloud.py
 

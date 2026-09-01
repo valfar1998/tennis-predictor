@@ -288,208 +288,238 @@ def _predict_from_betfair(
             pa0 = str(ev.get("player_a") or "?")
             pb0 = str(ev.get("player_b") or "?")
             log_item(idx, n_events, f"analisi {pa0} vs {pb0}")
-        player_a = str(ev.get("player_a") or "").strip()
-        player_b = str(ev.get("player_b") or "").strip()
-        odd_a, odd_b = ev.get("odd_a"), ev.get("odd_b")
-        if not player_a or not player_b or not odd_a or not odd_b:
+        try:
+            row = _predict_one_betfair_event(
+                ev,
+                bundles=bundles,
+                predictor=predictor,
+                all_cands=all_cands,
+                moneyway_rows=moneyway_rows,
+                dropping_rows=dropping_rows,
+                min_edge=min_edge,
+                seen=seen,
+            )
+        except Exception as exc:
+            pa = str(ev.get("player_a") or "?")
+            pb = str(ev.get("player_b") or "?")
+            print(f"  skip {pa} vs {pb}: {exc}", flush=True)
             continue
-        if float(odd_a) <= 1.01 or float(odd_b) <= 1.01:
-            continue
+        if row:
+            predictions.append(row)
+    return predictions
 
-        from modules.data_update.entity_resolution import align_odds_to_players
 
+def _predict_one_betfair_event(
+    ev: dict,
+    *,
+    bundles: dict[str, TourBundle],
+    predictor: MatchPredictor,
+    all_cands: list[str],
+    moneyway_rows: list[dict] | None,
+    dropping_rows: list[dict] | None,
+    min_edge: float | None,
+    seen: set[str],
+) -> dict | None:
+    player_a = str(ev.get("player_a") or "").strip()
+    player_b = str(ev.get("player_b") or "").strip()
+    odd_a, odd_b = ev.get("odd_a"), ev.get("odd_b")
+    if not player_a or not player_b or not odd_a or not odd_b:
+        return None
+    if float(odd_a) <= 1.01 or float(odd_b) <= 1.01:
+        return None
+
+    from modules.data_update.entity_resolution import align_odds_to_players
+
+    odds_aligned = align_odds_to_players(
+        player_a,
+        player_b,
+        odd_a,
+        odd_b,
+        runner_a=ev.get("runner_a"),
+        runner_b=ev.get("runner_b"),
+    )
+    if odds_aligned.get("blocked"):
+        return None
+    odd_a, odd_b = odds_aligned["odd_a"], odds_aligned["odd_b"]
+
+    key = "|".join(sorted([_norm_name(player_a), _norm_name(player_b)]))
+    if key in seen:
+        return None
+    seen.add(key)
+
+    competition = str(ev.get("competition") or "")
+    bundle = _pick_bundle(bundles, competition)
+    tour = bundle.tour
+    surface = _infer_surface(competition)
+
+    elo_a, trans_a = _player_elo(
+        bundle, player_a, surface=surface, candidates=all_cands,
+        tourney_name=competition, match_date=str(ev.get("commence_time") or "")[:10],
+    )
+    elo_b, trans_b = _player_elo(
+        bundle, player_b, surface=surface, candidates=all_cands,
+        tourney_name=competition, match_date=str(ev.get("commence_time") or "")[:10],
+    )
+
+    ta_a = lookup_ta_elo(player_a, surface, tour=tour)
+    ta_b = lookup_ta_elo(player_b, surface, tour=tour)
+
+    resolved_a = _player_resolved(
+        player_a, candidates=all_cands, bundle=bundle, ta_elo=ta_a,
+    )
+    resolved_b = _player_resolved(
+        player_b, candidates=all_cands, bundle=bundle, ta_elo=ta_b,
+    )
+
+    match_date = str(ev.get("commence_time") or "")[:10]
+    resolved_a_name = resolve_name(
+        player_a, candidates=all_cands, opponent_name=player_b,
+        tourney_date=match_date, tour=tour,
+    )
+    resolved_b_name = resolve_name(
+        player_b, candidates=all_cands, opponent_name=player_a,
+        tourney_date=match_date, tour=tour,
+    )
+    pid_a = bundle.name_to_id.get(_norm_name(resolved_a_name))
+    pid_b = bundle.name_to_id.get(_norm_name(resolved_b_name))
+    serve_a, ret_a = _sr_elo_for_player(bundle, pid_a, surface)
+    serve_b, ret_b = _sr_elo_for_player(bundle, pid_b, surface)
+
+    weather = None
+    try:
+        from modules.data_update.weather import geocode_city, fetch_weather
+
+        city_guess = competition.split()[-1] if competition else ""
+        geo = geocode_city(city_guess)
+        if geo and ev.get("commence_time"):
+            when = pd.Timestamp(ev.get("commence_time")).to_pydatetime()
+            weather = fetch_weather(geo["lat"], geo["lon"], when)
+    except Exception:
+        weather = None
+
+    live_feat = build_live_features(
+        player_a=player_a,
+        player_b=player_b,
+        pid_a=pid_a,
+        pid_b=pid_b,
+        elo_a=elo_a,
+        elo_b=elo_b,
+        surface=surface,
+        best_of=3,
+        tourney_name=competition,
+        matches=bundle.matches,
+    )
+
+    pred = predictor.predict_match(
+        player_a,
+        player_b,
+        elo_a=elo_a,
+        elo_b=elo_b,
+        surface=surface,
+        best_of=3,
+        surface_wr_a=float(live_feat.get("surface_wr_a") or 0.5),
+        surface_wr_b=float(live_feat.get("surface_wr_b") or 0.5),
+        tourney_name=competition,
+        features=live_feat,
+        tour=tour,
+        weather=weather,
+        serve_elo_a=serve_a,
+        return_elo_a=ret_a,
+        serve_elo_b=serve_b,
+        return_elo_b=ret_b,
+    )
+
+    from modules.data_update.entity_resolution import detect_model_odds_inversion
+
+    if detect_model_odds_inversion(pred.get("p_win_a", 0.5), odd_a, odd_b):
+        odd_a, odd_b = odd_b, odd_a
+        pred["odds_inversion_corrected"] = True
         odds_aligned = align_odds_to_players(
-            player_a,
-            player_b,
-            odd_a,
-            odd_b,
-            runner_a=ev.get("runner_a"),
-            runner_b=ev.get("runner_b"),
+            player_a, player_b, odd_a, odd_b,
+            runner_a=player_a, runner_b=player_b,
         )
-        if odds_aligned.get("blocked"):
-            continue
         odd_a, odd_b = odds_aligned["odd_a"], odds_aligned["odd_b"]
 
-        key = "|".join(sorted([_norm_name(player_a), _norm_name(player_b)]))
-        if key in seen:
-            continue
-        seen.add(key)
-
-        competition = str(ev.get("competition") or "")
-        bundle = _pick_bundle(bundles, competition)
-        tour = bundle.tour
-        surface = _infer_surface(competition)
-
-        elo_a, trans_a = _player_elo(
-            bundle, player_a, surface=surface, candidates=all_cands,
-            tourney_name=competition, match_date=str(ev.get("commence_time") or "")[:10],
-        )
-        elo_b, trans_b = _player_elo(
-            bundle, player_b, surface=surface, candidates=all_cands,
-            tourney_name=competition, match_date=str(ev.get("commence_time") or "")[:10],
-        )
-
-        ta_a = lookup_ta_elo(player_a, surface, tour=tour)
-        ta_b = lookup_ta_elo(player_b, surface, tour=tour)
-
-        resolved_a = _player_resolved(
-            player_a, candidates=all_cands, bundle=bundle, ta_elo=ta_a,
-        )
-        resolved_b = _player_resolved(
-            player_b, candidates=all_cands, bundle=bundle, ta_elo=ta_b,
-        )
-
-        match_date = str(ev.get("commence_time") or "")[:10]
-        resolved_a_name = resolve_name(
-            player_a, candidates=all_cands, opponent_name=player_b,
-            tourney_date=match_date, tour=tour,
-        )
-        resolved_b_name = resolve_name(
-            player_b, candidates=all_cands, opponent_name=player_a,
-            tourney_date=match_date, tour=tour,
-        )
-        pid_a = bundle.name_to_id.get(_norm_name(resolved_a_name))
-        pid_b = bundle.name_to_id.get(_norm_name(resolved_b_name))
-        serve_a, ret_a = _sr_elo_for_player(bundle, pid_a, surface)
-        serve_b, ret_b = _sr_elo_for_player(bundle, pid_b, surface)
-
-        weather = None
+    pred["date"] = match_date
+    pred["tourney"] = ev.get("competition")
+    if ev.get("commence_time"):
         try:
-            from modules.data_update.weather import geocode_city, fetch_weather
-
-            city_guess = competition.split()[-1] if competition else ""
-            geo = geocode_city(city_guess)
-            if geo and ev.get("commence_time"):
-                when = pd.Timestamp(ev.get("commence_time")).to_pydatetime()
-                weather = fetch_weather(geo["lat"], geo["lon"], when)
+            pred["_match_start_dt"] = pd.Timestamp(ev.get("commence_time")).to_pydatetime()
         except Exception:
-            weather = None
+            pass
+    from modules.advisor.risk_controls import infer_tourney_level
 
-        live_feat = build_live_features(
-            player_a=player_a,
-            player_b=player_b,
-            pid_a=pid_a,
-            pid_b=pid_b,
-            elo_a=elo_a,
-            elo_b=elo_b,
-            surface=surface,
-            best_of=3,
-            tourney_name=competition,
-            matches=bundle.matches,
-        )
+    pred["tourney_level"] = infer_tourney_level(pred["tourney"])
+    pred["tour"] = tour
+    pred["betfair_event_id"] = ev.get("event_id")
+    pred["model_low_confidence"] = not (resolved_a and resolved_b)
+    pred["players_resolved"] = {"a": resolved_a, "b": resolved_b}
+    if trans_a.get("in_transition") or trans_b.get("in_transition"):
+        pred["surface_transition"] = {
+            "a": trans_a,
+            "b": trans_b,
+            "note": "peso Elo surface ridotto (primi 7 gg cambio stagione)",
+        }
 
-        pred = predictor.predict_match(
-            player_a,
-            player_b,
-            elo_a=elo_a,
-            elo_b=elo_b,
-            surface=surface,
-            best_of=3,
-            surface_wr_a=float(live_feat.get("surface_wr_a") or 0.5),
-            surface_wr_b=float(live_feat.get("surface_wr_b") or 0.5),
-            tourney_name=competition,
-            features=live_feat,
-            tour=tour,
-            weather=weather,
-            serve_elo_a=serve_a,
-            return_elo_a=ret_a,
-            serve_elo_b=serve_b,
-            return_elo_b=ret_b,
-        )
+    if odds_aligned.get("swapped") or ev.get("odds_swapped"):
+        pred["odds_swapped"] = True
+    pred["odds_verified"] = odds_aligned.get("verified", ev.get("odds_verified"))
+    pred["book_odds"] = {"a": odd_a, "b": odd_b}
 
-        from modules.data_update.entity_resolution import detect_model_odds_inversion
+    from modules.advisor.clv_live import resolve_close_odds
 
-        if detect_model_odds_inversion(pred.get("p_win_a", 0.5), odd_a, odd_b):
-            odd_a, odd_b = odd_b, odd_a
-            pred["odds_inversion_corrected"] = True
-            odds_aligned = align_odds_to_players(
-                player_a, player_b, odd_a, odd_b,
-                runner_a=player_a, runner_b=player_b,
-            )
-            odd_a, odd_b = odds_aligned["odd_a"], odds_aligned["odd_b"]
+    close = resolve_close_odds(
+        player_a,
+        player_b,
+        date=pred["date"],
+        tour=tour,
+        betfair_event_id=ev.get("event_id"),
+        betfair_odds={"a": odd_a, "b": odd_b},
+    )
+    if close:
+        pred["close_odds"] = close
+        pred["pinnacle_odds"] = close  # backward compat
 
-        pred["date"] = match_date
-        pred["tourney"] = ev.get("competition")
-        if ev.get("commence_time"):
-            try:
-                pred["_match_start_dt"] = pd.Timestamp(ev.get("commence_time")).to_pydatetime()
-            except Exception:
-                pass
-        from modules.advisor.risk_controls import infer_tourney_level
+    from modules.data_update.market_signals import lookup_dropping
 
-        pred["tourney_level"] = infer_tourney_level(pred["tourney"])
-        pred["tour"] = tour
-        pred["betfair_event_id"] = ev.get("event_id")
-        pred["model_low_confidence"] = not (resolved_a and resolved_b)
-        pred["players_resolved"] = {"a": resolved_a, "b": resolved_b}
-        if trans_a.get("in_transition") or trans_b.get("in_transition"):
-            pred["surface_transition"] = {
-                "a": trans_a,
-                "b": trans_b,
-                "note": "peso Elo surface ridotto (primi 7 gg cambio stagione)",
+    drop_row = lookup_dropping(player_a, player_b, rows=dropping_rows)
+
+    ret_ctx = {}
+    if pred.get("p_win_a") is not None:
+        pick_side = "A" if float(pred.get("p_win_a", 0.5)) >= 0.5 else "B"
+        pick_pid = pid_a if pick_side == "A" else pid_b
+        pick_prob = float(pred.get("p_win_a") if pick_side == "A" else 1 - pred.get("p_win_a", 0.5))
+        feat_pick = dict(live_feat)
+        if pick_side == "B":
+            feat_pick = {
+                **live_feat,
+                "fatigue_minutes_7d_a": live_feat.get("fatigue_minutes_7d_b"),
+                "rest_days_a": live_feat.get("rest_days_b"),
             }
-
-        if odds_aligned.get("swapped") or ev.get("odds_swapped"):
-            pred["odds_swapped"] = True
-        pred["odds_verified"] = odds_aligned.get("verified", ev.get("odds_verified"))
-        pred["book_odds"] = {"a": odd_a, "b": odd_b}
-
-        from modules.advisor.clv_live import resolve_close_odds
-
-        close = resolve_close_odds(
-            player_a,
-            player_b,
-            date=pred["date"],
-            tour=tour,
-            betfair_event_id=ev.get("event_id"),
-            betfair_odds={"a": odd_a, "b": odd_b},
+        ret_ctx = _retirement_context_for_pick(
+            bundle, pid=pick_pid, live_feat=feat_pick, pick_prob=pick_prob
         )
-        if close:
-            pred["close_odds"] = close
-            pred["pinnacle_odds"] = close  # backward compat
 
-        from modules.data_update.market_signals import lookup_dropping
-
-        drop_row = lookup_dropping(player_a, player_b, rows=dropping_rows)
-
-        ret_ctx = {}
-        if pred.get("p_win_a") is not None:
-            pick_side = "A" if float(pred.get("p_win_a", 0.5)) >= 0.5 else "B"
-            pick_pid = pid_a if pick_side == "A" else pid_b
-            pick_prob = float(pred.get("p_win_a") if pick_side == "A" else 1 - pred.get("p_win_a", 0.5))
-            feat_pick = dict(live_feat)
-            if pick_side == "B":
-                feat_pick = {
-                    **live_feat,
-                    "fatigue_minutes_7d_a": live_feat.get("fatigue_minutes_7d_b"),
-                    "rest_days_a": live_feat.get("rest_days_b"),
-                }
-            ret_ctx = _retirement_context_for_pick(
-                bundle, pid=pick_pid, live_feat=feat_pick, pick_prob=pick_prob
-            )
-
-        advised = advise(
-            pred,
-            float(odd_a),
-            float(odd_b),
-            source="betfair",
-            dropping_row=drop_row,
-            min_edge=min_edge,
-            bookmaker="betfair",
-            retirement_context=ret_ctx,
-        )
-        advised["odds_source"] = "betfair"
-        advised["book_odds"] = {"a": odd_a, "b": odd_b}
-        advised = enrich_playability(
-            advised,
-            moneyway_rows=moneyway_rows,
-            dropping_rows=dropping_rows,
-        )
-        predictions.append(advised)
-        if advised.get("action") == "bet" and (advised.get("playability") or 0) >= MIN_PLAY_ALERT:
-            archive_prediction(advised)
-
-    return predictions
+    advised = advise(
+        pred,
+        float(odd_a),
+        float(odd_b),
+        source=str(ev.get("odds_source") or "betfair"),
+        dropping_row=drop_row,
+        min_edge=min_edge,
+        bookmaker="betfair" if str(ev.get("odds_source") or "betfair") == "betfair" else "default",
+        retirement_context=ret_ctx,
+    )
+    advised["odds_source"] = str(ev.get("odds_source") or "betfair")
+    advised["book_odds"] = {"a": odd_a, "b": odd_b}
+    advised = enrich_playability(
+        advised,
+        moneyway_rows=moneyway_rows,
+        dropping_rows=dropping_rows,
+    )
+    if advised.get("action") == "bet" and (advised.get("playability") or 0) >= MIN_PLAY_ALERT:
+        archive_prediction(advised)
+    return advised
 
 
 def _predict_from_sackmann_recent(
@@ -592,6 +622,29 @@ def _predict_from_sackmann_recent(
     return predictions
 
 
+def _merge_predictions(primary: list[dict], secondary: list[dict]) -> list[dict]:
+    """Unisce predizioni senza duplicare lo stesso match (Betfair ha priorità)."""
+    from modules.data_update.entity_resolution import _norm_name
+
+    out = list(primary)
+    seen = {
+        "|".join(sorted([_norm_name(p.get("player_a", "")), _norm_name(p.get("player_b", ""))]))
+        for p in primary
+        if p.get("player_a") and p.get("player_b")
+    }
+    added = 0
+    for pred in secondary:
+        key = "|".join(sorted([_norm_name(pred.get("player_a", "")), _norm_name(pred.get("player_b", ""))]))
+        if key in seen:
+            continue
+        out.append(pred)
+        seen.add(key)
+        added += 1
+    if added:
+        print(f"  upcoming: +{added} predizioni da Kambi/Unibet", flush=True)
+    return out
+
+
 def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[dict]:
     """Genera predizioni e value bet vs quote bookmaker (Betfair Exchange)."""
     from modules.ops_progress import OpProgress, log_done
@@ -599,7 +652,7 @@ def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[di
     min_year = datetime.now().year - 1
     from modules.data_update.sackmann import ensure_sackmann_atp, ensure_sackmann_wta
 
-    prog = OpProgress(9, label="upcoming")
+    prog = OpProgress(10, label="upcoming")
     prog.next("Sync Sackmann ATP/WTA...")
     ensure_sackmann_atp(clone=True)
     ensure_sackmann_wta(clone=True)
@@ -676,6 +729,33 @@ def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[di
                 )
         except Exception as exc:
             print(f"  betfair skip: {exc}", flush=True)
+
+    try:
+        from modules.data_update.kambi_unibet import fetch_kambi_tennis_odds, load_kambi_cache, merge_odds_events
+
+        prog.next("Palinsesto Kambi/Unibet (ITF/Challenger)...")
+        kambi = fetch_kambi_tennis_odds(force=False)
+        kambi_events = kambi.get("events") if kambi.get("ok") else load_kambi_cache()
+        if kambi_events:
+            merged = merge_odds_events([], kambi_events)
+            print(
+                f"  Kambi: {len(kambi_events)} eventi "
+                f"(ITF {kambi.get('n_itf', sum(1 for e in kambi_events if e.get('is_itf')))}, "
+                f"Challenger {kambi.get('n_challenger', sum(1 for e in kambi_events if e.get('is_challenger')))})",
+                flush=True,
+            )
+            if merged:
+                kambi_preds = _predict_from_betfair(
+                    bundles,
+                    merged,
+                    predictor,
+                    moneyway_rows=moneyway_rows,
+                    dropping_rows=dropping_rows,
+                    min_edge=min_edge,
+                )
+                predictions = _merge_predictions(predictions, kambi_preds)
+    except Exception as exc:
+        print(f"  kambi/unibet skip: {exc}", flush=True)
 
     if not predictions:
         prog.next("Fallback predizioni Sackmann recenti...")

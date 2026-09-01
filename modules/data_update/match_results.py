@@ -1,4 +1,4 @@
-"""Risoluzione risultati match per settle: TML → Betfair → FlashScore → tennis-data."""
+"""Risoluzione risultati match per settle: TML → Betfair → ESPN → RapidAPI → TA → UTS → SofaScore → FlashScore → tennis-data."""
 
 from __future__ import annotations
 
@@ -8,7 +8,20 @@ from typing import Any
 
 import pandas as pd
 
-SETTLE_SOURCES = ("tml", "sackmann", "betfair_settled", "flashscore", "tennis-data")
+SETTLE_SOURCES = (
+    "tml",
+    "sackmann",
+    "betfair_settled",
+    "espn",
+    "rapidapi_tennis",
+    "rapidapi_sofascore",
+    "tennis_abstract_charting",
+    "tennis_abstract_tourney",
+    "uts_final",
+    "sofascore",
+    "flashscore",
+    "tennis-data",
+)
 
 
 @dataclass
@@ -28,6 +41,11 @@ class ResultProviders:
     _sackmann: pd.DataFrame | None = field(default=None, init=False, repr=False)
     _betfair: list[dict] | None = field(default=None, init=False, repr=False)
     _flashscore: list[dict] | None = field(default=None, init=False, repr=False)
+    _espn: list[dict] | None = field(default=None, init=False, repr=False)
+    _rapidapi: list[dict] | None = field(default=None, init=False, repr=False)
+    _tennis_abstract: list[dict] | None = field(default=None, init=False, repr=False)
+    _uts: list[dict] | None = field(default=None, init=False, repr=False)
+    _sofascore: list[dict] | None = field(default=None, init=False, repr=False)
     _tennis_data: pd.DataFrame | None = field(default=None, init=False, repr=False)
     stats: dict[str, Any] = field(default_factory=dict)
 
@@ -58,6 +76,46 @@ class ResultProviders:
             self._flashscore = load_flashscore_results()
             self.stats["flashscore_rows"] = len(self._flashscore)
         return self._flashscore
+
+    def espn(self) -> list[dict]:
+        if self._espn is None:
+            from modules.data_update.espn_livescore import load_espn_results
+
+            self._espn = load_espn_results(days=self.days)
+            self.stats["espn_rows"] = len(self._espn)
+        return self._espn
+
+    def rapidapi(self) -> list[dict]:
+        if self._rapidapi is None:
+            from modules.data_update.rapidapi_tennis import load_rapidapi_results
+
+            self._rapidapi = load_rapidapi_results(days=self.days)
+            self.stats["rapidapi_rows"] = len(self._rapidapi)
+        return self._rapidapi
+
+    def tennis_abstract(self) -> list[dict]:
+        if self._tennis_abstract is None:
+            from modules.data_update.tennis_abstract_results import load_tennis_abstract_results
+
+            self._tennis_abstract = load_tennis_abstract_results(days=self.days)
+            self.stats["tennis_abstract_rows"] = len(self._tennis_abstract)
+        return self._tennis_abstract
+
+    def uts(self) -> list[dict]:
+        if self._uts is None:
+            from modules.data_update.uts_results import load_uts_results
+
+            self._uts = load_uts_results(days=max(self.days, 30))
+            self.stats["uts_rows"] = len(self._uts)
+        return self._uts
+
+    def sofascore(self) -> list[dict]:
+        if self._sofascore is None:
+            from modules.data_update.sofascore_livescore import load_sofascore_results
+
+            self._sofascore = load_sofascore_results(days=self.days)
+            self.stats["sofascore_rows"] = len(self._sofascore)
+        return self._sofascore
 
     def tennis_data(self) -> pd.DataFrame:
         if self._tennis_data is None:
@@ -115,12 +173,31 @@ def _load_recent_tennis_data(*, days: int) -> pd.DataFrame:
 
 
 def _names_match(a: str, b: str, x: str, y: str) -> bool:
+    from modules.data_update.entity_resolution import player_side_match
+
+    direct = player_side_match(a, x) and player_side_match(b, y)
+    swap = player_side_match(a, y) and player_side_match(b, x)
+    if direct or swap:
+        return True
+    # Fallback stretto per formati tennis-data (cognome + iniziale)
     from modules.data_update.entity_resolution import _last_name
 
     la, lb, lx, ly = _last_name(a), _last_name(b), _last_name(x), _last_name(y)
     if not all((la, lb, lx, ly)):
         return False
     return (la == lx and lb == ly) or (la == ly and lb == lx)
+
+
+def infer_tour_from_context(*, tour: str | None, tourney: str | None) -> str:
+    t = str(tour or "").upper()
+    if t in ("ATP", "WTA"):
+        return t
+    name = str(tourney or "").lower()
+    if any(k in name for k in ("women", " wta", "wta ", "ladies", "female")):
+        return "WTA"
+    if any(k in name for k in ("men", " atp", "atp ", "gentlemen", "male")):
+        return "ATP"
+    return "ATP"
 
 
 def _date_ok(match_day: str, result_day: str | None, *, tolerance: int) -> bool:
@@ -187,15 +264,22 @@ def _from_betfair(
     return None
 
 
-def _from_flashscore(
+def _from_live_rows(
     rows: list[dict],
     *,
     player_a: str,
     player_b: str,
     day: str,
+    source: str,
     tolerance: int,
+    tour: str | None = None,
 ) -> SettleResult | None:
+    want_tour = str(tour or "").upper() if tour else ""
     for row in rows:
+        if want_tour:
+            row_tour = str(row.get("tour") or "").upper()
+            if row_tour and row_tour != want_tour:
+                continue
         pa = str(row.get("player_a") or "")
         pb = str(row.get("player_b") or "")
         if not _names_match(player_a, player_b, pa, pb):
@@ -206,13 +290,34 @@ def _from_flashscore(
         winner = str(row.get("winner") or "")
         if not winner:
             continue
+        row_source = str(row.get("source") or source)
         return SettleResult(
             winner=winner,
             loser=str(row.get("loser") or ""),
             score=row.get("score"),
-            source="flashscore",
+            source=row_source,
         )
     return None
+
+
+def _from_flashscore(
+    rows: list[dict],
+    *,
+    player_a: str,
+    player_b: str,
+    day: str,
+    tolerance: int,
+    tour: str | None = None,
+) -> SettleResult | None:
+    return _from_live_rows(
+        rows,
+        player_a=player_a,
+        player_b=player_b,
+        day=day,
+        source="flashscore",
+        tolerance=tolerance,
+        tour=tour,
+    )
 
 
 def resolve_match_result(
@@ -223,11 +328,12 @@ def resolve_match_result(
     tour: str = "ATP",
     providers: ResultProviders | None = None,
     day_tolerance: int = 2,
+    tourney: str | None = None,
 ) -> SettleResult | None:
-    """Cascade: TML (+Sackmann WTA) → Betfair settled → FlashScore → tennis-data."""
+    """Cascade: TML → Sackmann → Betfair → ESPN → RapidAPI → TA → UTS → SofaScore → FlashScore → tennis-data."""
     prov = providers or ResultProviders()
     day = str(date or "")[:10]
-    tour = str(tour or "ATP").upper()
+    tour = infer_tour_from_context(tour=tour, tourney=tourney)
 
     # A — TML (ATP primario)
     if tour == "ATP":
@@ -256,14 +362,106 @@ def resolve_match_result(
     if hit:
         return hit
 
-    # C — FlashScore / diretta.it
-    hit = _from_flashscore(
-        prov.flashscore(), player_a=player_a, player_b=player_b, day=day, tolerance=day_tolerance
+    # C — ESPN live scoreboard (Slam + tornei recenti)
+    hit = _from_live_rows(
+        prov.espn(),
+        player_a=player_a,
+        player_b=player_b,
+        day=day,
+        source="espn",
+        tolerance=day_tolerance,
+        tour=tour,
+    )
+    if hit:
+        return hit
+    if tour:
+        hit = _from_live_rows(
+            prov.espn(),
+            player_a=player_a,
+            player_b=player_b,
+            day=day,
+            source="espn",
+            tolerance=day_tolerance,
+            tour=None,
+        )
+        if hit:
+            return hit
+
+    # D — RapidAPI (SofaScore wrapper + opzionale Tennis API)
+    hit = _from_live_rows(
+        prov.rapidapi(),
+        player_a=player_a,
+        player_b=player_b,
+        day=day,
+        source="rapidapi_sofascore",
+        tolerance=day_tolerance,
+        tour=tour,
+    )
+    if hit:
+        return hit
+    if tour:
+        hit = _from_live_rows(
+            prov.rapidapi(),
+            player_a=player_a,
+            player_b=player_b,
+            day=day,
+            source="rapidapi_sofascore",
+            tolerance=day_tolerance,
+            tour=None,
+        )
+        if hit:
+            return hit
+
+    # E — Tennis Abstract charting (punto-per-punto, Slam)
+    hit = _from_live_rows(
+        prov.tennis_abstract(),
+        player_a=player_a,
+        player_b=player_b,
+        day=day,
+        source="tennis_abstract_charting",
+        tolerance=day_tolerance,
+        tour=tour,
     )
     if hit:
         return hit
 
-    # D — tennis-data.co.uk (risultati + quote storiche)
+    # F — UTS (finali torneo + metadati)
+    hit = _from_live_rows(
+        prov.uts(),
+        player_a=player_a,
+        player_b=player_b,
+        day=day,
+        source="uts_final",
+        tolerance=day_tolerance,
+    )
+    if hit:
+        return hit
+
+    # G — SofaScore diretto (curl_cffi)
+    hit = _from_live_rows(
+        prov.sofascore(),
+        player_a=player_a,
+        player_b=player_b,
+        day=day,
+        source="sofascore",
+        tolerance=day_tolerance,
+    )
+    if hit:
+        return hit
+
+    # H — FlashScore / diretta.it
+    hit = _from_flashscore(
+        prov.flashscore(),
+        player_a=player_a,
+        player_b=player_b,
+        day=day,
+        tolerance=day_tolerance,
+        tour=tour,
+    )
+    if hit:
+        return hit
+
+    # I — tennis-data.co.uk (risultati + quote storiche)
     hit = _from_dataframe(
         prov.tennis_data(),
         player_a=player_a,

@@ -1,4 +1,4 @@
-"""Pre-match archive SQLite + settle pipeline (TML → Betfair → FlashScore → tennis-data)."""
+"""Pre-match archive SQLite + settle pipeline (TML → Betfair → ESPN → RapidAPI → TA → UTS → FlashScore → tennis-data)."""
 
 from __future__ import annotations
 
@@ -172,13 +172,11 @@ def _names_match(a: str, b: str, x: str, y: str) -> bool:
 
 
 def _pick_hit(pick: str, player_a: str, player_b: str, winner: str) -> int:
-    from modules.data_update.entity_resolution import _last_name
+    from modules.data_update.entity_resolution import player_side_match
 
-    lp = _last_name(pick)
-    lw = _last_name(winner)
-    if not lp or not lw:
-        return 0
-    return 1 if lp == lw else 0
+    if player_side_match(pick, winner):
+        return 1
+    return 0
 
 
 def settle_from_results(*, days: int = 14) -> dict[str, Any]:
@@ -211,7 +209,8 @@ def settle_from_results(*, days: int = 14) -> dict[str, Any]:
                 pa,
                 pb,
                 date=day,
-                tour=str(rec.get("tour") or "ATP"),
+                tour=str(rec.get("tour") or ""),
+                tourney=str(rec.get("tourney") or ""),
                 providers=prov,
             )
             if not hit:
@@ -227,7 +226,7 @@ def settle_from_results(*, days: int = 14) -> dict[str, Any]:
             )
             settled += 1
             by_source[hit.source] = by_source.get(hit.source, 0) + 1
-            log_item(i, n_pending, f"chiusa [{hit.source}]: {pa} vs {pb} → hit={hit_val}")
+            log_item(i, n_pending, f"chiusa [{hit.source}]: {pa} vs {pb} -> hit={hit_val}")
         c.commit()
 
     summary = history_summary()
@@ -303,7 +302,7 @@ def _last_name(name: str) -> str:
 def settle_pending(*, learn: bool = True) -> dict[str, Any]:
     from modules.ops_progress import OpProgress, log_done
 
-    prog = OpProgress(6 if learn else 5, label="settle")
+    prog = OpProgress(11 if learn else 10, label="settle")
     prog.next("Refresh CLV close...")
     out = refresh_clv_close()
     try:
@@ -330,6 +329,45 @@ def settle_pending(*, learn: bool = True) -> dict[str, Any]:
             print("  Betfair settled skip: credenziali assenti", flush=True)
     except Exception as exc:
         out["betfair_settled_sync_error"] = str(exc)
+    try:
+        from modules.data_update.espn_livescore import fetch_espn_results
+
+        prog.next("Sync ESPN risultati...")
+        out["espn_sync"] = fetch_espn_results(days=5, force=False)
+    except Exception as exc:
+        out["espn_sync_error"] = str(exc)
+    try:
+        from modules.data_update.sofascore_livescore import fetch_sofascore_results
+
+        prog.next("Sync SofaScore risultati...")
+        out["sofascore_sync"] = fetch_sofascore_results(days=5, force=False)
+    except Exception as exc:
+        out["sofascore_sync_error"] = str(exc)
+    try:
+        from modules.data_update.rapidapi_tennis import fetch_rapidapi_results
+        from modules.data_update.rapidapi_usage import format_usage_line
+
+        prog.next("Sync RapidAPI tennis...")
+        out["rapidapi_sync"] = fetch_rapidapi_results(days=5, force=False)
+        usage = (out["rapidapi_sync"] or {}).get("rapidapi_usage")
+        if usage:
+            print(f"  {format_usage_line(usage)}", flush=True)
+    except Exception as exc:
+        out["rapidapi_sync_error"] = str(exc)
+    try:
+        from modules.data_update.tennis_abstract_results import fetch_tennis_abstract_results
+
+        prog.next("Sync Tennis Abstract charting...")
+        out["tennis_abstract_sync"] = fetch_tennis_abstract_results(days=7, force=False)
+    except Exception as exc:
+        out["tennis_abstract_sync_error"] = str(exc)
+    try:
+        from modules.data_update.uts_results import fetch_uts_results
+
+        prog.next("Sync UTS risultati...")
+        out["uts_sync"] = fetch_uts_results(days=30, force=False)
+    except Exception as exc:
+        out["uts_sync_error"] = str(exc)
     prog.next("Chiudi pick pendenti (cascade)...")
     out.update(settle_from_results())
     if learn:

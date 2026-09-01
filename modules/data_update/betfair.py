@@ -35,7 +35,7 @@ UA = "Mozilla/5.0 (compatible; tennis-predictor/1.0; +local)"
 TENNIS_EVENT_TYPE = "2"
 MARKET_TYPES = ("MATCH_ODDS",)
 SESSION_MAX_AGE_H = 6.0
-BOOK_BATCH = 40
+BOOK_BATCH = 20
 
 
 def _parse_env(path: Path) -> dict[str, str]:
@@ -276,21 +276,41 @@ def _catalogue_range(token: str, app_key: str, start: datetime, end: datetime, *
         return left + right
 
 
-def _market_books(token: str, app_key: str, market_ids: list[str]) -> list[dict]:
-    out: list[dict] = []
-    for i in range(0, len(market_ids), BOOK_BATCH):
-        chunk = market_ids[i : i + BOOK_BATCH]
+def _market_books_chunk(
+    token: str,
+    app_key: str,
+    market_ids: list[str],
+    *,
+    depth: int = 0,
+) -> list[dict]:
+    if not market_ids:
+        return []
+    try:
         books = _rpc(
             "listMarketBook",
             {
-                "marketIds": chunk,
+                "marketIds": market_ids,
                 "priceProjection": {"priceData": ["EX_BEST_OFFERS", "EX_TRADED"], "virtualise": True},
             },
             token,
             app_key,
         ) or []
-        out.extend(books)
         time.sleep(0.12)
+        return books
+    except RuntimeError as exc:
+        if "TOO_MUCH_DATA" not in str(exc) or len(market_ids) <= 1 or depth >= 8:
+            raise
+        mid = len(market_ids) // 2
+        left = _market_books_chunk(token, app_key, market_ids[:mid], depth=depth + 1)
+        right = _market_books_chunk(token, app_key, market_ids[mid:], depth=depth + 1)
+        return left + right
+
+
+def _market_books(token: str, app_key: str, market_ids: list[str]) -> list[dict]:
+    out: list[dict] = []
+    for i in range(0, len(market_ids), BOOK_BATCH):
+        chunk = market_ids[i : i + BOOK_BATCH]
+        out.extend(_market_books_chunk(token, app_key, chunk))
     return out
 
 

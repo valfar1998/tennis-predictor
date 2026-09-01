@@ -56,6 +56,12 @@ jobs:
           PYTHONUTF8: "1"
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+          RAPIDAPI_SOFA_HOST: ${{ secrets.RAPIDAPI_SOFA_HOST }}
+          RAPIDAPI_TENNIS_HOST: ${{ secrets.RAPIDAPI_TENNIS_HOST }}
+          RAPIDAPI_DAILY_LIMIT: "50"
+          RAPIDAPI_FETCH_TENNIS: "0"
+          KAMBI_UNIBET_ENABLED: "1"
         run: python scripts/auto_learn_cloud.py --notify
 
       - name: Audit live metrics & BCR (Pinnacle)

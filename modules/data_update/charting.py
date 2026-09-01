@@ -16,8 +16,14 @@ from modules.lib_paths import LIB_MCP, env_or_lib
 
 ROOT = Path(__file__).resolve().parents[2]
 CHARTING_DIR = ROOT / "data" / "raw" / "charting"
+SYNC_MARKER = CHARTING_DIR / "charting_sync.json"
 GITHUB_ZIP = "https://github.com/JeffSackmann/tennis_MatchChartingProject/archive/refs/heads/master.zip"
 UA = "Mozilla/5.0 (compatible; tennis-predictor/1.0)"
+
+
+def _write_sync_marker(payload: dict) -> None:
+    CHARTING_DIR.mkdir(parents=True, exist_ok=True)
+    SYNC_MARKER.write_text(json.dumps(payload), encoding="utf-8")
 
 
 def _resolve_source() -> Path | None:
@@ -42,12 +48,13 @@ def sync_charting_data(*, force: bool = False, copy: bool = True) -> dict:
                 shutil.copy2(f, dst)
             n += 1
         if n:
-            marker = CHARTING_DIR / ".synced"
-            marker.write_text(json.dumps({"source": str(src), "n_files": n}), encoding="utf-8")
+            try:
+                _write_sync_marker({"source": str(src), "n_files": n})
+            except OSError:
+                pass
             return {"ok": True, "n_files": n, "source": str(src), "from_cache": False}
 
-    marker = CHARTING_DIR / ".synced"
-    if not force and is_fresh(marker, max_age_hours=336):
+    if not force and is_fresh(SYNC_MARKER, max_age_hours=336):
         n = len(list(CHARTING_DIR.glob("charting-*.csv")))
         if n:
             return {"ok": True, "n_files": n, "from_cache": True}
@@ -60,7 +67,10 @@ def sync_charting_data(*, force: bool = False, copy: bool = True) -> dict:
             for name in zf.namelist():
                 if name.endswith(".csv") and "charting-" in name.lower():
                     zf.extract(name, CHARTING_DIR)
-        marker.write_text(json.dumps({"synced": True}), encoding="utf-8")
+        try:
+            _write_sync_marker({"synced": True})
+        except OSError:
+            pass
         n = len(list(CHARTING_DIR.glob("charting-*.csv")))
         return {"ok": True, "n_files": n, "from_cache": False}
     except Exception as exc:
