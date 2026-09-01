@@ -33,15 +33,29 @@ def main() -> None:
             pass
 
     from scripts.run_retrain_pipeline import run_full_ml_pipeline
+    from modules.advisor.validation_freeze import format_freeze_banner
 
+    print(format_freeze_banner())
     result = run_full_ml_pipeline(min_year=MIN_YEAR, force_features=FORCE_FEATURES)
     print(json.dumps(result, indent=2, default=str))
 
     model = ROOT / "data" / "models" / "best_model.joblib"
     stacker = ROOT / "data" / "models" / "meta_learner.joblib"
+    stacker_alt = ROOT / "data" / "models" / "stacker.joblib"
+
+    if result.get("skipped") == "validation_freeze":
+        if model.is_file():
+            print("validation freeze: retrain saltato — modello esistente in cache/repo, OK")
+        else:
+            print(
+                "validation freeze: retrain saltato — best_model.joblib assente "
+                "(normale in CI senza cache modello; predict usa Markov+Elo)"
+            )
+        return
+
     if not model.is_file():
         raise SystemExit("bootstrap: manca data/models/best_model.joblib")
-    if not stacker.is_file() and not (ROOT / "data" / "models" / "stacker.joblib").is_file():
+    if not stacker.is_file() and not stacker_alt.is_file():
         print("warn: meta-learner assente — fallback pesi statici 40/25/35")
 
 

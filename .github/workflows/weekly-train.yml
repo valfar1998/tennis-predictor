@@ -23,6 +23,21 @@ jobs:
       - name: Dipendenze
         run: pip install -r requirements.txt
 
+      - uses: actions/cache/restore@v4
+        with:
+          path: |
+            data/models/best_model.joblib
+            data/models/calibration.json
+            data/models/meta_learner.joblib
+            data/models/stacker.joblib
+            data/models/oof_predictions.joblib
+            data/processed/features.csv
+            data/processed/features_v2.parquet
+            data/processed/matches.csv
+          key: tennis-model-${{ github.run_id }}
+          restore-keys: |
+            tennis-model-
+
       - name: Scarica storico e allena
         env:
           PYTHONUTF8: "1"
