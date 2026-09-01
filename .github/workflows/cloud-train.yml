@@ -11,6 +11,8 @@ jobs:
   train:
     runs-on: ubuntu-latest
     timeout-minutes: 360
+    env:
+      PYTHONUNBUFFERED: "1"
     steps:
       - uses: actions/checkout@v4
 
@@ -66,6 +68,17 @@ jobs:
           key: tennis-model-${{ github.run_id }}
           restore-keys: |
             tennis-model-
+
+      - uses: actions/cache/restore@v4
+        id: sackmann-cache
+        with:
+          path: |
+            data/raw/atp
+            data/raw/wta
+          key: tennis-sackmann-v1
+          restore-keys: |
+            tennis-sackmann-v1
+            tennis-sackmann-
 
       - name: Scarica storico e allena
         env:
@@ -129,6 +142,18 @@ jobs:
           restore-keys: |
             tennis-betfair-
 
+      - name: Dati Sackmann ATP/WTA (mirror se JeffSackmann 404)
+        run: |
+          python - <<'PY'
+          import json, sys
+          from pathlib import Path
+          sys.path.insert(0, ".")
+          from modules.data_update.sackmann import clone_sackmann_tour
+          for tour in ("atp", "wta"):
+              info = clone_sackmann_tour(tour=tour, dest=Path(f"data/raw/{tour}"))
+              print(tour, json.dumps(info, ensure_ascii=False), flush=True)
+          PY
+
       - name: Predizioni + Telegram
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -184,6 +209,14 @@ jobs:
         with:
           path: data/processed/upcoming_predictions.json
           key: tennis-upcoming-${{ github.run_id }}
+
+      - uses: actions/cache/save@v4
+        if: always() && hashFiles('data/raw/atp/atp_players.csv') != ''
+        with:
+          path: |
+            data/raw/atp
+            data/raw/wta
+          key: tennis-sackmann-v1
 
       - name: Notifica esito run
         if: always()

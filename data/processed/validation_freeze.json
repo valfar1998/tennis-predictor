@@ -6,5 +6,7 @@
   "max_n": 300,
   "bcr_target": 0.55,
   "pinnacle_only": true,
-  "policy": "Nessuna modifica strutturale a pesi, feature o retrain ML fino al completamento della finestra. Solo settle + metriche BCR."
+  "policy": "Nessuna modifica strutturale a pesi, feature o retrain ML fino al completamento della finestra. Solo settle + metriche BCR.",
+  "auto_unfreeze": true,
+  "auto_unfreeze_note": "A >=min_n pick Pinnacle settle active passa a false (equivale a LIVE_VALIDATION_FREEZE=0)."
 }

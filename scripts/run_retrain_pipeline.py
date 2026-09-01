@@ -22,6 +22,8 @@ from dotenv import load_dotenv
 
 load_dotenv(ROOT / ".env")
 
+from modules.ops_progress import OpProgress, log_done
+
 
 def _log(msg: str) -> None:
     print(msg, flush=True)
@@ -58,12 +60,13 @@ def run_full_ml_pipeline(*, min_year: int | None = None, force_features: bool | 
         )
 
     t0 = time.perf_counter()
+    prog = OpProgress(5, label="retrain")
 
-    _log("1/5 Sync TML (ATP primario)...")
+    prog.next("Sync TML (ATP primario)...")
     tml_info = sync_tml(clone=True, pull=True)
     _log(json.dumps(tml_info, ensure_ascii=False))
 
-    _log("2/5 Sync Sackmann WTA fallback...")
+    prog.next("Sync Sackmann WTA fallback...")
     for tour in ("wta",):
         try:
             info = clone_sackmann_tour(tour=tour, dest=ROOT / "data" / "raw" / tour)
@@ -71,11 +74,11 @@ def run_full_ml_pipeline(*, min_year: int | None = None, force_features: bool | 
         except Exception as exc:
             _log(f"Sackmann {tour} skip: {exc}")
 
-    _log("3/5 Odds tennis-data.co.uk...")
+    prog.next("Odds tennis-data.co.uk...")
     odds_info = download_tennis_data_odds(force=False)
     _log(json.dumps(odds_info, ensure_ascii=False, default=str))
 
-    _log(f"4/5 Build matches + feature store (min_year={min_year}, force_features={force_features})...")
+    prog.next(f"Build matches + feature store (min_year={min_year}, force_features={force_features})...")
     t_feat = time.perf_counter()
     loader = DatasetLoader(min_year=min_year)
     matches = loader.build()
@@ -85,14 +88,14 @@ def run_full_ml_pipeline(*, min_year: int | None = None, force_features: bool | 
         f"elapsed={time.perf_counter() - t_feat:.0f}s"
     )
 
-    _log("5/5 Training XGBoost + meta-learner...")
+    prog.next("Training XGBoost + meta-learner...")
     t_train = time.perf_counter()
     metrics = ModelTrainer().train(features)
     _log(f"training elapsed={time.perf_counter() - t_train:.0f}s total={time.perf_counter() - t0:.0f}s")
 
     stacker = metrics.get("stacker") or {}
     brier = stacker.get("brier") or metrics.get("brier")
-    print(f"Pipeline completata. Brier stacker/XGB: {brier}")
+    log_done(f"Pipeline completata. Brier stacker/XGB: {brier}")
 
     return {
         "ok": True,

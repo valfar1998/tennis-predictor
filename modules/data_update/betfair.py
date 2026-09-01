@@ -334,10 +334,13 @@ def _fetch_catalogue_and_books(token: str, app_key: str, *, days: int) -> list[d
     now = datetime.now(timezone.utc)
     catalogue: list[dict] = []
     steps = max(1, int(days) * 4)
+    from modules.ops_progress import log_item
+
     for i in range(steps):
         start = now + timedelta(hours=6 * i)
         end = now + timedelta(hours=6 * (i + 1))
         catalogue.extend(_catalogue_range(token, app_key, start, end))
+        log_item(i + 1, steps, "catalogo Betfair")
     grouped = _group_events(catalogue)
     market_ids = [mid for row in grouped.values() for mid in row["markets"].values() if mid]
     books = {str(b.get("marketId")): b for b in _market_books(token, app_key, market_ids)}
@@ -449,7 +452,7 @@ def fetch_betfair_odds(*, force: bool = False, days: int = 7, max_age_hours: flo
         }
         CACHE.parent.mkdir(parents=True, exist_ok=True)
         CACHE.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
-        print(f"ok Betfair tennis: {len(events)} eventi")
+        print(f"ok Betfair tennis: {len(events)} eventi", flush=True)
         return {"ok": True, "n_events": len(events), "from_cache": False, "events": events}
     except HTTPError as exc:
         return {"ok": False, "error": f"HTTP {exc.code}: {exc.reason}", "n_events": 0, "events": [], "from_cache": False}
@@ -585,3 +588,106 @@ def lookup_betfair_match(
             return {**ev, "odd_a": aligned["odd_a"], "odd_b": aligned["odd_b"]}
         return ev
     return None
+
+
+SETTLED_CACHE = RAW / "betfair_settled.json"
+
+
+def fetch_betfair_settled_results(*, days: int = 14, force: bool = False, max_age_hours: float = 2.0) -> dict:
+    """Mercati MATCH_ODDS chiusi con runner WINNER (ultimi N giorni)."""
+    if not force and SETTLED_CACHE.exists():
+        try:
+            data = json.loads(SETTLED_CACHE.read_text(encoding="utf-8"))
+            ts = str(data.get("fetched_at") or "")
+            if ts:
+                fetched = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+                if fetched.tzinfo is None:
+                    fetched = fetched.replace(tzinfo=timezone.utc)
+                age_s = (datetime.now(timezone.utc) - fetched).total_seconds()
+                if age_s < max_age_hours * 3600 and data.get("results") is not None:
+                    return data
+        except Exception:
+            pass
+
+    app_key = _app_key()
+    if not app_key:
+        return {"ok": False, "error": "BETFAIR_APP_KEY non trovata", "results": []}
+
+    try:
+        token = login(force=False)
+        now = datetime.now(timezone.utc)
+        start = now - timedelta(days=days)
+        from modules.ops_progress import log_step
+
+        log_step(1, 3, "Betfair settled: catalogo mercati...")
+        catalogue = _catalogue_range(token, app_key, start, now)
+        grouped = _group_events(catalogue)
+        market_ids = [mid for row in grouped.values() for mid in row["markets"].values() if mid]
+        log_step(2, 3, f"Betfair settled: quote {len(market_ids)} mercati...")
+        books = {str(b.get("marketId")): b for b in _market_books(token, app_key, market_ids)}
+
+        results: list[dict] = []
+        for row in grouped.values():
+            mid = row["markets"].get("MATCH_ODDS")
+            if not mid or str(mid) not in books:
+                continue
+            book = books[str(mid)]
+            if str(book.get("status") or "").upper() not in ("CLOSED", "SETTLED"):
+                continue
+            names = row["runners"].get("MATCH_ODDS") or {}
+            winner_name = loser_name = None
+            for runner in book.get("runners") or []:
+                sid = runner.get("selectionId")
+                name = names.get(int(sid) if sid is not None else -1, "")
+                status = str(runner.get("status") or "").upper()
+                if status == "WINNER":
+                    winner_name = name
+                elif status == "LOSER" and name:
+                    loser_name = name
+            if not winner_name:
+                continue
+            pa, pb = row["player_a"], row["player_b"]
+            if _player_match(winner_name, pa):
+                winner, loser = pa, pb if loser_name is None else loser_name
+            elif _player_match(winner_name, pb):
+                winner, loser = pb, pa if loser_name is None else loser_name
+            else:
+                winner, loser = winner_name, loser_name or (pb if winner_name != pa else pa)
+            results.append(
+                {
+                    "event_id": row["event_id"],
+                    "player_a": pa,
+                    "player_b": pb,
+                    "winner": winner,
+                    "loser": loser,
+                    "commence_time": row.get("commence_time"),
+                    "date": str(row.get("commence_time") or "")[:10],
+                    "competition": row.get("competition"),
+                    "source": "betfair_settled",
+                }
+            )
+
+        log_step(3, 3, f"Betfair settled: {len(results)} risultati")
+        payload = {
+            "ok": True,
+            "fetched_at": datetime.now(timezone.utc).isoformat(),
+            "n_results": len(results),
+            "results": results,
+        }
+        SETTLED_CACHE.parent.mkdir(parents=True, exist_ok=True)
+        SETTLED_CACHE.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        return payload
+    except Exception as exc:
+        return {"ok": False, "error": str(exc), "results": []}
+
+
+def load_betfair_settled_results(*, days: int = 14) -> list[dict]:
+    if SETTLED_CACHE.exists():
+        try:
+            data = json.loads(SETTLED_CACHE.read_text(encoding="utf-8"))
+            if data.get("results"):
+                return data["results"]
+        except Exception:
+            pass
+    info = fetch_betfair_settled_results(days=days, force=False)
+    return info.get("results") or []

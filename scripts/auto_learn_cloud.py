@@ -12,6 +12,7 @@ sys.path.insert(0, str(ROOT))
 
 
 def notify_learn_summary(*, settle: dict, learn: dict | None, audit: dict) -> bool:
+    from modules.advisor.validation_freeze import is_frozen
     from modules.notify.alerts import BRAND, brand_header
     from modules.notify.telegram import load_credentials, send_message
 
@@ -59,27 +60,34 @@ def main() -> None:
 
     from modules.data_update.history import settle_pending
     from modules.advisor.live_metrics import format_bcr_status, run_live_audit
-    from modules.advisor.validation_freeze import format_freeze_banner, is_frozen
+    from modules.advisor.validation_freeze import format_freeze_banner
+    from modules.ops_progress import OpProgress, log_done
 
     print(format_freeze_banner())
+    prog = OpProgress(4 if args.notify else 3, label="auto-learn")
+    prog.next("Settle + online learn...")
     settle_out = settle_pending(learn=True)
     learn_out = settle_out.get("online_learn")
+    prog.next("Report online learn...")
     if isinstance(learn_out, dict):
         print("Online learn:", json.dumps(learn_out, indent=2, ensure_ascii=False))
     elif settle_out.get("online_learn_error"):
         print("Online learn skip:", settle_out["online_learn_error"])
 
+    prog.next("Audit BCR...")
     audit = run_live_audit(refresh_slippage=True)
     print(format_bcr_status(audit.get("bcr_pinnacle", {})))
     print(json.dumps({"settle": settle_out, "audit_phase": audit.get("phase")}, indent=2, default=str))
 
     if args.notify:
+        prog.next("Telegram riepilogo...")
         sent = notify_learn_summary(
             settle=settle_out,
             learn=learn_out if isinstance(learn_out, dict) else None,
             audit=audit,
         )
         print("telegram learn summary:", "sent" if sent else "skip")
+    log_done("auto-learn completato")
 
 
 if __name__ == "__main__":

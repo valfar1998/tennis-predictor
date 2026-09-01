@@ -520,7 +520,15 @@ Ogni predizione con `action=bet` viene salvata in SQLite con:
 
 ### Settle automatico
 
-`settle_from_sackmann()` confronta pick pendenti con risultati Sackmann ATP/WTA (ultimi 14 gg):
+`settle_from_results()` confronta pick pendenti con risultati a cascata (ultimi 14 gg):
+
+1. **TML** (ATP primario, `git pull` prima del settle)
+2. **Sackmann** (WTA + gap-fill ATP)
+3. **Betfair settled** (mercati MATCH_ODDS chiusi con runner WINNER)
+4. **FlashScore / diretta.it** (feed ninja, best-effort)
+5. **tennis-data.co.uk** (CSV Winner/Loser storici)
+
+Ogni pick chiusa registra `settle_source` in `our_history.sqlite`.
 
 - match per cognome + data (±2 giorni)
 - calcola `hit` (1/0), `winner`, `score`
@@ -569,7 +577,7 @@ ROI sui primi 100 bet è **varianza** — il BCR conferma edge matematico vs mer
 | Predict + Telegram | **ATTIVO** |
 | Circuit breaker drawdown (capitale) | **ATTIVO** (non è learning) |
 
-Config: `data/processed/validation_freeze.json` — disattiva con `LIVE_VALIDATION_FREEZE=0` solo a finestra completata.
+Config: `data/processed/validation_freeze.json` — si disattiva automaticamente a **200+ pick Pinnacle settle** (`active: false`); override manuale con `LIVE_VALIDATION_FREEZE=0` o `=1`.
 
 ```bash
 python main.py metrics          # BCR + avanzamento finestra → live_metrics.json

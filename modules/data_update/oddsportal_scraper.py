@@ -258,6 +258,7 @@ def scrape_oddsportal_close(
     urls = tournament_urls or default_tournament_urls()
     scraped: list[dict] = []
     errors: list[str] = []
+    from modules.ops_progress import log_item
 
     with sync_playwright() as p:
         launch_kwargs: dict[str, Any] = {"headless": headless}
@@ -290,6 +291,7 @@ def scrape_oddsportal_close(
                 for row in rows:
                     if len(scraped) >= max_matches:
                         break
+                    log_item(len(scraped) + 1, max_matches, f"scrape {row.get('player_a', '?')} vs {row.get('player_b', '?')}")
                     if enrich_h2h:
                         row = _enrich_from_h2h(page, row)
                         time.sleep(delay_s)

@@ -16,6 +16,7 @@ load_dotenv(ROOT / ".env")
 
 
 def cmd_sync(args: argparse.Namespace) -> None:
+    from modules.ops_progress import OpProgress, log_done
     from modules.data_update.sackmann import sync_sackmann_atp, sync_sackmann_wta
     from modules.data_update.tml import sync_tml
     from modules.data_update.player_registry import registry_stats, sync_sackmann_players, sync_tml_players
@@ -31,16 +32,23 @@ def cmd_sync(args: argparse.Namespace) -> None:
     from modules.data_update.seeder_bridge import export_seeder_data
     import pandas as pd
 
-    print("TML Database:", sync_tml(clone=args.copy, pull=True))
+    base_steps = 6 + (8 if args.extra else 0)
+    prog = OpProgress(base_steps, label="sync")
+
+    prog.next("TML Database...")
+    print(sync_tml(clone=args.copy, pull=True))
     try:
+        prog.next("Player registry...")
         print("Player registry ATP:", sync_sackmann_players(tour="ATP"))
         print("Player registry WTA:", sync_sackmann_players(tour="WTA"))
         print("Player registry TML:", sync_tml_players())
         print("Registry stats:", registry_stats())
     except Exception as exc:
         print(f"Player registry skip: {exc}")
+    prog.next("Sackmann ATP...")
     print("Sackmann ATP:", sync_sackmann_atp(copy=args.copy))
     try:
+        prog.next("Sackmann WTA...")
         print("Sackmann WTA:", sync_sackmann_wta(copy=args.copy))
     except FileNotFoundError as exc:
         from modules.data_update.sackmann import ensure_sackmann_wta
@@ -48,20 +56,29 @@ def cmd_sync(args: argparse.Namespace) -> None:
         print(f"Sackmann WTA auto: {ensured}")
         if not ensured.get("ok"):
             print(f"Sackmann WTA skip: {exc}")
+    prog.next("Tennis-data odds...")
     print("Tennis-data odds:", download_tennis_data_odds(force=args.force))
     try:
+        prog.next("Tennis livescore...")
         from modules.data_update.tennis_livescore import fetch_tennis_livescore
 
         print("Tennis livescore:", fetch_tennis_livescore(force=args.force))
     except Exception as exc:
         print(f"Tennis livescore skip: {exc}")
     if args.extra:
+        prog.next("Charting MCP...")
         print("Charting MCP:", sync_charting_data(force=args.force, copy=True))
+        prog.next("Tennis Abstract Elo...")
         print("Tennis Abstract Elo:", fetch_all_tennis_abstract_elo(force=args.force))
+        prog.next("CourtSpeed CPI...")
         print("CourtSpeed CPI:", fetch_courtspeed_cpi(force=args.force))
+        prog.next("UTS CPI (fallback)...")
         print("UTS CPI (fallback):", fetch_uts_cpi(force=args.force))
+        prog.next("TennisRatio skills...")
         print("TennisRatio skills:", fetch_tennisratio_rankings(force=args.force))
+        prog.next("InfoTennis...")
         print("InfoTennis:", sync_infotennis_data())
+        prog.next("Tour feeds...")
         print("Tour feeds:", sync_tour_feeds(force=args.force))
         seeder = export_seeder_data()
         print("Seeder bridge:", seeder)
@@ -69,6 +86,7 @@ def cmd_sync(args: argparse.Namespace) -> None:
         if players_path.exists():
             players = pd.read_csv(players_path, nrows=500)
             print("Wikidata:", enrich_players_from_wikidata(players, force=args.force))
+    log_done("sync completato")
 
 
 def cmd_build(args: argparse.Namespace) -> None:
@@ -118,15 +136,21 @@ def cmd_learn(args: argparse.Namespace) -> None:
     from modules.advisor.live_metrics import format_bcr_status, run_live_audit
     from modules.advisor.validation_freeze import format_freeze_banner
     from modules.data_update.history import history_summary, settle_pending
+    from modules.ops_progress import OpProgress, log_done
 
     print(format_freeze_banner())
+    prog = OpProgress(3 if args.no_learn else 4, label="learn")
+    prog.next("Settle pick pendenti...")
     out = settle_pending(learn=not args.no_learn)
     print(json.dumps(out, indent=2, default=str))
+    prog.next("Riepilogo storico...")
     print("Summary:", json.dumps(history_summary(), indent=2))
+    prog.next("Audit BCR + slippage...")
     audit = run_live_audit(refresh_slippage=True)
     print(format_bcr_status(audit.get("bcr_pinnacle", {})))
     if audit.get("slippage", {}).get("recommendation"):
         print("Slippage:", audit["slippage"]["recommendation"])
+    log_done("learn completato")
 
 
 def cmd_metrics(args: argparse.Namespace) -> None:

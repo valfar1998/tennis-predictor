@@ -103,6 +103,13 @@ def save_live_metrics(report: dict[str, Any] | None = None) -> Path:
 
 def run_live_audit(*, refresh_slippage: bool = True) -> dict[str, Any]:
     """Audit completo fase live (chiamata da main.py metrics / predict)."""
+    try:
+        from modules.advisor.validation_freeze import maybe_auto_unfreeze
+
+        maybe_auto_unfreeze()
+    except Exception:
+        pass
+
     if refresh_slippage:
         try:
             from modules.advisor.slippage_audit import refresh_slippage_snapshots

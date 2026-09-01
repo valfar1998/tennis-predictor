@@ -278,8 +278,16 @@ def _predict_from_betfair(
     predictions: list[dict] = []
     seen: set[str] = set()
     all_cands = _all_candidates(bundles)
+    n_events = len(betfair_events)
+    every = max(1, n_events // 10) if n_events else 1
 
-    for ev in betfair_events:
+    for idx, ev in enumerate(betfair_events, 1):
+        if idx == 1 or idx == n_events or idx % every == 0:
+            from modules.ops_progress import log_item
+
+            pa0 = str(ev.get("player_a") or "?")
+            pb0 = str(ev.get("player_b") or "?")
+            log_item(idx, n_events, f"analisi {pa0} vs {pb0}")
         player_a = str(ev.get("player_a") or "").strip()
         player_b = str(ev.get("player_b") or "").strip()
         odd_a, odd_b = ev.get("odd_a"), ev.get("odd_b")
@@ -586,22 +594,33 @@ def _predict_from_sackmann_recent(
 
 def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[dict]:
     """Genera predizioni e value bet vs quote bookmaker (Betfair Exchange)."""
+    from modules.ops_progress import OpProgress, log_done
+
     min_year = datetime.now().year - 1
+    from modules.data_update.sackmann import ensure_sackmann_atp, ensure_sackmann_wta
+
+    prog = OpProgress(9, label="upcoming")
+    prog.next("Sync Sackmann ATP/WTA...")
+    ensure_sackmann_atp(clone=True)
     ensure_sackmann_wta(clone=True)
     from modules.data_update.tennis_abstract import fetch_tennis_abstract_elo
 
+    prog.next("Tennis Abstract Elo...")
     fetch_tennis_abstract_elo(tour="wta", force=False)
     fetch_tennis_abstract_elo(tour="atp", force=False)
 
     bundles: dict[str, TourBundle] = {}
+    prog.next("Carica bundle tour ATP/WTA...")
     for tour in ("ATP", "WTA"):
         bundle = _load_tour_bundle(tour=tour, min_year=min_year)
         if bundle:
             bundles[tour] = bundle
 
     if not bundles:
+        print("  upcoming: nessun bundle tour disponibile", flush=True)
         return []
 
+    prog.next("Player graph + biografiche...")
     try:
         from modules.data_update.player_graph import build_match_edges, sync_player_biographics
 
@@ -612,19 +631,20 @@ def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[di
             if not bundle.matches.empty:
                 build_match_edges(bundle.matches, tour=tour, limit=8000)
     except Exception as exc:
-        print(f"player graph skip: {exc}")
+        print(f"  player graph skip: {exc}", flush=True)
 
     from modules.data_update.market_signals import sync_market_signals, load_dropping_cache, load_moneyway_cache
     from modules.data_update.tennis_data_odds import download_tennis_data_odds
 
+    prog.next("Dati mercato (tennis-data, livescore, signals)...")
     try:
         download_tennis_data_odds(force=False)
     except Exception as exc:
-        print(f"tennis-data skip: {exc}")
+        print(f"  tennis-data skip: {exc}", flush=True)
     try:
         fetch_tennis_livescore(force=False)
     except Exception as exc:
-        print(f"livescore skip: {exc}")
+        print(f"  livescore skip: {exc}", flush=True)
 
     sync_market_signals(force=False)
     moneyway_rows = load_moneyway_cache()
@@ -642,6 +662,7 @@ def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[di
         try:
             from modules.data_update.betfair import fetch_betfair_odds, load_betfair_cache
 
+            prog.next("Predizioni da Betfair...")
             bf = fetch_betfair_odds(days=min(days_ahead, 7), max_age_hours=1.0)
             events = bf.get("events") if bf.get("ok") else load_betfair_cache()
             if events:
@@ -654,9 +675,10 @@ def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[di
                     min_edge=min_edge,
                 )
         except Exception as exc:
-            print(f"betfair skip: {exc}")
+            print(f"  betfair skip: {exc}", flush=True)
 
     if not predictions:
+        prog.next("Fallback predizioni Sackmann recenti...")
         all_cands = _all_candidates(bundles)
         for bundle in bundles.values():
             predictions.extend(
@@ -670,6 +692,7 @@ def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[di
                 )
             )
 
+    prog.next("Limiti esposizione + salvataggio...")
     predictions = apply_daily_exposure_limits(predictions)
     for pred in predictions:
         pred["risk_session"] = {
@@ -679,4 +702,5 @@ def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[di
 
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUT_PATH.write_text(json.dumps(predictions, indent=2, default=str), encoding="utf-8")
+    log_done(f"upcoming: {len(predictions)} predizioni, {sum(1 for p in predictions if p.get('action')=='bet')} bet")
     return predictions

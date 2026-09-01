@@ -1,14 +1,11 @@
-"""Pre-match archive SQLite + settle pipeline (Sackmann results)."""
+"""Pre-match archive SQLite + settle pipeline (TML → Betfair → FlashScore → tennis-data)."""
 
 from __future__ import annotations
 
-import json
 import sqlite3
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
-
-import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
 DB = ROOT / "data" / "processed" / "our_history.sqlite"
@@ -61,6 +58,7 @@ _EXTRA_COLS = (
     ("close_source", "TEXT"),
     ("close_odds_a", "REAL"),
     ("close_odds_b", "REAL"),
+    ("settle_source", "TEXT"),
 )
 
 
@@ -164,25 +162,6 @@ def history_summary() -> dict[str, Any]:
     }
 
 
-def _load_recent_sackmann(*, days: int = 14) -> pd.DataFrame:
-    from modules.data_update.sackmann import load_sackmann_matches
-
-    cutoff = datetime.now() - timedelta(days=days)
-    frames: list[pd.DataFrame] = []
-    for tour in ("atp", "wta"):
-        try:
-            df = load_sackmann_matches(tour=tour, min_year=cutoff.year - 1)
-            if not df.empty:
-                frames.append(df)
-        except FileNotFoundError:
-            continue
-    if not frames:
-        return pd.DataFrame()
-    out = pd.concat(frames, ignore_index=True)
-    out["tourney_date"] = pd.to_datetime(out["tourney_date"], errors="coerce")
-    return out[out["tourney_date"] >= cutoff]
-
-
 def _names_match(a: str, b: str, x: str, y: str) -> bool:
     from modules.data_update.entity_resolution import _last_name
 
@@ -202,53 +181,70 @@ def _pick_hit(pick: str, player_a: str, player_b: str, winner: str) -> int:
     return 1 if lp == lw else 0
 
 
-def settle_from_sackmann(*, days: int = 14) -> dict[str, Any]:
-    """Chiude pick pendenti usando risultati Sackmann ATP/WTA."""
-    results = _load_recent_sackmann(days=days)
-    if results.empty:
-        return {"settled": 0, "reason": "no_sackmann_results"}
+def settle_from_results(*, days: int = 14) -> dict[str, Any]:
+    """Chiude pick pendenti con cascade risultati (TML → Sackmann → Betfair → FlashScore → tennis-data)."""
+    from modules.data_update.match_results import ResultProviders, resolve_match_result
+    from modules.ops_progress import log_item, pct
 
+    prov = ResultProviders(days=days)
     now = datetime.now(timezone.utc).isoformat()
     settled = 0
+    by_source: dict[str, int] = {}
+
     with _conn() as c:
         c.row_factory = sqlite3.Row
         pending = c.execute(
             "SELECT * FROM matches WHERE hit IS NULL AND action = 'bet'"
         ).fetchall()
+        n_pending = len(pending)
+        every = max(1, n_pending // 10) if n_pending else 1
 
-        for rec in pending:
+        for i, rec in enumerate(pending, 1):
             rec = dict(rec)
             day = str(rec.get("date") or "")[:10]
             if not day:
+                if i == 1 or i == n_pending or i % every == 0:
+                    log_item(i, n_pending, "skip: data mancante")
                 continue
             pa, pb = str(rec["player_a"]), str(rec["player_b"])
-            hit_row = None
-            for _, row in results.iterrows():
-                rday = pd.Timestamp(row["tourney_date"]).strftime("%Y-%m-%d")
-                if abs((pd.Timestamp(rday) - pd.Timestamp(day)).days) > 2:
-                    continue
-                wname = str(row.get("winner_name") or "")
-                lname = str(row.get("loser_name") or "")
-                if not _names_match(pa, pb, wname, lname):
-                    continue
-                hit_row = (wname, str(row.get("score") or ""))
-                break
-            if not hit_row:
+            hit = resolve_match_result(
+                pa,
+                pb,
+                date=day,
+                tour=str(rec.get("tour") or "ATP"),
+                providers=prov,
+            )
+            if not hit:
+                if i == 1 or i == n_pending or i % every == 0:
+                    log_item(i, n_pending, f"in attesa: {pa} vs {pb}")
                 continue
-            winner, score = hit_row
             pick = str(rec.get("pick") or "")
-            hit = _pick_hit(pick, pa, pb, winner)
+            hit_val = _pick_hit(pick, pa, pb, hit.winner)
             c.execute(
-                """UPDATE matches SET hit=?, winner=?, score=?, settled_at=?
+                """UPDATE matches SET hit=?, winner=?, score=?, settled_at=?, settle_source=?
                    WHERE match_key=?""",
-                (hit, winner, score, now, rec["match_key"]),
+                (hit_val, hit.winner, hit.score, now, hit.source, rec["match_key"]),
             )
             settled += 1
+            by_source[hit.source] = by_source.get(hit.source, 0) + 1
+            log_item(i, n_pending, f"chiusa [{hit.source}]: {pa} vs {pb} → hit={hit_val}")
         c.commit()
 
     summary = history_summary()
     summary["settled"] = settled
+    summary["settle_by_source"] = by_source
+    summary["settle_providers"] = prov.stats
+    if n_pending:
+        print(
+            f"  settle riepilogo: {settled}/{n_pending} ({pct(settled, n_pending)}%) pick chiuse",
+            flush=True,
+        )
     return summary
+
+
+def settle_from_sackmann(*, days: int = 14) -> dict[str, Any]:
+    """Backward compat — delega a settle_from_results."""
+    return settle_from_results(days=days)
 
 
 def refresh_clv_close(*, days: int = 14) -> dict[str, Any]:
@@ -305,13 +301,52 @@ def _last_name(name: str) -> str:
 
 
 def settle_pending(*, learn: bool = True) -> dict[str, Any]:
+    from modules.ops_progress import OpProgress, log_done
+
+    prog = OpProgress(6 if learn else 5, label="settle")
+    prog.next("Refresh CLV close...")
     out = refresh_clv_close()
-    out.update(settle_from_sackmann())
+    try:
+        from modules.data_update.tml import sync_tml
+
+        prog.next("Sync TML (git pull)...")
+        out["tml_sync"] = sync_tml(clone=False, pull=True)
+    except Exception as exc:
+        out["tml_sync_error"] = str(exc)
+    try:
+        from modules.data_update.flashscore import fetch_flashscore_results
+
+        prog.next("Sync FlashScore risultati...")
+        out["flashscore_sync"] = fetch_flashscore_results(force=False)
+    except Exception as exc:
+        out["flashscore_sync_error"] = str(exc)
+    try:
+        from modules.data_update.betfair import fetch_betfair_settled_results, login_configured
+
+        prog.next("Sync Betfair settled...")
+        if login_configured():
+            out["betfair_settled_sync"] = fetch_betfair_settled_results(days=14, force=False)
+        else:
+            print("  Betfair settled skip: credenziali assenti", flush=True)
+    except Exception as exc:
+        out["betfair_settled_sync_error"] = str(exc)
+    prog.next("Chiudi pick pendenti (cascade)...")
+    out.update(settle_from_results())
     if learn:
+        prog.next("Online learn...")
         try:
             from modules.advisor.online_learn import learn_from_settled
 
             out["online_learn"] = learn_from_settled()
         except Exception as exc:
             out["online_learn_error"] = str(exc)
+        try:
+            from modules.advisor.validation_freeze import maybe_auto_unfreeze
+
+            auto = maybe_auto_unfreeze()
+            if auto:
+                out["validation_freeze_completed"] = auto
+        except Exception:
+            pass
+    log_done("settle_pending completato")
     return out

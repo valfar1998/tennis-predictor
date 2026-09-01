@@ -23,6 +23,7 @@ DEFAULT_STATE = {
         "Nessuna modifica strutturale a pesi, feature o retrain ML fino al completamento "
         "della finestra. Solo settle + metriche BCR."
     ),
+    "auto_unfreeze": True,
 }
 
 
@@ -54,6 +55,54 @@ def save_state(state: dict[str, Any]) -> Path:
     STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
     STATE_PATH.write_text(json.dumps(state, indent=2, ensure_ascii=False), encoding="utf-8")
     return STATE_PATH
+
+
+def maybe_auto_unfreeze() -> dict[str, Any] | None:
+    """Disattiva il freeze nel file stato quando si raggiunge min_n pick Pinnacle settle.
+
+    Equivalente a impostare ``LIVE_VALIDATION_FREEZE=0`` senza intervento manuale.
+    Non applica se ``LIVE_VALIDATION_FREEZE=1`` forza il freeze da ambiente.
+    """
+    if _env_override() is True:
+        return None
+    if _env_override() is False:
+        return None
+
+    if STATE_PATH.is_file():
+        try:
+            state = json.loads(STATE_PATH.read_text(encoding="utf-8"))
+        except Exception:
+            state = dict(DEFAULT_STATE)
+    else:
+        state = dict(DEFAULT_STATE)
+
+    if not state.get("active", True):
+        return None
+    if state.get("auto_unfreeze", True) is False:
+        return None
+
+    from modules.advisor.live_metrics import compute_bcr
+
+    bcr = compute_bcr(pinnacle_only=bool(state.get("pinnacle_only", True)))
+    n = int(bcr.get("n") or 0)
+    min_n = int(state.get("min_n") or 200)
+    if n < min_n:
+        return None
+
+    state["active"] = False
+    state["auto_completed"] = True
+    state["completed_at"] = datetime.now(timezone.utc).isoformat()
+    state["n_pinnacle_at_completion"] = n
+    state["bcr_at_completion"] = bcr.get("bcr")
+    state["completion_reason"] = f">={min_n} pick Pinnacle settle — finestra validazione completata"
+    save_state(state)
+    return {
+        "unfrozen": True,
+        "n_pinnacle_settled": n,
+        "min_n": min_n,
+        "bcr_at_completion": bcr.get("bcr"),
+        "completed_at": state["completed_at"],
+    }
 
 
 def is_frozen() -> bool:
@@ -100,9 +149,10 @@ def validation_progress() -> dict[str, Any]:
 
 
 def governance_status() -> dict[str, Any]:
+    auto = maybe_auto_unfreeze()
     state = load_state()
     progress = validation_progress()
-    return {
+    out: dict[str, Any] = {
         "validation_freeze": {
             **state,
             "active": is_frozen(),
@@ -115,10 +165,21 @@ def governance_status() -> dict[str, Any]:
         "progress": progress,
         "updated_at": datetime.now(timezone.utc).isoformat(),
     }
+    if auto:
+        out["auto_unfreeze"] = auto
+    return out
 
 
 def format_freeze_banner() -> str:
+    maybe_auto_unfreeze()
     if not is_frozen():
+        state = load_state()
+        if state.get("auto_completed"):
+            n = state.get("n_pinnacle_at_completion")
+            return (
+                f"Validazione: FREEZE completato automaticamente a {n} pick Pinnacle settle "
+                f"— online learn e retrain consentiti"
+            )
         return "Validazione: FREEZE disattivo — online learn e retrain consentiti"
     p = validation_progress()
     bcr_s = f"{p['bcr_current']:.1%}" if p.get("bcr_current") is not None else "n/d"
