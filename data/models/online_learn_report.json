@@ -1,6 +1,24 @@
 {
-  "ok": false,
-  "n_settled": 0,
-  "fitted_at": "2026-09-01T16:07:37.609518+00:00",
-  "error": "servono >=12 pick chiuse (ora 0)"
+  "ok": true,
+  "n_settled": 60,
+  "fitted_at": "2026-09-01T19:30:46.091323+00:00",
+  "hit_rate": 0.4,
+  "roi_all": -0.0398,
+  "by_band": {
+    "unknown": {
+      "n": 60,
+      "hit_rate": 0.4,
+      "roi": -0.0398
+    }
+  },
+  "signals": {
+    "moneyway_n": 0,
+    "moneyway_hit_rate": null,
+    "dropping_aligned_n": 0,
+    "dropping_aligned_hit_rate": null,
+    "dropping_against_hit_rate": null
+  },
+  "online_learn": {},
+  "online_learn_skipped": "validation_freeze: report-only, calibration.json invariato",
+  "validation_freeze": true
 }
