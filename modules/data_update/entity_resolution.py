@@ -101,8 +101,30 @@ def _resolve_unique_lastname(name: str, candidates: list[str]) -> str | None:
     return None
 
 
-def resolve_name(name: str, *, candidates: list[str] | None = None, aliases: dict | None = None) -> str:
-    """Risolve un nome verso la forma canonica: registry SQLite → alias JSON → fuzzy."""
+def resolve_name(
+    name: str,
+    *,
+    candidates: list[str] | None = None,
+    aliases: dict | None = None,
+    opponent_name: str | None = None,
+    tourney_date: str | None = None,
+    tour: str | None = None,
+) -> str:
+    """Risolve un nome: graph → registry SQLite → alias JSON → fuzzy."""
+    try:
+        from modules.data_update.player_graph import graph_resolve_player
+
+        graph_hit = graph_resolve_player(
+            name,
+            tour=tour,
+            opponent_name=opponent_name,
+            tourney_date=tourney_date,
+        )
+        if graph_hit:
+            return graph_hit
+    except Exception:
+        pass
+
     try:
         from modules.data_update.player_registry import resolve_canonical
 

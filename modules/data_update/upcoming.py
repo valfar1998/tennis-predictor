@@ -18,6 +18,7 @@ from modules.data_update.tennis_abstract import lookup_ta_elo
 from modules.data_update.tennis_livescore import fetch_tennis_livescore
 from modules.feature_engineering.elo import EloEngine, expected_score
 from modules.feature_engineering.live_features import build_live_features
+from modules.feature_engineering.serve_return_elo import ServeReturnEloEngine
 from modules.predictor.predict import MatchPredictor
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -31,8 +32,10 @@ class TourBundle:
     tour: str
     matches: pd.DataFrame
     elo_engine: EloEngine
+    sr_elo_engine: ServeReturnEloEngine
     name_to_id: dict[str, int]
     candidates: list[str]
+    player_dob: dict[int, int]
 
 
 def _infer_surface(competition: str) -> str:
@@ -53,6 +56,38 @@ def _infer_tour(competition: str) -> str:
     if any(k in c for k in ("men", " atp", "atp ", "gentlemen")):
         return "ATP"
     return "ATP"
+
+
+def _build_sr_elo_engine(matches: pd.DataFrame) -> ServeReturnEloEngine:
+    engine = ServeReturnEloEngine()
+    clean = matches[~matches["score"].astype(str).str.contains("W/O|RET|DEF", case=False, na=False)]
+    for _, row in clean.sort_values("tourney_date").iterrows():
+        try:
+            engine.update_from_match(
+                int(row["winner_id"]),
+                int(row["loser_id"]),
+                row,
+                surface=str(row.get("surface") or "Hard"),
+                level=row.get("tourney_level"),
+                match_date=pd.Timestamp(row["tourney_date"]).to_pydatetime(),
+            )
+        except Exception:
+            continue
+    return engine
+
+
+def _load_player_dob(players_path: Path) -> dict[int, int]:
+    if not players_path.is_file():
+        return {}
+    df = pd.read_csv(players_path, usecols=["player_id", "dob"], low_memory=False)
+    out: dict[int, int] = {}
+    for _, row in df.iterrows():
+        if pd.notna(row.get("player_id")) and pd.notna(row.get("dob")):
+            try:
+                out[int(row["player_id"])] = int(row["dob"])
+            except (TypeError, ValueError):
+                continue
+    return out
 
 
 def _build_elo_engine(matches: pd.DataFrame) -> EloEngine:
@@ -116,8 +151,10 @@ def _load_tour_bundle(*, tour: str, min_year: int) -> TourBundle | None:
         tour=tour,
         matches=matches,
         elo_engine=_build_elo_engine(matches) if not matches.empty else EloEngine(),
+        sr_elo_engine=_build_sr_elo_engine(matches) if not matches.empty else ServeReturnEloEngine(),
         name_to_id=name_to_id,
         candidates=candidates,
+        player_dob=_load_player_dob(players_path),
     )
 
 
@@ -152,6 +189,43 @@ def _player_resolved(
     if pid and pid in bundle.elo_engine.players:
         return True
     return ta_elo is not None
+
+
+def _sr_elo_for_player(
+    bundle: TourBundle,
+    pid: int | None,
+    surface: str,
+) -> tuple[float | None, float | None]:
+    if pid is None or pid not in bundle.sr_elo_engine.players:
+        return None, None
+    pe = bundle.sr_elo_engine.players[pid]
+    w = bundle.sr_elo_engine.surface_weight
+    return pe.serve_blended(surface, w), pe.return_blended(surface, w)
+
+
+def _retirement_context_for_pick(
+    bundle: TourBundle,
+    *,
+    pid: int | None,
+    live_feat: dict,
+    pick_prob: float,
+) -> dict:
+    from modules.advisor.retirement_risk import _player_age_years, estimate_retirement_risk, historical_retirement_rate
+
+    age = None
+    if pid and pid in bundle.player_dob:
+        age = _player_age_years(bundle.player_dob[pid])
+    fatigue = float(live_feat.get("fatigue_minutes_7d_a") or live_feat.get("fatigue_minutes_7d_b") or 0)
+    rest = float(live_feat.get("rest_days_a") or live_feat.get("rest_days_b") or 7)
+    hist = historical_retirement_rate(bundle.matches, pid) if pid else 0.0
+    p_retire = estimate_retirement_risk(
+        age=age,
+        fatigue_minutes_72h=fatigue * 3,
+        rest_days=rest,
+        historical_retire_rate=hist,
+        is_favorite=pick_prob >= 0.55,
+    )
+    return {"player_injury_risk": p_retire, "p_retire": p_retire}
 
 
 def _player_elo(
@@ -257,8 +331,32 @@ def _predict_from_betfair(
             player_b, candidates=all_cands, bundle=bundle, ta_elo=ta_b,
         )
 
-        pid_a = bundle.name_to_id.get(_norm_name(resolve_name(player_a, candidates=all_cands)))
-        pid_b = bundle.name_to_id.get(_norm_name(resolve_name(player_b, candidates=all_cands)))
+        match_date = str(ev.get("commence_time") or "")[:10]
+        resolved_a_name = resolve_name(
+            player_a, candidates=all_cands, opponent_name=player_b,
+            tourney_date=match_date, tour=tour,
+        )
+        resolved_b_name = resolve_name(
+            player_b, candidates=all_cands, opponent_name=player_a,
+            tourney_date=match_date, tour=tour,
+        )
+        pid_a = bundle.name_to_id.get(_norm_name(resolved_a_name))
+        pid_b = bundle.name_to_id.get(_norm_name(resolved_b_name))
+        serve_a, ret_a = _sr_elo_for_player(bundle, pid_a, surface)
+        serve_b, ret_b = _sr_elo_for_player(bundle, pid_b, surface)
+
+        weather = None
+        try:
+            from modules.data_update.weather import geocode_city, fetch_weather
+
+            city_guess = competition.split()[-1] if competition else ""
+            geo = geocode_city(city_guess)
+            if geo and ev.get("commence_time"):
+                when = pd.Timestamp(ev.get("commence_time")).to_pydatetime()
+                weather = fetch_weather(geo["lat"], geo["lon"], when)
+        except Exception:
+            weather = None
+
         live_feat = build_live_features(
             player_a=player_a,
             player_b=player_b,
@@ -284,6 +382,11 @@ def _predict_from_betfair(
             tourney_name=competition,
             features=live_feat,
             tour=tour,
+            weather=weather,
+            serve_elo_a=serve_a,
+            return_elo_a=ret_a,
+            serve_elo_b=serve_b,
+            return_elo_b=ret_b,
         )
 
         from modules.data_update.entity_resolution import detect_model_odds_inversion
@@ -297,8 +400,13 @@ def _predict_from_betfair(
             )
             odd_a, odd_b = odds_aligned["odd_a"], odds_aligned["odd_b"]
 
-        pred["date"] = str(ev.get("commence_time") or "")[:10]
+        pred["date"] = match_date
         pred["tourney"] = ev.get("competition")
+        if ev.get("commence_time"):
+            try:
+                pred["_match_start_dt"] = pd.Timestamp(ev.get("commence_time")).to_pydatetime()
+            except Exception:
+                pass
         from modules.advisor.risk_controls import infer_tourney_level
 
         pred["tourney_level"] = infer_tourney_level(pred["tourney"])
@@ -336,6 +444,22 @@ def _predict_from_betfair(
 
         drop_row = lookup_dropping(player_a, player_b, rows=dropping_rows)
 
+        ret_ctx = {}
+        if pred.get("p_win_a") is not None:
+            pick_side = "A" if float(pred.get("p_win_a", 0.5)) >= 0.5 else "B"
+            pick_pid = pid_a if pick_side == "A" else pid_b
+            pick_prob = float(pred.get("p_win_a") if pick_side == "A" else 1 - pred.get("p_win_a", 0.5))
+            feat_pick = dict(live_feat)
+            if pick_side == "B":
+                feat_pick = {
+                    **live_feat,
+                    "fatigue_minutes_7d_a": live_feat.get("fatigue_minutes_7d_b"),
+                    "rest_days_a": live_feat.get("rest_days_b"),
+                }
+            ret_ctx = _retirement_context_for_pick(
+                bundle, pid=pick_pid, live_feat=feat_pick, pick_prob=pick_prob
+            )
+
         advised = advise(
             pred,
             float(odd_a),
@@ -343,6 +467,8 @@ def _predict_from_betfair(
             source="betfair",
             dropping_row=drop_row,
             min_edge=min_edge,
+            bookmaker="betfair",
+            retirement_context=ret_ctx,
         )
         advised["odds_source"] = "betfair"
         advised["book_odds"] = {"a": odd_a, "b": odd_b}
@@ -475,6 +601,18 @@ def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[di
 
     if not bundles:
         return []
+
+    try:
+        from modules.data_update.player_graph import build_match_edges, sync_player_biographics
+
+        for tour, bundle in bundles.items():
+            players_path = RAW_ATP / "atp_players.csv" if tour == "ATP" else RAW_WTA / "wta_players.csv"
+            if players_path.is_file():
+                sync_player_biographics(pd.read_csv(players_path, low_memory=False), tour=tour)
+            if not bundle.matches.empty:
+                build_match_edges(bundle.matches, tour=tour, limit=8000)
+    except Exception as exc:
+        print(f"player graph skip: {exc}")
 
     from modules.data_update.market_signals import sync_market_signals, load_dropping_cache, load_moneyway_cache
     from modules.data_update.tennis_data_odds import download_tennis_data_odds

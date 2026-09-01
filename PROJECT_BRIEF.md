@@ -11,8 +11,8 @@ Sistema predittivo tennis da zero, adattando il framework calcistico esistente. 
 
 ## Layer predittivo (3 livelli + meta-learner)
 
-1. **Elo multisuperficie + CPI** — K adattivo, decay inattività, blend global/surface modulato dal **Court Speed Index** del torneo (`blended_with_cpi`: campo veloce → più peso rating superficie)
-2. **Markov dinamico** — Barnett & Clarke con **P(serve) sotto pressione**: break point e tiebreak clutch da Match Charting Project (`modules/markov/pressure.py`). **Bayesian shrinkage**: se un giocatore ha **<5 match chartati** MCP, le statistiche sotto pressione regolarizzano verso la media circuito (`CIRCUIT_BP_SAVE ≈ 0.635`)
+1. **Elo multisuperficie + CPI** — K adattivo, decay inattività, blend global/surface modulato dal **Court Speed Index** del torneo (`blended_with_cpi`: campo veloce → più peso rating superficie). **Serve-Elo / Return-Elo** disaggregati (`serve_return_elo.py`): P(serve) Markov da interazione Serve(A) vs Return(B), pesata da **CPI dinamico**
+2. **Markov dinamico** — Barnett & Clarke con **P(serve) sotto pressione**: break point e tiebreak clutch da Match Charting Project (`modules/markov/pressure.py`). Input serve: **Serve-Elo A × Return-Elo B** (non più solo `elo_diff` monolitico). **Bayesian shrinkage**: se un giocatore ha **<5 match chartati** MCP, le statistiche sotto pressione regolarizzano verso la media circuito (`CIRCUIT_BP_SAVE ≈ 0.635`)
 3. **ML (XGBoost)** — feature avanzate: fatica 7/14 gg, **viaggio Haversine**, jet lag, **hold vs break**, CPI, H2H, form. Training con **TimeSeriesSplit** (sort strict per `tourney_date`)
 4. **Meta-learner (stacking)** — regressione logistica su **OOF temporale** (`TimeSeriesSplit`, mai K-Fold casuale) che sostituisce i pesi fissi 40/25/35 (`modules/model_training/stacker.py`). Calibrazione via **Brier OOF** (non in-sample)
 
@@ -33,7 +33,7 @@ Fonti dati esterne integrate / referenziate (cartelle in `lib/`):
 - De-vig: Shin (default) o Power
 - EV = P_model × quota - 1
 - Kelly: γ=0.20, cap **dinamico per livello torneo** (`risk_controls.py` / `advise.py`)
-- Regole ritiro: matrice per bookmaker (1-ball, 1-set, full void)
+- Regole ritiro: matrice per bookmaker (1-ball, 1-set, full void) + **sotto-modello P(ritiro)** (`retirement_risk.py`) che modula EV/Kelly
 
 ### Kelly cap per liquidità torneo
 
@@ -625,4 +625,67 @@ Tre siti utili per arricchire l'analisi. Stato attuale nel progetto:
 - Scraper **Playwright** attivo: `python main.py scrape-oddsportal` → `data/raw/oddsportal_close.json`
 - Usato in cascade CLV (`clv_live.py`) come fallback dopo Pinnacle guest e Betfair LTP
 - Limiti: geo IT reindirizza a `centroquote.it`; Pinnacle spesso assente senza `ODDSPORTAL_PROXY`
-- Non ancora integrato: confronto multi-book live in giocabilità / value bet
+- **Non ancora integrato:** confronto multi-book live in giocabilità / value bet
+
+---
+
+## Upgrade quant 10/10 (2026)
+
+### 1. Serve-Elo / Return-Elo (`modules/feature_engineering/serve_return_elo.py`)
+
+| Componente | Dettaglio |
+|------------|-----------|
+| Aggiornamento | Da `w_svpt`, `w_1stWon`, `w_2ndWon` (e simmetrico loser) |
+| Pre-match | `ServeReturnEloEngine.pre_match_ratings()` → serve/return per superficie |
+| Markov | `estimate_serve_probs(..., serve_elo_a, return_elo_b, cpi_factor)` in `chain.py` |
+| Live | `TourBundle.sr_elo_engine` in `upcoming.py` → `predict_match()` |
+
+### 2. CPI dinamico + densità aria (`air_density.py`, `cpi.effective_cpi`)
+
+```
+ρ = (P − 0.378·e) / (R·T)     # temperatura, umidità, pressione/altitudine
+CPI_eff = CPI_nom × (ρ_ref / ρ)^0.22
+```
+
+- Input: Open-Meteo (`weather.py`) + altitudine venue (`altitude.py`)
+- Effetto: sessioni calde/notturne ad alta quota (Madrid, Roma) modulano velocità campo in tempo reale
+
+### 3. Decadimento temporale segnali mercato (`market_timing.py`)
+
+| Timing | Peso relativo |
+|--------|---------------|
+| T−15 min | **1.0×** (riferimento) |
+| T−12 ore | **~0.33×** (rapporto 3:1) |
+
+Formula: `exp(−λ · (minuti − 15))` con λ calibrato su ratio 3×. Applicato a componenti **moneyway** (13%) e **dropping** (12%) in `playability.py`.
+
+### 4. Sotto-modello retirement (`retirement_risk.py`)
+
+Feature: età (DOB Sackmann), fatica 72h, rest days, storico RET/DEF, favorito acciaccato.
+
+```
+P(ritiro) → penalità EV/Kelly × rule_penalty[bookmaker]
+```
+
+| Book | Regola | Penalità stake |
+|------|--------|----------------|
+| bet365 | 1-ball | 0.55 |
+| pinnacle | 1-set | 0.25 |
+| default | 1-set | 0.30 |
+
+Integrato in `advise()` via `retirement_context`.
+
+### 5. Graph entity resolution (`player_graph.py`)
+
+Ordine risoluzione nomi in `resolve_name()`:
+
+1. **Graph match** — opponent + data torneo su `match_edges` (SQLite)
+2. Registry SQLite (`player_registry.py`) — ID Sackmann/TML + alias
+3. Vincoli IOC / birth_year
+4. Fuzzy `rapidfuzz` (solo fallback)
+
+Popolamento automatico in `build_upcoming()`: biographics da `*_players.csv` + ultimi 8000 match come edge.
+
+```bash
+python -c "from modules.data_update.player_graph import graph_stats; print(graph_stats())"
+```

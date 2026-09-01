@@ -101,6 +101,8 @@ def _moneyway_score(
 ) -> tuple[float, dict]:
     if not moneyway or not rec:
         return 0.5, {}
+    from modules.advisor.market_timing import apply_temporal_weight, minutes_until_match
+
     pick = str(rec.get("player") or "")
     pa, pb = str(pred.get("player_a") or ""), str(pred.get("player_b") or "")
     from modules.data_update.entity_resolution import _last_name
@@ -109,16 +111,21 @@ def _moneyway_score(
     vol = moneyway.get("volume_pct_a") if on_a else moneyway.get("volume_pct_b")
     if vol is None:
         return 0.5, {}
-    # steam contrarian: se puntiamo l'underdog e ha poco volume ma EV alto → ok
-    # se puntiamo il favorito con >70% volume → segnale sharp
     vol_f = float(vol) / 100.0
     score = _clip((vol_f - 0.35) / 0.55)
     total = moneyway.get("total_volume_gbp")
     liq = _clip((float(total or 0) / 5000.0)) if total else 0.4
-    return _clip(0.7 * score + 0.3 * liq), {
+    raw = _clip(0.7 * score + 0.3 * liq)
+
+    ctx = {**pred, **moneyway}
+    mins = minutes_until_match(ctx, match_start=pred.get("_match_start_dt"))
+    weighted, tw = apply_temporal_weight(raw, mins)
+    return weighted, {
         "volume_pct_pick": vol,
         "total_volume_gbp": total,
         "source": "arbworld",
+        "temporal_weight": tw,
+        "minutes_to_start": mins,
     }
 
 
@@ -151,10 +158,18 @@ def _dropping_score(
         score = _clip(0.35 - drop / 80.0)
     else:
         score = 0.45
-    return score, {
+
+    from modules.advisor.market_timing import apply_temporal_weight, minutes_until_match
+
+    ctx = {**pred, **(dropping or {})}
+    mins = minutes_until_match(ctx, match_start=pred.get("_match_start_dt"))
+    weighted, tw = apply_temporal_weight(score, mins)
+    return weighted, {
         "drop_pct": drop,
         "aligned_with_pick": aligned,
         "source": "oddssafari",
+        "temporal_weight": tw,
+        "minutes_to_start": mins,
     }
 
 

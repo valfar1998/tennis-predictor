@@ -183,6 +183,11 @@ def estimate_serve_probs_full(
     pressure_a: dict | None = None,
     pressure_b: dict | None = None,
     best_of: int = 3,
+    serve_elo_a: float | None = None,
+    return_elo_a: float | None = None,
+    serve_elo_b: float | None = None,
+    return_elo_b: float | None = None,
+    cpi_factor: float = 1.0,
 ) -> dict:
     """Pipeline Markov completa con profili pressione MCP."""
     p_serve_a, p_serve_b = estimate_serve_probs(
@@ -191,6 +196,11 @@ def estimate_serve_probs_full(
         surface_wr_a=surface_wr_a,
         surface_wr_b=surface_wr_b,
         adjustments=adjustments,
+        serve_elo_a=serve_elo_a,
+        return_elo_a=return_elo_a,
+        serve_elo_b=serve_elo_b,
+        return_elo_b=return_elo_b,
+        cpi_factor=cpi_factor,
     )
     pa = pressure_a or {}
     pb = pressure_b or {}

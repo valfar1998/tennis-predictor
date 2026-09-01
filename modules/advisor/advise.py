@@ -2,7 +2,13 @@
 
 from __future__ import annotations
 
-from modules.advisor.staking import fractional_kelly, kelly_cap_for_level, model_uncertainty_reasons, no_bet_reasons
+from modules.advisor.staking import (
+    apply_retirement_filter,
+    fractional_kelly,
+    kelly_cap_for_level,
+    model_uncertainty_reasons,
+    no_bet_reasons,
+)
 from modules.advisor.value import compute_ev, enrich_value
 from modules.constants import EV_SANITY_CAP, EV_SANITY_MAX_ODDS, MIN_EDGE
 
@@ -76,6 +82,8 @@ def advise(
     devig_method: str = "shin",
     min_edge: float = MIN_EDGE,
     dropping_row: dict | None = None,
+    bookmaker: str = "default",
+    retirement_context: dict | None = None,
 ) -> dict:
     """Calcola value bet usando sempre le quote correnti (odds_a/b)."""
     enriched = enrich_value(prediction, odds_a, odds_b, source=source, method=devig_method)
@@ -107,13 +115,22 @@ def advise(
             if not reasons
             else 0.0
         )
-        plays.append({
+        play_row = {
             **pick,
             "kelly": round(kelly, 4),
             "kelly_cap": kelly_cap,
             "action": "bet" if not reasons else "no_bet",
             "no_bet_reasons": reasons,
-        })
+        }
+        if retirement_context and not reasons:
+            play_row = apply_retirement_filter(
+                play_row,
+                bookmaker=bookmaker,
+                **retirement_context,
+            )
+            if play_row.get("kelly_adj") is not None:
+                play_row["kelly"] = play_row["kelly_adj"]
+        plays.append(play_row)
 
     best_play = max(plays, key=lambda x: x.get("ev", -1))
     enriched["plays"] = plays

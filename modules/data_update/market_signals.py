@@ -206,7 +206,13 @@ def load_moneyway_cache() -> list[dict]:
     if not MONEYWAY_CACHE.is_file():
         return []
     try:
-        return json.loads(MONEYWAY_CACHE.read_text(encoding="utf-8")).get("rows") or []
+        data = json.loads(MONEYWAY_CACHE.read_text(encoding="utf-8"))
+        fetched = data.get("fetched_at")
+        rows = data.get("rows") or []
+        if fetched:
+            for r in rows:
+                r.setdefault("_fetched_at", fetched)
+        return rows
     except Exception:
         return []
 
@@ -215,7 +221,13 @@ def load_dropping_cache() -> list[dict]:
     if not DROPPING_CACHE.is_file():
         return []
     try:
-        return json.loads(DROPPING_CACHE.read_text(encoding="utf-8")).get("rows") or []
+        data = json.loads(DROPPING_CACHE.read_text(encoding="utf-8"))
+        fetched = data.get("fetched_at")
+        rows = data.get("rows") or []
+        if fetched:
+            for r in rows:
+                r.setdefault("_fetched_at", fetched)
+        return rows
     except Exception:
         return []
 

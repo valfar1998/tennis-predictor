@@ -129,9 +129,27 @@ def estimate_serve_probs(
     base_serve: float = 0.62,
     elo_scale: float = 0.0008,
     adjustments: float = 0.0,
+    serve_elo_a: float | None = None,
+    return_elo_a: float | None = None,
+    serve_elo_b: float | None = None,
+    return_elo_b: float | None = None,
+    cpi_factor: float = 1.0,
 ) -> tuple[float, float]:
-    """Stima P(serve win) da Elo e statistiche di superficie."""
-    elo_diff = elo_a - elo_b
-    p_a = base_serve + elo_scale * elo_diff + 0.04 * (surface_wr_a - 0.5) + adjustments
-    p_b = base_serve - elo_scale * elo_diff + 0.04 * (surface_wr_b - 0.5) - adjustments
+    """Stima P(serve win): Serve-Elo A vs Return-Elo B (fallback Elo monolitico)."""
+    import math
+
+    cpi_adj = math.log(max(float(cpi_factor), 0.72)) * 0.025
+
+    if serve_elo_a is not None and return_elo_b is not None:
+        diff_a = float(serve_elo_a) - float(return_elo_b)
+    else:
+        diff_a = float(elo_a) - float(elo_b)
+
+    if serve_elo_b is not None and return_elo_a is not None:
+        diff_b = float(serve_elo_b) - float(return_elo_a)
+    else:
+        diff_b = float(elo_b) - float(elo_a)
+
+    p_a = base_serve + elo_scale * diff_a + 0.04 * (surface_wr_a - 0.5) + cpi_adj + adjustments
+    p_b = base_serve + elo_scale * diff_b + 0.04 * (surface_wr_b - 0.5) + cpi_adj - adjustments
     return max(0.45, min(0.78, p_a)), max(0.45, min(0.78, p_b))

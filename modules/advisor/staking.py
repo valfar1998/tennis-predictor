@@ -84,18 +84,10 @@ def apply_retirement_filter(
     *,
     bookmaker: str = "default",
     player_injury_risk: float = 0.0,
+    **kwargs,
 ) -> dict:
-    """Regola EV in base alla policy ritiro del bookmaker."""
-    from modules.constants import RETIREMENT_RULES
+    """Regola EV/stake in base alla policy ritiro del bookmaker e P(ritiro)."""
+    from modules.advisor.retirement_risk import adjust_play_for_retirement
 
-    rule = RETIREMENT_RULES.get(bookmaker.lower(), RETIREMENT_RULES["default"])
-    play = dict(play)
-    if rule == "1_ball" and player_injury_risk > 0.3:
-        play["ev_adj"] = play.get("ev", 0) * 0.7
-        play["retirement_warning"] = "Rischio ritiro alto con regola 1-ball served"
-    elif rule == "full_match":
-        play["ev_adj"] = play.get("ev", 0) * 0.85
-        play["retirement_warning"] = "Book void su ritiro: sconto EV"
-    else:
-        play["ev_adj"] = play.get("ev")
-    return play
+    p_retire = float(player_injury_risk or play.get("p_retire") or 0.0)
+    return adjust_play_for_retirement(play, p_retire=p_retire, bookmaker=bookmaker)

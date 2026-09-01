@@ -62,6 +62,17 @@ UNIT_SIZE = 0.01
 DAILY_EXPOSURE_CAP = 0.06  # 6% bankroll max stesso giorno/torneo
 DAILY_EXPOSURE_MIN_BETS = 6
 
+# Market signal temporal decay (T-15min ≈ 3× T-12h)
+MARKET_DECAY_RATIO = 3.0
+MARKET_DECAY_REF_HOURS = 12.0
+MARKET_DECAY_NEAR_MINUTES = 15
+
+# Serve/Return Elo
+SR_ELO_SURFACE_WEIGHT = 0.68
+
+# Retirement risk
+RETIREMENT_MAX_P = 0.38
+
 # Retirement rules per bookmaker (void policy)
 RETIREMENT_RULES = {
     "pinnacle": "1_set",

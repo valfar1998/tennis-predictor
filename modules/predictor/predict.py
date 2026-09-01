@@ -7,11 +7,12 @@ from pathlib import Path
 import joblib
 import numpy as np
 
-from modules.data_update.altitude import altitude_serve_boost, lookup_altitude
+from modules.data_update.altitude import lookup_altitude
 from modules.data_update.charting import player_pressure_profile, player_serve_profile
-from modules.data_update.cpi import cpi_serve_adjustment, lookup_cpi
+from modules.data_update.cpi import cpi_serve_adjustment, effective_cpi
 from modules.data_update.tennisratio import lookup_player_skills, skill_serve_adjustment
 from modules.data_update.weather import weather_serve_adjustment
+from modules.feature_engineering.air_density import air_density_kg_m3, serve_adjustment_from_air
 from modules.feature_engineering.elo import EloEngine, expected_score
 from modules.markov.pressure import estimate_serve_probs_full
 from modules.model_training.stacker import MetaStacker
@@ -43,14 +44,26 @@ class MatchPredictor:
         tourney_name: str | None = None,
         weather: dict | None = None,
         tour: str = "ATP",
+        serve_elo_a: float | None = None,
+        return_elo_a: float | None = None,
+        serve_elo_b: float | None = None,
+        return_elo_b: float | None = None,
     ) -> dict:
         # Elo già CPI-modulato upstream; optional refinement da feature CPI
         p_elo = expected_score(elo_a, elo_b)
-        cpi = lookup_cpi(tourney_name or "", surface=surface)
-        cpi_norm = float((features or {}).get("cpi_norm") or cpi or 1.0)
+        alt_m = lookup_altitude(tourney_name)
+        cpi_eff = effective_cpi(tourney_name or "", surface=surface, weather=weather, altitude_m=alt_m)
+        cpi_norm = float((features or {}).get("cpi_norm") or cpi_eff or 1.0)
 
         adj = 0.0
-        adj += altitude_serve_boost(lookup_altitude(tourney_name))
+        if weather:
+            rho = air_density_kg_m3(
+                temp_c=float(weather.get("temp_c") or 22),
+                humidity_pct=float(weather.get("humidity_pct") or 50),
+                pressure_hpa=weather.get("pressure_hpa"),
+                altitude_m=alt_m,
+            )
+            adj += serve_adjustment_from_air(rho)
         adj += cpi_serve_adjustment(cpi_norm)
         adj += weather_serve_adjustment(weather)
         adj += skill_serve_adjustment(lookup_player_skills(player_a))
@@ -79,6 +92,11 @@ class MatchPredictor:
             pressure_a=pressure_a,
             pressure_b=pressure_b,
             best_of=best_of,
+            serve_elo_a=serve_elo_a,
+            return_elo_a=return_elo_a,
+            serve_elo_b=serve_elo_b,
+            return_elo_b=return_elo_b,
+            cpi_factor=cpi_norm,
         )
         p_markov = markov["p_markov"]
         p_serve_a = markov["p_serve_a"]
@@ -105,6 +123,13 @@ class MatchPredictor:
             "p_serve_a": p_serve_a,
             "p_serve_b": p_serve_b,
             "cpi_norm": cpi_norm,
+            "cpi_effective": cpi_norm,
+            "serve_return_elo": {
+                "serve_a": serve_elo_a,
+                "return_a": return_elo_a,
+                "serve_b": serve_elo_b,
+                "return_b": return_elo_b,
+            },
             "pressure_used": bool(pressure_a or pressure_b),
             "components": {
                 "markov": p_markov,
