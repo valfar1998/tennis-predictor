@@ -1,14 +1,14 @@
 {
   "ok": true,
-  "n_settled": 80,
-  "fitted_at": "2026-09-02T08:29:08.450291+00:00",
-  "hit_rate": 0.3625,
-  "roi_all": -0.0952,
+  "n_settled": 82,
+  "fitted_at": "2026-09-02T19:29:46.619519+00:00",
+  "hit_rate": 0.3537,
+  "roi_all": -0.1173,
   "by_band": {
     "unknown": {
-      "n": 80,
-      "hit_rate": 0.3625,
-      "roi": -0.0952
+      "n": 82,
+      "hit_rate": 0.3537,
+      "roi": -0.1173
     }
   },
   "signals": {
