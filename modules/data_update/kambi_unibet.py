@@ -1,13 +1,18 @@
-"""Palinsesto tennis Unibet via Kambi Guest API (ATP/WTA/Challenger/ITF)."""
+"""Palinsesto tennis Unibet via Kambi Guest API (ATP/WTA/Challenger/ITF).
+
+Bypass DNS ISP (TIM → 127.0.0.1): risoluzione DoH + CURLOPT_RESOLVE.
+"""
 
 from __future__ import annotations
 
 import json
 import os
+import socket
 import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
 
 from modules.data_update.cache_policy import is_fresh
 
@@ -21,9 +26,16 @@ UA = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 )
-URL_TEMPLATES = (
-    "https://eu-offering-api.kambi.com/v2018/{client}/listView/tennis.json",
-    "https://eu-offering.kambicdn.org/offering/v2018/{client}/listView/tennis.json",
+# eu1 CDN: funziona con DoH anche quando TIM blocca kambicdn.org
+ENDPOINTS = (
+    {
+        "url": "https://eu1.offering-api.kambicdn.com/offering/v2018/{client}/listView/tennis.json",
+        "doh": "eu1.offering-api.kambicdn.com",
+    },
+    {
+        "url": "https://eu-offering.kambicdn.org/offering/v2018/{client}/listView/tennis.json",
+        "doh": "eu-offering.kambicdn.org",
+    },
 )
 SKIP_STATES = frozenset({"FINISHED", "CANCELLED", "ABANDONED", "POSTPONED", "SUSPENDED"})
 MATCH_CRITERIA = (
@@ -48,6 +60,8 @@ def _params() -> dict[str, str]:
     return {
         "lang": (os.environ.get("KAMBI_LANG") or DEFAULT_LANG).strip() or DEFAULT_LANG,
         "market": (os.environ.get("KAMBI_MARKET") or DEFAULT_MARKET).strip() or DEFAULT_MARKET,
+        "client_id": (os.environ.get("KAMBI_CLIENT_ID") or "2").strip() or "2",
+        "channel_id": (os.environ.get("KAMBI_CHANNEL_ID") or "1").strip() or "1",
         "useCombined": "true",
     }
 
@@ -64,46 +78,120 @@ def _headers(host: str) -> dict[str, str]:
     }
 
 
-def _http_get_json(url: str, *, params: dict[str, str], host: str) -> Any:
+def _system_ips(hostname: str) -> list[str]:
     try:
-        from curl_cffi import requests as http
+        return sorted({str(item[4][0]) for item in socket.getaddrinfo(hostname, 443, proto=socket.IPPROTO_TCP)})
+    except OSError:
+        return []
+
+
+def _doh_ips(hostname: str) -> list[str]:
+    try:
+        import requests as http
 
         resp = http.get(
-            url,
-            params=params,
-            headers=_headers(host),
-            timeout=30,
-            impersonate="chrome",
+            "https://cloudflare-dns.com/dns-query",
+            params={"name": hostname, "type": "A"},
+            headers={"accept": "application/dns-json"},
+            timeout=8,
         )
-        if resp.status_code == 200:
-            return resp.json()
+        if resp.status_code != 200:
+            return []
+        return [
+            str(row["data"])
+            for row in resp.json().get("Answer") or []
+            if row.get("type") == 1 and row.get("data")
+        ]
     except Exception:
+        return []
+
+
+def _resolve_ips(hostname: str) -> list[str]:
+    sys_ips = _system_ips(hostname)
+    if sys_ips and not all(ip.startswith("127.") for ip in sys_ips):
+        return sys_ips
+    doh = _doh_ips(hostname)
+    if doh:
+        if sys_ips and any(ip.startswith("127.") for ip in sys_ips):
+            print(
+                f"  Kambi DNS bloccato per {hostname} ({', '.join(sys_ips)}) — uso DoH ({', '.join(doh[:2])})",
+                flush=True,
+            )
+        return doh
+    return sys_ips
+
+
+def _http_get_json(url: str, *, params: dict[str, str], host: str, ips: list[str]) -> tuple[Any, str | None]:
+    resolve_entries = [f"{host}:443:{ip}" for ip in ips if ip and not ip.startswith("127.")]
+    last_err: str | None = None
+
+    try:
+        from curl_cffi import CurlOpt, requests as http
+
+        for ip in ips or [""]:
+            opts = {CurlOpt.RESOLVE: [f"{host}:443:{ip}"]} if ip and not ip.startswith("127.") else None
+            try:
+                resp = http.get(
+                    url,
+                    params=params,
+                    headers=_headers(host),
+                    timeout=25,
+                    impersonate="chrome",
+                    curl_options=opts,
+                )
+                if resp.status_code == 200:
+                    return resp.json(), None
+                last_err = f"HTTP {resp.status_code} ({host})"
+            except Exception as exc:
+                last_err = str(exc)
+        if resolve_entries:
+            try:
+                resp = http.get(
+                    url,
+                    params=params,
+                    headers=_headers(host),
+                    timeout=25,
+                    impersonate="chrome",
+                    curl_options={CurlOpt.RESOLVE: resolve_entries[:4]},
+                )
+                if resp.status_code == 200:
+                    return resp.json(), None
+                last_err = f"HTTP {resp.status_code} ({host})"
+            except Exception as exc:
+                last_err = str(exc)
+    except ImportError:
         pass
 
     try:
         import requests as http
 
-        resp = http.get(url, params=params, headers=_headers(host), timeout=30)
+        resp = http.get(url, params=params, headers=_headers(host), timeout=25)
         if resp.status_code == 200:
-            return resp.json()
-    except Exception:
-        pass
-    return None
+            return resp.json(), None
+        last_err = f"HTTP {resp.status_code} ({host})"
+    except Exception as exc:
+        last_err = str(exc)
+    return None, last_err
 
 
-def _fetch_payload() -> tuple[Any, str | None]:
+def _fetch_payload() -> tuple[Any, str | None, str | None]:
     client = _client()
     params = _params()
     errors: list[str] = []
-    for template in URL_TEMPLATES:
-        url = template.format(client=client)
-        host = url.split("/")[2]
-        payload = _http_get_json(url, params=params, host=host)
+    used_host: str | None = None
+
+    for endpoint in ENDPOINTS:
+        url = endpoint["url"].format(client=client)
+        host = urlparse(url).hostname or endpoint["doh"]
+        ips = _resolve_ips(endpoint["doh"])
+        payload, err = _http_get_json(url, params=params, host=host, ips=ips)
         if payload is not None:
-            return payload, None
-        errors.append(host)
-        time.sleep(0.5)
-    return None, f"Kambi non raggiungibile ({', '.join(errors)})"
+            return payload, None, host
+        if err:
+            errors.append(f"{host}: {err}")
+        time.sleep(0.4)
+
+    return None, "; ".join(errors) or "Kambi non raggiungibile", used_host
 
 
 def _kambi_decimal(odds_raw: Any) -> float | None:
@@ -325,7 +413,7 @@ def fetch_kambi_tennis_odds(
         except Exception:
             pass
 
-    payload, err = _fetch_payload()
+    payload, err, host = _fetch_payload()
     if payload is None:
         if CACHE.is_file():
             try:
@@ -334,9 +422,11 @@ def fetch_kambi_tennis_odds(
                 cached["error"] = err
                 cached["from_cache"] = True
                 cached["stale"] = True
+                print(f"  Kambi: uso cache stale ({cached.get('n_events', 0)} eventi) — {err}", flush=True)
                 return cached
             except Exception:
                 pass
+        print(f"  Kambi: fetch fallito — {err}", flush=True)
         return {"ok": False, "error": err, "n_events": 0, "events": [], "from_cache": False}
 
     events = _normalize_events(payload)
@@ -344,7 +434,9 @@ def fetch_kambi_tennis_odds(
         "ok": bool(events),
         "source": "kambi_unibet",
         "client": _client(),
+        "host": host,
         "fetched_at": datetime.now(timezone.utc).isoformat(),
+        "n_matches_raw": len(payload.get("events") or []) if isinstance(payload, dict) else 0,
         "n_events": len(events),
         "n_itf": sum(1 for e in events if e.get("is_itf")),
         "n_challenger": sum(1 for e in events if e.get("is_challenger")),
@@ -354,6 +446,11 @@ def fetch_kambi_tennis_odds(
     }
     CACHE.parent.mkdir(parents=True, exist_ok=True)
     CACHE.write_text(json.dumps(info, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(
+        f"  Kambi OK: {info['n_events']} eventi con quote "
+        f"(ITF {info['n_itf']}, Challenger {info['n_challenger']}, host {host})",
+        flush=True,
+    )
     return info
 
 
