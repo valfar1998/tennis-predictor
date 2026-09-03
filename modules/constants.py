@@ -51,8 +51,39 @@ KELLY_CAP_BY_LEVEL = {
 }
 MIN_EDGE = 0.025
 MIN_PROB_PLAY = 0.38
-EV_SANITY_CAP = 0.35
+# EV: hard discard sopra questi cap; review nella fascia intermedia
+EV_SANITY_CAP = 0.28
 EV_SANITY_MAX_ODDS = 3.0
+EV_SANITY_CAP_HIGH_ODDS = 0.25  # quota > SHARP_HIGH_ODDS_MIN → scarta se EV >
+EV_SANITY_CAP_LOW_ODDS = 0.30  # quota <= SHARP_HIGH_ODDS_MIN → scarta se EV >
+EV_REVIEW_THRESHOLD = 0.20  # EV > 20% → action review (non alert automatico)
+MKT_DIVERGENCE_MAX = 0.18  # divergenza modello/mercato > 18% → no_bet
+MKT_DIVERGENCE_SOFT = 0.12  # sopra questa soglia: riduci peso modello
+ITF_BET_FREEZE = False  # sostituito da governance adattiva su BCR ITF
+SHARP_HIGH_ODDS_MIN = 3.0
+SHARP_ODDS_SOURCES = frozenset({"betfair", "pinnacle", "ps"})
+BAYES_SHRINK_MIN_MATCHES = 10
+BAYES_SHRINK_W_ITF = 0.15
+# Governance ITF adattiva (vedi itf_governance.py)
+ITF_BCR_RELAX_THRESHOLD = 0.20
+ITF_BCR_STRICT_THRESHOLD = 0.05
+ITF_BCR_MIN_N = 10
+ITF_SHRINK_W_RELAXED = 0.25
+ITF_EV_CAP_RELAXED = 0.28
+ITF_EV_CAP_STRICT = 0.22
+ITF_MIN_DATA_DENSITY_STRICT = 35
+# Ranking / giocabilità: preferisci edge su quote sostenibili
+ODDS_VARIANCE_REF = 2.0  # quota di riferimento per Sharpe-like score
+MISSING_SIGNAL_SCORE = 0.32  # MW/Drop assenti ≠ neutro 0.50
+TOURNEY_LEVEL_CODE = {
+    "G": 1.0,
+    "M": 2.0,
+    "F": 2.0,
+    "A": 2.0,
+    "D": 2.0,
+    "C": 3.0,
+    "S": 4.0,
+}
 
 # Risk controls (esecuzione)
 CIRCUIT_BREAKER_MIN_EDGE = 0.045

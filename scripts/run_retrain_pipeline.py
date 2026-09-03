@@ -39,7 +39,7 @@ def run_full_ml_pipeline(*, min_year: int | None = None, force_features: bool | 
         return {
             "ok": True,
             "skipped": "validation_freeze",
-            "reason": "Nessun retrain durante finestra validazione 200-300 match BCR Pinnacle",
+            "reason": "Nessun retrain durante finestra validazione 200-300 match BCR Betfair",
             "governance": status,
         }
 

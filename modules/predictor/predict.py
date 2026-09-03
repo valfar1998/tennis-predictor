@@ -108,7 +108,18 @@ class MatchPredictor:
             X = np.array([[float(features.get(c, 0.0) or 0.0) for c in cols]])
             p_ml = float(self.bundle["model"].predict_proba(X)[0, 1])
 
-        p_blend = self.stacker.predict(p_markov=p_markov, p_elo=p_elo, p_ml=p_ml)
+        p_blend = self.stacker.predict(
+            p_markov=p_markov,
+            p_elo=p_elo,
+            p_ml=p_ml,
+            mkt_divergence=float((features or {}).get("mkt_divergence") or 0.0),
+            tourney_level_code=float((features or {}).get("tourney_level_code") or 2.0),
+            data_density=float((features or {}).get("data_density") or 50.0),
+        )
+
+        from modules.calibration.prob_calibrator import apply_probability_calibration
+
+        p_cal, cal_meta = apply_probability_calibration(p_blend)
 
         return {
             "player_a": player_a,
@@ -116,7 +127,9 @@ class MatchPredictor:
             "surface": surface,
             "best_of": best_of,
             "tour": tour,
-            "p_win_a": round(p_blend, 4),
+            "p_win_a": round(p_cal, 4),
+            "p_win_a_stacker": round(float(p_blend), 4),
+            "probability_calibration": cal_meta,
             "p_markov": round(p_markov, 4),
             "p_elo": round(p_elo, 4),
             "p_ml": round(p_ml, 4) if p_ml else None,

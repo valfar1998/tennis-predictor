@@ -20,7 +20,7 @@ def notify_learn_summary(*, settle: dict, learn: dict | None, audit: dict) -> bo
         return False
 
     ol = (learn or {}).get("online_learn") or audit.get("online_learn") or {}
-    bcr = audit.get("bcr_pinnacle") or {}
+    bcr = audit.get("bcr_betfair") or {}
     bcr_txt = (
         f"{bcr.get('bcr_pct')}% ({bcr.get('beats')}/{bcr.get('n')})"
         if bcr.get("n")
@@ -33,7 +33,7 @@ def notify_learn_summary(*, settle: dict, learn: dict | None, audit: dict) -> bo
         f"Settle: {settle.get('settled', 0)} pick chiuse\n"
         f"Pick settle totali: {learn.get('n_settled') if learn else '—'}\n"
         f"Hit rate: {(learn.get('hit_rate') if learn else None) or '—'}\n"
-        f"BCR Pinnacle: {bcr_txt}\n"
+        f"BCR Betfair: {bcr_txt}\n"
     )
     if is_frozen():
         text += "🔒 FREEZE validazione: pesi invariati (solo metriche)\n"
@@ -76,7 +76,7 @@ def main() -> None:
 
     prog.next("Audit BCR...")
     audit = run_live_audit(refresh_slippage=True)
-    print(format_bcr_status(audit.get("bcr_pinnacle", {})))
+    print(format_bcr_status(audit.get("bcr_betfair", {})))
     print(json.dumps({"settle": settle_out, "audit_phase": audit.get("phase")}, indent=2, default=str))
 
     if args.notify:

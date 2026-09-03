@@ -69,13 +69,41 @@ def _extract_tourney_and_player(left: str) -> tuple[str, str]:
     return left, left
 
 
+def _name_tokens(name: str) -> set[str]:
+    return {t for t in _norm_name(name).split() if len(t) > 1}
+
+
+def _last_fuzzy(a: str, b: str) -> bool:
+    """Match cognome esatto o prefisso (Djokovic / Djoko)."""
+    la, lb = _last_name(a), _last_name(b)
+    if not la or not lb:
+        return False
+    if la == lb:
+        return True
+    short, long = (la, lb) if len(la) <= len(lb) else (lb, la)
+    return len(short) >= 4 and long.startswith(short)
+
+
 def _players_match(a: str, b: str, x: str, y: str) -> bool:
     la, lb, lx, ly = _last_name(a), _last_name(b), _last_name(x), _last_name(y)
     if not la or not lb or not lx or not ly:
         return False
     direct = la == lx and lb == ly
     swap = la == ly and lb == lx
-    return direct or swap
+    if direct or swap:
+        return True
+    # Fuzzy cognomi + almeno un token nome in comune su un lato
+    if _last_fuzzy(a, x) and _last_fuzzy(b, y):
+        ta, tx = _name_tokens(a), _name_tokens(x)
+        tb, ty = _name_tokens(b), _name_tokens(y)
+        if (ta & tx) or (tb & ty) or la == lx or lb == ly:
+            return True
+    if _last_fuzzy(a, y) and _last_fuzzy(b, x):
+        ta, ty = _name_tokens(a), _name_tokens(y)
+        tb, tx = _name_tokens(b), _name_tokens(x)
+        if (ta & ty) or (tb & tx) or la == ly or lb == lx:
+            return True
+    return False
 
 
 def parse_arbworld_moneyway(html: str) -> list[dict]:

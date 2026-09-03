@@ -12,6 +12,7 @@ import pandas as pd
 from modules.feature_engineering.elo import EloEngine, expected_score
 from modules.feature_engineering.travel import travel_km, timezone_shift_hours
 from modules.data_update.cpi import lookup_cpi
+from modules.constants import TOURNEY_LEVEL_CODE
 from modules.dataset_loader.loader import load_matches
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -79,6 +80,8 @@ def _flip_perspective(feat: dict) -> dict:
     flipped["form_wr_10_a"], flipped["form_wr_10_b"] = feat["form_wr_10_b"], feat["form_wr_10_a"]
     if feat.get("mkt_p_a") is not None:
         flipped["mkt_p_a"] = 1.0 - feat["mkt_p_a"]
+    if feat.get("mkt_divergence") is not None and flipped.get("mkt_p_a") is not None:
+        flipped["mkt_divergence"] = abs(float(flipped["e_w_elo"]) - float(flipped["mkt_p_a"]))
     flipped["odds_winner"], flipped["odds_loser"] = feat.get("odds_loser"), feat.get("odds_winner")
     flipped["label"] = 0
     return flipped
@@ -205,6 +208,17 @@ class FeatureEngineer:
             tourney = str(row.get("tourney_name") or "")
             cpi = lookup_cpi(tourney, surface=surface)
 
+            pw = elo_engine.players.get(wid)
+            pl = elo_engine.players.get(lid)
+            n_w = int(pw.n_matches) if pw else 0
+            n_l = int(pl.n_matches) if pl else 0
+            data_density = float(min(n_w, n_l))
+            tourney_level_code = float(TOURNEY_LEVEL_CODE.get(level[:1].upper(), 2.0))
+            e_w_elo = expected_score(r_w, r_l)
+            mkt_divergence = (
+                abs(e_w_elo - float(mkt_p_a)) if mkt_p_a is not None else 0.0
+            )
+
             hold_w = self._rolling_mean(self.bp_save.get(wid, []))
             hold_l = self._rolling_mean(self.bp_save.get(lid, []))
             break_w = self._rolling_mean(self.bp_break.get(wid, []))
@@ -231,7 +245,7 @@ class FeatureEngineer:
                 "elo_w_pre": r_w,
                 "elo_l_pre": r_l,
                 "elo_diff": r_w - r_l,
-                "e_w_elo": expected_score(r_w, r_l),
+                "e_w_elo": e_w_elo,
                 "rank_diff": rank_diff,
                 "rank_points_diff": pts_diff,
                 "h2h_wins_a": h2h_w,
@@ -259,6 +273,9 @@ class FeatureEngineer:
                 "level_weight": level_w,
                 "mkt_p_a": mkt_p_a,
                 "mkt_overround": mkt_or,
+                "mkt_divergence": mkt_divergence,
+                "tourney_level_code": tourney_level_code,
+                "data_density": data_density,
                 "odds_winner": ow,
                 "odds_loser": ol,
                 "label": 1,

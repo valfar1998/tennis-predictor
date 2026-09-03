@@ -246,22 +246,38 @@ def settle_from_sackmann(*, days: int = 14) -> dict[str, Any]:
     return settle_from_results(days=days)
 
 
-def refresh_clv_close(*, days: int = 14) -> dict[str, Any]:
-    """Aggiorna CLV su pick pendenti con quote di chiusura a cascata."""
+def refresh_clv_close(*, days: int = 14, include_settled: bool = False) -> dict[str, Any]:
+    """Aggiorna CLV su pick con quote di chiusura a cascata."""
+    from datetime import date, timedelta
+
     from modules.advisor.clv_live import clv_vs_close, resolve_close_odds
 
+    cutoff = date.today() - timedelta(days=days - 1) if days and days > 0 else None
     updated = 0
     with _conn() as c:
         c.row_factory = sqlite3.Row
-        pending = c.execute(
-            """SELECT * FROM matches
-               WHERE hit IS NULL AND action = 'bet'
-               AND (clv IS NULL OR close_source IS NULL)"""
-        ).fetchall()
-        for rec in pending:
+        if include_settled:
+            rows = c.execute(
+                """SELECT * FROM matches
+                   WHERE action = 'bet'
+                   AND (hit IS NULL OR hit IS NOT NULL)"""
+            ).fetchall()
+        else:
+            rows = c.execute(
+                """SELECT * FROM matches
+                   WHERE hit IS NULL AND action = 'bet'
+                   AND (clv IS NULL OR close_source IS NULL)"""
+            ).fetchall()
+        for rec in rows:
             rec = dict(rec)
-            pa, pb = str(rec["player_a"]), str(rec["player_b"])
             day = str(rec.get("date") or "")[:10]
+            if cutoff is not None:
+                try:
+                    if date.fromisoformat(day) < cutoff:
+                        continue
+                except ValueError:
+                    continue
+            pa, pb = str(rec["player_a"]), str(rec["player_b"])
             close = resolve_close_odds(pa, pb, date=day, tour=str(rec.get("tour") or "ATP"))
             if not close:
                 continue
@@ -290,7 +306,7 @@ def refresh_clv_close(*, days: int = 14) -> dict[str, Any]:
             )
             updated += 1
         c.commit()
-    return {"clv_refreshed": updated}
+    return {"clv_refreshed": updated, "days": days, "include_settled": include_settled}
 
 
 def _last_name(name: str) -> str:

@@ -64,16 +64,22 @@ def geocode_city(city: str) -> dict | None:
         return None
 
 
-def fetch_weather(lat: float, lon: float, when: datetime) -> dict | None:
+def fetch_weather(lat: float, lon: float, when: datetime | str) -> dict | None:
     """Forecast or historical weather at match time."""
-    cache_key = f"{lat:.3f},{lon:.3f},{when.strftime('%Y-%m-%d')}"
+    from modules.data_update.calendar_utils import parse_commence_time
+
+    when_dt = parse_commence_time(when)
+    if when_dt is None:
+        return None
+
+    cache_key = f"{lat:.3f},{lon:.3f},{when_dt.strftime('%Y-%m-%d')}"
     cache = _load(WX_CACHE)
     if cache_key in cache:
         return cache[cache_key]
 
-    date_str = when.strftime("%Y-%m-%d")
+    date_str = when_dt.strftime("%Y-%m-%d")
     now = datetime.now(timezone.utc)
-    is_past = when.replace(tzinfo=timezone.utc) < now
+    is_past = when_dt < now
 
     try:
         if is_past:

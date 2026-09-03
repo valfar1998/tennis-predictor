@@ -144,7 +144,17 @@ def build_live_features(
     )
     feat["n_dataset_a"] = float(dataset_match_count(pid_a, m))
     feat["n_dataset_b"] = float(dataset_match_count(pid_b, m))
+    from modules.advisor.risk_controls import infer_tourney_level
+    from modules.constants import TOURNEY_LEVEL_CODE
+
+    level_code = infer_tourney_level(tourney_name)
+    feat["tourney_level_code"] = float(TOURNEY_LEVEL_CODE.get(level_code, 2.0))
+    feat["data_density"] = float(min(feat["n_dataset_a"], feat["n_dataset_b"]))
+    feat["mkt_divergence"] = 0.0
     out = {k: float(feat.get(k, 0.0) or 0.0) for k in FEATURE_COLS}
     out["_pressure_a"] = feat.get("_pressure_a")
     out["_pressure_b"] = feat.get("_pressure_b")
+    out["tourney_level_code"] = feat["tourney_level_code"]
+    out["data_density"] = feat["data_density"]
+    out["mkt_divergence"] = feat["mkt_divergence"]
     return out

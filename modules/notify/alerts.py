@@ -95,17 +95,29 @@ def _format_bet(pred: dict) -> str:
     ]
     mw = sig.get("volume_pct_pick")
     drop = sig.get("drop_pct")
-    if mw is not None or drop is not None:
-        sig_bits = []
-        if mw is not None:
-            sig_bits.append(f"Moneyway {float(mw):.0f}% vol")
-        if drop is not None:
-            tag = "allineato" if sig.get("aligned_with_pick") else "contro pick"
-            sig_bits.append(f"Drop {float(drop):.0f}% ({tag})")
+    mw_missing = bool(sig.get("missing")) and mw is None
+    drop_missing = drop is None and (sig.get("source") == "oddssafari" or parts.get("signals_missing"))
+    sig_bits = []
+    if mw is not None:
+        sig_bits.append(f"Moneyway {float(mw):.0f}% vol")
+    elif mw_missing or parts.get("signals_missing"):
+        sig_bits.append("Moneyway n/d")
+    if drop is not None:
+        tag = "allineato" if sig.get("aligned_with_pick") else "contro pick"
+        sig_bits.append(f"Drop {float(drop):.0f}% ({tag})")
+    elif drop_missing or parts.get("signals_missing"):
+        sig_bits.append("Drop n/d")
+    if sig_bits:
         lines.append("Segnali: " + " · ".join(sig_bits))
     if parts.get("moneyway") is not None:
+        mw_s = parts["moneyway"]
+        drop_s = parts.get("dropping_odds", 0)
+        note = " (segnali parziali/assenti)" if parts.get("signals_missing") else ""
+        lines.append(f"Score MW={mw_s:.2f} Drop={drop_s:.2f}{note}")
+    if rec.get("odds_sharpe") is not None:
         lines.append(
-            f"Score MW={parts['moneyway']:.2f} Drop={parts.get('dropping_odds', 0):.2f}"
+            f"Sharpe-like={float(rec['odds_sharpe']):.3f} | "
+            f"KellyAdj={float(rec.get('kelly_adj_rank') or 0):.4f}"
         )
     lines.append(f"Fonte quote: {source} | Superficie: {surface}")
     return "\n".join(lines)

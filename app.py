@@ -26,13 +26,20 @@ with tab_cal:
     col_refresh, col_info = st.columns([1, 3])
     with col_refresh:
         if st.button("Aggiorna calendario", type="primary"):
-            with st.spinner("Scarico quote Betfair e calcolo predizioni..."):
+            with st.spinner("Scarico quote Betfair, calcolo predizioni e alert Telegram..."):
                 import subprocess
-                subprocess.run([sys.executable, "main.py", "predict"], cwd=ROOT, check=False)
+                subprocess.run(
+                    [sys.executable, "main.py", "predict", "--notify"],
+                    cwd=ROOT,
+                    check=False,
+                )
             st.rerun()
 
     if pred_path.exists():
         preds = json.loads(pred_path.read_text(encoding="utf-8"))
+        from modules.data_update.calendar_utils import normalize_predictions_calendar
+
+        preds = normalize_predictions_calendar(preds)
     else:
         preds = []
 
@@ -52,9 +59,17 @@ with tab_cal:
         c4.metric("Alert ≥75", len(alertable))
         c5.metric("Fonte quote", preds[0].get("odds_source", "—") if preds else "—")
         st.caption(
-            "**Giocabilità 0–100** (stile football-predictor): combina value/EV, accordo modelli "
-            "(Markov/Elo/ML), Kelly, qualità mercato (Betfair, overround, torneo), volume Moneyway "
-            "(Arbworld) e dropping odds (OddsSafari). Alert Telegram solo ≥75."
+            "Calendario da **oggi** (Europe/Rome). Clicca **Aggiorna calendario** dopo rinvii meteo "
+            "per sincronizzare orari Betfair."
+        )
+        st.caption(
+            "Elo multisuperficie · Markov · ML calibrato (Isotonic/Platt) · "
+            "prior mercato Bayesiano · Kelly/Sharpe ranking · Shin de-vig"
+        )
+        st.caption(
+            "**Giocabilità 0–100**: value/EV penalizzato da varianza quota, accordo modelli, "
+            "Kelly-adjusted, qualità mercato, Moneyway e dropping (assenti ≠ neutro 0.50). "
+            "Alert Telegram solo `action=bet` e ≥75. EV >20% → review; EV >25–30% → scarto."
         )
 
         rows = []
@@ -64,8 +79,14 @@ with tab_cal:
             ev_pct = rec.get("ev_pct")
             if ev_pct is None and ev is not None:
                 ev_pct = round(float(ev) * 100, 2)
+            elif ev_pct is not None:
+                try:
+                    ev_pct = float(ev_pct)
+                except (TypeError, ValueError):
+                    ev_pct = None
             rows.append({
                 "Data": str(p.get("date") or "")[:10],
+                "Ora": p.get("start_time_local") or "",
                 "Torneo": p.get("tourney") or "",
                 "Match": f"{p.get('player_a')} vs {p.get('player_b')}",
                 "Superficie": p.get("surface") or "",
@@ -75,17 +96,38 @@ with tab_cal:
                 "Azione": p.get("action") or "no_bet",
                 "Pick": rec.get("player") if rec else "",
                 "Quota": rec.get("odds") if rec else None,
-                "EV %": f"{ev_pct:+.1f}%" if ev_pct is not None else "",
+                # Numerico: evita ordinamento lessicografico ("+2%" > "+10%")
+                "EV %": ev_pct,
+                "KellyAdj": rec.get("kelly_adj_rank"),
                 "Tour": p.get("tour") or "",
                 "Fonte": p.get("odds_source") or "",
             })
         st.subheader("Calendario")
         df_cal = pd.DataFrame(rows).sort_values(
-            ["Giocabilità", "Data", "Torneo"],
-            ascending=[False, True, True],
+            ["Data", "Ora", "Giocabilità", "EV %", "Torneo"],
+            ascending=[True, True, False, False, True],
             na_position="last",
         )
-        st.dataframe(df_cal, use_container_width=True, hide_index=True)
+        st.dataframe(
+            df_cal,
+            use_container_width=True,
+            hide_index=True,
+            column_config={
+                "EV %": st.column_config.NumberColumn(
+                    "EV %",
+                    help="Expected value in percentuale (ordinamento numerico)",
+                    format="%+.1f%%",
+                ),
+                "Giocabilità": st.column_config.NumberColumn("Giocabilità", format="%.0f"),
+                "P(A)": st.column_config.NumberColumn("P(A)", format="%.1%"),
+                "Quota": st.column_config.NumberColumn("Quota", format="%.2f"),
+                "KellyAdj": st.column_config.NumberColumn(
+                    "KellyAdj",
+                    help="Ranking Kelly × sostenibilità quota (non EV grezzo)",
+                    format="%.4f",
+                ),
+            },
+        )
 
         st.subheader("Dettaglio match")
         for p in sorted(preds, key=lambda x: float(x.get("playability") or 0), reverse=True)[:30]:

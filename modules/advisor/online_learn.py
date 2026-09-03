@@ -139,8 +139,8 @@ def learn_from_settled(*, force: bool = False) -> dict[str, Any]:
     try:
         from modules.advisor.live_metrics import compute_bcr
 
-        bcr = compute_bcr(pinnacle_only=True)
-        report["bcr_pinnacle"] = bcr
+        bcr = compute_bcr(betfair_only=True)
+        report["bcr_betfair"] = bcr
         if (bcr.get("n") or 0) >= 15 and bcr.get("bcr") is not None:
             if bcr["bcr"] < 0.52:
                 ol["min_edge_suggested"] = max(float(ol.get("min_edge_suggested") or 0.025), 0.035)

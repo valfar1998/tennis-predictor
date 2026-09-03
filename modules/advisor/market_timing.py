@@ -6,6 +6,8 @@ import math
 import re
 from datetime import datetime, timezone
 
+from modules.data_update.calendar_utils import parse_commence_time
+
 # T-15 min pesa ~3× rispetto a T-12 ore
 _REF_MINUTES = 12 * 60
 _NEAR_MINUTES = 15
@@ -51,27 +53,22 @@ def _parse_datetime_label(label: str, *, year: int | None = None) -> datetime | 
 def minutes_until_match(
     row: dict,
     *,
-    match_start: datetime | None = None,
-    fetched_at: datetime | None = None,
+    match_start: datetime | str | None = None,
+    fetched_at: datetime | str | None = None,
 ) -> float | None:
     """Minuti mancanti all'inizio (da etichetta match o commence_time)."""
-    now = fetched_at or datetime.now(timezone.utc)
+    now = parse_commence_time(fetched_at) or datetime.now(timezone.utc)
 
-    if match_start is not None:
-        if match_start.tzinfo is None:
-            match_start = match_start.replace(tzinfo=timezone.utc)
-        return (match_start - now).total_seconds() / 60.0
+    parsed_start = parse_commence_time(match_start)
+    if parsed_start is not None:
+        return (parsed_start - now).total_seconds() / 60.0
 
-    for key in ("commence_time", "match_start", "start_time"):
+    for key in ("commence_time", "match_start", "start_time", "commence_time_utc", "_match_start_dt"):
         raw = row.get(key)
         if raw:
-            try:
-                dt = datetime.fromisoformat(str(raw).replace("Z", "+00:00"))
-                if dt.tzinfo is None:
-                    dt = dt.replace(tzinfo=timezone.utc)
+            dt = parse_commence_time(raw)
+            if dt is not None:
                 return (dt - now).total_seconds() / 60.0
-            except ValueError:
-                pass
 
     label = row.get("date_label") or row.get("datetime_label") or ""
     parsed = _parse_datetime_label(str(label))

@@ -443,10 +443,14 @@ def _predict_one_betfair_event(
     pred["date"] = match_date
     pred["tourney"] = ev.get("competition")
     if ev.get("commence_time"):
+        pred["commence_time_utc"] = str(ev.get("commence_time"))
         try:
             pred["_match_start_dt"] = pd.Timestamp(ev.get("commence_time")).to_pydatetime()
         except Exception:
             pass
+    from modules.data_update.calendar_utils import apply_local_schedule
+
+    apply_local_schedule(pred, commence_time=ev.get("commence_time"))
     from modules.advisor.risk_controls import infer_tourney_level
 
     pred["tourney_level"] = infer_tourney_level(pred["tourney"])
@@ -454,6 +458,13 @@ def _predict_one_betfair_event(
     pred["betfair_event_id"] = ev.get("event_id")
     pred["model_low_confidence"] = not (resolved_a and resolved_b)
     pred["players_resolved"] = {"a": resolved_a, "b": resolved_b}
+    n_ds_a = int(live_feat.get("n_dataset_a") or 0)
+    n_ds_b = int(live_feat.get("n_dataset_b") or 0)
+    pred["data_density"] = {
+        "a": n_ds_a,
+        "b": n_ds_b,
+        "min": min(n_ds_a, n_ds_b),
+    }
     if trans_a.get("in_transition") or trans_b.get("in_transition"):
         pred["surface_transition"] = {
             "a": trans_a,
@@ -779,6 +790,10 @@ def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[di
             "min_edge": min_edge,
             "circuit_breaker": risk_ctx["circuit_breaker"]["active"],
         }
+
+    from modules.data_update.calendar_utils import normalize_predictions_calendar
+
+    predictions = normalize_predictions_calendar(predictions)
 
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUT_PATH.write_text(json.dumps(predictions, indent=2, default=str), encoding="utf-8")

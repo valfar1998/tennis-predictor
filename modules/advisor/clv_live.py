@@ -1,4 +1,4 @@
-"""CLV live a cascata: Pinnacle guest → Betfair LTP de-vig → tennis-data storico."""
+"""CLV live a cascata: Betfair LTP (primario) → OddsPortal → tennis-data storico."""
 
 from __future__ import annotations
 
@@ -45,21 +45,11 @@ def resolve_close_odds(
 ) -> dict | None:
     """Risolve quote di chiusura con cascade a costo zero.
 
-    1. Pinnacle guest API (pre-match close)
-    2. Betfair LTP/BSP de-vigged (proxy Pinnacle)
+    1. Betfair LTP/BSP (fonte primaria — stessa del betting)
+    2. OddsPortal cache (post-match batch)
     3. tennis-data.co.uk cache (match già giocati)
     """
-    # 1) Pinnacle guest
-    try:
-        from modules.data_update.pinnacle_guest import lookup_pinnacle_guest
-
-        pg = lookup_pinnacle_guest(player_a, player_b, date=date)
-        if pg:
-            return pg
-    except Exception:
-        pass
-
-    # 2) Betfair LTP (live o cache aggiornata)
+    # 1) Betfair LTP (live o cache aggiornata)
     try:
         from modules.data_update.betfair import lookup_betfair_close
 
@@ -75,7 +65,7 @@ def resolve_close_odds(
     except Exception:
         pass
 
-    # 3) OddsPortal cache (post-match batch)
+    # 2) OddsPortal cache (post-match batch)
     try:
         from modules.data_update.oddsportal_close import lookup_oddsportal_close
 
@@ -85,7 +75,7 @@ def resolve_close_odds(
     except Exception:
         pass
 
-    # 4) tennis-data storico
+    # 3) tennis-data storico
     try:
         from modules.data_update.tennis_data_portal import lookup_pinnacle_odds
 

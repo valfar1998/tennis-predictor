@@ -4,7 +4,14 @@ from __future__ import annotations
 
 from typing import Any
 
-from modules.constants import KELLY_CAP, KELLY_CAP_BY_LEVEL, KELLY_FRACTION, MIN_EDGE, MIN_PROB_PLAY
+from modules.constants import (
+    KELLY_CAP,
+    KELLY_CAP_BY_LEVEL,
+    KELLY_FRACTION,
+    MIN_EDGE,
+    MIN_PROB_PLAY,
+    ODDS_VARIANCE_REF,
+)
 
 
 def kelly_full(prob: float, odds: float) -> float:
@@ -25,6 +32,33 @@ def fractional_kelly(
 ) -> float:
     stake = kelly_full(prob, odds) * fraction
     return float(min(max(stake, 0.0), cap))
+
+
+def odds_sharpe(prob: float, odds: float, *, ref: float = ODDS_VARIANCE_REF) -> float:
+    """Score tipo Sharpe: Kelly-unit × sostenibilità².
+
+    Preferisce sempre quote corte a parità di edge unitario; una 4.90 con P gonfiata
+    resta sotto una 1.80@60% tipica.
+    """
+    if odds <= 1.01 or prob <= 0:
+        return -1.0
+    ev = prob * odds - 1.0
+    if ev <= 0:
+        return -1.0
+    kelly_unit = ev / max(odds - 1.0, 1e-6)
+    sustain = min(1.0, ref / max(odds, 1.01))
+    return float(kelly_unit * (sustain ** 2))
+
+
+def kelly_adjusted_rank(prob: float, odds: float, *, kelly: float | None = None) -> float:
+    """Chiave di ranking: Kelly × fattore sostenibilità quota."""
+    k = float(kelly) if kelly is not None else fractional_kelly(prob, odds)
+    if k <= 0 or odds <= 1.01:
+        return -1.0
+    # Penalità soft: a odds=ref → 1.0; a odds=5 → ~0.45
+    sustain = min(1.0, ODDS_VARIANCE_REF / max(odds, 1.01))
+    sustain = 0.35 + 0.65 * sustain
+    return float(k * sustain)
 
 
 def kelly_cap_for_level(level: str | None = None, tourney: str | None = None) -> float:
@@ -76,6 +110,15 @@ def model_uncertainty_reasons(prediction: dict) -> list[str]:
         and abs(float(p_elo) - 0.5) < 0.04
     ):
         reasons.append("modello ~50/50 senza ML: probabile artefatto, non edge reale")
+    from modules.advisor.risk_controls import infer_tourney_level
+
+    level = infer_tourney_level(prediction.get("tourney"), prediction.get("tourney_level"))
+    if (
+        level == "S"
+        and p is not None
+        and abs(float(p) - 0.5) < 0.06
+    ):
+        reasons.append("modello ~50/50 su ITF: copertura dati insufficiente")
     return reasons
 
 

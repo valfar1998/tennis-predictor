@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from modules.constants import KELLY_CAP, MIN_EDGE
+from modules.constants import KELLY_CAP, MIN_EDGE, MISSING_SIGNAL_SCORE, ODDS_VARIANCE_REF
 
 BANDS = (
     (0, 30, "no_bet", "No bet"),
@@ -55,14 +55,33 @@ def _model_agreement(pred: dict) -> float:
     return _clip(1.0 - avg_div / 0.15)
 
 
+def _odds_sustainability(odds: float) -> float:
+    """1.0 su quota ~ref, scende su quote lunghe (varianza alta)."""
+    if odds <= 1.01:
+        return 0.0
+    # 1.50→~1.0, 2.0→1.0, 3.0→0.72, 4.9→0.48, 8→0.35
+    ratio = ODDS_VARIANCE_REF / max(odds, 1.01)
+    return _clip(0.25 + 0.75 * min(1.0, ratio))
+
+
 def _value_score(rec: dict | None) -> float:
+    """Value/EV penalizzato dalla varianza della quota (non EV grezzo)."""
     if not rec:
         return 0.0
     ev = float(rec.get("ev") or 0)
     edge = float(rec.get("edge_pp") or 0)
+    odds = float(rec.get("odds") or 0)
     ev_n = _clip((ev - MIN_EDGE) / 0.12)
     edge_n = _clip(edge / 0.08)
-    return _clip(0.55 * ev_n + 0.45 * edge_n)
+    # Preferisci Kelly-adjusted / Sharpe se presenti
+    sharpe = rec.get("odds_sharpe")
+    if sharpe is not None and float(sharpe) > 0:
+        sharpe_n = _clip(float(sharpe) / 0.20)
+    else:
+        sharpe_n = ev_n
+    sustain = _odds_sustainability(odds)
+    raw = 0.35 * ev_n + 0.25 * edge_n + 0.25 * sharpe_n + 0.15 * sustain
+    return _clip(raw * (0.55 + 0.45 * sustain))
 
 
 def _kelly_score(rec: dict | None) -> float:
@@ -72,7 +91,14 @@ def _kelly_score(rec: dict | None) -> float:
     if k <= 0:
         return 0.0
     cap = float(rec.get("kelly_cap") or KELLY_CAP)
-    return _clip(k / max(cap, 1e-6))
+    base = _clip(k / max(cap, 1e-6))
+    adj = rec.get("kelly_adj_rank")
+    if adj is not None and float(adj) > 0:
+        # Normalizza rank tipico (Kelly capped * sustain ~ 0–cap)
+        adj_n = _clip(float(adj) / max(cap, 1e-6))
+        return _clip(0.55 * base + 0.45 * adj_n)
+    odds = float(rec.get("odds") or 0)
+    return _clip(base * _odds_sustainability(odds))
 
 
 def _market_quality(pred: dict, rec: dict | None) -> float:
@@ -100,7 +126,7 @@ def _moneyway_score(
     moneyway: dict | None,
 ) -> tuple[float, dict]:
     if not moneyway or not rec:
-        return 0.5, {}
+        return MISSING_SIGNAL_SCORE, {"missing": True, "source": "arbworld"}
     from modules.advisor.market_timing import apply_temporal_weight, minutes_until_match
 
     pick = str(rec.get("player") or "")
@@ -110,7 +136,7 @@ def _moneyway_score(
     on_a = _last_name(pick) == _last_name(pa) or pick == pa
     vol = moneyway.get("volume_pct_a") if on_a else moneyway.get("volume_pct_b")
     if vol is None:
-        return 0.5, {}
+        return MISSING_SIGNAL_SCORE, {"missing": True, "source": "arbworld"}
     vol_f = float(vol) / 100.0
     score = _clip((vol_f - 0.35) / 0.55)
     total = moneyway.get("total_volume_gbp")
@@ -124,6 +150,7 @@ def _moneyway_score(
         "volume_pct_pick": vol,
         "total_volume_gbp": total,
         "source": "arbworld",
+        "missing": False,
         "temporal_weight": tw,
         "minutes_to_start": mins,
     }
@@ -135,7 +162,7 @@ def _dropping_score(
     dropping: dict | None,
 ) -> tuple[float, dict]:
     if not dropping or not rec:
-        return 0.5, {}
+        return MISSING_SIGNAL_SCORE, {"missing": True, "source": "oddssafari"}
     from modules.advisor.advise import steam_eroded_reasons
 
     if steam_eroded_reasons(rec, dropping_row=dropping):
@@ -143,6 +170,7 @@ def _dropping_score(
             "drop_pct": float(dropping.get("drop_pct") or 0),
             "aligned_with_pick": True,
             "steam_eroded": True,
+            "missing": False,
             "source": "oddssafari",
         }
 
@@ -168,6 +196,7 @@ def _dropping_score(
         "drop_pct": drop,
         "aligned_with_pick": aligned,
         "source": "oddssafari",
+        "missing": False,
         "temporal_weight": tw,
         "minutes_to_start": mins,
     }
@@ -190,13 +219,34 @@ def compute_playability(
     mw_n, mw_info = _moneyway_score(advised, rec, moneyway_row)
     drop_n, drop_info = _dropping_score(advised, rec, dropping_row)
 
+    # Se MW/Drop mancano, ridistribuisci il peso su value/kelly/market (no padding neutro)
+    mw_missing = bool(mw_info.get("missing"))
+    drop_missing = bool(drop_info.get("missing"))
+    w_value, w_agree, w_kelly, w_market, w_mw, w_drop = 0.28, 0.16, 0.16, 0.15, 0.13, 0.12
+    if mw_missing and drop_missing:
+        freed = w_mw + w_drop
+        w_mw = w_drop = 0.0
+        w_value += freed * 0.45
+        w_kelly += freed * 0.35
+        w_market += freed * 0.20
+    elif mw_missing:
+        w_value += w_mw * 0.5
+        w_kelly += w_mw * 0.5
+        w_mw = 0.0
+        mw_n = 0.0
+    elif drop_missing:
+        w_value += w_drop * 0.5
+        w_kelly += w_drop * 0.5
+        w_drop = 0.0
+        drop_n = 0.0
+
     raw = (
-        0.30 * value_n
-        + 0.18 * agree_n
-        + 0.12 * kelly_n
-        + 0.15 * market_n
-        + 0.13 * mw_n
-        + 0.12 * drop_n
+        w_value * value_n
+        + w_agree * agree_n
+        + w_kelly * kelly_n
+        + w_market * market_n
+        + w_mw * mw_n
+        + w_drop * drop_n
     )
     try:
         from modules.advisor.online_learn import learned_playability_adjustment
@@ -206,10 +256,16 @@ def compute_playability(
         pass
     score = round(100 * _clip(raw), 1)
 
-    if advised.get("action") != "bet":
+    action = advised.get("action")
+    if action == "review":
+        score = min(score, 72.0)  # sotto soglia alert Strong
+    elif action != "bet":
         score = min(score, 55.0)
     if rec and float(rec.get("ev") or 0) < MIN_EDGE:
         score = min(score, 45.0)
+    # Cap soft su quote molto lunghe anche se EV alto
+    if rec and float(rec.get("odds") or 0) >= 4.0:
+        score = min(score, 78.0)
 
     band = _band(score)
     return {
@@ -221,8 +277,10 @@ def compute_playability(
             "model_agreement": round(agree_n, 3),
             "kelly": round(kelly_n, 3),
             "market_quality": round(market_n, 3),
-            "moneyway": round(mw_n, 3),
-            "dropping_odds": round(drop_n, 3),
+            "moneyway": round(mw_n if not mw_missing else MISSING_SIGNAL_SCORE, 3),
+            "dropping_odds": round(drop_n if not drop_missing else MISSING_SIGNAL_SCORE, 3),
+            "odds_sustain": round(_odds_sustainability(float((rec or {}).get("odds") or 0)), 3),
+            "signals_missing": mw_missing or drop_missing,
         },
         "market_signals": {**mw_info, **drop_info},
     }

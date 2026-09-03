@@ -1,4 +1,4 @@
-"""Finestra validazione live: architettura congelata, KPI unico = BCR Pinnacle."""
+"""Finestra validazione live: architettura congelata, KPI unico = BCR Betfair."""
 
 from __future__ import annotations
 
@@ -18,7 +18,7 @@ DEFAULT_STATE = {
     "min_n": 200,
     "max_n": 300,
     "bcr_target": 0.55,
-    "pinnacle_only": True,
+    "betfair_only": True,
     "policy": (
         "Nessuna modifica strutturale a pesi, feature o retrain ML fino al completamento "
         "della finestra. Solo settle + metriche BCR."
@@ -36,11 +36,19 @@ def _env_override() -> bool | None:
     return None
 
 
+def _normalize_state(state: dict[str, Any]) -> dict[str, Any]:
+    """Compat con stati salvati prima del passaggio a BCR Betfair."""
+    if "betfair_only" not in state and state.get("pinnacle_only") is not None:
+        state["betfair_only"] = bool(state["pinnacle_only"])
+    state.setdefault("betfair_only", True)
+    return state
+
+
 def load_state() -> dict[str, Any]:
     env = _env_override()
     if STATE_PATH.is_file():
         try:
-            state = json.loads(STATE_PATH.read_text(encoding="utf-8"))
+            state = _normalize_state(json.loads(STATE_PATH.read_text(encoding="utf-8")))
         except Exception:
             state = dict(DEFAULT_STATE)
     else:
@@ -58,7 +66,7 @@ def save_state(state: dict[str, Any]) -> Path:
 
 
 def maybe_auto_unfreeze() -> dict[str, Any] | None:
-    """Disattiva il freeze nel file stato quando si raggiunge min_n pick Pinnacle settle.
+    """Disattiva il freeze nel file stato quando si raggiunge min_n pick Betfair settle.
 
     Equivalente a impostare ``LIVE_VALIDATION_FREEZE=0`` senza intervento manuale.
     Non applica se ``LIVE_VALIDATION_FREEZE=1`` forza il freeze da ambiente.
@@ -70,7 +78,7 @@ def maybe_auto_unfreeze() -> dict[str, Any] | None:
 
     if STATE_PATH.is_file():
         try:
-            state = json.loads(STATE_PATH.read_text(encoding="utf-8"))
+            state = _normalize_state(json.loads(STATE_PATH.read_text(encoding="utf-8")))
         except Exception:
             state = dict(DEFAULT_STATE)
     else:
@@ -83,7 +91,7 @@ def maybe_auto_unfreeze() -> dict[str, Any] | None:
 
     from modules.advisor.live_metrics import compute_bcr
 
-    bcr = compute_bcr(pinnacle_only=bool(state.get("pinnacle_only", True)))
+    bcr = compute_bcr(betfair_only=bool(state.get("betfair_only", True)))
     n = int(bcr.get("n") or 0)
     min_n = int(state.get("min_n") or 200)
     if n < min_n:
@@ -92,13 +100,13 @@ def maybe_auto_unfreeze() -> dict[str, Any] | None:
     state["active"] = False
     state["auto_completed"] = True
     state["completed_at"] = datetime.now(timezone.utc).isoformat()
-    state["n_pinnacle_at_completion"] = n
+    state["n_betfair_at_completion"] = n
     state["bcr_at_completion"] = bcr.get("bcr")
-    state["completion_reason"] = f">={min_n} pick Pinnacle settle — finestra validazione completata"
+    state["completion_reason"] = f">={min_n} pick Betfair settle — finestra validazione completata"
     save_state(state)
     return {
         "unfrozen": True,
-        "n_pinnacle_settled": n,
+        "n_betfair_settled": n,
         "min_n": min_n,
         "bcr_at_completion": bcr.get("bcr"),
         "completed_at": state["completed_at"],
@@ -122,11 +130,11 @@ def blocks_playability_learned_adjustments() -> bool:
 
 
 def validation_progress() -> dict[str, Any]:
-    """Avanzamento finestra vs target BCR Pinnacle."""
+    """Avanzamento finestra vs target BCR Betfair."""
     from modules.advisor.live_metrics import compute_bcr
 
     state = load_state()
-    bcr = compute_bcr(pinnacle_only=bool(state.get("pinnacle_only", True)))
+    bcr = compute_bcr(betfair_only=bool(state.get("betfair_only", True)))
     n = int(bcr.get("n") or 0)
     min_n = int(state.get("min_n") or 200)
     max_n = int(state.get("max_n") or 300)
@@ -135,7 +143,7 @@ def validation_progress() -> dict[str, Any]:
     return {
         "frozen": is_frozen(),
         "started_at": state.get("started_at"),
-        "n_pinnacle_settled": n,
+        "n_betfair_settled": n,
         "target_n": target,
         "min_n": min_n,
         "max_n": max_n,
@@ -174,17 +182,17 @@ def format_freeze_banner() -> str:
     maybe_auto_unfreeze()
     if not is_frozen():
         state = load_state()
+        n = state.get("n_betfair_at_completion") or state.get("n_pinnacle_at_completion")
         if state.get("auto_completed"):
-            n = state.get("n_pinnacle_at_completion")
             return (
-                f"Validazione: FREEZE completato automaticamente a {n} pick Pinnacle settle "
+                f"Validazione: FREEZE completato automaticamente a {n} pick Betfair settle "
                 f"— online learn e retrain consentiti"
             )
         return "Validazione: FREEZE disattivo — online learn e retrain consentiti"
     p = validation_progress()
     bcr_s = f"{p['bcr_current']:.1%}" if p.get("bcr_current") is not None else "n/d"
     return (
-        f"VALIDAZIONE LIVE (FREEZE): {p['n_pinnacle_settled']}/{p['target_n']} pick Pinnacle settle "
+        f"VALIDAZIONE LIVE (FREEZE): {p['n_betfair_settled']}/{p['target_n']} pick Betfair settle "
         f"| BCR {bcr_s} (target >{p['bcr_target']:.0%}) "
         f"| nessun aggiornamento pesi/feature fino a {p['min_n']}+ match"
     )

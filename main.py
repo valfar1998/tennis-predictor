@@ -147,7 +147,7 @@ def cmd_learn(args: argparse.Namespace) -> None:
     print("Summary:", json.dumps(history_summary(), indent=2))
     prog.next("Audit BCR + slippage...")
     audit = run_live_audit(refresh_slippage=True)
-    print(format_bcr_status(audit.get("bcr_pinnacle", {})))
+    print(format_bcr_status(audit.get("bcr_betfair", {})))
     if audit.get("slippage", {}).get("recommendation"):
         print("Slippage:", audit["slippage"]["recommendation"])
     log_done("learn completato")
@@ -156,11 +156,19 @@ def cmd_learn(args: argparse.Namespace) -> None:
 def cmd_metrics(args: argparse.Namespace) -> None:
     from modules.advisor.live_metrics import format_bcr_status, run_live_audit
     from modules.advisor.validation_freeze import format_freeze_banner
+    from modules.data_update.history import refresh_clv_close
 
     print(format_freeze_banner())
-    audit = run_live_audit(refresh_slippage=not args.no_slippage)
+    bcr_days = getattr(args, "days", None)
+    if getattr(args, "refresh_clv", False):
+        clv = refresh_clv_close(
+            days=bcr_days or 14,
+            include_settled=bool(bcr_days),
+        )
+        print("CLV refresh:", json.dumps(clv, ensure_ascii=False))
+    audit = run_live_audit(refresh_slippage=not args.no_slippage, bcr_days=bcr_days)
     print(json.dumps(audit, indent=2, ensure_ascii=False))
-    print(format_bcr_status(audit.get("bcr_pinnacle", {})))
+    print(format_bcr_status(audit.get("bcr_betfair", {})))
     slip = audit.get("slippage") or {}
     if slip.get("recommendation"):
         print("Slippage:", slip["recommendation"])
@@ -201,7 +209,7 @@ def cmd_predict(args: argparse.Namespace) -> None:
 
     if args.metrics:
         audit = run_live_audit(refresh_slippage=False)
-        print(format_bcr_status(audit.get("bcr_pinnacle", {})))
+        print(format_bcr_status(audit.get("bcr_betfair", {})))
 
 
 def cmd_full(args: argparse.Namespace) -> None:
@@ -244,8 +252,14 @@ def main() -> None:
     p_pred.add_argument("--metrics", action="store_true", help="Stampa BCR/slippage dopo predict")
     p_pred.set_defaults(func=cmd_predict)
 
-    p_metrics = sub.add_parser("metrics", help="Audit fase live: BCR Pinnacle + slippage Telegram")
+    p_metrics = sub.add_parser("metrics", help="Audit fase live: BCR Betfair + slippage Telegram")
     p_metrics.add_argument("--no-slippage", action="store_true", help="Non aggiornare snapshot T+3min")
+    p_metrics.add_argument("--days", type=int, default=None, help="Finestra BCR (es. 3 = ultimi 3 giorni)")
+    p_metrics.add_argument(
+        "--refresh-clv",
+        action="store_true",
+        help="Ricalcola CLV/BCR da quote chiusura (con --days include pick già settle)",
+    )
     p_metrics.set_defaults(func=cmd_metrics)
 
     p_learn = sub.add_parser("learn", help="Chiude pick pendenti e aggiorna calibration.json")

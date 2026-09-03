@@ -21,6 +21,7 @@ CAL_PATH = ROOT / "data" / "models" / "calibration.json"
 OOF_STACKER_PATH = ROOT / "data" / "models" / "stacker_oof.joblib"
 
 META_COLS = ("p_markov", "p_elo", "p_ml")
+UNCERTAINTY_COLS = ("mkt_divergence", "tourney_level_code", "data_density")
 FALLBACK_WEIGHTS = {"p_ml": 0.35, "p_markov": 0.40, "p_elo": 0.25}
 MIN_STACKER_ROWS = 500
 
@@ -58,7 +59,36 @@ def _prepare_meta_frame(df: pd.DataFrame) -> pd.DataFrame:
         work["p_markov"] = work["e_w_elo"]
     if "p_elo" not in work.columns and "e_w_elo" in work.columns:
         work["p_elo"] = work["e_w_elo"]
+    if "mkt_divergence" not in work.columns and "e_w_elo" in work.columns and "mkt_p_a" in work.columns:
+        work["mkt_divergence"] = work.apply(
+            lambda r: abs(float(r["e_w_elo"]) - float(r["mkt_p_a"]))
+            if pd.notna(r.get("mkt_p_a"))
+            else 0.0,
+            axis=1,
+        )
+    if "tourney_level_code" not in work.columns and "tourney_level" in work.columns:
+        from modules.constants import TOURNEY_LEVEL_CODE
+
+        work["tourney_level_code"] = work["tourney_level"].map(
+            lambda lv: TOURNEY_LEVEL_CODE.get(str(lv or "A").upper()[:1], 2.0)
+        )
     return work
+
+
+def _meta_columns(work: pd.DataFrame) -> list[str]:
+    cols = [c for c in META_COLS if c in work.columns]
+    for c in UNCERTAINTY_COLS:
+        if c in work.columns:
+            cols.append(c)
+    return cols
+
+
+def _uncertainty_defaults() -> dict[str, float]:
+    return {
+        "mkt_divergence": 0.0,
+        "tourney_level_code": 2.0,
+        "data_density": 50.0,
+    }
 
 
 class MetaStacker:
@@ -81,11 +111,15 @@ class MetaStacker:
 
     def fit(self, df: pd.DataFrame, *, n_splits: int = 5) -> dict:
         work = _prepare_meta_frame(df)
-        cols = [c for c in META_COLS if c in work.columns]
+        cols = _meta_columns(work)
         if len(cols) < 2:
             return {"ok": False, "error": "colonne meta insufficienti"}
 
-        sub = work.dropna(subset=cols + ["label"]).copy()
+        sub = work.dropna(subset=[c for c in META_COLS if c in cols] + ["label"]).copy()
+        for c in UNCERTAINTY_COLS:
+            if c in cols and c not in sub.columns:
+                sub[c] = _uncertainty_defaults().get(c, 0.0)
+        sub = sub.dropna(subset=cols)
         if len(sub) < MIN_STACKER_ROWS:
             return {"ok": False, "error": f"sample troppo piccolo ({len(sub)})"}
 
@@ -135,6 +169,15 @@ class MetaStacker:
             oof_df["label"] = y
             joblib.dump(oof_df, OOF_STACKER_PATH)
 
+        # Calibrazione probabilità su OOF (Isotonic; fallback Platt se fallisce)
+        cal_info: dict = {"ok": False}
+        if mask.sum() >= 200:
+            from modules.calibration.prob_calibrator import fit_calibrator_from_oof
+
+            cal_info = fit_calibrator_from_oof(y[mask], oof[mask], method="isotonic")
+            if not cal_info.get("ok"):
+                cal_info = fit_calibrator_from_oof(y[mask], oof[mask], method="platt")
+
         cal = {}
         if CAL_PATH.is_file():
             try:
@@ -151,6 +194,14 @@ class MetaStacker:
             "n_splits": n_splits,
             "n_train": len(sub),
         }
+        if cal_info.get("ok"):
+            cal["probability_calibration"] = {
+                "method": cal_info.get("method"),
+                "n_fit": cal_info.get("n_fit"),
+                "brier_raw": cal_info.get("brier_raw"),
+                "brier_cal": cal_info.get("brier_cal"),
+                "path": cal_info.get("path"),
+            }
         CAL_PATH.write_text(json.dumps(cal, indent=2, ensure_ascii=False), encoding="utf-8")
 
         return {
@@ -161,16 +212,38 @@ class MetaStacker:
             "weights": self.weights,
             "n_train": len(sub),
             "cv": "TimeSeriesSplit",
+            "probability_calibration": cal_info if cal_info.get("ok") else None,
         }
 
-    def predict(self, *, p_markov: float, p_elo: float, p_ml: float | None = None) -> float:
+    def predict(
+        self,
+        *,
+        p_markov: float,
+        p_elo: float,
+        p_ml: float | None = None,
+        mkt_divergence: float | None = None,
+        tourney_level_code: float | None = None,
+        data_density: float | None = None,
+    ) -> float:
         if self.model is None:
             self._load_bundle()
+
+        defaults = _uncertainty_defaults()
+        extra = {
+            "mkt_divergence": mkt_divergence if mkt_divergence is not None else defaults["mkt_divergence"],
+            "tourney_level_code": tourney_level_code if tourney_level_code is not None else defaults["tourney_level_code"],
+            "data_density": data_density if data_density is not None else defaults["data_density"],
+        }
 
         if self.model is not None:
             cols = getattr(self.model, "feature_names_in_", None)
             vec = []
-            mapping = {"p_markov": p_markov, "p_elo": p_elo, "p_ml": p_ml if p_ml is not None else p_elo}
+            mapping = {
+                "p_markov": p_markov,
+                "p_elo": p_elo,
+                "p_ml": p_ml if p_ml is not None else p_elo,
+                **extra,
+            }
             if cols is not None:
                 for c in cols:
                     vec.append(mapping.get(str(c), p_elo))

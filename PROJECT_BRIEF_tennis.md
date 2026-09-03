@@ -31,8 +31,12 @@ Fonti dati esterne integrate / referenziate (cartelle in `lib/`):
 ## Betting
 
 - De-vig: Shin (default) o Power
-- EV = P_model × quota - 1
+- **Calibrazione probabilità** (Isotonic, fallback Platt) su OOF stacker → `modules/calibration/prob_calibrator.py`; applicata in `predict.py` prima dello shrink di mercato
+- **Prior Bayesiano di mercato**: `P_finale = w·P_modello + (1−w)·P_mercato` (`market_calibration.py`); `w` scende su ITF/bassa densità e se divergenza modello/mercato ≥12% (hard block >18%)
+- EV = P_finale × quota − 1
 - Kelly: γ=0.20, cap **dinamico per livello torneo** (`risk_controls.py` / `advise.py`)
+- **Ranking pick**: Kelly-adjusted / Sharpe-like (`odds_sharpe`), **non** EV grezzo
+- **Sanity EV**: hard discard se EV > **30%** (quote ≤3) o > **25%** (quote lunghe); fascia **>20%** → `action: review` (no alert auto)
 - Regole ritiro: matrice per bookmaker (1-ball, 1-set, full void) + **sotto-modello P(ritiro)** (`retirement_risk.py`) che modula EV/Kelly
 
 ### Kelly cap per liquidità torneo
@@ -50,6 +54,9 @@ Fonti dati esterne integrate / referenziate (cartelle in `lib/`):
 |-----------|--------|---------|
 | **Circuit breaker** | Drawdown corrente >15% **oppure** streak perdite ≥11 unità (1% ciascuna) | `MIN_EDGE` 2.5% → **4.5%** |
 | **Esposizione giornaliera** | ≥6 bet stesso giorno + stesso torneo | Kelly scalato per cap totale **6%** bankroll |
+| **EV sanity** | EV > 25–30% | `no_bet` (edge irrealistico) |
+| **EV review** | 20% < EV ≤ cap | `action: review` |
+| **Divergenza mkt** | \|P_model − P_mkt\| > 18% | `no_bet` + shrink aggressivo |
 | Stato persistito | `data/processed/risk_state.json` | Audit + `python main.py predict` stampa alert se attivo |
 
 ## Metriche chiave
@@ -314,13 +321,15 @@ Vedi sezione [Layer predittivo](#layer-preditivo-3-livelli--meta-learner) e modu
 
 ### 3. Value bet (consiglio scommessa)
 
-Modulo `advise.py` + `value.py`:
+Modulo `advise.py` + `value.py` + `market_calibration.py`:
 
-1. **De-vig Shin** sulle quote → probabilità di mercato fair (`mkt_prob`)
-2. **EV** per entrambi i lati: `EV = P_model × quota − 1` (es. 0.15 = **+15%**)
-3. **Edge** in punti percentuali: `edge = P_model − mkt_prob`
-4. **Kelly frazionato** (γ=0.20, cap 1.8%)
-5. Scelta del lato con **EV più alto**
+1. **Calibrazione** Isotonic/Platt su P stacker (se artifact presente)
+2. **Shrink Bayesiano** verso mercato de-vigged: `P = w·P_cal + (1−w)·P_mkt`
+3. **De-vig Shin** sulle quote → probabilità di mercato fair (`mkt_prob`)
+4. **EV** per entrambi i lati: `EV = P × quota − 1` (es. 0.15 = **+15%**)
+5. **Edge** in punti percentuali: `edge = P − mkt_prob`
+6. **Kelly frazionato** (γ=0.20, cap dinamico per livello)
+7. Scelta del lato con **Kelly-adjusted / Sharpe** più alto (non EV grezzo)
 
 **Filtri no-bet** (bloccano la raccomandazione):
 
@@ -328,37 +337,43 @@ Modulo `advise.py` + `value.py`:
 |--------|--------|
 | EV minimo | ≥ 2.5% (`MIN_EDGE`) — calcolato sulla **quota corrente** |
 | Probabilità minima | ≥ 38% (`MIN_PROB_PLAY`) |
+| EV sanity hard | >30% (quote ≤3) / >25% (quote lunghe) → scarto |
+| EV review | >20% e ≤ hard cap → `action: review` (no Telegram) |
+| Divergenza mkt | \|P_model − P_mkt\| > 18% |
 | Modello incerto | giocatore/i non identificati nel database |
 | Artefatto 50/50 | `P ≈ 50%` e `P_elo ≈ 50%` senza ML |
 | **Steam eroso** | dropping allineato al pick ma EV corrente sotto soglia o margine eroso >45% vs open |
 
-Se passa i filtri → `action: "bet"` + `recommended` (pick, quota, `ev`, `ev_pct`, Kelly).
+Se passa i filtri → `action: "bet"` + `recommended` (pick, quota, `ev`, `ev_pct`, Kelly, `odds_sharpe`, `kelly_adj_rank`).
 
 Campi EV nel JSON:
 - `ev` — decimale (0.152 = 15.2% di rendimento atteso per unità puntata)
 - `ev_pct` — stesso valore in percentuale (+15.2)
-- UI e Telegram mostrano sempre **EV %** (es. `+15.2%`)
+- UI Streamlit: colonna **EV % numerica** (`NumberColumn`) per ordinamento corretto (evita "+2%" > "+10%" lessicografico)
+- Telegram mostra sempre **EV %** (es. `+15.2%`)
 
 ### 4. Indice giocabilità (0–100)
 
 Modulo `playability.py`. Calcolato **dopo** il value bet, arricchisce ogni predizione.
 
-**Formula composita** (ogni componente normalizzata 0–1, poi × peso):
+**Formula composita** (pesi ridistribuiti se Moneyway/Drop assenti — **non** usare 0.50 neutro come se fosse un segnale reale):
 
 ```
 Giocabilità = 100 × (
-    0.30 × value
-  + 0.18 × model_agreement
-  + 0.12 × kelly
-  + 0.15 × market_quality
-  + 0.13 × moneyway
-  + 0.12 × dropping_odds
+    w_value × value          # default 0.28; include penalità varianza quota
+  + w_agree × model_agreement  # 0.16
+  + w_kelly × kelly            # 0.16; Kelly-adjusted
+  + w_market × market_quality  # 0.15
+  + w_mw × moneyway            # 0.13; se missing → peso a value/kelly
+  + w_drop × dropping_odds     # 0.12; se missing → peso a value/kelly
 )
 ```
 
 **Penalità finali:**
-- Se `action ≠ "bet"` → score max **55**
+- Se `action = "review"` → score max **72** (sotto soglia alert)
+- Se `action ≠ "bet"` (e non review) → score max **55**
 - Se `EV < MIN_EDGE` → score max **45**
+- Se quota ≥ 4.0 → score max **78**
 
 **Bande:**
 
@@ -370,7 +385,7 @@ Giocabilità = 100 × (
 | 75–90 | Strong | Alert Telegram ✅ |
 | 90–100 | Premium | Massima convinzione |
 
-**Soglia alert Telegram:** `MIN_PLAY_ALERT = 75` (Strong+).
+**Soglia alert Telegram:** `MIN_PLAY_ALERT = 75` (Strong+) e solo `action=bet`.
 
 ---
 
@@ -378,18 +393,20 @@ Giocabilità = 100 × (
 
 Ogni campo è normalizzato 0–1 prima di applicare il peso. Valori alti **alzano** la giocabilità; valori bassi la **abbassano**.
 
-### 1. Value (peso 30%)
+### 1. Value (peso ~28%)
 
-Misura quanto il pick supera la soglia di edge.
+Misura edge **sostenibile**, non EV grezzo su quote lunghe.
 
 | Input | Effetto |
 |-------|---------|
-| **EV alto** (es. +15% → +1.0) | `(EV − 2.5%) / 12%`, clamp 0–1 |
-| **Edge vs mercato** (es. +8 pp → +1.0) | `edge / 8%`, clamp 0–1 |
-| Combinazione | 55% EV + 45% edge |
+| **EV** | `(EV − 2.5%) / 12%`, clamp 0–1 |
+| **Edge vs mercato** | `edge / 8%`, clamp 0–1 |
+| **Sharpe-like** | `EV / sqrt((odds−1)/ref)` |
+| **Sostenibilità quota** | alto su ~1.8–2.0; basso su 4.90+ |
+| Combinazione | mix EV + edge + Sharpe × sustainability |
 | EV sotto 2.5% | componente bassa; cap score a 45 |
 
-### 2. Model agreement (peso 18%)
+### 2. Model agreement (peso ~16%)
 
 Accordo tra Markov, Elo e ML rispetto al blend finale.
 
@@ -400,15 +417,16 @@ Accordo tra Markov, Elo e ML rispetto al blend finale.
 | ML assente | usa solo Markov + Elo |
 | Modello ~50/50 senza ML | spesso blocca il bet prima (filtro incertezza) |
 
-### 3. Kelly (peso 12%)
+### 3. Kelly (peso ~16%)
 
-Stake consigliato rispetto al cap.
+Stake consigliato rispetto al cap, modulato da sostenibilità quota.
 
 | Input | Effetto |
 |-------|---------|
-| Kelly = cap (1.8%) | → 1.0 |
+| Kelly = cap | → 1.0 |
 | Kelly = 0 | → 0.0 |
-| Formula | `kelly / KELLY_CAP` |
+| Kelly-adjusted | `kelly × (0.35 + 0.65·min(1, ref/odds))` |
+| Formula base | mix `kelly/cap` + rank adjusted |
 
 ### 4. Market quality (peso 15%)
 
@@ -430,6 +448,21 @@ Volume scommesso sul pick (steam Betfair aggregato).
 |-------|---------|
 | **Volume % sul pick** | `(vol% − 35%) / 55%` — sopra 35% aiuta, sotto abbassa |
 | **Volume totale £** | liquidità: `min(1, £ / 5000)` |
+| **Assente / no match** | score **0.32** + peso ridistribuito (non 0.50 neutro) |
+| Combinazione | 70% volume% + 30% liquidità; poi decay temporale T-12h→T-15min |
+
+Interpretazione: favorito con >70% volume = segnale sharp; underdog con poco volume ma EV alto non viene penalizzato eccessivamente. **Segnale mancante non conta come neutro.**
+
+### 6. Dropping odds (peso 12%) — OddsSafari
+
+Movimento quote verso il nostro pick. **Non seguire ciecamente il dropping**: l'edge si valuta sulla quota **corrente**, non sull'open.
+
+| Input | Effetto |
+|-------|---------|
+| Drop ≥10% allineato al pick | score alto (~0.55+) |
+| Drop contro pick | penalità |
+| Steam eroso | **0.15** + spesso `no_bet` in advise |
+| **Assente / no match** | score **0.32** + peso ridistribuito |
 | Combinazione | 70% volume pick + 30% liquidità |
 | Match non trovato su Arbworld | neutro **0.5** |
 
