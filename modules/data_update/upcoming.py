@@ -10,9 +10,9 @@ from pathlib import Path
 import pandas as pd
 
 from modules.advisor.advise import advise
-from modules.advisor.playability import enrich_playability, MIN_PLAY_ALERT
+from modules.advisor.playability import enrich_playability
 from modules.data_update.entity_resolution import _norm_name, build_player_index, resolve_name
-from modules.data_update.history import archive_prediction
+from modules.data_update.history import archive_prediction, paper_eligible
 from modules.data_update.sackmann import ensure_sackmann_wta, load_tour_matches, load_wta_matches
 from modules.data_update.tennis_abstract import lookup_ta_elo
 from modules.data_update.tennis_livescore import fetch_tennis_livescore
@@ -528,8 +528,14 @@ def _predict_one_betfair_event(
         moneyway_rows=moneyway_rows,
         dropping_rows=dropping_rows,
     )
-    if advised.get("action") == "bet" and (advised.get("playability") or 0) >= MIN_PLAY_ALERT:
+    if advised.get("action") == "bet":
         archive_prediction(advised)
+    else:
+        if paper_eligible(advised):
+            paper = dict(advised)
+            paper["action"] = "paper"
+            paper["recommended"] = advised.get("best_play") or (advised.get("value") or {}).get("best")
+            archive_prediction(paper)
     return advised
 
 
@@ -627,8 +633,14 @@ def _predict_from_sackmann_recent(
             dropping_rows=dropping_rows,
         )
         predictions.append(advised)
-        if advised.get("action") == "bet" and (advised.get("playability") or 0) >= MIN_PLAY_ALERT:
+        if advised.get("action") == "bet":
             archive_prediction(advised)
+        else:
+            if paper_eligible(advised):
+                paper = dict(advised)
+                paper["action"] = "paper"
+                paper["recommended"] = advised.get("best_play") or (advised.get("value") or {}).get("best")
+                archive_prediction(paper)
 
     return predictions
 

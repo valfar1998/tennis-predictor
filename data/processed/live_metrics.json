@@ -1,10 +1,12 @@
 {
   "phase": "paper_trading",
   "n_settled": 82,
-  "n_pending": 10,
+  "n_pending": 143,
   "hit_rate": 0.3537,
-  "roi_note": "ROI primi 100 bet guidato dalla varianza - usare BCR Pinnacle come KPI edge",
-  "bcr_pinnacle": {
+  "roi_note": "ROI primi 100 bet guidato dalla varianza - usare BCR Betfair come KPI edge",
+  "bcr_source": "betfair",
+  "bcr_note": "Il 3.8% (3/80) citato in chat il 2026-09-02 non era nel DB (audit già 0/80) e i 3 match non erano nominati: non ricostruibile. BCR usa solo chiusure distinte dalla quota d'ingresso; paper = previsioni valide no_bet.",
+  "bcr_betfair": {
     "n": 0,
     "beats": 0,
     "bcr": null,
@@ -13,18 +15,40 @@
     "target_pct": 55.0,
     "pass": null,
     "avg_clv": null,
-    "pinnacle_only": true
+    "betfair_only": true,
+    "actions": [
+      "bet"
+    ]
   },
-  "bcr_all_sources": {
-    "n": 82,
+  "bcr_paper": {
+    "n": 0,
     "beats": 0,
-    "bcr": 0.0,
-    "bcr_pct": 0.0,
+    "bcr": null,
+    "bcr_pct": null,
     "target": 0.55,
     "target_pct": 55.0,
-    "pass": false,
-    "avg_clv": 0.0,
-    "pinnacle_only": false
+    "pass": null,
+    "avg_clv": null,
+    "betfair_only": true,
+    "actions": [
+      "bet",
+      "paper"
+    ]
+  },
+  "bcr_all_sources": {
+    "n": 0,
+    "beats": 0,
+    "bcr": null,
+    "bcr_pct": null,
+    "target": 0.55,
+    "target_pct": 55.0,
+    "pass": null,
+    "avg_clv": null,
+    "betfair_only": false,
+    "actions": [
+      "bet",
+      "paper"
+    ]
   },
   "slippage": {
     "n_alerts": 0,
@@ -36,7 +60,7 @@
     "steam_threshold_pct": 3.0,
     "recommendation": null
   },
-  "updated_at": "2026-09-02T19:29:48.226341+00:00",
+  "updated_at": "2026-09-03T08:05:00.065019+00:00",
   "governance": {
     "validation_freeze": {
       "active": true,
@@ -45,10 +69,10 @@
       "min_n": 200,
       "max_n": 300,
       "bcr_target": 0.55,
-      "pinnacle_only": true,
-      "policy": "Nessuna modifica strutturale a pesi, feature o retrain ML fino al completamento della finestra. Solo settle + metriche BCR.",
+      "policy": "Nessuna modifica strutturale a pesi, feature o retrain ML fino al completamento della finestra. Solo settle + metriche BCR Betfair.",
       "auto_unfreeze": true,
-      "auto_unfreeze_note": "A >=min_n pick Pinnacle settle active passa a false (equivale a LIVE_VALIDATION_FREEZE=0).",
+      "auto_unfreeze_note": "A >=min_n pick Betfair settle active passa a false (equivale a LIVE_VALIDATION_FREEZE=0).",
+      "betfair_only": true,
       "blocks": {
         "online_learn_writes": true,
         "model_retrain": true,
@@ -58,7 +82,7 @@
     "progress": {
       "frozen": true,
       "started_at": "2026-09-01",
-      "n_pinnacle_settled": 0,
+      "n_betfair_settled": 0,
       "target_n": 250,
       "min_n": 200,
       "max_n": 300,
@@ -67,8 +91,24 @@
       "bcr_target": 0.55,
       "bcr_current": null,
       "bcr_pass": null,
-      "policy": "Nessuna modifica strutturale a pesi, feature o retrain ML fino al completamento della finestra. Solo settle + metriche BCR."
+      "policy": "Nessuna modifica strutturale a pesi, feature o retrain ML fino al completamento della finestra. Solo settle + metriche BCR Betfair."
     },
-    "updated_at": "2026-09-02T19:29:48.229826+00:00"
+    "updated_at": "2026-09-03T08:05:00.076990+00:00"
+  },
+  "itf_governance": {
+    "shrink_w_itf": 0.15,
+    "ev_sanity_cap_high": 0.25,
+    "min_data_density": 0,
+    "regime": "insufficient_sample",
+    "bcr_itf": {
+      "n": 0,
+      "beats": 0,
+      "bcr": null,
+      "bcr_pct": null,
+      "betfair_only": true,
+      "min_n_for_tuning": 10,
+      "relax_threshold_pct": 20.0,
+      "strict_threshold_pct": 5.0
+    }
   }
 }

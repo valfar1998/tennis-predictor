@@ -91,11 +91,41 @@ def _signals(pred: dict[str, Any]) -> tuple[float | None, float | None, int | No
     return mw, drop, 1 if aligned else 0
 
 
+def paper_eligible(pred: dict[str, Any]) -> bool:
+    """Pick modello archiviabile per BCR anche se i filtri dicono no_bet."""
+    if pred.get("action") == "bet":
+        return False
+    if pred.get("model_low_confidence"):
+        return False
+    from modules.advisor.advise import display_pick
+
+    rec = display_pick(pred)
+    odds = rec.get("odds")
+    if not rec.get("player") or not odds or float(odds) <= 1.01:
+        return False
+    if rec.get("odds_real") is False:
+        return False
+    return True
+
+
 def archive_prediction(pred: dict[str, Any]) -> None:
-    rec = pred.get("recommended") or {}
+    from modules.advisor.advise import display_pick
+
+    rec = pred.get("recommended") or display_pick(pred)
+    action = str(pred.get("action") or "no_bet")
     mw, drop, aligned = _signals(pred)
     key = _match_key(pred)
     with _conn() as c:
+        existing = c.execute(
+            "SELECT action, hit FROM matches WHERE match_key=?", (key,)
+        ).fetchone()
+        if existing:
+            old_action, hit = existing[0], existing[1]
+            if hit is not None:
+                return
+            if old_action == "bet" and action != "bet":
+                return
+        # Non scrivere CLV/chiusura all'ingresso: LTP live = quota bet, BCR finto a 0.
         c.execute(
             """INSERT OR REPLACE INTO matches
             (match_key, date, player_a, player_b, surface, tourney, tour, pick, action,
@@ -112,12 +142,12 @@ def archive_prediction(pred: dict[str, Any]) -> None:
                 pred.get("tourney"),
                 pred.get("tour"),
                 rec.get("player"),
-                pred.get("action"),
+                action,
                 rec.get("probability"),
                 rec.get("odds"),
                 rec.get("ev"),
                 rec.get("ev_pct"),
-                rec.get("kelly"),
+                rec.get("kelly_info") or rec.get("kelly"),
                 pred.get("odds_source"),
                 pred.get("p_markov"),
                 pred.get("p_elo"),
@@ -127,11 +157,11 @@ def archive_prediction(pred: dict[str, Any]) -> None:
                 mw,
                 drop,
                 aligned,
-                pred.get("clv") or rec.get("clv"),
-                int(rec.get("beat_close")) if rec.get("beat_close") is not None else None,
-                pred.get("close_source") or rec.get("close_source"),
-                rec.get("close_a") or (pred.get("close_odds") or {}).get("a"),
-                rec.get("close_b") or (pred.get("close_odds") or {}).get("b"),
+                None,
+                None,
+                None,
+                None,
+                None,
                 datetime.now(timezone.utc).isoformat(),
             ),
         )
@@ -192,7 +222,7 @@ def settle_from_results(*, days: int = 14) -> dict[str, Any]:
     with _conn() as c:
         c.row_factory = sqlite3.Row
         pending = c.execute(
-            "SELECT * FROM matches WHERE hit IS NULL AND action = 'bet'"
+            "SELECT * FROM matches WHERE hit IS NULL AND action IN ('bet', 'paper')"
         ).fetchall()
         n_pending = len(pending)
         every = max(1, n_pending // 10) if n_pending else 1
@@ -259,13 +289,13 @@ def refresh_clv_close(*, days: int = 14, include_settled: bool = False) -> dict[
         if include_settled:
             rows = c.execute(
                 """SELECT * FROM matches
-                   WHERE action = 'bet'
+                   WHERE action IN ('bet', 'paper')
                    AND (hit IS NULL OR hit IS NOT NULL)"""
             ).fetchall()
         else:
             rows = c.execute(
                 """SELECT * FROM matches
-                   WHERE hit IS NULL AND action = 'bet'
+                   WHERE hit IS NULL AND action IN ('bet', 'paper')
                    AND (clv IS NULL OR close_source IS NULL)"""
             ).fetchall()
         for rec in rows:
@@ -283,9 +313,20 @@ def refresh_clv_close(*, days: int = 14, include_settled: bool = False) -> dict[
                 continue
             pick = str(rec.get("pick") or "")
             side = "A" if _last_name(pick) == _last_name(pa) else "B"
+            close_pick = close.get("a") if side == "A" else close.get("b")
+            odds_bet = float(rec["odds"]) if rec.get("odds") is not None else None
+            src = str(close.get("source") or "").lower()
+            # LTP live / snapshot = quota d'ingresso non è una chiusura. Settled/BSP sì.
+            if (
+                odds_bet
+                and close_pick
+                and src in ("betfair_ltp", "betfair_bet_snapshot")
+                and abs(float(close_pick) - odds_bet) < 0.005
+            ):
+                continue
             info = clv_vs_close(
                 pick_side=side,
-                odds_bet=float(rec["odds"]),
+                odds_bet=odds_bet,
                 close_a=close.get("a"),
                 close_b=close.get("b"),
                 source=str(close.get("source") or "close"),

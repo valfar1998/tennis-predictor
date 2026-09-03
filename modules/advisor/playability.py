@@ -209,7 +209,7 @@ def compute_playability(
     dropping_row: dict | None = None,
 ) -> dict[str, Any]:
     """Calcola giocabilità 0–100 e componenti."""
-    rec = advised.get("recommended")
+    rec = advised.get("recommended") or advised.get("best_play")
     pred = advised
 
     value_n = _value_score(rec)
@@ -296,7 +296,7 @@ def enrich_playability(
 
     pa = str(advised.get("player_a") or "")
     pb = str(advised.get("player_b") or "")
-    rec = advised.get("recommended")
+    rec = advised.get("recommended") or advised.get("best_play")
     pick_side = rec.get("side") if rec else None
 
     mw = lookup_moneyway(pa, pb, rows=moneyway_rows)

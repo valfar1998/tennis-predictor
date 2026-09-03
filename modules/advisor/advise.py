@@ -186,13 +186,10 @@ def advise(
                 "— edge raro, verifica manuale (no alert auto)"
             ]
 
-        kelly = (
-            fractional_kelly(pick["probability"], pick["odds"], cap=kelly_cap)
-            if not reasons or review
-            else 0.0
-        )
+        kelly_info = fractional_kelly(pick["probability"], pick["odds"], cap=kelly_cap)
+        kelly = kelly_info if not reasons or review else 0.0
         sharpe = odds_sharpe(pick["probability"], pick["odds"])
-        adj_rank = kelly_adjusted_rank(pick["probability"], pick["odds"], kelly=kelly)
+        adj_rank = kelly_adjusted_rank(pick["probability"], pick["odds"], kelly=kelly_info)
         if review:
             action = "review"
         elif not reasons:
@@ -203,6 +200,7 @@ def advise(
         play_row = {
             **pick,
             "kelly": round(kelly, 4),
+            "kelly_info": round(kelly_info, 4),
             "kelly_cap": kelly_cap,
             "odds_sharpe": round(sharpe, 4),
             "kelly_adj_rank": round(adj_rank, 6),
@@ -229,26 +227,24 @@ def advise(
         plays.append(play_row)
 
     best_play = max(plays, key=_rank_key)
+    best_play = dict(best_play)
+    best_play["kelly_cap"] = kelly_cap
     enriched["plays"] = plays
+    enriched["best_play"] = best_play
     enriched["action"] = best_play["action"]
+    # recommended = solo bet/review (alert/staking). best_play resta la previsione.
     enriched["recommended"] = best_play if best_play["action"] in ("bet", "review") else None
-
-    if enriched.get("recommended"):
-        enriched["recommended"]["kelly_cap"] = kelly_cap
-        if prediction.get("tourney_level"):
-            enriched["tourney_level"] = prediction["tourney_level"]
-        from modules.advisor.clv_live import enrich_clv
-
-        side = enriched["recommended"].get("side", "A")
-        clv_info = enrich_clv(
-            enriched,
-            pick_side=side,
-            odds_bet=float(enriched["recommended"]["odds"]),
-        )
-        enriched["recommended"].update({k: v for k, v in clv_info.items() if v is not None})
-        enriched["clv"] = clv_info.get("clv")
-        enriched["beat_close"] = clv_info.get("beat_close")
-        if clv_info.get("close_source"):
-            enriched["close_source"] = clv_info["close_source"]
-
+    if prediction.get("tourney_level"):
+        enriched["tourney_level"] = prediction["tourney_level"]
     return enriched
+
+
+def display_pick(pred: dict) -> dict:
+    """Lato da mostrare in tabella: bet/review, altrimenti best_play / value.best."""
+    rec = pred.get("recommended") or pred.get("best_play")
+    if rec:
+        return rec
+    plays = pred.get("plays") or []
+    if plays:
+        return max(plays, key=_rank_key)
+    return (pred.get("value") or {}).get("best") or {}

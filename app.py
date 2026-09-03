@@ -12,6 +12,9 @@ import streamlit as st
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 
+from modules.advisor.advise import display_pick
+from modules.data_update.calendar_utils import normalize_predictions_calendar
+
 st.set_page_config(page_title="Tennis Predictor", page_icon="🎾", layout="wide")
 
 st.title("🎾 Tennis Predictor — Value Betting")
@@ -37,8 +40,6 @@ with tab_cal:
 
     if pred_path.exists():
         preds = json.loads(pred_path.read_text(encoding="utf-8"))
-        from modules.data_update.calendar_utils import normalize_predictions_calendar
-
         preds = normalize_predictions_calendar(preds)
     else:
         preds = []
@@ -69,12 +70,13 @@ with tab_cal:
         st.caption(
             "**Giocabilità 0–100**: value/EV penalizzato da varianza quota, accordo modelli, "
             "Kelly-adjusted, qualità mercato, Moneyway e dropping (assenti ≠ neutro 0.50). "
-            "Alert Telegram solo `action=bet` e ≥75. EV >20% → review; EV >25–30% → scarto."
+            "Alert Telegram solo `action=bet` e ≥75. EV >20% → review; EV >25–30% → scarto. "
+            "Pick/Quota/EV/KellyAdj sono compilati anche su `no_bet` (previsione, non scommessa)."
         )
 
         rows = []
         for p in preds:
-            rec = p.get("recommended") or {}
+            rec = display_pick(p)
             ev = rec.get("ev")
             ev_pct = rec.get("ev_pct")
             if ev_pct is None and ev is not None:
@@ -84,6 +86,9 @@ with tab_cal:
                     ev_pct = float(ev_pct)
                 except (TypeError, ValueError):
                     ev_pct = None
+            kelly_adj = rec.get("kelly_adj_rank")
+            if kelly_adj is None or kelly_adj == -1:
+                kelly_adj = rec.get("kelly_info") or rec.get("kelly")
             rows.append({
                 "Data": str(p.get("date") or "")[:10],
                 "Ora": p.get("start_time_local") or "",
@@ -94,11 +99,10 @@ with tab_cal:
                 "Giocabilità": p.get("playability"),
                 "Band": p.get("playability_label") or "",
                 "Azione": p.get("action") or "no_bet",
-                "Pick": rec.get("player") if rec else "",
-                "Quota": rec.get("odds") if rec else None,
-                # Numerico: evita ordinamento lessicografico ("+2%" > "+10%")
+                "Pick": rec.get("player") or "",
+                "Quota": rec.get("odds"),
                 "EV %": ev_pct,
-                "KellyAdj": rec.get("kelly_adj_rank"),
+                "KellyAdj": kelly_adj,
                 "Tour": p.get("tour") or "",
                 "Fonte": p.get("odds_source") or "",
             })
@@ -131,7 +135,7 @@ with tab_cal:
 
         st.subheader("Dettaglio match")
         for p in sorted(preds, key=lambda x: float(x.get("playability") or 0), reverse=True)[:30]:
-            rec = p.get("recommended")
+            rec = display_pick(p)
             play = int(p.get("playability") or 0)
             icon = "✅" if play >= 75 and p.get("action") == "bet" else "⬜"
             with st.expander(
@@ -143,21 +147,32 @@ with tab_cal:
                 col3.metric("Elo", f"{p.get('p_elo', 0):.1%}")
                 col4.metric("Giocabilità", f"{play}/100")
                 if rec:
+                    ev = rec.get("ev")
+                    odds = rec.get("odds")
+                    kelly = rec.get("kelly_info") if rec.get("kelly_info") is not None else rec.get("kelly")
+                    label = "Value (no_bet)" if p.get("action") == "no_bet" else "Pick"
                     st.success(
-                        f"**{rec['player']}** @ {rec['odds']} | "
-                        f"EV {rec['ev']:+.1%} | Kelly {rec['kelly']:.2%} | "
+                        f"**{label}: {rec.get('player')}** @ {odds} | "
+                        f"EV {float(ev or 0):+.1%} | Kelly {float(kelly or 0):.2%} | "
                         f"Fonte: {p.get('odds_source', 'book')} | {p.get('playability_label', '')}"
                     )
+                    reasons = rec.get("no_bet_reasons") or []
+                    if reasons:
+                        st.caption("Motivi no_bet: " + " · ".join(reasons[:4]))
                     parts = p.get("playability_parts") or {}
                     if parts:
                         st.caption(
                             "Componenti: value {value:.0%} · modelli {model_agreement:.0%} · "
                             "mercato {market_quality:.0%} · moneyway {moneyway:.0%} · drop {dropping_odds:.0%}".format(
-                                **{k: parts.get(k, 0) for k in parts}
+                                value=parts.get("value", 0),
+                                model_agreement=parts.get("model_agreement", 0),
+                                market_quality=parts.get("market_quality", 0),
+                                moneyway=parts.get("moneyway", 0),
+                                dropping_odds=parts.get("dropping_odds", 0),
                             )
                         )
                 else:
-                    st.info("Nessun value bet sopra soglia")
+                    st.info("Nessuna quota/previsione disponibile")
 
 with tab_back:
     cal_path = ROOT / "data" / "models" / "calibration.json"

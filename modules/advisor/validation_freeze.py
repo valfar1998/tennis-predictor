@@ -21,9 +21,13 @@ DEFAULT_STATE = {
     "betfair_only": True,
     "policy": (
         "Nessuna modifica strutturale a pesi, feature o retrain ML fino al completamento "
-        "della finestra. Solo settle + metriche BCR."
+        "della finestra. Solo settle + metriche BCR Betfair."
     ),
     "auto_unfreeze": True,
+    "auto_unfreeze_note": (
+        "A >=min_n pick Betfair settle active passa a false "
+        "(equivale a LIVE_VALIDATION_FREEZE=0)."
+    ),
 }
 
 
@@ -36,32 +40,57 @@ def _env_override() -> bool | None:
     return None
 
 
-def _normalize_state(state: dict[str, Any]) -> dict[str, Any]:
-    """Compat con stati salvati prima del passaggio a BCR Betfair."""
-    if "betfair_only" not in state and state.get("pinnacle_only") is not None:
-        state["betfair_only"] = bool(state["pinnacle_only"])
-    state.setdefault("betfair_only", True)
-    return state
+def _normalize_state(state: dict[str, Any]) -> tuple[dict[str, Any], bool]:
+    """KPI BCR di default = Betfair. Migra stati vecchi con pinnacle_only."""
+    dirty = False
+    if "betfair_only" not in state:
+        state["betfair_only"] = True
+        dirty = True
+    if "pinnacle_only" in state:
+        state.pop("pinnacle_only", None)
+        dirty = True
+    if state.get("n_pinnacle_at_completion") is not None and state.get("n_betfair_at_completion") is None:
+        state["n_betfair_at_completion"] = state.pop("n_pinnacle_at_completion")
+        dirty = True
+    else:
+        state.pop("n_pinnacle_at_completion", None)
+    note = str(state.get("auto_unfreeze_note") or "")
+    if "Pinnacle" in note or not note:
+        state["auto_unfreeze_note"] = DEFAULT_STATE["auto_unfreeze_note"]
+        dirty = True
+    policy = str(state.get("policy") or "")
+    if policy and "BCR Betfair" not in policy and "BCR" in policy:
+        state["policy"] = DEFAULT_STATE["policy"]
+        dirty = True
+    return state, dirty
 
 
 def load_state() -> dict[str, Any]:
     env = _env_override()
+    persist = False
     if STATE_PATH.is_file():
         try:
-            state = _normalize_state(json.loads(STATE_PATH.read_text(encoding="utf-8")))
+            state, persist = _normalize_state(json.loads(STATE_PATH.read_text(encoding="utf-8")))
         except Exception:
             state = dict(DEFAULT_STATE)
+            persist = True
     else:
         state = dict(DEFAULT_STATE)
+        persist = True
     if env is not None:
         state["active"] = env
     state.setdefault("active", True)
+    if persist:
+        save_state(state)
     return state
 
 
 def save_state(state: dict[str, Any]) -> Path:
     STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
-    STATE_PATH.write_text(json.dumps(state, indent=2, ensure_ascii=False), encoding="utf-8")
+    cleaned = {k: v for k, v in state.items() if not str(k).startswith("pinnacle") and k != "pinnacle_only"}
+    cleaned.pop("n_pinnacle_at_completion", None)
+    cleaned.setdefault("betfair_only", True)
+    STATE_PATH.write_text(json.dumps(cleaned, indent=2, ensure_ascii=False), encoding="utf-8")
     return STATE_PATH
 
 
@@ -76,13 +105,7 @@ def maybe_auto_unfreeze() -> dict[str, Any] | None:
     if _env_override() is False:
         return None
 
-    if STATE_PATH.is_file():
-        try:
-            state = _normalize_state(json.loads(STATE_PATH.read_text(encoding="utf-8")))
-        except Exception:
-            state = dict(DEFAULT_STATE)
-    else:
-        state = dict(DEFAULT_STATE)
+    state = load_state()
 
     if not state.get("active", True):
         return None

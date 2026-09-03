@@ -530,7 +530,7 @@ Workflow: `.github/workflows/auto-learn.yml` — cron **04:00 e 16:00 UTC** + `w
 | `alert_min_suggested` | Soglia Telegram Strong (75 vs 80) |
 | `dropping_boost` / `moneyway_boost` | Giocabilità (`learned_playability_adjustment`) |
 | Penalità bande Lean/Playable | Se hit rate storico basso |
-| BCR Pinnacle <52% (n≥15) | Alza `min_edge_suggested` a 3.5% |
+| BCR Betfair <52% (n≥15) | Alza `min_edge_suggested` a 3.5% |
 
 Requisiti GitHub: **Settings → Actions → Workflow permissions → Read and write**.  
 Segreti opzionali: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` (riepilogo post-learn).
@@ -589,17 +589,17 @@ Report dettagliato: `data/models/online_learn_report.json`.
 
 **Regola:** non modificare struttura modello (stacker/XGBoost/Markov) per i prossimi **200–300 match**. Monitorare solo metriche di esecuzione.
 
-### KPI primario: BCR Pinnacle
+### KPI primario: BCR Betfair
 
 | Metrica | Target | Fonte |
 |---------|--------|-------|
-| **Beat Closing Rate** (quota bet > chiusura Pinnacle de-vigged) | **> 55%** | `our_history.sqlite` → `beat_close` + `close_source` Pinnacle |
+| **Beat Closing Rate** (quota bet > chiusura Betfair LTP de-vigged) | **> 55%** | `our_history.sqlite` → `beat_close` + `close_source` Betfair |
 
-ROI sui primi 100 bet è **varianza** — il BCR conferma edge matematico vs mercato sharp.
+ROI sui primi 100 bet è **varianza** — il BCR conferma edge matematico vs mercato sharp (Betfair).
 
 ### Finestra validazione live (FREEZE attivo)
 
-**Priorità assoluta:** accumulare **200–300 match** settle con chiusura Pinnacle senza toccare l'architettura.
+**Priorità assoluta:** accumulare **200–300 match** settle con chiusura Betfair senza toccare l'architettura.
 
 | Regola | Stato |
 |--------|--------|
@@ -610,7 +610,7 @@ ROI sui primi 100 bet è **varianza** — il BCR conferma edge matematico vs mer
 | Predict + Telegram | **ATTIVO** |
 | Circuit breaker drawdown (capitale) | **ATTIVO** (non è learning) |
 
-Config: `data/processed/validation_freeze.json` — si disattiva automaticamente a **200+ pick Pinnacle settle** (`active: false`); override manuale con `LIVE_VALIDATION_FREEZE=0` o `=1`.
+Config: `data/processed/validation_freeze.json` — si disattiva automaticamente a **200+ pick Betfair settle** (`active: false`); override manuale con `LIVE_VALIDATION_FREEZE=0` o `=1`.
 
 ```bash
 python main.py metrics          # BCR + avanzamento finestra → live_metrics.json
@@ -650,7 +650,7 @@ python main.py predict --notify
 # Chiudi pick pendenti + apprendimento + BCR
 python main.py learn
 
-# Audit fase live (BCR Pinnacle + slippage)
+# Audit fase live (BCR Betfair + slippage)
 python main.py metrics
 
 # Verifica dati Sackmann (ATP + WTA)

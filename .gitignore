@@ -4,6 +4,7 @@ __pycache__/
 .venv/
 venv/
 .env
+.playwright-browsers/
 
 # Data (large files)
 data/raw/atp/*.csv

@@ -43,29 +43,33 @@ def resolve_close_odds(
     betfair_event_id: str | None = None,
     betfair_odds: dict | None = None,
 ) -> dict | None:
-    """Risolve quote di chiusura con cascade a costo zero.
+    """Risolve quote di chiusura con cascade.
 
-    1. Betfair LTP/BSP (fonte primaria — stessa del betting)
-    2. OddsPortal cache (post-match batch)
-    3. tennis-data.co.uk cache (match già giocati)
+    1. Betfair settled (BSP/LTP mercati chiusi)
+    2. OddsPortal cache
+    3. tennis-data.co.uk
+    4. Betfair LTP live solo se il match è oggi/futuro (mai snapshot = quota bet)
     """
-    # 1) Betfair LTP (live o cache aggiornata)
-    try:
-        from modules.data_update.betfair import lookup_betfair_close
+    from datetime import date as date_cls
 
-        bf = lookup_betfair_close(
-            player_a,
-            player_b,
-            event_id=betfair_event_id,
-            match_date=date,
-            bet_odds=betfair_odds,
-        )
-        if bf:
-            return bf
+    past = False
+    if date:
+        try:
+            past = date_cls.fromisoformat(str(date)[:10]) < date_cls.today()
+        except ValueError:
+            past = False
+
+    # 1) Mercati Betfair già chiusi
+    try:
+        from modules.data_update.betfair import lookup_betfair_settled_close
+
+        bf_s = lookup_betfair_settled_close(player_a, player_b, match_date=date)
+        if bf_s:
+            return bf_s
     except Exception:
         pass
 
-    # 2) OddsPortal cache (post-match batch)
+    # 2) OddsPortal cache
     try:
         from modules.data_update.oddsportal_close import lookup_oddsportal_close
 
@@ -82,6 +86,25 @@ def resolve_close_odds(
         td = lookup_pinnacle_odds(player_a, player_b, date=date, tour=tour)
         if td:
             return {**td, "source": td.get("source") or "tennis-data.co.uk"}
+    except Exception:
+        pass
+
+    if past:
+        return None
+
+    # 4) LTP live (solo pre-match)
+    try:
+        from modules.data_update.betfair import lookup_betfair_close
+
+        bf = lookup_betfair_close(
+            player_a,
+            player_b,
+            event_id=betfair_event_id,
+            match_date=date,
+            bet_odds=None,
+        )
+        if bf and "snapshot" not in str(bf.get("source") or "").lower():
+            return bf
     except Exception:
         pass
 

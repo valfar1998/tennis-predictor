@@ -290,7 +290,10 @@ def _market_books_chunk(
             "listMarketBook",
             {
                 "marketIds": market_ids,
-                "priceProjection": {"priceData": ["EX_BEST_OFFERS", "EX_TRADED"], "virtualise": True},
+                "priceProjection": {
+                    "priceData": ["EX_BEST_OFFERS", "EX_TRADED", "SP_AVAILABLE", "SP_TRADED"],
+                    "virtualise": True,
+                },
             },
             token,
             app_key,
@@ -500,9 +503,19 @@ def _last_traded(runner: dict) -> float | None:
         return None
 
 
-def _runner_price(runner: dict) -> float | None:
-    """Best back o LTP (Last Traded Price) per chiusura proxy."""
-    return _best_back(runner) or _last_traded(runner)
+def _runner_close_price(runner: dict) -> float | None:
+    """BSP (actual SP) oppure LTP — chiusura Exchange."""
+    sp = runner.get("sp") or {}
+    for key in ("actualSP", "nearPrice", "farPrice"):
+        val = sp.get(key)
+        if val is not None:
+            try:
+                f = float(val)
+                if f > 1.01:
+                    return round(f, 3)
+            except (TypeError, ValueError):
+                pass
+    return _last_traded(runner) or _best_back(runner)
 
 
 def lookup_betfair_close(
@@ -655,18 +668,24 @@ def fetch_betfair_settled_results(*, days: int = 14, force: bool = False, max_ag
             if str(book.get("status") or "").upper() not in ("CLOSED", "SETTLED"):
                 continue
             names = row["runners"].get("MATCH_ODDS") or {}
+            pa, pb = row["player_a"], row["player_b"]
             winner_name = loser_name = None
+            odd_a = odd_b = None
             for runner in book.get("runners") or []:
                 sid = runner.get("selectionId")
                 name = names.get(int(sid) if sid is not None else -1, "")
                 status = str(runner.get("status") or "").upper()
+                price = _runner_close_price(runner)
+                if name and (_player_match(name, pa) or _player_match(pa, name)):
+                    odd_a = price
+                elif name and (_player_match(name, pb) or _player_match(pb, name)):
+                    odd_b = price
                 if status == "WINNER":
                     winner_name = name
                 elif status == "LOSER" and name:
                     loser_name = name
             if not winner_name:
                 continue
-            pa, pb = row["player_a"], row["player_b"]
             if _player_match(winner_name, pa):
                 winner, loser = pa, pb if loser_name is None else loser_name
             elif _player_match(winner_name, pb):
@@ -680,6 +699,8 @@ def fetch_betfair_settled_results(*, days: int = 14, force: bool = False, max_ag
                     "player_b": pb,
                     "winner": winner,
                     "loser": loser,
+                    "odd_a": odd_a,
+                    "odd_b": odd_b,
                     "commence_time": row.get("commence_time"),
                     "date": str(row.get("commence_time") or "")[:10],
                     "competition": row.get("competition"),
@@ -711,3 +732,51 @@ def load_betfair_settled_results(*, days: int = 14) -> list[dict]:
             pass
     info = fetch_betfair_settled_results(days=days, force=False)
     return info.get("results") or []
+
+
+def lookup_betfair_settled_close(
+    player_a: str,
+    player_b: str,
+    *,
+    match_date: str | None = None,
+) -> dict | None:
+    """Chiusura da mercati Betfair già CLOSED/SETTLED (BSP o LTP)."""
+    rows = []
+    if SETTLED_CACHE.exists():
+        try:
+            rows = json.loads(SETTLED_CACHE.read_text(encoding="utf-8")).get("results") or []
+        except Exception:
+            rows = []
+    if not rows:
+        return None
+    md = None
+    if match_date:
+        try:
+            md = date.fromisoformat(str(match_date)[:10])
+        except ValueError:
+            pass
+    for ev in rows:
+        pa, pb = str(ev.get("player_a") or ""), str(ev.get("player_b") or "")
+        direct = _player_match(player_a, pa) and _player_match(player_b, pb)
+        swap = _player_match(player_a, pb) and _player_match(player_b, pa)
+        if not (direct or swap):
+            continue
+        if md:
+            day = str(ev.get("date") or ev.get("commence_time") or "")[:10]
+            try:
+                if abs((date.fromisoformat(day) - md).days) > 1:
+                    continue
+            except ValueError:
+                pass
+        oa, ob = ev.get("odd_a"), ev.get("odd_b")
+        if swap:
+            oa, ob = ob, oa
+        if not oa or not ob:
+            continue
+        return {
+            "a": float(oa),
+            "b": float(ob),
+            "source": "betfair_settled",
+            "event_id": ev.get("event_id"),
+        }
+    return None
