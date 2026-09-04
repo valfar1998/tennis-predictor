@@ -88,6 +88,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          git config --local pull.rebase true
 
           git add -f \
             data/processed/our_history.sqlite \
@@ -99,7 +100,21 @@ jobs:
 
           if git diff --staged --quiet; then
             echo "Nessun aggiornamento di stato da salvare."
-          else
-            git commit -m "auto-learn: settle, ricalibrazione online e audit BCR [skip ci]"
-            git push
+            exit 0
           fi
+
+          git commit -m "auto-learn: settle, ricalibrazione online e audit BCR [skip ci]"
+
+          # main may move during the ~8m job (manual pushes / other workflows).
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              echo "Push OK (attempt ${attempt})"
+              exit 0
+            fi
+            echo "Push rejected (attempt ${attempt}); rebase onto origin/main..."
+            git fetch origin main
+            git pull --rebase origin main
+            sleep $((attempt * 2))
+          done
+          echo "Push failed after retries"
+          exit 1
