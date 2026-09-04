@@ -23,7 +23,7 @@ jobs:
       - name: Dipendenze + Playwright Chromium
         run: |
           pip install -r requirements.txt
-          python -m playwright install chromium
+          python -m playwright install --with-deps chromium
 
       - uses: actions/cache/restore@v4
         with:
