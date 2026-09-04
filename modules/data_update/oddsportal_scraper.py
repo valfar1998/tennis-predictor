@@ -31,6 +31,13 @@ IT_MONTHS = {
     "oct": 10, "dec": 12,
 }
 
+# Stagione corrente (senza anno) prima: OddsPortal 404 su ...-2026/ mentre
+# .../atp-us-open/results/ ha i risultati live.
+TOURNAMENT_PATHS_CURRENT = (
+    "tennis/usa/atp-us-open/results/",
+    "tennis/usa/wta-us-open/results/",
+)
+
 TOURNAMENT_PATHS = (
     "tennis/usa/atp-us-open-{year}/results/",
     "tennis/australia/atp-australian-open-{year}/results/",
@@ -46,7 +53,7 @@ TOURNAMENT_PATHS = (
 
 def default_tournament_urls(*, years: list[int] | None = None) -> list[str]:
     y = years or [datetime.now().year, datetime.now().year - 1]
-    urls: list[str] = []
+    urls: list[str] = [f"{BASE}/{path}" for path in TOURNAMENT_PATHS_CURRENT]
     for year in y:
         for path in TOURNAMENT_PATHS:
             urls.append(f"{BASE}/{path.format(year=year)}")

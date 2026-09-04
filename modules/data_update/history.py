@@ -59,6 +59,8 @@ _EXTRA_COLS = (
     ("close_odds_a", "REAL"),
     ("close_odds_b", "REAL"),
     ("settle_source", "TEXT"),
+    ("betfair_event_id", "TEXT"),
+    ("betfair_market_id", "TEXT"),
 )
 
 
@@ -131,8 +133,9 @@ def archive_prediction(pred: dict[str, Any]) -> None:
             (match_key, date, player_a, player_b, surface, tourney, tour, pick, action,
              probability, odds, ev, ev_pct, kelly, odds_source, p_markov, p_elo, p_ml,
              playability, playability_band, moneyway_vol_pct, dropping_pct, dropping_aligned,
-             clv, beat_close, close_source, close_odds_a, close_odds_b, saved_at)
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+             clv, beat_close, close_source, close_odds_a, close_odds_b,
+             betfair_event_id, betfair_market_id, saved_at)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
             (
                 key,
                 str(pred.get("date") or "")[:10],
@@ -162,6 +165,8 @@ def archive_prediction(pred: dict[str, Any]) -> None:
                 None,
                 None,
                 None,
+                pred.get("betfair_event_id"),
+                pred.get("betfair_market_id"),
                 datetime.now(timezone.utc).isoformat(),
             ),
         )
@@ -308,7 +313,14 @@ def refresh_clv_close(*, days: int = 14, include_settled: bool = False) -> dict[
                 except ValueError:
                     continue
             pa, pb = str(rec["player_a"]), str(rec["player_b"])
-            close = resolve_close_odds(pa, pb, date=day, tour=str(rec.get("tour") or "ATP"))
+            close = resolve_close_odds(
+                pa,
+                pb,
+                date=day,
+                tour=str(rec.get("tour") or "ATP"),
+                betfair_event_id=rec.get("betfair_event_id"),
+                betfair_market_id=rec.get("betfair_market_id"),
+            )
             if not close:
                 continue
             pick = str(rec.get("pick") or "")

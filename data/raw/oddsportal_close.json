@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-31T12:46:14.069451+00:00",
+  "updated_at": "2026-09-04T08:12:07.657253+00:00",
   "rows": [
     {
       "date": "2025-09-07",
@@ -24,6 +24,1510 @@
       "psw": 1.25,
       "psl": 4.0,
       "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-09-04",
+      "winner": "Sinner J.",
+      "loser": "Musetti L.",
+      "psw": 1.03,
+      "psl": 15.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-09-03",
+      "winner": "Auger-Aliassime F.",
+      "loser": "De Minaur A.",
+      "psw": 2.2,
+      "psl": 1.67,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-09-03",
+      "winner": "Djokovic N.",
+      "loser": "Fritz T.",
+      "psw": 1.44,
+      "psl": 2.75,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-09-02",
+      "winner": "Alcaraz C.",
+      "loser": "Lehecka J.",
+      "psw": 1.05,
+      "psl": 11.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-09-02",
+      "winner": "Sinner J.",
+      "loser": "Bublik A.",
+      "psw": 1.08,
+      "psl": 8.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-09-01",
+      "winner": "Musetti L.",
+      "loser": "Munar J.",
+      "psw": 1.44,
+      "psl": 2.75,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-09-01",
+      "winner": "Auger-Aliassime F.",
+      "loser": "Rublev A.",
+      "psw": 2.1,
+      "psl": 1.73,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-09-01",
+      "winner": "De Minaur A.",
+      "loser": "Riedi L.",
+      "psw": 1.05,
+      "psl": 11.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-09-01",
+      "winner": "Djokovic N.",
+      "loser": "Struff J-L.",
+      "psw": 1.14,
+      "psl": 5.5,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-09-01",
+      "winner": "Fritz T.",
+      "loser": "Machac T.",
+      "psw": 1.36,
+      "psl": 3.2,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-31",
+      "winner": "Alcaraz C.",
+      "loser": "Rinderknech A.",
+      "psw": 1.01,
+      "psl": 23.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-31",
+      "winner": "Lehecka J.",
+      "loser": "Mannarino A.",
+      "psw": 1.33,
+      "psl": 3.4,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-31",
+      "winner": "Bublik A.",
+      "loser": "Paul T.",
+      "psw": 1.91,
+      "psl": 1.91,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-31",
+      "winner": "Auger-Aliassime F.",
+      "loser": "Zverev A.",
+      "psw": 3.75,
+      "psl": 1.29,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-30",
+      "winner": "Rublev A.",
+      "loser": "Wong C.",
+      "psw": 1.08,
+      "psl": 8.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-30",
+      "winner": "Sinner J.",
+      "loser": "Shapovalov D.",
+      "psw": 1.02,
+      "psl": 21.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-30",
+      "winner": "Munar J.",
+      "loser": "Bergs Z.",
+      "psw": 1.44,
+      "psl": 2.75,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-30",
+      "winner": "Fritz T.",
+      "loser": "Kym J.",
+      "psw": 1.06,
+      "psl": 10.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-30",
+      "winner": "Machac T.",
+      "loser": "Blanchet U.",
+      "psw": 1.14,
+      "psl": 5.5,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-30",
+      "winner": "Djokovic N.",
+      "loser": "Norrie C.",
+      "psw": 1.08,
+      "psl": 8.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-29",
+      "winner": "Struff J-L.",
+      "loser": "Tiafoe F.",
+      "psw": 3.2,
+      "psl": 1.36,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-29",
+      "winner": "Alcaraz C.",
+      "loser": "Darderi L.",
+      "psw": 1.01,
+      "psl": 26.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-29",
+      "winner": "Rinderknech A.",
+      "loser": "Bonzi B.",
+      "psw": 2.0,
+      "psl": 1.8,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-29",
+      "winner": "Lehecka J.",
+      "loser": "Collignon R.",
+      "psw": 1.13,
+      "psl": 6.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-29",
+      "winner": "Paul T.",
+      "loser": "Borges N.",
+      "psw": 1.25,
+      "psl": 4.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-29",
+      "winner": "De Minaur A.",
+      "loser": "Mochizuki S.",
+      "psw": 1.03,
+      "psl": 15.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-29",
+      "winner": "Auger-Aliassime F.",
+      "loser": "Safiullin R.",
+      "psw": 1.33,
+      "psl": 3.4,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-29",
+      "winner": "Altmaier D.",
+      "loser": "Tsitsipas S.",
+      "psw": 3.5,
+      "psl": 1.3,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-29",
+      "winner": "Zverev A.",
+      "loser": "Fearnley J.",
+      "psw": 1.07,
+      "psl": 9.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-28",
+      "winner": "Bublik A.",
+      "loser": "Schoolkate T.",
+      "psw": 1.2,
+      "psl": 4.5,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-28",
+      "winner": "Munar J.",
+      "loser": "Diallo G.",
+      "psw": 1.91,
+      "psl": 1.91,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-28",
+      "winner": "Sinner J.",
+      "loser": "Popyrin A.",
+      "psw": 1.02,
+      "psl": 21.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-28",
+      "winner": "Cobolli F.",
+      "loser": "Brooksby J.",
+      "psw": 1.62,
+      "psl": 2.3,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-28",
+      "winner": "Riedi L.",
+      "loser": "Cerundolo F.",
+      "psw": 2.75,
+      "psl": 1.44,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-28",
+      "winner": "Majchrzak K.",
+      "loser": "Khachanov K.",
+      "psw": 4.5,
+      "psl": 1.2,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-28",
+      "winner": "Shapovalov D.",
+      "loser": "Royer V.",
+      "psw": 1.36,
+      "psl": 3.2,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-28",
+      "winner": "Rublev A.",
+      "loser": "Boyer T.",
+      "psw": 1.05,
+      "psl": 11.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-28",
+      "winner": "Musetti L.",
+      "loser": "Goffin D.",
+      "psw": 1.14,
+      "psl": 5.5,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-28",
+      "winner": "Wong C.",
+      "loser": "Walton A.",
+      "psw": 2.38,
+      "psl": 1.57,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-28",
+      "winner": "Shelton B.",
+      "loser": "Carreno-Busta P.",
+      "psw": 1.07,
+      "psl": 9.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-28",
+      "winner": "Alcaraz C.",
+      "loser": "Bellucci M.",
+      "psw": 1.02,
+      "psl": 21.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-08-28",
+      "winner": "Struff J-L.",
+      "loser": "Rune H.",
+      "psw": 3.4,
+      "psl": 1.33,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-26",
+      "winner": "Sinner J.",
+      "loser": "Zverev A.",
+      "psw": 1.33,
+      "psl": 3.4,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-24",
+      "winner": "Sinner J.",
+      "loser": "Shelton B.",
+      "psw": 1.05,
+      "psl": 11.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-22",
+      "winner": "Sinner J.",
+      "loser": "De Minaur A.",
+      "psw": 1.17,
+      "psl": 5.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-22",
+      "winner": "Shelton B.",
+      "loser": "Sonego L.",
+      "psw": 1.36,
+      "psl": 3.2,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-21",
+      "winner": "Djokovic N.",
+      "loser": "Alcaraz C.",
+      "psw": 2.5,
+      "psl": 1.53,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-21",
+      "winner": "Zverev A.",
+      "loser": "Paul T.",
+      "psw": 1.33,
+      "psl": 3.4,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-20",
+      "winner": "De Minaur A.",
+      "loser": "Michelsen A.",
+      "psw": 1.25,
+      "psl": 4.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-20",
+      "winner": "Sonego L.",
+      "loser": "Tien L.",
+      "psw": 1.67,
+      "psl": 2.2,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-20",
+      "winner": "Sinner J.",
+      "loser": "Rune H.",
+      "psw": 1.08,
+      "psl": 8.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-19",
+      "winner": "Djokovic N.",
+      "loser": "Lehecka J.",
+      "psw": 1.25,
+      "psl": 4.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-19",
+      "winner": "Zverev A.",
+      "loser": "Humbert U.",
+      "psw": 1.17,
+      "psl": 5.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-19",
+      "winner": "Paul T.",
+      "loser": "Davidovich Fokina A.",
+      "psw": 1.25,
+      "psl": 4.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-18",
+      "winner": "Rune H.",
+      "loser": "Kecmanovic M.",
+      "psw": 1.44,
+      "psl": 2.75,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-18",
+      "winner": "Sinner J.",
+      "loser": "Giron M.",
+      "psw": 1.01,
+      "psl": 23.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-18",
+      "winner": "Shelton B.",
+      "loser": "Musetti L.",
+      "psw": 1.62,
+      "psl": 2.3,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-18",
+      "winner": "Tien L.",
+      "loser": "Moutet C.",
+      "psw": 1.91,
+      "psl": 1.91,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-18",
+      "winner": "Sonego L.",
+      "loser": "Marozsan F.",
+      "psw": 1.8,
+      "psl": 2.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-18",
+      "winner": "De Minaur A.",
+      "loser": "Cerundolo F.",
+      "psw": 1.08,
+      "psl": 8.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-18",
+      "winner": "Monfils G.",
+      "loser": "Fritz T.",
+      "psw": 7.0,
+      "psl": 1.1,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-18",
+      "winner": "Michelsen A.",
+      "loser": "Khachanov K.",
+      "psw": 2.5,
+      "psl": 1.53,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-17",
+      "winner": "Draper J.",
+      "loser": "Vukic A.",
+      "psw": 1.22,
+      "psl": 4.33,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-17",
+      "winner": "Lehecka J.",
+      "loser": "Bonzi B.",
+      "psw": 1.29,
+      "psl": 3.75,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-17",
+      "winner": "Djokovic N.",
+      "loser": "Machac T.",
+      "psw": 1.22,
+      "psl": 4.33,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-17",
+      "winner": "Davidovich Fokina A.",
+      "loser": "Mensik J.",
+      "psw": 2.63,
+      "psl": 1.5,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-17",
+      "winner": "Zverev A.",
+      "loser": "Fearnley J.",
+      "psw": 1.07,
+      "psl": 9.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-17",
+      "winner": "Alcaraz C.",
+      "loser": "Borges N.",
+      "psw": 1.03,
+      "psl": 17.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-17",
+      "winner": "Paul T.",
+      "loser": "Carballes Baena R.",
+      "psw": 1.13,
+      "psl": 6.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-16",
+      "winner": "Tien L.",
+      "loser": "Medvedev D.",
+      "psw": 5.0,
+      "psl": 1.17,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-16",
+      "winner": "Sinner J.",
+      "loser": "Schoolkate T.",
+      "psw": 1.01,
+      "psl": 34.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-16",
+      "winner": "Rune H.",
+      "loser": "Berrettini M.",
+      "psw": 2.2,
+      "psl": 1.67,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-16",
+      "winner": "Sonego L.",
+      "loser": "Fonseca J.",
+      "psw": 5.0,
+      "psl": 1.17,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-16",
+      "winner": "Marozsan F.",
+      "loser": "Tiafoe F.",
+      "psw": 2.75,
+      "psl": 1.44,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-16",
+      "winner": "Michelsen A.",
+      "loser": "McCabe J.",
+      "psw": 1.11,
+      "psl": 6.5,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-16",
+      "winner": "Giron M.",
+      "loser": "Etcheverry T. M.",
+      "psw": 1.91,
+      "psl": 1.91,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2025-01-16",
+      "winner": "Fritz T.",
+      "loser": "Garin C.",
+      "psw": 1.04,
+      "psl": 13.0,
+      "bookmaker": "bet365.it"
+    },
+    {
+      "date": "2026-09-04",
+      "winner": "Zverev A.",
+      "loser": "Halys Q.",
+      "psw": 1.15,
+      "psl": 5.49,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Zheng M.",
+      "loser": "Bu Y.",
+      "psw": 1.53,
+      "psl": 2.5,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-04",
+      "winner": "Tien L.",
+      "loser": "Monfils G.",
+      "psw": 1.18,
+      "psl": 4.93,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Gea A.",
+      "loser": "Svajda Z.",
+      "psw": 2.17,
+      "psl": 1.69,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Bergs Z.",
+      "loser": "De Jong J.",
+      "psw": 1.39,
+      "psl": 2.97,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Van De Zandschulp B.",
+      "loser": "De Minaur A.",
+      "psw": 3.35,
+      "psl": 1.33,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Bonzi B.",
+      "loser": "Buse I.",
+      "psw": 2,
+      "psl": 1.81,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Blockx A.",
+      "loser": "Trungelliti M.",
+      "psw": 1.15,
+      "psl": 5.35,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Cobolli F.",
+      "loser": "Schoolkate T.",
+      "psw": 1.21,
+      "psl": 4.39,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Tabilo A.",
+      "loser": "Popyrin A.",
+      "psw": 1.6,
+      "psl": 2.35,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Mensik J.",
+      "loser": "Rodionov J.",
+      "psw": 1.12,
+      "psl": 6.18,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Sweeny D.",
+      "loser": "Musetti L.",
+      "psw": 11.82,
+      "psl": 1.03,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Fritz T.",
+      "loser": "Bellucci M.",
+      "psw": 1.11,
+      "psl": 6.5,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Khachanov K.",
+      "loser": "Auger-Aliassime F.",
+      "psw": 3.29,
+      "psl": 1.33,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Cerundolo F.",
+      "loser": "Struff J-L.",
+      "psw": 1.56,
+      "psl": 2.41,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Darderi L.",
+      "loser": "Svrcina D.",
+      "psw": 1.68,
+      "psl": 2.18,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Alcaraz C.",
+      "loser": "Faria J.",
+      "psw": 1.06,
+      "psl": 9.75,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Paul T.",
+      "loser": "Prizmic D.",
+      "psw": 1.18,
+      "psl": 4.82,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Bublik A.",
+      "loser": "Mannarino A.",
+      "psw": 1.27,
+      "psl": 3.8,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Vacherot V.",
+      "loser": "Majchrzak K.",
+      "psw": 1.74,
+      "psl": 2.09,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Tiafoe F.",
+      "loser": "Sakamoto R.",
+      "psw": 1.24,
+      "psl": 4.06,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Navone M.",
+      "loser": "Berrettini M.",
+      "psw": 2.34,
+      "psl": 1.59,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Wu Y.",
+      "loser": "Duckworth J.",
+      "psw": 1.69,
+      "psl": 2.16,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Lehecka J.",
+      "loser": "Samuel T.",
+      "psw": 1.36,
+      "psl": 3.17,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Tsitsipas S.",
+      "loser": "Harris L.",
+      "psw": 1.4,
+      "psl": 2.97,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Shapovalov D.",
+      "loser": "van Assche L.",
+      "psw": 1.62,
+      "psl": 2.3,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-01",
+      "winner": "Zheng M.",
+      "loser": "Marozsan F.",
+      "psw": 1.58,
+      "psl": 2.37,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "De Minaur A.",
+      "loser": "Guerrieri A.",
+      "psw": 1.04,
+      "psl": 11,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Etcheverry T. M.",
+      "loser": "Fearnley J.",
+      "psw": 1.68,
+      "psl": 2.2,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Bu Y.",
+      "loser": "Jodar R.",
+      "psw": 8.6,
+      "psl": 1.07,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Shelton B.",
+      "loser": "Hurkacz H.",
+      "psw": 1.41,
+      "psl": 2.94,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Buse I.",
+      "loser": "Giron M.",
+      "psw": 1.57,
+      "psl": 2.39,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-01",
+      "winner": "Svajda Z.",
+      "loser": "Altmaier D.",
+      "psw": 1.61,
+      "psl": 2.3,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Van De Zandschulp B.",
+      "loser": "Choinski J.",
+      "psw": 1.25,
+      "psl": 3.97,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Merida Aguilar D.",
+      "loser": "Rublev A.",
+      "psw": 2.29,
+      "psl": 1.63,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Medvedev D.",
+      "loser": "Gorzny S.",
+      "psw": 1.04,
+      "psl": 10.82,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Michelsen A.",
+      "loser": "Nakashima B.",
+      "psw": 2.82,
+      "psl": 1.43,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Rinderknech A.",
+      "loser": "Munar J.",
+      "psw": 1.6,
+      "psl": 2.34,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-02",
+      "winner": "Zverev A.",
+      "loser": "Sonego L.",
+      "psw": 1.05,
+      "psl": 10.09,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-01",
+      "winner": "Monfils G.",
+      "loser": "Vallejo D.",
+      "psw": 2.16,
+      "psl": 1.7,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Rybakina E.",
+      "loser": "Bouzas Maneiro J.",
+      "psw": 1.16,
+      "psl": 5.17,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-04",
+      "winner": "Gauff C.",
+      "loser": "Badosa P.",
+      "psw": 1.12,
+      "psl": 6.04,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Jovic I.",
+      "loser": "Jones F.",
+      "psw": 1.13,
+      "psl": 5.9,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Starodubtseva Y.",
+      "loser": "Sakkari M.",
+      "psw": 2.62,
+      "psl": 1.49,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Andreeva M.",
+      "loser": "Lys E.",
+      "psw": 1.08,
+      "psl": 7.92,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Bucsa C.",
+      "loser": "Sakatsume H.",
+      "psw": 1.5,
+      "psl": 2.55,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Zheng Q.",
+      "loser": "Putintseva Y.",
+      "psw": 1.4,
+      "psl": 2.92,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Eala A.",
+      "loser": "Oliynykova O.",
+      "psw": 1.11,
+      "psl": 6.57,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Bartunkova N.",
+      "loser": "Maria T.",
+      "psw": 1.39,
+      "psl": 3,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Bouzkova M.",
+      "loser": "Dart H.",
+      "psw": 1.17,
+      "psl": 4.98,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Anisimova A.",
+      "loser": "Tagger L.",
+      "psw": 1.17,
+      "psl": 4.92,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Osaka N.",
+      "loser": "Siniakova K.",
+      "psw": 1.23,
+      "psl": 4.07,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Keys M.",
+      "loser": "Bondar A.",
+      "psw": 1.1,
+      "psl": 6.66,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Swiatek I.",
+      "loser": "Podoroska N.",
+      "psw": 1.01,
+      "psl": 17.91,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Potapova A.",
+      "loser": "Jeanjean L.",
+      "psw": 1.26,
+      "psl": 3.83,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Mertens E.",
+      "loser": "Timofeeva M.",
+      "psw": 1.31,
+      "psl": 3.44,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Noskova L.",
+      "loser": "Tararudee L.",
+      "psw": 1.19,
+      "psl": 4.54,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Svitolina E.",
+      "loser": "Joint M.",
+      "psw": 1.09,
+      "psl": 7.03,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Li A.",
+      "loser": "Vekic D.",
+      "psw": 1.57,
+      "psl": 2.37,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Sabalenka A.",
+      "loser": "Iatcenko P.",
+      "psw": 1.02,
+      "psl": 13.67,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Alexandrova E.",
+      "loser": "Birrell K.",
+      "psw": 1.24,
+      "psl": 3.99,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Kalinskaya A.",
+      "loser": "Wang Xin.",
+      "psw": 1.46,
+      "psl": 2.69,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Muchova K.",
+      "loser": "Boulter K.",
+      "psw": 1.12,
+      "psl": 6.1,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Rakhimova K.",
+      "loser": "Selekhmeteva O.",
+      "psw": 1.5,
+      "psl": 2.56,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Kostyuk M.",
+      "loser": "Stephens S.",
+      "psw": 1.12,
+      "psl": 6.25,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Navarro E.",
+      "loser": "McNally C.",
+      "psw": 1.73,
+      "psl": 2.09,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Pegula J.",
+      "loser": "Kenin S.",
+      "psw": 1.06,
+      "psl": 9.28,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Cirstea S.",
+      "loser": "Parry D.",
+      "psw": 1.34,
+      "psl": 3.23,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Paolini J.",
+      "loser": "Stefanini L.",
+      "psw": 1.4,
+      "psl": 2.91,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Townsend T.",
+      "loser": "Preston T.",
+      "psw": 1.24,
+      "psl": 3.99,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Fernandez L.",
+      "loser": "Sawangkaew M.",
+      "psw": 1.35,
+      "psl": 3.16,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Shnaider D.",
+      "loser": "Pliskova Ka.",
+      "psw": 1.24,
+      "psl": 3.97,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-02",
+      "winner": "Eala A.",
+      "loser": "Stoiana M.",
+      "psw": 1.21,
+      "psl": 4.37,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-01",
+      "winner": "Gauff C.",
+      "loser": "Sonmez Z.",
+      "psw": 1.03,
+      "psl": 11.32,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-01",
+      "winner": "Jeanjean L.",
+      "loser": "Rus A.",
+      "psw": 1.5,
+      "psl": 2.57,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Bouzas Maneiro J.",
+      "loser": "Vidmanova D.",
+      "psw": 1.86,
+      "psl": 1.93,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Potapova A.",
+      "loser": "Semenistaja D.",
+      "psw": 1.22,
+      "psl": 4.23,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "",
+      "winner": "Oliynykova O.",
+      "loser": "Brantmeier R.",
+      "psw": 1.91,
+      "psl": 1.88,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-04",
+      "winner": "Zverev A.",
+      "loser": "Halys Q.",
+      "psw": 1.15,
+      "psl": 5.49,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-04",
+      "winner": "Tien L.",
+      "loser": "Monfils G.",
+      "psw": 1.18,
+      "psl": 4.93,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Gea A.",
+      "loser": "Svajda Z.",
+      "psw": 2.17,
+      "psl": 1.69,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Bonzi B.",
+      "loser": "Buse I.",
+      "psw": 2,
+      "psl": 1.81,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Blockx A.",
+      "loser": "Trungelliti M.",
+      "psw": 1.15,
+      "psl": 5.35,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Cobolli F.",
+      "loser": "Schoolkate T.",
+      "psw": 1.21,
+      "psl": 4.39,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Tabilo A.",
+      "loser": "Popyrin A.",
+      "psw": 1.6,
+      "psl": 2.35,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Mensik J.",
+      "loser": "Rodionov J.",
+      "psw": 1.12,
+      "psl": 6.18,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Sweeny D.",
+      "loser": "Musetti L.",
+      "psw": 11.82,
+      "psl": 1.03,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Fritz T.",
+      "loser": "Bellucci M.",
+      "psw": 1.11,
+      "psl": 6.5,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Khachanov K.",
+      "loser": "Auger-Aliassime F.",
+      "psw": 3.29,
+      "psl": 1.33,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Darderi L.",
+      "loser": "Svrcina D.",
+      "psw": 1.68,
+      "psl": 2.18,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-01",
+      "winner": "Zheng M.",
+      "loser": "Marozsan F.",
+      "psw": 1.58,
+      "psl": 2.37,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-01",
+      "winner": "Svajda Z.",
+      "loser": "Altmaier D.",
+      "psw": 1.61,
+      "psl": 2.3,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-02",
+      "winner": "Zverev A.",
+      "loser": "Sonego L.",
+      "psw": 1.05,
+      "psl": 10.09,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-01",
+      "winner": "Monfils G.",
+      "loser": "Vallejo D.",
+      "psw": 2.16,
+      "psl": 1.7,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-04",
+      "winner": "Gauff C.",
+      "loser": "Badosa P.",
+      "psw": 1.12,
+      "psl": 6.04,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Jovic I.",
+      "loser": "Jones F.",
+      "psw": 1.13,
+      "psl": 5.9,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Starodubtseva Y.",
+      "loser": "Sakkari M.",
+      "psw": 2.62,
+      "psl": 1.49,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Andreeva M.",
+      "loser": "Lys E.",
+      "psw": 1.08,
+      "psl": 7.92,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Bucsa C.",
+      "loser": "Sakatsume H.",
+      "psw": 1.5,
+      "psl": 2.55,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Zheng Q.",
+      "loser": "Putintseva Y.",
+      "psw": 1.4,
+      "psl": 2.92,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Eala A.",
+      "loser": "Oliynykova O.",
+      "psw": 1.11,
+      "psl": 6.57,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Bartunkova N.",
+      "loser": "Maria T.",
+      "psw": 1.39,
+      "psl": 3,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Bouzkova M.",
+      "loser": "Dart H.",
+      "psw": 1.17,
+      "psl": 4.98,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Anisimova A.",
+      "loser": "Tagger L.",
+      "psw": 1.17,
+      "psl": 4.92,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Osaka N.",
+      "loser": "Siniakova K.",
+      "psw": 1.23,
+      "psl": 4.07,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Keys M.",
+      "loser": "Bondar A.",
+      "psw": 1.1,
+      "psl": 6.66,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Potapova A.",
+      "loser": "Jeanjean L.",
+      "psw": 1.26,
+      "psl": 3.83,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-03",
+      "winner": "Mertens E.",
+      "loser": "Timofeeva M.",
+      "psw": 1.31,
+      "psl": 3.44,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-02",
+      "winner": "Eala A.",
+      "loser": "Stoiana M.",
+      "psw": 1.21,
+      "psl": 4.37,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-01",
+      "winner": "Gauff C.",
+      "loser": "Sonmez Z.",
+      "psw": 1.03,
+      "psl": 11.32,
+      "bookmaker": "oddsportal_results"
+    },
+    {
+      "date": "2026-09-01",
+      "winner": "Jeanjean L.",
+      "loser": "Rus A.",
+      "psw": 1.5,
+      "psl": 2.57,
+      "bookmaker": "oddsportal_results"
     }
   ]
 }

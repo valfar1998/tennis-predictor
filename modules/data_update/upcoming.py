@@ -456,6 +456,7 @@ def _predict_one_betfair_event(
     pred["tourney_level"] = infer_tourney_level(pred["tourney"])
     pred["tour"] = tour
     pred["betfair_event_id"] = ev.get("event_id")
+    pred["betfair_market_id"] = ev.get("market_id")
     pred["model_low_confidence"] = not (resolved_a and resolved_b)
     pred["players_resolved"] = {"a": resolved_a, "b": resolved_b}
     n_ds_a = int(live_feat.get("n_dataset_a") or 0)
@@ -485,6 +486,7 @@ def _predict_one_betfair_event(
         date=pred["date"],
         tour=tour,
         betfair_event_id=ev.get("event_id"),
+        betfair_market_id=ev.get("market_id"),
         betfair_odds={"a": odd_a, "b": odd_b},
     )
     if close:

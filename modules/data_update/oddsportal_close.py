@@ -38,26 +38,40 @@ def lookup_oddsportal_close(
     """Legge chiusura Pinnacle/bookmaker da cache OddsPortal (se presente)."""
     data = _load()
     day = str(date or "")[:10]
-    key = odds_match_key(day, player_a, player_b)
-    rev = odds_match_key(day, player_b, player_a)
+    key = odds_match_key(day, player_a, player_b) if day else None
+    rev = odds_match_key(day, player_b, player_a) if day else None
+    fallback = None
     for row in data.get("rows") or []:
         row_day = str(row.get("date") or "")[:10]
         w, l = str(row.get("winner") or ""), str(row.get("loser") or "")
-        rk = odds_match_key(row_day, w, l)
-        rkr = odds_match_key(row_day, l, w)
-        if day:
-            if rk not in (key, rev) and rkr not in (key, rev):
-                continue
-        elif _last_name(w) not in (_last_name(player_a), _last_name(player_b)):
-            continue
         psw, psl = row.get("psw"), row.get("psl")
         if not psw or not psl:
             continue
-        w = str(row.get("winner") or "")
-        if _last_name(w) == _last_name(player_a):
-            return {"a": float(psw), "b": float(psl), "source": "oddsportal"}
-        return {"a": float(psl), "b": float(psw), "source": "oddsportal"}
-    return None
+        name_ok = (
+            _last_name(w) in (_last_name(player_a), _last_name(player_b))
+            and _last_name(l) in (_last_name(player_a), _last_name(player_b))
+            and _last_name(w) != _last_name(l)
+        )
+        if not name_ok:
+            continue
+        mapped = (
+            {"a": float(psw), "b": float(psl), "source": "oddsportal"}
+            if _last_name(w) == _last_name(player_a)
+            else {"a": float(psl), "b": float(psw), "source": "oddsportal"}
+        )
+        if day and row_day:
+            rk = odds_match_key(row_day, w, l)
+            rkr = odds_match_key(row_day, l, w)
+            if key and (rk in (key, rev) or rkr in (key, rev)):
+                return mapped
+            continue
+        if day and not row_day:
+            # riga senza data: candidate fallback se nomi matchano
+            fallback = fallback or mapped
+            continue
+        if not day:
+            return mapped
+    return fallback
 
 
 def row_count() -> int:

@@ -91,8 +91,24 @@ def _format_bet(pred: dict) -> str:
         f"{player_a} vs {player_b}",
         f"Pick: {pick} @ {odds}",
         f"P={float(p):.1%} | EV={float(ev_pct):+.1f}% | Kelly={float(kelly):.2%}",
-        f"Giocabilità: {int(pred.get('playability') or 0)}/100 ({pred.get('playability_label') or '—'})",
     ]
+    # Quote suggerite: fair modello + minimo per tenere edge
+    try:
+        p_f = float(p or 0)
+        if p_f > 0.01:
+            fair = 1.0 / p_f
+            from modules.advisor.online_learn import effective_min_edge
+
+            min_edge = float(effective_min_edge())
+            min_odds = (1.0 + min_edge) / p_f
+            lines.append(
+                f"Quote suggerite: fair {fair:.2f} | min @{min_odds:.2f} (edge>={min_edge:.0%})"
+            )
+    except Exception:
+        pass
+    lines.append(
+        f"Giocabilità: {int(pred.get('playability') or 0)}/100 ({pred.get('playability_label') or '—'})"
+    )
     mw = sig.get("volume_pct_pick")
     drop = sig.get("drop_pct")
     mw_missing = bool(sig.get("missing")) and mw is None

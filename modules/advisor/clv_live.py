@@ -41,11 +41,12 @@ def resolve_close_odds(
     date: str | None = None,
     tour: str = "ATP",
     betfair_event_id: str | None = None,
+    betfair_market_id: str | None = None,
     betfair_odds: dict | None = None,
 ) -> dict | None:
     """Risolve quote di chiusura con cascade.
 
-    1. Betfair settled (BSP/LTP mercati chiusi)
+    1. Betfair settled via market_id salvato (listMarketBook / BSP)
     2. OddsPortal cache
     3. tennis-data.co.uk
     4. Betfair LTP live solo se il match è oggi/futuro (mai snapshot = quota bet)
@@ -59,11 +60,17 @@ def resolve_close_odds(
         except ValueError:
             past = False
 
-    # 1) Mercati Betfair già chiusi
+    # 1) Mercati Betfair già chiusi (market_id registry o cache settled)
     try:
         from modules.data_update.betfair import lookup_betfair_settled_close
 
-        bf_s = lookup_betfair_settled_close(player_a, player_b, match_date=date)
+        bf_s = lookup_betfair_settled_close(
+            player_a,
+            player_b,
+            match_date=date,
+            event_id=betfair_event_id,
+            market_id=betfair_market_id,
+        )
         if bf_s:
             return bf_s
     except Exception:

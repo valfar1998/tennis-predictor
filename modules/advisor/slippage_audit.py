@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS alert_log (
     odds_at_alert REAL,
     ev_at_alert REAL,
     betfair_event_id TEXT,
+    betfair_market_id TEXT,
     odds_t3 REAL,
     t3_recorded_at TEXT,
     slippage_pct REAL,
@@ -37,6 +38,10 @@ def _conn() -> sqlite3.Connection:
     DB.parent.mkdir(parents=True, exist_ok=True)
     c = sqlite3.connect(DB)
     c.executescript(_CREATE_ALERTS)
+    cols = {row[1] for row in c.execute("PRAGMA table_info(alert_log)")}
+    if "betfair_market_id" not in cols:
+        c.execute("ALTER TABLE alert_log ADD COLUMN betfair_market_id TEXT")
+        c.commit()
     c.row_factory = sqlite3.Row
     return c
 
@@ -57,8 +62,8 @@ def log_alert(pred: dict, *, sent_at: str | None = None) -> None:
         c.execute(
             """INSERT OR REPLACE INTO alert_log
             (alert_key, sent_at, player_a, player_b, pick, pick_side,
-             odds_at_alert, ev_at_alert, betfair_event_id, match_date)
-            VALUES (?,?,?,?,?,?,?,?,?,?)""",
+             odds_at_alert, ev_at_alert, betfair_event_id, betfair_market_id, match_date)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?)""",
             (
                 key,
                 ts,
@@ -69,6 +74,7 @@ def log_alert(pred: dict, *, sent_at: str | None = None) -> None:
                 rec.get("odds"),
                 rec.get("ev"),
                 pred.get("betfair_event_id"),
+                pred.get("betfair_market_id"),
                 str(pred.get("date") or "")[:10],
             ),
         )

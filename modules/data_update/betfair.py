@@ -26,6 +26,8 @@ ENV_PATH = ROOT / ".env"
 KEY_PATH = RAW / "betfair.appkey"
 SESSION_PATH = RAW / "betfair.session.json"
 CACHE = RAW / "betfair_odds.json"
+SETTLED_CACHE = RAW / "betfair_settled.json"
+MARKET_ID_REGISTRY = RAW / "betfair_market_ids.json"
 
 LOGIN_URL = "https://identitysso.betfair.it/api/login"
 KEEPALIVE_URL = "https://identitysso.betfair.it/api/keepAlive"
@@ -36,6 +38,7 @@ TENNIS_EVENT_TYPE = "2"
 MARKET_TYPES = ("MATCH_ODDS",)
 SESSION_MAX_AGE_H = 6.0
 BOOK_BATCH = 20
+REGISTRY_KEEP_DAYS = 45
 
 
 def _parse_env(path: Path) -> dict[str, str]:
@@ -387,29 +390,37 @@ def _fetch_catalogue_and_books(token: str, app_key: str, *, days: int) -> list[d
         match_id = row["markets"].get("MATCH_ODDS")
         if match_id and match_id in books:
             names = row["runners"].get("MATCH_ODDS") or {}
-            unmatched: list[tuple[str, float]] = []
+            unmatched: list[tuple[str, float, int | None]] = []
             for runner in books[match_id].get("runners") or []:
                 sid = runner.get("selectionId")
-                name = names.get(int(sid) if sid is not None else -1, "")
+                try:
+                    sid_i = int(sid) if sid is not None else None
+                except (TypeError, ValueError):
+                    sid_i = None
+                name = names.get(sid_i if sid_i is not None else -1, "")
                 price = _runner_price(runner)
                 if price is None:
                     continue
                 if _player_match(row["player_a"], name):
                     ev["odd_a"] = price
                     ev["runner_a"] = name
+                    ev["selection_a"] = sid_i
                 elif _player_match(row["player_b"], name):
                     ev["odd_b"] = price
                     ev["runner_b"] = name
+                    ev["selection_b"] = sid_i
                 elif name:
-                    unmatched.append((name, price))
+                    unmatched.append((name, price, sid_i))
             if ev["odd_a"] is None or ev["odd_b"] is None:
-                for name, price in unmatched:
+                for name, price, sid_i in unmatched:
                     if ev["odd_a"] is None and _player_match(row["player_a"], name):
                         ev["odd_a"] = price
                         ev["runner_a"] = name
+                        ev["selection_a"] = sid_i
                     elif ev["odd_b"] is None and _player_match(row["player_b"], name):
                         ev["odd_b"] = price
                         ev["runner_b"] = name
+                        ev["selection_b"] = sid_i
             if ev["odd_a"] and ev["odd_b"]:
                 from modules.data_update.entity_resolution import align_odds_to_players
 
@@ -427,7 +438,11 @@ def _fetch_catalogue_and_books(token: str, app_key: str, *, days: int) -> list[d
                 ev["odd_b"] = aligned["odd_b"]
                 if aligned.get("swapped"):
                     ev["odds_swapped"] = True
+                    # se allineamento scambia quote, scambia anche selection/runner
+                    ev["runner_a"], ev["runner_b"] = ev.get("runner_b"), ev.get("runner_a")
+                    ev["selection_a"], ev["selection_b"] = ev.get("selection_b"), ev.get("selection_a")
                 ev["odds_verified"] = aligned.get("verified", False)
+                ev["market_id"] = str(match_id)
                 events.append(ev)
     return events
 
@@ -475,6 +490,7 @@ def fetch_betfair_odds(*, force: bool = False, days: int = 7, max_age_hours: flo
         }
         CACHE.parent.mkdir(parents=True, exist_ok=True)
         CACHE.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        register_market_ids(events)
         print(f"ok Betfair tennis: {len(events)} eventi", flush=True)
         return {"ok": True, "n_events": len(events), "from_cache": False, "events": events}
     except HTTPError as exc:
@@ -501,6 +517,11 @@ def _last_traded(runner: dict) -> float | None:
         return round(float(last), 3)
     except (TypeError, ValueError):
         return None
+
+
+def _runner_price(runner: dict) -> float | None:
+    """Quota live: best back → LTP."""
+    return _best_back(runner) or _last_traded(runner)
 
 
 def _runner_close_price(runner: dict) -> float | None:
@@ -623,11 +644,200 @@ def lookup_betfair_match(
     return None
 
 
-SETTLED_CACHE = RAW / "betfair_settled.json"
+def _load_market_registry() -> dict:
+    if not MARKET_ID_REGISTRY.exists():
+        return {"markets": {}, "updated_at": None}
+    try:
+        data = json.loads(MARKET_ID_REGISTRY.read_text(encoding="utf-8"))
+        if isinstance(data, dict) and isinstance(data.get("markets"), dict):
+            return data
+    except Exception:
+        pass
+    return {"markets": {}, "updated_at": None}
+
+
+def _save_market_registry(markets: dict[str, dict]) -> None:
+    """Persiste market_id MATCH_ODDS (serve dopo che catalogue non li espone più)."""
+    cutoff = datetime.now(timezone.utc) - timedelta(days=REGISTRY_KEEP_DAYS)
+    kept: dict[str, dict] = {}
+    for mid, row in markets.items():
+        ts = str(row.get("saved_at") or row.get("commence_time") or "")
+        keep = True
+        if ts:
+            try:
+                when = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+                if when.tzinfo is None:
+                    when = when.replace(tzinfo=timezone.utc)
+                keep = when >= cutoff
+            except ValueError:
+                keep = True
+        if keep:
+            kept[str(mid)] = row
+    MARKET_ID_REGISTRY.parent.mkdir(parents=True, exist_ok=True)
+    MARKET_ID_REGISTRY.write_text(
+        json.dumps(
+            {"updated_at": datetime.now(timezone.utc).isoformat(), "markets": kept},
+            ensure_ascii=False,
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+
+
+def register_market_ids(events: list[dict]) -> int:
+    """Unisce market_id dalla cache live nel registry persistente."""
+    data = _load_market_registry()
+    markets = dict(data.get("markets") or {})
+    n = 0
+    now = datetime.now(timezone.utc).isoformat()
+    for ev in events:
+        mid = ev.get("market_id")
+        if not mid:
+            continue
+        mid = str(mid)
+        prev = markets.get(mid) or {}
+        markets[mid] = {
+            **prev,
+            "market_id": mid,
+            "event_id": ev.get("event_id") or prev.get("event_id"),
+            "player_a": ev.get("player_a") or prev.get("player_a"),
+            "player_b": ev.get("player_b") or prev.get("player_b"),
+            "runner_a": ev.get("runner_a") or prev.get("runner_a"),
+            "runner_b": ev.get("runner_b") or prev.get("runner_b"),
+            "selection_a": ev.get("selection_a") if ev.get("selection_a") is not None else prev.get("selection_a"),
+            "selection_b": ev.get("selection_b") if ev.get("selection_b") is not None else prev.get("selection_b"),
+            "commence_time": ev.get("commence_time") or prev.get("commence_time"),
+            "competition": ev.get("competition") or prev.get("competition"),
+            "saved_at": now,
+        }
+        n += 1
+    if n:
+        _save_market_registry(markets)
+    return n
+
+
+def lookup_registered_market(
+    player_a: str,
+    player_b: str,
+    *,
+    match_date: str | None = None,
+    event_id: str | None = None,
+    market_id: str | None = None,
+) -> dict | None:
+    markets = (_load_market_registry().get("markets") or {})
+    if market_id and str(market_id) in markets:
+        return markets[str(market_id)]
+    md = None
+    if match_date:
+        try:
+            md = date.fromisoformat(str(match_date)[:10])
+        except ValueError:
+            pass
+    for row in markets.values():
+        if event_id and str(row.get("event_id") or "") == str(event_id):
+            return row
+        pa, pb = str(row.get("player_a") or ""), str(row.get("player_b") or "")
+        direct = _player_match(player_a, pa) and _player_match(player_b, pb)
+        swap = _player_match(player_a, pb) and _player_match(player_b, pa)
+        if not (direct or swap):
+            continue
+        if md:
+            day = str(row.get("commence_time") or "")[:10]
+            try:
+                if abs((date.fromisoformat(day) - md).days) > 1:
+                    continue
+            except ValueError:
+                pass
+        return row
+    return None
+
+
+def fetch_close_by_market_id(
+    market_id: str,
+    *,
+    player_a: str | None = None,
+    player_b: str | None = None,
+    selection_a: int | None = None,
+    selection_b: int | None = None,
+    runner_a: str | None = None,
+    runner_b: str | None = None,
+) -> dict | None:
+    """Chiude un MATCH_ODDS via listMarketBook anche se catalogue non lo espone più."""
+    mid = str(market_id or "").strip()
+    if not mid:
+        return None
+    reg = (_load_market_registry().get("markets") or {}).get(mid) or {}
+    pa = player_a or reg.get("player_a")
+    pb = player_b or reg.get("player_b")
+    sel_a = selection_a if selection_a is not None else reg.get("selection_a")
+    sel_b = selection_b if selection_b is not None else reg.get("selection_b")
+    run_a = runner_a or reg.get("runner_a")
+    run_b = runner_b or reg.get("runner_b")
+
+    app_key = _app_key()
+    if not app_key:
+        return None
+    try:
+        token = login(force=False)
+        books = _market_books(token, app_key, [mid])
+    except Exception:
+        return None
+    if not books:
+        return None
+    book = books[0]
+    status = str(book.get("status") or "").upper()
+    odd_a = odd_b = None
+    for runner in book.get("runners") or []:
+        sid = runner.get("selectionId")
+        price = _runner_close_price(runner)
+        if price is None:
+            continue
+        try:
+            sid_i = int(sid) if sid is not None else None
+        except (TypeError, ValueError):
+            sid_i = None
+        if sel_a is not None and sid_i == int(sel_a):
+            odd_a = price
+        elif sel_b is not None and sid_i == int(sel_b):
+            odd_b = price
+        elif run_a and _player_match(str(run_a), str(runner.get("runnerName") or "")):
+            odd_a = price
+        elif run_b and _player_match(str(run_b), str(runner.get("runnerName") or "")):
+            odd_b = price
+    # listMarketBook spesso non ha runnerName: se solo 2 runner e selection note, ok;
+    # altrimenti prova ordine catalogue salvato.
+    if (odd_a is None or odd_b is None) and sel_a is None and sel_b is None:
+        runners = [r for r in (book.get("runners") or []) if _runner_close_price(r)]
+        if len(runners) == 2 and pa and pb:
+            # senza mapping nomi non inventiamo: serve selection_id
+            pass
+    if not odd_a or not odd_b:
+        # secondo passaggio: mappa solo via selection salvata
+        priced = {}
+        for runner in book.get("runners") or []:
+            sid = runner.get("selectionId")
+            price = _runner_close_price(runner)
+            if sid is None or price is None:
+                continue
+            priced[int(sid)] = price
+        if sel_a is not None and sel_b is not None:
+            odd_a = priced.get(int(sel_a))
+            odd_b = priced.get(int(sel_b))
+    if not odd_a or not odd_b:
+        return None
+    src = "betfair_settled" if status in ("CLOSED", "SETTLED") else "betfair_ltp"
+    return {
+        "a": float(odd_a),
+        "b": float(odd_b),
+        "source": src,
+        "market_id": mid,
+        "event_id": reg.get("event_id"),
+        "market_status": status,
+    }
 
 
 def fetch_betfair_settled_results(*, days: int = 14, force: bool = False, max_age_hours: float = 2.0) -> dict:
-    """Mercati MATCH_ODDS chiusi con runner WINNER (ultimi N giorni)."""
+    """Chiusure via market_id salvati (listMarketBook) — catalogue NON espone CLOSED."""
     if not force and SETTLED_CACHE.exists():
         try:
             data = json.loads(SETTLED_CACHE.read_text(encoding="utf-8"))
@@ -647,64 +857,62 @@ def fetch_betfair_settled_results(*, days: int = 14, force: bool = False, max_ag
         return {"ok": False, "error": "BETFAIR_APP_KEY non trovata", "results": []}
 
     try:
-        token = login(force=False)
-        now = datetime.now(timezone.utc)
-        start = now - timedelta(days=days)
         from modules.ops_progress import log_step
 
-        log_step(1, 3, "Betfair settled: catalogo mercati...")
-        catalogue = _catalogue_range(token, app_key, start, now)
-        grouped = _group_events(catalogue)
-        market_ids = [mid for row in grouped.values() for mid in row["markets"].values() if mid]
-        log_step(2, 3, f"Betfair settled: quote {len(market_ids)} mercati...")
-        books = {str(b.get("marketId")): b for b in _market_books(token, app_key, market_ids)}
+        log_step(1, 3, "Betfair settled: registry market_id...")
+        # aggiorna registry da cache live corrente
+        register_market_ids(load_betfair_cache())
+        markets = _load_market_registry().get("markets") or {}
+        cutoff = datetime.now(timezone.utc) - timedelta(days=days)
+        candidates: list[dict] = []
+        for mid, row in markets.items():
+            day = str(row.get("commence_time") or "")[:10]
+            try:
+                ct = datetime.fromisoformat(str(row.get("commence_time") or "").replace("Z", "+00:00"))
+                if ct.tzinfo is None:
+                    ct = ct.replace(tzinfo=timezone.utc)
+                if ct < cutoff:
+                    continue
+            except ValueError:
+                if day:
+                    try:
+                        if date.fromisoformat(day) < (datetime.now(timezone.utc).date() - timedelta(days=days)):
+                            continue
+                    except ValueError:
+                        pass
+            candidates.append(row)
 
+        log_step(2, 3, f"Betfair settled: listMarketBook {len(candidates)} id...")
         results: list[dict] = []
-        for row in grouped.values():
-            mid = row["markets"].get("MATCH_ODDS")
-            if not mid or str(mid) not in books:
+        for row in candidates:
+            mid = str(row.get("market_id") or "")
+            close = fetch_close_by_market_id(
+                mid,
+                player_a=str(row.get("player_a") or ""),
+                player_b=str(row.get("player_b") or ""),
+                selection_a=row.get("selection_a"),
+                selection_b=row.get("selection_b"),
+                runner_a=row.get("runner_a"),
+                runner_b=row.get("runner_b"),
+            )
+            if not close:
                 continue
-            book = books[str(mid)]
-            if str(book.get("status") or "").upper() not in ("CLOSED", "SETTLED"):
-                continue
-            names = row["runners"].get("MATCH_ODDS") or {}
-            pa, pb = row["player_a"], row["player_b"]
-            winner_name = loser_name = None
-            odd_a = odd_b = None
-            for runner in book.get("runners") or []:
-                sid = runner.get("selectionId")
-                name = names.get(int(sid) if sid is not None else -1, "")
-                status = str(runner.get("status") or "").upper()
-                price = _runner_close_price(runner)
-                if name and (_player_match(name, pa) or _player_match(pa, name)):
-                    odd_a = price
-                elif name and (_player_match(name, pb) or _player_match(pb, name)):
-                    odd_b = price
-                if status == "WINNER":
-                    winner_name = name
-                elif status == "LOSER" and name:
-                    loser_name = name
-            if not winner_name:
-                continue
-            if _player_match(winner_name, pa):
-                winner, loser = pa, pb if loser_name is None else loser_name
-            elif _player_match(winner_name, pb):
-                winner, loser = pb, pa if loser_name is None else loser_name
-            else:
-                winner, loser = winner_name, loser_name or (pb if winner_name != pa else pa)
+            if str(close.get("market_status") or "").upper() not in ("CLOSED", "SETTLED"):
+                # tieni comunque LTP se mercato ancora open ma match passato — utile bridge
+                pass
             results.append(
                 {
-                    "event_id": row["event_id"],
-                    "player_a": pa,
-                    "player_b": pb,
-                    "winner": winner,
-                    "loser": loser,
-                    "odd_a": odd_a,
-                    "odd_b": odd_b,
+                    "event_id": row.get("event_id"),
+                    "market_id": mid,
+                    "player_a": row.get("player_a"),
+                    "player_b": row.get("player_b"),
+                    "odd_a": close.get("a"),
+                    "odd_b": close.get("b"),
                     "commence_time": row.get("commence_time"),
                     "date": str(row.get("commence_time") or "")[:10],
                     "competition": row.get("competition"),
-                    "source": "betfair_settled",
+                    "source": close.get("source") or "betfair_settled",
+                    "market_status": close.get("market_status"),
                 }
             )
 
@@ -714,6 +922,8 @@ def fetch_betfair_settled_results(*, days: int = 14, force: bool = False, max_ag
             "fetched_at": datetime.now(timezone.utc).isoformat(),
             "n_results": len(results),
             "results": results,
+            "n_candidates": len(candidates),
+            "note": "via saved market_id + listMarketBook (catalogue non espone CLOSED)",
         }
         SETTLED_CACHE.parent.mkdir(parents=True, exist_ok=True)
         SETTLED_CACHE.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -739,8 +949,32 @@ def lookup_betfair_settled_close(
     player_b: str,
     *,
     match_date: str | None = None,
+    event_id: str | None = None,
+    market_id: str | None = None,
 ) -> dict | None:
-    """Chiusura da mercati Betfair già CLOSED/SETTLED (BSP o LTP)."""
+    """Chiusura da market_id salvato (listMarketBook) o cache settled."""
+    mid = market_id
+    if not mid:
+        reg = lookup_registered_market(
+            player_a, player_b, match_date=match_date, event_id=event_id
+        )
+        if reg:
+            mid = reg.get("market_id")
+    if mid:
+        close = fetch_close_by_market_id(str(mid), player_a=player_a, player_b=player_b)
+        if close and close.get("a") and close.get("b"):
+            # per BCR preferiamo solo mercati già CLOSED/SETTLED
+            status = str(close.get("market_status") or "").upper()
+            if status in ("CLOSED", "SETTLED") or close.get("source") == "betfair_settled":
+                return close
+            # match passato ma book ancora OPEN: LTP è comunque meglio di niente
+            if match_date:
+                try:
+                    if date.fromisoformat(str(match_date)[:10]) < date.today():
+                        return {**close, "source": "betfair_settled"}
+                except ValueError:
+                    pass
+
     rows = []
     if SETTLED_CACHE.exists():
         try:
@@ -776,7 +1010,8 @@ def lookup_betfair_settled_close(
         return {
             "a": float(oa),
             "b": float(ob),
-            "source": "betfair_settled",
+            "source": str(ev.get("source") or "betfair_settled"),
             "event_id": ev.get("event_id"),
+            "market_id": ev.get("market_id"),
         }
     return None

@@ -18,7 +18,10 @@
     "betfair_only": true,
     "actions": [
       "bet"
-    ]
+    ],
+    "days": 5,
+    "from_date": "2026-08-31",
+    "to_date": "2026-09-04"
   },
   "bcr_paper": {
     "n": 0,
@@ -33,22 +36,28 @@
     "actions": [
       "bet",
       "paper"
-    ]
+    ],
+    "days": 5,
+    "from_date": "2026-08-31",
+    "to_date": "2026-09-04"
   },
   "bcr_all_sources": {
-    "n": 0,
-    "beats": 0,
-    "bcr": null,
-    "bcr_pct": null,
+    "n": 23,
+    "beats": 10,
+    "bcr": 0.4348,
+    "bcr_pct": 43.5,
     "target": 0.55,
     "target_pct": 55.0,
-    "pass": null,
-    "avg_clv": null,
+    "pass": false,
+    "avg_clv": -0.0062,
     "betfair_only": false,
     "actions": [
       "bet",
       "paper"
-    ]
+    ],
+    "days": 5,
+    "from_date": "2026-08-31",
+    "to_date": "2026-09-04"
   },
   "slippage": {
     "n_alerts": 0,
@@ -60,7 +69,7 @@
     "steam_threshold_pct": 3.0,
     "recommendation": null
   },
-  "updated_at": "2026-09-03T19:27:46.974523+00:00",
+  "updated_at": "2026-09-04T08:18:52.043166+00:00",
   "governance": {
     "validation_freeze": {
       "active": true,
@@ -93,7 +102,7 @@
       "bcr_pass": null,
       "policy": "Nessuna modifica strutturale a pesi, feature o retrain ML fino al completamento della finestra. Solo settle + metriche BCR Betfair."
     },
-    "updated_at": "2026-09-03T19:27:46.981878+00:00"
+    "updated_at": "2026-09-04T08:18:52.056134+00:00"
   },
   "itf_governance": {
     "shrink_w_itf": 0.15,
