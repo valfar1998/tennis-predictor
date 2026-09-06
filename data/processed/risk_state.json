@@ -11,13 +11,13 @@
     "streak_loss_units": 11.0,
     "drawdown_pct": 0.15
   },
-  "bankroll": 0.8395,
+  "bankroll": 0.803,
   "peak": 1.0176,
-  "max_drawdown": 0.2104,
-  "current_drawdown": 0.175,
-  "streak_loss_units": 7.2,
+  "max_drawdown": 0.2272,
+  "current_drawdown": 0.2109,
+  "streak_loss_units": 0.0,
   "max_streak_loss_units": 12.0,
-  "consecutive_losses": 4,
-  "n_settled": 82,
-  "updated_at": "2026-09-03T07:27:13.169645+00:00"
+  "consecutive_losses": 0,
+  "n_settled": 87,
+  "updated_at": "2026-09-06T12:40:45.002693+00:00"
 }

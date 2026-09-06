@@ -125,9 +125,9 @@ def compute_execution_summary(*, bcr_days: int | None = None) -> dict[str, Any]:
         "roi_note": roi_note,
         "bcr_source": "betfair",
         "bcr_note": (
-            "Il 3.8% (3/80) citato in chat il 2026-09-02 non era nel DB "
-            "(audit già 0/80) e i 3 match non erano nominati: non ricostruibile. "
-            "BCR usa solo chiusure distinte dalla quota d'ingresso; paper = previsioni valide no_bet."
+            "BCR Betfair: chiusure da market_id salvato (listMarketBook BSP/LTP). "
+            "Se il mercato CLOSED non espone più prezzi, si usa l'ultimo LTP persistito nel registry. "
+            "Esclusi snapshot identici alla quota d'ingresso; paper = previsioni valide no_bet."
         ),
         "bcr_betfair": bcr_bf,
         "bcr_paper": bcr_paper,

@@ -117,6 +117,24 @@ def archive_prediction(pred: dict[str, Any]) -> None:
     action = str(pred.get("action") or "no_bet")
     mw, drop, aligned = _signals(pred)
     key = _match_key(pred)
+    market_id = pred.get("betfair_market_id")
+    event_id = pred.get("betfair_event_id")
+    if not market_id:
+        try:
+            from modules.data_update.betfair import lookup_registered_market
+
+            reg = lookup_registered_market(
+                str(pred.get("player_a") or ""),
+                str(pred.get("player_b") or ""),
+                match_date=str(pred.get("date") or "")[:10],
+                event_id=str(event_id) if event_id else None,
+            )
+            if reg:
+                market_id = reg.get("market_id")
+                if not event_id:
+                    event_id = reg.get("event_id")
+        except Exception:
+            pass
     with _conn() as c:
         existing = c.execute(
             "SELECT action, hit FROM matches WHERE match_key=?", (key,)
@@ -165,8 +183,8 @@ def archive_prediction(pred: dict[str, Any]) -> None:
                 None,
                 None,
                 None,
-                pred.get("betfair_event_id"),
-                pred.get("betfair_market_id"),
+                event_id,
+                market_id,
                 datetime.now(timezone.utc).isoformat(),
             ),
         )
@@ -371,9 +389,19 @@ def _last_name(name: str) -> str:
 def settle_pending(*, learn: bool = True) -> dict[str, Any]:
     from modules.ops_progress import OpProgress, log_done
 
-    prog = OpProgress(11 if learn else 10, label="settle")
-    prog.next("Refresh CLV close...")
-    out = refresh_clv_close()
+    prog = OpProgress(12 if learn else 11, label="settle")
+    out: dict[str, Any] = {}
+    prog.next("Betfair market_id backfill...")
+    try:
+        from modules.data_update.betfair import backfill_history_market_ids, register_market_ids, load_betfair_cache
+
+        register_market_ids(load_betfair_cache())
+        out_bf = backfill_history_market_ids(days=21)
+        out["betfair_market_id_backfill"] = out_bf
+        print(f"  Betfair market_id backfill: {out_bf.get('updated', 0)}", flush=True)
+    except Exception as exc:
+        out["betfair_market_id_backfill_error"] = str(exc)
+        print(f"  Betfair market_id backfill skip: {exc}", flush=True)
     try:
         from modules.data_update.tml import sync_tml
 
@@ -389,10 +417,20 @@ def settle_pending(*, learn: bool = True) -> dict[str, Any]:
     except Exception as exc:
         out["flashscore_sync_error"] = str(exc)
     try:
-        from modules.data_update.betfair import fetch_betfair_settled_results, login_configured
+        from modules.data_update.betfair import fetch_betfair_settled_results, fetch_betfair_odds, login_configured
 
         prog.next("Sync Betfair settled...")
         if login_configured():
+            # Aggiorna LTP live sul registry PRIMA che i mercati vadano CLOSED (senza prezzi).
+            try:
+                odds_info = fetch_betfair_odds(force=False, days=3, max_age_hours=1.0)
+                out["betfair_odds_sync"] = {
+                    "ok": odds_info.get("ok"),
+                    "n_events": odds_info.get("n_events"),
+                    "from_cache": odds_info.get("from_cache"),
+                }
+            except Exception as exc:
+                out["betfair_odds_sync_error"] = str(exc)
             out["betfair_settled_sync"] = fetch_betfair_settled_results(days=14, force=False)
         else:
             print("  Betfair settled skip: credenziali assenti", flush=True)
@@ -439,6 +477,12 @@ def settle_pending(*, learn: bool = True) -> dict[str, Any]:
         out["uts_sync_error"] = str(exc)
     prog.next("Chiudi pick pendenti (cascade)...")
     out.update(settle_from_results())
+    prog.next("Refresh CLV close (post-settle)...")
+    try:
+        out["clv_refresh"] = refresh_clv_close(days=14, include_settled=True)
+        print(f"  CLV refreshed: {out['clv_refresh'].get('clv_refreshed', 0)}", flush=True)
+    except Exception as exc:
+        out["clv_refresh_error"] = str(exc)
     if learn:
         prog.next("Online learn...")
         try:
