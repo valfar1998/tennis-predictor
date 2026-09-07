@@ -1,8 +1,8 @@
 {
   "phase": "paper_trading",
-  "n_settled": 231,
-  "n_pending": 38,
-  "hit_rate": 0.2857,
+  "n_settled": 239,
+  "n_pending": 30,
+  "hit_rate": 0.2845,
   "roi_note": "Campione >=100: ROI diventa informativo oltre al BCR",
   "bcr_source": "betfair",
   "bcr_note": "BCR Betfair (KPI): chiusure market_id/listMarketBook/last LTP, solo action=bet. BCR Kambi (secondario): pick con odds_source Kambi/Unibet vs ultimo snapshot Kambi pre-match (Guest API non espone closing storica). Paper = previsioni valide no_bet.",
@@ -21,14 +21,14 @@
     ]
   },
   "bcr_kambi": {
-    "n": 0,
-    "beats": 0,
-    "bcr": null,
-    "bcr_pct": null,
+    "n": 3,
+    "beats": 1,
+    "bcr": 0.3333,
+    "bcr_pct": 33.3,
     "target": 0.55,
     "target_pct": 55.0,
-    "pass": null,
-    "avg_clv": null,
+    "pass": false,
+    "avg_clv": -0.0204,
     "betfair_only": false,
     "actions": [
       "bet",
@@ -43,14 +43,14 @@
     ]
   },
   "bcr_paper": {
-    "n": 23,
+    "n": 25,
     "beats": 3,
-    "bcr": 0.1304,
-    "bcr_pct": 13.0,
+    "bcr": 0.12,
+    "bcr_pct": 12.0,
     "target": 0.55,
     "target_pct": 55.0,
     "pass": false,
-    "avg_clv": -0.0153,
+    "avg_clv": -0.0173,
     "betfair_only": true,
     "actions": [
       "bet",
@@ -58,14 +58,14 @@
     ]
   },
   "bcr_all_sources": {
-    "n": 77,
-    "beats": 31,
-    "bcr": 0.4026,
-    "bcr_pct": 40.3,
+    "n": 82,
+    "beats": 32,
+    "bcr": 0.3902,
+    "bcr_pct": 39.0,
     "target": 0.55,
     "target_pct": 55.0,
     "pass": false,
-    "avg_clv": -0.005,
+    "avg_clv": -0.0064,
     "betfair_only": false,
     "actions": [
       "bet",
@@ -82,7 +82,7 @@
     "steam_threshold_pct": 3.0,
     "recommendation": null
   },
-  "updated_at": "2026-09-07T08:47:46.272126+00:00",
+  "updated_at": "2026-09-07T19:53:10.624629+00:00",
   "governance": {
     "validation_freeze": {
       "active": true,
@@ -115,7 +115,7 @@
       "bcr_pass": false,
       "policy": "Nessuna modifica strutturale a pesi, feature o retrain ML fino al completamento della finestra. Solo settle + metriche BCR Betfair."
     },
-    "updated_at": "2026-09-07T08:47:46.281395+00:00"
+    "updated_at": "2026-09-07T19:53:10.633735+00:00"
   },
   "itf_governance": {
     "shrink_w_itf": 0.15,
