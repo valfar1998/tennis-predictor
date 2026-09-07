@@ -147,13 +147,13 @@
       "event_id": "kambi:1029026646",
       "player_a": "James Kent Trotter",
       "player_b": "Kaito Uesugi",
-      "commence_time": "2026-09-07T07:05:00Z",
+      "commence_time": "2026-09-07T08:50:00Z",
       "competition": "Challenger Qual. / Shanghai",
       "last_odd_a": 1.2,
       "last_odd_b": 4.0,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029039386": {
@@ -550,13 +550,13 @@
       "event_id": "kambi:1029041759",
       "player_a": "Alibek Kachmazov",
       "player_b": "Gabriel Ghetu",
-      "commence_time": "2026-09-07T08:10:00Z",
+      "commence_time": "2026-09-07T08:55:00Z",
       "competition": "Challenger Qual. / Istanbul",
       "last_odd_a": 1.74,
       "last_odd_b": 1.97,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029041758": {
@@ -576,26 +576,26 @@
       "event_id": "kambi:1029040967",
       "player_a": "Kaito Uesugi",
       "player_b": "Ji Sung Nam",
-      "commence_time": "2026-09-07T08:10:00Z",
+      "commence_time": "2026-09-07T08:55:00Z",
       "competition": "Challenger Qual. / Shanghai",
       "last_odd_a": 2.55,
       "last_odd_b": 1.44,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029040960": {
       "event_id": "kambi:1029040960",
       "player_a": "Arda Azkara",
       "player_b": "Faris Zakaryia",
-      "commence_time": "2026-09-07T08:10:00Z",
+      "commence_time": "2026-09-07T08:55:00Z",
       "competition": "Challenger Qual. / Istanbul",
       "last_odd_a": 1.5,
       "last_odd_b": 2.43,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029026933": {
@@ -667,13 +667,13 @@
       "event_id": "kambi:1029043230",
       "player_a": "Mannan Ashok Agarwal",
       "player_b": "Sacha Fontanges",
-      "commence_time": "2026-09-07T08:30:00Z",
+      "commence_time": "2026-09-07T08:52:00Z",
       "competition": "ITF Men Qual. / Plaisir",
       "last_odd_a": 1.21,
       "last_odd_b": 3.8,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029043225": {
@@ -723,9 +723,9 @@
       "competition": "ITF Women Qual. / Evora",
       "last_odd_a": 4.5,
       "last_odd_b": 1.16,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029041757": {
@@ -736,9 +736,9 @@
       "competition": "WTA125 Qual. / Montreux",
       "last_odd_a": 1.67,
       "last_odd_b": 2.07,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029040719": {
@@ -749,9 +749,9 @@
       "competition": "ITF Women Qual. / Evora",
       "last_odd_a": 1.25,
       "last_odd_b": 3.45,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029041998": {
@@ -762,22 +762,22 @@
       "competition": "WTA125 Qual. / Montreux",
       "last_odd_a": 1.07,
       "last_odd_b": 6.75,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029039481": {
       "event_id": "kambi:1029039481",
       "player_a": "Emira Diabate",
       "player_b": "Fanny Pire",
-      "commence_time": "2026-09-07T09:00:00Z",
+      "commence_time": "2026-09-07T09:09:00Z",
       "competition": "ITF Women Qual. / Dijon",
       "last_odd_a": 1.1,
       "last_odd_b": 5.6,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029040485": {
@@ -788,9 +788,9 @@
       "competition": "Challenger Qual. / Seville",
       "last_odd_a": 1.34,
       "last_odd_b": 3.0,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029040959": {
@@ -801,35 +801,35 @@
       "competition": "WTA125 Qual. / Montreux",
       "last_odd_a": 1.67,
       "last_odd_b": 2.08,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029041445": {
       "event_id": "kambi:1029041445",
       "player_a": "Hajar Crinebouch",
       "player_b": "Savine Erler",
-      "commence_time": "2026-09-07T09:00:00Z",
+      "commence_time": "2026-09-07T09:06:00Z",
       "competition": "ITF Women Qual. / Dijon",
       "last_odd_a": 3.05,
       "last_odd_b": 1.32,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029041443": {
       "event_id": "kambi:1029041443",
       "player_a": "Fabienne Gettwart",
       "player_b": "Neila Trklja",
-      "commence_time": "2026-09-07T09:00:00Z",
+      "commence_time": "2026-09-07T09:10:00Z",
       "competition": "ITF Women Qual. / Dijon",
       "last_odd_a": 1.06,
       "last_odd_b": 7.5,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029041708": {
@@ -840,22 +840,22 @@
       "competition": "ITF Women Qual. / Reus",
       "last_odd_a": 1.05,
       "last_odd_b": 8.0,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029042408": {
       "event_id": "kambi:1029042408",
       "player_a": "Amaan Siddiqui",
       "player_b": "Vicente Alcaraz Galbis",
-      "commence_time": "2026-09-07T09:00:00Z",
+      "commence_time": "2026-09-07T09:18:00Z",
       "competition": "ITF Men Qual. / Gijon",
       "last_odd_a": 1.96,
       "last_odd_b": 1.73,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029040797": {
@@ -866,9 +866,9 @@
       "competition": "ITF Women Qual. / Reus",
       "last_odd_a": 1.04,
       "last_odd_b": 9.0,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029040799": {
@@ -879,9 +879,9 @@
       "competition": "ITF Women Qual. / Reus",
       "last_odd_a": 1.04,
       "last_odd_b": 8.5,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029041598": {
@@ -892,9 +892,9 @@
       "competition": "Challenger Qual. / Seville",
       "last_odd_a": 6.5,
       "last_odd_b": 1.08,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029040800": {
@@ -905,9 +905,9 @@
       "competition": "ITF Women Qual. / Reus",
       "last_odd_a": 2.7,
       "last_odd_b": 1.38,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029041761": {
@@ -918,9 +918,9 @@
       "competition": "Challenger Qual. / Cassis",
       "last_odd_a": 1.38,
       "last_odd_b": 2.8,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029041760": {
@@ -931,9 +931,9 @@
       "competition": "Challenger Qual. / Genoa",
       "last_odd_a": 1.61,
       "last_odd_b": 2.18,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029042458": {
@@ -944,9 +944,9 @@
       "competition": "Challenger Qual. / Genoa",
       "last_odd_a": 1.6,
       "last_odd_b": 2.2,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029041465": {
@@ -957,9 +957,9 @@
       "competition": "Challenger Qual. / Cassis",
       "last_odd_a": 2.43,
       "last_odd_b": 1.49,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029044986": {
@@ -970,9 +970,9 @@
       "competition": "Challenger Qual. / Cassis",
       "last_odd_a": 2.1,
       "last_odd_b": 1.65,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029040865": {
@@ -983,9 +983,9 @@
       "competition": "Challenger Qual. / Tulln",
       "last_odd_a": 1.7,
       "last_odd_b": 2.02,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029042082": {
@@ -996,9 +996,9 @@
       "competition": "Challenger Qual. / Tulln",
       "last_odd_a": 2.38,
       "last_odd_b": 1.5,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029026935": {
@@ -1009,113 +1009,113 @@
       "competition": "Challenger / Shanghai",
       "last_odd_a": 2.7,
       "last_odd_b": 1.45,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029026931": {
       "event_id": "kambi:1029026931",
       "player_a": "Matthew Dellavedova",
       "player_b": "Taro Daniel",
-      "commence_time": "2026-09-07T09:30:00Z",
+      "commence_time": "2026-09-07T09:40:00Z",
       "competition": "Challenger / Shanghai",
       "last_odd_a": 4.4,
       "last_odd_b": 1.19,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029026930": {
       "event_id": "kambi:1029026930",
       "player_a": "Yosuke Watanuki",
       "player_b": "Marat Sharipov",
-      "commence_time": "2026-09-07T09:30:00Z",
+      "commence_time": "2026-09-07T09:50:00Z",
       "competition": "Challenger / Shanghai",
       "last_odd_a": 1.72,
       "last_odd_b": 2.08,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029026926": {
       "event_id": "kambi:1029026926",
       "player_a": "Semen Pankin",
       "player_b": "Alexis Galarneau",
-      "commence_time": "2026-09-07T09:30:00Z",
+      "commence_time": "2026-09-07T09:40:00Z",
       "competition": "Challenger / Shanghai",
       "last_odd_a": 4.3,
       "last_odd_b": 1.2,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029041721": {
       "event_id": "kambi:1029041721",
       "player_a": "Alexia-Shara Iancu",
       "player_b": "Thea Marcu",
-      "commence_time": "2026-09-07T09:30:00Z",
+      "commence_time": "2026-09-07T09:49:00Z",
       "competition": "ITF Women Qual. / Campulung",
       "last_odd_a": 1.8,
       "last_odd_b": 1.85,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029041722": {
       "event_id": "kambi:1029041722",
       "player_a": "Melinda Biro",
       "player_b": "Sonia Erika Butuc Cerchez",
-      "commence_time": "2026-09-07T09:30:00Z",
+      "commence_time": "2026-09-07T09:40:00Z",
       "competition": "ITF Women Qual. / Campulung",
       "last_odd_a": 1.04,
       "last_odd_b": 8.5,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029032129": {
       "event_id": "kambi:1029032129",
       "player_a": "Harold Mayot",
       "player_b": "Cezar Cretu",
-      "commence_time": "2026-09-07T09:30:00Z",
+      "commence_time": "2026-09-07T09:50:00Z",
       "competition": "Challenger / Istanbul",
       "last_odd_a": 1.45,
       "last_odd_b": 2.65,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029032130": {
       "event_id": "kambi:1029032130",
       "player_a": "Marek Gengel",
       "player_b": "Christian Langmo",
-      "commence_time": "2026-09-07T09:30:00Z",
+      "commence_time": "2026-09-07T09:50:00Z",
       "competition": "Challenger / Istanbul",
       "last_odd_a": 1.7,
       "last_odd_b": 2.1,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029032142": {
       "event_id": "kambi:1029032142",
       "player_a": "Alafia Ayeni",
       "player_b": "Carl Emil Overbeck",
-      "commence_time": "2026-09-07T09:30:00Z",
+      "commence_time": "2026-09-07T09:50:00Z",
       "competition": "Challenger / Istanbul",
       "last_odd_a": 3.2,
       "last_odd_b": 1.33,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029039376": {
@@ -1126,9 +1126,9 @@
       "competition": "WTA125 / Antalya",
       "last_odd_a": 3.35,
       "last_odd_b": 1.3,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029039375": {
@@ -1139,9 +1139,9 @@
       "competition": "WTA125 / Antalya",
       "last_odd_a": 1.23,
       "last_odd_b": 4.0,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029039374": {
@@ -1152,9 +1152,9 @@
       "competition": "WTA125 / Antalya",
       "last_odd_a": 2.65,
       "last_odd_b": 1.45,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029042294": {
@@ -1165,9 +1165,9 @@
       "competition": "ITF Women Qual. / Evora",
       "last_odd_a": 1.25,
       "last_odd_b": 3.45,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029041169": {
@@ -1178,9 +1178,9 @@
       "competition": "ITF Women Qual. / Evora",
       "last_odd_a": 1.81,
       "last_odd_b": 1.85,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029043219": {
@@ -1191,9 +1191,9 @@
       "competition": "ITF Men Qual. / Plaisir",
       "last_odd_a": 7.0,
       "last_odd_b": 1.06,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029043229": {
@@ -1204,9 +1204,9 @@
       "competition": "ITF Men Qual. / Plaisir",
       "last_odd_a": 1.06,
       "last_odd_b": 6.75,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029043224": {
@@ -1217,22 +1217,22 @@
       "competition": "ITF Men Qual. / Plaisir",
       "last_odd_a": 3.05,
       "last_odd_b": 1.32,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029041444": {
       "event_id": "kambi:1029041444",
       "player_a": "Evita Ramirez",
       "player_b": "Anna Brunet-Brady",
-      "commence_time": "2026-09-07T10:00:00Z",
+      "commence_time": "2026-09-07T10:09:00Z",
       "competition": "ITF Women Qual. / Dijon",
       "last_odd_a": 2.55,
       "last_odd_b": 1.43,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029044014": {
@@ -1243,9 +1243,9 @@
       "competition": "ITF Men Qual. / Plaisir",
       "last_odd_a": 1.03,
       "last_odd_b": 12.0,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029041704": {
@@ -1256,22 +1256,22 @@
       "competition": "ITF Women Qual. / Evora",
       "last_odd_a": 1.78,
       "last_odd_b": 1.9,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029041642": {
       "event_id": "kambi:1029041642",
       "player_a": "Hanna Bougouffa",
       "player_b": "Ando Tiantsoa Ratre",
-      "commence_time": "2026-09-07T10:00:00Z",
+      "commence_time": "2026-09-07T10:06:00Z",
       "competition": "ITF Women Qual. / Dijon",
       "last_odd_a": 1.45,
       "last_odd_b": 2.5,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029042786": {
@@ -1282,9 +1282,9 @@
       "competition": "Challenger Qual. / Seville",
       "last_odd_a": 2.28,
       "last_odd_b": 1.56,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029043448": {
@@ -1295,9 +1295,9 @@
       "competition": "WTA125 Qual. / Montreux",
       "last_odd_a": 2.0,
       "last_odd_b": 1.72,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029042867": {
@@ -1308,9 +1308,9 @@
       "competition": "Challenger Qual. / Seville",
       "last_odd_a": 1.52,
       "last_odd_b": 2.38,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029040885": {
@@ -1321,9 +1321,9 @@
       "competition": "ITF Women Qual. / Reus",
       "last_odd_a": 2.23,
       "last_odd_b": 1.57,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029040798": {
@@ -1334,9 +1334,9 @@
       "competition": "ITF Women Qual. / Reus",
       "last_odd_a": 1.9,
       "last_odd_b": 1.78,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029037844": {
@@ -1347,9 +1347,9 @@
       "competition": "Challenger / Cassis",
       "last_odd_a": 3.5,
       "last_odd_b": 1.28,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029037836": {
@@ -1360,9 +1360,9 @@
       "competition": "Challenger / Genoa",
       "last_odd_a": 4.6,
       "last_odd_b": 1.18,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029043295": {
@@ -1373,9 +1373,9 @@
       "competition": "ITF Men Qual. / Gijon",
       "last_odd_a": 1.36,
       "last_odd_b": 2.85,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029043294": {
@@ -1386,48 +1386,48 @@
       "competition": "ITF Men Qual. / Gijon",
       "last_odd_a": 1.11,
       "last_odd_b": 5.1,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029042794": {
       "event_id": "kambi:1029042794",
       "player_a": "Evan Galea",
       "player_b": "Erwin Troebinger",
-      "commence_time": "2026-09-07T10:30:00Z",
+      "commence_time": "2026-09-07T10:41:00Z",
       "competition": "ITF Men Qual. / Pozzuoli",
       "last_odd_a": 2.18,
       "last_odd_b": 1.58,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029041636": {
       "event_id": "kambi:1029041636",
       "player_a": "Matteo Mesaglio",
       "player_b": "Patric Prinoth",
-      "commence_time": "2026-09-07T10:30:00Z",
+      "commence_time": "2026-09-07T10:40:00Z",
       "competition": "ITF Men Qual. / Pozzuoli",
       "last_odd_a": 1.04,
       "last_odd_b": 10.0,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029032125": {
       "event_id": "kambi:1029032125",
       "player_a": "Ivan Marrero Curbelo",
       "player_b": "Maks Kasnikowski",
-      "commence_time": "2026-09-07T10:40:00Z",
+      "commence_time": "2026-09-07T11:00:00Z",
       "competition": "Challenger / Istanbul",
       "last_odd_a": 4.0,
       "last_odd_b": 1.23,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029042293": {
@@ -1438,9 +1438,9 @@
       "competition": "ITF Women Qual. / Evora",
       "last_odd_a": 1.07,
       "last_odd_b": 6.5,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029037853": {
@@ -1451,9 +1451,9 @@
       "competition": "Challenger / Tulln",
       "last_odd_a": 1.62,
       "last_odd_b": 2.23,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029037855": {
@@ -1464,9 +1464,9 @@
       "competition": "Challenger / Tulln",
       "last_odd_a": 3.15,
       "last_odd_b": 1.34,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029037848": {
@@ -1477,9 +1477,9 @@
       "competition": "Challenger / Cassis",
       "last_odd_a": 2.63,
       "last_odd_b": 1.45,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029037831": {
@@ -1490,9 +1490,9 @@
       "competition": "Challenger / Genoa",
       "last_odd_a": 2.33,
       "last_odd_b": 1.57,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029043239": {
@@ -1503,9 +1503,9 @@
       "competition": "ITF Men Qual. / Plaisir",
       "last_odd_a": 4.1,
       "last_odd_b": 1.19,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029043238": {
@@ -1516,9 +1516,9 @@
       "competition": "ITF Women Qual. / Evora",
       "last_odd_a": 1.08,
       "last_odd_b": 6.0,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029037858": {
@@ -1529,9 +1529,9 @@
       "competition": "Challenger / Tulln",
       "last_odd_a": 2.35,
       "last_odd_b": 1.57,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029048013": {
@@ -1542,9 +1542,9 @@
       "competition": "ITF Men Qual. / Plaisir",
       "last_odd_a": 1.28,
       "last_odd_b": 3.25,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029043642": {
@@ -1555,9 +1555,9 @@
       "competition": "ITF Men Qual. / Plaisir",
       "last_odd_a": 3.55,
       "last_odd_b": 1.24,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029047467": {
@@ -1568,22 +1568,22 @@
       "competition": "ITF Men Qual. / Plaisir",
       "last_odd_a": 1.24,
       "last_odd_b": 3.55,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029042793": {
       "event_id": "kambi:1029042793",
       "player_a": "Filippo Pecorini",
       "player_b": "Luca Giordano",
-      "commence_time": "2026-09-07T11:30:00Z",
+      "commence_time": "2026-09-07T11:41:00Z",
       "competition": "ITF Men Qual. / Pozzuoli",
       "last_odd_a": 1.06,
       "last_odd_b": 6.75,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029037845": {
@@ -1594,9 +1594,9 @@
       "competition": "Challenger / Cassis",
       "last_odd_a": 2.25,
       "last_odd_b": 1.61,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029037838": {
@@ -1607,9 +1607,9 @@
       "competition": "Challenger / Genoa",
       "last_odd_a": 1.8,
       "last_odd_b": 1.96,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029037833": {
@@ -1620,9 +1620,9 @@
       "competition": "Challenger / Genoa",
       "last_odd_a": 2.6,
       "last_odd_b": 1.47,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029037846": {
@@ -1633,9 +1633,9 @@
       "competition": "Challenger / Cassis",
       "last_odd_a": 1.05,
       "last_odd_b": 8.5,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029037851": {
@@ -1644,11 +1644,11 @@
       "player_b": "Sebastian Sorger",
       "commence_time": "2026-09-07T12:10:00Z",
       "competition": "Challenger / Tulln",
-      "last_odd_a": 1.88,
-      "last_odd_b": 1.88,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odd_a": 1.68,
+      "last_odd_b": 2.1,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029037850": {
@@ -1659,9 +1659,9 @@
       "competition": "Challenger / Tulln",
       "last_odd_a": 2.43,
       "last_odd_b": 1.53,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029037835": {
@@ -1670,11 +1670,11 @@
       "player_b": "Juan Cruz Martin Manzano",
       "commence_time": "2026-09-07T12:10:00Z",
       "competition": "Challenger / Genoa",
-      "last_odd_a": 1.89,
-      "last_odd_b": 1.87,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odd_a": 1.71,
+      "last_odd_b": 2.08,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029039383": {
@@ -1685,9 +1685,9 @@
       "competition": "WTA125 / Antalya",
       "last_odd_a": 2.17,
       "last_odd_b": 1.66,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029039180": {
@@ -1698,9 +1698,9 @@
       "competition": "UTR Pro Tennis Series / USA - Tallahassee",
       "last_odd_a": 1.12,
       "last_odd_b": 4.8,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029039178": {
@@ -1711,9 +1711,9 @@
       "competition": "UTR Pro Tennis Series / USA - Tallahassee",
       "last_odd_a": 3.4,
       "last_odd_b": 1.26,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029044341": {
@@ -1724,9 +1724,9 @@
       "competition": "WTA125 Qual. / Barranquilla",
       "last_odd_a": 1.14,
       "last_odd_b": 5.0,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029044342": {
@@ -1737,9 +1737,9 @@
       "competition": "WTA125 Qual. / Barranquilla",
       "last_odd_a": 1.45,
       "last_odd_b": 2.55,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029031882": {
@@ -1748,11 +1748,11 @@
       "player_b": "Anastasia Potapova",
       "commence_time": "2026-09-07T15:00:00Z",
       "competition": "Grand Slam / US Open Women",
-      "last_odd_a": 1.14,
-      "last_odd_b": 5.75,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odd_a": 1.15,
+      "last_odd_b": 5.5,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029032604": {
@@ -1762,10 +1762,10 @@
       "commence_time": "2026-09-07T15:30:00Z",
       "competition": "Grand Slam / US Open Women",
       "last_odd_a": 1.22,
-      "last_odd_b": 4.25,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odd_b": 4.35,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029031568": {
@@ -1776,9 +1776,9 @@
       "competition": "Challenger / Seville",
       "last_odd_a": 2.28,
       "last_odd_b": 1.58,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029031571": {
@@ -1789,9 +1789,9 @@
       "competition": "Challenger / Seville",
       "last_odd_a": 1.93,
       "last_odd_b": 1.83,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029047408": {
@@ -1802,9 +1802,9 @@
       "competition": "WTA125 Qual. / Barranquilla",
       "last_odd_a": 1.32,
       "last_odd_b": 3.1,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029044359": {
@@ -1815,9 +1815,9 @@
       "competition": "WTA125 / Barranquilla",
       "last_odd_a": 1.5,
       "last_odd_b": 2.48,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029044355": {
@@ -1828,9 +1828,9 @@
       "competition": "WTA125 / Barranquilla",
       "last_odd_a": 3.8,
       "last_odd_b": 1.25,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029032349": {
@@ -1839,11 +1839,11 @@
       "player_b": "Alexander Blockx",
       "commence_time": "2026-09-07T17:00:00Z",
       "competition": "Grand Slam / US Open",
-      "last_odd_a": 2.33,
-      "last_odd_b": 1.6,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odd_a": 2.32,
+      "last_odd_b": 1.62,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029031575": {
@@ -1854,9 +1854,9 @@
       "competition": "Challenger / Seville",
       "last_odd_a": 1.76,
       "last_odd_b": 2.0,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029044353": {
@@ -1867,9 +1867,9 @@
       "competition": "WTA125 / Barranquilla",
       "last_odd_a": 2.07,
       "last_odd_b": 1.72,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029031570": {
@@ -1880,9 +1880,9 @@
       "competition": "Challenger / Seville",
       "last_odd_a": 1.26,
       "last_odd_b": 3.7,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029035540": {
@@ -1891,11 +1891,11 @@
       "player_b": "Botic van de Zandschulp",
       "commence_time": "2026-09-07T18:30:00Z",
       "competition": "Grand Slam / US Open",
-      "last_odd_a": 2.35,
-      "last_odd_b": 1.6,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odd_a": 2.38,
+      "last_odd_b": 1.58,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029035801": {
@@ -1904,11 +1904,11 @@
       "player_b": "Elena Rybakina",
       "commence_time": "2026-09-07T18:30:00Z",
       "competition": "Grand Slam / US Open Women",
-      "last_odd_a": 2.17,
+      "last_odd_a": 2.2,
       "last_odd_b": 1.68,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029044351": {
@@ -1919,9 +1919,9 @@
       "competition": "WTA125 / Barranquilla",
       "last_odd_a": 1.66,
       "last_odd_b": 2.17,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029036633": {
@@ -1931,10 +1931,10 @@
       "commence_time": "2026-09-07T20:00:00Z",
       "competition": "Grand Slam / US Open",
       "last_odd_a": 2.38,
-      "last_odd_b": 1.58,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odd_b": 1.6,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029044354": {
@@ -1945,9 +1945,9 @@
       "competition": "WTA125 / Barranquilla",
       "last_odd_a": 1.85,
       "last_odd_b": 1.91,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029035584": {
@@ -1956,11 +1956,11 @@
       "player_b": "Coco Gauff",
       "commence_time": "2026-09-07T23:00:00Z",
       "competition": "Grand Slam / US Open Women",
-      "last_odd_a": 3.2,
-      "last_odd_b": 1.35,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odd_a": 3.15,
+      "last_odd_b": 1.37,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029041974": {
@@ -1971,9 +1971,9 @@
       "competition": "UTR Pro Tennis Series / USA - Newport Beach",
       "last_odd_a": 1.65,
       "last_odd_b": 2.07,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029041977": {
@@ -1984,9 +1984,9 @@
       "competition": "UTR Pro Tennis Series / USA - Newport Beach",
       "last_odd_a": 3.25,
       "last_odd_b": 1.28,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     },
     "kambi:1029036488": {
@@ -1997,11 +1997,245 @@
       "competition": "Grand Slam / US Open",
       "last_odd_a": 1.08,
       "last_odd_b": 8.0,
-      "last_odds_at": "2026-09-07T07:41:06.896589+00:00",
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
       "last_odds_source": "kambi_unibet",
-      "saved_at": "2026-09-07T07:41:06.896589+00:00",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
+      "state": "NOT_STARTED"
+    },
+    "kambi:1029039181": {
+      "event_id": "kambi:1029039181",
+      "player_a": "Avery Olsen",
+      "player_b": "Nicole Okhtenberg",
+      "commence_time": "2026-09-07T13:30:00Z",
+      "competition": "UTR Pro Tennis Series Women / USA - Tallahassee",
+      "last_odd_a": 3.4,
+      "last_odd_b": 1.26,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
+      "last_odds_source": "kambi_unibet",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
+      "state": "NOT_STARTED"
+    },
+    "kambi:1029039225": {
+      "event_id": "kambi:1029039225",
+      "player_a": "June Bjork",
+      "player_b": "Abby Kelliher",
+      "commence_time": "2026-09-07T13:30:00Z",
+      "competition": "UTR Pro Tennis Series Women / USA - Tallahassee",
+      "last_odd_a": 1.66,
+      "last_odd_b": 2.06,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
+      "last_odds_source": "kambi_unibet",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
+      "state": "NOT_STARTED"
+    },
+    "kambi:1029041776": {
+      "event_id": "kambi:1029041776",
+      "player_a": "Andreas Scott",
+      "player_b": "Seydina Andre",
+      "commence_time": "2026-09-07T14:40:00Z",
+      "competition": "UTR Pro Tennis Series / USA - Tallahassee",
+      "last_odd_a": 4.5,
+      "last_odd_b": 1.16,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
+      "last_odds_source": "kambi_unibet",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
+      "state": "NOT_STARTED"
+    },
+    "kambi:1029041779": {
+      "event_id": "kambi:1029041779",
+      "player_a": "Hayley Roberts",
+      "player_b": "Ariana Gilbert",
+      "commence_time": "2026-09-07T14:40:00Z",
+      "competition": "UTR Pro Tennis Series Women / USA - Tallahassee",
+      "last_odd_a": 4.4,
+      "last_odd_b": 1.16,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
+      "last_odds_source": "kambi_unibet",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
+      "state": "NOT_STARTED"
+    },
+    "kambi:1029041775": {
+      "event_id": "kambi:1029041775",
+      "player_a": "Justin Lyons",
+      "player_b": "Vito Tonejc",
+      "commence_time": "2026-09-07T14:40:00Z",
+      "competition": "UTR Pro Tennis Series / USA - Tallahassee",
+      "last_odd_a": 5.8,
+      "last_odd_b": 1.09,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
+      "last_odds_source": "kambi_unibet",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
+      "state": "NOT_STARTED"
+    },
+    "kambi:1029041835": {
+      "event_id": "kambi:1029041835",
+      "player_a": "Alden Russell",
+      "player_b": "Mary Boyce Deatherage",
+      "commence_time": "2026-09-07T15:00:00Z",
+      "competition": "UTR Pro Tennis Series Women / USA - Tallahassee",
+      "last_odd_a": 8.5,
+      "last_odd_b": 1.05,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
+      "last_odds_source": "kambi_unibet",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
+      "state": "NOT_STARTED"
+    },
+    "kambi:1029041920": {
+      "event_id": "kambi:1029041920",
+      "player_a": "Pepijn Bastiaansen",
+      "player_b": "Martin Doskocil",
+      "commence_time": "2026-09-07T15:30:00Z",
+      "competition": "UTR Pro Tennis Series / USA - Knoxville",
+      "last_odd_a": 1.16,
+      "last_odd_b": 4.4,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
+      "last_odds_source": "kambi_unibet",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
+      "state": "NOT_STARTED"
+    },
+    "kambi:1029041919": {
+      "event_id": "kambi:1029041919",
+      "player_a": "Oscar Andres Martinez De Freitas",
+      "player_b": "Anas Bennour Dit Sahli",
+      "commence_time": "2026-09-07T15:30:00Z",
+      "competition": "UTR Pro Tennis Series / USA - Knoxville",
+      "last_odd_a": 1.16,
+      "last_odd_b": 4.4,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
+      "last_odds_source": "kambi_unibet",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
+      "state": "NOT_STARTED"
+    },
+    "kambi:1029041927": {
+      "event_id": "kambi:1029041927",
+      "player_a": "Filip Apltauer",
+      "player_b": "Oren Ezerzer",
+      "commence_time": "2026-09-07T16:30:00Z",
+      "competition": "UTR Pro Tennis Series / USA - Tallahassee",
+      "last_odd_a": 1.09,
+      "last_odd_b": 5.8,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
+      "last_odds_source": "kambi_unibet",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
+      "state": "NOT_STARTED"
+    },
+    "kambi:1029041926": {
+      "event_id": "kambi:1029041926",
+      "player_a": "Gregoire Delattre",
+      "player_b": "Azariah Rusher",
+      "commence_time": "2026-09-07T16:30:00Z",
+      "competition": "UTR Pro Tennis Series / USA - Tallahassee",
+      "last_odd_a": 2.4,
+      "last_odd_b": 1.49,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
+      "last_odds_source": "kambi_unibet",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
+      "state": "NOT_STARTED"
+    },
+    "kambi:1029044021": {
+      "event_id": "kambi:1029044021",
+      "player_a": "Youcef Rihane",
+      "player_b": "Yan Kodjoed",
+      "commence_time": "2026-09-07T16:30:00Z",
+      "competition": "UTR Pro Tennis Series / USA - Tallahassee",
+      "last_odd_a": 1.13,
+      "last_odd_b": 5.0,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
+      "last_odds_source": "kambi_unibet",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
+      "state": "NOT_STARTED"
+    },
+    "kambi:1029042472": {
+      "event_id": "kambi:1029042472",
+      "player_a": "Cecilie Maeland",
+      "player_b": "Monika Wojcik",
+      "commence_time": "2026-09-07T16:30:00Z",
+      "competition": "UTR Pro Tennis Series Women / USA - Tallahassee",
+      "last_odd_a": 2.2,
+      "last_odd_b": 1.58,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
+      "last_odds_source": "kambi_unibet",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
+      "state": "NOT_STARTED"
+    },
+    "kambi:1029041932": {
+      "event_id": "kambi:1029041932",
+      "player_a": "Dmitry Kopilevich",
+      "player_b": "Woodson Mcmillin",
+      "commence_time": "2026-09-07T16:40:00Z",
+      "competition": "UTR Pro Tennis Series / USA - Knoxville",
+      "last_odd_a": 1.24,
+      "last_odd_b": 3.55,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
+      "last_odds_source": "kambi_unibet",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
+      "state": "NOT_STARTED"
+    },
+    "kambi:1029041934": {
+      "event_id": "kambi:1029041934",
+      "player_a": "Antoine Mayoral",
+      "player_b": "Jose Garcia",
+      "commence_time": "2026-09-07T16:40:00Z",
+      "competition": "UTR Pro Tennis Series / USA - Knoxville",
+      "last_odd_a": 8.5,
+      "last_odd_b": 1.05,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
+      "last_odds_source": "kambi_unibet",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
+      "state": "NOT_STARTED"
+    },
+    "kambi:1029039186": {
+      "event_id": "kambi:1029039186",
+      "player_a": "Emi Dowdell",
+      "player_b": "Laurie Barendse",
+      "commence_time": "2026-09-07T17:40:00Z",
+      "competition": "UTR Pro Tennis Series Women / USA - Tallahassee",
+      "last_odd_a": 2.23,
+      "last_odd_b": 1.56,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
+      "last_odds_source": "kambi_unibet",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
+      "state": "NOT_STARTED"
+    },
+    "kambi:1029041930": {
+      "event_id": "kambi:1029041930",
+      "player_a": "Andreas Messis",
+      "player_b": "Albert Widell",
+      "commence_time": "2026-09-07T17:40:00Z",
+      "competition": "UTR Pro Tennis Series / USA - Tallahassee",
+      "last_odd_a": 1.65,
+      "last_odd_b": 2.08,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
+      "last_odds_source": "kambi_unibet",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
+      "state": "NOT_STARTED"
+    },
+    "kambi:1029041940": {
+      "event_id": "kambi:1029041940",
+      "player_a": "Alejandro Moreno",
+      "player_b": "Leo Pade",
+      "commence_time": "2026-09-07T18:30:00Z",
+      "competition": "UTR Pro Tennis Series / USA - Knoxville",
+      "last_odd_a": 1.22,
+      "last_odd_b": 3.75,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
+      "last_odds_source": "kambi_unibet",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
+      "state": "NOT_STARTED"
+    },
+    "kambi:1029048930": {
+      "event_id": "kambi:1029048930",
+      "player_a": "Natsuki Yamamoto",
+      "player_b": "Xin Zhou",
+      "commence_time": "2026-09-08T02:30:00Z",
+      "competition": "ITF Men Qual. / Wuning",
+      "last_odd_a": 2.55,
+      "last_odd_b": 1.43,
+      "last_odds_at": "2026-09-07T08:45:52.739811+00:00",
+      "last_odds_source": "kambi_unibet",
+      "saved_at": "2026-09-07T08:45:52.739811+00:00",
       "state": "NOT_STARTED"
     }
   },
-  "updated_at": "2026-09-07T07:41:06.896589+00:00"
+  "updated_at": "2026-09-07T08:45:52.740211+00:00"
 }

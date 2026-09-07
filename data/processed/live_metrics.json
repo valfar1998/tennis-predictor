@@ -5,7 +5,7 @@
   "hit_rate": 0.2857,
   "roi_note": "Campione >=100: ROI diventa informativo oltre al BCR",
   "bcr_source": "betfair",
-  "bcr_note": "BCR Betfair: chiusure da market_id salvato (listMarketBook BSP/LTP). Se il mercato CLOSED non espone più prezzi, si usa l'ultimo LTP persistito nel registry. Esclusi snapshot identici alla quota d'ingresso; paper = previsioni valide no_bet.",
+  "bcr_note": "BCR Betfair (KPI): chiusure market_id/listMarketBook/last LTP, solo action=bet. BCR Kambi (secondario): pick con odds_source Kambi/Unibet vs ultimo snapshot Kambi pre-match (Guest API non espone closing storica). Paper = previsioni valide no_bet.",
   "bcr_betfair": {
     "n": 1,
     "beats": 0,
@@ -18,6 +18,28 @@
     "betfair_only": true,
     "actions": [
       "bet"
+    ]
+  },
+  "bcr_kambi": {
+    "n": 0,
+    "beats": 0,
+    "bcr": null,
+    "bcr_pct": null,
+    "target": 0.55,
+    "target_pct": 55.0,
+    "pass": null,
+    "avg_clv": null,
+    "betfair_only": false,
+    "actions": [
+      "bet",
+      "paper"
+    ],
+    "odds_sources": [
+      "kambi",
+      "unibet"
+    ],
+    "close_sources": [
+      "kambi"
     ]
   },
   "bcr_paper": {
@@ -60,7 +82,7 @@
     "steam_threshold_pct": 3.0,
     "recommendation": null
   },
-  "updated_at": "2026-09-07T07:11:03.978539+00:00",
+  "updated_at": "2026-09-07T08:47:46.272126+00:00",
   "governance": {
     "validation_freeze": {
       "active": true,
@@ -93,7 +115,7 @@
       "bcr_pass": false,
       "policy": "Nessuna modifica strutturale a pesi, feature o retrain ML fino al completamento della finestra. Solo settle + metriche BCR Betfair."
     },
-    "updated_at": "2026-09-07T07:11:03.987760+00:00"
+    "updated_at": "2026-09-07T08:47:46.281395+00:00"
   },
   "itf_governance": {
     "shrink_w_itf": 0.15,
