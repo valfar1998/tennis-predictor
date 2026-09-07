@@ -83,6 +83,8 @@ jobs:
           path: |
             data/raw/betfair_odds.json
             data/raw/betfair.session.json
+            data/raw/betfair_market_ids.json
+            data/raw/betfair_settled.json
           key: tennis-betfair-${{ github.run_id }}
           restore-keys: |
             tennis-betfair-
@@ -104,6 +106,8 @@ jobs:
           path: |
             data/raw/betfair_odds.json
             data/raw/betfair.session.json
+            data/raw/betfair_market_ids.json
+            data/raw/betfair_settled.json
           key: tennis-betfair-${{ github.run_id }}
 
       - uses: actions/cache/save@v4

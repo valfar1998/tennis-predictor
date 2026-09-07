@@ -42,7 +42,13 @@ CREATE TABLE IF NOT EXISTS matches (
     settled_at TEXT,
     score TEXT,
     winner TEXT,
-    retirement INTEGER
+    retirement INTEGER,
+    close_source TEXT,
+    close_odds_a REAL,
+    close_odds_b REAL,
+    settle_source TEXT,
+    betfair_event_id TEXT,
+    betfair_market_id TEXT
 )
 """
 
@@ -391,6 +397,11 @@ def settle_pending(*, learn: bool = True) -> dict[str, Any]:
 
     prog = OpProgress(12 if learn else 11, label="settle")
     out: dict[str, Any] = {}
+    # Migra schema (betfair_event_id / market_id) prima del backfill.
+    try:
+        _conn().close()
+    except Exception:
+        pass
     prog.next("Betfair market_id backfill...")
     try:
         from modules.data_update.betfair import backfill_history_market_ids, register_market_ids, load_betfair_cache

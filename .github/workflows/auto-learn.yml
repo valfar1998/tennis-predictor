@@ -51,11 +51,26 @@ jobs:
           PYTHONUTF8: "1"
         run: python main.py sync
 
+      - name: Restore Betfair cache / market registry
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            data/raw/betfair_odds.json
+            data/raw/betfair.session.json
+            data/raw/betfair_market_ids.json
+            data/raw/betfair_settled.json
+          key: tennis-betfair-${{ github.run_id }}
+          restore-keys: |
+            tennis-betfair-
+
       - name: Execute settle & online calibration
         env:
           PYTHONUTF8: "1"
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          BETFAIR_APP_KEY: ${{ secrets.BETFAIR_APP_KEY }}
+          BETFAIR_USERNAME: ${{ secrets.BETFAIR_USERNAME }}
+          BETFAIR_PASSWORD: ${{ secrets.BETFAIR_PASSWORD }}
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
           RAPIDAPI_SOFA_HOST: ${{ secrets.RAPIDAPI_SOFA_HOST }}
           RAPIDAPI_TENNIS_HOST: ${{ secrets.RAPIDAPI_TENNIS_HOST }}
@@ -63,6 +78,17 @@ jobs:
           RAPIDAPI_FETCH_TENNIS: "0"
           KAMBI_UNIBET_ENABLED: "1"
         run: python scripts/auto_learn_cloud.py --notify
+
+      - name: Save Betfair cache / market registry
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            data/raw/betfair_odds.json
+            data/raw/betfair.session.json
+            data/raw/betfair_market_ids.json
+            data/raw/betfair_settled.json
+          key: tennis-betfair-${{ github.run_id }}
 
       - name: Audit live metrics & BCR (Pinnacle)
         env:
@@ -96,6 +122,7 @@ jobs:
             data/models/online_learn_report.json \
             data/processed/live_metrics.json \
             data/processed/risk_state.json \
+            data/raw/betfair_market_ids.json \
             2>/dev/null || true
 
           if git diff --staged --quiet; then

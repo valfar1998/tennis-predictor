@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import json
 import os
+import sqlite3
 import time
 import unicodedata
 from datetime import date, datetime, timedelta, timezone
@@ -29,10 +30,16 @@ CACHE = RAW / "betfair_odds.json"
 SETTLED_CACHE = RAW / "betfair_settled.json"
 MARKET_ID_REGISTRY = RAW / "betfair_market_ids.json"
 
-LOGIN_URL = "https://identitysso.betfair.it/api/login"
-KEEPALIVE_URL = "https://identitysso.betfair.it/api/keepAlive"
+LOGIN_URLS = (
+    "https://identitysso.betfair.it/api/login",
+    "https://identitysso.betfair.com/api/login",
+)
+KEEPALIVE_URLS = (
+    "https://identitysso.betfair.it/api/keepAlive",
+    "https://identitysso.betfair.com/api/keepAlive",
+)
 BETTING_URL = "https://api.betfair.com/exchange/betting/json-rpc/v1"
-UA = "Mozilla/5.0 (compatible; tennis-predictor/1.0; +local)"
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 
 TENNIS_EVENT_TYPE = "2"
 MARKET_TYPES = ("MATCH_ODDS",)
@@ -86,14 +93,38 @@ def login_configured() -> bool:
     return bool(_app_key() and user and pwd)
 
 
+def _http_error_detail(exc: HTTPError, *, url: str = "") -> str:
+    body = ""
+    try:
+        raw = exc.read()
+        if raw:
+            body = raw.decode("utf-8", errors="replace")[:300].strip()
+    except Exception:
+        body = ""
+    where = f" ({url})" if url else ""
+    extra = f" — {body}" if body else ""
+    return f"HTTP {exc.code}: {exc.reason}{where}{extra}"
+
+
 def _post_form(url: str, data: dict[str, str], headers: dict[str, str]) -> dict:
     req = Request(
         url,
         data=urlencode(data).encode(),
-        headers={"Content-Type": "application/x-www-form-urlencoded", "Accept": "application/json", **headers},
+        headers={
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Accept": "application/json",
+            "User-Agent": UA,
+            "Origin": "https://www.betfair.it",
+            "Referer": "https://www.betfair.it/",
+            **headers,
+        },
+        method="POST",
     )
-    with urlopen(req, timeout=20) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+    try:
+        with urlopen(req, timeout=20) as resp:
+            return json.loads(resp.read().decode("utf-8"))
+    except HTTPError as exc:
+        raise RuntimeError(_http_error_detail(exc, url=url)) from exc
 
 
 def _rpc(method: str, params: dict, token: str, app_key: str) -> object:
@@ -108,9 +139,13 @@ def _rpc(method: str, params: dict, token: str, app_key: str) -> object:
             "X-Authentication": token,
             "User-Agent": UA,
         },
+        method="POST",
     )
-    with urlopen(req, timeout=30) as resp:
-        body = json.loads(resp.read().decode("utf-8"))
+    try:
+        with urlopen(req, timeout=30) as resp:
+            body = json.loads(resp.read().decode("utf-8"))
+    except HTTPError as exc:
+        raise RuntimeError(_http_error_detail(exc, url=BETTING_URL)) from exc
     if isinstance(body, list):
         body = body[0] if body else {}
     if body.get("error"):
@@ -151,38 +186,51 @@ def _write_session(token: str) -> None:
     )
 
 
+def _keepalive(token: str, app_key: str) -> bool:
+    headers = {"X-Application": app_key, "X-Authentication": token}
+    for url in KEEPALIVE_URLS:
+        try:
+            alive = _post_form(url, {}, headers)
+            if str(alive.get("status") or "").upper() == "SUCCESS":
+                return True
+        except Exception:
+            continue
+    return False
+
+
 def login(*, force: bool = False) -> str:
     app_key = _app_key()
     if not app_key:
         raise RuntimeError("BETFAIR_APP_KEY assente")
     if not force:
         cached = _read_session()
-        if cached:
-            try:
-                alive = _post_form(
-                    KEEPALIVE_URL,
-                    {},
-                    {"X-Application": app_key, "X-Authentication": cached},
-                )
-                if str(alive.get("status") or "").upper() == "SUCCESS":
-                    return cached
-            except Exception:
-                pass
+        if cached and _keepalive(cached, app_key):
+            return cached
     user, pwd = _credentials()
     if not user or not pwd:
         raise RuntimeError("Manca BETFAIR_USERNAME o BETFAIR_PASSWORD nel .env")
-    result = _post_form(
-        LOGIN_URL,
-        {"username": user, "password": pwd},
-        {"X-Application": app_key},
-    )
-    if result.get("status") != "SUCCESS":
-        raise RuntimeError(f"Login Betfair fallito: {result.get('error') or result.get('errorCode') or result}")
-    token = str(result.get("token") or "").strip()
-    if not token:
-        raise RuntimeError(f"Login Betfair senza token: {result}")
-    _write_session(token)
-    return token
+    errors: list[str] = []
+    for url in LOGIN_URLS:
+        try:
+            result = _post_form(
+                url,
+                {"username": user, "password": pwd},
+                {"X-Application": app_key},
+            )
+        except Exception as exc:
+            errors.append(f"{url}: {exc}")
+            continue
+        if result.get("status") != "SUCCESS":
+            errors.append(f"{url}: {result.get('error') or result.get('errorCode') or result}")
+            continue
+        token = str(result.get("token") or "").strip()
+        if not token:
+            errors.append(f"{url}: login senza token ({result})")
+            continue
+        _write_session(token)
+        return token
+    detail = " | ".join(errors) if errors else "nessun endpoint SSO disponibile"
+    raise RuntimeError(f"Login Betfair fallito: {detail}")
 
 
 def _iso(dt: datetime) -> str:
@@ -493,10 +541,19 @@ def fetch_betfair_odds(*, force: bool = False, days: int = 7, max_age_hours: flo
         register_market_ids(events)
         print(f"ok Betfair tennis: {len(events)} eventi", flush=True)
         return {"ok": True, "n_events": len(events), "from_cache": False, "events": events}
-    except HTTPError as exc:
-        return {"ok": False, "error": f"HTTP {exc.code}: {exc.reason}", "n_events": 0, "events": [], "from_cache": False}
-    except (URLError, TimeoutError, RuntimeError) as exc:
-        return {"ok": False, "error": str(exc), "n_events": 0, "events": [], "from_cache": False}
+    except (HTTPError, URLError, TimeoutError, RuntimeError) as exc:
+        # Mantieni fresco il registry LTP da cache precedente se la live fallisce (es. 403 CI).
+        cached_events = load_betfair_cache()
+        n_reg = register_market_ids(cached_events) if cached_events else 0
+        err = _http_error_detail(exc) if isinstance(exc, HTTPError) else str(exc)
+        return {
+            "ok": False,
+            "error": err,
+            "n_events": 0,
+            "events": [],
+            "from_cache": False,
+            "registry_from_cache": n_reg,
+        }
 
 
 def load_betfair_cache() -> list[dict]:
@@ -860,8 +917,13 @@ def fetch_close_by_market_id(
     pair = _coerce_odds_pair(odd_a, odd_b)
     if pair:
         odd_a, odd_b = pair
-        if status not in ("CLOSED", "SETTLED"):
-            _persist_registry_last_odds(mid, odd_a, odd_b, source="betfair_ltp")
+        # Persisti sempre: se Betfair azzera i prezzi più tardi resta lo snapshot.
+        _persist_registry_last_odds(
+            mid,
+            odd_a,
+            odd_b,
+            source="betfair_settled" if status in ("CLOSED", "SETTLED") else "betfair_ltp",
+        )
         src = "betfair_settled" if status in ("CLOSED", "SETTLED") else "betfair_ltp"
         return {
             "a": float(odd_a),
@@ -961,6 +1023,9 @@ def fetch_betfair_settled_results(*, days: int = 14, force: bool = False, max_ag
             odd_b = close.get("b") if close else None
             src = (close or {}).get("source")
             status = (close or {}).get("market_status")
+            close_note = (close or {}).get("close_note")
+            if close_note == "last_ltp_before_close":
+                n_fallback += 1
             if not odd_a or not odd_b:
                 prev_row = prev_by_mid.get(mid) or {}
                 pair = _coerce_odds_pair(prev_row.get("odd_a"), prev_row.get("odd_b"))
@@ -970,6 +1035,7 @@ def fetch_betfair_settled_results(*, days: int = 14, force: bool = False, max_ag
                     odd_a, odd_b = pair
                     src = "betfair_settled"
                     status = status or "CLOSED"
+                    close_note = close_note or "last_ltp_before_close"
                     n_fallback += 1
                     _persist_registry_last_odds(mid, odd_a, odd_b, source="betfair_settled_cache")
             if not odd_a or not odd_b:
@@ -987,7 +1053,7 @@ def fetch_betfair_settled_results(*, days: int = 14, force: bool = False, max_ag
                     "competition": row.get("competition"),
                     "source": src or "betfair_settled",
                     "market_status": status,
-                    "close_note": (close or {}).get("close_note"),
+                    "close_note": close_note,
                 }
             )
 
@@ -1095,9 +1161,10 @@ def lookup_betfair_settled_close(
 
 def backfill_history_market_ids(*, days: int = 21) -> dict:
     """Aggancia betfair_market_id alle pick in history (event_id / nomi)."""
-    import sqlite3
     from datetime import date as date_cls
     from datetime import timedelta
+
+    from modules.data_update.history import _conn
 
     db = ROOT / "data" / "processed" / "our_history.sqlite"
     if not db.exists():
@@ -1107,7 +1174,7 @@ def backfill_history_market_ids(*, days: int = 21) -> dict:
     by_eid = {str(m.get("event_id")): m for m in markets if m.get("event_id")}
     cutoff = date_cls.today() - timedelta(days=days - 1) if days and days > 0 else None
     updated = 0
-    with sqlite3.connect(db) as c:
+    with _conn() as c:
         c.row_factory = sqlite3.Row
         rows = c.execute(
             """SELECT match_key, date, player_a, player_b, betfair_event_id, betfair_market_id
