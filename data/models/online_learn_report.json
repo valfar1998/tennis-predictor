@@ -1,10 +1,15 @@
 {
   "ok": true,
-  "n_settled": 87,
-  "fitted_at": "2026-09-06T18:15:40.891224+00:00",
-  "hit_rate": 0.3563,
-  "roi_all": -0.1307,
+  "n_settled": 88,
+  "fitted_at": "2026-09-07T07:11:01.460833+00:00",
+  "hit_rate": 0.3523,
+  "roi_all": -0.1406,
   "by_band": {
+    "lean": {
+      "n": 1,
+      "hit_rate": 0.0,
+      "roi": null
+    },
     "unknown": {
       "n": 87,
       "hit_rate": 0.3563,
@@ -12,8 +17,8 @@
     }
   },
   "signals": {
-    "moneyway_n": 0,
-    "moneyway_hit_rate": null,
+    "moneyway_n": 1,
+    "moneyway_hit_rate": 0.0,
     "dropping_aligned_n": 0,
     "dropping_aligned_hit_rate": null,
     "dropping_against_hit_rate": null

@@ -1,34 +1,34 @@
 {
   "phase": "paper_trading",
-  "n_settled": 215,
-  "n_pending": 54,
-  "hit_rate": 0.3023,
+  "n_settled": 231,
+  "n_pending": 38,
+  "hit_rate": 0.2857,
   "roi_note": "Campione >=100: ROI diventa informativo oltre al BCR",
   "bcr_source": "betfair",
   "bcr_note": "BCR Betfair: chiusure da market_id salvato (listMarketBook BSP/LTP). Se il mercato CLOSED non espone più prezzi, si usa l'ultimo LTP persistito nel registry. Esclusi snapshot identici alla quota d'ingresso; paper = previsioni valide no_bet.",
   "bcr_betfair": {
-    "n": 0,
+    "n": 1,
     "beats": 0,
-    "bcr": null,
-    "bcr_pct": null,
+    "bcr": 0.0,
+    "bcr_pct": 0.0,
     "target": 0.55,
     "target_pct": 55.0,
-    "pass": null,
-    "avg_clv": null,
+    "pass": false,
+    "avg_clv": -0.013,
     "betfair_only": true,
     "actions": [
       "bet"
     ]
   },
   "bcr_paper": {
-    "n": 7,
-    "beats": 2,
-    "bcr": 0.2857,
-    "bcr_pct": 28.6,
+    "n": 23,
+    "beats": 3,
+    "bcr": 0.1304,
+    "bcr_pct": 13.0,
     "target": 0.55,
     "target_pct": 55.0,
     "pass": false,
-    "avg_clv": -0.0184,
+    "avg_clv": -0.0153,
     "betfair_only": true,
     "actions": [
       "bet",
@@ -36,14 +36,14 @@
     ]
   },
   "bcr_all_sources": {
-    "n": 61,
-    "beats": 30,
-    "bcr": 0.4918,
-    "bcr_pct": 49.2,
+    "n": 77,
+    "beats": 31,
+    "bcr": 0.4026,
+    "bcr_pct": 40.3,
     "target": 0.55,
     "target_pct": 55.0,
     "pass": false,
-    "avg_clv": -0.0026,
+    "avg_clv": -0.005,
     "betfair_only": false,
     "actions": [
       "bet",
@@ -60,7 +60,7 @@
     "steam_threshold_pct": 3.0,
     "recommendation": null
   },
-  "updated_at": "2026-09-06T18:15:42.433062+00:00",
+  "updated_at": "2026-09-07T07:11:03.978539+00:00",
   "governance": {
     "validation_freeze": {
       "active": true,
@@ -82,18 +82,18 @@
     "progress": {
       "frozen": true,
       "started_at": "2026-09-01",
-      "n_betfair_settled": 0,
+      "n_betfair_settled": 1,
       "target_n": 250,
       "min_n": 200,
       "max_n": 300,
       "window_complete": false,
-      "window_pct": 0.0,
+      "window_pct": 0.4,
       "bcr_target": 0.55,
-      "bcr_current": null,
-      "bcr_pass": null,
+      "bcr_current": 0.0,
+      "bcr_pass": false,
       "policy": "Nessuna modifica strutturale a pesi, feature o retrain ML fino al completamento della finestra. Solo settle + metriche BCR Betfair."
     },
-    "updated_at": "2026-09-06T18:15:42.442123+00:00"
+    "updated_at": "2026-09-07T07:11:03.987760+00:00"
   },
   "itf_governance": {
     "shrink_w_itf": 0.15,
