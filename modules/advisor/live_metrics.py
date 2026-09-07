@@ -38,6 +38,8 @@ def compute_bcr(
     betfair_only: bool = True,
     days: int | None = None,
     actions: tuple[str, ...] | None = None,
+    odds_sources: tuple[str, ...] | None = None,
+    close_sources: tuple[str, ...] | None = None,
 ) -> dict[str, Any]:
     """Beat Closing Rate su pick settle con chiusura disponibile."""
     from modules.data_update.history import load_history
@@ -54,6 +56,12 @@ def compute_bcr(
     if cutoff is not None:
         settled = [r for r in settled if _row_in_window(r, cutoff)]
 
+    def _src_match(val: str | None, needles: tuple[str, ...] | None) -> bool:
+        if not needles:
+            return True
+        s = str(val or "").lower()
+        return any(n.lower() in s for n in needles)
+
     pool: list[dict] = []
     for r in settled:
         if r.get("beat_close") is None:
@@ -61,12 +69,21 @@ def compute_bcr(
         src = r.get("close_source")
         if betfair_only and not _is_betfair_close(src):
             continue
+        if not _src_match(src, close_sources):
+            continue
+        if not _src_match(r.get("odds_source"), odds_sources):
+            continue
         odds_bet = r.get("odds")
         ca, cb = r.get("close_odds_a"), r.get("close_odds_b")
         pick = str(r.get("pick") or "")
         pa, pb = str(r.get("player_a") or ""), str(r.get("player_b") or "")
         src_l = str(src or "").lower()
-        if odds_bet and ca and cb and pick and src_l in ("betfair_ltp", "betfair_bet_snapshot"):
+        if odds_bet and ca and cb and pick and src_l in (
+            "betfair_ltp",
+            "betfair_bet_snapshot",
+            "kambi_last_odds",
+            "kambi_unibet",
+        ):
             side = "A" if _last_name(pick) == _last_name(pa) else "B"
             close_pick = float(ca if side == "A" else cb)
             if abs(close_pick - float(odds_bet)) < 0.005:
@@ -92,6 +109,10 @@ def compute_bcr(
         "betfair_only": betfair_only,
         "actions": list(actions),
     }
+    if odds_sources:
+        out["odds_sources"] = list(odds_sources)
+    if close_sources:
+        out["close_sources"] = list(close_sources)
     if days is not None:
         out["days"] = int(days)
         out["from_date"] = cutoff.isoformat() if cutoff else None
@@ -109,6 +130,13 @@ def compute_execution_summary(*, bcr_days: int | None = None) -> dict[str, Any]:
 
     bcr_bf = compute_bcr(betfair_only=True, days=bcr_days, actions=("bet",))
     bcr_paper = compute_bcr(betfair_only=True, days=bcr_days, actions=("bet", "paper"))
+    bcr_kambi = compute_bcr(
+        betfair_only=False,
+        days=bcr_days,
+        actions=("bet", "paper"),
+        odds_sources=("kambi", "unibet"),
+        close_sources=("kambi",),
+    )
     bcr_all = compute_bcr(betfair_only=False, days=bcr_days, actions=("bet", "paper"))
 
     roi_note = (
@@ -125,11 +153,12 @@ def compute_execution_summary(*, bcr_days: int | None = None) -> dict[str, Any]:
         "roi_note": roi_note,
         "bcr_source": "betfair",
         "bcr_note": (
-            "BCR Betfair: chiusure da market_id salvato (listMarketBook BSP/LTP). "
-            "Se il mercato CLOSED non espone più prezzi, si usa l'ultimo LTP persistito nel registry. "
-            "Esclusi snapshot identici alla quota d'ingresso; paper = previsioni valide no_bet."
+            "BCR Betfair (KPI): chiusure market_id/listMarketBook/last LTP, solo action=bet. "
+            "BCR Kambi (secondario): pick con odds_source Kambi/Unibet vs ultimo snapshot Kambi pre-match "
+            "(Guest API non espone closing storica). Paper = previsioni valide no_bet."
         ),
         "bcr_betfair": bcr_bf,
+        "bcr_kambi": bcr_kambi,
         "bcr_paper": bcr_paper,
         "bcr_all_sources": bcr_all,
         "slippage": slippage_summary(),
@@ -175,15 +204,15 @@ def run_live_audit(*, refresh_slippage: bool = True, bcr_days: int | None = None
     return report
 
 
-def format_bcr_status(bcr: dict[str, Any]) -> str:
+def format_bcr_status(bcr: dict[str, Any], *, label: str = "Betfair") -> str:
     window = ""
     if bcr.get("days"):
         window = f" (ultimi {bcr['days']}g: {bcr.get('from_date')} -> {bcr.get('to_date')})"
     if not bcr.get("n"):
-        return f"BCR Betfair{window}: nessun pick settle con chiusura Betfair nel periodo"
+        return f"BCR {label}{window}: nessun pick settle con chiusura {label} nel periodo"
     pct = bcr.get("bcr_pct")
     flag = "OK" if bcr.get("pass") else "SOTTO TARGET"
     return (
-        f"BCR Betfair{window}: {pct}% ({bcr['beats']}/{bcr['n']}) "
+        f"BCR {label}{window}: {pct}% ({bcr['beats']}/{bcr['n']}) "
         f"target >{bcr['target_pct']}% — {flag}"
     )

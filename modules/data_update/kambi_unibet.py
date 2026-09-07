@@ -18,10 +18,12 @@ from modules.data_update.cache_policy import is_fresh
 
 ROOT = Path(__file__).resolve().parents[2]
 CACHE = ROOT / "data" / "raw" / "kambi_unibet_odds.json"
+LAST_ODDS_REGISTRY = ROOT / "data" / "raw" / "kambi_last_odds.json"
 DEFAULT_CLIENT = "ub"
 DEFAULT_LANG = "it_IT"
 DEFAULT_MARKET = "IT"
 DEFAULT_MAX_AGE_MIN = 45.0
+REGISTRY_KEEP_DAYS = 45
 UA = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -409,6 +411,7 @@ def fetch_kambi_tennis_odds(
             cached = json.loads(CACHE.read_text(encoding="utf-8"))
             if cached.get("events") is not None:
                 cached["from_cache"] = True
+                register_kambi_last_odds(cached.get("events") or [])
                 return cached
         except Exception:
             pass
@@ -422,6 +425,7 @@ def fetch_kambi_tennis_odds(
                 cached["error"] = err
                 cached["from_cache"] = True
                 cached["stale"] = True
+                register_kambi_last_odds(cached.get("events") or [])
                 print(f"  Kambi: uso cache stale ({cached.get('n_events', 0)} eventi) — {err}", flush=True)
                 return cached
             except Exception:
@@ -446,9 +450,12 @@ def fetch_kambi_tennis_odds(
     }
     CACHE.parent.mkdir(parents=True, exist_ok=True)
     CACHE.write_text(json.dumps(info, ensure_ascii=False, indent=2), encoding="utf-8")
+    n_reg = register_kambi_last_odds(events)
+    info["registry_updated"] = n_reg
     print(
         f"  Kambi OK: {info['n_events']} eventi con quote "
-        f"(ITF {info['n_itf']}, Challenger {info['n_challenger']}, host {host})",
+        f"(ITF {info['n_itf']}, Challenger {info['n_challenger']}, host {host})"
+        + (f", registry +{n_reg}" if n_reg else ""),
         flush=True,
     )
     return info
@@ -462,6 +469,177 @@ def load_kambi_cache() -> list[dict]:
         return data.get("events") or []
     except Exception:
         return []
+
+
+def _load_last_odds_registry() -> dict[str, Any]:
+    if not LAST_ODDS_REGISTRY.is_file():
+        return {"markets": {}, "updated_at": None}
+    try:
+        data = json.loads(LAST_ODDS_REGISTRY.read_text(encoding="utf-8"))
+        if isinstance(data, dict) and isinstance(data.get("markets"), dict):
+            return data
+    except Exception:
+        pass
+    return {"markets": {}, "updated_at": None}
+
+
+def _save_last_odds_registry(markets: dict[str, dict]) -> None:
+    # Prune vecchi
+    cutoff = datetime.now(timezone.utc).timestamp() - REGISTRY_KEEP_DAYS * 86400
+    kept: dict[str, dict] = {}
+    for mid, row in markets.items():
+        ts = str(row.get("last_odds_at") or row.get("saved_at") or "")
+        try:
+            dt = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            if dt.timestamp() < cutoff:
+                continue
+        except ValueError:
+            pass
+        kept[str(mid)] = row
+    LAST_ODDS_REGISTRY.parent.mkdir(parents=True, exist_ok=True)
+    LAST_ODDS_REGISTRY.write_text(
+        json.dumps(
+            {"markets": kept, "updated_at": datetime.now(timezone.utc).isoformat()},
+            ensure_ascii=False,
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+
+
+def register_kambi_last_odds(events: list[dict] | None) -> int:
+    """Persiste ultimo LTP/quota Kambi pre-match (Guest API non espone chiusura storica)."""
+    if not events:
+        # aggiorna comunque da cache live se presente
+        events = load_kambi_cache()
+    if not events:
+        return 0
+    data = _load_last_odds_registry()
+    markets = dict(data.get("markets") or {})
+    now = datetime.now(timezone.utc).isoformat()
+    n = 0
+    for ev in events:
+        state = str(ev.get("state") or "").upper()
+        # Solo pre-match: se già STARTED le quote sono live, non closing line.
+        if state and state not in ("NOT_STARTED", "OPEN", ""):
+            continue
+        eid = str(ev.get("event_id") or "").strip()
+        odd_a, odd_b = ev.get("odd_a"), ev.get("odd_b")
+        try:
+            oa = float(odd_a) if odd_a is not None else None
+            ob = float(odd_b) if odd_b is not None else None
+        except (TypeError, ValueError):
+            continue
+        if not eid or not oa or not ob or oa <= 1.01 or ob <= 1.01:
+            continue
+        prev = markets.get(eid) or {}
+        markets[eid] = {
+            **prev,
+            "event_id": eid,
+            "player_a": ev.get("player_a") or prev.get("player_a"),
+            "player_b": ev.get("player_b") or prev.get("player_b"),
+            "commence_time": ev.get("commence_time") or prev.get("commence_time"),
+            "competition": ev.get("competition") or prev.get("competition"),
+            "last_odd_a": round(oa, 3),
+            "last_odd_b": round(ob, 3),
+            "last_odds_at": now,
+            "last_odds_source": "kambi_unibet",
+            "saved_at": now,
+            "state": state or prev.get("state"),
+        }
+        n += 1
+    if n:
+        _save_last_odds_registry(markets)
+    return n
+
+
+def lookup_kambi_close(
+    player_a: str,
+    player_b: str,
+    *,
+    match_date: str | None = None,
+    event_id: str | None = None,
+) -> dict | None:
+    """Chiusura proxy Kambi = ultimo snapshot pre-match nel registry.
+
+    La Guest API non espone closing line storica: quando l'evento sparisce
+    usiamo l'ultima quota osservata (stesso pattern del last LTP Betfair).
+    """
+    from datetime import date as date_cls
+
+    from modules.data_update.entity_resolution import _last_name, _norm_name
+
+    markets = (_load_last_odds_registry().get("markets") or {})
+    if not markets:
+        return None
+
+    eid = str(event_id or "").strip()
+    if eid and not eid.startswith("kambi:") and eid.isdigit():
+        eid = f"kambi:{eid}"
+    if eid and eid in markets:
+        row = markets[eid]
+        oa, ob = row.get("last_odd_a"), row.get("last_odd_b")
+        try:
+            if oa and ob and float(oa) > 1.01 and float(ob) > 1.01:
+                return {
+                    "a": float(oa),
+                    "b": float(ob),
+                    "source": "kambi_last_odds",
+                    "event_id": eid,
+                    "last_odds_at": row.get("last_odds_at"),
+                }
+        except (TypeError, ValueError):
+            pass
+
+    md = None
+    if match_date:
+        try:
+            md = date_cls.fromisoformat(str(match_date)[:10])
+        except ValueError:
+            pass
+
+    pa_n, pb_n = _norm_name(player_a), _norm_name(player_b)
+    pa_l, pb_l = _last_name(player_a), _last_name(player_b)
+    best = None
+    for row in markets.values():
+        ra, rb = str(row.get("player_a") or ""), str(row.get("player_b") or "")
+        direct = (_norm_name(ra) == pa_n and _norm_name(rb) == pb_n) or (
+            pa_l and pb_l and _last_name(ra) == pa_l and _last_name(rb) == pb_l
+        )
+        swap = (_norm_name(ra) == pb_n and _norm_name(rb) == pa_n) or (
+            pa_l and pb_l and _last_name(ra) == pb_l and _last_name(rb) == pa_l
+        )
+        if not (direct or swap):
+            continue
+        if md:
+            day = str(row.get("commence_time") or "")[:10]
+            try:
+                if abs((date_cls.fromisoformat(day) - md).days) > 1:
+                    continue
+            except ValueError:
+                pass
+        oa, ob = row.get("last_odd_a"), row.get("last_odd_b")
+        try:
+            if not oa or not ob or float(oa) <= 1.01 or float(ob) <= 1.01:
+                continue
+            a, b = float(oa), float(ob)
+        except (TypeError, ValueError):
+            continue
+        if swap:
+            a, b = b, a
+        cand = {
+            "a": a,
+            "b": b,
+            "source": "kambi_last_odds",
+            "event_id": row.get("event_id"),
+            "last_odds_at": row.get("last_odds_at"),
+        }
+        # preferisci snapshot più recente
+        if best is None or str(cand.get("last_odds_at") or "") > str(best.get("last_odds_at") or ""):
+            best = cand
+    return best
 
 
 def merge_odds_events(primary: list[dict], secondary: list[dict]) -> list[dict]:

@@ -337,6 +337,7 @@ def refresh_clv_close(*, days: int = 14, include_settled: bool = False) -> dict[
                 except ValueError:
                     continue
             pa, pb = str(rec["player_a"]), str(rec["player_b"])
+            odds_src = str(rec.get("odds_source") or "")
             close = resolve_close_odds(
                 pa,
                 pb,
@@ -344,6 +345,7 @@ def refresh_clv_close(*, days: int = 14, include_settled: bool = False) -> dict[
                 tour=str(rec.get("tour") or "ATP"),
                 betfair_event_id=rec.get("betfair_event_id"),
                 betfair_market_id=rec.get("betfair_market_id"),
+                odds_source=odds_src,
             )
             if not close:
                 continue
@@ -352,11 +354,11 @@ def refresh_clv_close(*, days: int = 14, include_settled: bool = False) -> dict[
             close_pick = close.get("a") if side == "A" else close.get("b")
             odds_bet = float(rec["odds"]) if rec.get("odds") is not None else None
             src = str(close.get("source") or "").lower()
-            # LTP live / snapshot = quota d'ingresso non è una chiusura. Settled/BSP sì.
+            # LTP live / snapshot / last-odds identici alla quota d'ingresso non sono una chiusura.
             if (
                 odds_bet
                 and close_pick
-                and src in ("betfair_ltp", "betfair_bet_snapshot")
+                and src in ("betfair_ltp", "betfair_bet_snapshot", "kambi_last_odds", "kambi_unibet")
                 and abs(float(close_pick) - odds_bet) < 0.005
             ):
                 continue
@@ -447,6 +449,23 @@ def settle_pending(*, learn: bool = True) -> dict[str, Any]:
             print("  Betfair settled skip: credenziali assenti", flush=True)
     except Exception as exc:
         out["betfair_settled_sync_error"] = str(exc)
+    try:
+        from modules.data_update.kambi_unibet import fetch_kambi_tennis_odds, register_kambi_last_odds
+
+        # Snapshot quote Kambi pre-match → chiusura proxy per BCR Kambi
+        kambi_info = fetch_kambi_tennis_odds(force=False)
+        n_reg = int(kambi_info.get("registry_updated") or 0)
+        if not n_reg and kambi_info.get("events"):
+            n_reg = register_kambi_last_odds(kambi_info.get("events") or [])
+        out["kambi_odds_sync"] = {
+            "ok": kambi_info.get("ok"),
+            "n_events": kambi_info.get("n_events"),
+            "from_cache": kambi_info.get("from_cache"),
+            "registry_updated": n_reg,
+            "error": kambi_info.get("error"),
+        }
+    except Exception as exc:
+        out["kambi_odds_sync_error"] = str(exc)
     try:
         from modules.data_update.espn_livescore import fetch_espn_results
 

@@ -43,13 +43,15 @@ def resolve_close_odds(
     betfair_event_id: str | None = None,
     betfair_market_id: str | None = None,
     betfair_odds: dict | None = None,
+    odds_source: str | None = None,
 ) -> dict | None:
     """Risolve quote di chiusura con cascade.
 
-    1. Betfair settled via market_id salvato (listMarketBook / BSP)
-    2. OddsPortal cache
-    3. tennis-data.co.uk
-    4. Betfair LTP live solo se il match è oggi/futuro (mai snapshot = quota bet)
+    1. Se la pick era su Kambi → chiusura Kambi (ultimo snapshot pre-match)
+    2. Betfair settled via market_id salvato (listMarketBook / BSP / last LTP)
+    3. OddsPortal cache
+    4. tennis-data.co.uk
+    5. Betfair LTP live solo se il match è oggi/futuro (mai snapshot = quota bet)
     """
     from datetime import date as date_cls
 
@@ -60,7 +62,29 @@ def resolve_close_odds(
         except ValueError:
             past = False
 
-    # 1) Mercati Betfair già chiusi (market_id registry o cache settled)
+    src_in = str(odds_source or "").lower()
+    prefer_kambi = any(k in src_in for k in ("kambi", "unibet"))
+
+    def _kambi_close() -> dict | None:
+        try:
+            from modules.data_update.kambi_unibet import lookup_kambi_close
+
+            return lookup_kambi_close(
+                player_a,
+                player_b,
+                match_date=date,
+                event_id=betfair_event_id if str(betfair_event_id or "").startswith("kambi:") else None,
+            )
+        except Exception:
+            return None
+
+    # 1) Pick Kambi → chiusura Kambi (BCR secondario coerente con book d'ingresso)
+    if prefer_kambi:
+        kambi = _kambi_close()
+        if kambi:
+            return kambi
+
+    # 2) Mercati Betfair già chiusi (market_id registry o cache settled)
     try:
         from modules.data_update.betfair import lookup_betfair_settled_close
 
@@ -76,7 +100,7 @@ def resolve_close_odds(
     except Exception:
         pass
 
-    # 2) OddsPortal cache
+    # 3) OddsPortal cache
     try:
         from modules.data_update.oddsportal_close import lookup_oddsportal_close
 
@@ -86,7 +110,7 @@ def resolve_close_odds(
     except Exception:
         pass
 
-    # 3) tennis-data storico
+    # 4) tennis-data storico
     try:
         from modules.data_update.tennis_data_portal import lookup_pinnacle_odds
 
@@ -96,10 +120,16 @@ def resolve_close_odds(
     except Exception:
         pass
 
+    # 5) Kambi last odds anche se odds_source non era kambi (fallback)
+    if not prefer_kambi:
+        kambi = _kambi_close()
+        if kambi:
+            return kambi
+
     if past:
         return None
 
-    # 4) LTP live (solo pre-match)
+    # 6) LTP live (solo pre-match)
     try:
         from modules.data_update.betfair import lookup_betfair_close
 

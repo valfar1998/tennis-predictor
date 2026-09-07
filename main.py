@@ -148,6 +148,7 @@ def cmd_learn(args: argparse.Namespace) -> None:
     prog.next("Audit BCR + slippage...")
     audit = run_live_audit(refresh_slippage=True)
     print(format_bcr_status(audit.get("bcr_betfair", {})))
+    print(format_bcr_status(audit.get("bcr_kambi", {}), label="Kambi"))
     if audit.get("slippage", {}).get("recommendation"):
         print("Slippage:", audit["slippage"]["recommendation"])
     log_done("learn completato")
@@ -169,6 +170,7 @@ def cmd_metrics(args: argparse.Namespace) -> None:
     audit = run_live_audit(refresh_slippage=not args.no_slippage, bcr_days=bcr_days)
     print(json.dumps(audit, indent=2, ensure_ascii=False))
     print(format_bcr_status(audit.get("bcr_betfair", {})))
+    print(format_bcr_status(audit.get("bcr_kambi", {}), label="Kambi"))
     slip = audit.get("slippage") or {}
     if slip.get("recommendation"):
         print("Slippage:", slip["recommendation"])
@@ -210,6 +212,7 @@ def cmd_predict(args: argparse.Namespace) -> None:
     if args.metrics:
         audit = run_live_audit(refresh_slippage=False)
         print(format_bcr_status(audit.get("bcr_betfair", {})))
+        print(format_bcr_status(audit.get("bcr_kambi", {}), label="Kambi"))
 
 
 def cmd_full(args: argparse.Namespace) -> None:

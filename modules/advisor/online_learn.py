@@ -141,6 +141,12 @@ def learn_from_settled(*, force: bool = False) -> dict[str, Any]:
 
         bcr = compute_bcr(betfair_only=True)
         report["bcr_betfair"] = bcr
+        report["bcr_kambi"] = compute_bcr(
+            betfair_only=False,
+            actions=("bet", "paper"),
+            odds_sources=("kambi", "unibet"),
+            close_sources=("kambi",),
+        )
         if (bcr.get("n") or 0) >= 15 and bcr.get("bcr") is not None:
             if bcr["bcr"] < 0.52:
                 ol["min_edge_suggested"] = max(float(ol.get("min_edge_suggested") or 0.025), 0.035)

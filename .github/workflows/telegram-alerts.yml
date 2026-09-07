@@ -85,6 +85,8 @@ jobs:
             data/raw/betfair.session.json
             data/raw/betfair_market_ids.json
             data/raw/betfair_settled.json
+            data/raw/kambi_unibet_odds.json
+            data/raw/kambi_last_odds.json
           key: tennis-betfair-${{ github.run_id }}
           restore-keys: |
             tennis-betfair-
@@ -108,6 +110,8 @@ jobs:
             data/raw/betfair.session.json
             data/raw/betfair_market_ids.json
             data/raw/betfair_settled.json
+            data/raw/kambi_unibet_odds.json
+            data/raw/kambi_last_odds.json
           key: tennis-betfair-${{ github.run_id }}
 
       - uses: actions/cache/save@v4
