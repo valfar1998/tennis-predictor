@@ -491,7 +491,7 @@ Allineamento: pick lato A + dropping su `"1"`, oppure lato B + dropping su `"2"`
 | Predizioni complete | `data/processed/upcoming_predictions.json` |
 | Storico pick | `data/processed/our_history.sqlite` |
 | Report apprendimento | `data/models/online_learn_report.json` |
-| UI | Streamlit `app.py` — tab Calendario, ordinato per giocabilità |
+| UI | Streamlit `app.py` — **contatore BCR** in cima (Betfair KPI + Kambi + finestra) + tab Calendario ordinato per giocabilità |
 | Telegram | `modules/notify/alerts.py` — solo `action=bet` **e** giocabilità **≥ 75**, dedup 21 gg |
 | Cloud (GitHub Actions) | `scripts/notify_cloud.py` — sync Betfair + segnali + predict + alert |
 
@@ -597,6 +597,18 @@ Report dettagliato: `data/models/online_learn_report.json`.
 
 ROI sui primi 100 bet è **varianza** — il BCR conferma edge matematico vs mercato sharp (Betfair).
 
+**UI Streamlit:** in cima a `app.py` c’è il **contatore BCR** (sempre visibile, fuori dai tab):
+
+| Metric card | Contenuto |
+|-------------|-----------|
+| BCR Betfair (KPI) | `%` + delta pp vs target 55% |
+| Beat / settle BF | `beats/n` pick con chiusura Betfair |
+| BCR Kambi | secondario (ingresso Unibet vs snapshot Kambi) |
+| BCR paper | bet + paper (previsioni no_bet) |
+| Finestra validazione | `n/target` + badge FREEZE |
+
+Pulsante **Ricalcola BCR** → `run_live_audit()` → aggiorna `live_metrics.json`. Progress bar sull’avanzamento 200–300 match.
+
 ### Finestra validazione live (FREEZE attivo)
 
 **Priorità assoluta:** accumulare **200–300 match** settle con chiusura Betfair senza toccare l'architettura.
@@ -659,7 +671,7 @@ python -c "from modules.data_update.sackmann import sync_sackmann_atp, sync_sack
 # Training completo (features + XGBoost + stacker)
 python main.py features && python main.py train
 
-# UI locale
+# UI locale (contatore BCR in cima + calendario)
 streamlit run app.py --server.port 8502
 # oppure: apri_ui.bat
 ```

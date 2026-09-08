@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import sys
 from pathlib import Path
+from typing import Any
 
 import pandas as pd
 import streamlit as st
@@ -17,8 +18,120 @@ from modules.data_update.calendar_utils import normalize_predictions_calendar
 
 st.set_page_config(page_title="Tennis Predictor", page_icon="🎾", layout="wide")
 
+METRICS_PATH = ROOT / "data" / "processed" / "live_metrics.json"
+
+
+@st.cache_data(ttl=60)
+def _load_live_metrics_cached() -> dict[str, Any] | None:
+    if not METRICS_PATH.exists():
+        return None
+    try:
+        return json.loads(METRICS_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+
+
+def _bcr_delta(bcr: dict[str, Any] | None) -> str | None:
+    if not bcr or bcr.get("bcr_pct") is None or bcr.get("target_pct") is None:
+        return None
+    gap = float(bcr["bcr_pct"]) - float(bcr["target_pct"])
+    return f"{gap:+.1f} pp vs target"
+
+
+def _render_bcr_counter(metrics: dict[str, Any] | None) -> None:
+    """KPI primario: Beat Closing Rate Betfair (+ Kambi secondario + finestra)."""
+    st.subheader("Contatore BCR")
+    if not metrics:
+        st.info(
+            "Nessun `live_metrics.json`. Esegui `python main.py metrics` "
+            "oppure clicca **Ricalcola BCR**."
+        )
+        return
+
+    bf = metrics.get("bcr_betfair") or {}
+    kambi = metrics.get("bcr_kambi") or {}
+    paper = metrics.get("bcr_paper") or {}
+    progress = (metrics.get("governance") or {}).get("progress") or {}
+    updated = str(metrics.get("updated_at") or "")[:19].replace("T", " ")
+
+    with st.container(horizontal=True):
+        bf_n = int(bf.get("n") or 0)
+        bf_label = f"{bf.get('bcr_pct')}%" if bf.get("bcr_pct") is not None else "n/d"
+        st.metric(
+            "BCR Betfair (KPI)",
+            bf_label if bf_n else "—",
+            delta=_bcr_delta(bf) if bf_n else None,
+            delta_color="normal" if bf.get("pass") else "inverse",
+            help="Quota bet > chiusura Betfair LTP. Target >55%. Solo action=bet.",
+            border=True,
+        )
+        st.metric(
+            "Beat / settle BF",
+            f"{bf.get('beats', 0)}/{bf_n}" if bf_n else "0/0",
+            help="Pick Betfair settle con beat_close valorizzato",
+            border=True,
+        )
+        k_n = int(kambi.get("n") or 0)
+        k_label = f"{kambi.get('bcr_pct')}%" if kambi.get("bcr_pct") is not None else "n/d"
+        st.metric(
+            "BCR Kambi",
+            k_label if k_n else "—",
+            delta=_bcr_delta(kambi) if k_n else None,
+            delta_color="normal" if kambi.get("pass") else "inverse",
+            help="Secondario: ingresso Kambi/Unibet vs ultimo snapshot Kambi pre-match",
+            border=True,
+        )
+        p_n = int(paper.get("n") or 0)
+        p_label = f"{paper.get('bcr_pct')}%" if paper.get("bcr_pct") is not None else "n/d"
+        st.metric(
+            "BCR paper (bet+paper)",
+            p_label if p_n else "—",
+            help="Include previsioni no_bet archiviate come paper",
+            border=True,
+        )
+        n_win = int(progress.get("n_betfair_settled") or bf_n)
+        target_n = int(progress.get("target_n") or 250)
+        st.metric(
+            "Finestra validazione",
+            f"{n_win}/{target_n}",
+            delta=(
+                "FREEZE" if progress.get("frozen") else "sbloccata"
+            ),
+            delta_color="off",
+            help="Target 200–300 pick Betfair settle prima di toccare pesi/retrain",
+            border=True,
+        )
+
+    if target_n > 0:
+        st.progress(
+            min(1.0, n_win / target_n),
+            text=f"Avanzamento finestra BCR: {n_win}/{target_n} "
+            f"({100.0 * n_win / target_n:.0f}%) — target BCR >55%",
+        )
+    note = metrics.get("bcr_note") or ""
+    if note:
+        st.caption(note)
+    if updated:
+        st.caption(f"Aggiornato: {updated} UTC")
+
+
 st.title("🎾 Tennis Predictor — Value Betting")
 st.caption("Elo multisuperficie · Markov punto→match · ML · Shin de-vig · Kelly frazionario")
+
+# --- Contatore BCR (KPI fase live) ---
+col_bcr_btn, _ = st.columns([1, 4])
+with col_bcr_btn:
+    refresh_bcr = st.button("Ricalcola BCR", type="secondary")
+if refresh_bcr:
+    with st.spinner("Audit BCR Betfair / Kambi..."):
+        from modules.advisor.live_metrics import run_live_audit
+
+        run_live_audit(refresh_slippage=False)
+        _load_live_metrics_cached.clear()
+    st.rerun()
+
+_render_bcr_counter(_load_live_metrics_cached())
+st.divider()
 
 tab_cal, tab_back, tab_data, tab_elo = st.tabs([
     "Calendario & Value", "Backtest", "Dati & Pipeline", "Elo Rankings"
