@@ -27,7 +27,12 @@ def _canonical_key(name: str) -> str:
         return ""
     if len(parts) == 1:
         return parts[0]
-    return f"{parts[-1]} {parts[0][0]}"
+    last = _last_name(name)
+    first = parts[0]
+    # "h dart" / iniziale+cognome: usa l'iniziale del prefisso
+    if len(first) <= 2 and len(parts) >= 2:
+        return f"{last} {first[0]}"
+    return f"{last} {first[0]}"
 
 
 def load_aliases() -> dict[str, str]:
@@ -110,7 +115,16 @@ def resolve_name(
     tourney_date: str | None = None,
     tour: str | None = None,
 ) -> str:
-    """Risolve un nome: graph → registry SQLite → alias JSON → fuzzy."""
+    """Risolve un nome: alias JSON espliciti → graph → registry → fuzzy."""
+    aliases = aliases or load_aliases()
+    norm = _norm_name(name)
+    if norm in aliases:
+        return aliases[norm]
+
+    key = _canonical_key(name)
+    if key in aliases:
+        return aliases[key]
+
     try:
         from modules.data_update.player_graph import graph_resolve_player
 
@@ -128,20 +142,11 @@ def resolve_name(
     try:
         from modules.data_update.player_registry import resolve_canonical
 
-        canon = resolve_canonical(name)
+        canon = resolve_canonical(name, tour=tour)
         if canon:
             return canon
     except Exception:
         pass
-
-    aliases = aliases or load_aliases()
-    norm = _norm_name(name)
-    if norm in aliases:
-        return aliases[norm]
-
-    key = _canonical_key(name)
-    if key in aliases:
-        return aliases[key]
 
     if candidates:
         by_init = _resolve_initial_lastname(name, candidates)
@@ -167,17 +172,29 @@ def resolve_name(
     return str(name).strip()
 
 
+_PARTICLE = frozenset(
+    {"de", "da", "del", "della", "di", "du", "la", "le", "van", "von", "der", "den", "dos", "das"}
+)
+
+
 def _last_name(name: str) -> str:
-    """Estrae cognome da 'Novak Djokovic' o 'Djokovic N.'."""
+    """Estrae cognome da 'Novak Djokovic', 'Djokovic N.' o compound troncati."""
     s = str(name or "").strip()
     if not s:
         return ""
     parts = s.replace(".", "").split()
     if len(parts) == 1:
         return parts[0].lower()
-    # Formato tennis-data: "Djokovic N" -> cognome first
-    if len(parts[-1]) <= 2:
+    # Formato tennis-data: "Djokovic N" -> cognome first (ultimo token = iniziale)
+    if len(parts[-1]) <= 2 and len(parts[0]) > 2:
         return parts[0].lower()
+    # Compound troncato tipo "G Maristany Zuleta De R": ignora iniziale finale
+    if len(parts[-1]) == 1 and len(parts) >= 3:
+        for tok in reversed(parts[:-1]):
+            t = tok.lower()
+            if len(t) > 2 and t not in _PARTICLE:
+                return t
+        return parts[-2].lower()
     return parts[-1].lower()
 
 

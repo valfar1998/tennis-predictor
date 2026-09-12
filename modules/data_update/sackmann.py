@@ -217,16 +217,27 @@ def load_sackmann_matches(
     tour: str = "atp",
     min_year: int = 1990,
     max_year: int | None = None,
+    include_chall_futures: bool = False,
 ) -> pd.DataFrame:
-    """Carica match tour-level Sackmann (ATP o WTA) in un unico DataFrame."""
+    """Carica match Sackmann (ATP o WTA).
+
+    Di default solo tour-level. Con ``include_chall_futures=True`` include anche
+    ``qual_chall`` / ``futures`` (ATP) — utili per Elo Challenger/ITF live.
+    WTA ``qual_itf`` è già incluso (il nome file non matcha i filtri storici).
+    """
     tour = tour.lower()
     info = sync_sackmann_tour(tour=tour, min_year=min_year)
     data_dir = Path(info["source"])
     prefix = _TOUR_CFG[tour]["prefix"]
     frames: list[pd.DataFrame] = []
 
+    always_skip = ("doubles", "amateur")
     for f in sorted(data_dir.glob(f"{prefix}_matches_*.csv")):
-        if any(x in f.name for x in ("doubles", "futures", "qual_chall", "amateur")):
+        name = f.name
+        if any(x in name for x in always_skip):
+            continue
+        is_lower = "futures" in name or "qual_chall" in name
+        if is_lower and not include_chall_futures:
             continue
         try:
             year = int(f.stem.split("_")[-1])
@@ -249,13 +260,23 @@ def load_sackmann_matches(
     return out.sort_values("tourney_date").reset_index(drop=True)
 
 
-def load_tour_matches(*, min_year: int = 1990, max_year: int | None = None) -> pd.DataFrame:
+def load_tour_matches(
+    *,
+    min_year: int = 1990,
+    max_year: int | None = None,
+    include_chall_futures: bool = False,
+) -> pd.DataFrame:
     """Carica match ATP: TML primario + fallback Sackmann."""
     from modules.data_update.tml import load_tml_matches, merge_atp_primary_tml
 
     tml = load_tml_matches(min_year=min_year, max_year=max_year)
     try:
-        sack = load_sackmann_matches(tour="atp", min_year=min_year, max_year=max_year)
+        sack = load_sackmann_matches(
+            tour="atp",
+            min_year=min_year,
+            max_year=max_year,
+            include_chall_futures=include_chall_futures,
+        )
     except FileNotFoundError:
         sack = pd.DataFrame()
     return merge_atp_primary_tml(tml, sack)

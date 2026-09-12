@@ -1,8 +1,8 @@
 {
   "active": true,
-  "min_edge": 0.045,
+  "min_edge": 0.035,
   "base_min_edge": 0.025,
-  "stress_min_edge": 0.045,
+  "stress_min_edge": 0.035,
   "triggers": {
     "streak_loss_units": false,
     "drawdown": true
@@ -11,13 +11,13 @@
     "streak_loss_units": 11.0,
     "drawdown_pct": 0.15
   },
-  "bankroll": 0.803,
+  "bankroll": 0.7716,
   "peak": 1.0176,
-  "max_drawdown": 0.2272,
-  "current_drawdown": 0.2109,
-  "streak_loss_units": 0.0,
+  "max_drawdown": 0.2418,
+  "current_drawdown": 0.2418,
+  "streak_loss_units": 3.14,
   "max_streak_loss_units": 12.0,
-  "consecutive_losses": 0,
-  "n_settled": 87,
-  "updated_at": "2026-09-06T12:40:45.002693+00:00"
+  "consecutive_losses": 4,
+  "n_settled": 91,
+  "updated_at": "2026-09-12T06:44:19.845588+00:00"
 }

@@ -52,7 +52,7 @@ Fonti dati esterne integrate / referenziate (cartelle in `lib/`):
 
 | Controllo | Regola | Effetto |
 |-----------|--------|---------|
-| **Circuit breaker** | Drawdown corrente >15% **oppure** streak perdite ≥11 unità (1% ciascuna) | `MIN_EDGE` 2.5% → **4.5%** |
+| **Circuit breaker** | Drawdown corrente >15% **oppure** streak perdite ≥11 unità (1% ciascuna) | `MIN_EDGE` 2.5% → **3.5%** |
 | **Esposizione giornaliera** | ≥6 bet stesso giorno + stesso torneo | Kelly scalato per cap totale **6%** bankroll |
 | **EV sanity** | EV > 25–30% | `no_bet` (edge irrealistico) |
 | **EV review** | 20% < EV ≤ cap | `action: review` |

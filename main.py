@@ -42,6 +42,9 @@ def cmd_sync(args: argparse.Namespace) -> None:
         print("Player registry ATP:", sync_sackmann_players(tour="ATP"))
         print("Player registry WTA:", sync_sackmann_players(tour="WTA"))
         print("Player registry TML:", sync_tml_players())
+        from modules.data_update.player_registry import cleanup_bare_last_name_aliases
+
+        print("Alias cleanup:", cleanup_bare_last_name_aliases())
         print("Registry stats:", registry_stats())
     except Exception as exc:
         print(f"Player registry skip: {exc}")

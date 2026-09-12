@@ -96,47 +96,78 @@ def register_player(
             pid = int(cur.lastrowid)
 
         alias_set = {_norm_name(canonical_name), _canonical_key(canonical_name)}
-        if name_last:
-            alias_set.add(_norm_name(name_last))
         for a in aliases or []:
             alias_set.add(_norm_name(a))
             alias_set.add(_canonical_key(a))
 
+        bare_last = _norm_name(name_last or "")
         for al in alias_set:
             if not al:
                 continue
+            # Cognomi nudi → collisioni (Sofia/Spencer Johnson); solo full/canonical key
+            if " " not in al and bare_last and al == bare_last:
+                continue
             c.execute(
-                "INSERT OR REPLACE INTO aliases (alias_norm, player_id, source) VALUES (?,?,?)",
+                "INSERT OR IGNORE INTO aliases (alias_norm, player_id, source) VALUES (?,?,?)",
                 (al, pid, source),
             )
         c.commit()
         return pid
 
 
-def lookup_player_id(name: str) -> int | None:
+def lookup_player_id(name: str, *, tour: str | None = None) -> int | None:
     """Risolve nome → player_id interno via alias registry."""
     norm = _norm_name(name)
     key = _canonical_key(name)
+    tour_u = tour.upper() if tour else None
     with _conn() as c:
         for alias in (norm, key):
             if not alias:
                 continue
-            row = c.execute(
-                "SELECT player_id FROM aliases WHERE alias_norm=?", (alias,)
-            ).fetchone()
+            if tour_u:
+                row = c.execute(
+                    """SELECT a.player_id FROM aliases a
+                       JOIN players p ON p.id = a.player_id
+                       WHERE a.alias_norm=? AND p.tour=?""",
+                    (alias, tour_u),
+                ).fetchone()
+            else:
+                row = c.execute(
+                    "SELECT player_id FROM aliases WHERE alias_norm=?", (alias,)
+                ).fetchone()
             if row:
                 return int(row["player_id"])
     return None
 
 
-def resolve_canonical(name: str) -> str | None:
+def resolve_canonical(name: str, *, tour: str | None = None) -> str | None:
     """Ritorna canonical_name se il giocatore è nel registry."""
-    pid = lookup_player_id(name)
+    pid = lookup_player_id(name, tour=tour)
     if pid is None:
         return None
     with _conn() as c:
         row = c.execute("SELECT canonical_name FROM players WHERE id=?", (pid,)).fetchone()
     return str(row["canonical_name"]) if row else None
+
+
+def cleanup_bare_last_name_aliases() -> dict:
+    """Rimuove alias monotoken = cognome (collisioni cross-player)."""
+    with _conn() as c:
+        before = c.execute("SELECT COUNT(*) FROM aliases").fetchone()[0]
+        c.execute(
+            """
+            DELETE FROM aliases
+            WHERE alias_norm NOT LIKE '% %'
+              AND alias_norm IN (
+                  SELECT LOWER(TRIM(name_last)) FROM players
+                  WHERE name_last IS NOT NULL AND TRIM(name_last) != ''
+              )
+            """
+        )
+        deleted = c.total_changes
+        c.commit()
+        after = c.execute("SELECT COUNT(*) FROM aliases").fetchone()[0]
+    return {"deleted": int(deleted), "aliases_before": int(before), "aliases_after": int(after)}
 
 
 def sync_sackmann_players(*, tour: str = "ATP") -> dict:
@@ -185,12 +216,10 @@ def sync_sackmann_players(*, tour: str = "ATP") -> dict:
                     player_id = int(cur.lastrowid)
 
                 alias_set = {_norm_name(canon), _canonical_key(canon)}
-                if last:
-                    alias_set.add(_norm_name(last))
                 for al in alias_set:
                     if al:
                         c.execute(
-                            "INSERT OR REPLACE INTO aliases (alias_norm, player_id, source) VALUES (?,?,?)",
+                            "INSERT OR IGNORE INTO aliases (alias_norm, player_id, source) VALUES (?,?,?)",
                             (al, player_id, "sackmann"),
                         )
                 n += 1
@@ -244,11 +273,12 @@ def sync_tml_players() -> dict:
                 pid = int(cur.lastrowid)
 
             for al in {_norm_name(canon), _norm_name(player), _norm_name(atpname), _canonical_key(canon)}:
-                if al:
-                    c.execute(
-                        "INSERT OR REPLACE INTO aliases (alias_norm, player_id, source) VALUES (?,?,?)",
-                        (al, pid, "tml"),
-                    )
+                if not al or " " not in al:
+                    continue
+                c.execute(
+                    "INSERT OR IGNORE INTO aliases (alias_norm, player_id, source) VALUES (?,?,?)",
+                    (al, pid, "tml"),
+                )
             linked += 1
         c.commit()
     return {"ok": True, "linked": linked}

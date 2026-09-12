@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -51,9 +52,41 @@ def _infer_surface(competition: str) -> str:
 
 def _infer_tour(competition: str) -> str:
     c = str(competition or "").lower()
-    if any(k in c for k in ("women", " wta", "wta ", "ladies", "female")):
+    # ITF women codes before generic men/atp defaults
+    if re.search(r"\bw(?:15|25|35|40|50|60|75|100)\b", c):
         return "WTA"
-    if any(k in c for k in ("men", " atp", "atp ", "gentlemen")):
+    if re.search(r"\bm(?:15|25)\b", c):
+        return "ATP"
+    if any(
+        k in c
+        for k in (
+            "women",
+            "womens",
+            "women's",
+            " wta",
+            "wta ",
+            "wta-",
+            "ladies",
+            "female",
+            "itf w",
+            "itf women",
+        )
+    ):
+        return "WTA"
+    if any(
+        k in c
+        for k in (
+            "men",
+            "mens",
+            "men's",
+            " atp",
+            "atp ",
+            "atp-",
+            "gentlemen",
+            "itf m",
+            "itf men",
+        )
+    ):
         return "ATP"
     return "ATP"
 
@@ -116,7 +149,8 @@ def _load_tour_bundle(*, tour: str, min_year: int) -> TourBundle | None:
         if tour == "WTA":
             matches = load_wta_matches(min_year=min_year)
         else:
-            matches = load_tour_matches(min_year=min_year)
+            # Include Challenger/ITF futures so Elo covers lower-tier live markets
+            matches = load_tour_matches(min_year=min_year, include_chall_futures=True)
     except FileNotFoundError:
         if tour == "ATP":
             return None
@@ -183,8 +217,17 @@ def _player_resolved(
     candidates: list[str],
     bundle: TourBundle,
     ta_elo: float | None,
+    opponent_name: str | None = None,
+    tourney_date: str | None = None,
 ) -> bool:
-    resolved = resolve_name(name, candidates=candidates)
+    # Preferisci candidati del tour corretto (evita Jordi vs Irene Burillo)
+    resolved = resolve_name(
+        name,
+        candidates=candidates,
+        opponent_name=opponent_name,
+        tourney_date=tourney_date,
+        tour=bundle.tour,
+    )
     pid = bundle.name_to_id.get(_norm_name(resolved))
     if pid and pid in bundle.elo_engine.players:
         return True
@@ -245,7 +288,12 @@ def _player_elo(
         transition_surface_weight,
     )
 
-    resolved = resolve_name(name, candidates=candidates)
+    resolved = resolve_name(
+        name,
+        candidates=candidates,
+        tourney_date=match_date,
+        tour=bundle.tour,
+    )
     pid = bundle.name_to_id.get(_norm_name(resolved))
     ta = lookup_ta_elo(resolved, surface, tour=bundle.tour)
     cpi = lookup_cpi(tourney_name or "", surface=surface)
@@ -325,6 +373,12 @@ def _predict_one_betfair_event(
     odd_a, odd_b = ev.get("odd_a"), ev.get("odd_b")
     if not player_a or not player_b or not odd_a or not odd_b:
         return None
+    # Skip doubles markets (book names like "Harrison/Skupski")
+    if "/" in player_a or "/" in player_b:
+        return None
+    competition = str(ev.get("competition") or "")
+    if "doubles" in competition.lower():
+        return None
     if float(odd_a) <= 1.01 or float(odd_b) <= 1.01:
         return None
 
@@ -347,37 +401,47 @@ def _predict_one_betfair_event(
         return None
     seen.add(key)
 
-    competition = str(ev.get("competition") or "")
     bundle = _pick_bundle(bundles, competition)
     tour = bundle.tour
     surface = _infer_surface(competition)
+    tour_cands = bundle.candidates
+    match_date = str(ev.get("commence_time") or "")[:10]
 
     elo_a, trans_a = _player_elo(
-        bundle, player_a, surface=surface, candidates=all_cands,
-        tourney_name=competition, match_date=str(ev.get("commence_time") or "")[:10],
+        bundle, player_a, surface=surface, candidates=tour_cands,
+        tourney_name=competition, match_date=match_date,
     )
     elo_b, trans_b = _player_elo(
-        bundle, player_b, surface=surface, candidates=all_cands,
-        tourney_name=competition, match_date=str(ev.get("commence_time") or "")[:10],
+        bundle, player_b, surface=surface, candidates=tour_cands,
+        tourney_name=competition, match_date=match_date,
     )
 
     ta_a = lookup_ta_elo(player_a, surface, tour=tour)
     ta_b = lookup_ta_elo(player_b, surface, tour=tour)
 
     resolved_a = _player_resolved(
-        player_a, candidates=all_cands, bundle=bundle, ta_elo=ta_a,
+        player_a,
+        candidates=tour_cands,
+        bundle=bundle,
+        ta_elo=ta_a,
+        opponent_name=player_b,
+        tourney_date=match_date,
     )
     resolved_b = _player_resolved(
-        player_b, candidates=all_cands, bundle=bundle, ta_elo=ta_b,
+        player_b,
+        candidates=tour_cands,
+        bundle=bundle,
+        ta_elo=ta_b,
+        opponent_name=player_a,
+        tourney_date=match_date,
     )
 
-    match_date = str(ev.get("commence_time") or "")[:10]
     resolved_a_name = resolve_name(
-        player_a, candidates=all_cands, opponent_name=player_b,
+        player_a, candidates=tour_cands, opponent_name=player_b,
         tourney_date=match_date, tour=tour,
     )
     resolved_b_name = resolve_name(
-        player_b, candidates=all_cands, opponent_name=player_a,
+        player_b, candidates=tour_cands, opponent_name=player_a,
         tourney_date=match_date, tour=tour,
     )
     pid_a = bundle.name_to_id.get(_norm_name(resolved_a_name))
