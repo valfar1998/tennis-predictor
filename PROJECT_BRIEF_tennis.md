@@ -213,22 +213,29 @@ python main.py train   # XGBoost + stacker con TSCV
 |---------|-------------|--------|
 | **Temporal leakage** (OOF stacker / XGBoost) | Sort per data + `TimeSeriesSplit`; Brier OOF ≠ in-sample | `stacker.py`, `train.py` |
 | **MCP copertura asimmetrica** (Big Match vs early rounds) | Bayesian shrinkage verso media circuito se `<5` match chartati | `pressure.py` |
-| **Entity resolution** (TML / Betfair / OddsPortal) | Registry SQLite con ID Sackmann/TML + alias; fuzzy solo come fallback | `player_registry.py`, `entity_resolution.py` |
+| **Entity resolution** (TML / Betfair / OddsPortal / ITF) | Alias JSON prioritari → graph → registry **tour-aware** (ATP+WTA) → fuzzy; niente alias cognome-nudo; skip doppi | `player_registry.py`, `entity_resolution.py`, `upcoming.py` |
 | **Steam su dropping odds** | EV calcolato sempre sulla **quota corrente**; scarto se lo steam ha eroso il margine | `advise.py`, `playability.py` |
 
 ### Player registry (SQLite)
 
-Path: `data/processed/player_registry.sqlite`
+Path: `data/processed/player_registry.sqlite` (+ alias manuali in `data/processed/player_aliases.json`)
 
 ```bash
-python main.py sync   # include sync Sackmann players + TML link + registry
+python main.py sync   # sync ATP+WTA players, TML link, cleanup alias cognome-nudo
 ```
+
+**Sync:** importa sia `atp_players.csv` sia `wta_players.csv`. Dopo l’import esegue `cleanup_bare_last_name_aliases()` (rimuove alias monotoken = cognome: evitano collisioni tipo Sofia/Spencer Johnson).
+
+**Lookup:** `lookup_player_id(name, tour=…)` / `resolve_canonical(…, tour=…)` filtrano per tour quando noto.
 
 Ordine risoluzione nome in `resolve_name()`:
 
-1. **Registry SQLite** (`lookup_player_id` → `canonical_name`)
-2. Alias JSON (`player_aliases.json`)
-3. Fuzzy match runtime (`rapidfuzz`)
+1. **Alias JSON espliciti** (`player_aliases.json`) — truncation book (`Iren Burillo` → Irene…)
+2. **Graph match** (`player_graph.py`) — opponent + data torneo
+3. **Registry SQLite** tour-aware (`canonical_name` + chiave cognome+iniziale)
+4. Fuzzy runtime (`rapidfuzz`, solo su candidati del **tour corretto**)
+
+`model_low_confidence = true` se uno dei due lati **non** è in Elo (o TA Elo) del bundle tour scelto — non basta il nome in `*_players.csv`.
 
 ### Filtro steam (dropping odds)
 
@@ -280,31 +287,33 @@ Comando principale: `python main.py predict` (o pulsante **Aggiorna calendario**
 
 | Step | Modulo | Output |
 |------|--------|--------|
-| Match storici Sackmann ATP | `sackmann.py` | Elo engine ATP (`SACKMANN_ARCHIVE_PATH/atp` o `data/raw/atp/`) |
-| Match storici Sackmann WTA | `sackmann.py` | Elo engine WTA (`SACKMANN_ARCHIVE_PATH/wta` o `data/raw/wta/`) |
+| Match storici Sackmann ATP | `sackmann.py` | Elo tour-level; in **live** anche `qual_chall` + `futures` (`include_chall_futures=True`) |
+| Match storici Sackmann WTA | `sackmann.py` | Elo WTA (include già `qual_itf` via naming file) |
 | Elo Tennis Abstract | `tennis_abstract.py` | ATP + WTA cache JSON |
 | Quote live | `betfair.py` | `data/raw/betfair_odds.json` |
+| **Kambi/Unibet** | `kambi_unibet.py` | Palinsesto ITF/Challenger (merge con Betfair) |
 | **Tennis-Data.co.uk** | `tennis_data_portal.py` | Quote ATP stagioni + tornei ATP/WTA (PSW/PSL Pinnacle) |
 | **Livescore** | `tennis_livescore.py` | `livescore.tennis-data.co.uk` → cache JSON |
 | Moneyway volume | `market_signals.py` → [Arbworld 1x2](https://arbworld.net/moneyway/tennis/1x2) | `arbworld_moneyway.json` |
 | Dropping odds | `market_signals.py` → [OddsSafari sport 30](https://www.oddssafari.com/dropping-odds/sports/30) | `oddssafari_dropping.json` |
 | OddsPortal close | `oddsportal_scraper.py` (Playwright) | `data/raw/oddsportal_close.json` — job `oddsportal-clv.yml` |
-| Entity resolution | `entity_resolution.py` + **`player_registry.py`** | Registry SQLite (ID ATP/WTA) → alias JSON → fuzzy |
+| Entity resolution | `entity_resolution.py` + **`player_registry.py`** | Alias JSON → graph → registry tour-aware → fuzzy |
 
 Cache segnali mercato: **30 min**. Betfair: **1 h** (o cache se API non disponibile).
 
 ### 2. Predizione per ogni match
 
-Per ogni evento Betfair (fallback: match recenti Sackmann con quote storiche):
+Per ogni evento Betfair / Kambi (fallback: match recenti Sackmann):
 
-1. **Tour detection** — `Women's US Open` → WTA, `Men's US Open` → ATP
-2. **Risoluzione giocatori** — registry SQLite → alias JSON → fuzzy (`H Dart` → `Harriet Dart`)
-3. **Elo + CPI** — `blended_with_cpi()` modula peso superficie per velocità campo
-4. **Markov dinamico** — BP save + tiebreak clutch (MCP) via `pressure.py`; shrinkage se `<5` match chartati
-5. **ML live** — `live_features.py` → XGBoost con fatica/viaggio/hold-break
-6. **Stacking** — meta-learner logistico su **OOF temporale** (`TimeSeriesSplit`), Brier OOF
+1. **Tour detection** (`_infer_tour`) — `WTA` / `Women` / **`W15`–`W100`** → WTA; `ATP` / `Men` / **`M15`/`M25`** → ATP; default ATP
+2. **Skip doppi** — nomi con `/` o competition “Doubles”
+3. **Risoluzione giocatori** — alias JSON → graph → registry (tour) → fuzzy su candidati del **solo** tour scelto (`H Dart` → `Harriet Dart`)
+4. **Elo + CPI** — bundle live include Challenger/Futures ATP; `blended_with_cpi()` modula peso superficie
+5. **Markov dinamico** — BP save + tiebreak clutch (MCP) via `pressure.py`; shrinkage se `<5` match chartati
+6. **ML live** — `live_features.py` → XGBoost con fatica/viaggio/hold-break
+7. **Stacking** — meta-learner logistico su **OOF temporale** (`TimeSeriesSplit`), Brier OOF
 
-Output: `p_win_a`, componenti, `cpi_norm`, `pressure_used`, `tour`, `model_low_confidence`.
+Output: `p_win_a`, componenti, `cpi_norm`, `pressure_used`, `tour`, `model_low_confidence`, `players_resolved`.
 
 ### Precisione avanzata (dettaglio)
 
@@ -335,12 +344,12 @@ Modulo `advise.py` + `value.py` + `market_calibration.py`:
 
 | Filtro | Soglia |
 |--------|--------|
-| EV minimo | ≥ 2.5% (`MIN_EDGE`) — calcolato sulla **quota corrente** |
+| EV minimo | ≥ 2.5% (`MIN_EDGE`) sulla **quota corrente**; con **circuit breaker** attivo → **3.5%** (`CIRCUIT_BREAKER_MIN_EDGE`) |
 | Probabilità minima | ≥ 38% (`MIN_PROB_PLAY`) |
 | EV sanity hard | >30% (quote ≤3) / >25% (quote lunghe) → scarto |
 | EV review | >20% e ≤ hard cap → `action: review` (no Telegram) |
 | Divergenza mkt | \|P_model − P_mkt\| > 18% |
-| Modello incerto | giocatore/i non identificati nel database |
+| Modello incerto | `model_low_confidence`: giocatore/i senza Elo/TA nel tour bundle |
 | Artefatto 50/50 | `P ≈ 50%` e `P_elo ≈ 50%` senza ML |
 | **Steam eroso** | dropping allineato al pick ma EV corrente sotto soglia o margine eroso >45% vs open |
 
@@ -620,9 +629,11 @@ Pulsante **Ricalcola BCR** → `run_live_audit()` → aggiorna `live_metrics.jso
 | Boost giocabilità appresi (moneyway/dropping) | **BLOCCATI** |
 | Settle pick + BCR audit | **ATTIVO** |
 | Predict + Telegram | **ATTIVO** |
-| Circuit breaker drawdown (capitale) | **ATTIVO** (non è learning) |
+| Circuit breaker drawdown (capitale) | **ATTIVO** — stress edge **3.5%** (non è learning) |
 
 Config: `data/processed/validation_freeze.json` — si disattiva automaticamente a **200+ pick Betfair settle** (`active: false`); override manuale con `LIVE_VALIDATION_FREEZE=0` o `=1`.
+
+**Nota operativa:** il KPI BCR conta solo `action=bet` + `close_source` Betfair. Senza nuovi bet (filtri / CB) la finestra non avanza; `python main.py learn` chiude i pendenti e backfill CLV, `python main.py metrics` aggiorna il contatore.
 
 ```bash
 python main.py metrics          # BCR + avanzamento finestra → live_metrics.json
@@ -745,15 +756,16 @@ Integrato in `advise()` via `retirement_context`.
 
 ### 5. Graph entity resolution (`player_graph.py`)
 
-Ordine risoluzione nomi in `resolve_name()`:
+Ordine risoluzione nomi in `resolve_name()` (allineato a `upcoming` live):
 
-1. **Graph match** — opponent + data torneo su `match_edges` (SQLite)
-2. Registry SQLite (`player_registry.py`) — ID Sackmann/TML + alias
-3. Vincoli IOC / birth_year
-4. Fuzzy `rapidfuzz` (solo fallback)
+1. **Alias JSON** — truncation book ricorrenti (`player_aliases.json`)
+2. **Graph match** — opponent + data torneo su `match_edges` (SQLite)
+3. Registry SQLite (`player_registry.py`) — ID Sackmann/TML + alias **senza cognomi nudi**; filtro `tour` se noto
+4. Fuzzy `rapidfuzz` (solo fallback, candidati del tour)
 
-Popolamento automatico in `build_upcoming()`: biographics da `*_players.csv` + ultimi 8000 match come edge.
+Popolamento automatico in `build_upcoming()`: biographics da `*_players.csv` + ultimi 8000 match come edge. Elo ATP live carica anche Challenger/Futures per ridurre `model_low_confidence` su ITF/Challenger.
 
 ```bash
 python -c "from modules.data_update.player_graph import graph_stats; print(graph_stats())"
+python -c "from modules.data_update.player_registry import registry_stats; print(registry_stats())"
 ```
