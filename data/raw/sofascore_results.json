@@ -1,0 +1,16 @@
+{
+  "ok": false,
+  "source": "sofascore",
+  "fetched_at": "2026-09-12T06:29:34.995241+00:00",
+  "n_matches": 0,
+  "matches": [],
+  "days": 5,
+  "errors": [
+    "fetch_fail:2026-09-12",
+    "fetch_fail:2026-09-11",
+    "fetch_fail:2026-09-10",
+    "fetch_fail:2026-09-09",
+    "fetch_fail:2026-09-08",
+    "fetch_fail:2026-09-07"
+  ]
+}

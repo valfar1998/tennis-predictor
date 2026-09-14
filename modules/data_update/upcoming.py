@@ -314,6 +314,70 @@ def _player_elo(
     return 1500.0, trans
 
 
+def _raw_elo_pair(
+    bundle: TourBundle,
+    pid: int | None,
+    surface: str,
+    fallback: float,
+) -> tuple[float, float]:
+    """(surface_elo, global_elo) dal motore; fallback se player assente."""
+    if pid and pid in bundle.elo_engine.players:
+        pe = bundle.elo_engine.players[pid]
+        surf = float(pe.surface.get(surface, pe.global_rating))
+        return surf, float(pe.global_rating)
+    return float(fallback), float(fallback)
+
+
+def _apply_consensus_and_advise(
+    pred: dict,
+    *,
+    odd_a: float | None,
+    odd_b: float | None,
+    source: str,
+    live_feat: dict | None,
+    elo_surface_a: float | None,
+    elo_surface_b: float | None,
+    elo_global_a: float | None,
+    elo_global_b: float | None,
+    ta_elo_a: float | None,
+    ta_elo_b: float | None,
+    dropping_row: dict | None,
+    min_edge: float | None,
+    moneyway_rows: list[dict] | None,
+    dropping_rows: list[dict] | None,
+    bookmaker: str = "default",
+    retirement_context: dict | None = None,
+) -> dict:
+    from modules.advisor.signal_consensus import apply_signal_consensus, refresh_fair_odds_after_shrink
+
+    pred = apply_signal_consensus(
+        pred,
+        features=live_feat,
+        elo_surface_a=elo_surface_a,
+        elo_surface_b=elo_surface_b,
+        elo_global_a=elo_global_a,
+        elo_global_b=elo_global_b,
+        ta_elo_a=ta_elo_a,
+        ta_elo_b=ta_elo_b,
+    )
+    advise_kwargs: dict = {
+        "source": source,
+        "dropping_row": dropping_row,
+        "bookmaker": bookmaker,
+        "retirement_context": retirement_context,
+    }
+    if min_edge is not None:
+        advise_kwargs["min_edge"] = min_edge
+    advised = advise(pred, odd_a, odd_b, **advise_kwargs)
+    advised = refresh_fair_odds_after_shrink(advised)
+    advised = enrich_playability(
+        advised,
+        moneyway_rows=moneyway_rows,
+        dropping_rows=dropping_rows,
+    )
+    return advised
+
+
 def _predict_from_betfair(
     bundles: dict[str, TourBundle],
     betfair_events: list[dict],
@@ -448,6 +512,8 @@ def _predict_one_betfair_event(
     pid_b = bundle.name_to_id.get(_norm_name(resolved_b_name))
     serve_a, ret_a = _sr_elo_for_player(bundle, pid_a, surface)
     serve_b, ret_b = _sr_elo_for_player(bundle, pid_b, surface)
+    elo_surf_a, elo_glob_a = _raw_elo_pair(bundle, pid_a, surface, elo_a)
+    elo_surf_b, elo_glob_b = _raw_elo_pair(bundle, pid_b, surface, elo_b)
 
     weather = None
     try:
@@ -577,23 +643,27 @@ def _predict_one_betfair_event(
             bundle, pid=pick_pid, live_feat=feat_pick, pick_prob=pick_prob
         )
 
-    advised = advise(
+    advised = _apply_consensus_and_advise(
         pred,
-        float(odd_a),
-        float(odd_b),
+        odd_a=float(odd_a),
+        odd_b=float(odd_b),
         source=str(ev.get("odds_source") or "betfair"),
+        live_feat=live_feat,
+        elo_surface_a=elo_surf_a,
+        elo_surface_b=elo_surf_b,
+        elo_global_a=elo_glob_a,
+        elo_global_b=elo_glob_b,
+        ta_elo_a=ta_a,
+        ta_elo_b=ta_b,
         dropping_row=drop_row,
         min_edge=min_edge,
+        moneyway_rows=moneyway_rows,
+        dropping_rows=dropping_rows,
         bookmaker="betfair" if str(ev.get("odds_source") or "betfair") == "betfair" else "default",
         retirement_context=ret_ctx,
     )
     advised["odds_source"] = str(ev.get("odds_source") or "betfair")
     advised["book_odds"] = {"a": odd_a, "b": odd_b}
-    advised = enrich_playability(
-        advised,
-        moneyway_rows=moneyway_rows,
-        dropping_rows=dropping_rows,
-    )
     if advised.get("action") == "bet":
         archive_prediction(advised)
     else:
@@ -679,26 +749,49 @@ def _predict_from_sackmann_recent(
 
         drop_row = lookup_dropping(wname, lname, rows=dropping_rows)
 
+        elo_surf_w, elo_glob_w = _raw_elo_pair(bundle, wid, surface, elo_w)
+        elo_surf_l, elo_glob_l = _raw_elo_pair(bundle, lid, surface, elo_l)
+
         if bf_match:
-            advised = advise(
+            advised = _apply_consensus_and_advise(
                 pred,
-                bf_match.get("odd_a"),
-                bf_match.get("odd_b"),
+                odd_a=bf_match.get("odd_a"),
+                odd_b=bf_match.get("odd_b"),
                 source="betfair",
+                live_feat=None,
+                elo_surface_a=elo_surf_w,
+                elo_surface_b=elo_surf_l,
+                elo_global_a=elo_glob_w,
+                elo_global_b=elo_glob_l,
+                ta_elo_a=ta_w,
+                ta_elo_b=ta_l,
                 dropping_row=drop_row,
                 min_edge=min_edge,
+                moneyway_rows=moneyway_rows,
+                dropping_rows=dropping_rows,
+                bookmaker="betfair",
             )
             advised["odds_source"] = "betfair"
         else:
-            advised = advise(pred, ow, ol, source="book", dropping_row=drop_row, min_edge=min_edge)
+            advised = _apply_consensus_and_advise(
+                pred,
+                odd_a=ow,
+                odd_b=ol,
+                source="book",
+                live_feat=None,
+                elo_surface_a=elo_surf_w,
+                elo_surface_b=elo_surf_l,
+                elo_global_a=elo_glob_w,
+                elo_global_b=elo_glob_l,
+                ta_elo_a=ta_w,
+                ta_elo_b=ta_l,
+                dropping_row=drop_row,
+                min_edge=min_edge,
+                moneyway_rows=moneyway_rows,
+                dropping_rows=dropping_rows,
+            )
             advised["odds_source"] = "book"
 
-        advised = enrich_playability(
-            advised,
-            moneyway_rows=moneyway_rows,
-            dropping_rows=dropping_rows,
-        )
-        predictions.append(advised)
         if advised.get("action") == "bet":
             archive_prediction(advised)
         else:
@@ -707,6 +800,7 @@ def _predict_from_sackmann_recent(
                 paper["action"] = "paper"
                 paper["recommended"] = advised.get("best_play") or (advised.get("value") or {}).get("best")
                 archive_prediction(paper)
+        predictions.append(advised)
 
     return predictions
 

@@ -116,7 +116,10 @@ def learn_from_settled(*, force: bool = False) -> dict[str, Any]:
             (strong.get("hit_rate") or 0) * (strong.get("n") or 0)
             + (premium.get("hit_rate") or 0) * (premium.get("n") or 0)
         ) / max(1, (strong.get("n") or 0) + (premium.get("n") or 0))
-        ol["alert_min_suggested"] = 75 if sp_hit >= 0.52 else 80
+        from modules.advisor.playability import MIN_PLAY_ALERT
+
+        # Mai sotto MIN_PLAY_ALERT; se hit Strong/Premium deboli alza (max 80)
+        ol["alert_min_suggested"] = MIN_PLAY_ALERT if sp_hit >= 0.52 else max(MIN_PLAY_ALERT, 80)
 
     sig = report["signals"]
     if sig.get("dropping_aligned_hit_rate") and sig.get("dropping_aligned_n", 0) >= 5:
@@ -190,7 +193,11 @@ def effective_min_edge() -> float:
 
 
 def effective_alert_min_playability() -> int:
-    """Soglia giocabilità alert Telegram appresa da Strong/Premium hit rate."""
+    """Soglia giocabilità alert Telegram appresa da Strong/Premium hit rate.
+
+    Floor ``MIN_PLAY_ALERT`` (65). Valori legacy ≤75 (vecchio Strong) → 65;
+    solo soglie alzate (es. 80) restano attive.
+    """
     from modules.advisor.playability import MIN_PLAY_ALERT
     from modules.advisor.validation_freeze import blocks_playability_learned_adjustments
 
@@ -200,7 +207,10 @@ def effective_alert_min_playability() -> int:
     ol = cal.get("online_learn") or {}
     n = int(ol.get("last_n_settled") or 0)
     if n >= 8 and ol.get("alert_min_suggested") is not None:
-        return int(ol["alert_min_suggested"])
+        suggested = int(ol["alert_min_suggested"])
+        if suggested <= 75:
+            return MIN_PLAY_ALERT
+        return max(MIN_PLAY_ALERT, suggested)
     return MIN_PLAY_ALERT
 
 

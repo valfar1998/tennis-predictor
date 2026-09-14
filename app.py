@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 
 from modules.advisor.advise import display_pick
+from modules.advisor.playability import MIN_PLAY_ALERT
 from modules.data_update.calendar_utils import normalize_predictions_calendar
 
 st.set_page_config(page_title="Tennis Predictor", page_icon="🎾", layout="wide")
@@ -165,12 +166,16 @@ with tab_cal:
     else:
         bets = [p for p in preds if p.get("action") == "bet"]
         playable = [p for p in preds if float(p.get("playability") or 0) >= 60]
-        alertable = [p for p in preds if float(p.get("playability") or 0) >= 75]
+        alertable = [
+            p
+            for p in preds
+            if p.get("action") == "bet" and float(p.get("playability") or 0) >= MIN_PLAY_ALERT
+        ]
         c1, c2, c3, c4, c5 = st.columns(5)
         c1.metric("Match analizzati", len(preds))
         c2.metric("Value bet (EV+)", len(bets))
         c3.metric("Giocabili ≥60", len(playable))
-        c4.metric("Alert ≥75", len(alertable))
+        c4.metric(f"Alert ≥{MIN_PLAY_ALERT}", len(alertable))
         c5.metric("Fonte quote", preds[0].get("odds_source", "—") if preds else "—")
         st.caption(
             "Calendario da **oggi** (Europe/Rome). Clicca **Aggiorna calendario** dopo rinvii meteo "
@@ -181,9 +186,10 @@ with tab_cal:
             "prior mercato Bayesiano · Kelly/Sharpe ranking · Shin de-vig"
         )
         st.caption(
-            "**Giocabilità 0–100**: value/EV penalizzato da varianza quota, accordo modelli, "
+            "**Giocabilità 0–100**: value/EV penalizzato da varianza quota, accordo modelli/consenso, "
             "Kelly-adjusted, qualità mercato, Moneyway e dropping (assenti ≠ neutro 0.50). "
-            "Alert Telegram solo `action=bet` e ≥75. EV >20% → review; EV >25–30% → scarto. "
+            f"Alert Telegram solo `action=bet` e ≥{MIN_PLAY_ALERT}. "
+            "EV >20% → review; EV >25–30% → scarto. "
             "Pick/Quota/EV/KellyAdj sono compilati anche su `no_bet` (previsione, non scommessa)."
         )
 
@@ -250,7 +256,11 @@ with tab_cal:
         for p in sorted(preds, key=lambda x: float(x.get("playability") or 0), reverse=True)[:30]:
             rec = display_pick(p)
             play = int(p.get("playability") or 0)
-            icon = "✅" if play >= 75 and p.get("action") == "bet" else "⬜"
+            icon = (
+                "✅"
+                if play >= MIN_PLAY_ALERT and p.get("action") == "bet"
+                else "⬜"
+            )
             with st.expander(
                 f"{icon} [{play}/100] {p.get('player_a')} vs {p.get('player_b')} — {p.get('surface')}"
             ):
@@ -259,6 +269,26 @@ with tab_cal:
                 col2.metric("Markov", f"{p.get('p_markov', 0):.1%}")
                 col3.metric("Elo", f"{p.get('p_elo', 0):.1%}")
                 col4.metric("Giocabilità", f"{play}/100")
+                analysis = p.get("analysis") or {}
+                if analysis:
+                    st.caption(
+                        "Analisi: Form {p_form:.0%} · Surf {p_surface:.0%} · Qual {p_quality:.0%} · "
+                        "TA {p_external:.0%} · Stack {p_stack:.0%} → signal {p_signal:.0%} "
+                        "(accordo {agree:.0%}){fair}".format(
+                            p_form=float(analysis.get("p_form") or 0.5),
+                            p_surface=float(analysis.get("p_surface") or 0.5),
+                            p_quality=float(analysis.get("p_quality") or 0.5),
+                            p_external=float(analysis.get("p_external") or 0.5),
+                            p_stack=float(analysis.get("p_stack") or 0.5),
+                            p_signal=float(analysis.get("p_signal") or 0.5),
+                            agree=float(analysis.get("consensus_agree") or 0.5),
+                            fair=(
+                                f" | fair {float(analysis['fair_odds']):.2f}"
+                                if analysis.get("fair_odds")
+                                else ""
+                            ),
+                        )
+                    )
                 if rec:
                     ev = rec.get("ev")
                     odds = rec.get("odds")
@@ -276,9 +306,11 @@ with tab_cal:
                     if parts:
                         st.caption(
                             "Componenti: value {value:.0%} · modelli {model_agreement:.0%} · "
-                            "mercato {market_quality:.0%} · moneyway {moneyway:.0%} · drop {dropping_odds:.0%}".format(
+                            "consenso {consensus:.0%} · mercato {market_quality:.0%} · "
+                            "moneyway {moneyway:.0%} · drop {dropping_odds:.0%}".format(
                                 value=parts.get("value", 0),
                                 model_agreement=parts.get("model_agreement", 0),
+                                consensus=parts.get("consensus", parts.get("consensus_agree", 0)),
                                 market_quality=parts.get("market_quality", 0),
                                 moneyway=parts.get("moneyway", 0),
                                 dropping_odds=parts.get("dropping_odds", 0),

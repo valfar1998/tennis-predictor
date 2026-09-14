@@ -14,7 +14,7 @@ BANDS = (
     (90, 101, "premium", "Premium"),
 )
 
-MIN_PLAY_ALERT = 75  # soglia alert Telegram (Strong+)
+MIN_PLAY_ALERT = 65  # soglia alert Telegram / Streamlit (Playable+)
 
 
 def _clip(x: float, lo: float = 0.0, hi: float = 1.0) -> float:
@@ -202,6 +202,16 @@ def _dropping_score(
     }
 
 
+def _consensus_score(pred: dict) -> float:
+    """Accordo tra pilastri forma/superficie/qualità/TA/stack (0–1)."""
+    analysis = pred.get("analysis") or {}
+    if analysis.get("consensus_agree") is not None:
+        return _clip(float(analysis["consensus_agree"]))
+    if pred.get("consensus_agree") is not None:
+        return _clip(float(pred["consensus_agree"]))
+    return 0.5
+
+
 def compute_playability(
     advised: dict,
     *,
@@ -214,6 +224,7 @@ def compute_playability(
 
     value_n = _value_score(rec)
     agree_n = _model_agreement(advised)
+    consensus_n = _consensus_score(advised)
     kelly_n = _kelly_score(rec)
     market_n = _market_quality(advised, rec)
     mw_n, mw_info = _moneyway_score(advised, rec, moneyway_row)
@@ -222,7 +233,15 @@ def compute_playability(
     # Se MW/Drop mancano, ridistribuisci il peso su value/kelly/market (no padding neutro)
     mw_missing = bool(mw_info.get("missing"))
     drop_missing = bool(drop_info.get("missing"))
-    w_value, w_agree, w_kelly, w_market, w_mw, w_drop = 0.28, 0.16, 0.16, 0.15, 0.13, 0.12
+    w_value, w_agree, w_consensus, w_kelly, w_market, w_mw, w_drop = (
+        0.28,
+        0.06,
+        0.10,
+        0.16,
+        0.15,
+        0.13,
+        0.12,
+    )
     if mw_missing and drop_missing:
         freed = w_mw + w_drop
         w_mw = w_drop = 0.0
@@ -243,6 +262,7 @@ def compute_playability(
     raw = (
         w_value * value_n
         + w_agree * agree_n
+        + w_consensus * consensus_n
         + w_kelly * kelly_n
         + w_market * market_n
         + w_mw * mw_n
@@ -258,7 +278,7 @@ def compute_playability(
 
     action = advised.get("action")
     if action == "review":
-        score = min(score, 72.0)  # sotto soglia alert Strong
+        score = min(score, 72.0)  # sotto soglia Strong storica; alert ora da 65
     elif action != "bet":
         score = min(score, 55.0)
     if rec and float(rec.get("ev") or 0) < MIN_EDGE:
@@ -275,6 +295,7 @@ def compute_playability(
         "playability_parts": {
             "value": round(value_n, 3),
             "model_agreement": round(agree_n, 3),
+            "consensus": round(consensus_n, 3),
             "kelly": round(kelly_n, 3),
             "market_quality": round(market_n, 3),
             "moneyway": round(mw_n if not mw_missing else MISSING_SIGNAL_SCORE, 3),

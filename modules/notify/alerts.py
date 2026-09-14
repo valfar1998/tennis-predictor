@@ -109,6 +109,16 @@ def _format_bet(pred: dict) -> str:
     lines.append(
         f"Giocabilità: {int(pred.get('playability') or 0)}/100 ({pred.get('playability_label') or '—'})"
     )
+    analysis = pred.get("analysis") or {}
+    if analysis.get("telegram_line"):
+        lines.append(f"Analisi: {analysis['telegram_line']}")
+    elif analysis.get("p_signal") is not None:
+        fair = analysis.get("fair_odds")
+        fair_s = f" | fair {float(fair):.2f}" if fair else ""
+        lines.append(
+            f"Analisi: signal {float(analysis['p_signal']):.0%} "
+            f"accordo {float(analysis.get('consensus_agree') or 0):.0%}{fair_s}"
+        )
     mw = sig.get("volume_pct_pick")
     drop = sig.get("drop_pct")
     mw_missing = bool(sig.get("missing")) and mw is None

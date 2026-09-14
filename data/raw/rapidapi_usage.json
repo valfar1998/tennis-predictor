@@ -1,0 +1,65 @@
+{
+  "date": "2026-09-12",
+  "count": 6,
+  "daily_limit": 50,
+  "by_host": {
+    "sofascore6.p.rapidapi.com": 6
+  },
+  "calls": [
+    {
+      "at": "2026-09-12T06:29:36.215238+00:00",
+      "host": "sofascore6.p.rapidapi.com",
+      "url": "https://sofascore6.p.rapidapi.com/api/sofascore/v1/match/list",
+      "status_code": 200
+    },
+    {
+      "at": "2026-09-12T06:29:37.252240+00:00",
+      "host": "sofascore6.p.rapidapi.com",
+      "url": "https://sofascore6.p.rapidapi.com/api/sofascore/v1/match/list",
+      "status_code": 200
+    },
+    {
+      "at": "2026-09-12T06:29:38.414238+00:00",
+      "host": "sofascore6.p.rapidapi.com",
+      "url": "https://sofascore6.p.rapidapi.com/api/sofascore/v1/match/list",
+      "status_code": 200
+    },
+    {
+      "at": "2026-09-12T06:29:39.525242+00:00",
+      "host": "sofascore6.p.rapidapi.com",
+      "url": "https://sofascore6.p.rapidapi.com/api/sofascore/v1/match/list",
+      "status_code": 200
+    },
+    {
+      "at": "2026-09-12T06:29:40.650243+00:00",
+      "host": "sofascore6.p.rapidapi.com",
+      "url": "https://sofascore6.p.rapidapi.com/api/sofascore/v1/match/list",
+      "status_code": 200
+    },
+    {
+      "at": "2026-09-12T06:29:41.813243+00:00",
+      "host": "sofascore6.p.rapidapi.com",
+      "url": "https://sofascore6.p.rapidapi.com/api/sofascore/v1/match/list",
+      "status_code": 200
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-09-01",
+      "count": 4,
+      "daily_limit": 50,
+      "by_host": {
+        "sofascore6.p.rapidapi.com": 4
+      }
+    },
+    {
+      "date": "2026-09-02",
+      "count": 6,
+      "daily_limit": 50,
+      "by_host": {
+        "sofascore6.p.rapidapi.com": 6
+      }
+    }
+  ],
+  "last_call_at": "2026-09-12T06:29:41.813243+00:00"
+}

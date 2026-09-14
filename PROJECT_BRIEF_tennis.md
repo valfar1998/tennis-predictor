@@ -369,8 +369,9 @@ Modulo `playability.py`. Calcolato **dopo** il value bet, arricchisce ogni predi
 
 ```
 Giocabilità = 100 × (
-    w_value × value          # default 0.28; include penalità varianza quota
-  + w_agree × model_agreement  # 0.16
+    w_value × value            # default 0.28; include penalità varianza quota
+  + w_agree × model_agreement  # 0.06 (markov/elo/ml)
+  + w_consensus × consensus    # 0.10; accordo forma/superficie/qualità/TA/stack
   + w_kelly × kelly            # 0.16; Kelly-adjusted
   + w_market × market_quality  # 0.15
   + w_mw × moneyway            # 0.13; se missing → peso a value/kelly
@@ -378,6 +379,16 @@ Giocabilità = 100 × (
 )
 ```
 
+### Consenso analisi (`signal_consensus.py`)
+
+Prima dello shrink di mercato:
+
+```
+p_signal = 0.30·p_surface + 0.25·p_form + 0.20·p_quality + 0.15·p_external(TA) + 0.10·p_stack
+p_fair   = w·p_signal + (1−w)·p_market   # Bayes già in market_calibration
+```
+
+Campi su ogni predizione: `analysis.{p_form,p_surface,p_quality,p_external,p_stack,p_signal,consensus_agree,fair_odds,telegram_line}`.
 **Penalità finali:**
 - Se `action = "review"` → score max **72** (sotto soglia alert)
 - Se `action ≠ "bet"` (e non review) → score max **55**
@@ -391,10 +402,10 @@ Giocabilità = 100 × (
 | 0–30 | No bet | Non giocabile |
 | 30–60 | Lean | Interessante ma debole |
 | 60–75 | Playable | Giocabile con cautela |
-| 75–90 | Strong | Alert Telegram ✅ |
+| 75–90 | Strong | Alta convinzione |
 | 90–100 | Premium | Massima convinzione |
 
-**Soglia alert Telegram:** `MIN_PLAY_ALERT = 75` (Strong+) e solo `action=bet`.
+**Soglia alert Telegram/Streamlit:** `MIN_PLAY_ALERT = 65` (Playable+) e solo `action=bet`. `online_learn` può alzare (es. 80) ma **mai sotto 65**.
 
 ---
 
@@ -415,7 +426,7 @@ Misura edge **sostenibile**, non EV grezzo su quote lunghe.
 | Combinazione | mix EV + edge + Sharpe × sustainability |
 | EV sotto 2.5% | componente bassa; cap score a 45 |
 
-### 2. Model agreement (peso ~16%)
+### 2. Model agreement (peso ~6%)
 
 Accordo tra Markov, Elo e ML rispetto al blend finale.
 
@@ -425,6 +436,10 @@ Accordo tra Markov, Elo e ML rispetto al blend finale.
 | Divergenza media 15 pp | → 0.0 |
 | ML assente | usa solo Markov + Elo |
 | Modello ~50/50 senza ML | spesso blocca il bet prima (filtro incertezza) |
+
+### 2b. Consensus analisi (peso ~10%)
+
+Accordo tra pilastri `p_form` / `p_surface` / `p_quality` / `p_external` (TA) / `p_stack` da `signal_consensus.py`. Dispersione alta → score basso.
 
 ### 3. Kelly (peso ~16%)
 
@@ -501,7 +516,7 @@ Allineamento: pick lato A + dropping su `"1"`, oppure lato B + dropping su `"2"`
 | Storico pick | `data/processed/our_history.sqlite` |
 | Report apprendimento | `data/models/online_learn_report.json` |
 | UI | Streamlit `app.py` — **contatore BCR** in cima (Betfair KPI + Kambi + finestra) + tab Calendario ordinato per giocabilità |
-| Telegram | `modules/notify/alerts.py` — solo `action=bet` **e** giocabilità **≥ 75**, dedup 21 gg |
+| Telegram | `modules/notify/alerts.py` — solo `action=bet` **e** giocabilità **≥ 65**, dedup 21 gg |
 | Cloud (GitHub Actions) | `scripts/notify_cloud.py` — sync Betfair + segnali + predict + alert |
 
 Branding alert: **TENNIS_PREDICTOR**.
@@ -516,7 +531,7 @@ Ogni run esegue `scripts/notify_cloud.py`:
 2. **Segnali mercato** — Arbworld Moneyway + OddsSafari dropping (cache 30 min)
 3. **Settle + learn** — chiude pick pendenti vs risultati Sackmann, aggiorna `calibration.json`
 4. **Predict** — pipeline completa con giocabilità (inclusi moneyway 13% + dropping 12%)
-5. **Telegram** — alert solo Strong+ (≥75), con dettaglio Moneyway/Drop
+5. **Telegram** — alert Playable+ (≥65), con dettaglio Moneyway/Drop + pilastri analisi
 
 Cache persistenti tra run: `our_history.sqlite`, `telegram_alerts_sent.json`, segnali mercato, Betfair session.
 
@@ -536,7 +551,7 @@ Workflow: `.github/workflows/auto-learn.yml` — cron **04:00 e 16:00 UTC** + `w
 | Parametro appreso | Applica a |
 |-------------------|-----------|
 | `min_edge_suggested` | Soglia EV in `predict` (via `effective_min_edge()`) |
-| `alert_min_suggested` | Soglia Telegram Strong (75 vs 80) |
+| `alert_min_suggested` | Soglia Telegram (floor 65; può salire a 80) |
 | `dropping_boost` / `moneyway_boost` | Giocabilità (`learned_playability_adjustment`) |
 | Penalità bande Lean/Playable | Se hit rate storico basso |
 | BCR Betfair <52% (n≥15) | Alza `min_edge_suggested` a 3.5% |
@@ -583,7 +598,7 @@ Con ≥12 pick chiuse, `learn_from_settled()` aggiorna `data/models/calibration.
 
 | Statistica | Uso |
 |------------|-----|
-| Hit rate per banda giocabilità | suggerisce soglia alert (75 vs 80) |
+| Hit rate per banda giocabilità | suggerisce soglia alert (65 vs 80, floor 65) |
 | ROI globale | suggerisce `min_edge` (2.5%–3.5%) |
 | Hit rate drop allineato | `dropping_boost` fino a +8 pp su raw score |
 | Hit rate con segnale Moneyway | `moneyway_boost` fino a +6 pp |

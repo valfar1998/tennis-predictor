@@ -1,0 +1,344 @@
+{
+  "2026": {
+    "lat": 52.38084,
+    "lon": 4.63683,
+    "name": "Haarlem",
+    "country": "The Netherlands"
+  },
+  "yeongwol": {
+    "lat": 35.13846,
+    "lon": 126.41741,
+    "name": "Yeongwolchon",
+    "country": "South Korea"
+  },
+  "campulung": {
+    "lat": 47.53333,
+    "lon": 25.56667,
+    "name": "Campulung Moldovenesc",
+    "country": "Romania"
+  },
+  "tsaghkadzor": {
+    "lat": 40.5325,
+    "lon": 44.72323,
+    "name": "Tsaghkadzor",
+    "country": "Armenia"
+  },
+  "guiyang": {
+    "lat": 26.58333,
+    "lon": 106.71667,
+    "name": "Guiyang",
+    "country": "China"
+  },
+  "shanghai": {
+    "lat": 31.22222,
+    "lon": 121.45806,
+    "name": "Shanghai",
+    "country": "China"
+  },
+  "istanbul": {
+    "lat": 41.01384,
+    "lon": 28.94966,
+    "name": "Istanbul",
+    "country": "Republic of Türkiye"
+  },
+  "plaisir": {
+    "lat": 48.82319,
+    "lon": 1.9541,
+    "name": "Plaisir",
+    "country": "France"
+  },
+  "antalya": {
+    "lat": 36.90812,
+    "lon": 30.69556,
+    "name": "Antalya",
+    "country": "Republic of Türkiye"
+  },
+  "tulln": {
+    "lat": 48.32829,
+    "lon": 16.05858,
+    "name": "Tulln",
+    "country": "Austria"
+  },
+  "dijon": {
+    "lat": 47.31344,
+    "lon": 5.01391,
+    "name": "Dijon",
+    "country": "France"
+  },
+  "genoa": {
+    "lat": 44.40478,
+    "lon": 8.94439,
+    "name": "Genoa",
+    "country": "Italy"
+  },
+  "cassis": {
+    "lat": 43.21571,
+    "lon": 5.53855,
+    "name": "Cassis",
+    "country": "France"
+  },
+  "gijon": {
+    "lat": 43.53573,
+    "lon": -5.66152,
+    "name": "Gijón",
+    "country": "Spain"
+  },
+  "pozzuoli": {
+    "lat": 40.84394,
+    "lon": 14.0952,
+    "name": "Pozzuoli",
+    "country": "Italy"
+  },
+  "evora": {
+    "lat": 38.56587,
+    "lon": -7.90405,
+    "name": "Evora",
+    "country": "Portugal"
+  },
+  "montreux": {
+    "lat": 46.43301,
+    "lon": 6.91143,
+    "name": "Montreux",
+    "country": "Switzerland"
+  },
+  "seville": {
+    "lat": 37.38283,
+    "lon": -5.97317,
+    "name": "Seville",
+    "country": "Spain"
+  },
+  "reus": {
+    "lat": 41.15612,
+    "lon": 1.10687,
+    "name": "Reus",
+    "country": "Spain"
+  },
+  "tallahassee": {
+    "lat": 30.43826,
+    "lon": -84.28073,
+    "name": "Tallahassee",
+    "country": "United States"
+  },
+  "barranquilla": {
+    "lat": 10.96854,
+    "lon": -74.78132,
+    "name": "Barranquilla",
+    "country": "Colombia"
+  },
+  "women": {
+    "lat": 5.93333,
+    "lon": 0.6,
+    "name": "Womenyi",
+    "country": "Ghana"
+  },
+  "open": {
+    "lat": 54.10458,
+    "lon": 20.22074,
+    "name": "Opin",
+    "country": "Poland"
+  },
+  "beach": {
+    "lat": 46.91807,
+    "lon": -104.00437,
+    "name": "Beach",
+    "country": "United States"
+  },
+  "por": {
+    "lat": 61.48072,
+    "lon": 21.78518,
+    "name": "Pori",
+    "country": "Finland"
+  },
+  "budapest": {
+    "lat": 47.49835,
+    "lon": 19.04045,
+    "name": "Budapest",
+    "country": "Hungary"
+  },
+  "radom": {
+    "lat": 51.40253,
+    "lon": 21.14714,
+    "name": "Radom",
+    "country": "Poland"
+  },
+  "monastir": {
+    "lat": 35.77799,
+    "lon": 10.82617,
+    "name": "Monastir",
+    "country": "Tunisia"
+  },
+  "wuning": {
+    "lat": 29.26778,
+    "lon": 120.22528,
+    "name": "Dongyang",
+    "country": "China"
+  },
+  "viserba": {
+    "lat": 44.08888,
+    "lon": 12.5366,
+    "name": "Viserba",
+    "country": "Italy"
+  },
+  "sintra": {
+    "lat": 38.80097,
+    "lon": -9.37826,
+    "name": "Sintra",
+    "country": "Portugal"
+  },
+  "rabat": {
+    "lat": 34.01325,
+    "lon": -6.83255,
+    "name": "Rabat",
+    "country": "Morocco"
+  },
+  "hurghada": {
+    "lat": 27.25738,
+    "lon": 33.81291,
+    "name": "Hurghada",
+    "country": "Egypt"
+  },
+  "leme": {
+    "lat": -22.18556,
+    "lon": -47.39028,
+    "name": "Leme",
+    "country": "Brazil"
+  },
+  "pilar": {
+    "lat": -34.45867,
+    "lon": -58.91398,
+    "name": "Pilar",
+    "country": "Argentina"
+  },
+  "knoxville": {
+    "lat": 35.96064,
+    "lon": -83.92074,
+    "name": "Knoxville",
+    "country": "United States"
+  },
+  "sydney": {
+    "lat": -33.86785,
+    "lon": 151.20732,
+    "name": "Sydney",
+    "country": "Australia"
+  },
+  "bali": {
+    "lat": 22.64859,
+    "lon": 88.34115,
+    "name": "Bāli",
+    "country": "India"
+  },
+  "sapporo": {
+    "lat": 43.06667,
+    "lon": 141.35,
+    "name": "Sapporo",
+    "country": "Japan"
+  },
+  "nonthaburi": {
+    "lat": 13.86075,
+    "lon": 100.51477,
+    "name": "Nonthaburi",
+    "country": "Thailand"
+  },
+  "esp": {
+    "lat": 40.99954,
+    "lon": -75.18129,
+    "name": "East Stroudsburg",
+    "country": "United States"
+  },
+  "paulo": {
+    "lat": 20.2125,
+    "lon": -105.3675,
+    "name": "Paulo",
+    "country": "Mexico"
+  },
+  "guadalajara": {
+    "lat": 20.67738,
+    "lon": -103.34749,
+    "name": "Guadalajara",
+    "country": "Mexico"
+  },
+  "pazardzhik": {
+    "lat": 42.19934,
+    "lon": 24.33318,
+    "name": "Pazardzhik",
+    "country": "Bulgaria"
+  },
+  "essen": {
+    "lat": 51.45657,
+    "lon": 7.01228,
+    "name": "Essen",
+    "country": "Germany"
+  },
+  "biella": {
+    "lat": 45.56304,
+    "lon": 8.05796,
+    "name": "Biella",
+    "country": "Italy"
+  },
+  "guangzhou": {
+    "lat": 23.11667,
+    "lon": 113.25,
+    "name": "Guangzhou",
+    "country": "China"
+  },
+  "neubourg": {
+    "lat": 48.83893,
+    "lon": 7.68026,
+    "name": "Neubourg",
+    "country": "France"
+  },
+  "ljubljana": {
+    "lat": 46.05108,
+    "lon": 14.50513,
+    "name": "Ljubljana",
+    "country": "Slovenia"
+  },
+  "szczecin": {
+    "lat": 53.42894,
+    "lon": 14.55302,
+    "name": "Szczecin",
+    "country": "Poland"
+  },
+  "pula": {
+    "lat": 1.53333,
+    "lon": 103.66667,
+    "name": "Mukim Pulai",
+    "country": "Malaysia"
+  },
+  "rennes": {
+    "lat": 48.11109,
+    "lon": -1.67431,
+    "name": "Rennes",
+    "country": "France"
+  },
+  "valencia": {
+    "lat": 39.47391,
+    "lon": -0.37966,
+    "name": "Valencia",
+    "country": "Spain"
+  },
+  "rainha": {
+    "lat": -14.89639,
+    "lon": 39.66583,
+    "name": "Rainha",
+    "country": "Mozambique"
+  },
+  "nevers": {
+    "lat": 46.98956,
+    "lon": 3.159,
+    "name": "Nevers",
+    "country": "France"
+  },
+  "melilla": {
+    "lat": 35.29369,
+    "lon": -2.93833,
+    "name": "Melilla",
+    "country": "Spain"
+  },
+  "tiburon": {
+    "lat": 37.87354,
+    "lon": -122.45664,
+    "name": "Belvedere Tiburon",
+    "country": "United States"
+  }
+}
