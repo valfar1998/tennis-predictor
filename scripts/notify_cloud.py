@@ -24,7 +24,7 @@ def main() -> None:
     from modules.notify.telegram import send_message, telegram_status
 
     (ROOT / "data" / "processed").mkdir(parents=True, exist_ok=True)
-    prog = OpProgress(5, label="cloud")
+    prog = OpProgress(6, label="cloud")
     print(telegram_status(), flush=True)
 
     info: dict = {"cloud": True}
@@ -56,6 +56,18 @@ def main() -> None:
         info["market_signals_error"] = str(exc)
 
     try:
+        from modules.data_update.injury_feed import fetch_injury_news
+
+        prog.next("Injury/news feed...")
+        news = fetch_injury_news(force=True)
+        info["injury_news"] = {
+            "n_items": news.get("n_items"),
+            "errors": (news.get("errors") or [])[:4],
+        }
+    except Exception as exc:
+        info["injury_news_error"] = str(exc)
+
+    try:
         from modules.data_update.history import settle_pending
 
         prog.next("Settle pending...")
@@ -66,11 +78,15 @@ def main() -> None:
     prog.next("Build upcoming predictions...")
     preds = build_upcoming(use_betfair=True)
     print(f"  predictions={len(preds)}", flush=True)
+    n_shadow = sum(1 for p in preds if p.get("action") == "shadow")
+    n_news = sum(1 for p in preds if (p.get("news_alert") or {}).get("any_alert"))
     prog.next("Telegram alerts...")
     alerts = dispatch_alerts(preds)
     info.update({
         "n_predictions": len(preds),
         "n_bets": alerts.get("n_bets", 0),
+        "n_shadow": n_shadow,
+        "n_news_alerts": alerts.get("n_news_alerts", n_news),
         "n_new_bets": alerts.get("n_new_bets", 0),
         "n_alerted": alerts.get("n_sent", 0),
     })

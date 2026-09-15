@@ -21,11 +21,17 @@ def notify_learn_summary(*, settle: dict, learn: dict | None, audit: dict) -> bo
 
     ol = (learn or {}).get("online_learn") or audit.get("online_learn") or {}
     bcr = audit.get("bcr_betfair") or {}
+    bcr_raw = audit.get("bcr_betfair_raw") or {}
     bcr_k = audit.get("bcr_kambi") or {}
     bcr_txt = (
-        f"{bcr.get('bcr_pct')}% ({bcr.get('beats')}/{bcr.get('n')})"
+        f"{bcr.get('bcr_pct')}% ({bcr.get('beats')}/{bcr.get('n')}) quality"
         if bcr.get("n")
-        else "campione insufficiente"
+        else f"n=0 quality (escl. {bcr.get('n_excluded_low_quality') or 0} fallback)"
+    )
+    bcr_raw_txt = (
+        f"{bcr_raw.get('bcr_pct')}% ({bcr_raw.get('beats')}/{bcr_raw.get('n')})"
+        if bcr_raw.get("n")
+        else "n/d"
     )
     bcr_k_txt = (
         f"{bcr_k.get('bcr_pct')}% ({bcr_k.get('beats')}/{bcr_k.get('n')})"
@@ -35,12 +41,13 @@ def notify_learn_summary(*, settle: dict, learn: dict | None, audit: dict) -> bo
 
     text = (
         f"{brand_header()}\n\n"
-        f"📊 {BRAND} — Auto Learn\n\n"
+        f"{BRAND} — Auto Learn\n\n"
         f"Settle: {settle.get('settled', 0)} pick chiuse\n"
         f"Pick settle totali: {learn.get('n_settled') if learn else '—'}\n"
         f"Hit rate: {(learn.get('hit_rate') if learn else None) or '—'}\n"
-        f"BCR Betfair: {bcr_txt}\n"
-        f"BCR Kambi: {bcr_k_txt}\n"
+        f"BCR Betfair KPI: {bcr_txt}\n"
+        f"BCR Betfair raw: {bcr_raw_txt}\n"
+        f"BCR Kambi (sec.): {bcr_k_txt}\n"
     )
     if is_frozen():
         text += "🔒 FREEZE validazione: pesi invariati (solo metriche)\n"

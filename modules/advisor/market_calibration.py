@@ -53,7 +53,7 @@ def shrink_model_weight(
         w = float(effective_itf_params().get("shrink_w_itf", BAYES_SHRINK_W_ITF))
     else:
         w_itf = effective_itf_params().get("shrink_w_itf", BAYES_SHRINK_W_ITF)
-        by_level = {"G": 0.75, "M": 0.70, "F": 0.68, "A": 0.58, "C": 0.35, "S": w_itf}
+        by_level = {"G": 0.75, "M": 0.70, "F": 0.68, "A": 0.58, "C": 0.42, "S": w_itf}
         base = by_level.get(level, 0.55)
         if data_density_min < 25:
             w = min(base, 0.32)

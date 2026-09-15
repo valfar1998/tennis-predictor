@@ -146,6 +146,16 @@ def _format_bet(pred: dict) -> str:
             f"KellyAdj={float(rec.get('kelly_adj_rank') or 0):.4f}"
         )
     lines.append(f"Fonte quote: {source} | Superficie: {surface}")
+    news = pred.get("news_alert") or {}
+    if news.get("any_alert"):
+        cat = news.get("category") or "news"
+        head = news.get("headline") or ""
+        flag = "HARD BLOCK" if news.get("hard_block_pick") or pred.get("news_hard_block") else "ALERT"
+        lines.append(f"News {flag} ({cat}): {head[:120]}")
+    if rec.get("retirement_warning"):
+        lines.append(str(rec["retirement_warning"]))
+    elif pred.get("p_retire"):
+        lines.append(f"P(ritiro)≈{float(pred['p_retire']):.0%}")
     return "\n".join(lines)
 
 
@@ -163,7 +173,7 @@ def _pack(title: str, items: list[dict]) -> list[tuple[str, list[str]]]:
 
 
 def dispatch_alerts(predictions: list[dict] | None = None, *, dry_run: bool = False) -> dict:
-    """Invia solo value bet nuovi (dedup su telegram_alerts_sent.json)."""
+    """Invia value bet nuovi + alert news su bet/shadow (dedup)."""
     rows = predictions or []
     bets = [
         p for p in rows
@@ -173,17 +183,38 @@ def dispatch_alerts(predictions: list[dict] | None = None, *, dry_run: bool = Fa
     ]
     sent_ids = _load_sent()
     fresh = [p for p in bets if alert_key(p) not in sent_ids]
-    messages = _pack(f"🎯 GIOCA · giocabilità ≥{int(_min_playability())}", fresh)
+    messages = _pack(f"GIOCA · giocabilità ≥{int(_min_playability())}", fresh)
+
+    # News: withdrawal/injury su bet/shadow/review o hard-block
+    news_items = []
+    for p in rows:
+        na = p.get("news_alert") or {}
+        if not na.get("any_alert"):
+            continue
+        interesting = (
+            p.get("action") in ("bet", "shadow", "review")
+            or p.get("news_hard_block")
+            or na.get("hard_block_pick")
+            or float((na.get("pick") or {}).get("severity") or 0) >= 0.70
+            or float((na.get("opponent") or {}).get("severity") or 0) >= 0.85
+        )
+        if not interesting:
+            continue
+        key = "news|" + alert_key(p)
+        if key in sent_ids:
+            continue
+        news_items.append(p)
+    news_messages = _pack("NEWS / INJURY · attenzione palinsesto", news_items)
 
     sent_n = 0
     if dry_run:
-        for msg, _ids in messages:
+        for msg, _ids in messages + news_messages:
             print(msg)
             print("---")
-    elif messages:
-        if not load_credentials():
+    else:
+        if (messages or news_messages) and not load_credentials():
             print("telegram skip: credenziali assenti")
-        else:
+        elif messages or news_messages:
             now = _now().isoformat()
             changed = False
             for msg, ids in messages:
@@ -201,19 +232,26 @@ def dispatch_alerts(predictions: list[dict] | None = None, *, dry_run: bool = Fa
                                 log_alert(p, sent_at=now)
                     except Exception:
                         pass
+            for msg, ids in news_messages:
+                if send_message(msg):
+                    sent_n += 1
+                    for key in ids:
+                        sent_ids["news|" + key] = now
+                    changed = True
             if changed:
                 _save_sent(sent_ids)
 
     info = {
         "n_bets": len(bets),
         "n_new_bets": len(fresh),
-        "n_messages": len(messages),
+        "n_news_alerts": len(news_items),
+        "n_messages": len(messages) + len(news_messages),
         "n_sent": sent_n,
         "dry_run": dry_run,
         "status": telegram_status(),
     }
     print(
         f"telegram avvisi: value {info['n_new_bets']}/{info['n_bets']} nuovi, "
-        f"inviati {sent_n}"
+        f"news {info['n_news_alerts']}, inviati {sent_n}"
     )
     return info

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
@@ -104,7 +105,10 @@ def paper_eligible(pred: dict[str, Any]) -> bool:
     if pred.get("action") == "bet":
         return False
     if pred.get("model_low_confidence"):
-        return False
+        pr = pred.get("players_resolved") or {}
+        # Tornei inferiori: archivia paper se almeno un lato è risolto
+        if not (pr.get("a") or pr.get("b")):
+            return False
     from modules.advisor.advise import display_pick
 
     rec = display_pick(pred)
@@ -150,6 +154,8 @@ def archive_prediction(pred: dict[str, Any]) -> None:
             if hit is not None:
                 return
             if old_action == "bet" and action != "bet":
+                return
+            if old_action == "shadow" and action not in ("bet", "shadow"):
                 return
         # Non scrivere CLV/chiusura all'ingresso: LTP live = quota bet, BCR finto a 0.
         c.execute(
@@ -251,7 +257,7 @@ def settle_from_results(*, days: int = 14) -> dict[str, Any]:
     with _conn() as c:
         c.row_factory = sqlite3.Row
         pending = c.execute(
-            "SELECT * FROM matches WHERE hit IS NULL AND action IN ('bet', 'paper')"
+            "SELECT * FROM matches WHERE hit IS NULL AND action IN ('bet', 'shadow', 'paper')"
         ).fetchall()
         n_pending = len(pending)
         every = max(1, n_pending // 10) if n_pending else 1
@@ -318,13 +324,13 @@ def refresh_clv_close(*, days: int = 14, include_settled: bool = False) -> dict[
         if include_settled:
             rows = c.execute(
                 """SELECT * FROM matches
-                   WHERE action IN ('bet', 'paper')
+                   WHERE action IN ('bet', 'shadow', 'paper')
                    AND (hit IS NULL OR hit IS NOT NULL)"""
             ).fetchall()
         else:
             rows = c.execute(
                 """SELECT * FROM matches
-                   WHERE hit IS NULL AND action IN ('bet', 'paper')
+                   WHERE hit IS NULL AND action IN ('bet', 'shadow', 'paper')
                    AND (clv IS NULL OR close_source IS NULL)"""
             ).fetchall()
         for rec in rows:
@@ -358,10 +364,19 @@ def refresh_clv_close(*, days: int = 14, include_settled: bool = False) -> dict[
             if (
                 odds_bet
                 and close_pick
-                and src in ("betfair_ltp", "betfair_bet_snapshot", "kambi_last_odds", "kambi_unibet")
+                and src in (
+                    "betfair_ltp",
+                    "betfair_bet_snapshot",
+                    "betfair_ltp_fallback",
+                    "kambi_last_odds",
+                    "kambi_unibet",
+                )
                 and abs(float(close_pick) - odds_bet) < 0.005
             ):
                 continue
+            # Fallback last-LTP: registra comunque ma con source esplicita (BCR quality lo esclude)
+            if close.get("bcr_eligible") is False and "betfair" in src and "fallback" not in src:
+                close = {**close, "source": "betfair_ltp_fallback"}
             info = clv_vs_close(
                 pick_side=side,
                 odds_bet=odds_bet,
@@ -392,6 +407,79 @@ def _last_name(name: str) -> str:
     from modules.data_update.entity_resolution import _last_name as ln
 
     return ln(name)
+
+
+def retag_low_quality_betfair_closes() -> dict[str, Any]:
+    """Rietichetta chiusure Betfair last-LTP (fallback) come betfair_ltp_fallback.
+
+    Usa close_note dalla cache settled + delta |odds−close| < BCR_MIN_CLOSE_DELTA.
+    """
+    from modules.constants import BCR_MIN_CLOSE_DELTA
+    from modules.data_update.entity_resolution import _last_name
+
+    fallback_mids: set[str] = set()
+    settled_path = ROOT / "data" / "raw" / "betfair_settled.json"
+    err = None
+    try:
+        if settled_path.exists():
+            data = json.loads(settled_path.read_text(encoding="utf-8"))
+            for row in data.get("results") or []:
+                note = str(row.get("close_note") or "")
+                src = str(row.get("source") or "")
+                if (
+                    note == "last_ltp_before_close"
+                    or row.get("bcr_eligible") is False
+                    or "fallback" in src
+                ):
+                    mid = str(row.get("market_id") or "")
+                    if mid:
+                        fallback_mids.add(mid)
+    except Exception as exc:
+        err = str(exc)
+        fallback_mids = set()
+
+    updated = 0
+    with _conn() as c:
+        c.row_factory = sqlite3.Row
+        rows = c.execute(
+            """SELECT match_key, pick, player_a, player_b, odds, close_odds_a, close_odds_b,
+                      close_source, betfair_market_id
+               FROM matches
+               WHERE close_source LIKE '%betfair%'
+                 AND beat_close IS NOT NULL
+                 AND odds IS NOT NULL"""
+        ).fetchall()
+        for rec in rows:
+            src = str(rec["close_source"] or "").lower()
+            if "fallback" in src:
+                continue
+            mid = str(rec["betfair_market_id"] or "")
+            retag = mid in fallback_mids
+            if not retag and rec["close_odds_a"] is not None and rec["close_odds_b"] is not None:
+                pick = str(rec["pick"] or "")
+                pa, pb = str(rec["player_a"] or ""), str(rec["player_b"] or "")
+                side = "A" if _last_name(pick) == _last_name(pa) else "B"
+                try:
+                    close_pick = float(rec["close_odds_a"] if side == "A" else rec["close_odds_b"])
+                    odds_bet = float(rec["odds"])
+                    if abs(close_pick - odds_bet) < BCR_MIN_CLOSE_DELTA:
+                        retag = True
+                except (TypeError, ValueError):
+                    pass
+            if retag:
+                c.execute(
+                    "UPDATE matches SET close_source=? WHERE match_key=?",
+                    ("betfair_ltp_fallback", rec["match_key"]),
+                )
+                updated += 1
+        c.commit()
+    out: dict[str, Any] = {
+        "retag_fallback": updated,
+        "fallback_market_ids": len(fallback_mids),
+    }
+    if err:
+        out["error"] = err
+    return out
 
 
 def settle_pending(*, learn: bool = True) -> dict[str, Any]:
@@ -430,11 +518,21 @@ def settle_pending(*, learn: bool = True) -> dict[str, Any]:
     except Exception as exc:
         out["flashscore_sync_error"] = str(exc)
     try:
-        from modules.data_update.betfair import fetch_betfair_settled_results, fetch_betfair_odds, login_configured
+        from modules.data_update.betfair import (
+            fetch_betfair_settled_results,
+            fetch_betfair_odds,
+            login_configured,
+            snapshot_prematch_closes,
+        )
 
         prog.next("Sync Betfair settled...")
         if login_configured():
-            # Aggiorna LTP live sul registry PRIMA che i mercati vadano CLOSED (senza prezzi).
+            # Snapshot T−60/T−5/T−1 PRIMA che i mercati vadano CLOSED (senza prezzi).
+            try:
+                snap = snapshot_prematch_closes(days=3)
+                out["betfair_prematch_snap"] = snap
+            except Exception as exc:
+                out["betfair_prematch_snap_error"] = str(exc)
             try:
                 odds_info = fetch_betfair_odds(force=False, days=3, max_age_hours=1.0)
                 out["betfair_odds_sync"] = {
@@ -513,6 +611,13 @@ def settle_pending(*, learn: bool = True) -> dict[str, Any]:
         print(f"  CLV refreshed: {out['clv_refresh'].get('clv_refreshed', 0)}", flush=True)
     except Exception as exc:
         out["clv_refresh_error"] = str(exc)
+    try:
+        out["retag_closes"] = retag_low_quality_betfair_closes()
+        n_retag = int((out["retag_closes"] or {}).get("retag_fallback") or 0)
+        if n_retag:
+            print(f"  Retag close fallback: {n_retag}", flush=True)
+    except Exception as exc:
+        out["retag_closes_error"] = str(exc)
     if learn:
         prog.next("Online learn...")
         try:

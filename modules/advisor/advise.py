@@ -38,9 +38,12 @@ def steam_eroded_reasons(
     *,
     dropping_row: dict | None,
     min_edge: float = MIN_EDGE,
-    erosion_ratio: float = 0.55,
+    erosion_ratio: float | None = None,
+    min_drop_pct: float | None = None,
 ) -> list[str]:
-    """Scarta pick se lo steam ha eroso il margine sulla quota corrente."""
+    """Scarta pick solo se lo steam aggressivo ha eroso il margine sulla quota corrente."""
+    from modules.constants import STEAM_EROSION_RATIO, STEAM_MIN_DROP_PCT
+
     if not dropping_row:
         return []
 
@@ -48,6 +51,13 @@ def steam_eroded_reasons(
     if not _dropping_aligned(pick_side, dropping_row):
         return []
 
+    drop = float(dropping_row.get("drop_pct") or 0)
+    min_drop = STEAM_MIN_DROP_PCT if min_drop_pct is None else float(min_drop_pct)
+    # Variazioni fisiologiche (< min_drop): non hard-block
+    if drop < min_drop:
+        return []
+
+    ratio = STEAM_EROSION_RATIO if erosion_ratio is None else float(erosion_ratio)
     open_odds = dropping_row.get("open_odds")
     current_odds = dropping_row.get("current_odds") or pick.get("odds")
     prob = float(pick.get("probability") or 0)
@@ -62,8 +72,7 @@ def steam_eroded_reasons(
 
     if open_odds and float(open_odds) > 1.01:
         ev_open = compute_ev(prob, float(open_odds))
-        if ev_open >= min_edge and ev_current < ev_open * erosion_ratio:
-            drop = float(dropping_row.get("drop_pct") or 0)
+        if ev_open >= min_edge and ev_current < ev_open * ratio:
             return [
                 f"steam: margine eroso dal dropping ({drop:.0f}%, "
                 f"EV {ev_open:+.1%}→{ev_current:+.1%} su quota corrente)"
@@ -208,7 +217,7 @@ def advise(
             "no_bet_reasons": reasons if action == "no_bet" else ([] if action == "bet" else reasons),
             "review_reasons": reasons if action == "review" else [],
         }
-        if retirement_context and action in ("bet", "review"):
+        if retirement_context and action in ("bet", "review", "shadow"):
             play_row = apply_retirement_filter(
                 play_row,
                 bookmaker=bookmaker,

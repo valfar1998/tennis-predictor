@@ -97,9 +97,28 @@ def no_bet_reasons(play: dict[str, Any], *, min_edge: float = MIN_EDGE) -> list[
 
 
 def model_uncertainty_reasons(prediction: dict) -> list[str]:
+    """Hard-block solo su incertezza grave; Challenger/ITF con Betfair parziale passano."""
+    from modules.constants import ANALYZE_LOWER_TIERS, LOWER_TIER_PARTIAL_RESOLVE_OK
+
     reasons: list[str] = []
     if prediction.get("model_low_confidence"):
-        reasons.append("modello incerto: uno o entrambi i giocatori non identificati nel database")
+        pr = prediction.get("players_resolved") or {}
+        a_ok = bool(pr.get("a"))
+        b_ok = bool(pr.get("b"))
+        src = str(prediction.get("odds_source") or "").lower()
+        sharp = any(t in src for t in ("betfair", "pinnacle", "ps"))
+        # Entrambi irrisolti → sempre block
+        if not a_ok and not b_ok:
+            reasons.append(
+                "modello incerto: entrambi i giocatori non identificati nel database"
+            )
+        elif ANALYZE_LOWER_TIERS and LOWER_TIER_PARTIAL_RESOLVE_OK and sharp and (a_ok or b_ok):
+            # Betfair/Pinnacle + almeno un lato risolto: analisi consentita (shrink forte)
+            pass
+        else:
+            reasons.append(
+                "modello incerto: uno o entrambi i giocatori non identificati nel database"
+            )
     p = prediction.get("p_win_a")
     p_elo = prediction.get("p_elo")
     if (
@@ -113,10 +132,16 @@ def model_uncertainty_reasons(prediction: dict) -> list[str]:
     from modules.advisor.risk_controls import infer_tourney_level
 
     level = infer_tourney_level(prediction.get("tourney"), prediction.get("tourney_level"))
+    density = 0
+    dd = prediction.get("data_density")
+    if isinstance(dd, dict):
+        density = int(dd.get("min") or 0)
+    # ITF 50/50: solo se densità dati davvero scarsa
     if (
         level == "S"
         and p is not None
-        and abs(float(p) - 0.5) < 0.06
+        and abs(float(p) - 0.5) < 0.05
+        and density < 8
     ):
         reasons.append("modello ~50/50 su ITF: copertura dati insufficiente")
     return reasons

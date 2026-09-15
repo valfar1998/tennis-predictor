@@ -32,7 +32,7 @@ def cmd_sync(args: argparse.Namespace) -> None:
     from modules.data_update.seeder_bridge import export_seeder_data
     import pandas as pd
 
-    base_steps = 6 + (8 if args.extra else 0)
+    base_steps = 7 + (8 if args.extra else 0)
     prog = OpProgress(base_steps, label="sync")
 
     prog.next("TML Database...")
@@ -68,6 +68,16 @@ def cmd_sync(args: argparse.Namespace) -> None:
         print("Tennis livescore:", fetch_tennis_livescore(force=args.force))
     except Exception as exc:
         print(f"Tennis livescore skip: {exc}")
+    try:
+        prog.next("Injury/news feed...")
+        from modules.data_update.injury_feed import fetch_injury_news, format_news_banner
+
+        news = fetch_injury_news(force=args.force)
+        print(format_news_banner({"n_alerts": 0, "n_hard_blocks": 0, "feed_items": news.get("n_items")}))
+        if news.get("errors"):
+            print("  feed warnings:", "; ".join(news["errors"][:4]))
+    except Exception as exc:
+        print(f"Injury/news feed skip: {exc}")
     if args.extra:
         prog.next("Charting MCP...")
         print("Charting MCP:", sync_charting_data(force=args.force, copy=True))
@@ -90,6 +100,35 @@ def cmd_sync(args: argparse.Namespace) -> None:
             players = pd.read_csv(players_path, nrows=500)
             print("Wikidata:", enrich_players_from_wikidata(players, force=args.force))
     log_done("sync completato")
+
+
+def cmd_news(args: argparse.Namespace) -> None:
+    """Sync feed ritiri/infortuni e arricchisce upcoming se presente."""
+    from modules.data_update.injury_feed import (
+        enrich_predictions_with_news,
+        fetch_injury_news,
+        format_news_banner,
+    )
+
+    feed = fetch_injury_news(force=args.force)
+    print(
+        f"Feed: {feed.get('n_items')} item rilevanti "
+        f"(raw {feed.get('n_raw')}, cache={feed.get('from_cache')})"
+    )
+    for err in (feed.get("errors") or [])[:6]:
+        print(f"  warn: {err}")
+    for it in (feed.get("items") or [])[:8]:
+        print(f"  [{it.get('category')}|{it.get('severity')}] {it.get('title')[:100]}")
+
+    out = ROOT / "data" / "processed" / "upcoming_predictions.json"
+    if out.exists() and not args.feed_only:
+        preds = json.loads(out.read_text(encoding="utf-8"))
+        info = enrich_predictions_with_news(preds, force=False)
+        out.write_text(json.dumps(preds, indent=2, default=str), encoding="utf-8")
+        print(format_news_banner(info))
+        print(f"Aggiornato {out}")
+    else:
+        print(format_news_banner({"feed_items": feed.get("n_items"), "n_alerts": 0, "n_hard_blocks": 0}))
 
 
 def cmd_build(args: argparse.Namespace) -> None:
@@ -236,6 +275,11 @@ def main() -> None:
     p_sync.add_argument("--force", action="store_true")
     p_sync.add_argument("--extra", action="store_true", help="Scarica anche MCP, TA Elo, UTS CPI")
     p_sync.set_defaults(func=cmd_sync)
+
+    p_news = sub.add_parser("news", help="Sync feed ritiri/infortuni (RSS+Reddit) e arricchisce upcoming")
+    p_news.add_argument("--force", action="store_true", help="Ignora cache feed")
+    p_news.add_argument("--feed-only", action="store_true", help="Solo download feed, non modifica upcoming")
+    p_news.set_defaults(func=cmd_news)
 
     p_build = sub.add_parser("build", help="Costruisce matches.csv")
     p_build.add_argument("--min-year", type=int, default=2000)

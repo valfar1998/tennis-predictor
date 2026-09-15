@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from modules.constants import KELLY_CAP, MIN_EDGE, MISSING_SIGNAL_SCORE, ODDS_VARIANCE_REF
+from modules.constants import KELLY_CAP, MIN_EDGE, MISSING_SIGNAL_SCORE, ODDS_VARIANCE_REF, STEAM_PLAYABILITY_SCORE
 
 BANDS = (
     (0, 30, "no_bet", "No bet"),
@@ -14,7 +14,7 @@ BANDS = (
     (90, 101, "premium", "Premium"),
 )
 
-MIN_PLAY_ALERT = 65  # soglia alert Telegram / Streamlit (Playable+)
+MIN_PLAY_ALERT = 60  # era 65 — Lean alto / Playable basso entra in alert
 
 
 def _clip(x: float, lo: float = 0.0, hi: float = 1.0) -> float:
@@ -35,8 +35,10 @@ def _tourney_level_score(tourney: str | None) -> float:
         return 1.0
     if any(k in t for k in ("masters", "atp 1000", "wta 1000", "miami", "indian wells")):
         return 0.85
-    if "challenger" in t or "itf" in t:
-        return 0.45
+    if "challenger" in t:
+        return 0.58  # era 0.45 — Challenger analizzati con peso reale
+    if "itf" in t or any(k in t for k in ("w15", "w25", "w35", "w50", "m15", "m25")):
+        return 0.50
     if "us open" in t or "wta" in t or "atp" in t:
         return 0.75
     return 0.55
@@ -166,7 +168,7 @@ def _dropping_score(
     from modules.advisor.advise import steam_eroded_reasons
 
     if steam_eroded_reasons(rec, dropping_row=dropping):
-        return 0.15, {
+        return STEAM_PLAYABILITY_SCORE, {
             "drop_pct": float(dropping.get("drop_pct") or 0),
             "aligned_with_pick": True,
             "steam_eroded": True,
@@ -278,11 +280,15 @@ def compute_playability(
 
     action = advised.get("action")
     if action == "review":
-        score = min(score, 72.0)  # sotto soglia Strong storica; alert ora da 65
+        score = min(score, 72.0)
+    elif action == "shadow":
+        # Visibile in UI come Lean/Playable; non Telegram (solo action=bet)
+        score = min(score, 68.0)
     elif action != "bet":
-        score = min(score, 55.0)
+        # Analisi tornei inferiori: non schiacciare tutto sotto 55
+        score = min(score, 58.0)
     if rec and float(rec.get("ev") or 0) < MIN_EDGE:
-        score = min(score, 45.0)
+        score = min(score, 48.0)
     # Cap soft su quote molto lunghe anche se EV alto
     if rec and float(rec.get("odds") or 0) >= 4.0:
         score = min(score, 78.0)

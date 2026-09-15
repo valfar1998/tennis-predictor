@@ -63,7 +63,7 @@ def _render_bcr_counter(metrics: dict[str, Any] | None) -> None:
             bf_label if bf_n else "—",
             delta=_bcr_delta(bf) if bf_n else None,
             delta_color="normal" if bf.get("pass") else "inverse",
-            help="Quota bet > chiusura Betfair LTP. Target >55%. Solo action=bet.",
+            help="Quota bet > chiusura Betfair BSP/T−1 (quality). Target >55%. action=bet|shadow.",
             border=True,
         )
         st.metric(
@@ -218,6 +218,10 @@ with tab_cal:
                 "Giocabilità": p.get("playability"),
                 "Band": p.get("playability_label") or "",
                 "Azione": p.get("action") or "no_bet",
+                "News": (
+                    (p.get("news_alert") or {}).get("category")
+                    or ("⚠" if (p.get("news_alert") or {}).get("any_alert") else "")
+                ),
                 "Pick": rec.get("player") or "",
                 "Quota": rec.get("odds"),
                 "EV %": ev_pct,
@@ -259,7 +263,7 @@ with tab_cal:
             icon = (
                 "✅"
                 if play >= MIN_PLAY_ALERT and p.get("action") == "bet"
-                else "⬜"
+                else ("⚠" if (p.get("news_alert") or {}).get("any_alert") else "⬜")
             )
             with st.expander(
                 f"{icon} [{play}/100] {p.get('player_a')} vs {p.get('player_b')} — {p.get('surface')}"
@@ -269,6 +273,14 @@ with tab_cal:
                 col2.metric("Markov", f"{p.get('p_markov', 0):.1%}")
                 col3.metric("Elo", f"{p.get('p_elo', 0):.1%}")
                 col4.metric("Giocabilità", f"{play}/100")
+                news = p.get("news_alert") or {}
+                if news.get("any_alert"):
+                    st.warning(
+                        f"News ({news.get('category') or 'alert'}): {news.get('headline') or '—'}"
+                        + (" — HARD BLOCK pick" if news.get("hard_block_pick") or p.get("news_hard_block") else "")
+                    )
+                if p.get("p_retire"):
+                    st.caption(f"P(ritiro)≈{float(p['p_retire']):.0%}")
                 analysis = p.get("analysis") or {}
                 if analysis:
                     st.caption(

@@ -44,6 +44,7 @@ def estimate_retirement_risk(
     medical_timeouts_recent: int = 0,
     historical_retire_rate: float = 0.0,
     is_favorite: bool = False,
+    news_boost: float = 0.0,
 ) -> float:
     """P(ritiro) prima/durante match [0, 1]."""
     p = 0.015 + float(historical_retire_rate) * 0.35
@@ -61,7 +62,11 @@ def estimate_retirement_risk(
     if is_favorite:
         p *= 1.08
 
-    return round(min(0.38, max(0.0, p)), 4)
+    # News feed (withdrawal/injury RSS/Reddit)
+    if news_boost > 0:
+        p += min(0.25, float(news_boost))
+
+    return round(min(0.45, max(0.0, p)), 4)
 
 
 def rule_penalty(bookmaker: str) -> float:

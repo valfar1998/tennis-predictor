@@ -52,7 +52,9 @@ Fonti dati esterne integrate / referenziate (cartelle in `lib/`):
 
 | Controllo | Regola | Effetto |
 |-----------|--------|---------|
-| **Circuit breaker** | Drawdown corrente >15% **oppure** streak perdite ≥11 unità (1% ciascuna) | `MIN_EDGE` 2.5% → **3.5%** |
+| **Circuit breaker** | Drawdown corrente >**20%** **oppure** streak perdite ≥11 unità (1% ciascuna) | `MIN_EDGE` 2.0% → **2.8%**; attiva anche **shadow bet** Betfair (Kelly=0) per sample BCR |
+| **Shadow bet** | Freeze o CB attivi + Betfair + EV≥1.5% + no hard-block | `action=shadow`, conta nel BCR, **non** Telegram / bankroll |
+| **Partial resolve** | Betfair/Pinnacle + ≥1 giocatore in Elo/TA | Non hard-block (Challenger/ITF analizzati) |
 | **Esposizione giornaliera** | ≥6 bet stesso giorno + stesso torneo | Kelly scalato per cap totale **6%** bankroll |
 | **EV sanity** | EV > 25–30% | `no_bet` (edge irrealistico) |
 | **EV review** | 20% < EV ≤ cap | `action: review` |
@@ -173,15 +175,28 @@ Modulo: `modules/advisor/clv_live.py`
 
 Cascade quote di chiusura (costo zero):
 
-1. **Pinnacle guest API** — `modules/data_update/pinnacle_guest.py`
-2. **Betfair LTP/back de-vigged** — proxy Pinnacle (r≈0.98 su tabelloni ATP/WTA)
+1. Se pick su **Kambi/Unibet** → ultimo snapshot Kambi pre-match
+2. **Betfair** via `market_id` salvato — priorità: **BSP** → snapshot **T−1 / T−5 / T−60** → LTP book → last-LTP fallback
 3. **OddsPortal cache** — `data/raw/oddsportal_close.json` (job `.github/workflows/oddsportal-clv.yml`)
    Scraper Playwright: `python scripts/scrape_oddsportal_close.py` o `python main.py scrape-oddsportal`
    Per **Pinnacle** in geo IT/EU: imposta `ODDSPORTAL_PROXY` (proxy Malta/UK) nel `.env`
 4. **tennis-data.co.uk** — storico PSW/PSL
 
 `resolve_close_odds()` usato in `upcoming.py` → `advise.py`.  
-`refresh_clv_close()` in `history.py` aggiorna pick pendenti prima del settle.
+`refresh_clv_close()` in `history.py` aggiorna pick (anche settle) e **retag** le chiusure fallback.
+
+### Qualità chiusura Betfair (anti BCR finto)
+
+Problema storico: su mercato CLOSED Betfair azzera i prezzi → il sistema riusava `last_odd_*` ≈ quota bet → **BCR ~0% per costruzione**.
+
+| Livello | `close_source` | Conta nel KPI BCR? |
+|---------|----------------|--------------------|
+| BSP | `betfair_bsp` | Sì |
+| Snapshot T−1 / T−5 / T−60 | `betfair_t1` / `t5` / `t60` | Sì |
+| Book LTP su CLOSED | `betfair_settled` (se delta vs bet ≥1%) | Sì |
+| Last LTP registry / ≈ bet odds | `betfair_ltp_fallback` | **No** |
+
+Snapshot pre-match: `register_market_ids()` + `snapshot_prematch_closes()` in settle/predict.
 
 ---
 
@@ -244,7 +259,7 @@ In `advise.py`, se il dropping è **allineato** al pick ma:
 - `EV(quota_corrente) < MIN_EDGE`, oppure
 - il margine è calato >45% rispetto all'open (`erosion_ratio = 0.55`)
 
-→ `action: "no_bet"` con motivo `steam: ...`. In `playability.py` il componente dropping scende a **0.15** (`steam_eroded: true`).
+→ `action: "no_bet"` con motivo `steam: ...`. In `playability.py` il componente dropping scende a **0.28** (`steam_eroded: true`); dropping &lt;8% non hard-block.
 
 ---
 
@@ -315,9 +330,21 @@ Per ogni evento Betfair / Kambi (fallback: match recenti Sackmann):
 
 Output: `p_win_a`, componenti, `cpi_norm`, `pressure_used`, `tour`, `model_low_confidence`, `players_resolved`.
 
-### Precisione avanzata (dettaglio)
+### Precisione + copertura tornei inferiori
 
-Vedi sezione [Layer predittivo](#layer-preditivo-3-livelli--meta-learner) e moduli:
+| Lever | Valore |
+|-------|--------|
+| `MIN_EDGE` / stress CB | **2.0%** / **2.8%** |
+| `MIN_PROB_PLAY` | **34%** |
+| `MIN_PLAY_ALERT` | **60** |
+| Drawdown CB | **20%** |
+| Steam hard-block | solo drop ≥**8%** + erosione ratio **0.40** |
+| Challenger shrink w | **0.42** (più modello) |
+| ITF shrink w | **0.22** baseline |
+| Partial resolve | Betfair + ≥1 Elo/TA → **no hard-block** |
+| Registry sync | ogni `predict` (ATP+WTA + cleanup alias) |
+
+Obiettivo: analizzare **tutto** il palinsesto (ATP/WTA/Challenger/ITF via Betfair+Kambi) con filtri meno ciechi, mantenendo prior di mercato e BCR quality.
 
 | Miglioramento | Modulo |
 |---------------|--------|
@@ -344,14 +371,14 @@ Modulo `advise.py` + `value.py` + `market_calibration.py`:
 
 | Filtro | Soglia |
 |--------|--------|
-| EV minimo | ≥ 2.5% (`MIN_EDGE`) sulla **quota corrente**; con **circuit breaker** attivo → **3.5%** (`CIRCUIT_BREAKER_MIN_EDGE`) |
-| Probabilità minima | ≥ 38% (`MIN_PROB_PLAY`) |
+| EV minimo | ≥ **2.0%** (`MIN_EDGE`) sulla **quota corrente**; con **circuit breaker** attivo → **2.8%** (`CIRCUIT_BREAKER_MIN_EDGE`) |
+| Probabilità minima | ≥ **34%** (`MIN_PROB_PLAY`) |
 | EV sanity hard | >30% (quote ≤3) / >25% (quote lunghe) → scarto |
 | EV review | >20% e ≤ hard cap → `action: review` (no Telegram) |
-| Divergenza mkt | \|P_model − P_mkt\| > 18% |
-| Modello incerto | `model_low_confidence`: giocatore/i senza Elo/TA nel tour bundle |
-| Artefatto 50/50 | `P ≈ 50%` e `P_elo ≈ 50%` senza ML |
-| **Steam eroso** | dropping allineato al pick ma EV corrente sotto soglia o margine eroso >45% vs open |
+| Divergenza mkt | \|P_model − P_mkt\| > **20%** |
+| Modello incerto | entrambi irrisolti → no_bet; **Betfair + 1 lato** → consentito (tornei inferiori) |
+| Artefatto 50/50 | `P ≈ 50%` e `P_elo ≈ 50%` senza ML; ITF solo se densità <8 |
+| **Steam eroso** | dropping **≥8%** allineato e margine eroso oltre `STEAM_EROSION_RATIO` (0.40) |
 
 Se passa i filtri → `action: "bet"` + `recommended` (pick, quota, `ev`, `ev_pct`, Kelly, `odds_sharpe`, `kelly_adj_rank`).
 
@@ -405,7 +432,9 @@ Campi su ogni predizione: `analysis.{p_form,p_surface,p_quality,p_external,p_sta
 | 75–90 | Strong | Alta convinzione |
 | 90–100 | Premium | Massima convinzione |
 
-**Soglia alert Telegram/Streamlit:** `MIN_PLAY_ALERT = 65` (Playable+) e solo `action=bet`. `online_learn` può alzare (es. 80) ma **mai sotto 65**.
+**Soglia alert Telegram/Streamlit:** `MIN_PLAY_ALERT = 60` (Lean alto / Playable). `online_learn` può alzare (es. 80) ma **mai sotto 60**.
+
+Cap score: `review`≤72, `shadow`≤68, altri non-bet ≤58 (analisi Challenger/ITF visibile).
 
 ---
 
@@ -419,12 +448,12 @@ Misura edge **sostenibile**, non EV grezzo su quote lunghe.
 
 | Input | Effetto |
 |-------|---------|
-| **EV** | `(EV − 2.5%) / 12%`, clamp 0–1 |
+| **EV** | `(EV − MIN_EDGE) / 12%`, clamp 0–1 |
 | **Edge vs mercato** | `edge / 8%`, clamp 0–1 |
 | **Sharpe-like** | `EV / sqrt((odds−1)/ref)` |
 | **Sostenibilità quota** | alto su ~1.8–2.0; basso su 4.90+ |
 | Combinazione | mix EV + edge + Sharpe × sustainability |
-| EV sotto 2.5% | componente bassa; cap score a 45 |
+| EV sotto MIN_EDGE | componente bassa; cap score a 48 |
 
 ### 2. Model agreement (peso ~6%)
 
@@ -498,7 +527,7 @@ Movimento quote verso il nostro pick. **Non seguire ciecamente il dropping**: l'
 
 | Scenario | Score |
 |----------|-------|
-| **Steam eroso** (EV corrente sotto soglia o margine eroso vs open) | **0.15** — pick bloccato anche in `advise.py` |
+| **Steam eroso** (EV corrente sotto soglia o margine eroso vs open, drop≥8%) | **0.28** — pick bloccato in `advise.py` solo se aggressivo |
 | Drop ≥10% **allineato** al pick (margine ancora valido) | 0.55 + drop/40 (max ~1.0) |
 | Drop 5–10% allineato | 0.45 + drop/50 |
 | Drop ≥10% **contro** il pick | 0.35 − drop/80 (penalizza) |
@@ -516,7 +545,7 @@ Allineamento: pick lato A + dropping su `"1"`, oppure lato B + dropping su `"2"`
 | Storico pick | `data/processed/our_history.sqlite` |
 | Report apprendimento | `data/models/online_learn_report.json` |
 | UI | Streamlit `app.py` — **contatore BCR** in cima (Betfair KPI + Kambi + finestra) + tab Calendario ordinato per giocabilità |
-| Telegram | `modules/notify/alerts.py` — solo `action=bet` **e** giocabilità **≥ 65**, dedup 21 gg |
+| Telegram | `modules/notify/alerts.py` — solo `action=bet` **e** giocabilità **≥ 60**, dedup 21 gg |
 | Cloud (GitHub Actions) | `scripts/notify_cloud.py` — sync Betfair + segnali + predict + alert |
 
 Branding alert: **TENNIS_PREDICTOR**.
@@ -554,7 +583,7 @@ Workflow: `.github/workflows/auto-learn.yml` — cron **04:00 e 16:00 UTC** + `w
 | `alert_min_suggested` | Soglia Telegram (floor 65; può salire a 80) |
 | `dropping_boost` / `moneyway_boost` | Giocabilità (`learned_playability_adjustment`) |
 | Penalità bande Lean/Playable | Se hit rate storico basso |
-| BCR Betfair <52% (n≥15) | Alza `min_edge_suggested` a 3.5% |
+| BCR Betfair <52% (n≥15) | Alza `min_edge_suggested` a 2.8% |
 
 Requisiti GitHub: **Settings → Actions → Workflow permissions → Read and write**.  
 Segreti opzionali: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` (riepilogo post-learn).
@@ -599,7 +628,7 @@ Con ≥12 pick chiuse, `learn_from_settled()` aggiorna `data/models/calibration.
 | Statistica | Uso |
 |------------|-----|
 | Hit rate per banda giocabilità | suggerisce soglia alert (65 vs 80, floor 65) |
-| ROI globale | suggerisce `min_edge` (2.5%–3.5%) |
+| ROI globale | suggerisce `min_edge` (2.0%–2.8%) |
 | Hit rate drop allineato | `dropping_boost` fino a +8 pp su raw score |
 | Hit rate con segnale Moneyway | `moneyway_boost` fino a +6 pp |
 
@@ -613,45 +642,60 @@ Report dettagliato: `data/models/online_learn_report.json`.
 
 **Regola:** non modificare struttura modello (stacker/XGBoost/Markov) per i prossimi **200–300 match**. Monitorare solo metriche di esecuzione.
 
-### KPI primario: BCR Betfair
+### KPI primario: BCR Betfair (quality)
 
 | Metrica | Target | Fonte |
 |---------|--------|-------|
-| **Beat Closing Rate** (quota bet > chiusura Betfair LTP de-vigged) | **> 55%** | `our_history.sqlite` → `beat_close` + `close_source` Betfair |
+| **Beat Closing Rate** (quota bet > chiusura Betfair **BSP / T−1**) | **> 55%** | `our_history.sqlite` → `beat_close` + `close_source` quality |
 
-ROI sui primi 100 bet è **varianza** — il BCR conferma edge matematico vs mercato sharp (Betfair).
+**Actions nel KPI:** `bet` **e** `shadow` (Kelly=0). Esclusi close `betfair_ltp_fallback` e delta |odds−close| < 1%.
+
+ROI sui primi 100 bet è **varianza** — il BCR conferma edge matematico vs mercato sharp (Betfair). Report anche `bcr_betfair_raw` (tutte le chiusure, diagnostica).
 
 **UI Streamlit:** in cima a `app.py` c’è il **contatore BCR** (sempre visibile, fuori dai tab):
 
 | Metric card | Contenuto |
 |-------------|-----------|
-| BCR Betfair (KPI) | `%` + delta pp vs target 55% |
-| Beat / settle BF | `beats/n` pick con chiusura Betfair |
+| BCR Betfair (KPI) | `%` + delta pp vs target 55% (solo close quality) |
+| Beat / settle BF | `beats/n` pick con chiusura Betfair quality |
 | BCR Kambi | secondario (ingresso Unibet vs snapshot Kambi) |
-| BCR paper | bet + paper (previsioni no_bet) |
+| BCR paper | bet + shadow + paper |
 | Finestra validazione | `n/target` + badge FREEZE |
 
 Pulsante **Ricalcola BCR** → `run_live_audit()` → aggiorna `live_metrics.json`. Progress bar sull’avanzamento 200–300 match.
 
+### Shadow bet (sblocco sample sotto freeze / circuit breaker)
+
+Modulo: `modules/advisor/shadow_bet.py`
+
+Quando **validation freeze** o **circuit breaker** sono attivi, le pick **Betfair** con `market_id`, EV ≥ `SHADOW_MIN_EDGE` (2.0%), probabilità ≥38% e senza hard-block (sanity/divergenza/steam/…) vengono archiviate come `action=shadow` con **Kelly=0**.
+
+| Aspetto | Comportamento |
+|---------|---------------|
+| Bankroll / CB drawdown | **Non** conta (stake 0) |
+| Telegram | **No** (solo `action=bet`) |
+| BCR Betfair + freeze progress | **Sì** (stesso KPI) |
+| Scopo | Spezzare il deadlock «nessun bet → BCR n=0 → freeze eterno» |
+
 ### Finestra validazione live (FREEZE attivo)
 
-**Priorità assoluta:** accumulare **200–300 match** settle con chiusura Betfair senza toccare l'architettura.
+**Priorità assoluta:** accumulare **200–300 match** settle con chiusura Betfair **quality** senza toccare l'architettura.
 
 | Regola | Stato |
 |--------|--------|
 | Online learn → `calibration.json` | **BLOCCATO** (solo report in `online_learn_report.json`) |
 | Retrain ML (CI `cloud-train`, `weekly-train`) | **BLOCCATO** |
 | Boost giocabilità appresi (moneyway/dropping) | **BLOCCATI** |
-| Settle pick + BCR audit | **ATTIVO** |
-| Predict + Telegram | **ATTIVO** |
-| Circuit breaker drawdown (capitale) | **ATTIVO** — stress edge **3.5%** (non è learning) |
+| Settle pick + BCR audit + shadow sample | **ATTIVO** |
+| Predict + Telegram | **ATTIVO** (Telegram solo bet reali) |
+| Circuit breaker drawdown (capitale) | **ATTIVO** — stress edge **2.8%** (non è learning); shadow continua |
 
-Config: `data/processed/validation_freeze.json` — si disattiva automaticamente a **200+ pick Betfair settle** (`active: false`); override manuale con `LIVE_VALIDATION_FREEZE=0` o `=1`.
+Config: `data/processed/validation_freeze.json` — si disattiva automaticamente a **200+ pick Betfair settle quality** (`active: false`); override manuale con `LIVE_VALIDATION_FREEZE=0` o `=1`.
 
-**Nota operativa:** il KPI BCR conta solo `action=bet` + `close_source` Betfair. Senza nuovi bet (filtri / CB) la finestra non avanza; `python main.py learn` chiude i pendenti e backfill CLV, `python main.py metrics` aggiorna il contatore.
+**Nota operativa:** il KPI BCR conta `action=bet|shadow` + close quality (BSP/T−1/…). Senza shadow, sotto CB la finestra non avanzava. `python main.py learn` chiude i pendenti, snapshot prematch, backfill CLV e retag fallback; `python main.py metrics` aggiorna il contatore.
 
 ```bash
-python main.py metrics          # BCR + avanzamento finestra → live_metrics.json
+python main.py metrics          # BCR quality + raw + avanzamento finestra → live_metrics.json
 python main.py learn            # settle only (no weight updates)
 python main.py predict --metrics
 ```
@@ -720,6 +764,41 @@ Tre siti utili per arricchire l'analisi. Stato attuale nel progetto:
 - Usato in cascade CLV (`clv_live.py`) come fallback dopo Pinnacle guest e Betfair LTP
 - Limiti: geo IT reindirizza a `centroquote.it`; Pinnacle spesso assente senza `ODDSPORTAL_PROXY`
 - **Non ancora integrato:** confronto multi-book live in giocabilità / value bet
+
+---
+
+## News / injury feed (ritiri last-minute)
+
+Modulo: `modules/data_update/injury_feed.py`
+
+Fonti **gratis** (no API enterprise):
+
+| Fonte | Canale | Uso |
+|-------|--------|-----|
+| ESPN Tennis RSS | RSS | breaking + injury |
+| BBC Sport Tennis | RSS | withdrawals |
+| Tennis Abstract blog | RSS | contesto / fitness |
+| ATP / WTA news RSS | RSS | comunicati (best-effort) |
+| Reddit `r/tennis` | JSON pubblico | rumor / practice skip |
+
+**Pipeline:** `fetch_injury_news()` → match nomi palinsesto → `news_alert` su ogni predizione.
+
+| Severità | Effetto |
+|----------|---------|
+| `withdrawal` / `walkover` sul pick | **hard-block** → `action=no_bet`, playability ≤35 |
+| `injury` / `illness` severità ≥0.70 su bet | downgrade a `review` |
+| qualsiasi hit rilevante | boost `p_retire` (+ fino a 0.25) |
+
+Comandi:
+
+```bash
+python main.py news              # sync feed + arricchisce upcoming_predictions.json
+python main.py news --force      # ignora cache 2h
+python main.py sync              # include injury feed
+python main.py predict           # arricchisce automaticamente a fine pipeline
+```
+
+Cache: `data/raw/injury_news.json`. UI Streamlit: colonna **News** + warning nell'expander. Telegram: pacchetto separato `NEWS / INJURY` su bet/shadow/review/hard-block.
 
 ---
 

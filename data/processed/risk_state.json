@@ -1,23 +1,23 @@
 {
   "active": true,
-  "min_edge": 0.035,
-  "base_min_edge": 0.025,
-  "stress_min_edge": 0.035,
+  "min_edge": 0.028,
+  "base_min_edge": 0.02,
+  "stress_min_edge": 0.028,
   "triggers": {
     "streak_loss_units": false,
     "drawdown": true
   },
   "thresholds": {
     "streak_loss_units": 11.0,
-    "drawdown_pct": 0.15
+    "drawdown_pct": 0.2
   },
-  "bankroll": 0.7716,
+  "bankroll": 0.7645,
   "peak": 1.0176,
-  "max_drawdown": 0.2418,
-  "current_drawdown": 0.2418,
-  "streak_loss_units": 3.14,
+  "max_drawdown": 0.2488,
+  "current_drawdown": 0.2488,
+  "streak_loss_units": 3.85,
   "max_streak_loss_units": 12.0,
-  "consecutive_losses": 4,
-  "n_settled": 91,
-  "updated_at": "2026-09-14T06:49:47.060739+00:00"
+  "consecutive_losses": 5,
+  "n_settled": 92,
+  "updated_at": "2026-09-15T12:17:22.625629+00:00"
 }

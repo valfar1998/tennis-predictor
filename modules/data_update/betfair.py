@@ -581,8 +581,8 @@ def _runner_price(runner: dict) -> float | None:
     return _best_back(runner) or _last_traded(runner)
 
 
-def _runner_close_price(runner: dict) -> float | None:
-    """BSP (actual SP) oppure LTP — chiusura Exchange."""
+def _runner_bsp(runner: dict) -> float | None:
+    """Starting Price Betfair (actualSP → near → far)."""
     sp = runner.get("sp") or {}
     for key in ("actualSP", "nearPrice", "farPrice"):
         val = sp.get(key)
@@ -593,7 +593,26 @@ def _runner_close_price(runner: dict) -> float | None:
                     return round(f, 3)
             except (TypeError, ValueError):
                 pass
-    return _last_traded(runner) or _best_back(runner)
+    return None
+
+
+def _runner_close_price(runner: dict) -> float | None:
+    """BSP (actual SP) oppure LTP — chiusura Exchange."""
+    return _runner_bsp(runner) or _last_traded(runner) or _best_back(runner)
+
+
+def _runner_close_with_kind(runner: dict) -> tuple[float | None, str | None]:
+    """(prezzo, kind) con kind in bsp|ltp|back."""
+    bsp = _runner_bsp(runner)
+    if bsp is not None:
+        return bsp, "bsp"
+    ltp = _last_traded(runner)
+    if ltp is not None:
+        return ltp, "ltp"
+    back = _best_back(runner)
+    if back is not None:
+        return back, "back"
+    return None, None
 
 
 def lookup_betfair_close(
@@ -752,16 +771,56 @@ def _coerce_odds_pair(odd_a: object, odd_b: object) -> tuple[float, float] | Non
     return round(a, 3), round(b, 3)
 
 
+def _minutes_to_commence(commence_time: str | None, *, now: datetime | None = None) -> float | None:
+    if not commence_time:
+        return None
+    try:
+        ct = datetime.fromisoformat(str(commence_time).replace("Z", "+00:00"))
+        if ct.tzinfo is None:
+            ct = ct.replace(tzinfo=timezone.utc)
+    except ValueError:
+        return None
+    now = now or datetime.now(timezone.utc)
+    return (ct - now).total_seconds() / 60.0
+
+
+def _apply_prematch_snapshots(row: dict, odd_a: float, odd_b: float, *, now: datetime) -> None:
+    """Salva LTP pre-match T−60 / T−5 / T−1 per BCR (non last-LTP post-hoc)."""
+    from modules.constants import PREMATCH_CLOSE_WINDOWS_MIN
+
+    mins = _minutes_to_commence(row.get("commence_time"), now=now)
+    if mins is None:
+        return
+    # Finestra ampia: cattura anche appena dopo il start (live early)
+    if mins < -15:
+        return
+    ts = now.isoformat()
+    for window in PREMATCH_CLOSE_WINDOWS_MIN:
+        # Es. T-5: aggiorna quando mancano ≤5 min (e ≥ -2 per T-1)
+        lo = -2.0 if window <= 1 else 0.0
+        if not (lo <= mins <= float(window)):
+            continue
+        key_a = f"prematch_t{window}_odd_a"
+        key_b = f"prematch_t{window}_odd_b"
+        key_at = f"prematch_t{window}_at"
+        # Preferisci lo snapshot più vicino a kickoff (mins più basso in valore assoluto
+        # dentro la finestra): aggiorna sempre mentre siamo nella finestra.
+        row[key_a] = odd_a
+        row[key_b] = odd_b
+        row[key_at] = ts
+
+
 def register_market_ids(events: list[dict]) -> int:
     """Unisce market_id dalla cache live nel registry persistente.
 
-    Persiste anche last_odd_* (LTP/back osservato): a mercato CLOSED Betfair
-    azzera LTP/BSP, quindi senza snapshot non c'è chiusura per il BCR.
+    Persiste anche last_odd_* e snapshot pre-match T−60/T−5/T−1: a mercato CLOSED
+    Betfair azzera LTP/BSP, quindi senza snapshot non c'è chiusura affidabile per il BCR.
     """
     data = _load_market_registry()
     markets = dict(data.get("markets") or {})
     n = 0
-    now = datetime.now(timezone.utc).isoformat()
+    now_dt = datetime.now(timezone.utc)
+    now = now_dt.isoformat()
     for ev in events:
         mid = ev.get("market_id")
         if not mid:
@@ -787,11 +846,25 @@ def register_market_ids(events: list[dict]) -> int:
             row["last_odd_a"], row["last_odd_b"] = pair
             row["last_odds_at"] = now
             row["last_odds_source"] = str(ev.get("odds_source") or ev.get("source") or "betfair_ltp")
+            _apply_prematch_snapshots(row, pair[0], pair[1], now=now_dt)
         markets[mid] = row
         n += 1
     if n:
         _save_market_registry(markets)
     return n
+
+
+def snapshot_prematch_closes(*, days: int = 3) -> dict:
+    """Forza refresh quote live e snapshot T−60/T−5/T−1 sul registry."""
+    info = fetch_betfair_odds(force=False, days=days, max_age_hours=0.5)
+    events = info.get("events") or load_betfair_cache()
+    n = register_market_ids(events) if events else 0
+    return {
+        "ok": bool(info.get("ok") or events),
+        "n_registered": n,
+        "from_cache": info.get("from_cache"),
+        "error": info.get("error"),
+    }
 
 
 def _persist_registry_last_odds(market_id: str, odd_a: float, odd_b: float, *, source: str) -> None:
@@ -847,6 +920,28 @@ def lookup_registered_market(
     return None
 
 
+def _prematch_close_from_registry(reg: dict) -> dict | None:
+    """Priorità T−1 → T−5 → T−60 dai snapshot salvati pre-match."""
+    from modules.constants import PREMATCH_CLOSE_WINDOWS_MIN
+
+    for window in sorted(PREMATCH_CLOSE_WINDOWS_MIN):
+        pair = _coerce_odds_pair(
+            reg.get(f"prematch_t{window}_odd_a"),
+            reg.get(f"prematch_t{window}_odd_b"),
+        )
+        if not pair:
+            continue
+        return {
+            "a": pair[0],
+            "b": pair[1],
+            "source": f"betfair_t{window}",
+            "close_note": f"prematch_t{window}",
+            "prematch_at": reg.get(f"prematch_t{window}_at"),
+            "bcr_eligible": True,
+        }
+    return None
+
+
 def fetch_close_by_market_id(
     market_id: str,
     *,
@@ -859,7 +954,11 @@ def fetch_close_by_market_id(
 ) -> dict | None:
     """Chiude un MATCH_ODDS via listMarketBook anche se catalogue non lo espone più.
 
-    Su CLOSED senza BSP/LTP usa last_odd_* del registry (snapshot pre-chiusura).
+    Priorità chiusura (BCR quality):
+      1. BSP (actualSP) su mercato CLOSED/SETTLED
+      2. Snapshot pre-match T−1 / T−5 / T−60
+      3. LTP/back ancora presenti sul book
+      4. last_odd_* registry (fallback — NON affidabile per BCR)
     """
     mid = str(market_id or "").strip()
     if not mid:
@@ -884,47 +983,63 @@ def fetch_close_by_market_id(
             book = None
 
     odd_a = odd_b = None
+    kind_a = kind_b = None
     if book:
+        priced: dict[int, tuple[float, str]] = {}
         for runner in book.get("runners") or []:
             sid = runner.get("selectionId")
-            price = _runner_close_price(runner)
+            price, kind = _runner_close_with_kind(runner)
             if price is None:
                 continue
             try:
                 sid_i = int(sid) if sid is not None else None
             except (TypeError, ValueError):
                 sid_i = None
+            if sid_i is not None:
+                priced[sid_i] = (price, kind or "ltp")
             if sel_a is not None and sid_i == int(sel_a):
-                odd_a = price
+                odd_a, kind_a = price, kind
             elif sel_b is not None and sid_i == int(sel_b):
-                odd_b = price
+                odd_b, kind_b = price, kind
             elif run_a and _player_match(str(run_a), str(runner.get("runnerName") or "")):
-                odd_a = price
+                odd_a, kind_a = price, kind
             elif run_b and _player_match(str(run_b), str(runner.get("runnerName") or "")):
-                odd_b = price
-        if not odd_a or not odd_b:
-            priced = {}
-            for runner in book.get("runners") or []:
-                sid = runner.get("selectionId")
-                price = _runner_close_price(runner)
-                if sid is None or price is None:
-                    continue
-                priced[int(sid)] = price
-            if sel_a is not None and sel_b is not None:
-                odd_a = priced.get(int(sel_a))
-                odd_b = priced.get(int(sel_b))
+                odd_b, kind_b = price, kind
+        if (not odd_a or not odd_b) and sel_a is not None and sel_b is not None:
+            pa = priced.get(int(sel_a))
+            pb = priced.get(int(sel_b))
+            if pa and pb:
+                odd_a, kind_a = pa
+                odd_b, kind_b = pb
 
     pair = _coerce_odds_pair(odd_a, odd_b)
     if pair:
         odd_a, odd_b = pair
-        # Persisti sempre: se Betfair azzera i prezzi più tardi resta lo snapshot.
+        both_bsp = kind_a == "bsp" and kind_b == "bsp"
+        closed = status in ("CLOSED", "SETTLED")
+        if both_bsp and closed:
+            src = "betfair_bsp"
+            note = "bsp"
+            eligible = True
+        elif both_bsp:
+            src = "betfair_bsp"
+            note = "bsp_pre_close"
+            eligible = True
+        elif closed:
+            # LTP su CLOSED è spesso assente; se c'è, meglio del solo registry
+            src = "betfair_settled"
+            note = "book_ltp_closed"
+            eligible = True
+        else:
+            src = "betfair_ltp"
+            note = "book_ltp_open"
+            eligible = False
         _persist_registry_last_odds(
             mid,
             odd_a,
             odd_b,
-            source="betfair_settled" if status in ("CLOSED", "SETTLED") else "betfair_ltp",
+            source=src,
         )
-        src = "betfair_settled" if status in ("CLOSED", "SETTLED") else "betfair_ltp"
         return {
             "a": float(odd_a),
             "b": float(odd_b),
@@ -932,20 +1047,33 @@ def fetch_close_by_market_id(
             "market_id": mid,
             "event_id": reg.get("event_id"),
             "market_status": status or None,
+            "close_note": note,
+            "bcr_eligible": eligible,
         }
 
-    # CLOSED (o book vuoto): fallback all'ultimo LTP osservato mentre era OPEN
+    # Prematch snapshots (affidabili per BCR)
+    pre = _prematch_close_from_registry(reg)
+    if pre:
+        return {
+            **pre,
+            "market_id": mid,
+            "event_id": reg.get("event_id"),
+            "market_status": status or None,
+        }
+
+    # CLOSED (o book vuoto): fallback last LTP — NON bcr_eligible
     last = _coerce_odds_pair(reg.get("last_odd_a"), reg.get("last_odd_b"))
     if last and status in ("CLOSED", "SETTLED", ""):
         return {
             "a": last[0],
             "b": last[1],
-            "source": "betfair_settled",
+            "source": "betfair_ltp_fallback",
             "market_id": mid,
             "event_id": reg.get("event_id"),
             "market_status": status or "CLOSED",
             "close_note": "last_ltp_before_close",
             "last_odds_at": reg.get("last_odds_at"),
+            "bcr_eligible": False,
         }
     return None
 
@@ -1024,8 +1152,19 @@ def fetch_betfair_settled_results(*, days: int = 14, force: bool = False, max_ag
             src = (close or {}).get("source")
             status = (close or {}).get("market_status")
             close_note = (close or {}).get("close_note")
-            if close_note == "last_ltp_before_close":
+            bcr_eligible = bool((close or {}).get("bcr_eligible", True))
+            # Preferisci sempre snapshot prematch rispetto a last-LTP fallback
+            if (not odd_a or not odd_b) or (close or {}).get("bcr_eligible") is False:
+                pre = _prematch_close_from_registry(row)
+                if pre:
+                    odd_a, odd_b = pre["a"], pre["b"]
+                    src = pre["source"]
+                    close_note = pre.get("close_note")
+                    bcr_eligible = True
+                    status = status or "CLOSED"
+            if close_note == "last_ltp_before_close" or src == "betfair_ltp_fallback":
                 n_fallback += 1
+                bcr_eligible = False
             if not odd_a or not odd_b:
                 prev_row = prev_by_mid.get(mid) or {}
                 pair = _coerce_odds_pair(prev_row.get("odd_a"), prev_row.get("odd_b"))
@@ -1033,11 +1172,12 @@ def fetch_betfair_settled_results(*, days: int = 14, force: bool = False, max_ag
                     pair = _coerce_odds_pair(row.get("last_odd_a"), row.get("last_odd_b"))
                 if pair:
                     odd_a, odd_b = pair
-                    src = "betfair_settled"
+                    src = "betfair_ltp_fallback"
                     status = status or "CLOSED"
                     close_note = close_note or "last_ltp_before_close"
+                    bcr_eligible = False
                     n_fallback += 1
-                    _persist_registry_last_odds(mid, odd_a, odd_b, source="betfair_settled_cache")
+                    _persist_registry_last_odds(mid, odd_a, odd_b, source="betfair_ltp_fallback")
             if not odd_a or not odd_b:
                 continue
             results.append(
@@ -1054,6 +1194,7 @@ def fetch_betfair_settled_results(*, days: int = 14, force: bool = False, max_ag
                     "source": src or "betfair_settled",
                     "market_status": status,
                     "close_note": close_note,
+                    "bcr_eligible": bcr_eligible,
                 }
             )
 
@@ -1105,15 +1246,32 @@ def lookup_betfair_settled_close(
     if mid:
         close = fetch_close_by_market_id(str(mid), player_a=player_a, player_b=player_b)
         if close and close.get("a") and close.get("b"):
-            # per BCR preferiamo solo mercati già CLOSED/SETTLED
+            # per BCR preferiamo solo mercati già CLOSED/SETTLED o snapshot prematch/BSP
             status = str(close.get("market_status") or "").upper()
-            if status in ("CLOSED", "SETTLED") or close.get("source") == "betfair_settled":
+            src = str(close.get("source") or "")
+            if (
+                status in ("CLOSED", "SETTLED")
+                or src.startswith("betfair_t")
+                or src == "betfair_bsp"
+                or close.get("source") == "betfair_settled"
+            ):
                 return close
-            # match passato ma book ancora OPEN: LTP è comunque meglio di niente
+            # match passato ma book ancora OPEN: preferisci prematch; LTP open ≠ close
             if match_date:
                 try:
                     if date.fromisoformat(str(match_date)[:10]) < date.today():
-                        return {**close, "source": "betfair_settled"}
+                        pre = _prematch_close_from_registry(
+                            (_load_market_registry().get("markets") or {}).get(str(mid)) or {}
+                        )
+                        if pre:
+                            return {**pre, "market_id": mid, "event_id": close.get("event_id")}
+                        # Solo se non c'è altro: fallback esplicito non eleggibile BCR
+                        return {
+                            **close,
+                            "source": "betfair_ltp_fallback",
+                            "close_note": close.get("close_note") or "open_book_past_match",
+                            "bcr_eligible": False,
+                        }
                 except ValueError:
                     pass
 
@@ -1178,7 +1336,7 @@ def backfill_history_market_ids(*, days: int = 21) -> dict:
         c.row_factory = sqlite3.Row
         rows = c.execute(
             """SELECT match_key, date, player_a, player_b, betfair_event_id, betfair_market_id
-               FROM matches WHERE action IN ('bet', 'paper')"""
+               FROM matches WHERE action IN ('bet', 'shadow', 'paper')"""
         ).fetchall()
         for rec in rows:
             if rec["betfair_market_id"]:

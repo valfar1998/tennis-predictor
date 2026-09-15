@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from modules.constants import MIN_EDGE
+from modules.constants import CIRCUIT_BREAKER_MIN_EDGE, MIN_EDGE
 
 ROOT = Path(__file__).resolve().parents[2]
 MODELS = ROOT / "data" / "models"
@@ -152,20 +152,28 @@ def learn_from_settled(*, force: bool = False) -> dict[str, Any]:
         )
         if (bcr.get("n") or 0) >= 15 and bcr.get("bcr") is not None:
             if bcr["bcr"] < 0.52:
-                ol["min_edge_suggested"] = max(float(ol.get("min_edge_suggested") or 0.025), 0.035)
+                ol["min_edge_suggested"] = max(
+                    float(ol.get("min_edge_suggested") or MIN_EDGE), CIRCUIT_BREAKER_MIN_EDGE
+                )
                 ol["bcr_adjustment"] = "raised_min_edge_low_bcr"
             elif bcr["bcr"] >= 0.58:
-                ol["min_edge_suggested"] = min(float(ol.get("min_edge_suggested") or 0.03), 0.025)
+                ol["min_edge_suggested"] = min(
+                    float(ol.get("min_edge_suggested") or CIRCUIT_BREAKER_MIN_EDGE), MIN_EDGE
+                )
                 ol["bcr_adjustment"] = "confirmed_edge"
     except Exception:
         pass
 
     if report.get("roi_all") is not None and report["roi_all"] < -0.05:
-        ol["min_edge_suggested"] = max(float(ol.get("min_edge_suggested") or 0.025), 0.035)
+        ol["min_edge_suggested"] = max(
+            float(ol.get("min_edge_suggested") or MIN_EDGE), CIRCUIT_BREAKER_MIN_EDGE
+        )
     elif report.get("hit_rate", 0) >= 0.55 and ol.get("bcr_adjustment") != "raised_min_edge_low_bcr":
-        ol["min_edge_suggested"] = min(float(ol.get("min_edge_suggested") or 0.03), 0.025)
+        ol["min_edge_suggested"] = min(
+            float(ol.get("min_edge_suggested") or CIRCUIT_BREAKER_MIN_EDGE), MIN_EDGE
+        )
     elif "min_edge_suggested" not in ol:
-        ol["min_edge_suggested"] = 0.03
+        ol["min_edge_suggested"] = MIN_EDGE
 
     ol["last_n_settled"] = len(settled)
     ol["updated_at"] = report["fitted_at"]
@@ -195,7 +203,7 @@ def effective_min_edge() -> float:
 def effective_alert_min_playability() -> int:
     """Soglia giocabilità alert Telegram appresa da Strong/Premium hit rate.
 
-    Floor ``MIN_PLAY_ALERT`` (65). Valori legacy ≤75 (vecchio Strong) → 65;
+    Floor ``MIN_PLAY_ALERT`` (60). Valori legacy ≤75 (vecchio Strong) → floor;
     solo soglie alzate (es. 80) restano attive.
     """
     from modules.advisor.playability import MIN_PLAY_ALERT

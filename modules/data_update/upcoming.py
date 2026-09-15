@@ -28,6 +28,41 @@ RAW_ATP = ROOT / "data" / "raw" / "atp"
 RAW_WTA = ROOT / "data" / "raw" / "wta"
 
 
+def _archive_advised(advised: dict, *, risk_ctx: dict | None = None) -> dict:
+    """Archivia bet / shadow BCR / paper secondo filtri e stress (freeze/CB)."""
+    from modules.advisor.shadow_bet import maybe_promote_shadow
+    from modules.advisor.validation_freeze import is_frozen
+
+    if advised.get("action") == "bet":
+        archive_prediction(advised)
+        return advised
+
+    ctx = risk_ctx
+    if ctx is None:
+        try:
+            from modules.advisor.risk_controls import get_risk_context
+
+            ctx = get_risk_context()
+        except Exception:
+            ctx = {}
+    cb = (ctx or {}).get("circuit_breaker") or {}
+    shadow = maybe_promote_shadow(
+        advised,
+        freeze_active=is_frozen(),
+        circuit_breaker_active=bool(cb.get("active")),
+    )
+    if shadow is not None:
+        archive_prediction(shadow)
+        return shadow
+
+    if paper_eligible(advised):
+        paper = dict(advised)
+        paper["action"] = "paper"
+        paper["recommended"] = advised.get("best_play") or (advised.get("value") or {}).get("best")
+        archive_prediction(paper)
+    return advised
+
+
 @dataclass
 class TourBundle:
     tour: str
@@ -480,26 +515,6 @@ def _predict_one_betfair_event(
         tourney_name=competition, match_date=match_date,
     )
 
-    ta_a = lookup_ta_elo(player_a, surface, tour=tour)
-    ta_b = lookup_ta_elo(player_b, surface, tour=tour)
-
-    resolved_a = _player_resolved(
-        player_a,
-        candidates=tour_cands,
-        bundle=bundle,
-        ta_elo=ta_a,
-        opponent_name=player_b,
-        tourney_date=match_date,
-    )
-    resolved_b = _player_resolved(
-        player_b,
-        candidates=tour_cands,
-        bundle=bundle,
-        ta_elo=ta_b,
-        opponent_name=player_a,
-        tourney_date=match_date,
-    )
-
     resolved_a_name = resolve_name(
         player_a, candidates=tour_cands, opponent_name=player_b,
         tourney_date=match_date, tour=tour,
@@ -507,6 +522,30 @@ def _predict_one_betfair_event(
     resolved_b_name = resolve_name(
         player_b, candidates=tour_cands, opponent_name=player_a,
         tourney_date=match_date, tour=tour,
+    )
+    ta_a = (
+        lookup_ta_elo(resolved_a_name, surface, tour=tour)
+        or lookup_ta_elo(player_a, surface, tour=tour)
+    )
+    ta_b = (
+        lookup_ta_elo(resolved_b_name, surface, tour=tour)
+        or lookup_ta_elo(player_b, surface, tour=tour)
+    )
+    resolved_a = _player_resolved(
+        resolved_a_name,
+        candidates=tour_cands,
+        bundle=bundle,
+        ta_elo=ta_a,
+        opponent_name=resolved_b_name,
+        tourney_date=match_date,
+    )
+    resolved_b = _player_resolved(
+        resolved_b_name,
+        candidates=tour_cands,
+        bundle=bundle,
+        ta_elo=ta_b,
+        opponent_name=resolved_a_name,
+        tourney_date=match_date,
     )
     pid_a = bundle.name_to_id.get(_norm_name(resolved_a_name))
     pid_b = bundle.name_to_id.get(_norm_name(resolved_b_name))
@@ -589,6 +628,9 @@ def _predict_one_betfair_event(
     pred["betfair_market_id"] = ev.get("market_id")
     pred["model_low_confidence"] = not (resolved_a and resolved_b)
     pred["players_resolved"] = {"a": resolved_a, "b": resolved_b}
+    pred["resolved_names"] = {"a": resolved_a_name, "b": resolved_b_name}
+    if pred["model_low_confidence"] and (resolved_a or resolved_b):
+        pred["partial_resolve"] = True
     n_ds_a = int(live_feat.get("n_dataset_a") or 0)
     n_ds_b = int(live_feat.get("n_dataset_b") or 0)
     pred["data_density"] = {
@@ -664,15 +706,7 @@ def _predict_one_betfair_event(
     )
     advised["odds_source"] = str(ev.get("odds_source") or "betfair")
     advised["book_odds"] = {"a": odd_a, "b": odd_b}
-    if advised.get("action") == "bet":
-        archive_prediction(advised)
-    else:
-        if paper_eligible(advised):
-            paper = dict(advised)
-            paper["action"] = "paper"
-            paper["recommended"] = advised.get("best_play") or (advised.get("value") or {}).get("best")
-            archive_prediction(paper)
-    return advised
+    return _archive_advised(advised)
 
 
 def _predict_from_sackmann_recent(
@@ -792,15 +826,7 @@ def _predict_from_sackmann_recent(
             )
             advised["odds_source"] = "book"
 
-        if advised.get("action") == "bet":
-            archive_prediction(advised)
-        else:
-            if paper_eligible(advised):
-                paper = dict(advised)
-                paper["action"] = "paper"
-                paper["recommended"] = advised.get("best_play") or (advised.get("value") or {}).get("best")
-                archive_prediction(paper)
-        predictions.append(advised)
+        predictions.append(_archive_advised(advised))
 
     return predictions
 
@@ -856,7 +882,23 @@ def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[di
         print("  upcoming: nessun bundle tour disponibile", flush=True)
         return []
 
-    prog.next("Player graph + biografiche...")
+    prog.next("Player registry + graph...")
+    try:
+        from modules.data_update.player_registry import (
+            cleanup_bare_last_name_aliases,
+            sync_sackmann_players,
+            sync_tml_players,
+        )
+
+        sync_sackmann_players(tour="ATP")
+        sync_sackmann_players(tour="WTA")
+        try:
+            sync_tml_players()
+        except Exception:
+            pass
+        cleanup_bare_last_name_aliases()
+    except Exception as exc:
+        print(f"  player registry skip: {exc}", flush=True)
     try:
         from modules.data_update.player_graph import build_match_edges, sync_player_biographics
 
@@ -955,7 +997,7 @@ def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[di
                 )
             )
 
-    prog.next("Limiti esposizione + salvataggio...")
+    prog.next("Limiti esposizione + news/injury...")
     predictions = apply_daily_exposure_limits(predictions)
     for pred in predictions:
         pred["risk_session"] = {
@@ -967,7 +1009,19 @@ def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[di
 
     predictions = normalize_predictions_calendar(predictions)
 
+    try:
+        from modules.data_update.injury_feed import enrich_predictions_with_news, format_news_banner
+
+        news_info = enrich_predictions_with_news(predictions, force=False)
+        print(f"  {format_news_banner(news_info)}", flush=True)
+    except Exception as exc:
+        print(f"  injury/news feed skip: {exc}", flush=True)
+
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUT_PATH.write_text(json.dumps(predictions, indent=2, default=str), encoding="utf-8")
-    log_done(f"upcoming: {len(predictions)} predizioni, {sum(1 for p in predictions if p.get('action')=='bet')} bet")
+    log_done(
+        f"upcoming: {len(predictions)} predizioni, "
+        f"{sum(1 for p in predictions if p.get('action')=='bet')} bet, "
+        f"{sum(1 for p in predictions if p.get('action')=='shadow')} shadow"
+    )
     return predictions

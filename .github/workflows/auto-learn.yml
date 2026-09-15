@@ -51,7 +51,7 @@ jobs:
           PYTHONUTF8: "1"
         run: python main.py sync
 
-      - name: Restore Betfair cache / market registry
+      - name: Restore Betfair cache / market registry / news
         uses: actions/cache/restore@v4
         with:
           path: |
@@ -61,6 +61,7 @@ jobs:
             data/raw/betfair_settled.json
             data/raw/kambi_unibet_odds.json
             data/raw/kambi_last_odds.json
+            data/raw/injury_news.json
           key: tennis-betfair-${{ github.run_id }}
           restore-keys: |
             tennis-betfair-
@@ -81,7 +82,12 @@ jobs:
           KAMBI_UNIBET_ENABLED: "1"
         run: python scripts/auto_learn_cloud.py --notify
 
-      - name: Save Betfair cache / market registry
+      - name: Injury / withdrawal news feed
+        env:
+          PYTHONUTF8: "1"
+        run: python main.py news --force
+
+      - name: Save Betfair cache / market registry / news
         if: always()
         uses: actions/cache/save@v4
         with:
@@ -92,9 +98,10 @@ jobs:
             data/raw/betfair_settled.json
             data/raw/kambi_unibet_odds.json
             data/raw/kambi_last_odds.json
+            data/raw/injury_news.json
           key: tennis-betfair-${{ github.run_id }}
 
-      - name: Audit live metrics & BCR (Pinnacle)
+      - name: Audit live metrics & BCR Betfair (KPI quality)
         env:
           PYTHONUTF8: "1"
         run: python main.py metrics
@@ -126,8 +133,11 @@ jobs:
             data/models/online_learn_report.json \
             data/processed/live_metrics.json \
             data/processed/risk_state.json \
+            data/processed/upcoming_predictions.json \
+            data/processed/validation_freeze.json \
             data/raw/betfair_market_ids.json \
             data/raw/kambi_last_odds.json \
+            data/raw/injury_news.json \
             2>/dev/null || true
 
           if git diff --staged --quiet; then
@@ -135,7 +145,7 @@ jobs:
             exit 0
           fi
 
-          git commit -m "auto-learn: settle, ricalibrazione online e audit BCR [skip ci]"
+          git commit -m "auto-learn: settle, BCR Betfair quality, news feed [skip ci]"
 
           # main may move during the ~8m job (manual pushes / other workflows).
           for attempt in 1 2 3 4 5; do

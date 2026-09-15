@@ -30,6 +30,7 @@ data/raw/odds/wta/
 data/raw/odds/tournaments/
 data/raw/tennisratio_rankings.json
 data/raw/venue_altitude.json
+data/raw/tml/
 
 # Nested clone (use data/raw/atp in CI)
 tennis/

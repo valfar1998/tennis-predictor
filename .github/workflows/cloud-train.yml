@@ -142,6 +142,7 @@ jobs:
             data/raw/betfair_settled.json
             data/raw/kambi_unibet_odds.json
             data/raw/kambi_last_odds.json
+            data/raw/injury_news.json
           key: tennis-betfair-${{ github.run_id }}
           restore-keys: |
             tennis-betfair-
@@ -158,7 +159,7 @@ jobs:
               print(tour, json.dumps(info, ensure_ascii=False), flush=True)
           PY
 
-      - name: Predizioni + Telegram
+      - name: Predizioni + news/injury + Telegram
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -179,6 +180,7 @@ jobs:
             data/raw/betfair_settled.json
             data/raw/kambi_unibet_odds.json
             data/raw/kambi_last_odds.json
+            data/raw/injury_news.json
           key: tennis-betfair-${{ github.run_id }}
 
       - uses: actions/cache/save@v4
