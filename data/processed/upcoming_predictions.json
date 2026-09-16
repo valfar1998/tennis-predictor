@@ -2789,10 +2789,10 @@
       "headline": "Elena Rybakina svela: \u201cMi sono presentata con un infortunio a New York e per una settimana non ho usato la racchetta\u201d - OA Sport",
       "category": "injury"
     },
-    "p_retire": 0.27,
+    "p_retire": 0.405,
     "retirement_context": {
-      "player_injury_risk": 0.27,
-      "p_retire": 0.27,
+      "player_injury_risk": 0.405,
+      "p_retire": 0.405,
       "news_boost": 0.135
     }
   },
@@ -10398,7 +10398,7 @@
           "channel": "rss"
         },
         {
-          "title": "Carmel native retires after U.S. Open loss, tearily thanks his father: 'I hope I made you proud' - sports.yahoo.com",
+          "title": "Carmel native retires after U.S. Open loss, tearily thanks his father: 'I hope I made you proud' - Yahoo Sports",
           "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNcnZUQlF3NUE4RTlRRmg3TzRET0FlWmRHOFh3ajF5eGRvYndQWGtVSndGMjE2ZEwyVnFLbFRQYjBVUEZCU05RdV9MMEMtZGQyR3JZWlBtZW1mYVBqdGpVYm5adW1BUEFYbUROY3JjTzNBc3Q2X3ZmU3VYNnBsSzdrcFFfMA?oc=5",
           "source": "gnews_injury_en",
           "category": "retirement",
@@ -10440,7 +10440,7 @@
             "channel": "rss"
           },
           {
-            "title": "Carmel native retires after U.S. Open loss, tearily thanks his father: 'I hope I made you proud' - sports.yahoo.com",
+            "title": "Carmel native retires after U.S. Open loss, tearily thanks his father: 'I hope I made you proud' - Yahoo Sports",
             "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNcnZUQlF3NUE4RTlRRmg3TzRET0FlWmRHOFh3ajF5eGRvYndQWGtVSndGMjE2ZEwyVnFLbFRQYjBVUEZCU05RdV9MMEMtZGQyR3JZWlBtZW1mYVBqdGpVYm5adW1BUEFYbUROY3JjTzNBc3Q2X3ZmU3VYNnBsSzdrcFFfMA?oc=5",
             "source": "gnews_injury_en",
             "category": "retirement",
@@ -10464,10 +10464,10 @@
       "headline": "Carmel native retires after U.S. Open loss, tearily thanks his father: 'I hope I made you proud' - IndyStar",
       "category": "retirement"
     },
-    "p_retire": 0.306,
+    "p_retire": 0.45,
     "retirement_context": {
-      "player_injury_risk": 0.306,
-      "p_retire": 0.306,
+      "player_injury_risk": 0.45,
+      "p_retire": 0.45,
       "news_boost": 0.153
     }
   },
@@ -32998,10 +32998,10 @@
       "headline": "Elena Rybakina svela: \u201cMi sono presentata con un infortunio a New York e per una settimana non ho usato la racchetta\u201d - OA Sport",
       "category": "injury"
     },
-    "p_retire": 0.27,
+    "p_retire": 0.405,
     "retirement_context": {
-      "player_injury_risk": 0.27,
-      "p_retire": 0.27,
+      "player_injury_risk": 0.405,
+      "p_retire": 0.405,
       "news_boost": 0.135
     }
   },
