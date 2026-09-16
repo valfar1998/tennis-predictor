@@ -2789,10 +2789,10 @@
       "headline": "Elena Rybakina svela: \u201cMi sono presentata con un infortunio a New York e per una settimana non ho usato la racchetta\u201d - OA Sport",
       "category": "injury"
     },
-    "p_retire": 0.405,
+    "p_retire": 0.45,
     "retirement_context": {
-      "player_injury_risk": 0.405,
-      "p_retire": 0.405,
+      "player_injury_risk": 0.45,
+      "p_retire": 0.45,
       "news_boost": 0.135
     }
   },
@@ -32998,10 +32998,10 @@
       "headline": "Elena Rybakina svela: \u201cMi sono presentata con un infortunio a New York e per una settimana non ho usato la racchetta\u201d - OA Sport",
       "category": "injury"
     },
-    "p_retire": 0.405,
+    "p_retire": 0.45,
     "retirement_context": {
-      "player_injury_risk": 0.405,
-      "p_retire": 0.405,
+      "player_injury_risk": 0.45,
+      "p_retire": 0.45,
       "news_boost": 0.135
     }
   },

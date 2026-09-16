@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "fetched_at": "2026-09-16T09:00:49.430177+00:00",
-  "n_items": 47,
+  "fetched_at": "2026-09-16T20:05:10.035295+00:00",
+  "n_items": 46,
   "n_raw": 130,
   "errors": [
     "espn_tennis: fetch failed",
@@ -31,8 +31,8 @@
       "severity": 0.95
     },
     {
-      "title": "Alexandra Eala handed boost for the Asian Games as her two biggest rivals for the gold medal withdraw - Tennishead",
-      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNWlROWGQ2dC04VzRNUFlfNVVuaDBTSGt3UnhyWkJ2YmtGakVOaldqTlgxY0J5YzZfbnBUU0c0MDJBQVZudDE5eGM2YjFkWm90dWFXaDgyTlNBZWJxbFd4d1ZXdHNhNXlYOWpSMTNtRTVhaUpLVVNZemRBdDI2N2duOWYwcmo5NTdKOXFNRFBXdWZiWWt3ZnlWSm1WS0tjejh6LVVVNG1OTGV2QVlSX19nbnhwLVlrT090dWkzTnliU2NlMFE?oc=5",
+      "title": "Canada's Gabriel Diallo withdraws from Davis Cup tie against France - Sportsnet.ca",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPVkliRFFyb0VRbk0taUxsVHNRdVV3VmJneHluaUdEenIyUmtWYmpMVkpxeWpJb1VLbTBVNW4xWS0yT2xqSXJFZFI3THE5WGs1UDZxbTNVUVdydmIwUnNqT0djeWlVdUF1SkZhTWFCaTlXaVpSTW1NR013ckFINW1ldHVNSXNxLVp3ZlR0MVZiZkN1c2l2NGt4ZXdraXBNN3hDUWJiU2xhRQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -41,8 +41,8 @@
       "severity": 0.95
     },
     {
-      "title": "Canada's Gabriel Diallo withdraws from Davis Cup tie against France - Sportsnet.ca",
-      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPVkliRFFyb0VRbk0taUxsVHNRdVV3VmJneHluaUdEenIyUmtWYmpMVkpxeWpJb1VLbTBVNW4xWS0yT2xqSXJFZFI3THE5WGs1UDZxbTNVUVdydmIwUnNqT0djeWlVdUF1SkZhTWFCaTlXaVpSTW1NR013ckFINW1ldHVNSXNxLVp3ZlR0MVZiZkN1c2l2NGt4ZXdraXBNN3hDUWJiU2xhRQ?oc=5",
+      "title": "World No. 3 Pegula withdraws from Singapore Tennis Open; Fernandez accepts tournament wild card - The Straits Times",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQb0FnVTZxNlVYbFFxSHBqVVhLSkJPeDZHcGN5NWpNQXZUUTlQaExqbzYzeDV4RVlsUFdRWEtxQ0FyY21qbnRSd29xdnM3V1FhbmlsQU9mQm52ejhTSnBQWnMtQ1Z1UGdwQWdTMjJGd3pQcmdiLVFMM2JWcHRMdW1UcTVZQzJSREpRLVVVaEVnaW0tbGpwelh1Y1Brekd1RFJTSk9KNk1uTQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -101,8 +101,8 @@
       "severity": 0.92
     },
     {
-      "title": "Cosa fa oggi Dries Mertens dopo il ritiro: è sparito dal calcio, vive viaggiando per il mondo - Fanpage",
-      "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNbzhBSzVZd3BzdG1SZ1hVSTBUcXlxM2VJU3M5NGJmRlluRjk4TWdiRmtkYnVyWTVualVCeWNxbmpzSXBQRGc0Z0puSXFFSFhwalZoc0FUNE16UVpBVkNKZGRQY1d3NmFSamZQdlZHT0kzRWxmNVBkQ0ZpVGpPLWZlNHFHNzFHZXgtVFk3Unc5RGhWdnZUMmxyczA0dURJT3FJaUdHWnZJM01NalQ2am9uQmVnQ1pMa3FJNkpSTWhCeVo3SnZraGdJ?oc=5",
+      "title": "Jutta Leerdam si ferma a 27 anni dopo l'oro e l'argento alle Olimpiadi Invernali: \"Non è un ritiro\" - Fanpage",
+      "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQSHRUQ0VJbFVyWnhFOVZDdldfSmxRVUdHOTRBb1U1TmJRLTNzNnRfa1FFVHBndkZLTTBISURWUi1iNGJwWS04TllCWVczM1dsZnVlam0wbzMxY29McGJNMlZFdVNrdmJBR2RBM1FEcFdCOWRtTDUtOU5LSTlmRjhrWGVVR3ZFUlA0M3RHVzJIcmc4ODNHdDFVRHB5bHRWMldwc2V5MkNUTkFtLTVCSU5SWDF2RmNJdmhTVm9ib3NDekhwTkNoWEs1VXl1Tm5USU9tNUE?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -121,38 +121,8 @@
       "severity": 0.85
     },
     {
-      "title": "Illinois Men's Tennis Alum Ram Announces Retirement from Professional Tennis - University of Illinois Athletics",
-      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQcWRBWUpfa0hJMTJYMDZERDhwVDRFdzhkUzZvY1kyRVZSQ2xGODJkZWhyQ281VDl4SzFQc0RaMnlnRXZwY2FfVEF3MUpYUkUyWGhiakNWLXNWVTJlLWFUNUwwVnJqcGM1VUhUbFJ1VnduLUlKenYyZEhXLUUyVlVkSUtXRXNlMlZMLXJRLVlDd1F4bm9CZXZpWS1nYzVmYzdrM2NoOXp2TXB1V0tPeF9oamNDZFBhUHVU?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "retirement",
-      "severity": 0.85
-    },
-    {
       "title": "Khachanov back to US Open semi-finals as Blockx retires - Reuters",
       "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNUUtINnNaQWItSUJyRDdJdGM4SDM4LU42T2R6bktHcUgxZEZTd2VudnpTSmNPa3FWSGdpRHNKZUZaOXFZcDVKejQ4a0FydFYyLS02MVBWaTlYdEhqRkZfakpxWG91MklPa3l3YWJrMWlSei16OWFvV3hQUFhHRjNJdUZUclprcjRLalltanNtNmZwaWJZQ0o0Y3JJSGkzdHM?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "retirement",
-      "severity": 0.85
-    },
-    {
-      "title": "Khachanov advances to US Open SFs after Blockx retires - atptour.com",
-      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1oWmUtNVlBZG9iWXEtV2V6TjNIQ3JWYV9nWVFpUzNpX0YwandtaC1QT2ludW8tVWJPSlJtWUl1UlRoQ3B3bEt6M2d1UWRLQkd1NVpPalpnd2ZzSml1aDI4TGJzMU1PUU5JcExPSGZ4VlBxOEcwRlJLOWktUQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "retirement",
-      "severity": 0.85
-    },
-    {
-      "title": "John McEnroe claims there’s a ‘strong possibility’ Novak Djokovic will retire in 2027 - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOWlpBUDlOSmplMXNtTGJrUFg1b2xpTVh3X3JiVWVGNDZaTmxSTVFGdzRTV0RwWW1yeW92dHBrQmZtWFU3Nmd6N19DTmEyUTBUc2xKTWN2YWZGUVVVMXI5QnFHWE5PZms4M01fWjdxWkIzTDJnaW1CelM5RVdTQUs2RnZmclM5TVZ6ZjRwQmlmQTg?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -171,7 +141,7 @@
       "severity": 0.85
     },
     {
-      "title": "Top-ranked N.J. senior wins Bergen County tennis title after opponent retires with injury - nj.com",
+      "title": "Top-ranked N.J. senior wins Bergen County tennis title after opponent retires with injury - NJ.com",
       "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNSEcyUGxlQWVKcjVOdF8yRk9JTnF1eGw0TklYbTVVdnBXeEJPcUhBNWZrUV9GSHMzTzhMUlJtRU5CWEN3NjAwZDk0ZzJ5eTY0UUNqOFF1ckJyYTBoRzZmaHVxVm5tSmpRLUFfRGxSQWdFaWRUT1daekxzb2xwbWt0ajlVVHZVRDhHaEdINnhhbi1sZkdZeVlBakNneE1FdnlUbEltelBIM2N2NEFVN3dIS243RXgxdEV5NlhJNVBHNjJrVWNFTEZPV0lwREs2a2xFWmc?oc=5",
       "summary": "",
       "published": "",
@@ -191,6 +161,16 @@
       "severity": 0.85
     },
     {
+      "title": "John McEnroe claims there’s a ‘strong possibility’ Novak Djokovic will retire in 2027 - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOWlpBUDlOSmplMXNtTGJrUFg1b2xpTVh3X3JiVWVGNDZaTmxSTVFGdzRTV0RwWW1yeW92dHBrQmZtWFU3Nmd6N19DTmEyUTBUc2xKTWN2YWZGUVVVMXI5QnFHWE5PZms4M01fWjdxWkIzTDJnaW1CelM5RVdTQUs2RnZmclM5TVZ6ZjRwQmlmQTg?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
       "title": "US Open: Unseeded Russian Karen Khachanov advances to semifinals after hobbled No. 28 seed Alexander Blockx retires in third set - Yahoo Sports",
       "link": "https://news.google.com/rss/articles/CBMioAJBVV95cUxQZ2hOMHF3Uk9HSU50STNIZFdIN0E3bldFdHNta2lyZ2kyd21YMC1Ia2lpakwxZ3JublpjOHRFc0xUVXRYdFZsNlZxMFp0VndLdVRvbTJQVmZtSWRrRmc2YVhiRkM1MDBTdVFzWndhNkV0blZLbTJNXzZsQ0ZGNjVJVTNtTDVPNUxVZVh5SnNZWm1UUGhfdkFkeW01ejBud2FYX1VFRndyanc5d0gzNTFMOU50U2tfeWxFa1ZmbmhtQ3NrZFJtZnBUc1dkRC1tcjlBdXVUUUVHMmdPYVdQMmdDemRUSnlHQUVXd3duamFqRU9TX21SREFEa0h4bEZHNGpjUkZSVnNpVTI4NXNlQ1VpcXQ1WHVyYUNBc1p0WEpmdlM?oc=5",
       "summary": "",
@@ -201,7 +181,7 @@
       "severity": 0.85
     },
     {
-      "title": "John McEnroe says Novak Djokovic retirement may now be close - Tennis World USA",
+      "title": "John McEnroe says Novak Djokovic retirement may now be close - tennisworldusa.org",
       "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPNUV5TnlJd2FBd045REtpVlZ0VnFia1dMWWtnWGlZVmJYTXFRVy1GbkdCV1FwV2FGMzRIS2NtQ3ZYMjJSaTRJZWcwajlQODVCX01yOWF1V0JSM09ZcUZYMVBNM1BPUnJzNUQwdk90R0lHV2lMdzByZ25yZFlzVl9SZ3JIMFVlMEU4cUZGYmRRdjZuZTBQcHR1VDFfeXhHY3h4cmhyLW5peDA1RnlTSV9BRmVnR0w5X3FHWkVTbzdaZmQ3THpZ?oc=5",
       "summary": "",
       "published": "",
@@ -241,6 +221,16 @@
       "severity": 0.75
     },
     {
+      "title": "Britain's Jack Draper aims for return in 2027 after injury-hit season - Newsday",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFB3Z1lOX3NHV2FHRHMtWnMzLVdrWGRUbkJ0UDZSVVZCQ2pzQlIxRmJoWTlBVlBMRDFPVkRLb1dNMDl2NjdOSHNacUJJRHgxenhFZ1p2RVBxS21ZamlKNnVvdTIxWEZPbjU0MGk0S0pZdDYycGVFakE?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
       "title": "Jack Draper ends season early due to injury, targeting 2027 return to ATP Tour - The New York Times",
       "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQR3Ric1J0azZPclZZZHJLU2oyTnRSZGoxdmcwdl9fZS1BTTh5dWFQT294SmU3bnUxVkFBVVlNSFZGUURkanpKMjBrTHV2dTdJWjVDN0FCLVNydDRXRVBNcWUxNVZ4R0R1bV81Y0tmU3NTVU83X0piYzRmQm5ZaGd5bGlrd09WaE0wd2ZHX0h6OGM?oc=5",
       "summary": "",
@@ -271,16 +261,6 @@
       "severity": 0.75
     },
     {
-      "title": "Tennis Player Victoria Mboko Reveals the Advice Serena Williams Shared on Navigating a Return from Injury (Exclusive) - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOaHZYQU55bjM5N2F5ZTdJa2xlbE1zYzJSUkQ3TVNPQVY3TVF0dkl4a2o0bkltQmE2T25oQjVxNExJNWVaNmxPeVVaTXZNc0tTUDRwSUlpekE2S1E5WGJVRUNXQzdyYTQ2RW1pakYtREtXZzJMZTdJSTdSc2R4YThaRzhVYmFMR3pYNUxTNThn?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
       "title": "Tennis-From injury fears to triumph, ‘everything aligned’ at US Open, says Rybakina - 927thevan.com",
       "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNLWUySFJHZWdhbDhoUHBha05tekU5NmFxcmJtVllJTkJLQndfdnNmTDZKMDZIM2NyOGFYckVqLTQxaGNTazkyN2I4LU12dU83Q0Ewc0laSVRPOHgzNU02ZUg0YXhvRjdOay1jR2VCQk52T2ZvTVJlWmQycjFKdzlfY3ZqUzFjQWp0a0I0MHhuazY4Wl9yanBxU01CS0lrT2RjdThDQXVNVW04SG9iX0NWUW1Raw?oc=5",
       "summary": "",
@@ -291,8 +271,8 @@
       "severity": 0.75
     },
     {
-      "title": "Britain's Jack Draper aims for return in 2027 after injury-hit season - hngnews.com",
-      "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPVFhfWDRnNHhqcG5IOGdmeVYzcVE1WGcxTWQ1VC1Za0pSNjJsQXFkYlVLRTJtX0paQ1h3SmIwV0JYLWhwWDBMRl90dnBKWGVubmdkMS13MUxtMy1BZFMxVkhIWGtoeGt5RG1XcmZqLWFHQ2RFckhxRWZpdnZBdmtfUHZvdHN4TGdYQm5nTWI1UVo5aXBXckUySVdZZXYxd1RydW5JQVhPb2k1d09HM2w2R3NwcERFLXB4bGZOMWs1YmlrN3EzUUJ5QWJGbExwU2dnVmFFTmNUZzJibHh3WFdiYlNOOWhjRmY0UUZPQ0xzcw?oc=5",
+      "title": "Draper Injury Tennis - The Herald Journal",
+      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNZzktVHpUMDl1c29jSW5fWEVUcUo2YWM5LTFkMEExM2d6UHVkWXoxOGY3My1Tb1BVSVZyQ21tS1hfalI1QmZtTmRrZmZBUUhSU0ZyMkFKS2lXVFZxQkQyNVBYZnpiUzR3aHFrVUtjQzNPMkNRQ0NWLURUTE1qenFKY0ctOVVwakNPWmNON3ZtZWdJaHpSakI4aWI3T1BSc3dzLWNxdmg4SjQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -301,8 +281,8 @@
       "severity": 0.75
     },
     {
-      "title": "Draper Injury Tennis - hjnews.com",
-      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNZzktVHpUMDl1c29jSW5fWEVUcUo2YWM5LTFkMEExM2d6UHVkWXoxOGY3My1Tb1BVSVZyQ21tS1hfalI1QmZtTmRrZmZBUUhSU0ZyMkFKS2lXVFZxQkQyNVBYZnpiUzR3aHFrVUtjQzNPMkNRQ0NWLURUTE1qenFKY0ctOVVwakNPWmNON3ZtZWdJaHpSakI4aWI3T1BSc3dzLWNxdmg4SjQ?oc=5",
+      "title": "British tennis player Jack Draper to miss remainder of 2026 season amid ongoing arm injury - dailyfly.com",
+      "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQQkU3cUtLWV9LV05XWlB2eC05S2hkVnZVWUhGbzZ1QTNabnpWNjE4Wnl1MXVONUduLUZUVXlhVlluQS1iV0lGVkNqRmFFVVFGMjhkeG9ncjlIWnFrUlFJczBENmpHdTk5THEyaXNsWkFpZE9UNmlNR3Bna0owbDdWbWpQUVpKUm5XUWUtOFlUWWFvMUZnNF9zVXdkNmRCM3pkTFZORHdKOHlvVG5IV0syNms4aHQ3WVBLbTYwbHdsZ0lSSmFnREE?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -341,6 +321,16 @@
       "severity": 0.75
     },
     {
+      "title": "British tennis star Sonay Kartal ‘feeling good’ & starting afresh after long injury spell - LTA",
+      "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOdW5jQXNvbmZqYUF4MkQ2X3AySFk3RVlIOUI2aS1hLTE0T0hhcG9YbGtpRHo2RU1iWXlmTklCSWlLM0cxRG03X2YwaEg2c2M2UVEzWm9xS3pLM3Z2djd0bWVicjdEN1B3MUt2MTlxZ0xPR01PUFY4Y1g1eVlweVdUTjhMamk1Q0dwM1BBWEVkMnVBZGd4VDQxMEF3N3ZFMm12R1YzTDNRUVNpOWtTN2Z3TlVqV2VZTDAwUmR1ZUx4bW1McEZoSjVn?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
       "title": "From injury scare to US Open champion: Elena Rybakina rises to No. 1 - The Times of India",
       "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPeFdlX25TLTVvaVVkWGUzWHBSd2ZHYVNDYVpDWUJ5U2t6SjhnVUJzUThMaFZEUkd2MUZYSllUNmg4MFBOTXh2clhhMkxjckFzNm9sTzRhUGNGRk9JSjNnaHBONW1nQl93MFlac2tfcmNwT0tSVnNURHh6YktrcmwtcDJBX01JOU8yeU5jSnFOU1ZUaXJjcVgxTzZ4RlFTUVlBWXRmMTJZOWY2YWJkXzRRTllsU2NpYkh6TjhQRjFGSk9wMVgzUjFRQXpqNXNEM2FYeWNBVTZGN0NmSHhTa2tZOVc3SGM1MHZrWHfSAe8BQVVfeXFMTkFIODVHT013RmgzS1lCR0xOTDdSX3Vnbm1fM1k5Z2ZKUFdMNDZwazV6OEs2cjZpbW5UV3VrR0N1emx1a1RWSXk0LUxtc3FfLWx4T0RvYURMc3ZuR1VxQ3RRRmZfRGdYQ3loMWlBTm1QcDU3QjNSSVJoakI2Q0t3aXM1dDBIcHBOaTFjZndaTHBHZEt3bWthVEwxN3lsbnlDblhPelBzX1lxSVRsbkk2OENXdjlJR1ZNRXhUUS1HUmFFUTZidnJWSXR3RGFqNXBDYWpIaUZ5NUtYczNweFVKYkpjZ3ZzSUNjMG1MZnZhV1k?oc=5",
       "summary": "",
@@ -351,7 +341,7 @@
       "severity": 0.75
     },
     {
-      "title": "Victoria Mboko shares Serena Williams' very encouraging advice after knee injury - Tennis World USA",
+      "title": "Victoria Mboko shares Serena Williams' very encouraging advice after knee injury - tennisworldusa.org",
       "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNcXZDbVd4SzRjYkt0Z3QtSHFTeGVzZGlzR0xLdl80bzNZYXVfOTBoelJDZzJxZ2JWdU9HS1owemhJNEQ3UXRxeG1KRVFqczNta19pTTB2RHFoQUlJOUtWLWM2LTBWanNVUzNiZ1djNVJBaWZaTTZwOVhnMlZ2X3JMc3NmbnNaSmtUMDh5Q05BczlPcnlQM3NyZ21HSXV0X3VsN1dZTGZSUlRlTndvazJBbkxHc1ZRSG9tWVllWjJGSFBMdmwzYmFCNnRUeHlyN1AtNXZEVnpIUFhmWm9obTc0?oc=5",
       "summary": "",
       "published": "",
@@ -361,8 +351,8 @@
       "severity": 0.75
     },
     {
-      "title": "Del Potro sounds the alarm on injuries: \"Tennis is the most aggressive sport there is\" - TennisTemple",
-      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOVlBHcDRvNEh4bEdKa2hvWENMMlJQQjhWb2xaRWZMcFZBOG91LXpjd196SDBzbHpHSVQydVVmb18tMHFNazRiVDF4OWlOYmRtQ0h4Y1hEaHJLcTUzbnIyYUc0bFJHa09Lc2djdGJvX3VvUUdwb0dOa2RIeHRFZDdVakpLTEx2am5ScXFxTFhFWQ?oc=5",
+      "title": "Injury brings Draper's 2026 season to an end - TNT Sports",
+      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOV1pmLUV4NDhsVUhvRU1mZUtyZmFJNmM3ZE5EM0QyYXh5aHczWjd5LWM0Tk1zU2FJckkwSEdaQUpUQ0hWTzBmTXNxQjJxR1VJczNQS1M4aUtEMzhjMG5HeE12SVBDQkZwRHdJUFBNaThleU5mVVkzWHZ5MGtqXzhDM3pJUmhpZjE5TWc4eVliRkRLT3piQjZ6WDBBWVE?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -371,18 +361,18 @@
       "severity": 0.75
     },
     {
-      "title": "US Open champ Rybakina on top of world after injury scare - The Malaysian Reserve",
-      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQRFR3WS03aFI1Qk8wdEplRzROclJ3SGdBdU5vTXNsWlYxSmdBUHh6VVRRR0JhR2FaOEZjUlNNbUlEOUp3TFk1cy1Ga1ZzdnlHelFDZmJvM0F5NmpEclFNamVLZnpmUnRDMDJaUEtSalFGeFJFTnZ1UEVaVlBMWEw1UjBHMjRHdlBLTnhNQ2M2aDdEdENPRWh3eTJPSC1Hc2hOOTFz?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "SL, l'infortunio di Steffen in Lugano-YB (LA2 Sport Live 12.09.2026, 19h00) - rsi.ch",
+      "title": "SL, l'infortunio di Steffen in Lugano-YB (LA2 Sport Live 12.09.2026, 19h00) - RSI",
       "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNRUhCU3VjWEo2cjN2dndxdWVSQUk1R1BuQVEzQ1Q5MmNtTy1rZmhzSGFCUGh6Q1lPVU5wVlV6TTVkcVd6Y2o1aTR2WmhYbTUwTnV2T0prZWk1TGRwZm5kMEd0ZGg4ZlhGRnVUVUlpUHgxandNOGlxMFROTHF5ejlXRklYdGJOQmJ2eUxSVnJfOVNZZDFWRE9UZjVLY19kbEM5VXVXYm1ZRE56MS1KdDhVN1pjOFdhR2k1c2ZJUnB2ZlZhQ09vNEtVcTAtOXozcGEzMXFCci1n?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Sinner, quando gioca? Dall'infortunio al ritorno in campo, obiettivo Atp 500 Pechino: il programma di Jannik - Leggo.it",
+      "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQZTlCX0E2bEtDMEd3ZUdXOFlqbmNsUk4ybC1NNXAwM19ocktzc2dmcGJ0TnJlRlhWM2g2QkZnQTh4MElOYklzNzVFLTJfZ19yVjFOVW1WTHh3VmVxTmI5dnpYeU5hNFI3RjY5VDdrQUp4WkdPa1BrcFR1eFFRdTN6UExzN1pjNmFkSkhVc2oyU2VYUTVFU3UxS1BVLXdIZUw1WnJZLWNsQzJYTnNLTEtlWERydU1CZTF4TklTQnF3NDdTaGJVczdPM01JSVFYNDVCNnFsUXV1akFkTkdtb0RzTkdn0gHGAUFVX3lxTE1mTDExUUxYWDdXbWhVOFJpNUN3dm02UXpHdkg0Xy1KcU1jaDVuZDJlaGVMd1lsNm1uWWZ3T0lHTGJMc3VfeVMzYXFHemhwYWxzSVk2OUdQR1hVOTh0WjBCYllSR1RZX2Nrd3paMEx5RXJ6OEJxUEVGU3BrMWhNZHJxeE9nTUt3dHBmUUs0RTQ1dGp5QjQzbkM3S3RCT3NIYVBYUmhQcmJ4SUhhTTkzNVlTc3RvWGNLaTg2UGg4RGFubGI4Q3RXZw?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -421,8 +411,18 @@
       "severity": 0.75
     },
     {
-      "title": "Sinner, quando gioca? Dall'infortunio al ritorno in campo, obiettivo Atp 500 Pechino: il programma di Jannik - Leggo.it",
-      "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQZTlCX0E2bEtDMEd3ZUdXOFlqbmNsUk4ybC1NNXAwM19ocktzc2dmcGJ0TnJlRlhWM2g2QkZnQTh4MElOYklzNzVFLTJfZ19yVjFOVW1WTHh3VmVxTmI5dnpYeU5hNFI3RjY5VDdrQUp4WkdPa1BrcFR1eFFRdTN6UExzN1pjNmFkSkhVc2oyU2VYUTVFU3UxS1BVLXdIZUw1WnJZLWNsQzJYTnNLTEtlWERydU1CZTF4TklTQnF3NDdTaGJVczdPM01JSVFYNDVCNnFsUXV1akFkTkdtb0RzTkdn0gHGAUFVX3lxTE1mTDExUUxYWDdXbWhVOFJpNUN3dm02UXpHdkg0Xy1KcU1jaDVuZDJlaGVMd1lsNm1uWWZ3T0lHTGJMc3VfeVMzYXFHemhwYWxzSVk2OUdQR1hVOTh0WjBCYllSR1RZX2Nrd3paMEx5RXJ6OEJxUEVGU3BrMWhNZHJxeE9nTUt3dHBmUUs0RTQ1dGp5QjQzbkM3S3RCT3NIYVBYUmhQcmJ4SUhhTTkzNVlTc3RvWGNLaTg2UGg4RGFubGI4Q3RXZw?oc=5",
+      "title": "Infortunio Calhanoglu, salta Roma-Inter: le news - Sky Sport",
+      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQQzFaYVRmbXdOcHFLNXdJV29Xc1ItTm5Gd0RSV1AzMkVZMmJKSHlfSFVlTFktaTNEN2RieFRzNjNWcWxTZk14MzRXSll4ZGprV0JnejV5M2h4aXVQMnQtcTIyYTBzMkRYUWc5ZzFhUTVDZmprOUxVMk5rTjVnTEFLT0xNUVBOTG9oM3pBWkZKTDhhekYyTl9uOVJQbGt4djg?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Perché Gasperini ha sostituito Koné: infortunio muscolare per il centrocampista - Corriere dello Sport",
+      "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxOUUpiZ19fTWxZWXk5d09IMjNnamhiaDN6dFVOT3pBM2lhN2dBcVVZemVKR1Q2eDNWTldhd3NpTW1DOEJlVGtZVGJoVnllTGpsTjdwQXFqWmFaUWhvS3Yxamt6VFNPYkJuY1JFNUFqNlB3cmF1US1QaVVGSzlnY2NNSzN2ZXVrbjlFZUlTVzZNTGpGUl9uc1dsOWtySlh0TUUydmNxWUpLME45NGJjY0hWbUJRVEJIa0dMY1pWaHE4THpsbVFzdGRSY2x1TlpoblRsbzRNRkhtZnV6YUl0SWlFakpaNUhPemc2LW1vMVN5VUZmQQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -441,18 +441,8 @@
       "severity": 0.75
     },
     {
-      "title": "Sinner, il ritorno in campo a Monte-Carlo: primo allenamento dopo l’infortunio - Planetwin365 news",
+      "title": "Sinner, il ritorno in campo a Monte-Carlo: primo allenamento dopo l’infortunio - planetwin365.news",
       "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNektkWi1zOGtiTFJEY1Z2dkU5VEhpdUQ0RGxGSXhRSUNCZUVjTE1lMUxTRlpLbTJHLWVvZVBMV3RZLTIwcHFTZTNWVjg4YXowbnl1NmMyX04wRVRrN2xuR0tsTVJKVXRvQzNnX3hCTEV3WnAwa1lmaHpQYkIwamJ3amtOdTZ2eEdyUnE4V0V1MTc4Ri03S3RsVXZzOF9YcElCZ0lxOU1BXzIzamZUWVNiUkswVklWNklVVjF1QlJR?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Infortunio Sinner, quanto ha perso saltando tre tornei: fino a 6,7 milioni di euro - QuiFinanza",
-      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOU2tMZlpnSXpiY3VVTWxzbWNXd1REMWt3ZzhoMUhqSWloRVZiZC1tckVGLUxSOU0wMjBQSUtqd1EtZWMyZ2NTdFFteC1idXhjaEJPdkFrRkhyNzdRSVp3OVZORW5kSllEbVl6dEwtWllVby1sUlBUNmpNbXdYN1F3U0VJNk5fNHRHNzJOSzNoY0o2bXk0M2Q2b9IBngFBVV95cUxOQVFiWmZRVHFrbXd5OWZ5ZklhYUNDMmtxM1FoR0ZiTTBuZXQ4OUN4NlJ4XzdieXFWRFlTdTRNYVlqMDl6a0dzQUVIODJqbkRoZ0VBa3VFRlhwVjhRUU5pVkZvTTVCS3pjZXVLVzRkcFNfeENXWi1TcVZyOXZpb3ZwNVp0SnBweVFLMTFFN0xJSUxNTzdqMlpfUk1MWE1BUQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
