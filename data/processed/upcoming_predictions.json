@@ -2688,7 +2688,8 @@
         "EV +2.0% sotto soglia 4%",
         "probabilit\u00e0 33% sotto minimo 38%",
         "modello incerto: uno o entrambi i giocatori non identificati nel database",
-        "steam: edge +2.0% sotto soglia su quota corrente (3.05)"
+        "steam: edge +2.0% sotto soglia su quota corrente (3.05)",
+        "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news"
       ],
       "review_reasons": []
     },
@@ -2722,15 +2723,24 @@
     },
     "news_a": {
       "has_alert": true,
-      "hard_block": false,
-      "p_retire_boost": 0.135,
-      "category": "injury",
-      "headline": "Elena Rybakina svela: \u201cMi sono presentata con un infortunio a New York e per una settimana non ho usato la racchetta\u201d - OA Sport",
-      "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOSUdpeFpQUnlXNHNJWnh3MUtlRmdkSVFmQU5Lc0VRSG1hQlZ1R0FMZF9SOXFrOFlHMHFzdjBFUk9udmlDM24yRVJlU1V0MUhxRjJ4aWlDdnA5bjRuLVdSbnlxN1k0VzAya2FwNUphN3VGWEloYTRIUk9LMWJKNEJDVzhrdnhsN0RsU3AtLW5uc29ybl9neWNGVEMyRGpkS19KbTdZNFJtS3UzLVRySVBSOXBWRXBtMklxUnJxM1FDSjF4Q01KU1pFaUhRZ2F3dERfbTFQaTNTMVNSOE9qemZz0gHkAUFVX3lxTFB2Rm0zRDlYS0RESkN4eFNYekRGR2hGSm4tQlN4dmdWLW9WVGstVGpmSWplMkRIa1pYYXllNnppRmY1QTdMY0dEYk5RQmd5MmhzS3JrcnJkekFfeTFiU1JrM1dzekhmZE03dHJocDNiMVlYeGdIenlVc3Ezd3ZLSloxeXRHb01Gal93Q2pnNGRWQTM3OW82STRORVVzWkR5T2JxcElWOFNEUU51Skd5NlhqNHpOS3lxd3otOWVrYXJBbkNrazU0TGduUV9vbm91Smtka2w1clFQUHI4ZjNvUUFwaVVKcA?oc=5",
+      "hard_block": true,
+      "p_retire_boost": 0.2304,
+      "category": "withdrawal",
+      "headline": "Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
+      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQbngySkk5Y3JiQURnS2JTNnNxaWVlcUs5QmExSWp0OXk5SlU0MjhORDBMLVdwV1VOa1lfaW1hczBZNU1KT1ZQdDFNODgyZGZGaS03MGltN0dfNENTTlYtbmhOaFBhcUFuN3QxUmRBUW9HOHM2NVR1cEs4T1B5OF9ISmdyeThXNExNYkF6YUlnUVlOQndoWVI2cGxqZkRXLUh4QkIxbjB1WVdsQQ?oc=5",
       "source": "gnews_injury_it",
-      "severity": 0.75,
-      "n_hits": 1,
+      "severity": 0.92,
+      "n_hits": 2,
       "hits": [
+        {
+          "title": "Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
+          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQbngySkk5Y3JiQURnS2JTNnNxaWVlcUs5QmExSWp0OXk5SlU0MjhORDBMLVdwV1VOa1lfaW1hczBZNU1KT1ZQdDFNODgyZGZGaS03MGltN0dfNENTTlYtbmhOaFBhcUFuN3QxUmRBUW9HOHM2NVR1cEs4T1B5OF9ISmdyeThXNExNYkF6YUlnUVlOQndoWVI2cGxqZkRXLUh4QkIxbjB1WVdsQQ?oc=5",
+          "source": "gnews_injury_it",
+          "category": "withdrawal",
+          "severity": 0.92,
+          "published": "",
+          "channel": "rss"
+        },
         {
           "title": "Elena Rybakina svela: \u201cMi sono presentata con un infortunio a New York e per una settimana non ho usato la racchetta\u201d - OA Sport",
           "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOSUdpeFpQUnlXNHNJWnh3MUtlRmdkSVFmQU5Lc0VRSG1hQlZ1R0FMZF9SOXFrOFlHMHFzdjBFUk9udmlDM24yRVJlU1V0MUhxRjJ4aWlDdnA5bjRuLVdSbnlxN1k0VzAya2FwNUphN3VGWEloYTRIUk9LMWJKNEJDVzhrdnhsN0RsU3AtLW5uc29ybl9neWNGVEMyRGpkS19KbTdZNFJtS3UzLVRySVBSOXBWRXBtMklxUnJxM1FDSjF4Q01KU1pFaUhRZ2F3dERfbTFQaTNTMVNSOE9qemZz0gHkAUFVX3lxTFB2Rm0zRDlYS0RESkN4eFNYekRGR2hGSm4tQlN4dmdWLW9WVGstVGpmSWplMkRIa1pYYXllNnppRmY1QTdMY0dEYk5RQmd5MmhzS3JrcnJkekFfeTFiU1JrM1dzekhmZE03dHJocDNiMVlYeGdIenlVc3Ezd3ZLSloxeXRHb01Gal93Q2pnNGRWQTM3OW82STRORVVzWkR5T2JxcElWOFNEUU51Skd5NlhqNHpOS3lxd3otOWVrYXJBbkNrazU0TGduUV9vbm91Smtka2w1clFQUHI4ZjNvUUFwaVVKcA?oc=5",
@@ -2755,15 +2765,24 @@
       "pick_side": "A",
       "pick": {
         "has_alert": true,
-        "hard_block": false,
-        "p_retire_boost": 0.135,
-        "category": "injury",
-        "headline": "Elena Rybakina svela: \u201cMi sono presentata con un infortunio a New York e per una settimana non ho usato la racchetta\u201d - OA Sport",
-        "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOSUdpeFpQUnlXNHNJWnh3MUtlRmdkSVFmQU5Lc0VRSG1hQlZ1R0FMZF9SOXFrOFlHMHFzdjBFUk9udmlDM24yRVJlU1V0MUhxRjJ4aWlDdnA5bjRuLVdSbnlxN1k0VzAya2FwNUphN3VGWEloYTRIUk9LMWJKNEJDVzhrdnhsN0RsU3AtLW5uc29ybl9neWNGVEMyRGpkS19KbTdZNFJtS3UzLVRySVBSOXBWRXBtMklxUnJxM1FDSjF4Q01KU1pFaUhRZ2F3dERfbTFQaTNTMVNSOE9qemZz0gHkAUFVX3lxTFB2Rm0zRDlYS0RESkN4eFNYekRGR2hGSm4tQlN4dmdWLW9WVGstVGpmSWplMkRIa1pYYXllNnppRmY1QTdMY0dEYk5RQmd5MmhzS3JrcnJkekFfeTFiU1JrM1dzekhmZE03dHJocDNiMVlYeGdIenlVc3Ezd3ZLSloxeXRHb01Gal93Q2pnNGRWQTM3OW82STRORVVzWkR5T2JxcElWOFNEUU51Skd5NlhqNHpOS3lxd3otOWVrYXJBbkNrazU0TGduUV9vbm91Smtka2w1clFQUHI4ZjNvUUFwaVVKcA?oc=5",
+        "hard_block": true,
+        "p_retire_boost": 0.2304,
+        "category": "withdrawal",
+        "headline": "Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
+        "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQbngySkk5Y3JiQURnS2JTNnNxaWVlcUs5QmExSWp0OXk5SlU0MjhORDBMLVdwV1VOa1lfaW1hczBZNU1KT1ZQdDFNODgyZGZGaS03MGltN0dfNENTTlYtbmhOaFBhcUFuN3QxUmRBUW9HOHM2NVR1cEs4T1B5OF9ISmdyeThXNExNYkF6YUlnUVlOQndoWVI2cGxqZkRXLUh4QkIxbjB1WVdsQQ?oc=5",
         "source": "gnews_injury_it",
-        "severity": 0.75,
-        "n_hits": 1,
+        "severity": 0.92,
+        "n_hits": 2,
         "hits": [
+          {
+            "title": "Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
+            "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQbngySkk5Y3JiQURnS2JTNnNxaWVlcUs5QmExSWp0OXk5SlU0MjhORDBMLVdwV1VOa1lfaW1hczBZNU1KT1ZQdDFNODgyZGZGaS03MGltN0dfNENTTlYtbmhOaFBhcUFuN3QxUmRBUW9HOHM2NVR1cEs4T1B5OF9ISmdyeThXNExNYkF6YUlnUVlOQndoWVI2cGxqZkRXLUh4QkIxbjB1WVdsQQ?oc=5",
+            "source": "gnews_injury_it",
+            "category": "withdrawal",
+            "severity": 0.92,
+            "published": "",
+            "channel": "rss"
+          },
           {
             "title": "Elena Rybakina svela: \u201cMi sono presentata con un infortunio a New York e per una settimana non ho usato la racchetta\u201d - OA Sport",
             "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOSUdpeFpQUnlXNHNJWnh3MUtlRmdkSVFmQU5Lc0VRSG1hQlZ1R0FMZF9SOXFrOFlHMHFzdjBFUk9udmlDM24yRVJlU1V0MUhxRjJ4aWlDdnA5bjRuLVdSbnlxN1k0VzAya2FwNUphN3VGWEloYTRIUk9LMWJKNEJDVzhrdnhsN0RsU3AtLW5uc29ybl9neWNGVEMyRGpkS19KbTdZNFJtS3UzLVRySVBSOXBWRXBtMklxUnJxM1FDSjF4Q01KU1pFaUhRZ2F3dERfbTFQaTNTMVNSOE9qemZz0gHkAUFVX3lxTFB2Rm0zRDlYS0RESkN4eFNYekRGR2hGSm4tQlN4dmdWLW9WVGstVGpmSWplMkRIa1pYYXllNnppRmY1QTdMY0dEYk5RQmd5MmhzS3JrcnJkekFfeTFiU1JrM1dzekhmZE03dHJocDNiMVlYeGdIenlVc3Ezd3ZLSloxeXRHb01Gal93Q2pnNGRWQTM3OW82STRORVVzWkR5T2JxcElWOFNEUU51Skd5NlhqNHpOS3lxd3otOWVrYXJBbkNrazU0TGduUV9vbm91Smtka2w1clFQUHI4ZjNvUUFwaVVKcA?oc=5",
@@ -2785,16 +2804,18 @@
         "hits": []
       },
       "any_alert": true,
-      "hard_block_pick": false,
-      "headline": "Elena Rybakina svela: \u201cMi sono presentata con un infortunio a New York e per una settimana non ho usato la racchetta\u201d - OA Sport",
-      "category": "injury"
+      "hard_block_pick": true,
+      "headline": "Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
+      "category": "withdrawal"
     },
     "p_retire": 0.45,
     "retirement_context": {
       "player_injury_risk": 0.45,
       "p_retire": 0.45,
-      "news_boost": 0.135
-    }
+      "news_boost": 0.2304
+    },
+    "shadow": false,
+    "news_hard_block": true
   },
   {
     "player_a": "Wer Falkowska",
@@ -10378,26 +10399,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.153,
-      "category": "retirement",
-      "headline": "Carmel native retires after U.S. Open loss, tearily thanks his father: 'I hope I made you proud' - IndyStar",
-      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPR09LYjFHN3hfZVR2dUxQY0ZGaE1vMURwWUJFOUFCMVBBRkFoV0VMMUp2SEFUZ2x0bmxOTFZyVk11U2plVTc4Y1lFMlFnalhxNHg3VmZyaHF1N2I5a3RCYk5iQ3FfLTNjYlZLY1dTbmdQbU0tZnRndFM1SDZqc0hKQi04VjZVZU1taW5ITzh0b2NoR0VGbktVc1hGRk50MEJZaDNwRXRvZFVLc3E2dnlJY3pMTWhMSk9fTzZlZUxoZGZoM3BBMEl3TUlpY2hSNXVTNFJ5c0RBTlIzTkUx?oc=5",
-      "source": "gnews_injury_en",
-      "severity": 0.85,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Carmel native retires after U.S. Open loss, tearily thanks his father: 'I hope I made you proud' - IndyStar",
-          "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPR09LYjFHN3hfZVR2dUxQY0ZGaE1vMURwWUJFOUFCMVBBRkFoV0VMMUp2SEFUZ2x0bmxOTFZyVk11U2plVTc4Y1lFMlFnalhxNHg3VmZyaHF1N2I5a3RCYk5iQ3FfLTNjYlZLY1dTbmdQbU0tZnRndFM1SDZqc0hKQi04VjZVZU1taW5ITzh0b2NoR0VGbktVc1hGRk50MEJZaDNwRXRvZFVLc3E2dnlJY3pMTWhMSk9fTzZlZUxoZGZoM3BBMEl3TUlpY2hSNXVTNFJ5c0RBTlIzTkUx?oc=5",
-          "source": "gnews_injury_en",
-          "category": "retirement",
-          "severity": 0.85,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -10411,26 +10419,13 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.153,
-        "category": "retirement",
-        "headline": "Carmel native retires after U.S. Open loss, tearily thanks his father: 'I hope I made you proud' - IndyStar",
-        "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPR09LYjFHN3hfZVR2dUxQY0ZGaE1vMURwWUJFOUFCMVBBRkFoV0VMMUp2SEFUZ2x0bmxOTFZyVk11U2plVTc4Y1lFMlFnalhxNHg3VmZyaHF1N2I5a3RCYk5iQ3FfLTNjYlZLY1dTbmdQbU0tZnRndFM1SDZqc0hKQi04VjZVZU1taW5ITzh0b2NoR0VGbktVc1hGRk50MEJZaDNwRXRvZFVLc3E2dnlJY3pMTWhMSk9fTzZlZUxoZGZoM3BBMEl3TUlpY2hSNXVTNFJ5c0RBTlIzTkUx?oc=5",
-        "source": "gnews_injury_en",
-        "severity": 0.85,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Carmel native retires after U.S. Open loss, tearily thanks his father: 'I hope I made you proud' - IndyStar",
-            "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPR09LYjFHN3hfZVR2dUxQY0ZGaE1vMURwWUJFOUFCMVBBRkFoV0VMMUp2SEFUZ2x0bmxOTFZyVk11U2plVTc4Y1lFMlFnalhxNHg3VmZyaHF1N2I5a3RCYk5iQ3FfLTNjYlZLY1dTbmdQbU0tZnRndFM1SDZqc0hKQi04VjZVZU1taW5ITzh0b2NoR0VGbktVc1hGRk50MEJZaDNwRXRvZFVLc3E2dnlJY3pMTWhMSk9fTzZlZUxoZGZoM3BBMEl3TUlpY2hSNXVTNFJ5c0RBTlIzTkUx?oc=5",
-            "source": "gnews_injury_en",
-            "category": "retirement",
-            "severity": 0.85,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
       "opponent": {
         "has_alert": false,
@@ -10441,10 +10436,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Carmel native retires after U.S. Open loss, tearily thanks his father: 'I hope I made you proud' - IndyStar",
-      "category": "retirement"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -32879,7 +32874,8 @@
         "modello incerto: uno o entrambi i giocatori non identificati nel database",
         "steam: margine eroso dal dropping (15%, EV +14.3%\u2192+5.3% su quota corrente)",
         "sanity: divergenza modello/mercato 18% > 18%",
-        "sharp consensus: quota 3.50 > 3 senza quote Betfair/Pinnacle verificate"
+        "sharp consensus: quota 3.50 > 3 senza quote Betfair/Pinnacle verificate",
+        "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news"
       ],
       "review_reasons": []
     },
@@ -32913,15 +32909,24 @@
     },
     "news_a": {
       "has_alert": true,
-      "hard_block": false,
-      "p_retire_boost": 0.135,
-      "category": "injury",
-      "headline": "Elena Rybakina svela: \u201cMi sono presentata con un infortunio a New York e per una settimana non ho usato la racchetta\u201d - OA Sport",
-      "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOSUdpeFpQUnlXNHNJWnh3MUtlRmdkSVFmQU5Lc0VRSG1hQlZ1R0FMZF9SOXFrOFlHMHFzdjBFUk9udmlDM24yRVJlU1V0MUhxRjJ4aWlDdnA5bjRuLVdSbnlxN1k0VzAya2FwNUphN3VGWEloYTRIUk9LMWJKNEJDVzhrdnhsN0RsU3AtLW5uc29ybl9neWNGVEMyRGpkS19KbTdZNFJtS3UzLVRySVBSOXBWRXBtMklxUnJxM1FDSjF4Q01KU1pFaUhRZ2F3dERfbTFQaTNTMVNSOE9qemZz0gHkAUFVX3lxTFB2Rm0zRDlYS0RESkN4eFNYekRGR2hGSm4tQlN4dmdWLW9WVGstVGpmSWplMkRIa1pYYXllNnppRmY1QTdMY0dEYk5RQmd5MmhzS3JrcnJkekFfeTFiU1JrM1dzekhmZE03dHJocDNiMVlYeGdIenlVc3Ezd3ZLSloxeXRHb01Gal93Q2pnNGRWQTM3OW82STRORVVzWkR5T2JxcElWOFNEUU51Skd5NlhqNHpOS3lxd3otOWVrYXJBbkNrazU0TGduUV9vbm91Smtka2w1clFQUHI4ZjNvUUFwaVVKcA?oc=5",
+      "hard_block": true,
+      "p_retire_boost": 0.2304,
+      "category": "withdrawal",
+      "headline": "Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
+      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQbngySkk5Y3JiQURnS2JTNnNxaWVlcUs5QmExSWp0OXk5SlU0MjhORDBMLVdwV1VOa1lfaW1hczBZNU1KT1ZQdDFNODgyZGZGaS03MGltN0dfNENTTlYtbmhOaFBhcUFuN3QxUmRBUW9HOHM2NVR1cEs4T1B5OF9ISmdyeThXNExNYkF6YUlnUVlOQndoWVI2cGxqZkRXLUh4QkIxbjB1WVdsQQ?oc=5",
       "source": "gnews_injury_it",
-      "severity": 0.75,
-      "n_hits": 1,
+      "severity": 0.92,
+      "n_hits": 2,
       "hits": [
+        {
+          "title": "Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
+          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQbngySkk5Y3JiQURnS2JTNnNxaWVlcUs5QmExSWp0OXk5SlU0MjhORDBMLVdwV1VOa1lfaW1hczBZNU1KT1ZQdDFNODgyZGZGaS03MGltN0dfNENTTlYtbmhOaFBhcUFuN3QxUmRBUW9HOHM2NVR1cEs4T1B5OF9ISmdyeThXNExNYkF6YUlnUVlOQndoWVI2cGxqZkRXLUh4QkIxbjB1WVdsQQ?oc=5",
+          "source": "gnews_injury_it",
+          "category": "withdrawal",
+          "severity": 0.92,
+          "published": "",
+          "channel": "rss"
+        },
         {
           "title": "Elena Rybakina svela: \u201cMi sono presentata con un infortunio a New York e per una settimana non ho usato la racchetta\u201d - OA Sport",
           "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOSUdpeFpQUnlXNHNJWnh3MUtlRmdkSVFmQU5Lc0VRSG1hQlZ1R0FMZF9SOXFrOFlHMHFzdjBFUk9udmlDM24yRVJlU1V0MUhxRjJ4aWlDdnA5bjRuLVdSbnlxN1k0VzAya2FwNUphN3VGWEloYTRIUk9LMWJKNEJDVzhrdnhsN0RsU3AtLW5uc29ybl9neWNGVEMyRGpkS19KbTdZNFJtS3UzLVRySVBSOXBWRXBtMklxUnJxM1FDSjF4Q01KU1pFaUhRZ2F3dERfbTFQaTNTMVNSOE9qemZz0gHkAUFVX3lxTFB2Rm0zRDlYS0RESkN4eFNYekRGR2hGSm4tQlN4dmdWLW9WVGstVGpmSWplMkRIa1pYYXllNnppRmY1QTdMY0dEYk5RQmd5MmhzS3JrcnJkekFfeTFiU1JrM1dzekhmZE03dHJocDNiMVlYeGdIenlVc3Ezd3ZLSloxeXRHb01Gal93Q2pnNGRWQTM3OW82STRORVVzWkR5T2JxcElWOFNEUU51Skd5NlhqNHpOS3lxd3otOWVrYXJBbkNrazU0TGduUV9vbm91Smtka2w1clFQUHI4ZjNvUUFwaVVKcA?oc=5",
@@ -32946,15 +32951,24 @@
       "pick_side": "A",
       "pick": {
         "has_alert": true,
-        "hard_block": false,
-        "p_retire_boost": 0.135,
-        "category": "injury",
-        "headline": "Elena Rybakina svela: \u201cMi sono presentata con un infortunio a New York e per una settimana non ho usato la racchetta\u201d - OA Sport",
-        "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOSUdpeFpQUnlXNHNJWnh3MUtlRmdkSVFmQU5Lc0VRSG1hQlZ1R0FMZF9SOXFrOFlHMHFzdjBFUk9udmlDM24yRVJlU1V0MUhxRjJ4aWlDdnA5bjRuLVdSbnlxN1k0VzAya2FwNUphN3VGWEloYTRIUk9LMWJKNEJDVzhrdnhsN0RsU3AtLW5uc29ybl9neWNGVEMyRGpkS19KbTdZNFJtS3UzLVRySVBSOXBWRXBtMklxUnJxM1FDSjF4Q01KU1pFaUhRZ2F3dERfbTFQaTNTMVNSOE9qemZz0gHkAUFVX3lxTFB2Rm0zRDlYS0RESkN4eFNYekRGR2hGSm4tQlN4dmdWLW9WVGstVGpmSWplMkRIa1pYYXllNnppRmY1QTdMY0dEYk5RQmd5MmhzS3JrcnJkekFfeTFiU1JrM1dzekhmZE03dHJocDNiMVlYeGdIenlVc3Ezd3ZLSloxeXRHb01Gal93Q2pnNGRWQTM3OW82STRORVVzWkR5T2JxcElWOFNEUU51Skd5NlhqNHpOS3lxd3otOWVrYXJBbkNrazU0TGduUV9vbm91Smtka2w1clFQUHI4ZjNvUUFwaVVKcA?oc=5",
+        "hard_block": true,
+        "p_retire_boost": 0.2304,
+        "category": "withdrawal",
+        "headline": "Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
+        "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQbngySkk5Y3JiQURnS2JTNnNxaWVlcUs5QmExSWp0OXk5SlU0MjhORDBMLVdwV1VOa1lfaW1hczBZNU1KT1ZQdDFNODgyZGZGaS03MGltN0dfNENTTlYtbmhOaFBhcUFuN3QxUmRBUW9HOHM2NVR1cEs4T1B5OF9ISmdyeThXNExNYkF6YUlnUVlOQndoWVI2cGxqZkRXLUh4QkIxbjB1WVdsQQ?oc=5",
         "source": "gnews_injury_it",
-        "severity": 0.75,
-        "n_hits": 1,
+        "severity": 0.92,
+        "n_hits": 2,
         "hits": [
+          {
+            "title": "Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
+            "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQbngySkk5Y3JiQURnS2JTNnNxaWVlcUs5QmExSWp0OXk5SlU0MjhORDBMLVdwV1VOa1lfaW1hczBZNU1KT1ZQdDFNODgyZGZGaS03MGltN0dfNENTTlYtbmhOaFBhcUFuN3QxUmRBUW9HOHM2NVR1cEs4T1B5OF9ISmdyeThXNExNYkF6YUlnUVlOQndoWVI2cGxqZkRXLUh4QkIxbjB1WVdsQQ?oc=5",
+            "source": "gnews_injury_it",
+            "category": "withdrawal",
+            "severity": 0.92,
+            "published": "",
+            "channel": "rss"
+          },
           {
             "title": "Elena Rybakina svela: \u201cMi sono presentata con un infortunio a New York e per una settimana non ho usato la racchetta\u201d - OA Sport",
             "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOSUdpeFpQUnlXNHNJWnh3MUtlRmdkSVFmQU5Lc0VRSG1hQlZ1R0FMZF9SOXFrOFlHMHFzdjBFUk9udmlDM24yRVJlU1V0MUhxRjJ4aWlDdnA5bjRuLVdSbnlxN1k0VzAya2FwNUphN3VGWEloYTRIUk9LMWJKNEJDVzhrdnhsN0RsU3AtLW5uc29ybl9neWNGVEMyRGpkS19KbTdZNFJtS3UzLVRySVBSOXBWRXBtMklxUnJxM1FDSjF4Q01KU1pFaUhRZ2F3dERfbTFQaTNTMVNSOE9qemZz0gHkAUFVX3lxTFB2Rm0zRDlYS0RESkN4eFNYekRGR2hGSm4tQlN4dmdWLW9WVGstVGpmSWplMkRIa1pYYXllNnppRmY1QTdMY0dEYk5RQmd5MmhzS3JrcnJkekFfeTFiU1JrM1dzekhmZE03dHJocDNiMVlYeGdIenlVc3Ezd3ZLSloxeXRHb01Gal93Q2pnNGRWQTM3OW82STRORVVzWkR5T2JxcElWOFNEUU51Skd5NlhqNHpOS3lxd3otOWVrYXJBbkNrazU0TGduUV9vbm91Smtka2w1clFQUHI4ZjNvUUFwaVVKcA?oc=5",
@@ -32976,16 +32990,18 @@
         "hits": []
       },
       "any_alert": true,
-      "hard_block_pick": false,
-      "headline": "Elena Rybakina svela: \u201cMi sono presentata con un infortunio a New York e per una settimana non ho usato la racchetta\u201d - OA Sport",
-      "category": "injury"
+      "hard_block_pick": true,
+      "headline": "Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
+      "category": "withdrawal"
     },
     "p_retire": 0.45,
     "retirement_context": {
       "player_injury_risk": 0.45,
       "p_retire": 0.45,
-      "news_boost": 0.135
-    }
+      "news_boost": 0.2304
+    },
+    "shadow": false,
+    "news_hard_block": true
   },
   {
     "player_a": "Oksana Selekhmeteva",
