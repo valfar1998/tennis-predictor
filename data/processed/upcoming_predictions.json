@@ -2692,7 +2692,8 @@
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
-        "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - planetwin365.news"
+        "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - planetwin365.news",
+        "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news"
       ],
       "review_reasons": []
     },
@@ -2725,13 +2726,35 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
-      "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "has_alert": true,
+      "hard_block": true,
+      "p_retire_boost": 0.2304,
+      "category": "withdrawal",
+      "headline": "Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
+      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQbngySkk5Y3JiQURnS2JTNnNxaWVlcUs5QmExSWp0OXk5SlU0MjhORDBMLVdwV1VOa1lfaW1hczBZNU1KT1ZQdDFNODgyZGZGaS03MGltN0dfNENTTlYtbmhOaFBhcUFuN3QxUmRBUW9HOHM2NVR1cEs4T1B5OF9ISmdyeThXNExNYkF6YUlnUVlOQndoWVI2cGxqZkRXLUh4QkIxbjB1WVdsQQ?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.92,
+      "n_hits": 2,
+      "hits": [
+        {
+          "title": "Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
+          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQbngySkk5Y3JiQURnS2JTNnNxaWVlcUs5QmExSWp0OXk5SlU0MjhORDBMLVdwV1VOa1lfaW1hczBZNU1KT1ZQdDFNODgyZGZGaS03MGltN0dfNENTTlYtbmhOaFBhcUFuN3QxUmRBUW9HOHM2NVR1cEs4T1B5OF9ISmdyeThXNExNYkF6YUlnUVlOQndoWVI2cGxqZkRXLUh4QkIxbjB1WVdsQQ?oc=5",
+          "source": "gnews_injury_it",
+          "category": "withdrawal",
+          "severity": 0.92,
+          "published": "",
+          "channel": "rss"
+        },
+        {
+          "title": "Incredibile Kolo Muani, Spalletti svela un retroscena: \"Prima del Nec unico che ha fatto ritiro. Ha mangiato e dormito da solo...\" - Corriere dello Sport",
+          "link": "https://news.google.com/rss/articles/CBMiqgJBVV95cUxPZzZqQ2ZUZ1VpNGxuOWx1T05mN29GTnlLZmcxbGFtMC1xWFNiMGZmaGVHSU5LaWJxakVSemUxWFZDR0Q1LXJCUnh6RUpTNzdUaDNsR2NlQVE5WldJYzZ5aFFXUHc1WWxCWExQNmg2RllWYnYxcFV3RTFPeGhQSUVNOTdDN2pfMUFFdEFQdGdOYTdUdTNEOU9xWW94dGFlMi1ORE9ZUXdIWmQ2SEVsbVEyQmVGYWxzTlItU2xkdTZKV0xWZXZrUVF1MDJqZUd0aEpueUx6M1BZQ0xZSXlnb1pNVVlHcklSY3VuXzZCc3ljeWdvNlhuV01JazBaZ0dGeF8tQjRYNHFwVWxSbm1IUXgzenpOUGlDNXA0WVFmVlhRSDZUZlZkeDV0R3hR0gGsAkFVX3lxTE82ZnpzZTVuNVZtLWt4T2JMZjJlZVZfX2FDTzRzbl9XNjdRTS1zMzEyWlIxSTREUWN3NENTSndIb3F4Y0JXRFNSczJhS0h2a0Y2cWhxV2NNMFE5Y0kzUHNWMDhPczFNNER0ZEdQeExUYTdyTnlteW5JSm5zMU9jSjUtbWEtbjBQZ1ZVZk8xYWdYUldhcjBvdEh5MVg5eXg0YkF0RUdUcVZLLWZLMU9VckU5VEticTBuc3dVc0s2TnVUR0RGV0hfLXZ6UTdSRElfeUU1R2t2Q0hVaVVBNERBLWkwTzZqdm4zVVhCdjZLSDJOaGJPXzlHcmNtZXVpbUZNVVhPNlZEbVJuSXpZS1czR0xtektwM0dmdllaZURJRHdQYmdJaDBmQnJod2t6SQ?oc=5",
+          "source": "gnews_injury_it",
+          "category": "withdrawal",
+          "severity": 0.92,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -2745,13 +2768,35 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
-        "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "has_alert": true,
+        "hard_block": true,
+        "p_retire_boost": 0.2304,
+        "category": "withdrawal",
+        "headline": "Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
+        "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQbngySkk5Y3JiQURnS2JTNnNxaWVlcUs5QmExSWp0OXk5SlU0MjhORDBMLVdwV1VOa1lfaW1hczBZNU1KT1ZQdDFNODgyZGZGaS03MGltN0dfNENTTlYtbmhOaFBhcUFuN3QxUmRBUW9HOHM2NVR1cEs4T1B5OF9ISmdyeThXNExNYkF6YUlnUVlOQndoWVI2cGxqZkRXLUh4QkIxbjB1WVdsQQ?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.92,
+        "n_hits": 2,
+        "hits": [
+          {
+            "title": "Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
+            "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQbngySkk5Y3JiQURnS2JTNnNxaWVlcUs5QmExSWp0OXk5SlU0MjhORDBMLVdwV1VOa1lfaW1hczBZNU1KT1ZQdDFNODgyZGZGaS03MGltN0dfNENTTlYtbmhOaFBhcUFuN3QxUmRBUW9HOHM2NVR1cEs4T1B5OF9ISmdyeThXNExNYkF6YUlnUVlOQndoWVI2cGxqZkRXLUh4QkIxbjB1WVdsQQ?oc=5",
+            "source": "gnews_injury_it",
+            "category": "withdrawal",
+            "severity": 0.92,
+            "published": "",
+            "channel": "rss"
+          },
+          {
+            "title": "Incredibile Kolo Muani, Spalletti svela un retroscena: \"Prima del Nec unico che ha fatto ritiro. Ha mangiato e dormito da solo...\" - Corriere dello Sport",
+            "link": "https://news.google.com/rss/articles/CBMiqgJBVV95cUxPZzZqQ2ZUZ1VpNGxuOWx1T05mN29GTnlLZmcxbGFtMC1xWFNiMGZmaGVHSU5LaWJxakVSemUxWFZDR0Q1LXJCUnh6RUpTNzdUaDNsR2NlQVE5WldJYzZ5aFFXUHc1WWxCWExQNmg2RllWYnYxcFV3RTFPeGhQSUVNOTdDN2pfMUFFdEFQdGdOYTdUdTNEOU9xWW94dGFlMi1ORE9ZUXdIWmQ2SEVsbVEyQmVGYWxzTlItU2xkdTZKV0xWZXZrUVF1MDJqZUd0aEpueUx6M1BZQ0xZSXlnb1pNVVlHcklSY3VuXzZCc3ljeWdvNlhuV01JazBaZ0dGeF8tQjRYNHFwVWxSbm1IUXgzenpOUGlDNXA0WVFmVlhRSDZUZlZkeDV0R3hR0gGsAkFVX3lxTE82ZnpzZTVuNVZtLWt4T2JMZjJlZVZfX2FDTzRzbl9XNjdRTS1zMzEyWlIxSTREUWN3NENTSndIb3F4Y0JXRFNSczJhS0h2a0Y2cWhxV2NNMFE5Y0kzUHNWMDhPczFNNER0ZEdQeExUYTdyTnlteW5JSm5zMU9jSjUtbWEtbjBQZ1ZVZk8xYWdYUldhcjBvdEh5MVg5eXg0YkF0RUdUcVZLLWZLMU9VckU5VEticTBuc3dVc0s2TnVUR0RGV0hfLXZ6UTdSRElfeUU1R2t2Q0hVaVVBNERBLWkwTzZqdm4zVVhCdjZLSDJOaGJPXzlHcmNtZXVpbUZNVVhPNlZEbVJuSXpZS1czR0xtektwM0dmdllaZURJRHdQYmdJaDBmQnJod2t6SQ?oc=5",
+            "source": "gnews_injury_it",
+            "category": "withdrawal",
+            "severity": 0.92,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -2762,10 +2807,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
-      "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "any_alert": true,
+      "hard_block_pick": true,
+      "headline": "Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
+      "category": "withdrawal"
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -32837,7 +32882,8 @@
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
-        "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - planetwin365.news"
+        "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - planetwin365.news",
+        "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news"
       ],
       "review_reasons": []
     },
@@ -32870,13 +32916,35 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
-      "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "has_alert": true,
+      "hard_block": true,
+      "p_retire_boost": 0.2304,
+      "category": "withdrawal",
+      "headline": "Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
+      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQbngySkk5Y3JiQURnS2JTNnNxaWVlcUs5QmExSWp0OXk5SlU0MjhORDBMLVdwV1VOa1lfaW1hczBZNU1KT1ZQdDFNODgyZGZGaS03MGltN0dfNENTTlYtbmhOaFBhcUFuN3QxUmRBUW9HOHM2NVR1cEs4T1B5OF9ISmdyeThXNExNYkF6YUlnUVlOQndoWVI2cGxqZkRXLUh4QkIxbjB1WVdsQQ?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.92,
+      "n_hits": 2,
+      "hits": [
+        {
+          "title": "Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
+          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQbngySkk5Y3JiQURnS2JTNnNxaWVlcUs5QmExSWp0OXk5SlU0MjhORDBMLVdwV1VOa1lfaW1hczBZNU1KT1ZQdDFNODgyZGZGaS03MGltN0dfNENTTlYtbmhOaFBhcUFuN3QxUmRBUW9HOHM2NVR1cEs4T1B5OF9ISmdyeThXNExNYkF6YUlnUVlOQndoWVI2cGxqZkRXLUh4QkIxbjB1WVdsQQ?oc=5",
+          "source": "gnews_injury_it",
+          "category": "withdrawal",
+          "severity": 0.92,
+          "published": "",
+          "channel": "rss"
+        },
+        {
+          "title": "Incredibile Kolo Muani, Spalletti svela un retroscena: \"Prima del Nec unico che ha fatto ritiro. Ha mangiato e dormito da solo...\" - Corriere dello Sport",
+          "link": "https://news.google.com/rss/articles/CBMiqgJBVV95cUxPZzZqQ2ZUZ1VpNGxuOWx1T05mN29GTnlLZmcxbGFtMC1xWFNiMGZmaGVHSU5LaWJxakVSemUxWFZDR0Q1LXJCUnh6RUpTNzdUaDNsR2NlQVE5WldJYzZ5aFFXUHc1WWxCWExQNmg2RllWYnYxcFV3RTFPeGhQSUVNOTdDN2pfMUFFdEFQdGdOYTdUdTNEOU9xWW94dGFlMi1ORE9ZUXdIWmQ2SEVsbVEyQmVGYWxzTlItU2xkdTZKV0xWZXZrUVF1MDJqZUd0aEpueUx6M1BZQ0xZSXlnb1pNVVlHcklSY3VuXzZCc3ljeWdvNlhuV01JazBaZ0dGeF8tQjRYNHFwVWxSbm1IUXgzenpOUGlDNXA0WVFmVlhRSDZUZlZkeDV0R3hR0gGsAkFVX3lxTE82ZnpzZTVuNVZtLWt4T2JMZjJlZVZfX2FDTzRzbl9XNjdRTS1zMzEyWlIxSTREUWN3NENTSndIb3F4Y0JXRFNSczJhS0h2a0Y2cWhxV2NNMFE5Y0kzUHNWMDhPczFNNER0ZEdQeExUYTdyTnlteW5JSm5zMU9jSjUtbWEtbjBQZ1ZVZk8xYWdYUldhcjBvdEh5MVg5eXg0YkF0RUdUcVZLLWZLMU9VckU5VEticTBuc3dVc0s2TnVUR0RGV0hfLXZ6UTdSRElfeUU1R2t2Q0hVaVVBNERBLWkwTzZqdm4zVVhCdjZLSDJOaGJPXzlHcmNtZXVpbUZNVVhPNlZEbVJuSXpZS1czR0xtektwM0dmdllaZURJRHdQYmdJaDBmQnJod2t6SQ?oc=5",
+          "source": "gnews_injury_it",
+          "category": "withdrawal",
+          "severity": 0.92,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -32890,13 +32958,35 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
-        "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "has_alert": true,
+        "hard_block": true,
+        "p_retire_boost": 0.2304,
+        "category": "withdrawal",
+        "headline": "Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
+        "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQbngySkk5Y3JiQURnS2JTNnNxaWVlcUs5QmExSWp0OXk5SlU0MjhORDBMLVdwV1VOa1lfaW1hczBZNU1KT1ZQdDFNODgyZGZGaS03MGltN0dfNENTTlYtbmhOaFBhcUFuN3QxUmRBUW9HOHM2NVR1cEs4T1B5OF9ISmdyeThXNExNYkF6YUlnUVlOQndoWVI2cGxqZkRXLUh4QkIxbjB1WVdsQQ?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.92,
+        "n_hits": 2,
+        "hits": [
+          {
+            "title": "Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
+            "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQbngySkk5Y3JiQURnS2JTNnNxaWVlcUs5QmExSWp0OXk5SlU0MjhORDBMLVdwV1VOa1lfaW1hczBZNU1KT1ZQdDFNODgyZGZGaS03MGltN0dfNENTTlYtbmhOaFBhcUFuN3QxUmRBUW9HOHM2NVR1cEs4T1B5OF9ISmdyeThXNExNYkF6YUlnUVlOQndoWVI2cGxqZkRXLUh4QkIxbjB1WVdsQQ?oc=5",
+            "source": "gnews_injury_it",
+            "category": "withdrawal",
+            "severity": 0.92,
+            "published": "",
+            "channel": "rss"
+          },
+          {
+            "title": "Incredibile Kolo Muani, Spalletti svela un retroscena: \"Prima del Nec unico che ha fatto ritiro. Ha mangiato e dormito da solo...\" - Corriere dello Sport",
+            "link": "https://news.google.com/rss/articles/CBMiqgJBVV95cUxPZzZqQ2ZUZ1VpNGxuOWx1T05mN29GTnlLZmcxbGFtMC1xWFNiMGZmaGVHSU5LaWJxakVSemUxWFZDR0Q1LXJCUnh6RUpTNzdUaDNsR2NlQVE5WldJYzZ5aFFXUHc1WWxCWExQNmg2RllWYnYxcFV3RTFPeGhQSUVNOTdDN2pfMUFFdEFQdGdOYTdUdTNEOU9xWW94dGFlMi1ORE9ZUXdIWmQ2SEVsbVEyQmVGYWxzTlItU2xkdTZKV0xWZXZrUVF1MDJqZUd0aEpueUx6M1BZQ0xZSXlnb1pNVVlHcklSY3VuXzZCc3ljeWdvNlhuV01JazBaZ0dGeF8tQjRYNHFwVWxSbm1IUXgzenpOUGlDNXA0WVFmVlhRSDZUZlZkeDV0R3hR0gGsAkFVX3lxTE82ZnpzZTVuNVZtLWt4T2JMZjJlZVZfX2FDTzRzbl9XNjdRTS1zMzEyWlIxSTREUWN3NENTSndIb3F4Y0JXRFNSczJhS0h2a0Y2cWhxV2NNMFE5Y0kzUHNWMDhPczFNNER0ZEdQeExUYTdyTnlteW5JSm5zMU9jSjUtbWEtbjBQZ1ZVZk8xYWdYUldhcjBvdEh5MVg5eXg0YkF0RUdUcVZLLWZLMU9VckU5VEticTBuc3dVc0s2TnVUR0RGV0hfLXZ6UTdSRElfeUU1R2t2Q0hVaVVBNERBLWkwTzZqdm4zVVhCdjZLSDJOaGJPXzlHcmNtZXVpbUZNVVhPNlZEbVJuSXpZS1czR0xtektwM0dmdllaZURJRHdQYmdJaDBmQnJod2t6SQ?oc=5",
+            "source": "gnews_injury_it",
+            "category": "withdrawal",
+            "severity": 0.92,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -32907,10 +32997,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
-      "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "any_alert": true,
+      "hard_block_pick": true,
+      "headline": "Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
+      "category": "withdrawal"
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -59145,7 +59235,8 @@
       "kelly_adj_rank": -1.0,
       "action": "no_bet",
       "no_bet_reasons": [
-        "EV -0.4% sotto soglia 4%"
+        "EV -0.4% sotto soglia 4%",
+        "news: withdrawal \u2014 Laver Cup, Ben Shelton d\u00e0 forfait: al suo posto arriva Brandon Nakashima - TennisTalker Magazine"
       ],
       "review_reasons": []
     },
@@ -59175,13 +59266,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
-      "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "has_alert": true,
+      "hard_block": true,
+      "p_retire_boost": 0.2304,
+      "category": "withdrawal",
+      "headline": "Laver Cup, Ben Shelton d\u00e0 forfait: al suo posto arriva Brandon Nakashima - TennisTalker Magazine",
+      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPYWZpQVNvOEo5LTV2MG5aZkxnUVFzZTExX0FQQ3MzWFZ5UVRIdFFjcGxIM0EzdlIwcnNUd2JpaVFkVVJ3UTV2dWlNdGVPcVZhcEN0bmpHdTBPcU4yNFlfQjRMNzhzaXZYb2VyUzJrY25USThiSnBVakRHNmJENm9NeXhxcTQ3UEloOVo2WjB5aXpUblF1dmhHeGFPbEJfaEZjdVctaFZBY19UUnIxTEoyb3F2QUVqUQ?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.92,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Laver Cup, Ben Shelton d\u00e0 forfait: al suo posto arriva Brandon Nakashima - TennisTalker Magazine",
+          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPYWZpQVNvOEo5LTV2MG5aZkxnUVFzZTExX0FQQ3MzWFZ5UVRIdFFjcGxIM0EzdlIwcnNUd2JpaVFkVVJ3UTV2dWlNdGVPcVZhcEN0bmpHdTBPcU4yNFlfQjRMNzhzaXZYb2VyUzJrY25USThiSnBVakRHNmJENm9NeXhxcTQ3UEloOVo2WjB5aXpUblF1dmhHeGFPbEJfaEZjdVctaFZBY19UUnIxTEoyb3F2QUVqUQ?oc=5",
+          "source": "gnews_injury_it",
+          "category": "withdrawal",
+          "severity": 0.92,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -59195,13 +59299,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
-        "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "has_alert": true,
+        "hard_block": true,
+        "p_retire_boost": 0.2304,
+        "category": "withdrawal",
+        "headline": "Laver Cup, Ben Shelton d\u00e0 forfait: al suo posto arriva Brandon Nakashima - TennisTalker Magazine",
+        "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPYWZpQVNvOEo5LTV2MG5aZkxnUVFzZTExX0FQQ3MzWFZ5UVRIdFFjcGxIM0EzdlIwcnNUd2JpaVFkVVJ3UTV2dWlNdGVPcVZhcEN0bmpHdTBPcU4yNFlfQjRMNzhzaXZYb2VyUzJrY25USThiSnBVakRHNmJENm9NeXhxcTQ3UEloOVo2WjB5aXpUblF1dmhHeGFPbEJfaEZjdVctaFZBY19UUnIxTEoyb3F2QUVqUQ?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.92,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Laver Cup, Ben Shelton d\u00e0 forfait: al suo posto arriva Brandon Nakashima - TennisTalker Magazine",
+            "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPYWZpQVNvOEo5LTV2MG5aZkxnUVFzZTExX0FQQ3MzWFZ5UVRIdFFjcGxIM0EzdlIwcnNUd2JpaVFkVVJ3UTV2dWlNdGVPcVZhcEN0bmpHdTBPcU4yNFlfQjRMNzhzaXZYb2VyUzJrY25USThiSnBVakRHNmJENm9NeXhxcTQ3UEloOVo2WjB5aXpUblF1dmhHeGFPbEJfaEZjdVctaFZBY19UUnIxTEoyb3F2QUVqUQ?oc=5",
+            "source": "gnews_injury_it",
+            "category": "withdrawal",
+            "severity": 0.92,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -59212,11 +59329,19 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
-      "hard_block_pick": false,
-      "headline": null,
-      "category": null
-    }
+      "any_alert": true,
+      "hard_block_pick": true,
+      "headline": "Laver Cup, Ben Shelton d\u00e0 forfait: al suo posto arriva Brandon Nakashima - TennisTalker Magazine",
+      "category": "withdrawal"
+    },
+    "p_retire": 0.2304,
+    "retirement_context": {
+      "player_injury_risk": 0.2304,
+      "p_retire": 0.2304,
+      "news_boost": 0.2304
+    },
+    "shadow": false,
+    "news_hard_block": true
   },
   {
     "player_a": "Whitney Osuigwe",
