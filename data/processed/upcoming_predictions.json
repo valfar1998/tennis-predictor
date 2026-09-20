@@ -2693,6 +2693,7 @@
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - planetwin365.news",
+        "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news"
       ],
       "review_reasons": []
@@ -32883,6 +32884,7 @@
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - planetwin365.news",
+        "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news"
       ],
       "review_reasons": []
@@ -59236,6 +59238,7 @@
       "action": "no_bet",
       "no_bet_reasons": [
         "EV -0.4% sotto soglia 4%",
+        "news: withdrawal \u2014 Laver Cup, Ben Shelton d\u00e0 forfait: al suo posto arriva Brandon Nakashima - TennisTalker Magazine",
         "news: withdrawal \u2014 Laver Cup, Ben Shelton d\u00e0 forfait: al suo posto arriva Brandon Nakashima - TennisTalker Magazine"
       ],
       "review_reasons": []
@@ -59334,10 +59337,10 @@
       "headline": "Laver Cup, Ben Shelton d\u00e0 forfait: al suo posto arriva Brandon Nakashima - TennisTalker Magazine",
       "category": "withdrawal"
     },
-    "p_retire": 0.2304,
+    "p_retire": 0.45,
     "retirement_context": {
-      "player_injury_risk": 0.2304,
-      "p_retire": 0.2304,
+      "player_injury_risk": 0.45,
+      "p_retire": 0.45,
       "news_boost": 0.2304
     },
     "shadow": false,
