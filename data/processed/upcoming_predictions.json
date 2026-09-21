@@ -2695,6 +2695,7 @@
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - planetwin365.news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
+        "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news"
       ],
       "review_reasons": []
@@ -25846,15 +25847,16 @@
       "action": "no_bet",
       "no_bet_reasons": [
         "EV -0.8% sotto soglia 4%",
-        "modello incerto: uno o entrambi i giocatori non identificati nel database"
+        "modello incerto: uno o entrambi i giocatori non identificati nel database",
+        "news: withdrawal \u2014 Italia, forfait Dimarco: al suo posto Ruggeri - Sky Sport"
       ],
       "review_reasons": []
     },
     "action": "no_bet",
     "recommended": null,
     "playability": 31.9,
-    "playability_band": "lean",
-    "playability_label": "Lean",
+    "playability_band": "no_bet",
+    "playability_label": "No bet",
     "playability_parts": {
       "value": 0.165,
       "model_agreement": 0.649,
@@ -25876,13 +25878,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
-      "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "has_alert": true,
+      "hard_block": true,
+      "p_retire_boost": 0.2304,
+      "category": "withdrawal",
+      "headline": "Italia, forfait Dimarco: al suo posto Ruggeri - Sky Sport",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOOUdjRXp1THNmeWJZM2RoQnExVTM3NnVGYTc0MF8tamNNc3R2WXMybjcwZlZJYVhhejVMc2JJVWFBeGYyZ284YkR6SE9nWjRaTm1yTTFlVEEyQ2lzUDdlLTEwazlCM0ZnNU9MSVZlUHJ0eGx6VVNJd3p2Zl9Nc1pLUFg0dDEwem9qR3hMRGNKVUJpeHpudEFqNWo1UzhVYXFSU1ZidXlrSmhWSmUwaTBaV2RQeU9sRHM?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.92,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Italia, forfait Dimarco: al suo posto Ruggeri - Sky Sport",
+          "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOOUdjRXp1THNmeWJZM2RoQnExVTM3NnVGYTc0MF8tamNNc3R2WXMybjcwZlZJYVhhejVMc2JJVWFBeGYyZ284YkR6SE9nWjRaTm1yTTFlVEEyQ2lzUDdlLTEwazlCM0ZnNU9MSVZlUHJ0eGx6VVNJd3p2Zl9Nc1pLUFg0dDEwem9qR3hMRGNKVUJpeHpudEFqNWo1UzhVYXFSU1ZidXlrSmhWSmUwaTBaV2RQeU9sRHM?oc=5",
+          "source": "gnews_injury_it",
+          "category": "withdrawal",
+          "severity": 0.92,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -25896,13 +25911,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
-        "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "has_alert": true,
+        "hard_block": true,
+        "p_retire_boost": 0.2304,
+        "category": "withdrawal",
+        "headline": "Italia, forfait Dimarco: al suo posto Ruggeri - Sky Sport",
+        "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOOUdjRXp1THNmeWJZM2RoQnExVTM3NnVGYTc0MF8tamNNc3R2WXMybjcwZlZJYVhhejVMc2JJVWFBeGYyZ284YkR6SE9nWjRaTm1yTTFlVEEyQ2lzUDdlLTEwazlCM0ZnNU9MSVZlUHJ0eGx6VVNJd3p2Zl9Nc1pLUFg0dDEwem9qR3hMRGNKVUJpeHpudEFqNWo1UzhVYXFSU1ZidXlrSmhWSmUwaTBaV2RQeU9sRHM?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.92,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Italia, forfait Dimarco: al suo posto Ruggeri - Sky Sport",
+            "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOOUdjRXp1THNmeWJZM2RoQnExVTM3NnVGYTc0MF8tamNNc3R2WXMybjcwZlZJYVhhejVMc2JJVWFBeGYyZ284YkR6SE9nWjRaTm1yTTFlVEEyQ2lzUDdlLTEwazlCM0ZnNU9MSVZlUHJ0eGx6VVNJd3p2Zl9Nc1pLUFg0dDEwem9qR3hMRGNKVUJpeHpudEFqNWo1UzhVYXFSU1ZidXlrSmhWSmUwaTBaV2RQeU9sRHM?oc=5",
+            "source": "gnews_injury_it",
+            "category": "withdrawal",
+            "severity": 0.92,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -25913,11 +25941,19 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
-      "hard_block_pick": false,
-      "headline": null,
-      "category": null
-    }
+      "any_alert": true,
+      "hard_block_pick": true,
+      "headline": "Italia, forfait Dimarco: al suo posto Ruggeri - Sky Sport",
+      "category": "withdrawal"
+    },
+    "p_retire": 0.2304,
+    "retirement_context": {
+      "player_injury_risk": 0.2304,
+      "p_retire": 0.2304,
+      "news_boost": 0.2304
+    },
+    "shadow": false,
+    "news_hard_block": true
   },
   {
     "player_a": "Sebastiano Cocola",
@@ -32867,6 +32903,7 @@
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - planetwin365.news",
+        "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news"
