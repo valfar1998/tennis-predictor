@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "fetched_at": "2026-09-22T19:45:20.162539+00:00",
-  "n_items": 52,
+  "fetched_at": "2026-09-23T08:57:51.305549+00:00",
+  "n_items": 51,
   "n_raw": 130,
   "errors": [
     "espn_tennis: fetch failed",
@@ -11,7 +11,7 @@
   ],
   "items": [
     {
-      "title": "Jessica Pegula withdraws from WTA tournament in Singapore - ESPN",
+      "title": "Jessica Pegula withdraws from WTA tournament in Singapore - espn.com",
       "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQXzQyMkVWRDVkYWNZanRaWndtdG1Ta3FxM2hmT29MNGUwY1Zxak8yM3RtOFVWcGY5Q05wLVFObmc5TGZVRHhjQTFGOHRrM1F0U0xCcHdvblRzNzZUWVp6T1IzbEV6ZDNnWndSaWk3QWpJM1VWeTUwMXp3eG41Z24takJGdUR2TlM5ZHhzNk5qQmVIT25RbzNZT0hTdEc2UQ?oc=5",
       "summary": "",
       "published": "",
@@ -41,8 +41,8 @@
       "severity": 0.95
     },
     {
-      "title": "Amanda Anisimova withdraws from Singapore Tennis Open due to injury - GMA Network",
-      "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQeWhsRHpfMG43UGhaRHRTYmVmd3l3bHptVkhyTVJ4LVJFQ2dvMGJBM1Q5ek9jM0tpZHE2dDVaelMwNzVvYjlKQjdfN3hzMXl5N3VFSGl5VWplclBIVVBma3kzVnJOSDZ3QTJtN2h6T3FfWV9fYXhwTlV1LUxuWGhTZXVXb1JKbkljbVpKTjFtcWNTQUZFcW8wX3lhN2pKZGdJTzN3eU01Mk9WZEZMNVllMW5PSWhuMWIydmwzZGJlbEZkS1ZVczVQWGlIOUs3QQ?oc=5",
+      "title": "Alex Eala Gets Major Singapore Open Boost After Top Seed Withdraws - heavy.com",
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPaE9XV1ZpZ043dC1uUy1GaTlwMFc2V0pQakNCMG5wTDRKaTg3Wk9VY19mNEtEdjNTMlBLcnlBOHIzMXdxaVFSdnd2YXNybkU2cXFodE9IakNVM3BqT3NqYkpWSW9DLUxYbUczV0NMeVk4Q1BKbWxUbDhVY3ZmQzhKelVjRjktZ1dVQmpfLXQ1ay1VZHZGR2dmdXpVd2k5R0Jt?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -71,8 +71,8 @@
       "severity": 0.95
     },
     {
-      "title": "Alex Eala Gets Major Singapore Open Boost After Top Seed Withdraws - heavy.com",
-      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPaE9XV1ZpZ043dC1uUy1GaTlwMFc2V0pQakNCMG5wTDRKaTg3Wk9VY19mNEtEdjNTMlBLcnlBOHIzMXdxaVFSdnd2YXNybkU2cXFodE9IakNVM3BqT3NqYkpWSW9DLUxYbUczV0NMeVk4Q1BKbWxUbDhVY3ZmQzhKelVjRjktZ1dVQmpfLXQ1ay1VZHZGR2dmdXpVd2k5R0Jt?oc=5",
+      "title": "Tennis Star Taylor Townsend Withdraws From Tournament For 'Emergency Surgery Days After Winning US Open Title - theJasmineBRAND",
+      "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQNDRpVzNCVVBmdHY0a3AxSFgxTVoyVkVzZmo1MTAtVFlNY1czOFpDTjY5UWtZU2pLbERPa1MyNkZFVnRqSVhIYXV1SzhFaVhXZ0JaWTlhS1hFZy02aDdscUw1a240bktnaVNlSHBuMC1oNHlvSVN5OHdud0N5R1VjMHNHU0UyNTVoQkM3ZG5LLTlTVmk4UUFsLUpsdFRrLVIzX2NrSlNMZTBnODMwYUViT3FnWW5Td1dqaHREYnQySnpNUmJLMF9TX1lRem9uLXpNay1ONTZXcVlvVVJ6SldVMzRB?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -91,18 +91,8 @@
       "severity": 0.95
     },
     {
-      "title": "Tennis Star Taylor Townsend Withdraws From Tournament For 'Emergency Surgery Days After Winning US Open Title - theJasmineBRAND",
-      "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQNDRpVzNCVVBmdHY0a3AxSFgxTVoyVkVzZmo1MTAtVFlNY1czOFpDTjY5UWtZU2pLbERPa1MyNkZFVnRqSVhIYXV1SzhFaVhXZ0JaWTlhS1hFZy02aDdscUw1a240bktnaVNlSHBuMC1oNHlvSVN5OHdud0N5R1VjMHNHU0UyNTVoQkM3ZG5LLTlTVmk4UUFsLUpsdFRrLVIzX2NrSlNMZTBnODMwYUViT3FnWW5Td1dqaHREYnQySnpNUmJLMF9TX1lRem9uLXpNay1ONTZXcVlvVVJ6SldVMzRB?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.95
-    },
-    {
-      "title": "World No. 3 Pegula withdraws from Singapore Tennis Open; Fernandez accepts tournament wild card - straitstimes.com",
-      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQb0FnVTZxNlVYbFFxSHBqVVhLSkJPeDZHcGN5NWpNQXZUUTlQaExqbzYzeDV4RVlsUFdRWEtxQ0FyY21qbnRSd29xdnM3V1FhbmlsQU9mQm52ejhTSnBQWnMtQ1Z1UGdwQWdTMjJGd3pQcmdiLVFMM2JWcHRMdW1UcTVZQzJSREpRLVVVaEVnaW0tbGpwelh1Y1Brekd1RFJTSk9KNk1uTQ?oc=5",
+      "title": "Second seed Anisimova withdraws from Singapore Tennis Open with wrist injury - The Straits Times",
+      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQSWNZYnB1UjRIZlNxb1NTRTZCU0JmU2pYQjlYaVU4am1hcmlJc3hIbnFsWGRfd2NuWkh2ZnhjVmNhdjdxZHRHR2xibENiRk5renBCQVpuQkhQWUJGM19FX2YxYnpOTlI5X2pWT1VRVy04RGkzamw4NmtOTWNCWHlrT0h6NUJRc1JOVVBDREo4cldoS3ZkSTc3bnU2NFptTWwxbXJYa3BaamZOZHlHQk9ENGpZdHhqMGp3V0tRdnZ5aXlmUQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -121,7 +111,7 @@
       "severity": 0.92
     },
     {
-      "title": "Taylor Townsend Abruptly Pulls Out of Tournament for ‘Emergency Surgery’ Days After Winning US Open Title - People.com",
+      "title": "Taylor Townsend Abruptly Pulls Out of Tournament for ‘Emergency Surgery’ Days After Winning US Open Title - people.com",
       "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOQlg4b043SjFVWEJmRHloTk5YNFNLY3g3N3RON2FJdVhILVotYUZ3OE1FNzVuaFpYTmFMYTJzX0pFZ0ZBSXY2bHlDVmF6TWx3bHVobDVRRmtTQVNWZlhjb2RuZVRtX1N2VmJPTUhjaEdEb0ZOampYTmx1QVU3MGdXTHFPT0VtZEI5TEdUR2poUktWTUNzOHRCaVE2dVZ6T2Y3Y2xybmxhcXdrb2hWSUJkcHJEUVpMakE2?oc=5",
       "summary": "",
       "published": "",
@@ -151,8 +141,18 @@
       "severity": 0.92
     },
     {
-      "title": "Niente Brasile per Wesley: altro forfait per l'esterno della Roma. Anche Cristante e Malen restano a casa - corrieredellosport.it",
+      "title": "Niente Brasile per Wesley: altro forfait per l'esterno della Roma. Anche Cristante e Malen restano a casa - Corriere dello Sport",
       "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxQVkU1TWdTUkw0Nm81S1lmSURqSURUdl9MVHRjWUlQaXFyb1pDSGtKaC1lMlhTZDFjcG5YUTJiVDljdTlubVQ1MHI2dG40OThQa3RmYWloMjBUSEk4TzUzWUpiZVliZ09mM2ZrcmFMVVRNMWlSN2FFcWVGMUR4bzFqLU1tV19FRkloUEIwWjFpLVdvM3hSb1hJWXpsZ0REZzhYdzM5UHVYXzJrX0hUYjBOdTFROEl4X2lkN0hvdDVuTlRRME5uMVhwRW82cWpuV2VHUTh1MU8wNlByOEVEVFU3TW5vdFoxT2lDM3dPUkw1Slp2NVNtT3BodVR0UDF6bEl20gGDAkFVX3lxTE5OLWc0ZTItM3NpZTFPX1RyQnBZM0ZPd1RMaW5MSVY5S0thS2VoRkdtaWRfaDJVWGpWRUgyNWIxdlRVMzh2ZmhPcHFwMFh6a2RnUEJjV3RneDh0a3lyZ2xOTzhRU20tb2xiWDJOUmF0aFdRRnFsakp4WU9pS29CQjJ1RjJVVGNrMHp4VVprYXdqYWVEVXZ3VlphZWFvckliekdTdE9RTGVIZWdQcDVDQkVjc1prajBqbFl4SS1uMWxQT2VsMFFabFhIWnY1ckNlLXlkWWNZWmEzMDdMb1dVSWpNaFNHRFlkcVNIeXVzY0xyME12UUd2OVlOa3ZuMVBoZEprMjQ?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.92
+    },
+    {
+      "title": "MOTORI: Avbelj trionfa nel Rally del Lazio, ritiro per Campedelli | VIDEO - Teleromagna",
+      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPaGo3YnNxRHFQWVpRVXl6MC1fWUxIN2dSYmozZVhHNWhoLU84Tk5kQXpkMnY5TnVzcTNFeTFubmxfYmM2bGNvd09SNlExV3ZpYTI4bVl6YlFVZnhGUmktbWRLMDRjZTFCdUF1VWZzb3dxU2pzc0pnRnR4aFk5N283T2NDVXA0RS1ELTgtUzJzUk1zenhnY1ByNkJCVFNQZ0ZzRFlqeVdfV2FCcUZZbmpIb3AycndnQQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -171,7 +171,7 @@
       "severity": 0.92
     },
     {
-      "title": "Incredibile Kolo Muani, Spalletti svela un retroscena: \"Prima del Nec unico che ha fatto ritiro. Ha mangiato e dormito da solo...\" - corrieredellosport.it",
+      "title": "Incredibile Kolo Muani, Spalletti svela un retroscena: \"Prima del Nec unico che ha fatto ritiro. Ha mangiato e dormito da solo...\" - Corriere dello Sport",
       "link": "https://news.google.com/rss/articles/CBMiqgJBVV95cUxPZzZqQ2ZUZ1VpNGxuOWx1T05mN29GTnlLZmcxbGFtMC1xWFNiMGZmaGVHSU5LaWJxakVSemUxWFZDR0Q1LXJCUnh6RUpTNzdUaDNsR2NlQVE5WldJYzZ5aFFXUHc1WWxCWExQNmg2RllWYnYxcFV3RTFPeGhQSUVNOTdDN2pfMUFFdEFQdGdOYTdUdTNEOU9xWW94dGFlMi1ORE9ZUXdIWmQ2SEVsbVEyQmVGYWxzTlItU2xkdTZKV0xWZXZrUVF1MDJqZUd0aEpueUx6M1BZQ0xZSXlnb1pNVVlHcklSY3VuXzZCc3ljeWdvNlhuV01JazBaZ0dGeF8tQjRYNHFwVWxSbm1IUXgzenpOUGlDNXA0WVFmVlhRSDZUZlZkeDV0R3hR0gGsAkFVX3lxTE82ZnpzZTVuNVZtLWt4T2JMZjJlZVZfX2FDTzRzbl9XNjdRTS1zMzEyWlIxSTREUWN3NENTSndIb3F4Y0JXRFNSczJhS0h2a0Y2cWhxV2NNMFE5Y0kzUHNWMDhPczFNNER0ZEdQeExUYTdyTnlteW5JSm5zMU9jSjUtbWEtbjBQZ1ZVZk8xYWdYUldhcjBvdEh5MVg5eXg0YkF0RUdUcVZLLWZLMU9VckU5VEticTBuc3dVc0s2TnVUR0RGV0hfLXZ6UTdSRElfeUU1R2t2Q0hVaVVBNERBLWkwTzZqdm4zVVhCdjZLSDJOaGJPXzlHcmNtZXVpbUZNVVhPNlZEbVJuSXpZS1czR0xtektwM0dmdllaZURJRHdQYmdJaDBmQnJod2t6SQ?oc=5",
       "summary": "",
       "published": "",
@@ -191,8 +191,18 @@
       "severity": 0.92
     },
     {
-      "title": "Da Murray a Safin: quando c'è vita oltre il tennis dopo il ritiro - Tennis Magazine Italia",
+      "title": "Da Murray a Safin: quando c'è vita oltre il tennis dopo il ritiro - tennismagazineitalia.it",
       "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNT3pKRUVGUGxkWWp3Q1piN0VpTmc3SG1nQ181bGthLWlndHZSZVlwaDBQT2ctX2g3cWp4dlhWUmJ3ZTBLMDM0LS1FMkNVUzJrNGo5ZzZPR3EwcVh4dVhhMEtyOS1HU3BYUkZEOGZCamN4TjVGallBQUxJRnpOWVFnSE9EWjdtNUhyN2VlVURqSlhNSWNoWEc5VVI1dnpoODQ0MjRkTGlnNUxEU3RxR29QUUF1RFY3YTNjM3g2SkdkX2NiNGtTd2c?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.92
+    },
+    {
+      "title": "Billie Jean King Cup Finals 2026: Rybakina dà forfait dopo lo US Open, via libera per le rivali - Planetwin365 news",
+      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNMlFuNGZjeXNjeEpwMGRGMnVuRmJfLWRpMmYzOVM2TXlIbGE4ODNoVVBvY1F5ZjhYWFZ1eXFfMzk1ZnBad084TXFzbS1MWmxReXpYVjUtU0ZSa3h3czRFSVJLWkhDM1ZFVTdNNzRtZGVSLUtjNjlpczZGYXp3SDdkWExJUVJaTndzOVRiNXY3QU5qWjBBanNlN1k1eEFJNl9UenNpWU9LUHhaYmpObTR2dERxTFVnak1HcTh4N01NUzg0QmpLdHNXTzF5SkstVnJsTzI3UnBR?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -203,26 +213,6 @@
     {
       "title": "Unibet Rose Rockets, Odd Christian Eiking annuncia il ritiro: \"Difficile esprimere ciò che questo sport mi ha dato, tutte le esperienze vissute mi hanno plasmato anche come persona\" - | CyclingPro.Net",
       "link": "https://news.google.com/rss/articles/CBMizAJBVV95cUxPdHJybjJpb3dvZU5lUFlqZEpRQmlUbE5TSjRHVktFRjg1N0Q2aUZqdWhvRVlnTWRhSjNCMGExNWU2cW1UX2QxVkxSTEdwXzdfMGF3VW51dTc3X1d4T2duam02NnYyV3k4RV92Y0dDQ0ZRTDhUUnBRVEhSNGNJUUdWVlc4UDF3bXpRY3BJTHJFNFNLMFlubjdpbFBxb0EwS2NpclY0QVYyRDBMbDZhUzZFRGpwS0ptdFU0VXU0Y3NaTHV2TEZWSnQ0N0REYWZhaTcxNTRhTGtkcHRBeW45NkNYSVlRZnJoTGtMX2tJTVFPaHItQWdRRllNaW84REtacEV6WkhfaVJzQ1d3QzJ3R0hZRWhhNWh6c29ZTFAwdzd6NmpBcG5iMzdDLVhram9YaXJkRGJRNjYzZ05vNHRmMERWakc0c3dzYXZHT000Sg?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.92
-    },
-    {
-      "title": "È stato il numero 1 al mondo, a 40 anni torna per la prima volta in campo dopo il ritiro - Sprint e Sport",
-      "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOMXVQUzI0Z3dXOS1ucVZoY3dQSy1Tbi1pcjJlbkpBVS1vZ1pGVXlzOFJaUTRkaTg1aG5vajF6MFN6Y1FFSXN5LW02S0JVUFdMUWZBZU5RSnNHYVNNYko2cVBEdDdyU2FTTDFqWEZOREFkSWRXZVNnVmZyTTg1T1lFVXpqZFBCT0R0UHA3aEZ3ZnREUVA0eDBjTHZud1N2clhxQXk0a3FjV0dnbTk3U0tFbklGVTRkbDByQzVqNGlkVm0temNtYkN1SmtuNzh3Znk3dERCbmFpaEh6U1pYRWRUWg?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.92
-    },
-    {
-      "title": "Rafael Nadal torna in campo a due anni dal ritiro - TennisTalker Magazine",
-      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPR25jTVhoNUQyT2ptQ1U2V0szM2FsbEVUZUxqYU03TzBTQlRySkQwTHhsZTJjVFNuaUJFNW9fcUJpNDBzVzJsWUlwR2VjZlQtNk13OXZJekhMWUdVbnRKbF9na2tRN1VqRjZwSUtlSG9HcWd5cHh4bjd5c1ZLT1haN2txbmJneDVBMGlDcWpIN3czajByTWtiQmFn?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -251,26 +241,6 @@
       "severity": 0.85
     },
     {
-      "title": "Six-time Grand Slam champion Salisbury retires - BBC",
-      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFAtNXJhMUs2ZnZRQS1WNEFRLU5GbUJmbEF4VDl5aVQ4dDkzdjREVmd1LVZJRU9penFCNHA0VkhTX2U3eG5aa1ozeWg5NU9LSENJdnJ4WE5DenE2a0JmaXFXcmlHbHc2UQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "retirement",
-      "severity": 0.85
-    },
-    {
-      "title": "Rafael Nadal confirmed to play for the first time since retirement at exhibition event - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPdWlYdjdRREIyd3UycDVvc2dRSUM1LVRYV0VsVjRjSk13RVJYSkFINVVFdXk1WG1Nelh0UWJYaWpCeXhFVmMzTXM2Q2FsNXB6ZjhKdW1rY2EzckFyVEctOHBRalNZZjRKZnhuVnVheXp5NGNic0xjZjFwUkgyWndkV2NpNWJZa2ZOcnc?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "retirement",
-      "severity": 0.85
-    },
-    {
       "title": "British six-time Grand Slam winner announces tennis retirement at age of 34 - Yahoo Sports",
       "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPcWV5eS1wNWdNTWRvTWxCb29RV2JMcTcwU0p3LUZ6b1YxckFIWWlXNkJReFNjaHdhNTRNZ3p0dWZwa2EwMXNVc2JQNWVNOEcxVWhIWlNCQm5vYVpwUzBuaUhaZEV5eEJpODhmWnRBbDRMRTdQM3RSMEItdmQ0MTZyS1JR?oc=5",
       "summary": "",
@@ -281,8 +251,18 @@
       "severity": 0.85
     },
     {
-      "title": "Joe Salisbury posts heartfelt message as he announces his retirement from tennis, ‘I gave it my all’ - Tennishead",
-      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNME93UmZWd0VFdHlPTGJWZDMxQk5scGhURDN2aEZZSm93WVZHTlJuT01GbjJfQ3ZpNzd0WUpjbEJGQzZaVzVMTWJrQm1NdDZFblVPdGJYak1FT29DelplalFvLVdSRURaU3BmMDdHYW94ZzR2XzlfQk9rUGctbHJoZTBkLURGa0FXSERscVpLV2o1RmRFUHVWZ0YwWHJfS3RXOEJpdFpDYzBsbnpwWDBISmJIU2Qydms2N3gxRU5B?oc=5",
+      "title": "Joe Salisbury posts heartfelt message as he announces his retirement from tennis, ‘I gave it my all’ - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQaWdyanlzRzNhbUdzWGVwRkoxMmxPdFY1U3F1QkROSHhNbUlmQVRkUllGaF9Wd2Q5bl80YWNwdFNhWlZ5VVpKVzloRlRpQmNmRUV1OVNGU3ZWNVBEQ0FiZEFaSXlNVnN4dHlydzNYQU4ycnhfbEdvYnhrNmcxUmpNdEFYZE9pQ1FaWVYxNU5DYw?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
+      "title": "Six-time Grand Slam champion Salisbury retires - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPTWN0Z0QzTUFoRHF3amZVRWNZNzNla09GSHBPSjduY016QjFULTd3Qjdlc1VnTjlYZ0VmN0k3UXlGMzZvM2E4RVZ4V2VuTzFZcHoybl8wcFA0UV9YdjJZSmtVLTVuZjEwZkl1TmE3aFBMd3hKZHBFSHFSMkxsdGRXRHZBUQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -301,7 +281,7 @@
       "severity": 0.85
     },
     {
-      "title": "Tennis world pays tribute after six-time grand slam champ announces immediate retirement - Yahoo News Australia",
+      "title": "Tennis world pays tribute after six-time grand slam champ announces immediate retirement - au.news.yahoo.com",
       "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOUUNKVFBrbm1xdnd5MUl3VGVvbktfbUNTLWQzX1dfdjQzUnFacFVtUHltbEJGTDdXVk90VjRvZ2E1TVJNcjJQdlZJWkRfbThRUDZqeHhHaWVJbXdxM2pNRG5GZ0pZZ3NMY0g0ck4wQjFCR1JQT1Z5OTZJbDZib2puOW4tTzhVVmJFTDROSHU5R1FkYWF1MGZ4eWdmY2RoVzQ5eURMbmg0M2x3MllGVll3OXp2RTQ2N1otX0FwbkRXcGpWMTBkaDhMOA?oc=5",
       "summary": "",
       "published": "",
@@ -321,6 +301,16 @@
       "severity": 0.85
     },
     {
+      "title": "Six-time Grand Slam champion Joe Salisbury announces retirement - LTA",
+      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPQWY5TE5rbXlEZ1JJQXR0eG1oNm80b0FCcjU1Qi13VzZXTlZCcDRtZmdHTWFSVk9pYkp6MEZmMkk0REdnWHd5SGQ1Z1JGT3NJM05jbTRCWTlZWXk1QlViMUhwcm5DY3o4dWpQNTkwTFdDMUtQbHFQVUV4a1B0aGpPQWxPY3JFQVNuSnhrU1JUYXo0UFNyd3A3NENCZjFMbk5oVXI4Sy1lT3E1VlFRSTdIRkxySkVES3ZMT0hWN2lsMW8?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
       "title": "Elena Rybakina set to miss big tennis tournament as injury update emerges after US Open win - Yahoo Sports",
       "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQbkR1WWtjbDVHSDRBWGY4cFQ1WXp6X0c0NDNFcVlpSUUwQlBBV1BMYy0yME1vWHNSUlpydTdQZlU5NUZEcVVVcVFNX0x4QVZyNzNiOHFOdERWUlRVeXNPTGhCcklQSEI1LUhpYVFoWkNleGF1WmlQenlGLWlldHJ2TnpB?oc=5",
       "summary": "",
@@ -331,7 +321,7 @@
       "severity": 0.75
     },
     {
-      "title": "‘Bloody Tennis’ Exclusive Clip Serves Up a Nasty Toe Injury Ahead of Shudder Premiere - Dread Central",
+      "title": "‘Bloody Tennis’ Exclusive Clip Serves Up a Nasty Toe Injury Ahead of Shudder Premiere - dreadcentral.com",
       "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOaVUyUTNLSEtSRlJyRXl5ZElCSmNFaGV1Z1VSbjhjTWVWbndodGpCRXpVYUhMenRlU2F5eGZzQW9MTERmdHN0VkJYU0t5YWxCX19DN0JvcVoyc2RLclZoQWc2dWZuazVHSGFteVRhb3ZpUmtIUk1uSlVGMjZJdzdmX0tfUzBsRFcwamw4TWo2RC04blNrbW5kT0REQWZjRDU2WXVDX1ZFQXpxeDBLdWlUVUFNWkRuV2RqNkFqR3BFNmxrNTFwVUQzVnh3?oc=5",
       "summary": "",
       "published": "",
@@ -401,7 +391,27 @@
       "severity": 0.75
     },
     {
-      "title": "Jannik Sinner: un’estate tra vacanze, infortunio, allenamenti, silenzi e punti oscuri - OA Sport",
+      "title": "Brazilian tennis star Fonseca steps back from Asian swing after injury struggles - Malay Mail",
+      "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPSHRQRkNPdnVBNmlLamFwMGY0WWh5WVFzcWlqSmZRVGFobGZqSVpyQW5GN3BTd3R0RjBhX3V6QkFTdy0tNnh5RVV1TFc2VjRuNjlCSm5EeEJUTXNKUzdFdmQzQ0o1REdPXzVGZ1h0U0lVaXJCVFFIQVk5Um43eEttYnA5LXE4Y1FDNmZHbGthUE5wcDdkbmtrNl9EME15cXJIN29MN1lYTnBJMG9IbE5Hd3huMDNvMjRVMW14czFaUUJwM0VybnNWT2pUM2g1RFRpTHfSAdcBQVVfeXFMTWxZQnhnX0RFcmU2T1pLMkFxMXVJUTc2YlBPbE4ySmd0NWlNbDhNSE1TQnhNaDdPU2JCWVR6UzdlS3loQktUMWkxNE1YY3V3Zmx6X1pHSE1JOGVPb2hWeXUxS01pVkFBU3Q5MnB0cHNESGVlUk8xb1lJWTk0VWJRSngteWtnRUtNa2k1QldQYVNOcFR6VDg5b3Y4ZU0tN3RTSXI5REJuNTVFeXF5YXp1QlhxTV83VWpRV2Fnbmt1dkRLdFdDcnZCdTJxVlMwek55RzY1Vjh4b3M?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Why world No.1 Sinner cannot afford to skip the Asian swing despite his injury, especially after US Open - The Times of India",
+      "link": "https://news.google.com/rss/articles/CBMinwJBVV95cUxPb3pTOTc4N29ma0JiNGgzLVlpZzVLRG5lU1MwTFNUcmtBQ0hUOG1ET05lc05Ta1Z0MzM0QmFDekVKelptWFF2VzFvRWVCY013Ql9oeVFDMm5BUkFYNDluTUxZcVBwM3VreGlRNE84SFNSR3BWSkZnN3doUDhwUFQxTnA3YmpkRmt4ZlBMenlpSnlDQnhmSTRuQ2k5cDRjNFZIYjFtVFIzZzBKSUxoTEhndndhS3M4VFlwd2J5elN6RmJqX253bHNjTU5KQ3llZWFxcG13QzV2amFKVzZ0Rzd1cHI3d01VVmo5b0xHbWF1TXQyeUhHbHliLTg2XzdaaXo4YWNWdzVNRDNINkMweGpRbDRzNklmdGNpS1o2Wm5Zc9IBnwJBVV95cUxPb3pTOTc4N29ma0JiNGgzLVlpZzVLRG5lU1MwTFNUcmtBQ0hUOG1ET05lc05Ta1Z0MzM0QmFDekVKelptWFF2VzFvRWVCY013Ql9oeVFDMm5BUkFYNDluTUxZcVBwM3VreGlRNE84SFNSR3BWSkZnN3doUDhwUFQxTnA3YmpkRmt4ZlBMenlpSnlDQnhmSTRuQ2k5cDRjNFZIYjFtVFIzZzBKSUxoTEhndndhS3M4VFlwd2J5elN6RmJqX253bHNjTU5KQ3llZWFxcG13QzV2amFKVzZ0Rzd1cHI3d01VVmo5b0xHbWF1TXQyeUhHbHliLTg2XzdaaXo4YWNWdzVNRDNINkMweGpRbDRzNklmdGNpS1o2Wm5Zcw?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Jannik Sinner: un’estate tra vacanze, infortunio, allenamenti, silenzi e punti oscuri - oasport.it",
       "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPek5CRWo3SmdHVGc3OUpWX3U2Nk9XRUF4aHdYRFZ4REZudTNRMEt4RzNjbFhLRXZrS3c0N0V4Mk5HeTZLOW9UZk1ZWEhCUngyNFlhd0FNcUM0Q3hPRDR5T3Q2SWhhWkdrUlZENzRISlI5c3E2bnlfdXFXV1dGVGZQQV9HSEJjaW0xYVF3Vms0a0dpQjh1cUxFcTVBa3dTRUlEazZRVm5TWXducWtkNV9rRHFydGhCaFnSAbcBQVVfeXFMT3pOQkVqN0pnR1RnNzlKVl91NjZPV0VBeGh3WERWeERGbnUzUTBLeEczY2xYS0V2a0t3NDdFeDJOR3k2SzlvVGZNWVhIQlJ4MjRZYXdBTXFDNEN4T0Q0eU90NkloYVpHa1JWRDc0SEpSOXNxNm55X3VxV1dXRlRmUEFfR0hCY2ltMWFRd1ZrNGtHaUI4dXFMRXE1QWt3U0VJRGs2UVZuU1l3bnFrZDVfa0RxcnRoQmhZ?oc=5",
       "summary": "",
       "published": "",
@@ -421,18 +431,8 @@
       "severity": 0.75
     },
     {
-      "title": "Malen resta a Trigoria per un fastidio al ginocchio, Xavi rassicura: \"L'infortunio non è grave\" - corrieredellosport.it",
+      "title": "Malen resta a Trigoria per un fastidio al ginocchio, Xavi rassicura: \"L'infortunio non è grave\" - Corriere dello Sport",
       "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxNM0RLOHg3MzlDdVZ3NWxtV05PRmdUNmR6UldVemlQc0hnN3VaamlnMjVVTlB0akhqTWVyOEY4aEQ5SlNMNWh1SGVhNklYQmZLaEc5TEgwc2hnRDRMcm9pa2NUSHBWZEFjdUs4RXM0d1hFLTUxTXRoSzFPSVY2c3FGZDZ4SjFjZFdINmhsN3RrUWJwQl9ueXktLUQxRU9zd3JLNWtiWlNuMnp2TExGYTU1TVBxWXJ6YjJoOThCR1dRcmswUEFMVXkwV2ktakc5dUN5TkxSMy1JR1BrV09ReFFWejJ5eVQ3VUtsUDVpSzg3WFVCWm4ydUtKeUpzLThuQdIBgAJBVV95cUxQaHJtV2tRbHAxQ2wwOThmdXIyMGpNZlVfTm9aTjJVQnI5aG9PYUVQU3N2OTBFeUlUdHIwWVNvQzExYXdLZXRvXzdUZWZpUkw5QktvSTNlaXMxX185bE9Kc2k0RmttX2FXOXpxM1pFeDdjREJFNFNsMWF6bmM1cHh2NjJ2N3lNV0lhdTFOY21mdUFoNXQyQ3k5XzJOZVZiSlBQaHkteGVjcnpLaWNTX2hzLW1YMGZOdlRjZlF2Q2FNSnRIWFRXek11dzg0X3FKc0xTdUFQczZXTmxYUzRHNUFQVFBzRlo1OXhocnpHX1hxVlBtVi1xQnhGUEtlLVZQX2xf?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Coppa Davis, il ritorno di Rune: vittoria undici mesi dopo il terribile infortunio - Diretta",
-      "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxQWHdyeW0zOC1mUHpuZmdKSm5uT1hRYU5JV211ZnpuakJJaHJuWUNnS1B5QlNnYUllSGhGXzlZbjF3RkxfOEdWcGdLZVlJOFhmc21HWlRPYUlLa1lwQ1ljazJOYTZnbDBzSm44Ymt2bm45eGJBdlBWbVdVTFVTc0RlNXRFT2ZVQXNKd3kwa3VkaU9hRUM5LVB0UmpJblR6MHJybHRHeDJsd2lLSkpwU1NaVVN0VmF4V1dLLTBtb1JhWGhHV0IxTURGWGpqNFpOQzB0a09MMlRZN05mZ1dDSjVUNGROTGg3czl0WXloXy05Rm1DeHNJY3NNVWJ5VV8wWXc?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -513,16 +513,6 @@
     {
       "title": "Roma, infortunio per Wesley, salta la Nazionale: cosa è successo - Piemonte Sport",
       "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPM0dwbWZyRFBGVmlrazk1TW5DTHVHdU4xWkhZNXVaSFdQOHhnN01vcGRQZVpDdXRpdjJQTlV3ODJmNlU2ZVdFaklnd3FjTklZdVRxa1JUMldRZlNYVUdvenI4MG0tNWdsdFFKNkE0QU9EZ3pzdFIwbTYxNk9rY3h2QTNCdnoyY0NJWnVGa21Xd1liUC1VcmJ4MkhWOTRvR3U3WDJr?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Coppa Davis 2026: Holger Rune torna dopo l’infortunio e batte Radulov - sport2u.tv",
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQb1FpeldTZ3BmQzhhV21uMlJabHdlNjRRNzhaOGliYzVZX1NPY21NdUZCM3o0aTRvdTVGcGJXZXZJdWxtVGxRVVFyQU1QSVZGVEJhX2RUR1RaZ2QyWW5sRkdNTmlVRTdtNlR5ZldDd09PdW5lRF9GbVR2R1pMWV9aMkttdGIycUFSRzRnOVpUQnI?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
