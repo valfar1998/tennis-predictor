@@ -4,7 +4,16 @@ from __future__ import annotations
 
 from typing import Any
 
-from modules.constants import KELLY_CAP, MIN_EDGE, MISSING_SIGNAL_SCORE, ODDS_VARIANCE_REF, STEAM_PLAYABILITY_SCORE
+from modules.constants import (
+    KELLY_CAP,
+    MAX_ODDS_PLAY,
+    MIN_EDGE,
+    MIN_KELLY,
+    MIN_ODDS_PLAY,
+    MISSING_SIGNAL_SCORE,
+    ODDS_VARIANCE_REF,
+    STEAM_PLAYABILITY_SCORE,
+)
 
 BANDS = (
     (0, 30, "no_bet", "No bet"),
@@ -289,8 +298,13 @@ def compute_playability(
         score = min(score, 58.0)
     if rec and float(rec.get("ev") or 0) < MIN_EDGE:
         score = min(score, 48.0)
-    # Cap soft su quote molto lunghe anche se EV alto
-    if rec and float(rec.get("odds") or 0) >= 4.0:
+    if rec and float(rec.get("kelly") or 0) < MIN_KELLY:
+        score = min(score, 48.0)
+    odds_f = float((rec or {}).get("odds") or 0)
+    if odds_f and (odds_f < MIN_ODDS_PLAY or odds_f > MAX_ODDS_PLAY):
+        score = min(score, 48.0)
+    # Cap soft su quote lunghe nella fascia giocabile
+    if odds_f >= 4.0:
         score = min(score, 78.0)
 
     band = _band(score)

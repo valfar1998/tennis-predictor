@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[2]
 CAL_PATH = ROOT / "data" / "models" / "calibration.json"
 
 DEFAULTS = {
-    "min_ev_play": 0.025,
+    "min_ev_play": 0.050,
     "kelly_fraction": 0.20,
     "kelly_cap": 0.018,
     "min_prob_play": 0.38,

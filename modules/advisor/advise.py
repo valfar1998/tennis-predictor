@@ -24,6 +24,7 @@ from modules.constants import (
     EV_SANITY_CAP_LOW_ODDS,
     EV_SANITY_MAX_ODDS,
     MIN_EDGE,
+    MIN_KELLY,
     SHARP_HIGH_ODDS_MIN,
 )
 
@@ -180,8 +181,10 @@ def advise(
         prediction.get("tourney"),
     )
     for pick in value["picks"]:
+        kelly_info = fractional_kelly(pick["probability"], pick["odds"], cap=kelly_cap)
+        pick_for_filter = {**pick, "kelly": kelly_info}
         reasons = (
-            no_bet_reasons(pick, min_edge=min_edge)
+            no_bet_reasons(pick_for_filter, min_edge=min_edge, min_kelly=MIN_KELLY)
             + uncertainty
             + steam_eroded_reasons(pick, dropping_row=dropping_row, min_edge=min_edge)
             + ev_sanity_reasons(pick, enriched)
@@ -195,7 +198,6 @@ def advise(
                 "— edge raro, verifica manuale (no alert auto)"
             ]
 
-        kelly_info = fractional_kelly(pick["probability"], pick["odds"], cap=kelly_cap)
         kelly = kelly_info if not reasons or review else 0.0
         sharpe = odds_sharpe(pick["probability"], pick["odds"])
         adj_rank = kelly_adjusted_rank(pick["probability"], pick["odds"], kelly=kelly_info)
@@ -233,6 +235,16 @@ def advise(
                     ),
                     6,
                 )
+            # Dopo ritiro: Kelly può scendere sotto il minimo → no_bet
+            if (
+                play_row.get("action") == "bet"
+                and float(play_row.get("kelly") or 0) < MIN_KELLY
+            ):
+                play_row["action"] = "no_bet"
+                play_row["no_bet_reasons"] = list(play_row.get("no_bet_reasons") or []) + [
+                    f"Kelly {float(play_row['kelly']):.3%} sotto minimo {MIN_KELLY:.1%} "
+                    "(post ritiro)"
+                ]
         plays.append(play_row)
 
     best_play = max(plays, key=_rank_key)

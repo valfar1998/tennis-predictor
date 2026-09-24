@@ -15,6 +15,7 @@ sys.path.insert(0, str(ROOT))
 
 from modules.advisor.advise import display_pick
 from modules.advisor.playability import MIN_PLAY_ALERT
+from modules.constants import MAX_ODDS_PLAY, MIN_EDGE, MIN_KELLY, MIN_ODDS_PLAY
 from modules.data_update.calendar_utils import normalize_predictions_calendar
 
 st.set_page_config(page_title="Tennis Predictor", page_icon="🎾", layout="wide")
@@ -37,6 +38,28 @@ def _bcr_delta(bcr: dict[str, Any] | None) -> str | None:
         return None
     gap = float(bcr["bcr_pct"]) - float(bcr["target_pct"])
     return f"{gap:+.1f} pp vs target"
+
+
+def _is_no_bet_nd_invalid(pred: dict[str, Any]) -> bool:
+    """True per action=no_bet, band No bet, o pick/quota assenti/invalide (n/d)."""
+    action = str(pred.get("action") or "no_bet").strip().lower()
+    if action == "no_bet":
+        return True
+    band = str(pred.get("playability_band") or "").strip().lower()
+    label = str(pred.get("playability_label") or "").strip().lower()
+    if band == "no_bet" or label in {"no bet", "n/d", "nd", "invalid", "—", "-"}:
+        return True
+    rec = display_pick(pred)
+    player = str(rec.get("player") or "").strip()
+    if not player or player in {"?", "n/d", "nd", "—", "-"}:
+        return True
+    try:
+        odds = float(rec["odds"]) if rec.get("odds") is not None else None
+    except (TypeError, ValueError):
+        odds = None
+    if odds is None or odds <= 1.01:
+        return True
+    return False
 
 
 def _render_bcr_counter(metrics: dict[str, Any] | None) -> None:
@@ -169,7 +192,12 @@ with tab_cal:
         alertable = [
             p
             for p in preds
-            if p.get("action") == "bet" and float(p.get("playability") or 0) >= MIN_PLAY_ALERT
+            if p.get("action") == "bet"
+            and float(p.get("playability") or 0) >= MIN_PLAY_ALERT
+            and float((p.get("recommended") or {}).get("odds") or 0) >= MIN_ODDS_PLAY
+            and float((p.get("recommended") or {}).get("odds") or 0) <= MAX_ODDS_PLAY
+            and float((p.get("recommended") or {}).get("ev") or 0) >= MIN_EDGE
+            and float((p.get("recommended") or {}).get("kelly") or 0) >= MIN_KELLY
         ]
         c1, c2, c3, c4, c5 = st.columns(5)
         c1.metric("Match analizzati", len(preds))
@@ -188,13 +216,31 @@ with tab_cal:
         st.caption(
             "**Giocabilità 0–100**: value/EV penalizzato da varianza quota, accordo modelli/consenso, "
             "Kelly-adjusted, qualità mercato, Moneyway e dropping (assenti ≠ neutro 0.50). "
-            f"Alert Telegram solo `action=bet` e ≥{MIN_PLAY_ALERT}. "
+            f"Filtri bet/Telegram: quota {MIN_ODDS_PLAY:.2f}–{MAX_ODDS_PLAY:.2f}, "
+            f"EV≥{MIN_EDGE:.0%}, Kelly≥{MIN_KELLY:.1%}, giocabilità ≥{MIN_PLAY_ALERT}. "
             "EV >20% → review; EV >25–30% → scarto. "
             "Pick/Quota/EV/KellyAdj sono compilati anche su `no_bet` (previsione, non scommessa)."
         )
 
+        hide_noise = st.checkbox(
+            "Nascondi no-bet / n/d / invalid",
+            value=True,
+            help=(
+                "Nasconde action=no_bet, band No bet, pick assenti e quote n/d o ≤1.01. "
+                "I KPI in alto restano sul calendario completo."
+            ),
+        )
+        view_preds = (
+            [p for p in preds if not _is_no_bet_nd_invalid(p)] if hide_noise else preds
+        )
+        if hide_noise:
+            st.caption(
+                f"Vista filtrata: {len(view_preds)}/{len(preds)} match "
+                f"(nascosti {len(preds) - len(view_preds)} no-bet/n/d/invalid)."
+            )
+
         rows = []
-        for p in preds:
+        for p in view_preds:
             rec = display_pick(p)
             ev = rec.get("ev")
             ev_pct = rec.get("ev_pct")
@@ -230,34 +276,40 @@ with tab_cal:
                 "Fonte": p.get("odds_source") or "",
             })
         st.subheader("Calendario")
-        df_cal = pd.DataFrame(rows).sort_values(
-            ["Data", "Ora", "Giocabilità", "EV %", "Torneo"],
-            ascending=[True, True, False, False, True],
-            na_position="last",
-        )
-        st.dataframe(
-            df_cal,
-            use_container_width=True,
-            hide_index=True,
-            column_config={
-                "EV %": st.column_config.NumberColumn(
-                    "EV %",
-                    help="Expected value in percentuale (ordinamento numerico)",
-                    format="%+.1f%%",
-                ),
-                "Giocabilità": st.column_config.NumberColumn("Giocabilità", format="%.0f"),
-                "P(A)": st.column_config.NumberColumn("P(A)", format="%.1%"),
-                "Quota": st.column_config.NumberColumn("Quota", format="%.2f"),
-                "KellyAdj": st.column_config.NumberColumn(
-                    "KellyAdj",
-                    help="Ranking Kelly × sostenibilità quota (non EV grezzo)",
-                    format="%.4f",
-                ),
-            },
-        )
+        if not rows:
+            st.info(
+                "Nessun match dopo il filtro. Togli **Nascondi no-bet / n/d / invalid** "
+                "per vedere tutto il palinsesto."
+            )
+        else:
+            df_cal = pd.DataFrame(rows).sort_values(
+                ["Data", "Ora", "Giocabilità", "EV %", "Torneo"],
+                ascending=[True, True, False, False, True],
+                na_position="last",
+            )
+            st.dataframe(
+                df_cal,
+                use_container_width=True,
+                hide_index=True,
+                column_config={
+                    "EV %": st.column_config.NumberColumn(
+                        "EV %",
+                        help="Expected value in percentuale (ordinamento numerico)",
+                        format="%+.1f%%",
+                    ),
+                    "Giocabilità": st.column_config.NumberColumn("Giocabilità", format="%.0f"),
+                    "P(A)": st.column_config.NumberColumn("P(A)", format="%.1%"),
+                    "Quota": st.column_config.NumberColumn("Quota", format="%.2f"),
+                    "KellyAdj": st.column_config.NumberColumn(
+                        "KellyAdj",
+                        help="Ranking Kelly × sostenibilità quota (non EV grezzo)",
+                        format="%.4f",
+                    ),
+                },
+            )
 
         st.subheader("Dettaglio match")
-        for p in sorted(preds, key=lambda x: float(x.get("playability") or 0), reverse=True)[:30]:
+        for p in sorted(view_preds, key=lambda x: float(x.get("playability") or 0), reverse=True)[:30]:
             rec = display_pick(p)
             play = int(p.get("playability") or 0)
             icon = (

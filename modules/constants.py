@@ -49,7 +49,10 @@ KELLY_CAP_BY_LEVEL = {
     "C": 0.010,  # Challenger
     "S": 0.008,  # ITF
 }
-MIN_EDGE = 0.020
+MIN_EDGE = 0.050  # EV minimo 5% per bet / Telegram / giocabilità
+MIN_KELLY = 0.003  # Kelly frazionato minimo (0.3% bankroll)
+MIN_ODDS_PLAY = 1.70  # fascia quote giocabili (inclusi estremi)
+MAX_ODDS_PLAY = 5.00
 MIN_PROB_PLAY = 0.34
 # EV: hard discard sopra questi cap; review nella fascia intermedia
 EV_SANITY_CAP = 0.28
@@ -90,7 +93,7 @@ TOURNEY_LEVEL_CODE = {
 }
 
 # Risk controls (esecuzione)
-CIRCUIT_BREAKER_MIN_EDGE = 0.028  # era 3.5% — stress meno cieco
+CIRCUIT_BREAKER_MIN_EDGE = 0.070  # stress: MIN_EDGE 5% → 7%
 DRAWDOWN_BREAKER_PCT = 0.20  # era 15%
 STREAK_LOSS_UNITS = 11.0  # unità da 1% bankroll
 UNIT_SIZE = 0.01

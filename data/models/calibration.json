@@ -49,7 +49,7 @@
       "hit_rate": 0.4796520658589624
     }
   ],
-  "min_ev_play": 0.025,
+  "min_ev_play": 0.05,
   "stacker": {
     "weights": {
       "p_markov": 0.4166,

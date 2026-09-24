@@ -196,7 +196,7 @@ def effective_min_edge() -> float:
     ol = cal.get("online_learn") or {}
     n = int(ol.get("last_n_settled") or 0)
     if n >= MIN_SETTLED:
-        return float(ol.get("min_edge_suggested") or MIN_EDGE)
+        return max(MIN_EDGE, float(ol.get("min_edge_suggested") or MIN_EDGE))
     return MIN_EDGE
 
 

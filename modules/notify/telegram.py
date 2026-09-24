@@ -77,7 +77,7 @@ def telegram_status() -> str:
         return "Telegram: manca TELEGRAM_BOT_TOKEN o TELEGRAM_CHAT_ID."
     src = creds["source"]
     where = "variabili d'ambiente" if src == "env" else Path(src).parent.name
-    return f"Telegram: pronto ({where}). Value bet con EV positivo."
+    return f"Telegram: pronto ({where}). Value bet quota 1.70–5.00, EV≥5%, Kelly≥0.3%."
 
 
 def send_message(text: str, *, delay: float = 0.5, parse_mode: str | None = None) -> bool:

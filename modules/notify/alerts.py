@@ -10,6 +10,7 @@ from zoneinfo import ZoneInfo
 from modules.notify.telegram import load_credentials, send_message, telegram_status
 
 from modules.advisor.online_learn import effective_alert_min_playability
+from modules.constants import MAX_ODDS_PLAY, MIN_EDGE, MIN_KELLY, MIN_ODDS_PLAY
 
 ROOT = Path(__file__).resolve().parents[2]
 SENT = ROOT / "data" / "processed" / "telegram_alerts_sent.json"
@@ -21,6 +22,24 @@ TZ = ZoneInfo("Europe/Rome")
 
 def _min_playability() -> float:
     return float(effective_alert_min_playability())
+
+
+def _passes_value_filters(pred: dict) -> bool:
+    """Filtri minimi allineati a bet/nobet: quota 1.70–5.00, EV≥5%, Kelly≥0.3%."""
+    rec = pred.get("recommended") or {}
+    try:
+        odds = float(rec.get("odds") or 0)
+        ev = float(rec.get("ev") or 0)
+        kelly = float(rec.get("kelly") or 0)
+    except (TypeError, ValueError):
+        return False
+    if odds < MIN_ODDS_PLAY or odds > MAX_ODDS_PLAY:
+        return False
+    if ev < MIN_EDGE:
+        return False
+    if kelly < MIN_KELLY:
+        return False
+    return True
 
 
 def _now() -> datetime:
@@ -180,6 +199,7 @@ def dispatch_alerts(predictions: list[dict] | None = None, *, dry_run: bool = Fa
         if p.get("action") == "bet"
         and p.get("recommended")
         and float(p.get("playability") or 0) >= _min_playability()
+        and _passes_value_filters(p)
     ]
     sent_ids = _load_sent()
     fresh = [p for p in bets if alert_key(p) not in sent_ids]

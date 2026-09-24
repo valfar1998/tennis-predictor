@@ -8,7 +8,10 @@ from modules.constants import (
     KELLY_CAP,
     KELLY_CAP_BY_LEVEL,
     KELLY_FRACTION,
+    MAX_ODDS_PLAY,
     MIN_EDGE,
+    MIN_KELLY,
+    MIN_ODDS_PLAY,
     MIN_PROB_PLAY,
     ODDS_VARIANCE_REF,
 )
@@ -81,18 +84,42 @@ def beat_close(odds_bet: float | None, odds_close: float | None) -> bool | None:
     return float(odds_bet) > float(odds_close) + 0.005
 
 
-def no_bet_reasons(play: dict[str, Any], *, min_edge: float = MIN_EDGE) -> list[str]:
+def no_bet_reasons(
+    play: dict[str, Any],
+    *,
+    min_edge: float = MIN_EDGE,
+    min_kelly: float = MIN_KELLY,
+    min_odds: float = MIN_ODDS_PLAY,
+    max_odds: float = MAX_ODDS_PLAY,
+) -> list[str]:
     reasons: list[str] = []
+    odds = play.get("odds")
     ev = play.get("ev")
     if play.get("odds_real") is False:
         reasons.append("quota non reale: edge non misurabile")
-    elif ev is None:
+    elif odds is None or float(odds) <= 1.01:
         reasons.append("quota assente")
-    elif float(ev) < min_edge:
-        reasons.append(f"EV {float(ev):+.1%} sotto soglia {min_edge:.0%}")
+    else:
+        odds_f = float(odds)
+        if odds_f < min_odds:
+            reasons.append(f"quota {odds_f:.2f} sotto minimo {min_odds:.2f}")
+        elif odds_f > max_odds:
+            reasons.append(f"quota {odds_f:.2f} sopra massimo {max_odds:.2f}")
+        elif ev is None:
+            reasons.append("EV assente")
+        elif float(ev) < min_edge:
+            reasons.append(f"EV {float(ev):+.1%} sotto soglia {min_edge:.0%}")
     prob = play.get("probability")
     if prob is not None and float(prob) < MIN_PROB_PLAY:
         reasons.append(f"probabilità {float(prob):.0%} sotto minimo {MIN_PROB_PLAY:.0%}")
+    kelly = play.get("kelly")
+    if kelly is None and odds is not None and prob is not None:
+        try:
+            kelly = fractional_kelly(float(prob), float(odds))
+        except (TypeError, ValueError):
+            kelly = None
+    if kelly is not None and float(kelly) < min_kelly:
+        reasons.append(f"Kelly {float(kelly):.3%} sotto minimo {min_kelly:.1%}")
     return reasons
 
 
