@@ -10676,26 +10676,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.135,
-      "category": "injury",
-      "headline": "Chi \u00e8 Giacomo Vacalebre, tronista di Uomini e Donne | Et\u00e0, lavoro, carriera nel tennis e il grave infortunio - IlSussidiario.net",
-      "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOdGRUZHBSQzlybjhWcEprNDZ2cUFFcjZWNUdhS3NvQ2QyMzNIZjJvalBCRF84ZWREWlo1LVlqTE1fZWxuZHR3NFg3VzJmVzQzV2hFcHZONm5TM09aVndSeW1CMC00UW9RRHM2X1RlS0JSa2xwTHFMME1GZGdsSzBMTzhBWUFtWDhEQ252UWhwc25QbFNtczNfUkdlMXMwNWx5Q196V185ZUhEa3l0Z1VWRDdCajhsV2dFQ2NjTHlqNFQwaExRbnlWWS1QNWhXY3Ewd1VXaXpCZ0xESm5nNXl3etIB5gFBVV95cUxPUlF0YkxwcTdBMHNNUlJ6RFVQZWJtMkIwU2hiTEhYQ1paNVpRM0taaUpCZHRWM2N1MVowQlhpQWtHVy1ad0hRSzBpWmxQSWt6OVdmRC1ucHBUV1RpR3JIOWljWHlRRmpkekI1Q1FXU01sbXhPRFpZRmZlcW1JZlNGY3Eza1pNX0ZfdFNaaEVnZGFab1N1YU9WY1E0b0ozS2puTXZpaGdDT3NaemFNbTBZOUJob0plVjh2MGdWTU8zZDU2cWczLXZpVEkxYXdzWWE2VHRzODVBenBDbG9FUTJJc0lSSlA4Zw?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.75,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Chi \u00e8 Giacomo Vacalebre, tronista di Uomini e Donne | Et\u00e0, lavoro, carriera nel tennis e il grave infortunio - IlSussidiario.net",
-          "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOdGRUZHBSQzlybjhWcEprNDZ2cUFFcjZWNUdhS3NvQ2QyMzNIZjJvalBCRF84ZWREWlo1LVlqTE1fZWxuZHR3NFg3VzJmVzQzV2hFcHZONm5TM09aVndSeW1CMC00UW9RRHM2X1RlS0JSa2xwTHFMME1GZGdsSzBMTzhBWUFtWDhEQ252UWhwc25QbFNtczNfUkdlMXMwNWx5Q196V185ZUhEa3l0Z1VWRDdCajhsV2dFQ2NjTHlqNFQwaExRbnlWWS1QNWhXY3Ewd1VXaXpCZ0xESm5nNXl3etIB5gFBVV95cUxPUlF0YkxwcTdBMHNNUlJ6RFVQZWJtMkIwU2hiTEhYQ1paNVpRM0taaUpCZHRWM2N1MVowQlhpQWtHVy1ad0hRSzBpWmxQSWt6OVdmRC1ucHBUV1RpR3JIOWljWHlRRmpkekI1Q1FXU01sbXhPRFpZRmZlcW1JZlNGY3Eza1pNX0ZfdFNaaEVnZGFab1N1YU9WY1E0b0ozS2puTXZpaGdDT3NaemFNbTBZOUJob0plVjh2MGdWTU8zZDU2cWczLXZpVEkxYXdzWWE2VHRzODVBenBDbG9FUTJJc0lSSlA4Zw?oc=5",
-          "source": "gnews_injury_it",
-          "category": "injury",
-          "severity": 0.75,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -10709,26 +10696,13 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.135,
-        "category": "injury",
-        "headline": "Chi \u00e8 Giacomo Vacalebre, tronista di Uomini e Donne | Et\u00e0, lavoro, carriera nel tennis e il grave infortunio - IlSussidiario.net",
-        "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOdGRUZHBSQzlybjhWcEprNDZ2cUFFcjZWNUdhS3NvQ2QyMzNIZjJvalBCRF84ZWREWlo1LVlqTE1fZWxuZHR3NFg3VzJmVzQzV2hFcHZONm5TM09aVndSeW1CMC00UW9RRHM2X1RlS0JSa2xwTHFMME1GZGdsSzBMTzhBWUFtWDhEQ252UWhwc25QbFNtczNfUkdlMXMwNWx5Q196V185ZUhEa3l0Z1VWRDdCajhsV2dFQ2NjTHlqNFQwaExRbnlWWS1QNWhXY3Ewd1VXaXpCZ0xESm5nNXl3etIB5gFBVV95cUxPUlF0YkxwcTdBMHNNUlJ6RFVQZWJtMkIwU2hiTEhYQ1paNVpRM0taaUpCZHRWM2N1MVowQlhpQWtHVy1ad0hRSzBpWmxQSWt6OVdmRC1ucHBUV1RpR3JIOWljWHlRRmpkekI1Q1FXU01sbXhPRFpZRmZlcW1JZlNGY3Eza1pNX0ZfdFNaaEVnZGFab1N1YU9WY1E0b0ozS2puTXZpaGdDT3NaemFNbTBZOUJob0plVjh2MGdWTU8zZDU2cWczLXZpVEkxYXdzWWE2VHRzODVBenBDbG9FUTJJc0lSSlA4Zw?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.75,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Chi \u00e8 Giacomo Vacalebre, tronista di Uomini e Donne | Et\u00e0, lavoro, carriera nel tennis e il grave infortunio - IlSussidiario.net",
-            "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOdGRUZHBSQzlybjhWcEprNDZ2cUFFcjZWNUdhS3NvQ2QyMzNIZjJvalBCRF84ZWREWlo1LVlqTE1fZWxuZHR3NFg3VzJmVzQzV2hFcHZONm5TM09aVndSeW1CMC00UW9RRHM2X1RlS0JSa2xwTHFMME1GZGdsSzBMTzhBWUFtWDhEQ252UWhwc25QbFNtczNfUkdlMXMwNWx5Q196V185ZUhEa3l0Z1VWRDdCajhsV2dFQ2NjTHlqNFQwaExRbnlWWS1QNWhXY3Ewd1VXaXpCZ0xESm5nNXl3etIB5gFBVV95cUxPUlF0YkxwcTdBMHNNUlJ6RFVQZWJtMkIwU2hiTEhYQ1paNVpRM0taaUpCZHRWM2N1MVowQlhpQWtHVy1ad0hRSzBpWmxQSWt6OVdmRC1ucHBUV1RpR3JIOWljWHlRRmpkekI1Q1FXU01sbXhPRFpZRmZlcW1JZlNGY3Eza1pNX0ZfdFNaaEVnZGFab1N1YU9WY1E0b0ozS2puTXZpaGdDT3NaemFNbTBZOUJob0plVjh2MGdWTU8zZDU2cWczLXZpVEkxYXdzWWE2VHRzODVBenBDbG9FUTJJc0lSSlA4Zw?oc=5",
-            "source": "gnews_injury_it",
-            "category": "injury",
-            "severity": 0.75,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
       "opponent": {
         "has_alert": false,
@@ -10739,10 +10713,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Chi \u00e8 Giacomo Vacalebre, tronista di Uomini e Donne | Et\u00e0, lavoro, carriera nel tennis e il grave infortunio - IlSussidiario.net",
-      "category": "injury"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.135,
     "retirement_context": {
@@ -53696,14 +53670,14 @@
       "hard_block": false,
       "p_retire_boost": 0.135,
       "category": "injury",
-      "headline": "Women\u2019s Tennis Star Leonie Moeller is back one year after ACL injury - The Daily Helmsman",
+      "headline": "Women\u2019s Tennis Star Leonie Moeller is back one year after ACL injury - dailyhelmsman.com",
       "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNd3JrRE1xSHpJdGhyZ0QzWW5VMFRwaFRkTjExS2NkZVZ3dDBwVXNVVWJWQVI1eWFKdW5HbnRCRFRzZ0lGcXN0Zmt4a0JDZFk1WDg0ckZUZWxDWTJMWnRwVnFkY3NuVjlNZl9JREJaamJUQTUwd09KNnRKTW8tMy1kc0dQVjRtX3VCOVR4eGNXTEwzTVJpNHB2TmxLdkk2MWxzY3RKaTQ1T1FZdXN5VWlYNW04ZWw?oc=5",
       "source": "gnews_injury_en",
       "severity": 0.75,
       "n_hits": 1,
       "hits": [
         {
-          "title": "Women\u2019s Tennis Star Leonie Moeller is back one year after ACL injury - The Daily Helmsman",
+          "title": "Women\u2019s Tennis Star Leonie Moeller is back one year after ACL injury - dailyhelmsman.com",
           "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNd3JrRE1xSHpJdGhyZ0QzWW5VMFRwaFRkTjExS2NkZVZ3dDBwVXNVVWJWQVI1eWFKdW5HbnRCRFRzZ0lGcXN0Zmt4a0JDZFk1WDg0ckZUZWxDWTJMWnRwVnFkY3NuVjlNZl9JREJaamJUQTUwd09KNnRKTW8tMy1kc0dQVjRtX3VCOVR4eGNXTEwzTVJpNHB2TmxLdkk2MWxzY3RKaTQ1T1FZdXN5VWlYNW04ZWw?oc=5",
           "source": "gnews_injury_en",
           "category": "injury",
@@ -53729,14 +53703,14 @@
         "hard_block": false,
         "p_retire_boost": 0.135,
         "category": "injury",
-        "headline": "Women\u2019s Tennis Star Leonie Moeller is back one year after ACL injury - The Daily Helmsman",
+        "headline": "Women\u2019s Tennis Star Leonie Moeller is back one year after ACL injury - dailyhelmsman.com",
         "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNd3JrRE1xSHpJdGhyZ0QzWW5VMFRwaFRkTjExS2NkZVZ3dDBwVXNVVWJWQVI1eWFKdW5HbnRCRFRzZ0lGcXN0Zmt4a0JDZFk1WDg0ckZUZWxDWTJMWnRwVnFkY3NuVjlNZl9JREJaamJUQTUwd09KNnRKTW8tMy1kc0dQVjRtX3VCOVR4eGNXTEwzTVJpNHB2TmxLdkk2MWxzY3RKaTQ1T1FZdXN5VWlYNW04ZWw?oc=5",
         "source": "gnews_injury_en",
         "severity": 0.75,
         "n_hits": 1,
         "hits": [
           {
-            "title": "Women\u2019s Tennis Star Leonie Moeller is back one year after ACL injury - The Daily Helmsman",
+            "title": "Women\u2019s Tennis Star Leonie Moeller is back one year after ACL injury - dailyhelmsman.com",
             "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNd3JrRE1xSHpJdGhyZ0QzWW5VMFRwaFRkTjExS2NkZVZ3dDBwVXNVVWJWQVI1eWFKdW5HbnRCRFRzZ0lGcXN0Zmt4a0JDZFk1WDg0ckZUZWxDWTJMWnRwVnFkY3NuVjlNZl9JREJaamJUQTUwd09KNnRKTW8tMy1kc0dQVjRtX3VCOVR4eGNXTEwzTVJpNHB2TmxLdkk2MWxzY3RKaTQ1T1FZdXN5VWlYNW04ZWw?oc=5",
             "source": "gnews_injury_en",
             "category": "injury",
@@ -53757,13 +53731,13 @@
       },
       "any_alert": true,
       "hard_block_pick": false,
-      "headline": "Women\u2019s Tennis Star Leonie Moeller is back one year after ACL injury - The Daily Helmsman",
+      "headline": "Women\u2019s Tennis Star Leonie Moeller is back one year after ACL injury - dailyhelmsman.com",
       "category": "injury"
     },
-    "p_retire": 0.27,
+    "p_retire": 0.405,
     "retirement_context": {
-      "player_injury_risk": 0.27,
-      "p_retire": 0.27,
+      "player_injury_risk": 0.405,
+      "p_retire": 0.405,
       "news_boost": 0.135
     }
   },
