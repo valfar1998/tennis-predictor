@@ -10676,13 +10676,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Chi \u00e8 Giacomo Vacalebre, tronista di Uomini e Donne | Et\u00e0, lavoro, carriera nel tennis e il grave infortunio - IlSussidiario.net",
+      "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOdGRUZHBSQzlybjhWcEprNDZ2cUFFcjZWNUdhS3NvQ2QyMzNIZjJvalBCRF84ZWREWlo1LVlqTE1fZWxuZHR3NFg3VzJmVzQzV2hFcHZONm5TM09aVndSeW1CMC00UW9RRHM2X1RlS0JSa2xwTHFMME1GZGdsSzBMTzhBWUFtWDhEQ252UWhwc25QbFNtczNfUkdlMXMwNWx5Q196V185ZUhEa3l0Z1VWRDdCajhsV2dFQ2NjTHlqNFQwaExRbnlWWS1QNWhXY3Ewd1VXaXpCZ0xESm5nNXl3etIB5gFBVV95cUxPUlF0YkxwcTdBMHNNUlJ6RFVQZWJtMkIwU2hiTEhYQ1paNVpRM0taaUpCZHRWM2N1MVowQlhpQWtHVy1ad0hRSzBpWmxQSWt6OVdmRC1ucHBUV1RpR3JIOWljWHlRRmpkekI1Q1FXU01sbXhPRFpZRmZlcW1JZlNGY3Eza1pNX0ZfdFNaaEVnZGFab1N1YU9WY1E0b0ozS2puTXZpaGdDT3NaemFNbTBZOUJob0plVjh2MGdWTU8zZDU2cWczLXZpVEkxYXdzWWE2VHRzODVBenBDbG9FUTJJc0lSSlA4Zw?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Chi \u00e8 Giacomo Vacalebre, tronista di Uomini e Donne | Et\u00e0, lavoro, carriera nel tennis e il grave infortunio - IlSussidiario.net",
+          "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOdGRUZHBSQzlybjhWcEprNDZ2cUFFcjZWNUdhS3NvQ2QyMzNIZjJvalBCRF84ZWREWlo1LVlqTE1fZWxuZHR3NFg3VzJmVzQzV2hFcHZONm5TM09aVndSeW1CMC00UW9RRHM2X1RlS0JSa2xwTHFMME1GZGdsSzBMTzhBWUFtWDhEQ252UWhwc25QbFNtczNfUkdlMXMwNWx5Q196V185ZUhEa3l0Z1VWRDdCajhsV2dFQ2NjTHlqNFQwaExRbnlWWS1QNWhXY3Ewd1VXaXpCZ0xESm5nNXl3etIB5gFBVV95cUxPUlF0YkxwcTdBMHNNUlJ6RFVQZWJtMkIwU2hiTEhYQ1paNVpRM0taaUpCZHRWM2N1MVowQlhpQWtHVy1ad0hRSzBpWmxQSWt6OVdmRC1ucHBUV1RpR3JIOWljWHlRRmpkekI1Q1FXU01sbXhPRFpZRmZlcW1JZlNGY3Eza1pNX0ZfdFNaaEVnZGFab1N1YU9WY1E0b0ozS2puTXZpaGdDT3NaemFNbTBZOUJob0plVjh2MGdWTU8zZDU2cWczLXZpVEkxYXdzWWE2VHRzODVBenBDbG9FUTJJc0lSSlA4Zw?oc=5",
+          "source": "gnews_injury_it",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -10696,13 +10709,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Chi \u00e8 Giacomo Vacalebre, tronista di Uomini e Donne | Et\u00e0, lavoro, carriera nel tennis e il grave infortunio - IlSussidiario.net",
+        "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOdGRUZHBSQzlybjhWcEprNDZ2cUFFcjZWNUdhS3NvQ2QyMzNIZjJvalBCRF84ZWREWlo1LVlqTE1fZWxuZHR3NFg3VzJmVzQzV2hFcHZONm5TM09aVndSeW1CMC00UW9RRHM2X1RlS0JSa2xwTHFMME1GZGdsSzBMTzhBWUFtWDhEQ252UWhwc25QbFNtczNfUkdlMXMwNWx5Q196V185ZUhEa3l0Z1VWRDdCajhsV2dFQ2NjTHlqNFQwaExRbnlWWS1QNWhXY3Ewd1VXaXpCZ0xESm5nNXl3etIB5gFBVV95cUxPUlF0YkxwcTdBMHNNUlJ6RFVQZWJtMkIwU2hiTEhYQ1paNVpRM0taaUpCZHRWM2N1MVowQlhpQWtHVy1ad0hRSzBpWmxQSWt6OVdmRC1ucHBUV1RpR3JIOWljWHlRRmpkekI1Q1FXU01sbXhPRFpZRmZlcW1JZlNGY3Eza1pNX0ZfdFNaaEVnZGFab1N1YU9WY1E0b0ozS2puTXZpaGdDT3NaemFNbTBZOUJob0plVjh2MGdWTU8zZDU2cWczLXZpVEkxYXdzWWE2VHRzODVBenBDbG9FUTJJc0lSSlA4Zw?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Chi \u00e8 Giacomo Vacalebre, tronista di Uomini e Donne | Et\u00e0, lavoro, carriera nel tennis e il grave infortunio - IlSussidiario.net",
+            "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOdGRUZHBSQzlybjhWcEprNDZ2cUFFcjZWNUdhS3NvQ2QyMzNIZjJvalBCRF84ZWREWlo1LVlqTE1fZWxuZHR3NFg3VzJmVzQzV2hFcHZONm5TM09aVndSeW1CMC00UW9RRHM2X1RlS0JSa2xwTHFMME1GZGdsSzBMTzhBWUFtWDhEQ252UWhwc25QbFNtczNfUkdlMXMwNWx5Q196V185ZUhEa3l0Z1VWRDdCajhsV2dFQ2NjTHlqNFQwaExRbnlWWS1QNWhXY3Ewd1VXaXpCZ0xESm5nNXl3etIB5gFBVV95cUxPUlF0YkxwcTdBMHNNUlJ6RFVQZWJtMkIwU2hiTEhYQ1paNVpRM0taaUpCZHRWM2N1MVowQlhpQWtHVy1ad0hRSzBpWmxQSWt6OVdmRC1ucHBUV1RpR3JIOWljWHlRRmpkekI1Q1FXU01sbXhPRFpZRmZlcW1JZlNGY3Eza1pNX0ZfdFNaaEVnZGFab1N1YU9WY1E0b0ozS2puTXZpaGdDT3NaemFNbTBZOUJob0plVjh2MGdWTU8zZDU2cWczLXZpVEkxYXdzWWE2VHRzODVBenBDbG9FUTJJc0lSSlA4Zw?oc=5",
+            "source": "gnews_injury_it",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -10713,10 +10739,16 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Chi \u00e8 Giacomo Vacalebre, tronista di Uomini e Donne | Et\u00e0, lavoro, carriera nel tennis e il grave infortunio - IlSussidiario.net",
+      "category": "injury"
+    },
+    "p_retire": 0.135,
+    "retirement_context": {
+      "player_injury_risk": 0.135,
+      "p_retire": 0.135,
+      "news_boost": 0.135
     }
   },
   {
@@ -53728,10 +53760,10 @@
       "headline": "Women\u2019s Tennis Star Leonie Moeller is back one year after ACL injury - The Daily Helmsman",
       "category": "injury"
     },
-    "p_retire": 0.135,
+    "p_retire": 0.27,
     "retirement_context": {
-      "player_injury_risk": 0.135,
-      "p_retire": 0.135,
+      "player_injury_risk": 0.27,
+      "p_retire": 0.27,
       "news_boost": 0.135
     }
   },
