@@ -2702,7 +2702,8 @@
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - planetwin365.news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
-        "news: withdrawal \u2014 Incredibile Kolo Muani, Spalletti svela un retroscena: \"Prima del Nec unico che ha fatto ritiro. Ha mangiato e dormito da solo...\" - Corriere dello Sport"
+        "news: withdrawal \u2014 Incredibile Kolo Muani, Spalletti svela un retroscena: \"Prima del Nec unico che ha fatto ritiro. Ha mangiato e dormito da solo...\" - Corriere dello Sport",
+        "news: withdrawal \u2014 Townsend svela il motivo del ritiro da Guadalajara: \u201cOperata di appendicite, \u00e8 stato spaventoso\u201d - Tennis Magazine Italia"
       ],
       "review_reasons": []
     },
@@ -2735,13 +2736,44 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
-      "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "has_alert": true,
+      "hard_block": true,
+      "p_retire_boost": 0.2304,
+      "category": "withdrawal",
+      "headline": "Townsend svela il motivo del ritiro da Guadalajara: \u201cOperata di appendicite, \u00e8 stato spaventoso\u201d - Tennis Magazine Italia",
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPVExuYlpyTEY1OERCeFYzYmFnVmw5NXdMcVp6REhFZ2pWSmF4SU9YMWh3YW1MM19SZmRXNHVLZHRadVI0SDR6UXZrdGJNMVp0QUM4bFZ4aVplMGdlMVFNNWo4NDdReUlQZkU0cjRMczVJOVNadXhSWDVqMG1kZkZ3OEx1MURrU2lMeDBEMmNRZmxDT1BDTmlXWVZhVjRpMC1RSm1sTFAtWWk5bUpRWVIzVWZJaFQ?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.92,
+      "n_hits": 3,
+      "hits": [
+        {
+          "title": "Townsend svela il motivo del ritiro da Guadalajara: \u201cOperata di appendicite, \u00e8 stato spaventoso\u201d - Tennis Magazine Italia",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPVExuYlpyTEY1OERCeFYzYmFnVmw5NXdMcVp6REhFZ2pWSmF4SU9YMWh3YW1MM19SZmRXNHVLZHRadVI0SDR6UXZrdGJNMVp0QUM4bFZ4aVplMGdlMVFNNWo4NDdReUlQZkU0cjRMczVJOVNadXhSWDVqMG1kZkZ3OEx1MURrU2lMeDBEMmNRZmxDT1BDTmlXWVZhVjRpMC1RSm1sTFAtWWk5bUpRWVIzVWZJaFQ?oc=5",
+          "source": "gnews_injury_it",
+          "category": "withdrawal",
+          "severity": 0.92,
+          "published": "",
+          "channel": "rss"
+        },
+        {
+          "title": "Sinner, svelato il motivo del forfait a Pechino: la verit\u00e0 sull'infortunio. E McEnroe punge Jannik: \u201cMeglio Alcaraz\u201d - Virgilio Sport",
+          "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNeEpOTEstUFozeS16RzVDUUF2U0staFpVOG5jN0dPdUd2MHB2LTZMOTJzZlF3NXY2aDV4VzY5LVlnMEZ0RXMyOHJlX3lZZ3ZQOGFXZ0xVVnRBMjZHNmlVVXMyR0IzdXB2Z0RuaEV2OVZ4eHJRcXNUX3FZRWJXeTMxcDBBSkJSNEFQaklrVnQ4Z1BkRnl6bnfSAZwBQVVfeXFMUDBpZDVHWXVOSE5FaXROZDJwQ1ZMVUIwVU91OXZvX183LU0xQ2lCU2lpMkhYQW5MdjMwMkIzMEJmS295UjVmcnpBbU9KN1NoSTBkaHZkeWVFek5BM2Z1aVZ1LWhRVUhJeGoxR01GUDhCNFpzei1QOTZ4UUxZMUVRWkl2c2hrZ3BmclFvaW05djNXZjNmSGd5RG5JMlJl?oc=5",
+          "source": "gnews_injury_it",
+          "category": "withdrawal",
+          "severity": 0.92,
+          "published": "",
+          "channel": "rss"
+        },
+        {
+          "title": "La previsione di Panatta sul ritorno in campo di Sinner dopo il forfait a Pechino: poi svela il motivo degli infortuni in aumento - lottomatica.sport",
+          "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxON0NNQWtsMTFXVVBWNmdxSk9wYzE3S3BpTm1KcHdheVcxMkh5cFd3QTBYU01pZHpVYnRXTjVGNU1uUlJfUENnOUd6OFFVMjdmTjkwMzlVcVNVS2R0Z1FMSXF3NzhkeXNjSnVLNGRHWlZDb0FFR1VpRGZCVVRoOG8zMXAzbWt2V29fUDlpOENHclMzQXZWZzljUVNuM2dqYkNvV3NaQWJOUGtwWlV3ODFiZ2xPcnhZY0dVcUFZRnhGYlNMT2NKUURTTThqeGVrZTVYV2FHTUZqaEpkWXMwMkVKbklmeVpvejBxdEkxZ1Vfbm9GUEh5a0JEQmJzdml5S3ZU?oc=5",
+          "source": "gnews_injury_it",
+          "category": "withdrawal",
+          "severity": 0.92,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -2755,13 +2787,44 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
-        "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "has_alert": true,
+        "hard_block": true,
+        "p_retire_boost": 0.2304,
+        "category": "withdrawal",
+        "headline": "Townsend svela il motivo del ritiro da Guadalajara: \u201cOperata di appendicite, \u00e8 stato spaventoso\u201d - Tennis Magazine Italia",
+        "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPVExuYlpyTEY1OERCeFYzYmFnVmw5NXdMcVp6REhFZ2pWSmF4SU9YMWh3YW1MM19SZmRXNHVLZHRadVI0SDR6UXZrdGJNMVp0QUM4bFZ4aVplMGdlMVFNNWo4NDdReUlQZkU0cjRMczVJOVNadXhSWDVqMG1kZkZ3OEx1MURrU2lMeDBEMmNRZmxDT1BDTmlXWVZhVjRpMC1RSm1sTFAtWWk5bUpRWVIzVWZJaFQ?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.92,
+        "n_hits": 3,
+        "hits": [
+          {
+            "title": "Townsend svela il motivo del ritiro da Guadalajara: \u201cOperata di appendicite, \u00e8 stato spaventoso\u201d - Tennis Magazine Italia",
+            "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPVExuYlpyTEY1OERCeFYzYmFnVmw5NXdMcVp6REhFZ2pWSmF4SU9YMWh3YW1MM19SZmRXNHVLZHRadVI0SDR6UXZrdGJNMVp0QUM4bFZ4aVplMGdlMVFNNWo4NDdReUlQZkU0cjRMczVJOVNadXhSWDVqMG1kZkZ3OEx1MURrU2lMeDBEMmNRZmxDT1BDTmlXWVZhVjRpMC1RSm1sTFAtWWk5bUpRWVIzVWZJaFQ?oc=5",
+            "source": "gnews_injury_it",
+            "category": "withdrawal",
+            "severity": 0.92,
+            "published": "",
+            "channel": "rss"
+          },
+          {
+            "title": "Sinner, svelato il motivo del forfait a Pechino: la verit\u00e0 sull'infortunio. E McEnroe punge Jannik: \u201cMeglio Alcaraz\u201d - Virgilio Sport",
+            "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNeEpOTEstUFozeS16RzVDUUF2U0staFpVOG5jN0dPdUd2MHB2LTZMOTJzZlF3NXY2aDV4VzY5LVlnMEZ0RXMyOHJlX3lZZ3ZQOGFXZ0xVVnRBMjZHNmlVVXMyR0IzdXB2Z0RuaEV2OVZ4eHJRcXNUX3FZRWJXeTMxcDBBSkJSNEFQaklrVnQ4Z1BkRnl6bnfSAZwBQVVfeXFMUDBpZDVHWXVOSE5FaXROZDJwQ1ZMVUIwVU91OXZvX183LU0xQ2lCU2lpMkhYQW5MdjMwMkIzMEJmS295UjVmcnpBbU9KN1NoSTBkaHZkeWVFek5BM2Z1aVZ1LWhRVUhJeGoxR01GUDhCNFpzei1QOTZ4UUxZMUVRWkl2c2hrZ3BmclFvaW05djNXZjNmSGd5RG5JMlJl?oc=5",
+            "source": "gnews_injury_it",
+            "category": "withdrawal",
+            "severity": 0.92,
+            "published": "",
+            "channel": "rss"
+          },
+          {
+            "title": "La previsione di Panatta sul ritorno in campo di Sinner dopo il forfait a Pechino: poi svela il motivo degli infortuni in aumento - lottomatica.sport",
+            "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxON0NNQWtsMTFXVVBWNmdxSk9wYzE3S3BpTm1KcHdheVcxMkh5cFd3QTBYU01pZHpVYnRXTjVGNU1uUlJfUENnOUd6OFFVMjdmTjkwMzlVcVNVS2R0Z1FMSXF3NzhkeXNjSnVLNGRHWlZDb0FFR1VpRGZCVVRoOG8zMXAzbWt2V29fUDlpOENHclMzQXZWZzljUVNuM2dqYkNvV3NaQWJOUGtwWlV3ODFiZ2xPcnhZY0dVcUFZRnhGYlNMT2NKUURTTThqeGVrZTVYV2FHTUZqaEpkWXMwMkVKbklmeVpvejBxdEkxZ1Vfbm9GUEh5a0JEQmJzdml5S3ZU?oc=5",
+            "source": "gnews_injury_it",
+            "category": "withdrawal",
+            "severity": 0.92,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -2772,10 +2835,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
-      "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "any_alert": true,
+      "hard_block_pick": true,
+      "headline": "Townsend svela il motivo del ritiro da Guadalajara: \u201cOperata di appendicite, \u00e8 stato spaventoso\u201d - Tennis Magazine Italia",
+      "category": "withdrawal"
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -32878,7 +32941,8 @@
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - planetwin365.news",
         "news: withdrawal \u2014 Laver Cup, forfait a sorpresa di Shelton: svelato il sostituto - Planetwin365 news",
-        "news: withdrawal \u2014 Incredibile Kolo Muani, Spalletti svela un retroscena: \"Prima del Nec unico che ha fatto ritiro. Ha mangiato e dormito da solo...\" - Corriere dello Sport"
+        "news: withdrawal \u2014 Incredibile Kolo Muani, Spalletti svela un retroscena: \"Prima del Nec unico che ha fatto ritiro. Ha mangiato e dormito da solo...\" - Corriere dello Sport",
+        "news: withdrawal \u2014 Townsend svela il motivo del ritiro da Guadalajara: \u201cOperata di appendicite, \u00e8 stato spaventoso\u201d - Tennis Magazine Italia"
       ],
       "review_reasons": []
     },
@@ -32911,13 +32975,44 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
-      "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "has_alert": true,
+      "hard_block": true,
+      "p_retire_boost": 0.2304,
+      "category": "withdrawal",
+      "headline": "Townsend svela il motivo del ritiro da Guadalajara: \u201cOperata di appendicite, \u00e8 stato spaventoso\u201d - Tennis Magazine Italia",
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPVExuYlpyTEY1OERCeFYzYmFnVmw5NXdMcVp6REhFZ2pWSmF4SU9YMWh3YW1MM19SZmRXNHVLZHRadVI0SDR6UXZrdGJNMVp0QUM4bFZ4aVplMGdlMVFNNWo4NDdReUlQZkU0cjRMczVJOVNadXhSWDVqMG1kZkZ3OEx1MURrU2lMeDBEMmNRZmxDT1BDTmlXWVZhVjRpMC1RSm1sTFAtWWk5bUpRWVIzVWZJaFQ?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.92,
+      "n_hits": 3,
+      "hits": [
+        {
+          "title": "Townsend svela il motivo del ritiro da Guadalajara: \u201cOperata di appendicite, \u00e8 stato spaventoso\u201d - Tennis Magazine Italia",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPVExuYlpyTEY1OERCeFYzYmFnVmw5NXdMcVp6REhFZ2pWSmF4SU9YMWh3YW1MM19SZmRXNHVLZHRadVI0SDR6UXZrdGJNMVp0QUM4bFZ4aVplMGdlMVFNNWo4NDdReUlQZkU0cjRMczVJOVNadXhSWDVqMG1kZkZ3OEx1MURrU2lMeDBEMmNRZmxDT1BDTmlXWVZhVjRpMC1RSm1sTFAtWWk5bUpRWVIzVWZJaFQ?oc=5",
+          "source": "gnews_injury_it",
+          "category": "withdrawal",
+          "severity": 0.92,
+          "published": "",
+          "channel": "rss"
+        },
+        {
+          "title": "Sinner, svelato il motivo del forfait a Pechino: la verit\u00e0 sull'infortunio. E McEnroe punge Jannik: \u201cMeglio Alcaraz\u201d - Virgilio Sport",
+          "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNeEpOTEstUFozeS16RzVDUUF2U0staFpVOG5jN0dPdUd2MHB2LTZMOTJzZlF3NXY2aDV4VzY5LVlnMEZ0RXMyOHJlX3lZZ3ZQOGFXZ0xVVnRBMjZHNmlVVXMyR0IzdXB2Z0RuaEV2OVZ4eHJRcXNUX3FZRWJXeTMxcDBBSkJSNEFQaklrVnQ4Z1BkRnl6bnfSAZwBQVVfeXFMUDBpZDVHWXVOSE5FaXROZDJwQ1ZMVUIwVU91OXZvX183LU0xQ2lCU2lpMkhYQW5MdjMwMkIzMEJmS295UjVmcnpBbU9KN1NoSTBkaHZkeWVFek5BM2Z1aVZ1LWhRVUhJeGoxR01GUDhCNFpzei1QOTZ4UUxZMUVRWkl2c2hrZ3BmclFvaW05djNXZjNmSGd5RG5JMlJl?oc=5",
+          "source": "gnews_injury_it",
+          "category": "withdrawal",
+          "severity": 0.92,
+          "published": "",
+          "channel": "rss"
+        },
+        {
+          "title": "La previsione di Panatta sul ritorno in campo di Sinner dopo il forfait a Pechino: poi svela il motivo degli infortuni in aumento - lottomatica.sport",
+          "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxON0NNQWtsMTFXVVBWNmdxSk9wYzE3S3BpTm1KcHdheVcxMkh5cFd3QTBYU01pZHpVYnRXTjVGNU1uUlJfUENnOUd6OFFVMjdmTjkwMzlVcVNVS2R0Z1FMSXF3NzhkeXNjSnVLNGRHWlZDb0FFR1VpRGZCVVRoOG8zMXAzbWt2V29fUDlpOENHclMzQXZWZzljUVNuM2dqYkNvV3NaQWJOUGtwWlV3ODFiZ2xPcnhZY0dVcUFZRnhGYlNMT2NKUURTTThqeGVrZTVYV2FHTUZqaEpkWXMwMkVKbklmeVpvejBxdEkxZ1Vfbm9GUEh5a0JEQmJzdml5S3ZU?oc=5",
+          "source": "gnews_injury_it",
+          "category": "withdrawal",
+          "severity": 0.92,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -32931,13 +33026,44 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
-        "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "has_alert": true,
+        "hard_block": true,
+        "p_retire_boost": 0.2304,
+        "category": "withdrawal",
+        "headline": "Townsend svela il motivo del ritiro da Guadalajara: \u201cOperata di appendicite, \u00e8 stato spaventoso\u201d - Tennis Magazine Italia",
+        "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPVExuYlpyTEY1OERCeFYzYmFnVmw5NXdMcVp6REhFZ2pWSmF4SU9YMWh3YW1MM19SZmRXNHVLZHRadVI0SDR6UXZrdGJNMVp0QUM4bFZ4aVplMGdlMVFNNWo4NDdReUlQZkU0cjRMczVJOVNadXhSWDVqMG1kZkZ3OEx1MURrU2lMeDBEMmNRZmxDT1BDTmlXWVZhVjRpMC1RSm1sTFAtWWk5bUpRWVIzVWZJaFQ?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.92,
+        "n_hits": 3,
+        "hits": [
+          {
+            "title": "Townsend svela il motivo del ritiro da Guadalajara: \u201cOperata di appendicite, \u00e8 stato spaventoso\u201d - Tennis Magazine Italia",
+            "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPVExuYlpyTEY1OERCeFYzYmFnVmw5NXdMcVp6REhFZ2pWSmF4SU9YMWh3YW1MM19SZmRXNHVLZHRadVI0SDR6UXZrdGJNMVp0QUM4bFZ4aVplMGdlMVFNNWo4NDdReUlQZkU0cjRMczVJOVNadXhSWDVqMG1kZkZ3OEx1MURrU2lMeDBEMmNRZmxDT1BDTmlXWVZhVjRpMC1RSm1sTFAtWWk5bUpRWVIzVWZJaFQ?oc=5",
+            "source": "gnews_injury_it",
+            "category": "withdrawal",
+            "severity": 0.92,
+            "published": "",
+            "channel": "rss"
+          },
+          {
+            "title": "Sinner, svelato il motivo del forfait a Pechino: la verit\u00e0 sull'infortunio. E McEnroe punge Jannik: \u201cMeglio Alcaraz\u201d - Virgilio Sport",
+            "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNeEpOTEstUFozeS16RzVDUUF2U0staFpVOG5jN0dPdUd2MHB2LTZMOTJzZlF3NXY2aDV4VzY5LVlnMEZ0RXMyOHJlX3lZZ3ZQOGFXZ0xVVnRBMjZHNmlVVXMyR0IzdXB2Z0RuaEV2OVZ4eHJRcXNUX3FZRWJXeTMxcDBBSkJSNEFQaklrVnQ4Z1BkRnl6bnfSAZwBQVVfeXFMUDBpZDVHWXVOSE5FaXROZDJwQ1ZMVUIwVU91OXZvX183LU0xQ2lCU2lpMkhYQW5MdjMwMkIzMEJmS295UjVmcnpBbU9KN1NoSTBkaHZkeWVFek5BM2Z1aVZ1LWhRVUhJeGoxR01GUDhCNFpzei1QOTZ4UUxZMUVRWkl2c2hrZ3BmclFvaW05djNXZjNmSGd5RG5JMlJl?oc=5",
+            "source": "gnews_injury_it",
+            "category": "withdrawal",
+            "severity": 0.92,
+            "published": "",
+            "channel": "rss"
+          },
+          {
+            "title": "La previsione di Panatta sul ritorno in campo di Sinner dopo il forfait a Pechino: poi svela il motivo degli infortuni in aumento - lottomatica.sport",
+            "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxON0NNQWtsMTFXVVBWNmdxSk9wYzE3S3BpTm1KcHdheVcxMkh5cFd3QTBYU01pZHpVYnRXTjVGNU1uUlJfUENnOUd6OFFVMjdmTjkwMzlVcVNVS2R0Z1FMSXF3NzhkeXNjSnVLNGRHWlZDb0FFR1VpRGZCVVRoOG8zMXAzbWt2V29fUDlpOENHclMzQXZWZzljUVNuM2dqYkNvV3NaQWJOUGtwWlV3ODFiZ2xPcnhZY0dVcUFZRnhGYlNMT2NKUURTTThqeGVrZTVYV2FHTUZqaEpkWXMwMkVKbklmeVpvejBxdEkxZ1Vfbm9GUEh5a0JEQmJzdml5S3ZU?oc=5",
+            "source": "gnews_injury_it",
+            "category": "withdrawal",
+            "severity": 0.92,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -32948,10 +33074,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
-      "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "any_alert": true,
+      "hard_block_pick": true,
+      "headline": "Townsend svela il motivo del ritiro da Guadalajara: \u201cOperata di appendicite, \u00e8 stato spaventoso\u201d - Tennis Magazine Italia",
+      "category": "withdrawal"
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -53670,14 +53796,14 @@
       "hard_block": false,
       "p_retire_boost": 0.135,
       "category": "injury",
-      "headline": "Women\u2019s Tennis Star Leonie Moeller is back one year after ACL injury - dailyhelmsman.com",
+      "headline": "Women\u2019s Tennis Star Leonie Moeller is back one year after ACL injury - The Daily Helmsman",
       "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNd3JrRE1xSHpJdGhyZ0QzWW5VMFRwaFRkTjExS2NkZVZ3dDBwVXNVVWJWQVI1eWFKdW5HbnRCRFRzZ0lGcXN0Zmt4a0JDZFk1WDg0ckZUZWxDWTJMWnRwVnFkY3NuVjlNZl9JREJaamJUQTUwd09KNnRKTW8tMy1kc0dQVjRtX3VCOVR4eGNXTEwzTVJpNHB2TmxLdkk2MWxzY3RKaTQ1T1FZdXN5VWlYNW04ZWw?oc=5",
       "source": "gnews_injury_en",
       "severity": 0.75,
       "n_hits": 1,
       "hits": [
         {
-          "title": "Women\u2019s Tennis Star Leonie Moeller is back one year after ACL injury - dailyhelmsman.com",
+          "title": "Women\u2019s Tennis Star Leonie Moeller is back one year after ACL injury - The Daily Helmsman",
           "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNd3JrRE1xSHpJdGhyZ0QzWW5VMFRwaFRkTjExS2NkZVZ3dDBwVXNVVWJWQVI1eWFKdW5HbnRCRFRzZ0lGcXN0Zmt4a0JDZFk1WDg0ckZUZWxDWTJMWnRwVnFkY3NuVjlNZl9JREJaamJUQTUwd09KNnRKTW8tMy1kc0dQVjRtX3VCOVR4eGNXTEwzTVJpNHB2TmxLdkk2MWxzY3RKaTQ1T1FZdXN5VWlYNW04ZWw?oc=5",
           "source": "gnews_injury_en",
           "category": "injury",
@@ -53703,14 +53829,14 @@
         "hard_block": false,
         "p_retire_boost": 0.135,
         "category": "injury",
-        "headline": "Women\u2019s Tennis Star Leonie Moeller is back one year after ACL injury - dailyhelmsman.com",
+        "headline": "Women\u2019s Tennis Star Leonie Moeller is back one year after ACL injury - The Daily Helmsman",
         "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNd3JrRE1xSHpJdGhyZ0QzWW5VMFRwaFRkTjExS2NkZVZ3dDBwVXNVVWJWQVI1eWFKdW5HbnRCRFRzZ0lGcXN0Zmt4a0JDZFk1WDg0ckZUZWxDWTJMWnRwVnFkY3NuVjlNZl9JREJaamJUQTUwd09KNnRKTW8tMy1kc0dQVjRtX3VCOVR4eGNXTEwzTVJpNHB2TmxLdkk2MWxzY3RKaTQ1T1FZdXN5VWlYNW04ZWw?oc=5",
         "source": "gnews_injury_en",
         "severity": 0.75,
         "n_hits": 1,
         "hits": [
           {
-            "title": "Women\u2019s Tennis Star Leonie Moeller is back one year after ACL injury - dailyhelmsman.com",
+            "title": "Women\u2019s Tennis Star Leonie Moeller is back one year after ACL injury - The Daily Helmsman",
             "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNd3JrRE1xSHpJdGhyZ0QzWW5VMFRwaFRkTjExS2NkZVZ3dDBwVXNVVWJWQVI1eWFKdW5HbnRCRFRzZ0lGcXN0Zmt4a0JDZFk1WDg0ckZUZWxDWTJMWnRwVnFkY3NuVjlNZl9JREJaamJUQTUwd09KNnRKTW8tMy1kc0dQVjRtX3VCOVR4eGNXTEwzTVJpNHB2TmxLdkk2MWxzY3RKaTQ1T1FZdXN5VWlYNW04ZWw?oc=5",
             "source": "gnews_injury_en",
             "category": "injury",
@@ -53731,13 +53857,13 @@
       },
       "any_alert": true,
       "hard_block_pick": false,
-      "headline": "Women\u2019s Tennis Star Leonie Moeller is back one year after ACL injury - dailyhelmsman.com",
+      "headline": "Women\u2019s Tennis Star Leonie Moeller is back one year after ACL injury - The Daily Helmsman",
       "category": "injury"
     },
-    "p_retire": 0.405,
+    "p_retire": 0.45,
     "retirement_context": {
-      "player_injury_risk": 0.405,
-      "p_retire": 0.405,
+      "player_injury_risk": 0.45,
+      "p_retire": 0.45,
       "news_boost": 0.135
     }
   },
