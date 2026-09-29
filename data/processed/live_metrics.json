@@ -5,7 +5,7 @@
   "hit_rate": 0.3113,
   "roi_note": "Campione >=100: ROI diventa informativo oltre al BCR",
   "bcr_source": "betfair",
-  "bcr_note": "BCR Betfair (KPI): BSP / snapshot T−1/T−5/T−60, action=bet|shadow. Esclusi last-LTP fallback ≈ quota bet. BCR Kambi (secondario): ingresso Unibet vs snapshot Kambi. Paper = previsioni valide no_bet.",
+  "bcr_note": "BCR Betfair (KPI): BSP / snapshot T-1/T-5/T-60, action=bet|shadow. Esclusi last-LTP fallback ≈ quota bet. BCR Kambi (secondario): ingresso Unibet vs snapshot Kambi. Paper = previsioni valide no_bet. Fase 2: pipeline close resiliente ad auth degradata (prematch/fallback taggati).",
   "bcr_betfair": {
     "n": 0,
     "beats": 0,
@@ -101,6 +101,15 @@
       "paper"
     ]
   },
+  "close_pipeline": {
+    "n_bet_shadow": 94,
+    "n_shadow": 0,
+    "n_quality_close": 0,
+    "n_fallback_close": 4,
+    "n_missing_close": 90,
+    "quality_pct": 0.0,
+    "note": "Quality = BSP/T-1/T-5/T-60/settled; fallback = last-LTP (escluso da BCR KPI). Auth degradata non azzera più le metriche: i close restano taggati."
+  },
   "slippage": {
     "n_alerts": 0,
     "n_with_t3_snapshot": 0,
@@ -111,7 +120,7 @@
     "steam_threshold_pct": 3.0,
     "recommendation": null
   },
-  "updated_at": "2026-09-28T21:50:00.020978+00:00",
+  "updated_at": "2026-09-29T10:16:24.314375+00:00",
   "governance": {
     "validation_freeze": {
       "active": true,
@@ -144,12 +153,13 @@
       "bcr_pass": null,
       "policy": "Nessuna modifica strutturale a pesi, feature o retrain ML fino al completamento della finestra. Solo settle + metriche BCR Betfair."
     },
-    "updated_at": "2026-09-28T21:50:00.052643+00:00"
+    "updated_at": "2026-09-29T10:16:24.334357+00:00"
   },
   "itf_governance": {
     "shrink_w_itf": 0.22,
-    "ev_sanity_cap_high": 0.25,
-    "min_data_density": 0,
+    "ev_sanity_cap_high": 0.24,
+    "ev_sanity_cap_low": 0.22,
+    "min_data_density": 12,
     "regime": "insufficient_sample",
     "bcr_itf": {
       "n": 0,
@@ -161,5 +171,18 @@
       "relax_threshold_pct": 20.0,
       "strict_threshold_pct": 5.0
     }
+  },
+  "phase2_edge": {
+    "n_settled": 94,
+    "hit_rate": 0.3404,
+    "avg_clv": -0.00541,
+    "bcr_n": 0,
+    "bcr": null,
+    "min_n": 35,
+    "floor": 0.025,
+    "base": 0.03,
+    "suggested_min_edge": 0.03,
+    "unlocked": false,
+    "reason": "hit_rate 34.0% < 48%"
   }
 }
