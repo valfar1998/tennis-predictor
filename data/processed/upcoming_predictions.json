@@ -2740,26 +2740,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
-      "hard_block": true,
-      "p_retire_boost": 0.2304,
-      "category": "withdrawal",
-      "headline": "Sinner, svelato il motivo del forfait a Pechino: la verit\u00e0 sull'infortunio. E McEnroe punge Jannik: \u201cMeglio Alcaraz\u201d - Virgilio Sport",
-      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNeEpOTEstUFozeS16RzVDUUF2U0staFpVOG5jN0dPdUd2MHB2LTZMOTJzZlF3NXY2aDV4VzY5LVlnMEZ0RXMyOHJlX3lZZ3ZQOGFXZ0xVVnRBMjZHNmlVVXMyR0IzdXB2Z0RuaEV2OVZ4eHJRcXNUX3FZRWJXeTMxcDBBSkJSNEFQaklrVnQ4Z1BkRnl6bnfSAZwBQVVfeXFMUDBpZDVHWXVOSE5FaXROZDJwQ1ZMVUIwVU91OXZvX183LU0xQ2lCU2lpMkhYQW5MdjMwMkIzMEJmS295UjVmcnpBbU9KN1NoSTBkaHZkeWVFek5BM2Z1aVZ1LWhRVUhJeGoxR01GUDhCNFpzei1QOTZ4UUxZMUVRWkl2c2hrZ3BmclFvaW05djNXZjNmSGd5RG5JMlJl?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.92,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Sinner, svelato il motivo del forfait a Pechino: la verit\u00e0 sull'infortunio. E McEnroe punge Jannik: \u201cMeglio Alcaraz\u201d - Virgilio Sport",
-          "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNeEpOTEstUFozeS16RzVDUUF2U0staFpVOG5jN0dPdUd2MHB2LTZMOTJzZlF3NXY2aDV4VzY5LVlnMEZ0RXMyOHJlX3lZZ3ZQOGFXZ0xVVnRBMjZHNmlVVXMyR0IzdXB2Z0RuaEV2OVZ4eHJRcXNUX3FZRWJXeTMxcDBBSkJSNEFQaklrVnQ4Z1BkRnl6bnfSAZwBQVVfeXFMUDBpZDVHWXVOSE5FaXROZDJwQ1ZMVUIwVU91OXZvX183LU0xQ2lCU2lpMkhYQW5MdjMwMkIzMEJmS295UjVmcnpBbU9KN1NoSTBkaHZkeWVFek5BM2Z1aVZ1LWhRVUhJeGoxR01GUDhCNFpzei1QOTZ4UUxZMUVRWkl2c2hrZ3BmclFvaW05djNXZjNmSGd5RG5JMlJl?oc=5",
-          "source": "gnews_injury_it",
-          "category": "withdrawal",
-          "severity": 0.92,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "has_alert": false,
+      "hard_block": false,
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -2773,26 +2760,13 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": true,
-        "hard_block": true,
-        "p_retire_boost": 0.2304,
-        "category": "withdrawal",
-        "headline": "Sinner, svelato il motivo del forfait a Pechino: la verit\u00e0 sull'infortunio. E McEnroe punge Jannik: \u201cMeglio Alcaraz\u201d - Virgilio Sport",
-        "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNeEpOTEstUFozeS16RzVDUUF2U0staFpVOG5jN0dPdUd2MHB2LTZMOTJzZlF3NXY2aDV4VzY5LVlnMEZ0RXMyOHJlX3lZZ3ZQOGFXZ0xVVnRBMjZHNmlVVXMyR0IzdXB2Z0RuaEV2OVZ4eHJRcXNUX3FZRWJXeTMxcDBBSkJSNEFQaklrVnQ4Z1BkRnl6bnfSAZwBQVVfeXFMUDBpZDVHWXVOSE5FaXROZDJwQ1ZMVUIwVU91OXZvX183LU0xQ2lCU2lpMkhYQW5MdjMwMkIzMEJmS295UjVmcnpBbU9KN1NoSTBkaHZkeWVFek5BM2Z1aVZ1LWhRVUhJeGoxR01GUDhCNFpzei1QOTZ4UUxZMUVRWkl2c2hrZ3BmclFvaW05djNXZjNmSGd5RG5JMlJl?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.92,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Sinner, svelato il motivo del forfait a Pechino: la verit\u00e0 sull'infortunio. E McEnroe punge Jannik: \u201cMeglio Alcaraz\u201d - Virgilio Sport",
-            "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNeEpOTEstUFozeS16RzVDUUF2U0staFpVOG5jN0dPdUd2MHB2LTZMOTJzZlF3NXY2aDV4VzY5LVlnMEZ0RXMyOHJlX3lZZ3ZQOGFXZ0xVVnRBMjZHNmlVVXMyR0IzdXB2Z0RuaEV2OVZ4eHJRcXNUX3FZRWJXeTMxcDBBSkJSNEFQaklrVnQ4Z1BkRnl6bnfSAZwBQVVfeXFMUDBpZDVHWXVOSE5FaXROZDJwQ1ZMVUIwVU91OXZvX183LU0xQ2lCU2lpMkhYQW5MdjMwMkIzMEJmS295UjVmcnpBbU9KN1NoSTBkaHZkeWVFek5BM2Z1aVZ1LWhRVUhJeGoxR01GUDhCNFpzei1QOTZ4UUxZMUVRWkl2c2hrZ3BmclFvaW05djNXZjNmSGd5RG5JMlJl?oc=5",
-            "source": "gnews_injury_it",
-            "category": "withdrawal",
-            "severity": 0.92,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "has_alert": false,
+        "hard_block": false,
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
       "opponent": {
         "has_alert": false,
@@ -2803,10 +2777,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": true,
-      "hard_block_pick": true,
-      "headline": "Sinner, svelato il motivo del forfait a Pechino: la verit\u00e0 sull'infortunio. E McEnroe punge Jannik: \u201cMeglio Alcaraz\u201d - Virgilio Sport",
-      "category": "withdrawal"
+      "any_alert": false,
+      "hard_block_pick": false,
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -32947,26 +32921,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
-      "hard_block": true,
-      "p_retire_boost": 0.2304,
-      "category": "withdrawal",
-      "headline": "Sinner, svelato il motivo del forfait a Pechino: la verit\u00e0 sull'infortunio. E McEnroe punge Jannik: \u201cMeglio Alcaraz\u201d - Virgilio Sport",
-      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNeEpOTEstUFozeS16RzVDUUF2U0staFpVOG5jN0dPdUd2MHB2LTZMOTJzZlF3NXY2aDV4VzY5LVlnMEZ0RXMyOHJlX3lZZ3ZQOGFXZ0xVVnRBMjZHNmlVVXMyR0IzdXB2Z0RuaEV2OVZ4eHJRcXNUX3FZRWJXeTMxcDBBSkJSNEFQaklrVnQ4Z1BkRnl6bnfSAZwBQVVfeXFMUDBpZDVHWXVOSE5FaXROZDJwQ1ZMVUIwVU91OXZvX183LU0xQ2lCU2lpMkhYQW5MdjMwMkIzMEJmS295UjVmcnpBbU9KN1NoSTBkaHZkeWVFek5BM2Z1aVZ1LWhRVUhJeGoxR01GUDhCNFpzei1QOTZ4UUxZMUVRWkl2c2hrZ3BmclFvaW05djNXZjNmSGd5RG5JMlJl?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.92,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Sinner, svelato il motivo del forfait a Pechino: la verit\u00e0 sull'infortunio. E McEnroe punge Jannik: \u201cMeglio Alcaraz\u201d - Virgilio Sport",
-          "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNeEpOTEstUFozeS16RzVDUUF2U0staFpVOG5jN0dPdUd2MHB2LTZMOTJzZlF3NXY2aDV4VzY5LVlnMEZ0RXMyOHJlX3lZZ3ZQOGFXZ0xVVnRBMjZHNmlVVXMyR0IzdXB2Z0RuaEV2OVZ4eHJRcXNUX3FZRWJXeTMxcDBBSkJSNEFQaklrVnQ4Z1BkRnl6bnfSAZwBQVVfeXFMUDBpZDVHWXVOSE5FaXROZDJwQ1ZMVUIwVU91OXZvX183LU0xQ2lCU2lpMkhYQW5MdjMwMkIzMEJmS295UjVmcnpBbU9KN1NoSTBkaHZkeWVFek5BM2Z1aVZ1LWhRVUhJeGoxR01GUDhCNFpzei1QOTZ4UUxZMUVRWkl2c2hrZ3BmclFvaW05djNXZjNmSGd5RG5JMlJl?oc=5",
-          "source": "gnews_injury_it",
-          "category": "withdrawal",
-          "severity": 0.92,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "has_alert": false,
+      "hard_block": false,
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -32980,26 +32941,13 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": true,
-        "hard_block": true,
-        "p_retire_boost": 0.2304,
-        "category": "withdrawal",
-        "headline": "Sinner, svelato il motivo del forfait a Pechino: la verit\u00e0 sull'infortunio. E McEnroe punge Jannik: \u201cMeglio Alcaraz\u201d - Virgilio Sport",
-        "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNeEpOTEstUFozeS16RzVDUUF2U0staFpVOG5jN0dPdUd2MHB2LTZMOTJzZlF3NXY2aDV4VzY5LVlnMEZ0RXMyOHJlX3lZZ3ZQOGFXZ0xVVnRBMjZHNmlVVXMyR0IzdXB2Z0RuaEV2OVZ4eHJRcXNUX3FZRWJXeTMxcDBBSkJSNEFQaklrVnQ4Z1BkRnl6bnfSAZwBQVVfeXFMUDBpZDVHWXVOSE5FaXROZDJwQ1ZMVUIwVU91OXZvX183LU0xQ2lCU2lpMkhYQW5MdjMwMkIzMEJmS295UjVmcnpBbU9KN1NoSTBkaHZkeWVFek5BM2Z1aVZ1LWhRVUhJeGoxR01GUDhCNFpzei1QOTZ4UUxZMUVRWkl2c2hrZ3BmclFvaW05djNXZjNmSGd5RG5JMlJl?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.92,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Sinner, svelato il motivo del forfait a Pechino: la verit\u00e0 sull'infortunio. E McEnroe punge Jannik: \u201cMeglio Alcaraz\u201d - Virgilio Sport",
-            "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNeEpOTEstUFozeS16RzVDUUF2U0staFpVOG5jN0dPdUd2MHB2LTZMOTJzZlF3NXY2aDV4VzY5LVlnMEZ0RXMyOHJlX3lZZ3ZQOGFXZ0xVVnRBMjZHNmlVVXMyR0IzdXB2Z0RuaEV2OVZ4eHJRcXNUX3FZRWJXeTMxcDBBSkJSNEFQaklrVnQ4Z1BkRnl6bnfSAZwBQVVfeXFMUDBpZDVHWXVOSE5FaXROZDJwQ1ZMVUIwVU91OXZvX183LU0xQ2lCU2lpMkhYQW5MdjMwMkIzMEJmS295UjVmcnpBbU9KN1NoSTBkaHZkeWVFek5BM2Z1aVZ1LWhRVUhJeGoxR01GUDhCNFpzei1QOTZ4UUxZMUVRWkl2c2hrZ3BmclFvaW05djNXZjNmSGd5RG5JMlJl?oc=5",
-            "source": "gnews_injury_it",
-            "category": "withdrawal",
-            "severity": 0.92,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "has_alert": false,
+        "hard_block": false,
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
       "opponent": {
         "has_alert": false,
@@ -33010,10 +32958,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": true,
-      "hard_block_pick": true,
-      "headline": "Sinner, svelato il motivo del forfait a Pechino: la verit\u00e0 sull'infortunio. E McEnroe punge Jannik: \u201cMeglio Alcaraz\u201d - Virgilio Sport",
-      "category": "withdrawal"
+      "any_alert": false,
+      "hard_block_pick": false,
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
