@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from modules.advisor.itf_governance import ev_sanity_cap_high_for
+from modules.advisor.itf_governance import ev_sanity_cap_high_for, ev_sanity_cap_low_for
 from modules.advisor.market_calibration import (
     apply_bayesian_shrinkage,
     itf_gate_reasons,
@@ -21,7 +21,6 @@ from modules.advisor.staking import (
 from modules.advisor.value import compute_ev, enrich_value
 from modules.constants import (
     EV_REVIEW_THRESHOLD,
-    EV_SANITY_CAP_LOW_ODDS,
     EV_SANITY_MAX_ODDS,
     MIN_EDGE,
     MIN_KELLY,
@@ -83,7 +82,10 @@ def steam_eroded_reasons(
 
 
 def ev_sanity_reasons(pick: dict, prediction: dict) -> list[str]:
-    """Blocca EV implausibile o divergenza modello/mercato eccessiva."""
+    """Blocca EV implausibile o divergenza modello/mercato eccessiva.
+
+    Cap ITF più stretti; ATP/Masters più flessibili (Fase 2).
+    """
     ev = pick.get("ev")
     odds = pick.get("odds")
     if ev is None or odds is None:
@@ -94,7 +96,8 @@ def ev_sanity_reasons(pick: dict, prediction: dict) -> list[str]:
     odds_f = float(odds)
     ev_f = float(ev)
     cap_high = ev_sanity_cap_high_for(prediction)
-    max_allowed_ev = cap_high if odds_f > SHARP_HIGH_ODDS_MIN else EV_SANITY_CAP_LOW_ODDS
+    cap_low = ev_sanity_cap_low_for(prediction)
+    max_allowed_ev = cap_high if odds_f > SHARP_HIGH_ODDS_MIN else cap_low
 
     reasons: list[str] = []
     if ev_f > max_allowed_ev:
@@ -102,11 +105,11 @@ def ev_sanity_reasons(pick: dict, prediction: dict) -> list[str]:
             f"sanity: EV {ev_f:+.1%} su quota {odds_f:.2f} "
             f"(>{max_allowed_ev:.0%}) — edge irrealistico, scartato"
         )
-    # Legacy inversion check su quote basse
-    if ev_f > EV_SANITY_CAP_LOW_ODDS and odds_f < EV_SANITY_MAX_ODDS:
+    # Legacy inversion check su quote basse (usa cap_low livello-aware)
+    if ev_f > cap_low and odds_f < EV_SANITY_MAX_ODDS:
         reasons.append(
             f"sanity: EV {ev_f:+.1%} su quota {odds_f:.2f} "
-            f"(>{EV_SANITY_CAP_LOW_ODDS:.0%} e <{EV_SANITY_MAX_ODDS:.2f}) "
+            f"(>{cap_low:.0%} e <{EV_SANITY_MAX_ODDS:.2f}) "
             "— possibile inversione/dato errato"
         )
     reasons.extend(model_market_divergence_reasons(pick, prediction))
@@ -126,7 +129,8 @@ def needs_ev_review(pick: dict, prediction: dict) -> bool:
         return False
     odds_f = float(odds)
     cap_high = ev_sanity_cap_high_for(prediction)
-    max_allowed = cap_high if odds_f > SHARP_HIGH_ODDS_MIN else EV_SANITY_CAP_LOW_ODDS
+    cap_low = ev_sanity_cap_low_for(prediction)
+    max_allowed = cap_high if odds_f > SHARP_HIGH_ODDS_MIN else cap_low
     return ev_f <= max_allowed
 
 

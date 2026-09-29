@@ -162,18 +162,31 @@ def learn_from_settled(*, force: bool = False) -> dict[str, Any]:
                 )
                 ol["bcr_adjustment"] = "confirmed_edge"
     except Exception:
-        pass
+        bcr = {}
 
     if report.get("roi_all") is not None and report["roi_all"] < -0.05:
         ol["min_edge_suggested"] = max(
             float(ol.get("min_edge_suggested") or MIN_EDGE), CIRCUIT_BREAKER_MIN_EDGE
         )
+        ol["bcr_adjustment"] = ol.get("bcr_adjustment") or "raised_min_edge_low_roi"
     elif report.get("hit_rate", 0) >= 0.55 and ol.get("bcr_adjustment") != "raised_min_edge_low_bcr":
         ol["min_edge_suggested"] = min(
             float(ol.get("min_edge_suggested") or CIRCUIT_BREAKER_MIN_EDGE), MIN_EDGE
         )
     elif "min_edge_suggested" not in ol:
         ol["min_edge_suggested"] = MIN_EDGE
+
+    # Fase 2: relax graduale verso 2.5% se campione + CLV/BCR lo giustificano
+    try:
+        from modules.advisor.dynamic_edge import apply_dynamic_edge_to_online_learn
+
+        apply_dynamic_edge_to_online_learn(
+            ol,
+            settled_bets=settled,
+            bcr_betfair=report.get("bcr_betfair") or bcr,
+        )
+    except Exception as exc:
+        ol["phase2_edge_error"] = str(exc)[:120]
 
     ol["last_n_settled"] = len(settled)
     ol["updated_at"] = report["fitted_at"]
@@ -189,21 +202,26 @@ def learn_from_settled(*, force: bool = False) -> dict[str, Any]:
 def effective_min_edge() -> float:
     """Soglia edge da pick chiuse (online learn); fallback a MIN_EDGE.
 
-    Fase 1: clamp superiore a CIRCUIT_BREAKER_MIN_EDGE così valori legacy (5–7%)
-    non ripristinano il lock post-unlock.
+    Fase 1: clamp superiore a CIRCUIT_BREAKER_MIN_EDGE.
+    Fase 2: può scendere fino a PHASE2_EDGE_FLOOR (2.5%) se ``phase2_edge.unlocked``.
     """
     from modules.advisor.validation_freeze import blocks_online_learn_writes
-    from modules.constants import CIRCUIT_BREAKER_MIN_EDGE
+    from modules.constants import CIRCUIT_BREAKER_MIN_EDGE, PHASE2_EDGE_FLOOR
 
     if blocks_online_learn_writes():
         return MIN_EDGE
     cal = _load_cal()
     ol = cal.get("online_learn") or {}
     n = int(ol.get("last_n_settled") or 0)
-    if n >= MIN_SETTLED:
-        suggested = float(ol.get("min_edge_suggested") or MIN_EDGE)
-        return max(MIN_EDGE, min(suggested, CIRCUIT_BREAKER_MIN_EDGE))
-    return MIN_EDGE
+    if n < MIN_SETTLED:
+        return MIN_EDGE
+
+    suggested = float(ol.get("min_edge_suggested") or MIN_EDGE)
+    floor = MIN_EDGE
+    ph = ol.get("phase2_edge") or {}
+    if ph.get("unlocked"):
+        floor = float(PHASE2_EDGE_FLOOR)
+    return max(floor, min(suggested, CIRCUIT_BREAKER_MIN_EDGE))
 
 
 def effective_alert_min_playability() -> int:

@@ -155,6 +155,59 @@ if refresh_bcr:
     st.rerun()
 
 _render_bcr_counter(_load_live_metrics_cached())
+
+# --- Health report (Fase 2) ---
+st.subheader("Salute modello")
+col_h1, col_h2 = st.columns([1, 4])
+with col_h1:
+    refresh_health = st.button("Aggiorna health", type="secondary")
+if refresh_health:
+    with st.spinner("Health report..."):
+        from modules.advisor.health_report import build_health_report
+
+        build_health_report(days=14, refresh_metrics=False)
+    st.rerun()
+
+_health = None
+try:
+    from modules.advisor.health_report import REPORT_PATH as _HEALTH_PATH
+
+    if _HEALTH_PATH.is_file():
+        _health = json.loads(_HEALTH_PATH.read_text(encoding="utf-8"))
+except Exception:
+    _health = None
+
+if _health and _health.get("summary"):
+    hs = _health["summary"]
+    with st.container(horizontal=True):
+        st.metric("Bet 7g", hs.get("bets_last_7d", 0), border=True)
+        st.metric("Shadow 7g", hs.get("shadow_last_7d", 0), border=True)
+        st.metric("Telegram 14g", hs.get("telegram_alerts_last_14d", 0), border=True)
+        st.metric(
+            "Upcoming → TG",
+            f"{hs.get('upcoming_telegram_ready', 0)}/{hs.get('upcoming_bets', 0)}",
+            help="Alertabili / action=bet sul calendario corrente",
+            border=True,
+        )
+        st.metric(
+            "Close missing",
+            hs.get("close_missing", "—"),
+            help="bet|shadow senza close_source",
+            border=True,
+        )
+        st.metric(
+            "Fase 2 edge",
+            "ON" if hs.get("phase2_edge_unlocked") else "off",
+            help="Relax MIN_EDGE verso 2.5% se n≥35 e CLV/BCR ok",
+            border=True,
+        )
+    st.caption(
+        "Genera con `python main.py health` o `python scripts/health_report.py`. "
+        f"File: `data/processed/health_report.json`."
+    )
+else:
+    st.caption("Nessun health report. Esegui `python main.py health`.")
+
 st.divider()
 
 tab_cal, tab_back, tab_data, tab_elo = st.tabs([

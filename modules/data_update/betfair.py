@@ -956,9 +956,12 @@ def fetch_close_by_market_id(
 
     Priorità chiusura (BCR quality):
       1. BSP (actualSP) su mercato CLOSED/SETTLED
-      2. Snapshot pre-match T−1 / T−5 / T−60
+      2. Snapshot pre-match T−1 / T−5 / T−60 (anche se API/auth fallisce)
       3. LTP/back ancora presenti sul book
       4. last_odd_* registry (fallback — NON affidabile per BCR)
+
+    Fase 2: auth failure / book assente non paralizza — prematch/fallback registry
+    restano sempre valutati e taggati correttamente (``bcr_eligible``, ``auth_degraded``).
     """
     mid = str(market_id or "").strip()
     if not mid:
@@ -972,6 +975,8 @@ def fetch_close_by_market_id(
     app_key = _app_key()
     book = None
     status = ""
+    auth_degraded = False
+    auth_error: str | None = None
     if app_key:
         try:
             token = login(force=False)
@@ -979,8 +984,25 @@ def fetch_close_by_market_id(
             if books:
                 book = books[0]
                 status = str(book.get("status") or "").upper()
-        except Exception:
+        except Exception as exc:
             book = None
+            auth_degraded = True
+            auth_error = str(exc)[:160]
+    else:
+        auth_degraded = True
+        auth_error = "BETFAIR_APP_KEY assente"
+
+    # Prematch first quando API degradata: evita di perdere chiavi quality
+    pre = _prematch_close_from_registry(reg)
+    if auth_degraded and pre:
+        return {
+            **pre,
+            "market_id": mid,
+            "event_id": reg.get("event_id"),
+            "market_status": status or None,
+            "auth_degraded": True,
+            "auth_error": auth_error,
+        }
 
     odd_a = odd_b = None
     kind_a = kind_b = None
@@ -1026,7 +1048,14 @@ def fetch_close_by_market_id(
             note = "bsp_pre_close"
             eligible = True
         elif closed:
-            # LTP su CLOSED è spesso assente; se c'è, meglio del solo registry
+            # Preferisci prematch quality se book CLOSED senza BSP
+            if pre:
+                return {
+                    **pre,
+                    "market_id": mid,
+                    "event_id": reg.get("event_id"),
+                    "market_status": status or None,
+                }
             src = "betfair_settled"
             note = "book_ltp_closed"
             eligible = True
@@ -1040,7 +1069,7 @@ def fetch_close_by_market_id(
             odd_b,
             source=src,
         )
-        return {
+        out = {
             "a": float(odd_a),
             "b": float(odd_b),
             "source": src,
@@ -1050,30 +1079,35 @@ def fetch_close_by_market_id(
             "close_note": note,
             "bcr_eligible": eligible,
         }
+        if auth_degraded:
+            out["auth_degraded"] = True
+            out["auth_error"] = auth_error
+        return out
 
-    # Prematch snapshots (affidabili per BCR)
-    pre = _prematch_close_from_registry(reg)
+    # Prematch snapshots (affidabili per BCR) — anche con API ok ma book vuoto
     if pre:
         return {
             **pre,
             "market_id": mid,
             "event_id": reg.get("event_id"),
             "market_status": status or None,
+            **({"auth_degraded": True, "auth_error": auth_error} if auth_degraded else {}),
         }
 
-    # CLOSED (o book vuoto): fallback last LTP — NON bcr_eligible
+    # CLOSED (o book vuoto / auth fail): fallback last LTP — NON bcr_eligible
     last = _coerce_odds_pair(reg.get("last_odd_a"), reg.get("last_odd_b"))
-    if last and status in ("CLOSED", "SETTLED", ""):
+    if last and (status in ("CLOSED", "SETTLED", "") or auth_degraded):
         return {
             "a": last[0],
             "b": last[1],
             "source": "betfair_ltp_fallback",
             "market_id": mid,
             "event_id": reg.get("event_id"),
-            "market_status": status or "CLOSED",
-            "close_note": "last_ltp_before_close",
+            "market_status": status or ("AUTH_DEGRADED" if auth_degraded else "CLOSED"),
+            "close_note": "last_ltp_before_close" + ("|auth_degraded" if auth_degraded else ""),
             "last_odds_at": reg.get("last_odds_at"),
             "bcr_eligible": False,
+            **({"auth_degraded": True, "auth_error": auth_error} if auth_degraded else {}),
         }
     return None
 

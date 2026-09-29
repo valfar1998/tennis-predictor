@@ -93,6 +93,15 @@ TOURNEY_LEVEL_CODE = {
     "S": 4.0,
 }
 
+# Fase 2: edge dinamico (solo con campione settle sufficiente + CLV/BCR ok)
+PHASE2_EDGE_FLOOR = 0.025  # minimo assoluto se metriche positive
+PHASE2_EDGE_RELAX_MIN_N = 35  # unità settle (bet) per valutare relax
+PHASE2_EDGE_STEP = 0.0275  # step intermedio 3% → 2.75% → 2.5%
+PHASE2_EDGE_HIT_MIN = 0.48
+PHASE2_EDGE_CLV_MIN = 0.0  # avg CLV probabilità ≥ 0
+PHASE2_EDGE_BCR_MIN = 0.55
+PHASE2_EDGE_BCR_MIN_N = 15
+
 # Risk controls (esecuzione) — Fase 1: CB alza poco l'EV e taglia lo stake
 CIRCUIT_BREAKER_MIN_EDGE = 0.045  # stress: MIN_EDGE 3% → 4.5%
 CIRCUIT_BREAKER_KELLY_SCALE = 0.50  # sotto stress: Kelly × 0.5 (non blindare EV)
@@ -132,6 +141,15 @@ BCR_FALLBACK_CLOSE_SOURCES = frozenset(
 )
 BCR_MIN_CLOSE_DELTA = 0.01  # |odds_bet − close| sotto soglia → non è una chiusura
 PREMATCH_CLOSE_WINDOWS_MIN = (60, 5, 1)
+
+# Governance ITF / Challenger post–Fase 1 (anti falso positivo)
+ITF_MIN_DATA_DENSITY_BASELINE = 12  # sempre su ITF, anche senza regime strict
+ITF_EV_CAP_LOW_ODDS = 0.22  # ITF quote ≤3: EV sanity più stretto (era 30% globale)
+CHALLENGER_MIN_DATA_DENSITY = 8
+# ATP/Masters: leggermente più flessibili sulla sanity
+ATP_EV_SANITY_CAP_LOW_ODDS = 0.32
+ATP_EV_SANITY_CAP_HIGH_ODDS = 0.28
+
 
 # Market signal temporal decay (T-15min ≈ 3× T-12h)
 MARKET_DECAY_RATIO = 3.0

@@ -36,8 +36,12 @@ Fonti dati esterne integrate / referenziate (cartelle in `lib/`):
 - EV = P_finale × quota − 1
 - Kelly: γ=0.20, cap **dinamico per livello torneo** (`risk_controls.py` / `advise.py`)
 - **Filtri bet / Telegram / giocabilità (Fase 1 unlock)**: quota **1.55–4.50**, EV ≥ **3%** (`MIN_EDGE`), Kelly ≥ **0.15%** bankroll (`MIN_KELLY=0.0015`); CB stress → EV **4.5%** + Kelly ×0.5; Telegram su ogni `bet` che passa i filtri (play floor 50)
+- **Edge dinamico (Fase 2)**: con ≥**35** bet settle + hit/CLV/BCR ok, `dynamic_edge.py` può abbassare `MIN_EDGE` effettivo verso **2.5%** (`PHASE2_EDGE_FLOOR`); vedi `python main.py health`
+- **BCR / closes (Fase 2)**: `fetch_close_by_market_id` non paralizza le metriche se auth Betfair degradata (fallback prematch/LTP taggato `auth_degraded`); shadow bet ricevono closes via `ensure_shadow_closes`
+- **ITF anti-FP (Fase 2)**: densità dati baseline **12** su ITF; EV sanity più stretto (cap low **22%**); ATP/Masters restano più flessibili
+- **Health report**: `python main.py health` / pannello Streamlit «Salute modello» → volume bet, Telegram, BCR, edge Fase 2
 - **Ranking pick**: Kelly-adjusted / Sharpe-like (`odds_sharpe`), **non** EV grezzo
-- **Sanity EV**: hard discard se EV > **30%** (quote ≤3) o > **25%** (quote lunghe); fascia **>20%** → `action: review` (no alert auto)
+- **Sanity EV**: hard discard se EV > **30%** (quote ≤3, ATP/Masters) o > **25%** (quote lunghe); su **ITF** cap più basso (≈22–24%); fascia **>20%** → `action: review` (no alert auto)
 - Regole ritiro: matrice per bookmaker (1-ball, 1-set, full void) + **sotto-modello P(ritiro)** (`retirement_risk.py`) che modula EV/Kelly
 
 ### Kelly cap per liquidità torneo

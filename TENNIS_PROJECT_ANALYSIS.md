@@ -410,8 +410,6 @@ La via corretta non è “togliere i filtri”, ma **ribilanciare esecuzione** (
 
 ### Aggiornamento operativo — Fase 1 unlock (2026-09-29)
 
-Implementato in codice (vedi `modules/constants.py`, `risk_controls.py`, `alerts.py`, `playability.py`, `market_calibration.py`):
-
 | Parametro | Prima | Fase 1 |
 |-----------|-------|--------|
 | `MIN_EDGE` | 5% | **3%** |
@@ -422,4 +420,16 @@ Implementato in codice (vedi `modules/constants.py`, `risk_controls.py`, `alerts
 | Telegram | play ≥60 | **bet + filtri core** (floor play 50/55) |
 | Sharp soft 3–4.5 | hard-block | soft se divergenza ≤12% |
 
-*Documento generato da analisi statica del codice + audit su `upcoming_predictions.json` / `risk_state.json` (2026-09-29), integrato con briefing esplorativo completo del repo. Fase 1 applicata sul codice; rieseguire `python main.py predict` per rigenerare il calendario.*
+### Aggiornamento operativo — Fase 2 (2026-09-29)
+
+| Area | Cosa |
+|------|------|
+| Edge dinamico | `dynamic_edge.py` → verso **2.5%** se n_bet≥35 + hit/CLV/BCR ok |
+| BCR resiliente | `betfair.fetch_close_by_market_id` usa prematch/fallback anche con auth degradata |
+| Shadow closes | `history.ensure_shadow_closes` + refresh CLV su shadow |
+| ITF anti-FP | densità baseline 12, EV sanity ITF più stretto; ATP/Masters più flessibile |
+| Health | `python main.py health` → `data/processed/health_report.json` + pannello Streamlit |
+
+---
+
+*Documento generato da analisi statica + audit (2026-09-29). Fase 1 e Fase 2 applicate sul codice.*

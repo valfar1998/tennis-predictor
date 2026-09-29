@@ -312,26 +312,33 @@ def settle_from_sackmann(*, days: int = 14) -> dict[str, Any]:
 
 
 def refresh_clv_close(*, days: int = 14, include_settled: bool = False) -> dict[str, Any]:
-    """Aggiorna CLV su pick con quote di chiusura a cascata."""
+    """Aggiorna CLV su pick con quote di chiusura a cascata.
+
+    Copre ``bet`` / ``shadow`` / ``paper``. Fase 2: anche se Betfair auth fallisce,
+    ``resolve_close_odds`` usa prematch/fallback registry così lo shadow continua
+    ad alimentare lo storico (tag quality vs fallback restano distinti).
+    """
     from datetime import date, timedelta
 
     from modules.advisor.clv_live import clv_vs_close, resolve_close_odds
 
     cutoff = date.today() - timedelta(days=days - 1) if days and days > 0 else None
     updated = 0
+    n_shadow = 0
+    n_auth_degraded = 0
     with _conn() as c:
         c.row_factory = sqlite3.Row
         if include_settled:
             rows = c.execute(
                 """SELECT * FROM matches
-                   WHERE action IN ('bet', 'shadow', 'paper')
-                   AND (hit IS NULL OR hit IS NOT NULL)"""
+                   WHERE action IN ('bet', 'shadow', 'paper')"""
             ).fetchall()
         else:
             rows = c.execute(
                 """SELECT * FROM matches
-                   WHERE hit IS NULL AND action IN ('bet', 'shadow', 'paper')
-                   AND (clv IS NULL OR close_source IS NULL)"""
+                   WHERE action IN ('bet', 'shadow', 'paper')
+                   AND (clv IS NULL OR close_source IS NULL
+                        OR (action='shadow' AND close_source IS NULL))"""
             ).fetchall()
         for rec in rows:
             rec = dict(rec)
@@ -342,19 +349,26 @@ def refresh_clv_close(*, days: int = 14, include_settled: bool = False) -> dict[
                         continue
                 except ValueError:
                     continue
+            if str(rec.get("action") or "") == "shadow":
+                n_shadow += 1
             pa, pb = str(rec["player_a"]), str(rec["player_b"])
             odds_src = str(rec.get("odds_source") or "")
-            close = resolve_close_odds(
-                pa,
-                pb,
-                date=day,
-                tour=str(rec.get("tour") or "ATP"),
-                betfair_event_id=rec.get("betfair_event_id"),
-                betfair_market_id=rec.get("betfair_market_id"),
-                odds_source=odds_src,
-            )
+            try:
+                close = resolve_close_odds(
+                    pa,
+                    pb,
+                    date=day,
+                    tour=str(rec.get("tour") or "ATP"),
+                    betfair_event_id=rec.get("betfair_event_id"),
+                    betfair_market_id=rec.get("betfair_market_id"),
+                    odds_source=odds_src,
+                )
+            except Exception:
+                close = None
             if not close:
                 continue
+            if close.get("auth_degraded"):
+                n_auth_degraded += 1
             pick = str(rec.get("pick") or "")
             side = "A" if _last_name(pick) == _last_name(pa) else "B"
             close_pick = close.get("a") if side == "A" else close.get("b")
@@ -373,7 +387,9 @@ def refresh_clv_close(*, days: int = 14, include_settled: bool = False) -> dict[
                 )
                 and abs(float(close_pick) - odds_bet) < 0.005
             ):
-                continue
+                # Shadow: registra comunque fallback esplicito per non lasciare buco nello storico
+                if str(rec.get("action") or "") != "shadow":
+                    continue
             # Fallback last-LTP: registra comunque ma con source esplicita (BCR quality lo esclude)
             if close.get("bcr_eligible") is False and "betfair" in src and "fallback" not in src:
                 close = {**close, "source": "betfair_ltp_fallback"}
@@ -400,7 +416,21 @@ def refresh_clv_close(*, days: int = 14, include_settled: bool = False) -> dict[
             )
             updated += 1
         c.commit()
-    return {"clv_refreshed": updated, "days": days, "include_settled": include_settled}
+    return {
+        "clv_refreshed": updated,
+        "days": days,
+        "include_settled": include_settled,
+        "n_shadow_scanned": n_shadow,
+        "n_auth_degraded_closes": n_auth_degraded,
+    }
+
+
+def ensure_shadow_closes(*, days: int = 21) -> dict[str, Any]:
+    """Forza refresh CLV su shadow senza close (alimenta BCR sample senza bankroll)."""
+    out = refresh_clv_close(days=days, include_settled=True)
+    out["ok"] = True
+    out["purpose"] = "shadow_bcr_feed"
+    return out
 
 
 def _last_name(name: str) -> str:
@@ -608,6 +638,10 @@ def settle_pending(*, learn: bool = True) -> dict[str, Any]:
     prog.next("Refresh CLV close (post-settle)...")
     try:
         out["clv_refresh"] = refresh_clv_close(days=14, include_settled=True)
+        try:
+            out["shadow_closes"] = ensure_shadow_closes(days=21)
+        except Exception as exc:
+            out["shadow_closes_error"] = str(exc)
         print(f"  CLV refreshed: {out['clv_refresh'].get('clv_refreshed', 0)}", flush=True)
     except Exception as exc:
         out["clv_refresh_error"] = str(exc)

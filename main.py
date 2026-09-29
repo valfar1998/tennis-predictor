@@ -216,7 +216,27 @@ def cmd_metrics(args: argparse.Namespace) -> None:
     slip = audit.get("slippage") or {}
     if slip.get("recommendation"):
         print("Slippage:", slip["recommendation"])
+    pipe = audit.get("close_pipeline") or {}
+    if pipe:
+        print(
+            f"Close pipeline: quality={pipe.get('n_quality_close')} "
+            f"fallback={pipe.get('n_fallback_close')} missing={pipe.get('n_missing_close')} "
+            f"(shadow={pipe.get('n_shadow')})"
+        )
     print(f"Report: data/processed/live_metrics.json")
+
+
+def cmd_health(args: argparse.Namespace) -> None:
+    """Report salute: volume bet, Telegram, BCR/close, fase 2 edge."""
+    from modules.advisor.health_report import build_health_report, format_health_banner
+
+    report = build_health_report(
+        days=int(getattr(args, "days", 14) or 14),
+        refresh_metrics=bool(getattr(args, "refresh_metrics", False)),
+    )
+    print(format_health_banner(report))
+    print(json.dumps(report.get("summary") or {}, indent=2, ensure_ascii=False))
+    print("Report: data/processed/health_report.json")
 
 
 def cmd_predict(args: argparse.Namespace) -> None:
@@ -315,6 +335,18 @@ def main() -> None:
     p_learn = sub.add_parser("learn", help="Chiude pick pendenti e aggiorna calibration.json")
     p_learn.add_argument("--no-learn", action="store_true", help="Solo settle, senza online learn")
     p_learn.set_defaults(func=cmd_learn)
+
+    p_health = sub.add_parser(
+        "health",
+        help="Report salute: volume bet giornaliero, Telegram, BCR/close, edge Fase 2",
+    )
+    p_health.add_argument("--days", type=int, default=14, help="Finestra volume")
+    p_health.add_argument(
+        "--refresh-metrics",
+        action="store_true",
+        help="Ricalcola live_metrics prima del report",
+    )
+    p_health.set_defaults(func=cmd_health)
 
     p_op = sub.add_parser("scrape-oddsportal", help="Scrape quote chiusura OddsPortal (Playwright)")
     p_op.add_argument("--max-matches", type=int, default=80)

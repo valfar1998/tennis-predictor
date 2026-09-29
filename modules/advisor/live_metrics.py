@@ -11,6 +11,7 @@ from modules.constants import (
     BCR_ACTIONS,
     BCR_FALLBACK_CLOSE_SOURCES,
     BCR_MIN_CLOSE_DELTA,
+    BCR_QUALITY_CLOSE_SOURCES,
 )
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -183,6 +184,51 @@ def compute_bcr(
     return out
 
 
+def close_pipeline_health() -> dict[str, Any]:
+    """Stato pipeline chiusure Betfair: quality vs fallback vs missing (bet+shadow)."""
+    from modules.constants import BCR_ACTIONS, BCR_FALLBACK_CLOSE_SOURCES, BCR_QUALITY_CLOSE_SOURCES
+    from modules.data_update.history import load_history
+
+    rows = load_history(limit=5000)
+    pool = [
+        r
+        for r in rows
+        if r.get("action") in BCR_ACTIONS
+        and (r.get("hit") is not None or r.get("action") == "shadow")
+    ]
+    n = len(pool)
+    quality = fallback = missing = 0
+    n_shadow = 0
+    for r in pool:
+        if r.get("action") == "shadow":
+            n_shadow += 1
+        src = str(r.get("close_source") or "").lower()
+        if not src:
+            missing += 1
+        elif any(q in src for q in BCR_QUALITY_CLOSE_SOURCES) or src.startswith("betfair_t"):
+            quality += 1
+        elif src in BCR_FALLBACK_CLOSE_SOURCES or "fallback" in src:
+            fallback += 1
+        elif "betfair" in src:
+            # betfair_settled without fallback tag counts as soft-quality
+            quality += 1
+        else:
+            missing += 1
+
+    return {
+        "n_bet_shadow": n,
+        "n_shadow": n_shadow,
+        "n_quality_close": quality,
+        "n_fallback_close": fallback,
+        "n_missing_close": missing,
+        "quality_pct": round(100.0 * quality / n, 1) if n else None,
+        "note": (
+            "Quality = BSP/T-1/T-5/T-60/settled; fallback = last-LTP (escluso da BCR KPI). "
+            "Auth degradata non azzera più le metriche: i close restano taggati."
+        ),
+    }
+
+
 def compute_execution_summary(*, bcr_days: int | None = None) -> dict[str, Any]:
     """ROI / hit rate (secondario) + BCR (KPI primario) + slippage Telegram."""
     from modules.data_update.history import history_summary
@@ -232,25 +278,29 @@ def compute_execution_summary(*, bcr_days: int | None = None) -> dict[str, Any]:
         "roi_note": roi_note,
         "bcr_source": "betfair",
         "bcr_note": (
-            "BCR Betfair (KPI): BSP / snapshot T−1/T−5/T−60, action=bet|shadow. "
+            "BCR Betfair (KPI): BSP / snapshot T-1/T-5/T-60, action=bet|shadow. "
             "Esclusi last-LTP fallback ≈ quota bet. "
             "BCR Kambi (secondario): ingresso Unibet vs snapshot Kambi. "
-            "Paper = previsioni valide no_bet."
+            "Paper = previsioni valide no_bet. "
+            "Fase 2: pipeline close resiliente ad auth degradata (prematch/fallback taggati)."
         ),
         "bcr_betfair": bcr_bf,
         "bcr_betfair_raw": bcr_bf_raw,
         "bcr_kambi": bcr_kambi,
         "bcr_paper": bcr_paper,
         "bcr_all_sources": bcr_all,
+        "close_pipeline": close_pipeline_health(),
         "slippage": slippage_summary(),
         "updated_at": datetime.now(timezone.utc).isoformat(),
     }
     try:
         from modules.advisor.validation_freeze import governance_status
         from modules.advisor.itf_governance import effective_itf_params
+        from modules.advisor.dynamic_edge import evaluate_dynamic_edge
 
         out["governance"] = governance_status()
         out["itf_governance"] = effective_itf_params(refresh=True)
+        out["phase2_edge"] = evaluate_dynamic_edge(bcr_betfair=bcr_bf)
     except Exception:
         pass
     return out

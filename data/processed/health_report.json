@@ -1,0 +1,184 @@
+{
+  "ok": true,
+  "generated_at": "2026-09-29T07:12:12.796638+00:00",
+  "window_days": 7,
+  "daily_volume": [
+    {
+      "date": "2026-09-23",
+      "bet": 0,
+      "shadow": 0,
+      "paper": 0,
+      "total": 0
+    },
+    {
+      "date": "2026-09-24",
+      "bet": 0,
+      "shadow": 0,
+      "paper": 0,
+      "total": 0
+    },
+    {
+      "date": "2026-09-25",
+      "bet": 0,
+      "shadow": 0,
+      "paper": 0,
+      "total": 0
+    },
+    {
+      "date": "2026-09-26",
+      "bet": 0,
+      "shadow": 0,
+      "paper": 0,
+      "total": 0
+    },
+    {
+      "date": "2026-09-27",
+      "bet": 0,
+      "shadow": 0,
+      "paper": 0,
+      "total": 0
+    },
+    {
+      "date": "2026-09-28",
+      "bet": 0,
+      "shadow": 0,
+      "paper": 0,
+      "total": 0
+    },
+    {
+      "date": "2026-09-29",
+      "bet": 4,
+      "shadow": 1,
+      "paper": 40,
+      "total": 45
+    }
+  ],
+  "telegram": {
+    "n_keys": 16,
+    "n_recent": 10,
+    "by_day": [
+      {
+        "date": "2026-09-22",
+        "n": 5
+      },
+      {
+        "date": "2026-09-23",
+        "n": 2
+      },
+      {
+        "date": "2026-09-24",
+        "n": 1
+      },
+      {
+        "date": "2026-09-28",
+        "n": 2
+      }
+    ]
+  },
+  "upcoming": {
+    "n_matches": 236,
+    "n_bet": 2,
+    "n_shadow": 0,
+    "n_review": 0,
+    "n_no_bet": 234,
+    "n_telegram_alertable": 2
+  },
+  "bcr": {
+    "betfair_quality": {
+      "n": 0,
+      "bcr_pct": null,
+      "pass": null,
+      "n_excluded_low_quality": 3
+    },
+    "betfair_raw": {
+      "n": 3,
+      "bcr_pct": 0.0
+    },
+    "close_pipeline": {
+      "n_bet_shadow": 96,
+      "n_shadow": 2,
+      "n_quality_close": 0,
+      "n_fallback_close": 4,
+      "n_missing_close": 92,
+      "quality_pct": 0.0,
+      "note": "Quality = BSP/T-1/T-5/T-60/settled; fallback = last-LTP (escluso da BCR KPI). Auth degradata non azzera più le metriche: i close restano taggati."
+    }
+  },
+  "edge": {
+    "effective_min_edge": 0.03,
+    "phase2": {
+      "n_settled": 94,
+      "hit_rate": 0.3404,
+      "avg_clv": -0.00541,
+      "bcr_n": 0,
+      "bcr": null,
+      "min_n": 35,
+      "floor": 0.025,
+      "base": 0.03,
+      "suggested_min_edge": 0.03,
+      "unlocked": false,
+      "reason": "hit_rate 34.0% < 48%"
+    }
+  },
+  "itf": {
+    "shrink_w_itf": 0.22,
+    "ev_sanity_cap_high": 0.25,
+    "min_data_density": 0,
+    "regime": "insufficient_sample",
+    "bcr_itf": {
+      "n": 0,
+      "beats": 0,
+      "bcr": null,
+      "bcr_pct": null,
+      "betfair_only": true,
+      "min_n_for_tuning": 10,
+      "relax_threshold_pct": 20.0,
+      "strict_threshold_pct": 5.0
+    }
+  },
+  "risk": {
+    "validation_freeze": {
+      "active": true,
+      "started_at": "2026-09-01",
+      "target_n": 250,
+      "min_n": 200,
+      "max_n": 300,
+      "bcr_target": 0.55,
+      "policy": "Nessuna modifica strutturale a pesi, feature o retrain ML fino al completamento della finestra. Solo settle + metriche BCR Betfair.",
+      "auto_unfreeze": true,
+      "auto_unfreeze_note": "A >=min_n pick Betfair settle active passa a false (equivale a LIVE_VALIDATION_FREEZE=0).",
+      "betfair_only": true,
+      "blocks": {
+        "online_learn_writes": true,
+        "model_retrain": true,
+        "playability_learned_adjustments": true
+      }
+    },
+    "progress": {
+      "frozen": true,
+      "started_at": "2026-09-01",
+      "n_betfair_settled": 0,
+      "target_n": 250,
+      "min_n": 200,
+      "max_n": 300,
+      "window_complete": false,
+      "window_pct": 0.0,
+      "bcr_target": 0.55,
+      "bcr_current": null,
+      "bcr_pass": null,
+      "policy": "Nessuna modifica strutturale a pesi, feature o retrain ML fino al completamento della finestra. Solo settle + metriche BCR Betfair."
+    },
+    "updated_at": "2026-09-28T21:50:00.052643+00:00"
+  },
+  "summary": {
+    "bets_last_7d": 4,
+    "shadow_last_7d": 1,
+    "telegram_alerts_last_14d": 10,
+    "upcoming_bets": 2,
+    "upcoming_telegram_ready": 2,
+    "bcr_quality_n": 0,
+    "bcr_quality_pct": null,
+    "close_missing": 92,
+    "phase2_edge_unlocked": false
+  }
+}
