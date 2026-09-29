@@ -187,8 +187,13 @@ def learn_from_settled(*, force: bool = False) -> dict[str, Any]:
 
 
 def effective_min_edge() -> float:
-    """Soglia edge da pick chiuse (online learn); fallback a MIN_EDGE."""
+    """Soglia edge da pick chiuse (online learn); fallback a MIN_EDGE.
+
+    Fase 1: clamp superiore a CIRCUIT_BREAKER_MIN_EDGE così valori legacy (5–7%)
+    non ripristinano il lock post-unlock.
+    """
     from modules.advisor.validation_freeze import blocks_online_learn_writes
+    from modules.constants import CIRCUIT_BREAKER_MIN_EDGE
 
     if blocks_online_learn_writes():
         return MIN_EDGE
@@ -196,15 +201,17 @@ def effective_min_edge() -> float:
     ol = cal.get("online_learn") or {}
     n = int(ol.get("last_n_settled") or 0)
     if n >= MIN_SETTLED:
-        return max(MIN_EDGE, float(ol.get("min_edge_suggested") or MIN_EDGE))
+        suggested = float(ol.get("min_edge_suggested") or MIN_EDGE)
+        return max(MIN_EDGE, min(suggested, CIRCUIT_BREAKER_MIN_EDGE))
     return MIN_EDGE
 
 
 def effective_alert_min_playability() -> int:
     """Soglia giocabilità alert Telegram appresa da Strong/Premium hit rate.
 
-    Floor ``MIN_PLAY_ALERT`` (60). Valori legacy ≤75 (vecchio Strong) → floor;
-    solo soglie alzate (es. 80) restano attive.
+    Floor ``MIN_PLAY_ALERT`` (50, Fase 1). Valori legacy ≤75 → floor;
+    solo soglie alzate (es. 80) restano attive. Nota: ``alerts`` Fase 1
+    invia comunque se action=bet + filtri core, indipendentemente da questa soglia.
     """
     from modules.advisor.playability import MIN_PLAY_ALERT
     from modules.advisor.validation_freeze import blocks_playability_learned_adjustments

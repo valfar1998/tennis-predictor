@@ -33,10 +33,6 @@ def _archive_advised(advised: dict, *, risk_ctx: dict | None = None) -> dict:
     from modules.advisor.shadow_bet import maybe_promote_shadow
     from modules.advisor.validation_freeze import is_frozen
 
-    if advised.get("action") == "bet":
-        archive_prediction(advised)
-        return advised
-
     ctx = risk_ctx
     if ctx is None:
         try:
@@ -45,6 +41,21 @@ def _archive_advised(advised: dict, *, risk_ctx: dict | None = None) -> dict:
             ctx = get_risk_context()
         except Exception:
             ctx = {}
+
+    # Fase 1: sizing sotto CB prima dell'archive (storico Kelly coerente col rischio)
+    if advised.get("action") == "bet":
+        try:
+            from modules.advisor.risk_controls import apply_circuit_breaker_kelly_scale
+
+            apply_circuit_breaker_kelly_scale(
+                [advised],
+                kelly_scale=float((ctx or {}).get("kelly_scale") or 1.0),
+            )
+        except Exception:
+            pass
+        archive_prediction(advised)
+        return advised
+
     cb = (ctx or {}).get("circuit_breaker") or {}
     shadow = maybe_promote_shadow(
         advised,
@@ -928,7 +939,11 @@ def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[di
     moneyway_rows = load_moneyway_cache()
     dropping_rows = load_dropping_cache()
 
-    from modules.advisor.risk_controls import apply_daily_exposure_limits, get_risk_context
+    from modules.advisor.risk_controls import (
+        apply_circuit_breaker_kelly_scale,
+        apply_daily_exposure_limits,
+        get_risk_context,
+    )
 
     risk_ctx = get_risk_context()
     min_edge = float(risk_ctx["min_edge"])
@@ -998,11 +1013,17 @@ def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[di
             )
 
     prog.next("Limiti esposizione + news/injury...")
+    # Fase 1: sotto CB riduci stake (Kelly), non solo EV floor
+    predictions = apply_circuit_breaker_kelly_scale(
+        predictions,
+        kelly_scale=float(risk_ctx.get("kelly_scale") or 1.0),
+    )
     predictions = apply_daily_exposure_limits(predictions)
     for pred in predictions:
         pred["risk_session"] = {
             "min_edge": min_edge,
             "circuit_breaker": risk_ctx["circuit_breaker"]["active"],
+            "kelly_scale": float(risk_ctx.get("kelly_scale") or 1.0),
         }
 
     from modules.data_update.calendar_utils import normalize_predictions_calendar

@@ -137,7 +137,16 @@ def itf_gate_reasons(prediction: dict[str, Any]) -> list[str]:
 
 
 def sharp_consensus_reasons(pick: dict[str, Any], prediction: dict[str, Any]) -> list[str]:
-    """Quote > 3.0 su soft book richiedono conferma Betfair/Pinnacle."""
+    """Quote > 3.0 su soft book: conferma sharp, con fascia elastica 3.0–MAX_ODDS_PLAY (Fase 1).
+
+    - odds ≤ 3.0 → ok
+    - fonte già sharp (Betfair/Pinnacle) → ok
+    - soft book, odds in (3.0, MAX_ODDS_PLAY]: hard-block solo se divergenza modello/mercato
+      > MKT_DIVERGENCE_SOFT (12%); altrimenti passa (no kill sistematico Kambi 3–4.5)
+    - soft book, odds > MAX_ODDS_PLAY: hard-block senza sharp (difesa longshot)
+    """
+    from modules.constants import MAX_ODDS_PLAY, MKT_DIVERGENCE_SOFT
+
     odds = float(pick.get("odds") or 0)
     if odds <= SHARP_HIGH_ODDS_MIN:
         return []
@@ -148,15 +157,45 @@ def sharp_consensus_reasons(pick: dict[str, Any], prediction: dict[str, Any]) ->
 
     close = prediction.get("close_odds") or prediction.get("pinnacle_odds") or {}
     close_src = str(close.get("source") or prediction.get("close_source") or "").lower()
-    if not any(tag in close_src for tag in SHARP_ODDS_SOURCES):
+    has_sharp_close = any(tag in close_src for tag in SHARP_ODDS_SOURCES)
+
+    if not has_sharp_close:
+        # Fase 1: banda giocabile senza sharp → soft gate sulla divergenza, non veto cieco
+        if odds <= float(MAX_ODDS_PLAY):
+            shrink = prediction.get("market_shrinkage") or {}
+            side = str(pick.get("side") or "A")
+            if shrink.get("p_model") is not None and shrink.get("p_mkt_a") is not None:
+                p_model = float(shrink["p_model"])
+                p_mkt = float(shrink["p_mkt_a"])
+                if side == "B":
+                    p_model = 1.0 - p_model
+                    p_mkt = 1.0 - p_mkt
+                div = abs(p_model - p_mkt)
+            else:
+                p_model = pick.get("probability")
+                p_mkt = pick.get("mkt_prob")
+                if p_model is None or p_mkt is None:
+                    # Senza divergenza misurabile: lascia passare (sanity/EV già filtrano)
+                    return []
+                div = abs(float(p_model) - float(p_mkt))
+            if div > float(MKT_DIVERGENCE_SOFT):
+                return [
+                    f"sharp consensus soft: quota {odds:.2f} su {src or 'soft'} "
+                    f"senza Betfair/Pinnacle e divergenza modello/mercato {div:.0%} "
+                    f"> {float(MKT_DIVERGENCE_SOFT):.0%}"
+                ]
+            return []
         return [
-            f"sharp consensus: quota {odds:.2f} > {SHARP_HIGH_ODDS_MIN:.0f} "
+            f"sharp consensus: quota {odds:.2f} > {float(MAX_ODDS_PLAY):.2f} "
             "senza quote Betfair/Pinnacle verificate"
         ]
 
     side = str(pick.get("side") or "")
     sharp_odd = close.get("a") if side == "A" else close.get("b")
     if not sharp_odd or float(sharp_odd) <= 1.01:
+        # Soft band: assente sharp price → stessa logica divergenza
+        if odds <= float(MAX_ODDS_PLAY):
+            return []
         return ["sharp consensus: quota sharp assente sul pick"]
 
     sharp_odd_f = float(sharp_odd)

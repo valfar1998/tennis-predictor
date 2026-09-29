@@ -23,7 +23,9 @@ BANDS = (
     (90, 101, "premium", "Premium"),
 )
 
-MIN_PLAY_ALERT = 60  # era 65 — Lean alto / Playable basso entra in alert
+MIN_PLAY_ALERT = 50  # Fase 1 unlock: era 60 — bet validati non restano muti su Telegram
+# Floor score se action=bet e filtri core OK (EV/odds/Kelly)
+BET_PLAYABILITY_FLOOR = 55.0
 
 
 def _clip(x: float, lo: float = 0.0, hi: float = 1.0) -> float:
@@ -306,6 +308,14 @@ def compute_playability(
     # Cap soft su quote lunghe nella fascia giocabile
     if odds_f >= 4.0:
         score = min(score, 78.0)
+
+    # Fase 1: bet che passano filtri core → floor giocabilità (Telegram non resta muto)
+    if action == "bet" and rec:
+        ev_ok = float(rec.get("ev") or 0) >= MIN_EDGE
+        kelly_ok = float(rec.get("kelly") or 0) >= MIN_KELLY
+        odds_ok = bool(odds_f) and MIN_ODDS_PLAY <= odds_f <= MAX_ODDS_PLAY
+        if ev_ok and kelly_ok and odds_ok:
+            score = max(score, float(BET_PLAYABILITY_FLOOR))
 
     band = _band(score)
     return {

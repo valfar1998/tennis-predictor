@@ -9,7 +9,7 @@ from zoneinfo import ZoneInfo
 
 from modules.notify.telegram import load_credentials, send_message, telegram_status
 
-from modules.advisor.online_learn import effective_alert_min_playability
+from modules.advisor.playability import MIN_PLAY_ALERT
 from modules.constants import MAX_ODDS_PLAY, MIN_EDGE, MIN_KELLY, MIN_ODDS_PLAY
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -20,17 +20,14 @@ BRAND = "TENNIS_PREDICTOR"
 TZ = ZoneInfo("Europe/Rome")
 
 
-def _min_playability() -> float:
-    return float(effective_alert_min_playability())
-
-
 def _passes_value_filters(pred: dict) -> bool:
-    """Filtri minimi allineati a bet/nobet: quota 1.70–5.00, EV≥5%, Kelly≥0.3%."""
+    """Filtri minimi allineati a bet/nobet: quota MIN–MAX, EV≥MIN_EDGE, Kelly≥MIN_KELLY."""
     rec = pred.get("recommended") or {}
     try:
         odds = float(rec.get("odds") or 0)
         ev = float(rec.get("ev") or 0)
-        kelly = float(rec.get("kelly") or 0)
+        # Dopo CB scale usa pre-scale se presente (sizing ≠ eleggibilità alert)
+        kelly = float(rec.get("kelly_pre_cb_scale") or rec.get("kelly") or 0)
     except (TypeError, ValueError):
         return False
     if odds < MIN_ODDS_PLAY or odds > MAX_ODDS_PLAY:
@@ -41,6 +38,12 @@ def _passes_value_filters(pred: dict) -> bool:
         return False
     return True
 
+
+def _is_telegram_bet(pred: dict) -> bool:
+    """Fase 1: action=bet + filtri core EV/Kelly/quota → alert (playability non silenzia)."""
+    if pred.get("action") != "bet" or not pred.get("recommended"):
+        return False
+    return _passes_value_filters(pred)
 
 def _now() -> datetime:
     return datetime.now(timezone.utc)
@@ -194,16 +197,13 @@ def _pack(title: str, items: list[dict]) -> list[tuple[str, list[str]]]:
 def dispatch_alerts(predictions: list[dict] | None = None, *, dry_run: bool = False) -> dict:
     """Invia value bet nuovi + alert news su bet/shadow (dedup)."""
     rows = predictions or []
-    bets = [
-        p for p in rows
-        if p.get("action") == "bet"
-        and p.get("recommended")
-        and float(p.get("playability") or 0) >= _min_playability()
-        and _passes_value_filters(p)
-    ]
+    bets = [p for p in rows if _is_telegram_bet(p)]
     sent_ids = _load_sent()
     fresh = [p for p in bets if alert_key(p) not in sent_ids]
-    messages = _pack(f"GIOCA · giocabilità ≥{int(_min_playability())}", fresh)
+    messages = _pack(
+        f"GIOCA · bet validati (EV/Kelly/quota; play floor {int(MIN_PLAY_ALERT)})",
+        fresh,
+    )
 
     # News: withdrawal/injury su bet/shadow/review o hard-block
     news_items = []

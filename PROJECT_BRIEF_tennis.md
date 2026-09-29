@@ -35,7 +35,7 @@ Fonti dati esterne integrate / referenziate (cartelle in `lib/`):
 - **Prior Bayesiano di mercato**: `P_finale = w·P_modello + (1−w)·P_mercato` (`market_calibration.py`); `w` scende su ITF/bassa densità e se divergenza modello/mercato ≥12% (hard block >18%)
 - EV = P_finale × quota − 1
 - Kelly: γ=0.20, cap **dinamico per livello torneo** (`risk_controls.py` / `advise.py`)
-- **Filtri bet / Telegram / giocabilità**: quota **1.70–5.00**, EV ≥ **5%** (`MIN_EDGE`), Kelly ≥ **0.3%** bankroll (`MIN_KELLY=0.003`)
+- **Filtri bet / Telegram / giocabilità (Fase 1 unlock)**: quota **1.55–4.50**, EV ≥ **3%** (`MIN_EDGE`), Kelly ≥ **0.15%** bankroll (`MIN_KELLY=0.0015`); CB stress → EV **4.5%** + Kelly ×0.5; Telegram su ogni `bet` che passa i filtri (play floor 50)
 - **Ranking pick**: Kelly-adjusted / Sharpe-like (`odds_sharpe`), **non** EV grezzo
 - **Sanity EV**: hard discard se EV > **30%** (quote ≤3) o > **25%** (quote lunghe); fascia **>20%** → `action: review` (no alert auto)
 - Regole ritiro: matrice per bookmaker (1-ball, 1-set, full void) + **sotto-modello P(ritiro)** (`retirement_risk.py`) che modula EV/Kelly
@@ -53,7 +53,7 @@ Fonti dati esterne integrate / referenziate (cartelle in `lib/`):
 
 | Controllo | Regola | Effetto |
 |-----------|--------|---------|
-| **Circuit breaker** | Drawdown corrente >**20%** **oppure** streak perdite ≥11 unità (1% ciascuna) | `MIN_EDGE` 5.0% → **7.0%**; attiva anche **shadow bet** Betfair (Kelly=0) per sample BCR |
+| **Circuit breaker** | Drawdown corrente >**20%** **oppure** streak perdite ≥11 unità (1% ciascuna), metriche da `CIRCUIT_BREAKER_METRICS_FROM` | `MIN_EDGE` 3.0% → **4.5%** + **Kelly ×0.5**; attiva anche **shadow bet** Betfair (Kelly=0) per sample BCR |
 | **Shadow bet** | Freeze o CB attivi + Betfair + EV≥1.5% + no hard-block | `action=shadow`, conta nel BCR, **non** Telegram / bankroll |
 | **Partial resolve** | Betfair/Pinnacle + ≥1 giocatore in Elo/TA | Non hard-block (Challenger/ITF analizzati) |
 | **Esposizione giornaliera** | ≥6 bet stesso giorno + stesso torneo | Kelly scalato per cap totale **6%** bankroll |
@@ -335,9 +335,9 @@ Output: `p_win_a`, componenti, `cpi_norm`, `pressure_used`, `tour`, `model_low_c
 
 | Lever | Valore |
 |-------|--------|
-| `MIN_EDGE` / stress CB | **5.0%** / **7.0%** |
-| `MIN_KELLY` | **0.3%** bankroll (`0.003`) |
-| `MIN_ODDS_PLAY` / `MAX_ODDS_PLAY` | **1.70** / **5.00** |
+| `MIN_EDGE` / stress CB | **3.0%** / **4.5%** (+ Kelly ×0.5 sotto CB) |
+| `MIN_KELLY` | **0.15%** bankroll (`0.0015`) |
+| `MIN_ODDS_PLAY` / `MAX_ODDS_PLAY` | **1.55** / **4.50** |
 | `MIN_PROB_PLAY` | **34%** |
 | `MIN_PLAY_ALERT` | **60** |
 | Drawdown CB | **20%** |
@@ -374,9 +374,9 @@ Modulo `advise.py` + `value.py` + `market_calibration.py`:
 
 | Filtro | Soglia |
 |--------|--------|
-| Quota | **1.70–5.00** (`MIN_ODDS_PLAY` / `MAX_ODDS_PLAY`) |
-| EV minimo | ≥ **5.0%** (`MIN_EDGE`) sulla **quota corrente**; con **circuit breaker** attivo → **7.0%** (`CIRCUIT_BREAKER_MIN_EDGE`) |
-| Kelly minimo | ≥ **0.3%** bankroll (`MIN_KELLY=0.003`) |
+| Quota | **1.55–4.50** (`MIN_ODDS_PLAY` / `MAX_ODDS_PLAY`) |
+| EV minimo | ≥ **3.0%** (`MIN_EDGE`) sulla **quota corrente**; con **circuit breaker** attivo → **4.5%** (`CIRCUIT_BREAKER_MIN_EDGE`) + Kelly ×0.5 |
+| Kelly minimo | ≥ **0.15%** bankroll (`MIN_KELLY=0.0015`) |
 | Probabilità minima | ≥ **34%** (`MIN_PROB_PLAY`) |
 | EV sanity hard | >30% (quote ≤3) / >25% (quote lunghe) → scarto |
 | EV review | >20% e ≤ hard cap → `action: review` (no Telegram) |
@@ -424,7 +424,8 @@ Campi su ogni predizione: `analysis.{p_form,p_surface,p_quality,p_external,p_sta
 **Penalità finali:**
 - Se `action = "review"` → score max **72** (sotto soglia alert)
 - Se `action ≠ "bet"` (e non review) → score max **55**
-- Se `EV < MIN_EDGE` (5%) **o** `Kelly < MIN_KELLY` (0.3%) **o** quota fuori **1.70–5.00** → score max **48**
+- Se `EV < MIN_EDGE` (3%) **o** `Kelly < MIN_KELLY` (0.15%) **o** quota fuori **1.55–4.50** → score max **48**
+- Se `action=bet` e filtri core OK → **floor giocabilità 55** (Telegram Fase 1)
 - Se quota ≥ 4.0 (nella fascia giocabile) → score max **78**
 
 **Bande:**
@@ -437,7 +438,7 @@ Campi su ogni predizione: `analysis.{p_form,p_surface,p_quality,p_external,p_sta
 | 75–90 | Strong | Alta convinzione |
 | 90–100 | Premium | Massima convinzione |
 
-**Soglia alert Telegram/Streamlit:** `MIN_PLAY_ALERT = 60` (Lean alto / Playable). `online_learn` può alzare (es. 80) ma **mai sotto 60**.
+**Soglia alert Telegram/Streamlit (Fase 1):** `MIN_PLAY_ALERT = 50`; invio Telegram se `action=bet` **e** filtri EV/Kelly/quota (playability non silenzia). `online_learn` può ancora suggerire soglie UI più alte.
 
 Cap score: `review`≤72, `shadow`≤68, altri non-bet ≤58 (analisi Challenger/ITF visibile).
 
@@ -550,7 +551,7 @@ Allineamento: pick lato A + dropping su `"1"`, oppure lato B + dropping su `"2"`
 | Storico pick | `data/processed/our_history.sqlite` |
 | Report apprendimento | `data/models/online_learn_report.json` |
 | UI | Streamlit `app.py` — **contatore BCR** in cima (Betfair KPI + Kambi + finestra) + tab Calendario ordinato per giocabilità |
-| Telegram | `modules/notify/alerts.py` — solo `action=bet` **e** giocabilità **≥ 60** **e** quota **1.70–5.00**, EV≥**5%**, Kelly≥**0.3%**, dedup 21 gg |
+| Telegram | `modules/notify/alerts.py` — `action=bet` + quota **1.55–4.50**, EV≥**3%**, Kelly≥**0.15%** (playability non richiesta), dedup 21 gg |
 | Cloud (GitHub Actions) | `scripts/notify_cloud.py` — sync Betfair + segnali + predict + alert |
 
 Branding alert: **TENNIS_PREDICTOR**.
@@ -565,7 +566,7 @@ Ogni run esegue `scripts/notify_cloud.py`:
 2. **Segnali mercato** — Arbworld Moneyway + OddsSafari dropping (cache 30 min)
 3. **Settle + learn** — chiude pick pendenti vs risultati Sackmann, aggiorna `calibration.json`
 4. **Predict** — pipeline completa con giocabilità (inclusi moneyway 13% + dropping 12%)
-5. **Telegram** — alert Playable+ (≥60) con filtri quota 1.70–5.00 / EV≥5% / Kelly≥0.3%, dettaglio Moneyway/Drop + pilastri analisi
+5. **Telegram** — alert su ogni bet validato (filtri quota 1.55–4.50 / EV≥3% / Kelly≥0.15%), dettaglio Moneyway/Drop + pilastri analisi
 
 Cache persistenti tra run: `our_history.sqlite`, `telegram_alerts_sent.json`, segnali mercato, Betfair session.
 
@@ -588,7 +589,7 @@ Workflow: `.github/workflows/auto-learn.yml` — cron **04:00 e 16:00 UTC** + `w
 | `alert_min_suggested` | Soglia Telegram (floor 65; può salire a 80) |
 | `dropping_boost` / `moneyway_boost` | Giocabilità (`learned_playability_adjustment`) |
 | Penalità bande Lean/Playable | Se hit rate storico basso |
-| BCR Betfair <52% (n≥15) | Alza `min_edge_suggested` a 7.0% (floor stress CB) |
+| BCR Betfair <52% (n≥15) | Alza `min_edge_suggested` a 4.5% (floor stress CB, clamp Fase 1) |
 
 Requisiti GitHub: **Settings → Actions → Workflow permissions → Read and write**.  
 Segreti opzionali: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` (riepilogo post-learn).
@@ -633,7 +634,7 @@ Con ≥12 pick chiuse, `learn_from_settled()` aggiorna `data/models/calibration.
 | Statistica | Uso |
 |------------|-----|
 | Hit rate per banda giocabilità | suggerisce soglia alert (65 vs 80, floor 65) |
-| ROI globale | suggerisce `min_edge` (floor **5.0%**, stress CB **7.0%**) |
+| ROI globale | suggerisce `min_edge` (floor **3.0%**, stress CB **4.5%** + Kelly ×0.5) |
 | Hit rate drop allineato | `dropping_boost` fino a +8 pp su raw score |
 | Hit rate con segnale Moneyway | `moneyway_boost` fino a +6 pp |
 
@@ -693,7 +694,7 @@ Quando **validation freeze** o **circuit breaker** sono attivi, le pick **Betfai
 | Boost giocabilità appresi (moneyway/dropping) | **BLOCCATI** |
 | Settle pick + BCR audit + shadow sample | **ATTIVO** |
 | Predict + Telegram | **ATTIVO** (Telegram solo bet reali) |
-| Circuit breaker drawdown (capitale) | **ATTIVO** — stress edge **7.0%** (non è learning); shadow continua |
+| Circuit breaker drawdown (capitale) | Metriche da `CIRCUIT_BREAKER_METRICS_FROM`; stress edge **4.5%** + Kelly ×0.5; shadow continua |
 
 Config: `data/processed/validation_freeze.json` — si disattiva automaticamente a **200+ pick Betfair settle quality** (`active: false`); override manuale con `LIVE_VALIDATION_FREEZE=0` o `=1`.
 

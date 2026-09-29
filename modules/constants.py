@@ -49,10 +49,11 @@ KELLY_CAP_BY_LEVEL = {
     "C": 0.010,  # Challenger
     "S": 0.008,  # ITF
 }
-MIN_EDGE = 0.050  # EV minimo 5% per bet / Telegram / giocabilità
-MIN_KELLY = 0.003  # Kelly frazionato minimo (0.3% bankroll)
-MIN_ODDS_PLAY = 1.70  # fascia quote giocabili (inclusi estremi)
-MAX_ODDS_PLAY = 5.00
+# Fase 1 unlock (2026-09): EV/odds/Kelly meno aggressivi post-shrink mercato
+MIN_EDGE = 0.030  # EV minimo 3% per bet / Telegram / giocabilità
+MIN_KELLY = 0.0015  # Kelly frazionato minimo (0.15% bankroll)
+MIN_ODDS_PLAY = 1.55  # fascia quote giocabili (inclusi estremi)
+MAX_ODDS_PLAY = 4.50  # cap longshot (era 5.00)
 MIN_PROB_PLAY = 0.34
 # EV: hard discard sopra questi cap; review nella fascia intermedia
 EV_SANITY_CAP = 0.28
@@ -92,8 +93,11 @@ TOURNEY_LEVEL_CODE = {
     "S": 4.0,
 }
 
-# Risk controls (esecuzione)
-CIRCUIT_BREAKER_MIN_EDGE = 0.070  # stress: MIN_EDGE 5% → 7%
+# Risk controls (esecuzione) — Fase 1: CB alza poco l'EV e taglia lo stake
+CIRCUIT_BREAKER_MIN_EDGE = 0.045  # stress: MIN_EDGE 3% → 4.5%
+CIRCUIT_BREAKER_KELLY_SCALE = 0.50  # sotto stress: Kelly × 0.5 (non blindare EV)
+# Metriche CB solo da questa data (reset paper drawdown storico che teneva il breaker ON)
+CIRCUIT_BREAKER_METRICS_FROM = "2026-09-29"
 DRAWDOWN_BREAKER_PCT = 0.20  # era 15%
 STREAK_LOSS_UNITS = 11.0  # unità da 1% bankroll
 UNIT_SIZE = 0.01

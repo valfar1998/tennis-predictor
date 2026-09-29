@@ -8,6 +8,8 @@ from pathlib import Path
 from typing import Any
 
 from modules.constants import (
+    CIRCUIT_BREAKER_KELLY_SCALE,
+    CIRCUIT_BREAKER_METRICS_FROM,
     CIRCUIT_BREAKER_MIN_EDGE,
     DAILY_EXPOSURE_CAP,
     DAILY_EXPOSURE_MIN_BETS,
@@ -69,11 +71,20 @@ def kelly_cap_for_prediction(prediction: dict[str, Any]) -> float:
     return float(KELLY_CAP_BY_LEVEL.get(level, KELLY_CAP_BY_LEVEL.get("A", KELLY_CAP)))
 
 
-def _load_settled_bets() -> list[dict[str, Any]]:
+def _bet_day(bet: dict[str, Any]) -> str:
+    return str(bet.get("date") or bet.get("settled_at") or bet.get("saved_at") or "")[:10]
+
+
+def _load_settled_bets(*, metrics_from: str | None = None) -> list[dict[str, Any]]:
+    """Pick settle action=bet; opzionale filtro data per reset metriche CB (Fase 1)."""
     from modules.data_update.history import load_history
 
     rows = load_history(limit=2000)
     settled = [r for r in rows if r.get("hit") is not None and r.get("action") == "bet"]
+    cutoff = (metrics_from if metrics_from is not None else CIRCUIT_BREAKER_METRICS_FROM) or ""
+    cutoff = str(cutoff).strip()[:10]
+    if cutoff:
+        settled = [r for r in settled if _bet_day(r) >= cutoff]
     settled.sort(key=lambda r: str(r.get("settled_at") or r.get("saved_at") or ""))
     return settled
 
@@ -119,7 +130,7 @@ def _bankroll_metrics(bets: list[dict[str, Any]]) -> dict[str, Any]:
 
 
 def circuit_breaker_status(*, min_settled: int = 5) -> dict[str, Any]:
-    """Valuta drawdown / losing streak; alza MIN_EDGE se stress."""
+    """Valuta drawdown / streak su finestra post-reset; stress → EV floor soft + Kelly scale."""
     bets = _load_settled_bets()
     metrics = _bankroll_metrics(bets)
 
@@ -132,6 +143,8 @@ def circuit_breaker_status(*, min_settled: int = 5) -> dict[str, Any]:
         "min_edge": CIRCUIT_BREAKER_MIN_EDGE if active else MIN_EDGE,
         "base_min_edge": MIN_EDGE,
         "stress_min_edge": CIRCUIT_BREAKER_MIN_EDGE,
+        # Fase 1: sotto stress riduci stake, non solo alzare EV
+        "kelly_scale": CIRCUIT_BREAKER_KELLY_SCALE if active else 1.0,
         "triggers": {
             "streak_loss_units": streak_trigger,
             "drawdown": dd_trigger,
@@ -140,6 +153,7 @@ def circuit_breaker_status(*, min_settled: int = 5) -> dict[str, Any]:
             "streak_loss_units": STREAK_LOSS_UNITS,
             "drawdown_pct": DRAWDOWN_BREAKER_PCT,
         },
+        "metrics_from": CIRCUIT_BREAKER_METRICS_FROM,
         **metrics,
         "updated_at": datetime.now(timezone.utc).isoformat(),
     }
@@ -156,7 +170,6 @@ def circuit_breaker_status(*, min_settled: int = 5) -> dict[str, Any]:
 def get_risk_context() -> dict[str, Any]:
     """Contesto rischio per predict: online learn + circuit breaker."""
     from modules.advisor.online_learn import effective_min_edge
-    from modules.constants import CIRCUIT_BREAKER_MIN_EDGE
 
     cb = circuit_breaker_status()
     learned = effective_min_edge()
@@ -167,8 +180,51 @@ def get_risk_context() -> dict[str, Any]:
     return {
         "min_edge": min_edge,
         "min_edge_learned": learned,
+        "kelly_scale": float(cb.get("kelly_scale") or 1.0),
         "circuit_breaker": cb,
     }
+
+
+def apply_circuit_breaker_kelly_scale(
+    predictions: list[dict[str, Any]],
+    *,
+    kelly_scale: float | None = None,
+) -> list[dict[str, Any]]:
+    """Sotto CB attivo: riduce Kelly dei bet (stake), senza cambiare action/storico hit.
+
+    Non demote a no_bet se Kelly scende sotto MIN_KELLY: il filtro edge è già passato;
+    lo scale è solo sizing sotto stress.
+    """
+    scale = float(kelly_scale if kelly_scale is not None else 1.0)
+    if scale >= 0.999:
+        return predictions
+
+    for pred in predictions:
+        if pred.get("action") != "bet":
+            continue
+        rec = pred.get("recommended")
+        if not rec:
+            continue
+        # Idempotente: già scalato in _archive_advised
+        if rec.get("kelly_pre_cb_scale") is not None:
+            continue
+        old_k = float(rec.get("kelly") or 0.0)
+        if old_k <= 0:
+            continue
+        rec["kelly_pre_cb_scale"] = old_k
+        rec["kelly"] = round(old_k * scale, 4)
+        if pred.get("best_play") is rec or (
+            pred.get("best_play") and pred["best_play"].get("player") == rec.get("player")
+        ):
+            bp = pred.get("best_play")
+            if bp is not None and bp is not rec:
+                bp["kelly_pre_cb_scale"] = old_k
+                bp["kelly"] = rec["kelly"]
+        meta = pred.setdefault("risk_controls", {})
+        meta["circuit_breaker_kelly_scaled"] = True
+        meta["circuit_breaker_kelly_scale"] = round(scale, 4)
+
+    return predictions
 
 
 def apply_daily_exposure_limits(predictions: list[dict[str, Any]]) -> list[dict[str, Any]]:

@@ -72,12 +72,17 @@ def load_credentials() -> dict[str, str] | None:
 
 
 def telegram_status() -> str:
+    from modules.constants import MAX_ODDS_PLAY, MIN_EDGE, MIN_KELLY, MIN_ODDS_PLAY
+
     creds = load_credentials()
     if not creds:
         return "Telegram: manca TELEGRAM_BOT_TOKEN o TELEGRAM_CHAT_ID."
     src = creds["source"]
     where = "variabili d'ambiente" if src == "env" else Path(src).parent.name
-    return f"Telegram: pronto ({where}). Value bet quota 1.70–5.00, EV≥5%, Kelly≥0.3%."
+    return (
+        f"Telegram: pronto ({where}). Value bet quota "
+        f"{MIN_ODDS_PLAY:.2f}–{MAX_ODDS_PLAY:.2f}, EV≥{MIN_EDGE:.0%}, Kelly≥{MIN_KELLY:.1%}."
+    )
 
 
 def send_message(text: str, *, delay: float = 0.5, parse_mode: str | None = None) -> bool:

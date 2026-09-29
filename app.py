@@ -188,22 +188,26 @@ with tab_cal:
         )
     else:
         bets = [p for p in preds if p.get("action") == "bet"]
-        playable = [p for p in preds if float(p.get("playability") or 0) >= 60]
+        playable = [p for p in preds if float(p.get("playability") or 0) >= MIN_PLAY_ALERT]
         alertable = [
             p
             for p in preds
             if p.get("action") == "bet"
-            and float(p.get("playability") or 0) >= MIN_PLAY_ALERT
             and float((p.get("recommended") or {}).get("odds") or 0) >= MIN_ODDS_PLAY
             and float((p.get("recommended") or {}).get("odds") or 0) <= MAX_ODDS_PLAY
             and float((p.get("recommended") or {}).get("ev") or 0) >= MIN_EDGE
-            and float((p.get("recommended") or {}).get("kelly") or 0) >= MIN_KELLY
+            and float(
+                (p.get("recommended") or {}).get("kelly_pre_cb_scale")
+                or (p.get("recommended") or {}).get("kelly")
+                or 0
+            )
+            >= MIN_KELLY
         ]
         c1, c2, c3, c4, c5 = st.columns(5)
         c1.metric("Match analizzati", len(preds))
         c2.metric("Value bet (EV+)", len(bets))
-        c3.metric("Giocabili ≥60", len(playable))
-        c4.metric(f"Alert ≥{MIN_PLAY_ALERT}", len(alertable))
+        c3.metric(f"Giocabili ≥{MIN_PLAY_ALERT}", len(playable))
+        c4.metric("Alert Telegram", len(alertable))
         c5.metric("Fonte quote", preds[0].get("odds_source", "—") if preds else "—")
         st.caption(
             "Calendario da **oggi** (Europe/Rome). Clicca **Aggiorna calendario** dopo rinvii meteo "
@@ -216,8 +220,9 @@ with tab_cal:
         st.caption(
             "**Giocabilità 0–100**: value/EV penalizzato da varianza quota, accordo modelli/consenso, "
             "Kelly-adjusted, qualità mercato, Moneyway e dropping (assenti ≠ neutro 0.50). "
-            f"Filtri bet/Telegram: quota {MIN_ODDS_PLAY:.2f}–{MAX_ODDS_PLAY:.2f}, "
-            f"EV≥{MIN_EDGE:.0%}, Kelly≥{MIN_KELLY:.1%}, giocabilità ≥{MIN_PLAY_ALERT}. "
+            f"Filtri bet/Telegram (Fase 1): quota {MIN_ODDS_PLAY:.2f}–{MAX_ODDS_PLAY:.2f}, "
+            f"EV≥{MIN_EDGE:.0%}, Kelly≥{MIN_KELLY:.2%}; "
+            f"Telegram su ogni `action=bet` che passa i filtri (play floor {MIN_PLAY_ALERT}). "
             "EV >20% → review; EV >25–30% → scarto. "
             "Pick/Quota/EV/KellyAdj sono compilati anche su `no_bet` (previsione, non scommessa)."
         )
