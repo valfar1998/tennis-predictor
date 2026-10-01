@@ -68,17 +68,30 @@ _EXTRA_COLS = (
     ("settle_source", "TEXT"),
     ("betfair_event_id", "TEXT"),
     ("betfair_market_id", "TEXT"),
+    # Quote/Kelly congelate al messaggio Telegram (o al primo archive bet)
+    ("odds_alert", "REAL"),
+    ("kelly_alert", "REAL"),
+    ("alert_frozen_at", "TEXT"),
 )
 
 
 def _conn() -> sqlite3.Connection:
+    from modules.constants import HISTORY_BUSY_TIMEOUT_MS, HISTORY_WAL_MODE
+
     DB.parent.mkdir(parents=True, exist_ok=True)
-    c = sqlite3.connect(DB)
+    c = sqlite3.connect(DB, timeout=max(1.0, HISTORY_BUSY_TIMEOUT_MS / 1000.0))
     c.execute(_CREATE)
     cols = {row[1] for row in c.execute("PRAGMA table_info(matches)")}
     for name, typ in _EXTRA_COLS:
         if name not in cols:
             c.execute(f"ALTER TABLE matches ADD COLUMN {name} {typ}")
+    try:
+        c.execute(f"PRAGMA busy_timeout={int(HISTORY_BUSY_TIMEOUT_MS)}")
+        if HISTORY_WAL_MODE:
+            c.execute("PRAGMA journal_mode=WAL")
+        c.execute("PRAGMA synchronous=NORMAL")
+    except Exception:
+        pass
     c.commit()
     return c
 
@@ -145,9 +158,15 @@ def archive_prediction(pred: dict[str, Any]) -> None:
                     event_id = reg.get("event_id")
         except Exception:
             pass
+
+    live_odds = rec.get("odds")
+    live_kelly = rec.get("kelly_info") or rec.get("kelly")
+    now = datetime.now(timezone.utc).isoformat()
+
     with _conn() as c:
         existing = c.execute(
-            "SELECT action, hit FROM matches WHERE match_key=?", (key,)
+            "SELECT action, hit, odds_alert, kelly_alert, alert_frozen_at FROM matches WHERE match_key=?",
+            (key,),
         ).fetchone()
         if existing:
             old_action, hit = existing[0], existing[1]
@@ -157,6 +176,27 @@ def archive_prediction(pred: dict[str, Any]) -> None:
                 return
             if old_action == "shadow" and action not in ("bet", "shadow"):
                 return
+
+        odds_alert = existing[2] if existing else None
+        kelly_alert = existing[3] if existing else None
+        frozen_at = existing[4] if existing else None
+
+        # Se già congelate (messaggio TG / primo bet), non aggiornare più
+        if odds_alert is not None and float(odds_alert) > 1.01:
+            odds_to_store = float(odds_alert)
+        else:
+            odds_to_store = live_odds
+            if action == "bet" and live_odds is not None and float(live_odds) > 1.01:
+                odds_alert = float(live_odds)
+                frozen_at = frozen_at or now
+
+        if kelly_alert is not None and float(kelly_alert) > 0:
+            kelly_to_store = float(kelly_alert)
+        else:
+            kelly_to_store = live_kelly
+            if action == "bet" and live_kelly is not None and float(live_kelly) > 0:
+                kelly_alert = float(live_kelly)
+
         # Non scrivere CLV/chiusura all'ingresso: LTP live = quota bet, BCR finto a 0.
         c.execute(
             """INSERT OR REPLACE INTO matches
@@ -164,8 +204,8 @@ def archive_prediction(pred: dict[str, Any]) -> None:
              probability, odds, ev, ev_pct, kelly, odds_source, p_markov, p_elo, p_ml,
              playability, playability_band, moneyway_vol_pct, dropping_pct, dropping_aligned,
              clv, beat_close, close_source, close_odds_a, close_odds_b,
-             betfair_event_id, betfair_market_id, saved_at)
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+             betfair_event_id, betfair_market_id, odds_alert, kelly_alert, alert_frozen_at, saved_at)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
             (
                 key,
                 str(pred.get("date") or "")[:10],
@@ -177,10 +217,10 @@ def archive_prediction(pred: dict[str, Any]) -> None:
                 rec.get("player"),
                 action,
                 rec.get("probability"),
-                rec.get("odds"),
+                odds_to_store,
                 rec.get("ev"),
                 rec.get("ev_pct"),
-                rec.get("kelly_info") or rec.get("kelly"),
+                kelly_to_store,
                 pred.get("odds_source"),
                 pred.get("p_markov"),
                 pred.get("p_elo"),
@@ -197,9 +237,159 @@ def archive_prediction(pred: dict[str, Any]) -> None:
                 None,
                 event_id,
                 market_id,
-                datetime.now(timezone.utc).isoformat(),
+                odds_alert,
+                kelly_alert,
+                frozen_at,
+                now,
             ),
         )
+
+
+def freeze_telegram_odds(
+    pred: dict[str, Any],
+    *,
+    odds: float | None = None,
+    kelly: float | None = None,
+    frozen_at: str | None = None,
+) -> bool:
+    """Congela quota/Kelly del messaggio Telegram sul record history (solo se assenti)."""
+    from modules.advisor.advise import display_pick
+
+    rec = pred.get("recommended") or display_pick(pred)
+    try:
+        odds_f = float(odds if odds is not None else rec.get("odds") or 0)
+    except (TypeError, ValueError):
+        odds_f = 0.0
+    if odds_f <= 1.01:
+        return False
+    try:
+        kelly_f = float(
+            kelly
+            if kelly is not None
+            else (rec.get("kelly_info") or rec.get("kelly") or 0)
+        )
+    except (TypeError, ValueError):
+        kelly_f = 0.0
+    ts = frozen_at or datetime.now(timezone.utc).isoformat()
+    key = _match_key(pred)
+    with _conn() as c:
+        row = c.execute(
+            "SELECT odds_alert, kelly_alert FROM matches WHERE match_key=?", (key,)
+        ).fetchone()
+        if row is None:
+            return False
+        odds_alert, kelly_alert = row[0], row[1]
+        already = odds_alert is not None and float(odds_alert) > 1.01
+        if already:
+            # Mantieni freeze; allinea solo il campo odds esposto se diverrebbe
+            c.execute(
+                "UPDATE matches SET odds=? WHERE match_key=? AND ABS(COALESCE(odds,0)-?)>0.0005",
+                (float(odds_alert), key, float(odds_alert)),
+            )
+            return False
+        new_kelly = (
+            float(kelly_alert)
+            if kelly_alert is not None and float(kelly_alert) > 0
+            else (kelly_f if kelly_f > 0 else None)
+        )
+        c.execute(
+            """UPDATE matches
+               SET odds_alert=?, kelly_alert=?, odds=?,
+                   kelly=COALESCE(?, kelly),
+                   alert_frozen_at=COALESCE(alert_frozen_at, ?)
+               WHERE match_key=?""",
+            (odds_f, new_kelly, odds_f, new_kelly, ts, key),
+        )
+        return True
+
+
+def backfill_odds_alert_from_telegram(*, limit: int = 5000) -> dict[str, Any]:
+    """Riempie odds_alert da alert_log (quote messaggio TG) dove ancora assente."""
+    from modules.data_update.entity_resolution import _norm_name
+
+    updated = 0
+    matched = 0
+    with _conn() as c:
+        c.row_factory = sqlite3.Row
+        try:
+            alerts = c.execute(
+                """SELECT player_a, player_b, pick, odds_at_alert, sent_at, match_date, betfair_event_id
+                   FROM alert_log
+                   WHERE odds_at_alert IS NOT NULL AND odds_at_alert > 1.01
+                   ORDER BY sent_at ASC"""
+            ).fetchall()
+        except sqlite3.OperationalError:
+            return {"updated": 0, "matched": 0, "error": "alert_log missing"}
+
+        bets = c.execute(
+            """SELECT match_key, player_a, player_b, pick, date, betfair_event_id, odds, odds_alert
+               FROM matches
+               WHERE action='bet'
+               ORDER BY saved_at DESC
+               LIMIT ?""",
+            (limit,),
+        ).fetchall()
+
+        by_players_date: dict[tuple[str, str, str], list] = {}
+        for b in bets:
+            pa = _norm_name(str(b["player_a"] or ""))
+            pb = _norm_name(str(b["player_b"] or ""))
+            day = str(b["date"] or "")[:10]
+            if not pa or not pb or not day:
+                continue
+            key = (pa, pb, day)
+            by_players_date.setdefault(key, []).append(b)
+            by_players_date.setdefault((pb, pa, day), []).append(b)
+
+        for a in alerts:
+            pa = _norm_name(str(a["player_a"] or ""))
+            pb = _norm_name(str(a["player_b"] or ""))
+            day = str(a["match_date"] or "")[:10]
+            if not pa or not pb or not day:
+                continue
+            cands = by_players_date.get((pa, pb, day)) or []
+            if not cands:
+                continue
+            matched += 1
+            odds_a = float(a["odds_at_alert"])
+            pick_a = _norm_name(str(a["pick"] or ""))
+            chosen = None
+            for b in cands:
+                if b["odds_alert"] is not None and float(b["odds_alert"]) > 1.01:
+                    continue
+                if pick_a and _norm_name(str(b["pick"] or "")) == pick_a:
+                    chosen = b
+                    break
+            if chosen is None:
+                for b in cands:
+                    if b["odds_alert"] is None or float(b["odds_alert"] or 0) <= 1.01:
+                        chosen = b
+                        break
+            if chosen is None:
+                continue
+            c.execute(
+                """UPDATE matches
+                   SET odds_alert=?, odds=?, alert_frozen_at=COALESCE(alert_frozen_at, ?)
+                   WHERE match_key=? AND (odds_alert IS NULL OR odds_alert <= 1.01)""",
+                (odds_a, odds_a, a["sent_at"], chosen["match_key"]),
+            )
+            if c.total_changes:
+                updated += 1
+
+        # Fallback: bet settle senza alert → congela odds attuali una tantum
+        before = c.total_changes
+        c.execute(
+            """UPDATE matches
+               SET odds_alert=odds,
+                   kelly_alert=COALESCE(kelly_alert, kelly),
+                   alert_frozen_at=COALESCE(alert_frozen_at, settled_at, saved_at)
+               WHERE action='bet'
+                 AND odds IS NOT NULL AND odds > 1.01
+                 AND (odds_alert IS NULL OR odds_alert <= 1.01)"""
+        )
+        fallback = max(0, c.total_changes - before)
+
+    return {"updated": updated, "matched": matched, "fallback_frozen": fallback}
 
 
 def load_history(limit: int = 500) -> list[dict]:
@@ -669,4 +859,117 @@ def settle_pending(*, learn: bool = True) -> dict[str, Any]:
         except Exception:
             pass
     log_done("settle_pending completato")
+    return out
+
+
+def maintain_history(
+    *,
+    retain_days: int | None = None,
+    vacuum: bool = True,
+    archive: bool = True,
+) -> dict[str, Any]:
+    """Archivia settle vecchi, WAL checkpoint e VACUUM per query veloci / anti-corruzione.
+
+    - Righe settle più vecchie di ``retain_days`` → ``our_history_archive.sqlite``
+    - Unsettled / recenti restano nel DB operativo
+    - ``busy_timeout`` + WAL già impostati in ``_conn``
+    """
+    from datetime import date, timedelta
+
+    from modules.constants import HISTORY_RETAIN_DAYS
+
+    days = int(retain_days if retain_days is not None else HISTORY_RETAIN_DAYS)
+    cutoff = (date.today() - timedelta(days=days)).isoformat()
+    archive_path = DB.parent / "our_history_archive.sqlite"
+    out: dict[str, Any] = {
+        "ok": True,
+        "retain_days": days,
+        "cutoff": cutoff,
+        "archived": 0,
+        "deleted": 0,
+        "wal_checkpoint": None,
+        "vacuum": False,
+        "archive_db": str(archive_path) if archive else None,
+    }
+
+    conn = _conn()
+    try:
+        conn.row_factory = sqlite3.Row
+        # Settle con date vecchie (o settled_at se date assente)
+        rows = conn.execute(
+            """
+            SELECT * FROM matches
+            WHERE hit IS NOT NULL
+              AND (
+                    (date IS NOT NULL AND substr(date,1,10) < ?)
+                 OR (date IS NULL AND settled_at IS NOT NULL AND substr(settled_at,1,10) < ?)
+              )
+            """,
+            (cutoff, cutoff),
+        ).fetchall()
+        out["candidates"] = len(rows)
+
+        if archive and rows:
+            ac = sqlite3.connect(archive_path, timeout=8.0)
+            try:
+                ac.execute(_CREATE)
+                acols = {r[1] for r in ac.execute("PRAGMA table_info(matches)")}
+                for name, typ in _EXTRA_COLS:
+                    if name not in acols:
+                        ac.execute(f"ALTER TABLE matches ADD COLUMN {name} {typ}")
+                ac.commit()
+                cols = list(rows[0].keys())
+                placeholders = ",".join("?" * len(cols))
+                col_sql = ",".join(cols)
+                for row in rows:
+                    vals = [row[c] for c in cols]
+                    ac.execute(
+                        f"INSERT OR REPLACE INTO matches ({col_sql}) VALUES ({placeholders})",
+                        vals,
+                    )
+                    out["archived"] += 1
+                ac.commit()
+            finally:
+                ac.close()
+
+            keys = [row["match_key"] for row in rows]
+            for i in range(0, len(keys), 200):
+                chunk = keys[i : i + 200]
+                q = ",".join("?" * len(chunk))
+                conn.execute(f"DELETE FROM matches WHERE match_key IN ({q})", chunk)
+                out["deleted"] += len(chunk)
+            conn.commit()
+
+        try:
+            mode = conn.execute("PRAGMA journal_mode").fetchone()[0]
+            out["journal_mode"] = mode
+            ck = conn.execute("PRAGMA wal_checkpoint(TRUNCATE)").fetchone()
+            out["wal_checkpoint"] = list(ck) if ck else None
+        except Exception as exc:
+            out["wal_checkpoint_error"] = str(exc)
+
+        if vacuum and out["deleted"] > 0:
+            conn.commit()
+            conn.execute("VACUUM")
+            out["vacuum"] = True
+        elif vacuum:
+            out["vacuum"] = False
+            out["vacuum_skipped"] = "no_rows_deleted"
+    except Exception as exc:
+        out["ok"] = False
+        out["error"] = str(exc)
+    finally:
+        conn.close()
+
+    # Integrity check leggero
+    try:
+        c2 = _conn()
+        integrity = c2.execute("PRAGMA integrity_check").fetchone()
+        out["integrity"] = integrity[0] if integrity else None
+        n = c2.execute("SELECT COUNT(*) FROM matches").fetchone()[0]
+        out["n_rows"] = int(n)
+        c2.close()
+    except Exception as exc:
+        out["integrity_error"] = str(exc)
+
     return out

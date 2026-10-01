@@ -47,7 +47,7 @@ def _conn() -> sqlite3.Connection:
 
 
 def log_alert(pred: dict, *, sent_at: str | None = None) -> None:
-    """Registra odds/EV al momento invio Telegram."""
+    """Registra odds/EV al momento invio Telegram (non sovrascrive un freeze già presente)."""
     rec = pred.get("recommended") or {}
     side = str(rec.get("side") or "")
     key = "|".join(
@@ -58,27 +58,60 @@ def log_alert(pred: dict, *, sent_at: str | None = None) -> None:
         return
 
     ts = sent_at or datetime.now(timezone.utc).isoformat()
+    odds = rec.get("odds")
+    ev = rec.get("ev")
     with _conn() as c:
-        c.execute(
-            """INSERT OR REPLACE INTO alert_log
-            (alert_key, sent_at, player_a, player_b, pick, pick_side,
-             odds_at_alert, ev_at_alert, betfair_event_id, betfair_market_id, match_date)
-            VALUES (?,?,?,?,?,?,?,?,?,?,?)""",
-            (
-                key,
-                ts,
-                pred.get("player_a"),
-                pred.get("player_b"),
-                rec.get("player"),
-                side,
-                rec.get("odds"),
-                rec.get("ev"),
-                pred.get("betfair_event_id"),
-                pred.get("betfair_market_id"),
-                str(pred.get("date") or "")[:10],
-            ),
+        existing = c.execute(
+            "SELECT odds_at_alert FROM alert_log WHERE alert_key=?", (key,)
+        ).fetchone()
+        if existing and existing[0] is not None and float(existing[0]) > 1.01:
+            # Freeze immutabile: non aggiornare quote messaggio
+            pass
+        else:
+            c.execute(
+                """INSERT INTO alert_log
+                (alert_key, sent_at, player_a, player_b, pick, pick_side,
+                 odds_at_alert, ev_at_alert, betfair_event_id, betfair_market_id, match_date)
+                VALUES (?,?,?,?,?,?,?,?,?,?,?)
+                ON CONFLICT(alert_key) DO UPDATE SET
+                    sent_at=excluded.sent_at,
+                    player_a=excluded.player_a,
+                    player_b=excluded.player_b,
+                    pick=excluded.pick,
+                    pick_side=excluded.pick_side,
+                    odds_at_alert=COALESCE(alert_log.odds_at_alert, excluded.odds_at_alert),
+                    ev_at_alert=COALESCE(alert_log.ev_at_alert, excluded.ev_at_alert),
+                    betfair_event_id=excluded.betfair_event_id,
+                    betfair_market_id=excluded.betfair_market_id,
+                    match_date=excluded.match_date
+                """,
+                (
+                    key,
+                    ts,
+                    pred.get("player_a"),
+                    pred.get("player_b"),
+                    rec.get("player"),
+                    side,
+                    odds,
+                    ev,
+                    pred.get("betfair_event_id"),
+                    pred.get("betfair_market_id"),
+                    str(pred.get("date") or "")[:10],
+                ),
+            )
+            c.commit()
+
+    try:
+        from modules.data_update.history import freeze_telegram_odds
+
+        freeze_telegram_odds(
+            pred,
+            odds=float(odds) if odds is not None else None,
+            kelly=float(rec.get("kelly_info") or rec.get("kelly") or 0) or None,
+            frozen_at=ts,
         )
-        c.commit()
+    except Exception:
+        pass
 
 
 def _pick_odds_from_event(ev: dict, pick_side: str) -> float | None:

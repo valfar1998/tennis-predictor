@@ -103,6 +103,198 @@ def _upcoming_snapshot() -> dict[str, Any]:
     }
 
 
+def _equity_curves(*, limit: int = 500) -> dict[str, Any]:
+    """Equity unitizzata bet vs shadow (solo settle con odds/kelly)."""
+    from modules.data_update.history import load_history
+
+    curves: dict[str, list[dict[str, Any]]] = {"bet": [], "shadow": []}
+    bank: dict[str, float] = {"bet": 1.0, "shadow": 1.0}
+
+    rows = load_history(limit=limit)
+    rows = sorted(rows, key=lambda r: str(r.get("settled_at") or r.get("saved_at") or r.get("date") or ""))
+    for r in rows:
+        action = r.get("action")
+        if action not in curves or r.get("hit") is None:
+            continue
+        stake = float(r.get("kelly") or 0.0)
+        # Shadow hanno kelly=0: usa EV proxy 1% unit per equity paper
+        if action == "shadow" and stake <= 0:
+            stake = 0.01
+        odds = float(r.get("odds") or 0.0)
+        if stake <= 0 or odds <= 1.01:
+            continue
+        hit = int(r.get("hit") or 0)
+        if hit:
+            bank[action] += stake * (odds - 1.0)
+        else:
+            bank[action] -= stake
+        curves[action].append(
+            {
+                "t": str(r.get("settled_at") or r.get("date") or "")[:19],
+                "equity": round(bank[action], 4),
+                "hit": hit,
+            }
+        )
+    return {
+        "bet": curves["bet"],
+        "shadow": curves["shadow"],
+        "final_bet": bank["bet"],
+        "final_shadow": bank["shadow"],
+    }
+
+
+def compute_recommended_roi(*, limit: int = 5000) -> dict[str, Any]:
+    """ROI come se avessi seguito esattamente i messaggi Telegram.
+
+    Per ogni tip settle usa solo:
+    - ``odds_alert`` (quota nel messaggio)
+    - ``kelly_alert`` (percentuale di puntata nel messaggio)
+
+    Stake basso (Kelly basso) pesa meno: ROI = Σ P&L / Σ stake.
+    P&L tip = kelly × (odds−1) se hit, altrimenti −kelly.
+    """
+    from modules.data_update.history import backfill_odds_alert_from_telegram, load_history
+
+    try:
+        backfill = backfill_odds_alert_from_telegram(limit=limit)
+    except Exception as exc:
+        backfill = {"error": str(exc)}
+
+    rows = load_history(limit=limit)
+    bets = [r for r in rows if r.get("action") == "bet"]
+    pending = [r for r in bets if r.get("hit") is None]
+    settled = sorted(
+        [r for r in bets if r.get("hit") is not None],
+        key=lambda r: str(r.get("settled_at") or r.get("saved_at") or r.get("date") or ""),
+    )
+
+    def _alert_odds(r: dict) -> float:
+        for key in ("odds_alert", "odds"):
+            try:
+                v = float(r.get(key) or 0)
+            except (TypeError, ValueError):
+                continue
+            if v > 1.01:
+                return v
+        return 0.0
+
+    def _alert_kelly(r: dict) -> float:
+        for key in ("kelly_alert", "kelly"):
+            try:
+                v = float(r.get(key) or 0)
+            except (TypeError, ValueError):
+                continue
+            if v > 0:
+                return v
+        return 0.0
+
+    def _tip_pnl(odds: float, kelly: float, hit: int) -> float:
+        return kelly * (odds - 1.0) if hit else -kelly
+
+    staked = 0.0
+    pnl = 0.0
+    hits = 0
+    n = 0
+    n_frozen = 0
+    hit_stake = 0.0
+    bankroll = 1.0
+    curve: list[dict[str, Any]] = []
+
+    for r in settled:
+        odds = _alert_odds(r)
+        kelly = _alert_kelly(r)
+        if odds <= 1.01 or kelly <= 0:
+            continue
+        if r.get("odds_alert") is not None and float(r.get("odds_alert") or 0) > 1.01:
+            n_frozen += 1
+        hit = int(r.get("hit") or 0)
+        tip_pnl = _tip_pnl(odds, kelly, hit)
+        n += 1
+        hits += hit
+        staked += kelly
+        pnl += tip_pnl
+        if hit:
+            hit_stake += kelly
+        bankroll += tip_pnl
+        roi_so_far = pnl / staked if staked > 0 else 0.0
+        curve.append(
+            {
+                "t": str(r.get("settled_at") or r.get("date") or "")[:19],
+                "n": n,
+                "roi": round(roi_so_far, 4),
+                "roi_kelly": round(roi_so_far, 4),
+                "pnl": round(pnl, 4),
+                "staked": round(staked, 4),
+                "bankroll": round(bankroll, 4),
+                "hit": hit,
+                "pick": str(r.get("pick") or ""),
+                "odds": round(odds, 3),
+                "kelly": round(kelly, 5),
+                "odds_frozen": bool(
+                    r.get("odds_alert") is not None and float(r.get("odds_alert") or 0) > 1.01
+                ),
+            }
+        )
+
+    def _window(days: int) -> dict[str, Any]:
+        cutoff = date.today() - timedelta(days=days - 1)
+        w_pnl = w_stake = 0.0
+        w_n = w_hits = 0
+        for r in settled:
+            day = str(r.get("date") or r.get("settled_at") or "")[:10]
+            try:
+                if date.fromisoformat(day) < cutoff:
+                    continue
+            except ValueError:
+                continue
+            odds = _alert_odds(r)
+            kelly = _alert_kelly(r)
+            if odds <= 1.01 or kelly <= 0:
+                continue
+            hit = int(r.get("hit") or 0)
+            w_n += 1
+            w_hits += hit
+            w_stake += kelly
+            w_pnl += _tip_pnl(odds, kelly, hit)
+        return {
+            "n": w_n,
+            "hits": w_hits,
+            "hit_rate": round(w_hits / w_n, 4) if w_n else None,
+            "roi": round(w_pnl / w_stake, 4) if w_stake > 0 else None,
+            "roi_kelly": round(w_pnl / w_stake, 4) if w_stake > 0 else None,
+            "roi_flat": round(w_pnl / w_stake, 4) if w_stake > 0 else None,  # alias UI legacy
+            "staked": round(w_stake, 4),
+            "pnl": round(w_pnl, 4),
+        }
+
+    roi = round(pnl / staked, 4) if staked > 0 else None
+    return {
+        "ok": True,
+        "n_bets": len(bets),
+        "n_settled": n,
+        "n_pending": len(pending),
+        "n_odds_frozen": n_frozen,
+        "hits": hits,
+        "hit_rate": round(hits / n, 4) if n else None,
+        "hit_rate_weighted": round(hit_stake / staked, 4) if staked > 0 else None,
+        "roi": roi,
+        "roi_kelly": roi,
+        "roi_flat": roi,  # alias: il ROI ufficiale è Kelly-weighted
+        "pnl": round(pnl, 4) if n else None,
+        "pnl_units": round(pnl, 4) if n else None,
+        "kelly_staked": round(staked, 4),
+        "kelly_pnl": round(pnl, 4),
+        "bankroll": round(bankroll, 4) if n else None,
+        "avg_kelly": round(staked / n, 5) if n else None,
+        "last_7d": _window(7),
+        "last_30d": _window(30),
+        "curve": curve,
+        "backfill": backfill,
+        "odds_source": "odds_alert + kelly_alert (Telegram freeze)",
+        "method": "kelly_weighted",
+    }
+
+
 def build_health_report(*, days: int = 14, refresh_metrics: bool = False) -> dict[str, Any]:
     """Compila report salute modello e lo persiste su disk."""
     if refresh_metrics:
@@ -135,6 +327,15 @@ def build_health_report(*, days: int = 14, refresh_metrics: bool = False) -> dic
     except Exception:
         min_edge = None
 
+    try:
+        from modules.advisor.risk_controls import circuit_breaker_status
+
+        cb = circuit_breaker_status()
+    except Exception:
+        cb = {}
+
+    equity = _equity_curves()
+    roi = compute_recommended_roi()
 
     report: dict[str, Any] = {
         "ok": True,
@@ -160,11 +361,21 @@ def build_health_report(*, days: int = 14, refresh_metrics: bool = False) -> dic
             "effective_min_edge": min_edge,
             "phase2": phase2,
         },
+        "circuit_breaker": {
+            "active": bool(cb.get("active")),
+            "current_drawdown": cb.get("current_drawdown"),
+            "streak_loss_units": cb.get("streak_loss_units"),
+            "kelly_scale": cb.get("kelly_scale"),
+        },
+        "equity": equity,
+        "roi": {
+            **{k: v for k, v in roi.items() if k != "curve"},
+            "curve": roi.get("curve") or [],
+        },
         "itf": metrics.get("itf_governance"),
         "risk": (metrics.get("governance") or {}),
     }
 
-    # Sintesi giornaliera recente
     vol = report["daily_volume"]
     last7 = vol[-7:] if len(vol) >= 7 else vol
     report["summary"] = {
@@ -177,6 +388,20 @@ def build_health_report(*, days: int = 14, refresh_metrics: bool = False) -> dic
         "bcr_quality_pct": bf.get("bcr_pct"),
         "close_missing": close_pipe.get("n_missing_close"),
         "phase2_edge_unlocked": bool((phase2 or {}).get("unlocked")),
+        "circuit_breaker_active": bool(cb.get("active")),
+        "equity_bet": equity.get("final_bet"),
+        "equity_shadow": equity.get("final_shadow"),
+        "roi_flat": roi.get("roi"),
+        "roi_kelly": roi.get("roi"),
+        "roi_n_settled": roi.get("n_settled"),
+        "roi_hit_rate": roi.get("hit_rate"),
+        "roi_hit_rate_weighted": roi.get("hit_rate_weighted"),
+        "roi_pending": roi.get("n_pending"),
+        "roi_staked": roi.get("kelly_staked"),
+        "roi_pnl": roi.get("kelly_pnl"),
+        "roi_bankroll": roi.get("bankroll"),
+        "roi_flat_7d": (roi.get("last_7d") or {}).get("roi"),
+        "roi_flat_30d": (roi.get("last_30d") or {}).get("roi"),
     }
 
     REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -187,11 +412,18 @@ def build_health_report(*, days: int = 14, refresh_metrics: bool = False) -> dic
 def format_health_banner(report: dict[str, Any] | None = None) -> str:
     report = report or _load_json(REPORT_PATH) or build_health_report()
     s = report.get("summary") or {}
+    roi = s.get("roi_kelly")
+    if roi is None:
+        roi = s.get("roi_flat")
+    roi_txt = f"{100.0 * float(roi):+.1f}%" if roi is not None else "n/d"
     return (
         f"HEALTH · bet7d={s.get('bets_last_7d', 0)} shadow7d={s.get('shadow_last_7d', 0)} "
         f"tg14d={s.get('telegram_alerts_last_14d', 0)} "
         f"upcoming_bet={s.get('upcoming_bets', 0)} tg_ready={s.get('upcoming_telegram_ready', 0)} "
+        f"ROI_kelly={roi_txt} n={s.get('roi_n_settled', 0)} "
+        f"stake={s.get('roi_staked')} "
         f"BCR_q={s.get('bcr_quality_pct')}% n={s.get('bcr_quality_n')} "
         f"close_missing={s.get('close_missing')} "
-        f"phase2_edge={'ON' if s.get('phase2_edge_unlocked') else 'off'}"
+        f"phase2_edge={'ON' if s.get('phase2_edge_unlocked') else 'off'} "
+        f"CB={'ON' if s.get('circuit_breaker_active') else 'off'}"
     )
