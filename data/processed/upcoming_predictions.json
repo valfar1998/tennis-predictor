@@ -25334,10 +25334,10 @@
       "headline": "Emma Navarro Reveals Ongoing Health Issues as She Withdraws From the Rest of the 2026 Tennis Season - Town & Country Magazine",
       "category": "withdrawal"
     },
-    "p_retire": 0.1638,
+    "p_retire": 0.2457,
     "retirement_context": {
-      "player_injury_risk": 0.1638,
-      "p_retire": 0.1638,
+      "player_injury_risk": 0.2457,
+      "p_retire": 0.2457,
       "news_boost": 0.0819
     }
   },
@@ -45731,26 +45731,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.153,
-      "category": "retirement",
-      "headline": "Junior No. 1 Sun Xinran advances in WTA debut in Beijing as Lys retires - WTA Tennis",
-      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPN3BQYUhyRHJIZVRkUkJtdXdQVmJxX0VHYTg0UDl5ZktjR0lCOTVsdEpndlE0c0U4eHZ4N3dfZ2VJbFkydTd2OGszQ1gyeXJLYndxbm1PWmlZb0N4STcxNnNTeV9ydWdBd09YdzNDOFNjVlVPWTVwMGFOU2ZqaHljdTlyN2MzeW9pOGxRTUtDcXZQNnUxMW5lRVN4STJYbVFNcnN2MDhSREtoUmpfd0JkXw?oc=5",
-      "source": "gnews_injury_en",
-      "severity": 0.85,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Junior No. 1 Sun Xinran advances in WTA debut in Beijing as Lys retires - WTA Tennis",
-          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPN3BQYUhyRHJIZVRkUkJtdXdQVmJxX0VHYTg0UDl5ZktjR0lCOTVsdEpndlE0c0U4eHZ4N3dfZ2VJbFkydTd2OGszQ1gyeXJLYndxbm1PWmlZb0N4STcxNnNTeV9ydWdBd09YdzNDOFNjVlVPWTVwMGFOU2ZqaHljdTlyN2MzeW9pOGxRTUtDcXZQNnUxMW5lRVN4STJYbVFNcnN2MDhSREtoUmpfd0JkXw?oc=5",
-          "source": "gnews_injury_en",
-          "category": "retirement",
-          "severity": 0.85,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -45764,26 +45751,13 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.153,
-        "category": "retirement",
-        "headline": "Junior No. 1 Sun Xinran advances in WTA debut in Beijing as Lys retires - WTA Tennis",
-        "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPN3BQYUhyRHJIZVRkUkJtdXdQVmJxX0VHYTg0UDl5ZktjR0lCOTVsdEpndlE0c0U4eHZ4N3dfZ2VJbFkydTd2OGszQ1gyeXJLYndxbm1PWmlZb0N4STcxNnNTeV9ydWdBd09YdzNDOFNjVlVPWTVwMGFOU2ZqaHljdTlyN2MzeW9pOGxRTUtDcXZQNnUxMW5lRVN4STJYbVFNcnN2MDhSREtoUmpfd0JkXw?oc=5",
-        "source": "gnews_injury_en",
-        "severity": 0.85,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Junior No. 1 Sun Xinran advances in WTA debut in Beijing as Lys retires - WTA Tennis",
-            "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPN3BQYUhyRHJIZVRkUkJtdXdQVmJxX0VHYTg0UDl5ZktjR0lCOTVsdEpndlE0c0U4eHZ4N3dfZ2VJbFkydTd2OGszQ1gyeXJLYndxbm1PWmlZb0N4STcxNnNTeV9ydWdBd09YdzNDOFNjVlVPWTVwMGFOU2ZqaHljdTlyN2MzeW9pOGxRTUtDcXZQNnUxMW5lRVN4STJYbVFNcnN2MDhSREtoUmpfd0JkXw?oc=5",
-            "source": "gnews_injury_en",
-            "category": "retirement",
-            "severity": 0.85,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
       "opponent": {
         "has_alert": false,
@@ -45794,10 +45768,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Junior No. 1 Sun Xinran advances in WTA debut in Beijing as Lys retires - WTA Tennis",
-      "category": "retirement"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.306,
     "retirement_context": {
