@@ -113,6 +113,20 @@ UNIT_SIZE = 0.01
 DAILY_EXPOSURE_CAP = 0.06  # 6% bankroll max stesso giorno/torneo
 DAILY_EXPOSURE_MIN_BETS = 6
 
+# Fase 3: protezione bankroll / correlazione (solo sizing — non cambia MIN_EDGE/odds)
+DAILY_BANKROLL_CAP = 0.10  # 10% bankroll max stake totale stesso giorno (tutti i tornei)
+PLAYER_DAY_EXPOSURE_CAP = 0.03  # 3% max sullo stesso giocatore nello stesso giorno
+PLAYER_DAY_MIN_BETS = 2
+CORR_TOURNEY_SOFT_CAP = 0.04  # oltre 4% stesso torneo/giorno → moltiplicatore soft
+CORR_TOURNEY_KELLY_SCALE = 0.75
+CORR_FATIGUE_MINUTES_7D = 180.0  # ~3h match-time in 7d
+CORR_FATIGUE_KELLY_SCALE = 0.70
+CORR_SURFACE_MIN_BETS = 5  # cluster superficie stesso giorno
+CORR_SURFACE_KELLY_SCALE = 0.85
+HISTORY_RETAIN_DAYS = 730  # settle più vecchi → archive
+HISTORY_BUSY_TIMEOUT_MS = 8000
+HISTORY_WAL_MODE = True
+
 # Shadow bet (sample BCR sotto freeze / circuit breaker, Kelly=0)
 SHADOW_BET_ENABLED = True
 SHADOW_MIN_EDGE = 0.015
