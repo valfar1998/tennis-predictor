@@ -10681,13 +10681,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Sinner, il medico: \u00abL'infortunio al ginocchio richiede tempo, la carriera \u00e8 stata anteposta al calendario\u00bb - ilmattino.it",
+      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOa1k3Q254b0JQRWpXWGJsdW1Zb0tzcUxaRV9jaWdoZ2pUZUttc3pIN2NYOTVZc1ZCN214OWhpbFRxamhOSkQ4cUVlQnNXVzQzcVUtZGxEQjhfSlRBTkhSNmhscVItLWU5NXEya2ZXdlBZallTNzFIX0ZPRmRhOVNzc2MyQm1DSnpYeFpWdXJ6eXpIbzN2RkVxeW1Bei1SQ2djVnFFLXdCRXpRVHBDSG1wSTJmSU82V2NTYUE?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Sinner, il medico: \u00abL'infortunio al ginocchio richiede tempo, la carriera \u00e8 stata anteposta al calendario\u00bb - ilmattino.it",
+          "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOa1k3Q254b0JQRWpXWGJsdW1Zb0tzcUxaRV9jaWdoZ2pUZUttc3pIN2NYOTVZc1ZCN214OWhpbFRxamhOSkQ4cUVlQnNXVzQzcVUtZGxEQjhfSlRBTkhSNmhscVItLWU5NXEya2ZXdlBZallTNzFIX0ZPRmRhOVNzc2MyQm1DSnpYeFpWdXJ6eXpIbzN2RkVxeW1Bei1SQ2djVnFFLXdCRXpRVHBDSG1wSTJmSU82V2NTYUE?oc=5",
+          "source": "gnews_injury_it",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -10701,13 +10714,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Sinner, il medico: \u00abL'infortunio al ginocchio richiede tempo, la carriera \u00e8 stata anteposta al calendario\u00bb - ilmattino.it",
+        "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOa1k3Q254b0JQRWpXWGJsdW1Zb0tzcUxaRV9jaWdoZ2pUZUttc3pIN2NYOTVZc1ZCN214OWhpbFRxamhOSkQ4cUVlQnNXVzQzcVUtZGxEQjhfSlRBTkhSNmhscVItLWU5NXEya2ZXdlBZallTNzFIX0ZPRmRhOVNzc2MyQm1DSnpYeFpWdXJ6eXpIbzN2RkVxeW1Bei1SQ2djVnFFLXdCRXpRVHBDSG1wSTJmSU82V2NTYUE?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Sinner, il medico: \u00abL'infortunio al ginocchio richiede tempo, la carriera \u00e8 stata anteposta al calendario\u00bb - ilmattino.it",
+            "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOa1k3Q254b0JQRWpXWGJsdW1Zb0tzcUxaRV9jaWdoZ2pUZUttc3pIN2NYOTVZc1ZCN214OWhpbFRxamhOSkQ4cUVlQnNXVzQzcVUtZGxEQjhfSlRBTkhSNmhscVItLWU5NXEya2ZXdlBZallTNzFIX0ZPRmRhOVNzc2MyQm1DSnpYeFpWdXJ6eXpIbzN2RkVxeW1Bei1SQ2djVnFFLXdCRXpRVHBDSG1wSTJmSU82V2NTYUE?oc=5",
+            "source": "gnews_injury_it",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -10718,15 +10744,15 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Sinner, il medico: \u00abL'infortunio al ginocchio richiede tempo, la carriera \u00e8 stata anteposta al calendario\u00bb - ilmattino.it",
+      "category": "injury"
     },
-    "p_retire": 0.135,
+    "p_retire": 0.27,
     "retirement_context": {
-      "player_injury_risk": 0.135,
-      "p_retire": 0.135,
+      "player_injury_risk": 0.27,
+      "p_retire": 0.27,
       "news_boost": 0.135
     }
   },
@@ -25334,10 +25360,10 @@
       "headline": "Emma Navarro Reveals Ongoing Health Issues as She Withdraws From the Rest of the 2026 Tennis Season - Town & Country Magazine",
       "category": "withdrawal"
     },
-    "p_retire": 0.3276,
+    "p_retire": 0.4095,
     "retirement_context": {
-      "player_injury_risk": 0.3276,
-      "p_retire": 0.3276,
+      "player_injury_risk": 0.4095,
+      "p_retire": 0.4095,
       "news_boost": 0.0819
     }
   },
