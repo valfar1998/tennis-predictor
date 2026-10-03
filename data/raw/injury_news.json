@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "fetched_at": "2026-10-02T20:39:22.239697+00:00",
-  "n_items": 51,
+  "fetched_at": "2026-10-03T09:32:47.845757+00:00",
+  "n_items": 47,
   "n_raw": 130,
   "errors": [
     "espn_tennis: fetch failed",
@@ -11,8 +11,8 @@
   ],
   "items": [
     {
-      "title": "Tennis-Prozorova says physio ‘pressure’ led to withdrawal from Singapore Open semi-final - wtvbam.com",
-      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPcURfMlVkbTF0Y3RkUmRZSDh2NW9YZzhKYWtqSTh5OHJ6LUNCYTVocFp5ZnVKUFFrUThpSndUMXF5QlJkaVZvVUtvNWpzRFhtUU1DQkVnUlMzNXhjcGNfU0ZVQ2FBcVozZl83WWNHcEJMTXB1eWdhcnp1d2lKSmRDVlBxVXg5aDhuaFBFVFBpNzZtajhQMkQyUmpQTmE0ZTZDTVEtUXpsaE1XT04tRDBkN0thSEdsdVlS?oc=5",
+      "title": "The China Open suffers another blow after Alex Eala’s withdrawal - sports.yahoo.com",
+      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPbkwxSThsWFJoX1JnblkwWWlJWkY0MEpTSVVBWmFjYTFrZm5XVVpHMGVrZ1pLNUpoRGYtbXRRTHU4UDFoZGpoUjNOZVhOcHV2OG04WHpoelViaG55cDJEemM0cEp5YkIxZG1PNVhfdE4wYlJWajMtLWY5R21ieUN6VmVBZm83elE?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -31,28 +31,18 @@
       "severity": 0.95
     },
     {
-      "title": "The China Open suffers another blow after Alex Eala’s withdrawal - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPbkwxSThsWFJoX1JnblkwWWlJWkY0MEpTSVVBWmFjYTFrZm5XVVpHMGVrZ1pLNUpoRGYtbXRRTHU4UDFoZGpoUjNOZVhOcHV2OG04WHpoelViaG55cDJEemM0cEp5YkIxZG1PNVhfdE4wYlJWajMtLWY5R21ieUN6VmVBZm83elE?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.95
-    },
-    {
-      "title": "Concerning update on Jannik Sinner’s knee injury after his withdrawal from the China Open - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNYVJyWTZaXy16ZGlaVEpWb0pDd3hCYUVBNnhWcEc5M0ZhQTdYU2J6aUhweFRTcG1Td25EVk01TnlZRkVoT3RLaFdwTExVdkNzbzBITURBSmhEWlVwTXVvRFR5U21POXM4SFdZOGNFbGRRTG40U1dtdzh1TFk1d01tUHNPd3BCeVZnM1pDdlVn?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.95
-    },
-    {
       "title": "Jannik Sinner receives worried message after another tournament withdrawal - Tennis World USA",
       "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQYVZaXzdvNGJzNGR0NHVsWnpDbFRwTDlFems0dEhrUXZCRThjcExMRVhsdGNtRDFXM19Nd25UNWF0NTZETm00R29CdzR5RXJQcmZlWjBrYnN4enZlQjMxZGFqREwwY0JvWmZDRm1OdmwzcldVM194UUg0UG1KRnRsQWJSemNJZzlEMDFvNnVHaGxxdHB3M1h2ekZFeFFrUGxCVk93enNGdjVRQTZMQVhKcTRUSHNhSDNwOFFPa0VTLWR2NmgycHotdDZGaDJjeUFhcjh6R0J3?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.95
+    },
+    {
+      "title": "Concerning update on Jannik Sinner’s knee injury after his withdrawal from the China Open - sports.yahoo.com",
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNYVJyWTZaXy16ZGlaVEpWb0pDd3hCYUVBNnhWcEc5M0ZhQTdYU2J6aUhweFRTcG1Td25EVk01TnlZRkVoT3RLaFdwTExVdkNzbzBITURBSmhEWlVwTXVvRFR5U21POXM4SFdZOGNFbGRRTG40U1dtdzh1TFk1d01tUHNPd3BCeVZnM1pDdlVn?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -71,16 +61,6 @@
       "severity": 0.95
     },
     {
-      "title": "WTA issues statement after Tatiana Prozorova's 'forced' Singapore withdrawal claim - Tennis World USA",
-      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPTW1ubEM1VVNWajFOelhTU1NCcldNbGk2Q3lfY1hyV01RT0dpSnJrTVpzSHduaVB1eWMxNktMR3ByNHY1bHlsd1lRd245UzlSY2t6ZV9ndVp3UFZhRnY1YW4tSGNwVzl4bEx1TXJIQTNiSW1UMXpSaThVVFlqWTBQdmE3SGdnYWhBLXpPUkNwNGs0RnlzT0dCOXl0a0NJc1RwOG5wMWxHNUVKUjZwbUNXcjNSX3QzcHFRdXBEdW9UczJzeTQtMl9CQlAxLVVCdTRObnFTVnhyN1ZOUQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.95
-    },
-    {
       "title": "Concerning Jannik Sinner News Drops Amid China Open Withdrawal - heavy.com",
       "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBLRWlsRU81SlZNQkhyLTFwR0xJdE82N0F0N1VHTjZNZ3pYVEMyMzBIWDgxZWZ6bmw0TjZwUGhiNU0wYVpBRFJjYW5USXY2bnJnc0FFWFVnR08tOG5yc2pmWGFmbVFfcFhD?oc=5",
       "summary": "",
@@ -91,8 +71,8 @@
       "severity": 0.95
     },
     {
-      "title": "Tennis player Jannik Sinner withdraws from China Open in China due to knee injury — Cyprus Mail - UA.NEWS",
-      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQdmtsbng3ZjVRSTRGOWg2eElZaXV4S3g5R0hmUU1WbW9oRU9WZUlxZ1M4VVEzcDJ5Nnh0S0stVjUzclRkSkU0bXhRR0p3RXhJY1lSVy12VzhfWXBMdVB6dnFwVW54WkkxV3RBeUM4SXNDbkh5ZHFtMkRiVG5Hak5tRGVVaks1THdOTTBLa2JmZnJkQTNHWVdVVTJkaG1JeThVT3dRU3pVVDFFbHpaS3NMdw?oc=5",
+      "title": "Alexander Zverev reacts to Jannik Sinner Beijing withdrawal, increased No. 1 chances - Tennis World USA",
+      "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPUG5EWWxHWmJ6UzY0eWFKbnJBNk5KNmNyOERuRFRXLTNaX2hxTkJraFZJb0RZMkEtTnlaM0pZVDFRS3BRZy1hUHBPVk1vVE5NOHNMTnByZ2N2SzBuUS14RXotdUZXUnNkSEJPNDNYTzgtU3JHSUtJOXdySkRSVXAxZjJ3WVdiOXNGbEJRaHU5TkRpenpLVE5fa3ZmZzdibldhNE1rVzVweGJGWExLTnVKeDcxYlVUVXQ2MkdKVnhGaWROUUgtRFdrakY2ODJRSGxHMTEwTS1YYXJnLW1fNEd5bQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -101,8 +81,18 @@
       "severity": 0.95
     },
     {
-      "title": "Tennis: Bellucci in semifinale, Tomić dà forfait - Rete 55",
+      "title": "Tennis: Bellucci in semifinale, Tomić dà forfait - Rete55",
       "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQSzRNLU9xUDNySGZOZktFSlVMYl9lcGI1TGtVeWVUaXhoUmtQR1Bmc05EUHJ1ZmdZZHFWajVmS3NOb1R2QmVPWnhyRDY3M0p6U1EwbVFJdUliZWQ5MGtYaFRONWItanFLb1FNYnl6aVE1STNvaTVyRTVFTFBMdi1LM3lrdjdPQ0ZIMWpuMXByNk0?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.92
+    },
+    {
+      "title": "Tennis, Torneo Shanghai: altro forfait per Jannik Sinner - Giornale di Sicilia",
+      "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNVExMT3pLTjhERHZpZFRDQjVCaG9vTFBpVjk4UElEQ3czVmhjd25jTDUyeFN5cGl1STlTcFJobjZjNW14SWRUUlJkbEUwRHB3UElIcU1mTU1mRHI4ZUstRVdLZF9OWXNubVM4WEFNbENHWEVTRVdteWl2djhldXcwcS1GX0p6aGlXX3pucXF5ZDN0ZUVRcTJNSjdiZWVodExpM0EzY19peGZZNFRCVnJrU2hleEVLREhDWEkxSGp4YW85OVd6V19pMTVWc0lwUQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -121,8 +111,28 @@
       "severity": 0.92
     },
     {
+      "title": "Altro forfait per Sinner, non giocherà a Shanghai: quasi tre mesi senza partite ufficiali - Domani",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNUlI4Vk13V2FZYURYTkl3d084U2paNTh0SERUVHlDLVZNSnRJakhzMTk5RzY4VHdtX1ZqeWhIODhJOG40NEJDZnRyWEFQVWhLWnFKeVZXYmVidWZEYnZvbERjQXlXS1JVSHplVVAxZGJLek1KUzlFcjdIbzJSTV9FcC04a3FaajFxQlBWeWN4a2tWa3RkRm9najVsdjBwU2RxQmtUU1ZCOA?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.92
+    },
+    {
       "title": "Incredibile ritiro di Atmane contro Ymer a Jingshan (VIDEO) - Il Tennis Italiano",
       "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNNmczeVQyaWllVmlxb3dmU1c5N0NfVWY3dHJKbTBtc2Q0V0dmeVJsM05TbHYxTFJVOUlLNUM3TEk0TlM3WnpPMnA4WXBYQjVzaGdzSTZXUHlDTWhEanhseVJyN0dCelZwSTEybXZyVTVLcDlVZnc3RkVBT0NrekpCQWhVckticS16dDRtc3FuQXR6UQ?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.92
+    },
+    {
+      "title": "WTA Pechino, arrivano diversi forfait illustri: presenti Rybakina e Sabalenka - Il Tennis Italiano",
+      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOZnpjWWtxZF8yakdlQmNudGgwQWxPaF8zOUs3aS1FdzAzYjA0OW9QUlF5MlVwY28yUnVyS2djdHNqWUZhM0wxNlJXd1RKYW5VZG9BNjNlUllFd0tBN25xS09FSENHWEkzeVRnaUgyVzlfUENpa1BNU2tXYlVWTUFKWXJxenQzTUc4TFpmbVRYMHRpT201dlVHMjdQNy1zMGh0dGNnRmtNdmpqUQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -141,16 +151,6 @@
       "severity": 0.92
     },
     {
-      "title": "TENNIS, NUOVO STOP PER LORENZO MUSETTI: FRATTURA ALL'ANULARE DESTRO E RITIRO DALL'ATP 500 DI TOKYO - FRV News Magazine",
-      "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQYjkwdEQ2US1GSEdEYU4zWW9VT2I1S1NST0FxU1UtVDEwQWxJQ1QwRU14TlpuZF9mZklQMHRtUXlUMmJjLXpYdnVvdmpPM2hYYmdaTV9MWG90T1JHN3ZONmNSSV9LTjIxQ1MxYmJ0QmtvRFF0WDhIOHR0ZHZvd2JtaHZKZndfMVVmZ2ZDZWF3Z1JUaHBfUEE0Tmxyc3ZnbVZHYmxleXNIdWx4UThrRTFaMTV0R0Nhai1ueGJUUzZ4RkdjdkpsOGJv?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.92
-    },
-    {
       "title": "Arnaldi al 2° turno dell’Atp Tokyo. Musetti costretto a dare forfait - L'Eco Vicentino",
       "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPcWJOZWQwUHFFTm41SGk0cUltMXU0YWV1ai1zYlZycWxBckJ2VGtITHI1OUdYcWJkbk5kSERSUDQyV3BmTWFFak5zaWQweUJTWUdDWmc5REs3bXdHUHBtMURaQXZOQmtoci1TTnI2LXJ3N3hJcmt0LTJHQU54QnZMODhMRUx6WlFRYU43Z2NGZ2dLdF9XVDJaS3hMc2pILWxwYUE?oc=5",
       "summary": "",
@@ -161,7 +161,7 @@
       "severity": 0.92
     },
     {
-      "title": "ATP Tokyo, Musetti dà forfait: \"Non posso giocare per una frattura all'anulare della mano destra\" - ubitennis.com",
+      "title": "ATP Tokyo, Musetti dà forfait: \"Non posso giocare per una frattura all'anulare della mano destra\" - Ubitennis",
       "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPNmZhSFh4bkN6dUllYTJPV2dOa19sYkZwelBxV281ZFFVTVhLcW12MnlidC1yTTF0TXdlSGxtX19wYkcwR2tfN1hhTUVqdHlDTVZvSWlZa2VkSERjRksxT1NuRnl1WlFNQXRQU3pxN2NuLUtMTVFyeG01eV9ONS0tdmdEU2JNTmRKdnJXSkNmUE9qTjlUY0tXS0tOd0w0MzBIYjcxY09DRkRDdw?oc=5",
       "summary": "",
       "published": "",
@@ -221,8 +221,8 @@
       "severity": 0.85
     },
     {
-      "title": "Five Tennis Players Retire in September 2026 - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQRndXangyTzRBbkxseUFHZ0JHd2xNMk9LdV9xR1pzVTM0WWh2OEEtUGpWMGhVZ1FFMTJXU0VOdGZyN2w5eUZ5eU0xRVYzNWtrLUI3Uk83NzVDSFhqdk5OTEptMTFhSDl4dTV4NUQyMk8tQ0ZxQWNPZXJ5VmVGY3Y4REJoYm82TlI4V0hnRkpB?oc=5",
+      "title": "Japan Open: Kei Nishikori retires from tennis after defeat by Frances Tiafoe in Tokyo - BBC",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1mR3Fwc0Fjb1JxLXN4NTIyaUhKUlFEZmNiRGlTTFlvbk96ay1zdHd5eGNQOE83OV90T0lNaEI1MXpybFNkVU1SajdHbmxHWmw4bnRZbjRCT0VISWlicFh6bnRCSGR1dw?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -241,17 +241,7 @@
       "severity": 0.85
     },
     {
-      "title": "Japan Open: Kei Nishikori retires from tennis after defeat by Frances Tiafoe in Tokyo - BBC",
-      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1mR3Fwc0Fjb1JxLXN4NTIyaUhKUlFEZmNiRGlTTFlvbk96ay1zdHd5eGNQOE83OV90T0lNaEI1MXpybFNkVU1SajdHbmxHWmw4bnRZbjRCT0VISWlicFh6bnRCSGR1dw?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "retirement",
-      "severity": 0.85
-    },
-    {
-      "title": "“I Was In Disarray” – John McEnroe Opens Up About Divorce From Tatum O’Neal & How It Affected His Retirement - Yahoo Sports",
+      "title": "“I Was In Disarray” – John McEnroe Opens Up About Divorce From Tatum O’Neal & How It Affected His Retirement - sports.yahoo.com",
       "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQMDRzZHBRYnB1VHhxNnJ1QVFUTDVkOFo0ak04Y09EM2Y4empuSXoyRXllLS1SYTN2QTRFa0s5MDJYRVNubVZsLTIwUGpTX2E2WUxVMEZLWWFYWHUzYmN6Vm05U3BVYl9SQ2xaZ0d0Y0lPUDVELWh3dGVlS2VrTkRwU0QwLTBuV3VieG1oSg?oc=5",
       "summary": "",
       "published": "",
@@ -311,6 +301,16 @@
       "severity": 0.85
     },
     {
+      "title": "Japanese tennis legend Kei Nishikori has retired from professional tennis - UA.NEWS",
+      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPWDByN3Z5RnVsOFh6ZzQ2NEhIVWtPQU1pMXBuT1VkMzl5UGRSTk1YMWFkOXRLUllqM0xiRkRvRGx5U1NDTW1ZZE43aHBrU1QtVlRqSDBKSGI5WEhZa2cyazFDTi0tLURqd3NicVhERy1yMnNqVEU0Ynk5S2FXR3ZrUFVnUGVpYi1KbWtvSGtvQ1RabmRQeE03SA?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
       "title": "Sinner ruled out of China Open with knee injury",
       "link": "https://www.bbc.co.uk/sport/tennis/articles/c38xkkj0q5ggo?at_medium=RSS&at_campaign=rss",
       "summary": "",
@@ -321,28 +321,8 @@
       "severity": 0.75
     },
     {
-      "title": "Jannik Sinner to miss China Open with lingering knee injury - BBC",
-      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBoa3V5b0FYRlhxS0NRMXoxNlB6b1NwaTVRX0ZxSExvOHpVZFQ1a0dza3JTWTJueEJrekpCdTc0QnRLanlDMnNfeGVtLUhNSW9qelhydGRIOXRhbTctTVZsZklWRE9TQQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
       "title": "Tennis-Anisimova ends season early due to recurring wrist injury - wtvbam.com",
       "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPSUdMSG9iTWVKSzhOVHNjNFVfQVI4UmE0Q0ZxNGEtdU1CSFpBVDR3ZktnTmFXN213THNSY0VQczAyeU9wTkpnX3Vtc053blBYaTdvSUIxZXhHSDFKY3djb3VjYVRhSUQ2LXdVSzBTWnN6eG5pLVJnWkUyLTZOSEUzZW55YkRjVV9ZcGxBYVBYZGNla3YwWjg0cTVlTQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Anisimova shuts down season to recover from wrist injury - WTA Tennis",
-      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPZU1WYmh5Y3ZFY003SXk1YmRIdWhkZHo0MUlVV2h4YzlDeE1hYmdSN2dOODdCbDhjdXhDX2FzNm9USUdzZFFlem1RSmRfLUdXVHR5NTZsU1pRa2ZSTHQ2elg2eHZ3N2FxVXh0Tk1mRDBiZEhacFFrZmFnd1FDeFpjeHlQOVUtUU1LcDNhODVfYnJ4SUFDdENsTTdqUDRVM2haNkFyVg?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -361,8 +341,8 @@
       "severity": 0.75
     },
     {
-      "title": "Alexander Zverev makes fitness admission after Alcaraz and Sinner injury problems - Tennis World USA",
-      "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNa0dld21tUmVuSnh3VGZJNTE4RzFtVWU2VVJtN2czdXRzY1JiYjNHUXBRaE9ma1ZMNHpQcERGX0duNENtQlg1RDdDUWdSSFhUU3NIeWw4RDB6RnEya1ZlUHFDWmJtcUZEeS05QkRhaXRxYjJLdFpzdDU3X3FycFYxbF9STWlkazY0MWxudDluTDA3U1p4VWFWemdWTGRDRC0tNTV3enZTNmozcDdUMHNOME5mbDJZdkZ3Q095NEt2MU9WQjBBaUJCMGJlZi1ucTJRRWtkZkZQQ3ZWVU9McWx1LQ?oc=5",
+      "title": "Amanda Anisimova Cuts 2026 Season Short due to Wrist Injury - Tennis Now",
+      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPaTAzcWhBX0lxSnBRaXdIOXhQdmQ3U1BVWFNQamdONlpLOFpwS0c2NkdKUDZYLUtLa0dMc1lBZDhfZVpIbVJzQzBsNldTc2xOX0RWZzVsN3dRWVQ5T25CVUQya3g2QW43bjNMejVyTk1qVmFtQS13VUphV1E5Wno0NVZtR2pTUFFnMHc?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -371,8 +351,8 @@
       "severity": 0.75
     },
     {
-      "title": "Amanda Anisimova Cuts 2026 Season Short due to Wrist Injury - Tennis Now",
-      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPaTAzcWhBX0lxSnBRaXdIOXhQdmQ3U1BVWFNQamdONlpLOFpwS0c2NkdKUDZYLUtLa0dMc1lBZDhfZVpIbVJzQzBsNldTc2xOX0RWZzVsN3dRWVQ5T25CVUQya3g2QW43bjNMejVyTk1qVmFtQS13VUphV1E5Wno0NVZtR2pTUFFnMHc?oc=5",
+      "title": "Alexander Zverev makes fitness admission after Alcaraz and Sinner injury problems - Tennis World USA",
+      "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNa0dld21tUmVuSnh3VGZJNTE4RzFtVWU2VVJtN2czdXRzY1JiYjNHUXBRaE9ma1ZMNHpQcERGX0duNENtQlg1RDdDUWdSSFhUU3NIeWw4RDB6RnEya1ZlUHFDWmJtcUZEeS05QkRhaXRxYjJLdFpzdDU3X3FycFYxbF9STWlkazY0MWxudDluTDA3U1p4VWFWemdWTGRDRC0tNTV3enZTNmozcDdUMHNOME5mbDJZdkZ3Q095NEt2MU9WQjBBaUJCMGJlZi1ucTJRRWtkZkZQQ3ZWVU9McWx1LQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -401,27 +381,7 @@
       "severity": 0.75
     },
     {
-      "title": "(LEAD) (Asiad) Kwon Soon-woo exits Asian Games singles tennis in 3rd round due to injury - Yonhap News Agency",
-      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBhdUkyTHVqRmR5SmtGX19oTUxWbEJvdDMwcGZUaUk0R0hsZ1dZbWxMNGZSMnFGTWJlaC1ETmxEVWQzN2pnZWg3TDRxSVNmTFVUclFidXE2R25xdw?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "(Asiad) Kwon Soon-woo exits Asian Games singles tennis in 3rd round due to injury - Yonhap News Agency",
-      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE50RmhOS2wyOG5FUmNja2lOcHNwYXN6Z29Lc04yOGVlSnFsMk1veWlweWd6aFhmaEpwdWxtSnpSblJBYkU4TGZNeU9BSzR4R3NKeVJOMHZjaGFNZw?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Should Vuori ditch Draper over injury-hit tennis season? - cityam.com",
+      "title": "Should Vuori ditch Draper over injury-hit tennis season? - City AM",
       "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNOVhQR3g0c29JcmloQ3BGUlFxNE5OZzVmcVRvQUN4Qy10TVU4aGxsU3VVMzhtZGFySjJEdTRwS2xlbTVRTm43eFpUM0lDOVdRalE3Y1JWRm81RDUtYlNGaVVNX3QtV1NnYmlQNnZ5WGFUUXIwUmdKWXJzazZnVmxSMjY3T0lUZw?oc=5",
       "summary": "",
       "published": "",
@@ -481,8 +441,8 @@
       "severity": 0.75
     },
     {
-      "title": "Anisimova, infortunio al polso e stagione finita: chiuderà il 2026 fuori dalla top 20 - Tennis Magazine Italia",
-      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNWnBsYWpNSkVkMWpWZ18yN3Njd096ek5aWWJQQnhsSnFpcU1IdUktV1VRQ3BrWGNURkltam8xWndBbF9YRkpBS1NvLWlNRS1Pak1JTVVZRmI1MU1Hempyd2MyQnhaanYtWlJoNG5NRFREZU5UaERVTHZnRXhrTUVmZWcwQ0I2YkotaFB2VGtRWWtSc0dSZWcyZndFV2pSOWNBREMySHNZY0pUTDlrU0JkczRLcVJOeUhoSXdZbnJZX3Q?oc=5",
+      "title": "Sinner che infortunio ha? E quando torna? Nuovo consulto a Lione: il ginocchio preoccupa, potrebbe operarsi - Il Messaggero",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOdWNNUWZEbklock8wOFZDYVN1am1aUmxNWDRrbElaRWhhTkV4QjZOcFF5VG5fRHUzOUZMbnBFVmpDOEV1NEtQVm1GX0swcmo4cEhhUVcwZXl1cHRTNkl2WU1VYjlscTh4aG5OOVpodHlnd04wOTIyYWwtQnBUQ1hfVUMzV3hMYWVuOXVmYmtxQnNBZDIxLTcwTUloVmRyNndScXpxOEFWZU5aai1TdS1EYkg2UzdjR0hZQnFjUdIBuAFBVV95cUxQcWUyNl9jbU8td3phLTlFTGQxYzFNbzdwSElpSHdDNTdmN1laaWZxRHJKOFBITmNveGk3dUx3Q254NUdFRHl0Z1pxWHJaODRKaEhKaXE4WHoxdVBGUWNoU0JnazlWc3AtQ3FLT3lFbjVjeGx4WFQ1dHNDcU1MN1dGS1I0MGU5WW94VVJOX1pLNGJGMFpiOVU0cTdVRkEzWmFFMENISTZWY3o5Z1hmcjJrNDB5MENxV3ND?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -501,7 +461,7 @@
       "severity": 0.75
     },
     {
-      "title": "Stagione finita per Anisimova: \"Ho subito di nuovo un infortunio al polso, ci vediamo nel 2027\" - ubitennis.com",
+      "title": "Stagione finita per Anisimova: \"Ho subito di nuovo un infortunio al polso, ci vediamo nel 2027\" - Ubitennis",
       "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQVmI5NmI3UFVscGRNa0cxdUdmZzR4cUszSE9fWV8xSDdMQk9qQU82ako5cEgzWEhVNENuNWtsUHJaRTQ5TDJRWXFoZlVQNldwSkYzRDhxQzBqRjdFdWplUmtHV0dHQWl1UmZkYmJsM0lodE52UFdjWVFtRzZlcjYyM0lGMnU3ck5zRFF6X25EUThFSU1lamxtaUpib28tRTc5NVg5QzZ2RFpLclJUS2VhUDZCZ0VaVGNwWkhpQzV0NmZBWjBWMzl6bk1NTFJnSWM?oc=5",
       "summary": "",
       "published": "",
@@ -512,7 +472,7 @@
     },
     {
       "title": "Infortunio Lorenzo Musetti: salta il torneo di Tokyo | Tennis: nuovo stop per l’azzurro (30 settembre 2026) - IlSussidiario.net",
-      "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNazRRVTNVSUd0Qnk1X29ETUhGVnZUWGtzZUgtMWxTVU9zWkRmTFYzc1JKOU9pNmlubGhNQkJnRGJVbk5SN0hKWHZrS2lIeVdYUVFOeWxvUDVJaEl6SzRrMW5fa0NMbGtPNFRReXlfNU5IV01IcWx5UVZVbmEyMWprZWFOaGZ6b0FTSUlJbFdUNzBDN1VLR2NhUFNqaXpOU2lhN19LTzhlRDk1TVlmWi1QNmhFVjdvNmFPSmJrNi16eXJrS21iT0pralc2LTRzd0RkeHRFX1JYNWx2R2xUV05WOFhR0gHiAUFVX3lxTE1rNFFVM1VJR3RCeTVfb0RNSEZWdlRYa3NlSC0xbFNVT3NaRGZMVjNzUko5T2k2aW5saE1CQmdEYlVuTlI3SEpYdmtLaUh5V1hRUU55bG9QNUloSXpLNGsxbl9rQ0xsa080VFF5eV81TkhXTUhxbHlRVlVuYTIxamtlYU5oZnpvQVNJSUlsV1Q3MEM3VUtHY2FQU2ppek5TaWE3X0tPOGVEOTVNWWZaLVA2aEVWN282YU9KYms2LXp5cmtLbWJPSmtqVzYtNHN3RGR4dEVfUlg1bHZHbFRXTlY4WFE?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNZzhTT3ZkRjNyNEpwVXpIUGl2RjZqRllYQV83alk5X3QxeUFRdEVERXdxWHlZd21rUUZMYXNnbmo3czR5ZUpuUDJ4VU12R2ZqZzRwODV1M0RGUl94R0RyQVNRb2Fudi1iVi1PZWR2ZnBQaXA1a3I3N213b0ZEVzZjYWp1eS1XNTNFRDhIbHNuN19SUmt2ekllMmlMeGcxVHlXaVd2bm5BRWFaTHFwZGxNTkp5ODBuQVJxX3FiaXJSZ0E4MGRDZHlNMnVfdGtwUXl6QTlYdHc1NWktRkFk0gHiAUFVX3lxTE1rNFFVM1VJR3RCeTVfb0RNSEZWdlRYa3NlSC0xbFNVT3NaRGZMVjNzUko5T2k2aW5saE1CQmdEYlVuTlI3SEpYdmtLaUh5V1hRUU55bG9QNUloSXpLNGsxbl9rQ0xsa080VFF5eV81TkhXTUhxbHlRVlVuYTIxamtlYU5oZnpvQVNJSUlsV1Q3MEM3VUtHY2FQU2ppek5TaWE3X0tPOGVEOTVNWWZaLVA2aEVWN282YU9KYms2LXp5cmtLbWJPSmtqVzYtNHN3RGR4dEVfUlg1bHZHbFRXTlY4WFE?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
