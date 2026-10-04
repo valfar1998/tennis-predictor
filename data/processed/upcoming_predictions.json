@@ -10749,10 +10749,10 @@
       "headline": "Sinner, il medico: \u00abL'infortunio al ginocchio richiede tempo, la carriera \u00e8 stata anteposta al calendario\u00bb - Il Messaggero",
       "category": "injury"
     },
-    "p_retire": 0.405,
+    "p_retire": 0.45,
     "retirement_context": {
-      "player_injury_risk": 0.405,
-      "p_retire": 0.405,
+      "player_injury_risk": 0.45,
+      "p_retire": 0.45,
       "news_boost": 0.135
     }
   },
@@ -13826,10 +13826,10 @@
       "headline": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - WTA Tennis",
       "category": "retirement"
     },
-    "p_retire": 0.0535,
+    "p_retire": 0.107,
     "retirement_context": {
-      "player_injury_risk": 0.05354999999999999,
-      "p_retire": 0.05354999999999999,
+      "player_injury_risk": 0.10704999999999999,
+      "p_retire": 0.10704999999999999,
       "news_boost": 0.05354999999999999
     }
   },
@@ -25328,14 +25328,14 @@
       "hard_block": true,
       "p_retire_boost": 0.234,
       "category": "withdrawal",
-      "headline": "Emma Navarro Reveals Ongoing Health Issues as She Withdraws From the Rest of the 2026 Tennis Season - townandcountrymag.com",
+      "headline": "Emma Navarro Reveals Ongoing Health Issues as She Withdraws From the Rest of the 2026 Tennis Season - Town & Country Magazine",
       "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPXzRLNEV4cVE0RkY0MThLaEZjU0M5QnkzMU1ISnBCTEY5a21TcXNFakxpZHZyWmRoZlFNT3NLeU5xNjZrdGphbGtpVk9jdzY0bE9DbklITEQ2M1FSZHNoZXhfUVpqZWlkMzZ1VVV6dW55RjV3d3FVR2dkX25kUlhsWVpuQ1l3N1h6NVhmY2dfdkhQUmNrWEFib19JeHV4LTBiV0RWWGoxc215aU9CRVM2aQ?oc=5",
       "source": "gnews_injury_en",
       "severity": 0.95,
       "n_hits": 1,
       "hits": [
         {
-          "title": "Emma Navarro Reveals Ongoing Health Issues as She Withdraws From the Rest of the 2026 Tennis Season - townandcountrymag.com",
+          "title": "Emma Navarro Reveals Ongoing Health Issues as She Withdraws From the Rest of the 2026 Tennis Season - Town & Country Magazine",
           "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPXzRLNEV4cVE0RkY0MThLaEZjU0M5QnkzMU1ISnBCTEY5a21TcXNFakxpZHZyWmRoZlFNT3NLeU5xNjZrdGphbGtpVk9jdzY0bE9DbklITEQ2M1FSZHNoZXhfUVpqZWlkMzZ1VVV6dW55RjV3d3FVR2dkX25kUlhsWVpuQ1l3N1h6NVhmY2dfdkhQUmNrWEFib19JeHV4LTBiV0RWWGoxc215aU9CRVM2aQ?oc=5",
           "source": "gnews_injury_en",
           "category": "withdrawal",
@@ -25370,14 +25370,14 @@
         "hard_block": true,
         "p_retire_boost": 0.234,
         "category": "withdrawal",
-        "headline": "Emma Navarro Reveals Ongoing Health Issues as She Withdraws From the Rest of the 2026 Tennis Season - townandcountrymag.com",
+        "headline": "Emma Navarro Reveals Ongoing Health Issues as She Withdraws From the Rest of the 2026 Tennis Season - Town & Country Magazine",
         "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPXzRLNEV4cVE0RkY0MThLaEZjU0M5QnkzMU1ISnBCTEY5a21TcXNFakxpZHZyWmRoZlFNT3NLeU5xNjZrdGphbGtpVk9jdzY0bE9DbklITEQ2M1FSZHNoZXhfUVpqZWlkMzZ1VVV6dW55RjV3d3FVR2dkX25kUlhsWVpuQ1l3N1h6NVhmY2dfdkhQUmNrWEFib19JeHV4LTBiV0RWWGoxc215aU9CRVM2aQ?oc=5",
         "source": "gnews_injury_en",
         "severity": 0.95,
         "n_hits": 1,
         "hits": [
           {
-            "title": "Emma Navarro Reveals Ongoing Health Issues as She Withdraws From the Rest of the 2026 Tennis Season - townandcountrymag.com",
+            "title": "Emma Navarro Reveals Ongoing Health Issues as She Withdraws From the Rest of the 2026 Tennis Season - Town & Country Magazine",
             "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPXzRLNEV4cVE0RkY0MThLaEZjU0M5QnkzMU1ISnBCTEY5a21TcXNFakxpZHZyWmRoZlFNT3NLeU5xNjZrdGphbGtpVk9jdzY0bE9DbklITEQ2M1FSZHNoZXhfUVpqZWlkMzZ1VVV6dW55RjV3d3FVR2dkX25kUlhsWVpuQ1l3N1h6NVhmY2dfdkhQUmNrWEFib19JeHV4LTBiV0RWWGoxc215aU9CRVM2aQ?oc=5",
             "source": "gnews_injury_en",
             "category": "withdrawal",
@@ -25389,7 +25389,7 @@
       },
       "any_alert": true,
       "hard_block_pick": false,
-      "headline": "Emma Navarro Reveals Ongoing Health Issues as She Withdraws From the Rest of the 2026 Tennis Season - townandcountrymag.com",
+      "headline": "Emma Navarro Reveals Ongoing Health Issues as She Withdraws From the Rest of the 2026 Tennis Season - Town & Country Magazine",
       "category": "withdrawal"
     },
     "p_retire": 0.45,
