@@ -13762,14 +13762,14 @@
       "hard_block": false,
       "p_retire_boost": 0.153,
       "category": "retirement",
-      "headline": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - wtatennis.com",
+      "headline": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - WTA Tennis",
       "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQR0NSRExJNENyVmFBaGpNYi15alo3SV9MTzg4Uk40a1Y1WEREM0gwOU9JQ3ljRnRlbjltWFB0cDRzNjJ2WW1PQzNadzlIb1RhalJxLXZwaHJVYW9VaVh5Y3JVb2xSTnllcG8tMi02My1kV3I1RzJEMVRTaDNXZWN5N1hvdDBQR09aWEp1TTlheV94RzB2a3lMemZ4ZWhuc0MwTlBkYkFDbU1GX29ybGc?oc=5",
       "source": "gnews_injury_en",
       "severity": 0.85,
       "n_hits": 1,
       "hits": [
         {
-          "title": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - wtatennis.com",
+          "title": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - WTA Tennis",
           "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQR0NSRExJNENyVmFBaGpNYi15alo3SV9MTzg4Uk40a1Y1WEREM0gwOU9JQ3ljRnRlbjltWFB0cDRzNjJ2WW1PQzNadzlIb1RhalJxLXZwaHJVYW9VaVh5Y3JVb2xSTnllcG8tMi02My1kV3I1RzJEMVRTaDNXZWN5N1hvdDBQR09aWEp1TTlheV94RzB2a3lMemZ4ZWhuc0MwTlBkYkFDbU1GX29ybGc?oc=5",
           "source": "gnews_injury_en",
           "category": "retirement",
@@ -13804,14 +13804,14 @@
         "hard_block": false,
         "p_retire_boost": 0.153,
         "category": "retirement",
-        "headline": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - wtatennis.com",
+        "headline": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - WTA Tennis",
         "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQR0NSRExJNENyVmFBaGpNYi15alo3SV9MTzg4Uk40a1Y1WEREM0gwOU9JQ3ljRnRlbjltWFB0cDRzNjJ2WW1PQzNadzlIb1RhalJxLXZwaHJVYW9VaVh5Y3JVb2xSTnllcG8tMi02My1kV3I1RzJEMVRTaDNXZWN5N1hvdDBQR09aWEp1TTlheV94RzB2a3lMemZ4ZWhuc0MwTlBkYkFDbU1GX29ybGc?oc=5",
         "source": "gnews_injury_en",
         "severity": 0.85,
         "n_hits": 1,
         "hits": [
           {
-            "title": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - wtatennis.com",
+            "title": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - WTA Tennis",
             "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQR0NSRExJNENyVmFBaGpNYi15alo3SV9MTzg4Uk40a1Y1WEREM0gwOU9JQ3ljRnRlbjltWFB0cDRzNjJ2WW1PQzNadzlIb1RhalJxLXZwaHJVYW9VaVh5Y3JVb2xSTnllcG8tMi02My1kV3I1RzJEMVRTaDNXZWN5N1hvdDBQR09aWEp1TTlheV94RzB2a3lMemZ4ZWhuc0MwTlBkYkFDbU1GX29ybGc?oc=5",
             "source": "gnews_injury_en",
             "category": "retirement",
@@ -13823,13 +13823,13 @@
       },
       "any_alert": true,
       "hard_block_pick": false,
-      "headline": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - wtatennis.com",
+      "headline": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - WTA Tennis",
       "category": "retirement"
     },
-    "p_retire": 0.1605,
+    "p_retire": 0.214,
     "retirement_context": {
-      "player_injury_risk": 0.16055,
-      "p_retire": 0.16055,
+      "player_injury_risk": 0.21405,
+      "p_retire": 0.21405,
       "news_boost": 0.05354999999999999
     }
   },
@@ -25324,26 +25324,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
-      "hard_block": true,
-      "p_retire_boost": 0.234,
-      "category": "withdrawal",
-      "headline": "Emma Navarro Reveals Ongoing Health Issues as She Withdraws From the Rest of the 2026 Tennis Season - Town & Country Magazine",
-      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPXzRLNEV4cVE0RkY0MThLaEZjU0M5QnkzMU1ISnBCTEY5a21TcXNFakxpZHZyWmRoZlFNT3NLeU5xNjZrdGphbGtpVk9jdzY0bE9DbklITEQ2M1FSZHNoZXhfUVpqZWlkMzZ1VVV6dW55RjV3d3FVR2dkX25kUlhsWVpuQ1l3N1h6NVhmY2dfdkhQUmNrWEFib19JeHV4LTBiV0RWWGoxc215aU9CRVM2aQ?oc=5",
-      "source": "gnews_injury_en",
-      "severity": 0.95,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Emma Navarro Reveals Ongoing Health Issues as She Withdraws From the Rest of the 2026 Tennis Season - Town & Country Magazine",
-          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPXzRLNEV4cVE0RkY0MThLaEZjU0M5QnkzMU1ISnBCTEY5a21TcXNFakxpZHZyWmRoZlFNT3NLeU5xNjZrdGphbGtpVk9jdzY0bE9DbklITEQ2M1FSZHNoZXhfUVpqZWlkMzZ1VVV6dW55RjV3d3FVR2dkX25kUlhsWVpuQ1l3N1h6NVhmY2dfdkhQUmNrWEFib19JeHV4LTBiV0RWWGoxc215aU9CRVM2aQ?oc=5",
-          "source": "gnews_injury_en",
-          "category": "withdrawal",
-          "severity": 0.95,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "has_alert": false,
+      "hard_block": false,
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -25366,31 +25353,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
-        "hard_block": true,
-        "p_retire_boost": 0.234,
-        "category": "withdrawal",
-        "headline": "Emma Navarro Reveals Ongoing Health Issues as She Withdraws From the Rest of the 2026 Tennis Season - Town & Country Magazine",
-        "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPXzRLNEV4cVE0RkY0MThLaEZjU0M5QnkzMU1ISnBCTEY5a21TcXNFakxpZHZyWmRoZlFNT3NLeU5xNjZrdGphbGtpVk9jdzY0bE9DbklITEQ2M1FSZHNoZXhfUVpqZWlkMzZ1VVV6dW55RjV3d3FVR2dkX25kUlhsWVpuQ1l3N1h6NVhmY2dfdkhQUmNrWEFib19JeHV4LTBiV0RWWGoxc215aU9CRVM2aQ?oc=5",
-        "source": "gnews_injury_en",
-        "severity": 0.95,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Emma Navarro Reveals Ongoing Health Issues as She Withdraws From the Rest of the 2026 Tennis Season - Town & Country Magazine",
-            "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPXzRLNEV4cVE0RkY0MThLaEZjU0M5QnkzMU1ISnBCTEY5a21TcXNFakxpZHZyWmRoZlFNT3NLeU5xNjZrdGphbGtpVk9jdzY0bE9DbklITEQ2M1FSZHNoZXhfUVpqZWlkMzZ1VVV6dW55RjV3d3FVR2dkX25kUlhsWVpuQ1l3N1h6NVhmY2dfdkhQUmNrWEFib19JeHV4LTBiV0RWWGoxc215aU9CRVM2aQ?oc=5",
-            "source": "gnews_injury_en",
-            "category": "withdrawal",
-            "severity": 0.95,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "has_alert": false,
+        "hard_block": false,
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Emma Navarro Reveals Ongoing Health Issues as She Withdraws From the Rest of the 2026 Tennis Season - Town & Country Magazine",
-      "category": "withdrawal"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {

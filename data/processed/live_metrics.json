@@ -120,7 +120,7 @@
     "steam_threshold_pct": 3.0,
     "recommendation": null
   },
-  "updated_at": "2026-10-05T10:59:36.451139+00:00",
+  "updated_at": "2026-10-05T22:32:26.010323+00:00",
   "governance": {
     "validation_freeze": {
       "active": true,
@@ -153,7 +153,7 @@
       "bcr_pass": null,
       "policy": "Nessuna modifica strutturale a pesi, feature o retrain ML fino al completamento della finestra. Solo settle + metriche BCR Betfair."
     },
-    "updated_at": "2026-10-05T10:59:36.484516+00:00"
+    "updated_at": "2026-10-05T22:32:26.043183+00:00"
   },
   "itf_governance": {
     "shrink_w_itf": 0.22,
