@@ -13826,10 +13826,10 @@
       "headline": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - WTA Tennis",
       "category": "retirement"
     },
-    "p_retire": 0.214,
+    "p_retire": 0.2676,
     "retirement_context": {
-      "player_injury_risk": 0.21405,
-      "p_retire": 0.21405,
+      "player_injury_risk": 0.26755,
+      "p_retire": 0.26755,
       "news_boost": 0.05354999999999999
     }
   },
