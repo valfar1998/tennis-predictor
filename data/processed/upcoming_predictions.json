@@ -10681,13 +10681,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Sinner, il medico: \u00abL'infortunio al ginocchio richiede tempo, la carriera \u00e8 stata anteposta al calendario\u00bb - Il Messaggero",
+      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOMEVJVGl0VnptTjFETTQ5Wm5LSTBmSEMzOGI0ODlGRlBkREdvZmlqUVAtU21MS1FoT05uTVVGUXhpcmdJRVFGTVhER1QwaU91ZXByeDhTSHZKR3NFTWFmTW5JSmx6d2l2UTl2eTdHMHpRd2JZbWtHMHgxblNBaWR0MFJzUXRJSlpiaFc1bUphWTJKc1VVRTFQNDc1TWpBZ2d4SFA5VF9UWVlQOTRSMlJXdUNwU3dzVDVHQVZwVFZR0gG6AUFVX3lxTE90MkNaWmJDbkQ1RkRfVE5Icnd5Rnc3aTIySHJJVUwtcGNBVTk2NkRmYjMyLUNMLWpMQWJPUXE5VXlhdzRJWDFYaWMzc01CeXVkbGdUMWwxUDdrNUtxdlZZbHVoaWRGc20tX2kyVUhXUEhYZVdSLVZHcXpxOHBnN21oYXdSMWtqWDA2UkNfaDFQclpIRXJJVFdQR1Z0TDhDRVFYMWd6RGJtNkFQMU1IbzJNZlUwTTEtaEM1UQ?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Sinner, il medico: \u00abL'infortunio al ginocchio richiede tempo, la carriera \u00e8 stata anteposta al calendario\u00bb - Il Messaggero",
+          "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOMEVJVGl0VnptTjFETTQ5Wm5LSTBmSEMzOGI0ODlGRlBkREdvZmlqUVAtU21MS1FoT05uTVVGUXhpcmdJRVFGTVhER1QwaU91ZXByeDhTSHZKR3NFTWFmTW5JSmx6d2l2UTl2eTdHMHpRd2JZbWtHMHgxblNBaWR0MFJzUXRJSlpiaFc1bUphWTJKc1VVRTFQNDc1TWpBZ2d4SFA5VF9UWVlQOTRSMlJXdUNwU3dzVDVHQVZwVFZR0gG6AUFVX3lxTE90MkNaWmJDbkQ1RkRfVE5Icnd5Rnc3aTIySHJJVUwtcGNBVTk2NkRmYjMyLUNMLWpMQWJPUXE5VXlhdzRJWDFYaWMzc01CeXVkbGdUMWwxUDdrNUtxdlZZbHVoaWRGc20tX2kyVUhXUEhYZVdSLVZHcXpxOHBnN21oYXdSMWtqWDA2UkNfaDFQclpIRXJJVFdQR1Z0TDhDRVFYMWd6RGJtNkFQMU1IbzJNZlUwTTEtaEM1UQ?oc=5",
+          "source": "gnews_injury_it",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -10701,13 +10714,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Sinner, il medico: \u00abL'infortunio al ginocchio richiede tempo, la carriera \u00e8 stata anteposta al calendario\u00bb - Il Messaggero",
+        "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOMEVJVGl0VnptTjFETTQ5Wm5LSTBmSEMzOGI0ODlGRlBkREdvZmlqUVAtU21MS1FoT05uTVVGUXhpcmdJRVFGTVhER1QwaU91ZXByeDhTSHZKR3NFTWFmTW5JSmx6d2l2UTl2eTdHMHpRd2JZbWtHMHgxblNBaWR0MFJzUXRJSlpiaFc1bUphWTJKc1VVRTFQNDc1TWpBZ2d4SFA5VF9UWVlQOTRSMlJXdUNwU3dzVDVHQVZwVFZR0gG6AUFVX3lxTE90MkNaWmJDbkQ1RkRfVE5Icnd5Rnc3aTIySHJJVUwtcGNBVTk2NkRmYjMyLUNMLWpMQWJPUXE5VXlhdzRJWDFYaWMzc01CeXVkbGdUMWwxUDdrNUtxdlZZbHVoaWRGc20tX2kyVUhXUEhYZVdSLVZHcXpxOHBnN21oYXdSMWtqWDA2UkNfaDFQclpIRXJJVFdQR1Z0TDhDRVFYMWd6RGJtNkFQMU1IbzJNZlUwTTEtaEM1UQ?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Sinner, il medico: \u00abL'infortunio al ginocchio richiede tempo, la carriera \u00e8 stata anteposta al calendario\u00bb - Il Messaggero",
+            "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOMEVJVGl0VnptTjFETTQ5Wm5LSTBmSEMzOGI0ODlGRlBkREdvZmlqUVAtU21MS1FoT05uTVVGUXhpcmdJRVFGTVhER1QwaU91ZXByeDhTSHZKR3NFTWFmTW5JSmx6d2l2UTl2eTdHMHpRd2JZbWtHMHgxblNBaWR0MFJzUXRJSlpiaFc1bUphWTJKc1VVRTFQNDc1TWpBZ2d4SFA5VF9UWVlQOTRSMlJXdUNwU3dzVDVHQVZwVFZR0gG6AUFVX3lxTE90MkNaWmJDbkQ1RkRfVE5Icnd5Rnc3aTIySHJJVUwtcGNBVTk2NkRmYjMyLUNMLWpMQWJPUXE5VXlhdzRJWDFYaWMzc01CeXVkbGdUMWwxUDdrNUtxdlZZbHVoaWRGc20tX2kyVUhXUEhYZVdSLVZHcXpxOHBnN21oYXdSMWtqWDA2UkNfaDFQclpIRXJJVFdQR1Z0TDhDRVFYMWd6RGJtNkFQMU1IbzJNZlUwTTEtaEM1UQ?oc=5",
+            "source": "gnews_injury_it",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -10718,10 +10744,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Sinner, il medico: \u00abL'infortunio al ginocchio richiede tempo, la carriera \u00e8 stata anteposta al calendario\u00bb - Il Messaggero",
+      "category": "injury"
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -13732,13 +13758,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.153,
+      "category": "retirement",
+      "headline": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - WTA Tennis",
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQR0NSRExJNENyVmFBaGpNYi15alo3SV9MTzg4Uk40a1Y1WEREM0gwOU9JQ3ljRnRlbjltWFB0cDRzNjJ2WW1PQzNadzlIb1RhalJxLXZwaHJVYW9VaVh5Y3JVb2xSTnllcG8tMi02My1kV3I1RzJEMVRTaDNXZWN5N1hvdDBQR09aWEp1TTlheV94RzB2a3lMemZ4ZWhuc0MwTlBkYkFDbU1GX29ybGc?oc=5",
+      "source": "gnews_injury_en",
+      "severity": 0.85,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - WTA Tennis",
+          "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQR0NSRExJNENyVmFBaGpNYi15alo3SV9MTzg4Uk40a1Y1WEREM0gwOU9JQ3ljRnRlbjltWFB0cDRzNjJ2WW1PQzNadzlIb1RhalJxLXZwaHJVYW9VaVh5Y3JVb2xSTnllcG8tMi02My1kV3I1RzJEMVRTaDNXZWN5N1hvdDBQR09aWEp1TTlheV94RzB2a3lMemZ4ZWhuc0MwTlBkYkFDbU1GX29ybGc?oc=5",
+          "source": "gnews_injury_en",
+          "category": "retirement",
+          "severity": 0.85,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -13761,23 +13800,36 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.153,
+        "category": "retirement",
+        "headline": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - WTA Tennis",
+        "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQR0NSRExJNENyVmFBaGpNYi15alo3SV9MTzg4Uk40a1Y1WEREM0gwOU9JQ3ljRnRlbjltWFB0cDRzNjJ2WW1PQzNadzlIb1RhalJxLXZwaHJVYW9VaVh5Y3JVb2xSTnllcG8tMi02My1kV3I1RzJEMVRTaDNXZWN5N1hvdDBQR09aWEp1TTlheV94RzB2a3lMemZ4ZWhuc0MwTlBkYkFDbU1GX29ybGc?oc=5",
+        "source": "gnews_injury_en",
+        "severity": 0.85,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - WTA Tennis",
+            "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQR0NSRExJNENyVmFBaGpNYi15alo3SV9MTzg4Uk40a1Y1WEREM0gwOU9JQ3ljRnRlbjltWFB0cDRzNjJ2WW1PQzNadzlIb1RhalJxLXZwaHJVYW9VaVh5Y3JVb2xSTnllcG8tMi02My1kV3I1RzJEMVRTaDNXZWN5N1hvdDBQR09aWEp1TTlheV94RzB2a3lMemZ4ZWhuc0MwTlBkYkFDbU1GX29ybGc?oc=5",
+            "source": "gnews_injury_en",
+            "category": "retirement",
+            "severity": 0.85,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - WTA Tennis",
+      "category": "retirement"
     },
-    "p_retire": 0.2676,
+    "p_retire": 0.3211,
     "retirement_context": {
-      "player_injury_risk": 0.26755,
-      "p_retire": 0.26755,
+      "player_injury_risk": 0.32115,
+      "p_retire": 0.32115,
       "news_boost": 0.05354999999999999
     }
   },
