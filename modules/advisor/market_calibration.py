@@ -16,6 +16,9 @@ from modules.constants import (
     SHARP_HIGH_ODDS_MIN,
     SHARP_ODDS_SOURCES,
     TOURNEY_LEVEL_CODE,
+    UNDERDOG_EDGE_NOISE_FLOOR,
+    UNDERDOG_MKT_MAX,
+    UNDERDOG_OVERCONF_SHRINK,
 )
 
 _DEVIG = {
@@ -44,10 +47,14 @@ def shrink_model_weight(
     data_density_min: int,
     *,
     mkt_divergence: float = 0.0,
+    p_model: float | None = None,
+    p_mkt: float | None = None,
 ) -> float:
     """Peso modello w in P_adj = w·P_model + (1-w)·P_mkt.
 
     Con alta incertezza o divergenza dal mercato, w scende (prior di mercato più forte).
+    Se il modello è più ottimista del mercato sullo sfavorito, w cala ancora
+    (bias tipico delle tip @2.5–4 false-edge).
     """
     if level == "S" or data_density_min < BAYES_SHRINK_MIN_MATCHES:
         w = float(effective_itf_params().get("shrink_w_itf", BAYES_SHRINK_W_ITF))
@@ -71,7 +78,48 @@ def shrink_model_weight(
         span = max(MKT_DIVERGENCE_MAX - MKT_DIVERGENCE_SOFT, 1e-6)
         t = (div - MKT_DIVERGENCE_SOFT) / span
         w *= 0.70 - 0.45 * t
+
+    # Anti-overconfidence underdog: modello alza troppo P sullo sfavorito
+    if p_model is not None and p_mkt is not None:
+        pm = float(p_model)
+        pk = float(p_mkt)
+        # Lato A underdog e modello più alto del mercato
+        if pk <= UNDERDOG_MKT_MAX and pm > pk:
+            over = pm - pk
+            w *= max(0.20, 1.0 - float(UNDERDOG_OVERCONF_SHRINK) * over)
+        # Lato B underdog (p_mkt_A alto → B sfavorito) e modello più basso di p_mkt_A
+        # ⇒ modello dà troppa chance a B: p_model troppo basso rispetto al mercato su A
+        if pk >= (1.0 - UNDERDOG_MKT_MAX) and pm < pk:
+            over = pk - pm
+            w *= max(0.20, 1.0 - float(UNDERDOG_OVERCONF_SHRINK) * over)
+
     return float(max(0.05, min(0.90, w)))
+
+
+def _apply_underdog_noise_floor(p_model: float, p_mkt: float, p_adj: float) -> float:
+    """Su sfavoriti, edge grezzi piccoli vs mercato sono rumore → torna a p_mkt.
+
+    Esempio: mercato 35%, modello 40% (@2.8) → scarta.
+    Controesempio: mercato 22%, modello 40% (@4.0) → tiene solo l'eccesso oltre 6pp.
+    """
+    floor = float(UNDERDOG_EDGE_NOISE_FLOOR)
+    # A underdog, modello più ottimista
+    if p_mkt <= UNDERDOG_MKT_MAX and p_model > p_mkt:
+        raw = p_model - p_mkt
+        if raw <= floor:
+            return float(p_mkt)
+        trusted = raw - floor
+        kept = max(0.0, (p_adj - p_mkt) / raw) if raw > 1e-9 else 0.0
+        return float(p_mkt + trusted * kept)
+    # B underdog (p_mkt_A alto), modello dà troppa chance a B
+    if p_mkt >= (1.0 - UNDERDOG_MKT_MAX) and p_model < p_mkt:
+        raw = p_mkt - p_model
+        if raw <= floor:
+            return float(p_mkt)
+        trusted = raw - floor
+        kept = max(0.0, (p_mkt - p_adj) / raw) if raw > 1e-9 else 0.0
+        return float(p_mkt - trusted * kept)
+    return float(p_adj)
 
 
 def market_probs(
@@ -104,17 +152,33 @@ def apply_bayesian_shrinkage(
     level = infer_tourney_level(out.get("tourney"), out.get("tourney_level"))
     density = _data_density_min(out)
     div = abs(p_model - mkt_a)
-    w = shrink_model_weight(level, density, mkt_divergence=div)
-    p_adj = w * p_model + (1.0 - w) * mkt_a
+    w = shrink_model_weight(
+        level,
+        density,
+        mkt_divergence=div,
+        p_model=p_model,
+        p_mkt=mkt_a,
+    )
+    p_blend = w * p_model + (1.0 - w) * mkt_a
+    p_adj = _apply_underdog_noise_floor(p_model, mkt_a, p_blend)
+    underdog_overconf = bool(
+        (mkt_a <= UNDERDOG_MKT_MAX and p_model > mkt_a)
+        or (mkt_a >= (1.0 - UNDERDOG_MKT_MAX) and p_model < mkt_a)
+    )
 
     out["p_win_a"] = round(p_adj, 4)
     out["market_shrinkage"] = {
         "w": round(w, 4),
         "p_model": round(p_model, 4),
         "p_mkt_a": round(mkt_a, 4),
+        "p_blend": round(p_blend, 4),
+        "p_adj": round(p_adj, 4),
         "data_density_min": density,
         "tourney_level": level,
         "divergence_degrade": div >= MKT_DIVERGENCE_SOFT,
+        "underdog_overconf": underdog_overconf,
+        "underdog_noise_floor": UNDERDOG_EDGE_NOISE_FLOOR,
+        "noise_floored": abs(p_adj - p_blend) > 1e-6,
     }
     out["mkt_divergence"] = round(div, 4)
     out["tourney_level_code"] = tourney_level_numeric(level, out.get("tourney"))

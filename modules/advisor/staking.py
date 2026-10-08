@@ -84,45 +84,6 @@ def beat_close(odds_bet: float | None, odds_close: float | None) -> bool | None:
     return float(odds_bet) > float(odds_close) + 0.005
 
 
-def effective_max_odds(prediction: dict[str, Any] | None = None) -> float:
-    """Cap quota: più stretto su Challenger/ITF/UTR (anti false-edge underdog)."""
-    from modules.advisor.risk_controls import infer_tourney_level
-    from modules.constants import MAX_ODDS_LOWER_TIER
-
-    if not prediction:
-        return float(MAX_ODDS_PLAY)
-    level = infer_tourney_level(prediction.get("tourney"), prediction.get("tourney_level"))
-    tourney = str(prediction.get("tourney") or "").lower()
-    lower = level in ("C", "S") or any(
-        k in tourney for k in ("itf", "utr", "challenger", "w15", "w25", "w35", "m15", "m25")
-    )
-    return float(MAX_ODDS_LOWER_TIER if lower else MAX_ODDS_PLAY)
-
-
-def underdog_edge_reasons(
-    play: dict[str, Any],
-    *,
-    min_edge: float = MIN_EDGE,
-) -> list[str]:
-    """Underdog @>UNDERDOG_ODDS_SOFT: richiede EV più alto (MIN_EDGE_UNDERDOG)."""
-    from modules.constants import MIN_EDGE_UNDERDOG, UNDERDOG_ODDS_SOFT
-
-    try:
-        odds = float(play.get("odds") or 0)
-        ev = play.get("ev")
-    except (TypeError, ValueError):
-        return []
-    if odds <= UNDERDOG_ODDS_SOFT or ev is None:
-        return []
-    need = max(float(min_edge), float(MIN_EDGE_UNDERDOG))
-    if float(ev) < need:
-        return [
-            f"underdog @{odds:.2f}: EV {float(ev):+.1%} sotto soglia {need:.0%} "
-            f"(anti-bias quote lunghe)"
-        ]
-    return []
-
-
 def no_bet_reasons(
     play: dict[str, Any],
     *,
@@ -132,10 +93,11 @@ def no_bet_reasons(
     max_odds: float = MAX_ODDS_PLAY,
     prediction: dict[str, Any] | None = None,
 ) -> list[str]:
+    """Filtri sizing/eligibility. ``prediction`` reserved for future context (unused)."""
+    _ = prediction
     reasons: list[str] = []
     odds = play.get("odds")
     ev = play.get("ev")
-    cap = effective_max_odds(prediction) if prediction is not None else max_odds
     if play.get("odds_real") is False:
         reasons.append("quota non reale: edge non misurabile")
     elif odds is None or float(odds) <= 1.01:
@@ -144,14 +106,12 @@ def no_bet_reasons(
         odds_f = float(odds)
         if odds_f < min_odds:
             reasons.append(f"quota {odds_f:.2f} sotto minimo {min_odds:.2f}")
-        elif odds_f > cap:
-            reasons.append(f"quota {odds_f:.2f} sopra massimo {cap:.2f}")
+        elif odds_f > max_odds:
+            reasons.append(f"quota {odds_f:.2f} sopra massimo {max_odds:.2f}")
         elif ev is None:
             reasons.append("EV assente")
         elif float(ev) < min_edge:
             reasons.append(f"EV {float(ev):+.1%} sotto soglia {min_edge:.0%}")
-        else:
-            reasons.extend(underdog_edge_reasons(play, min_edge=min_edge))
     prob = play.get("probability")
     if prob is not None and float(prob) < MIN_PROB_PLAY:
         reasons.append(f"probabilità {float(prob):.0%} sotto minimo {MIN_PROB_PLAY:.0%}")

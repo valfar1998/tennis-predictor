@@ -50,15 +50,17 @@ KELLY_CAP_BY_LEVEL = {
     "S": 0.008,  # ITF
 }
 # Fase 1 unlock (2026-09): EV/odds/Kelly meno aggressivi post-shrink mercato
-# 2026-10-08: anti-bias underdog — tip @2.5–4.5 hit~22–25% vs mercato~33–36%
+# 2026-10-08: non tagliare value reale su quote lunghe — correggere P via shrink
 MIN_EDGE = 0.030  # EV minimo 3% per bet / Telegram / giocabilità
 MIN_KELLY = 0.0015  # Kelly frazionato minimo (0.15% bankroll)
 MIN_ODDS_PLAY = 1.55  # fascia quote giocabili (inclusi estremi)
-MAX_ODDS_PLAY = 2.40  # era 4.50 — taglia longshot false-edge
-MAX_ODDS_LOWER_TIER = 2.15  # Challenger / ITF / UTR
-UNDERDOG_ODDS_SOFT = 2.10  # sopra: richiede EV più alto
-MIN_EDGE_UNDERDOG = 0.055  # EV minimo su underdog soft (era 3% uguale per tutti)
-MIN_PROB_PLAY = 0.42  # era 0.34 — niente tip con P modello <42%
+MAX_ODDS_PLAY = 4.50  # value @4.0 con P vera 40% deve passare; il filtro è la calibrazione
+MIN_PROB_PLAY = 0.34
+# Shrink anti-overconfidence underdog (calibrazione P, non tetto quote)
+UNDERDOG_MKT_MAX = 0.45  # p_mkt sotto soglia = lato underdog
+UNDERDOG_OVERCONF_SHRINK = 3.2  # w *= max(0.20, 1 - k*(p_model-p_mkt))
+# Edge grezzo modello−mercato sotto questa soglia su underdog = rumore → P=mercato
+UNDERDOG_EDGE_NOISE_FLOOR = 0.06  # 6 punti percentuali
 # EV: hard discard sopra questi cap; review nella fascia intermedia
 EV_SANITY_CAP = 0.28
 EV_SANITY_MAX_ODDS = 3.0

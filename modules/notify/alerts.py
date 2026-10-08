@@ -9,15 +9,7 @@ from zoneinfo import ZoneInfo
 
 from modules.notify.telegram import load_credentials, send_message, telegram_status
 
-from modules.constants import (
-    MAX_ODDS_PLAY,
-    MIN_EDGE,
-    MIN_EDGE_UNDERDOG,
-    MIN_KELLY,
-    MIN_ODDS_PLAY,
-    MIN_PROB_PLAY,
-    UNDERDOG_ODDS_SOFT,
-)
+from modules.constants import MAX_ODDS_PLAY, MIN_EDGE, MIN_KELLY, MIN_ODDS_PLAY
 
 ROOT = Path(__file__).resolve().parents[2]
 SENT = ROOT / "data" / "processed" / "telegram_alerts_sent.json"
@@ -28,28 +20,24 @@ TZ = ZoneInfo("Europe/Rome")
 
 
 def _passes_value_filters(pred: dict) -> bool:
-    """Filtri allineati a advise: quota, EV, Kelly, anti-underdog, P minima."""
-    from modules.advisor.staking import effective_max_odds
+    """Filtri minimi allineati a bet: quota MIN–MAX, EV≥MIN_EDGE, Kelly≥MIN_KELLY.
 
+    La qualità dell'edge dipende dallo shrink Bayesiano (P calibrata), non da
+    un tetto artificiale sulle quote lunghe.
+    """
     rec = pred.get("recommended") or {}
     try:
         odds = float(rec.get("odds") or 0)
         ev = float(rec.get("ev") or 0)
         # Dopo CB scale usa pre-scale se presente (sizing ≠ eleggibilità alert)
         kelly = float(rec.get("kelly_pre_cb_scale") or rec.get("kelly") or 0)
-        prob = float(rec.get("probability") or 0)
     except (TypeError, ValueError):
         return False
-    max_odds = effective_max_odds(pred)
-    if odds < MIN_ODDS_PLAY or odds > max_odds:
-        return False
-    if odds > UNDERDOG_ODDS_SOFT and ev < max(MIN_EDGE, MIN_EDGE_UNDERDOG):
+    if odds < MIN_ODDS_PLAY or odds > MAX_ODDS_PLAY:
         return False
     if ev < MIN_EDGE:
         return False
     if kelly < MIN_KELLY:
-        return False
-    if prob and prob < MIN_PROB_PLAY:
         return False
     return True
 
