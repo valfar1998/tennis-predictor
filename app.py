@@ -206,110 +206,114 @@ if _health and _health.get("summary"):
             "ON" if hs.get("circuit_breaker_active") else "off",
             border=True,
         )
-
-    roi = _health.get("roi") or {}
-    if not roi:
-        try:
-            from modules.advisor.health_report import compute_recommended_roi
-
-            roi = compute_recommended_roi()
-        except Exception:
-            roi = {}
-
-    st.caption(
-        "ROI come se avessi seguito i messaggi Telegram: "
-        "quota congelata × % Kelly (stake basso pesa meno)"
-    )
-    with st.container(horizontal=True):
-        roi_k = roi.get("roi") if roi.get("roi") is not None else roi.get("roi_kelly")
-        st.metric(
-            "ROI Kelly",
-            f"{100.0 * float(roi_k):+.1f}%" if roi_k is not None else "n/d",
-            help="Σ P&L / Σ stake — P&L = kelly×(odds−1) se hit, −kelly se miss",
-            border=True,
-        )
-        hit_rate = roi.get("hit_rate")
-        st.metric(
-            "Hit rate",
-            f"{100.0 * float(hit_rate):.0f}%" if hit_rate is not None else "n/d",
-            border=True,
-        )
-        hw = roi.get("hit_rate_weighted")
-        st.metric(
-            "Hit w-Kelly",
-            f"{100.0 * float(hw):.0f}%" if hw is not None else "n/d",
-            help="Hit rate pesato per stake Kelly del messaggio",
-            border=True,
-        )
-        st.metric("Settle", int(roi.get("n_settled") or 0), border=True)
-        st.metric(
-            "Stake tot.",
-            f"{100.0 * float(roi.get('kelly_staked') or 0):.1f}% BR",
-            help="Somma delle % Kelly dei messaggi sulle tip settle",
-            border=True,
-        )
-        st.metric(
-            "P&L",
-            f"{100.0 * float(roi.get('kelly_pnl') or 0):+.2f}% BR"
-            if roi.get("kelly_pnl") is not None
-            else "n/d",
-            border=True,
-        )
-        r7 = (roi.get("last_7d") or {}).get("roi")
-        st.metric(
-            "ROI 7g",
-            f"{100.0 * float(r7):+.1f}%" if r7 is not None else "n/d",
-            border=True,
-        )
-        r30 = (roi.get("last_30d") or {}).get("roi")
-        st.metric(
-            "ROI 30g",
-            f"{100.0 * float(r30):+.1f}%" if r30 is not None else "n/d",
-            border=True,
-        )
-
-    curve = roi.get("curve") or []
-    if curve:
-        chart_df = pd.DataFrame(
-            {
-                "ROI Kelly %": [
-                    100.0 * float(p.get("roi") if p.get("roi") is not None else p.get("roi_kelly") or 0)
-                    for p in curve
-                ],
-                "Bankroll": [float(p.get("bankroll") or 1.0) for p in curve],
-            }
-        )
-        st.line_chart(chart_df)
-        st.caption(
-            f"Seguito messaggi: stake {float(roi.get('kelly_staked') or 0):.2%} BR → "
-            f"P&L {float(roi.get('kelly_pnl') or 0):+.2%} BR | "
-            f"bankroll {float(roi.get('bankroll') or 1):.3f} | "
-            f"Kelly medio {100.0 * float(roi.get('avg_kelly') or 0):.2f}% | "
-            f"freeze quote {int(roi.get('n_odds_frozen') or 0)}/{int(roi.get('n_settled') or 0)}"
-        )
-
-    st.caption(
-        "Genera con `python main.py health` / `health --notify` (digest Telegram). "
-        f"File: `data/processed/health_report.json`. "
-        "Walk-forward: `python main.py walk-forward`."
-    )
 else:
-    st.caption("Nessun health report. Esegui `python main.py health`.")
+    st.caption("Nessun health report. Esegui `python main.py health` o «Aggiorna health».")
+
+# --- ROI Telegram (KPI stile campione / Kelly-pesato) ---
+roi: dict[str, Any] = {}
+if _health:
+    roi = _health.get("roi") or {}
+if not roi:
     try:
         from modules.advisor.health_report import compute_recommended_roi
 
         roi = compute_recommended_roi()
-        if roi.get("n_settled"):
-            rk = roi.get("roi") if roi.get("roi") is not None else roi.get("roi_kelly")
-            st.caption(
-                f"ROI Telegram Kelly (live): "
-                f"{100.0 * float(rk):+.1f}% su {roi['n_settled']} settle "
-                f"(stake {float(roi.get('kelly_staked') or 0):.2%} BR)"
-                if rk is not None
-                else f"ROI Telegram: n/d ({roi.get('n_settled')} settle)"
-            )
     except Exception:
-        pass
+        roi = {}
+
+
+def _fmt_roi_pct(val: Any) -> str:
+    if val is None:
+        return "n/d"
+    try:
+        return f"{100.0 * float(val):+.1f}%"
+    except (TypeError, ValueError):
+        return "n/d"
+
+
+def _fmt_hit_delta(val: Any) -> str | None:
+    if val is None:
+        return None
+    try:
+        return f"hit {100.0 * float(val):.0f}%"
+    except (TypeError, ValueError):
+        return None
+
+
+st.subheader("ROI tip Telegram")
+st.caption(
+    "Come se avessi seguito i messaggi: quota e % Kelly congelate. "
+    "Campione = chiuse (pending)."
+)
+
+n_settled = int(roi.get("n_settled") or 0)
+n_pending = int(roi.get("n_pending") or 0)
+roi_k = roi.get("roi") if roi.get("roi") is not None else roi.get("roi_kelly")
+hit_rate = roi.get("hit_rate")
+r7 = (roi.get("last_7d") or {}).get("roi")
+r30 = (roi.get("last_30d") or {}).get("roi")
+n7 = int((roi.get("last_7d") or {}).get("n") or 0)
+n30 = int((roi.get("last_30d") or {}).get("n") or 0)
+
+with st.container(horizontal=True):
+    st.metric(
+        "Campione ROI",
+        f"{n_settled} ({n_pending})",
+        help="Tip Telegram chiuse (pending ancora aperte)",
+        border=True,
+    )
+    st.metric(
+        "ROI Kelly-pesato",
+        _fmt_roi_pct(roi_k),
+        delta=_fmt_hit_delta(hit_rate),
+        delta_color="off",
+        help="Σ P&L / Σ stake · P&L = kelly×(odds−1) se hit, −kelly se miss",
+        border=True,
+    )
+    st.metric(
+        "P&L bankroll",
+        _fmt_roi_pct(roi.get("kelly_pnl")),
+        delta=(
+            f"stake {100.0 * float(roi.get('kelly_staked') or 0):.1f}% BR"
+            if roi.get("kelly_staked") is not None
+            else None
+        ),
+        delta_color="off",
+        help="Variazione del bankroll iniziale seguendo le % Kelly dei messaggi",
+        border=True,
+    )
+    st.metric(
+        "ROI 7g",
+        _fmt_roi_pct(r7),
+        delta=f"n={n7}" if n7 else "n=0",
+        delta_color="off",
+        border=True,
+    )
+    st.metric(
+        "ROI 30g",
+        _fmt_roi_pct(r30),
+        delta=f"n={n30}" if n30 else "n=0",
+        delta_color="off",
+        border=True,
+    )
+
+curve = roi.get("curve") or []
+if curve:
+    chart_df = pd.DataFrame(
+        {
+            "ROI Kelly %": [
+                100.0
+                * float(p.get("roi") if p.get("roi") is not None else p.get("roi_kelly") or 0)
+                for p in curve
+            ],
+        }
+    )
+    st.line_chart(chart_df, y="ROI Kelly %")
+    st.caption(
+        f"Freeze quote {int(roi.get('n_odds_frozen') or 0)}/{n_settled} · "
+        f"bankroll simulata {float(roi.get('bankroll') or 1):.3f} · "
+        f"Kelly medio {100.0 * float(roi.get('avg_kelly') or 0):.2f}%"
+    )
 
 st.divider()
 

@@ -188,7 +188,12 @@ def advise(
         kelly_info = fractional_kelly(pick["probability"], pick["odds"], cap=kelly_cap)
         pick_for_filter = {**pick, "kelly": kelly_info}
         reasons = (
-            no_bet_reasons(pick_for_filter, min_edge=min_edge, min_kelly=MIN_KELLY)
+            no_bet_reasons(
+                pick_for_filter,
+                min_edge=min_edge,
+                min_kelly=MIN_KELLY,
+                prediction=enriched,
+            )
             + uncertainty
             + steam_eroded_reasons(pick, dropping_row=dropping_row, min_edge=min_edge)
             + ev_sanity_reasons(pick, enriched)
