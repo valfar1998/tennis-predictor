@@ -144,15 +144,13 @@ def _equity_curves(*, limit: int = 500) -> dict[str, Any]:
 
 
 def compute_recommended_roi(*, limit: int = 5000) -> dict[str, Any]:
-    """ROI come se avessi seguito esattamente i messaggi Telegram.
+    """ROI come se avessi seguito i messaggi Telegram **allineati al nuovo metodo**.
 
-    Per ogni tip settle usa solo:
-    - ``odds_alert`` (quota nel messaggio)
-    - ``kelly_alert`` (percentuale di puntata nel messaggio)
-
-    Stake basso (Kelly basso) pesa meno: ROI = Σ P&L / Σ stake.
-    P&L tip = kelly × (odds−1) se hit, altrimenti −kelly.
+    Esclude tip underdog con edge grezzo ≤ noise floor (false-edge pre-calibrazione).
+    Per ogni tip settle usa solo ``odds_alert`` / ``kelly_alert`` congelati.
+    ROI = Σ P&L / Σ stake (Kelly-pesato).
     """
+    from modules.advisor.roi_policy import ROI_POLICY_LABEL, ROI_POLICY_SINCE, filter_roi_tips
     from modules.data_update.history import backfill_odds_alert_from_telegram, load_history
 
     try:
@@ -161,7 +159,7 @@ def compute_recommended_roi(*, limit: int = 5000) -> dict[str, Any]:
         backfill = {"error": str(exc)}
 
     rows = load_history(limit=limit)
-    bets = [r for r in rows if r.get("action") == "bet"]
+    bets, policy_stats = filter_roi_tips(rows)
     pending = [r for r in bets if r.get("hit") is None]
     settled = sorted(
         [r for r in bets if r.get("hit") is not None],
@@ -271,6 +269,8 @@ def compute_recommended_roi(*, limit: int = 5000) -> dict[str, Any]:
     return {
         "ok": True,
         "n_bets": len(bets),
+        "n_bets_all": policy_stats.get("n_bets_all"),
+        "n_excluded": policy_stats.get("n_excluded"),
         "n_settled": n,
         "n_pending": len(pending),
         "n_odds_frozen": n_frozen,
@@ -280,6 +280,8 @@ def compute_recommended_roi(*, limit: int = 5000) -> dict[str, Any]:
         "roi": roi,
         "roi_kelly": roi,
         "roi_flat": roi,  # alias: il ROI ufficiale è Kelly-weighted
+        "policy": ROI_POLICY_LABEL,
+        "policy_since": ROI_POLICY_SINCE,
         "pnl": round(pnl, 4) if n else None,
         "pnl_units": round(pnl, 4) if n else None,
         "kelly_staked": round(staked, 4),

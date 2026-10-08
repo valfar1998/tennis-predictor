@@ -241,9 +241,12 @@ def _fmt_hit_delta(val: Any) -> str | None:
 
 
 st.subheader("ROI tip Telegram")
+n_excl = int(roi.get("n_excluded") or 0)
+n_all = int(roi.get("n_bets_all") or 0)
 st.caption(
-    "Come se avessi seguito i messaggi: quota e % Kelly congelate. "
-    "Campione = chiuse (pending)."
+    "Solo tip allineate al metodo calibrato (no underdog false-edge). "
+    f"Escluse {n_excl}/{n_all} tip legacy. "
+    "Quota/% Kelly congelate dal messaggio. Campione = chiuse (pending)."
 )
 
 n_settled = int(roi.get("n_settled") or 0)
@@ -259,7 +262,7 @@ with st.container(horizontal=True):
     st.metric(
         "Campione ROI",
         f"{n_settled} ({n_pending})",
-        help="Tip Telegram chiuse (pending ancora aperte)",
+        help="Tip allineate al nuovo metodo: chiuse (pending). Legacy escluse dal ROI.",
         border=True,
     )
     st.metric(
