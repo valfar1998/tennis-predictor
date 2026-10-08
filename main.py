@@ -160,7 +160,63 @@ def cmd_train(args: argparse.Namespace) -> None:
 def cmd_backtest(args: argparse.Namespace) -> None:
     from modules.calibration import run_backtest
     result = run_backtest()
-    print(json.dumps(result, indent=2, default=str))
+    print(json.dumps(result, indent=2, ensure_ascii=False))
+
+
+def cmd_walk_forward(args: argparse.Namespace) -> None:
+    """Walk-forward OOF con soglie Fase 1/2 (drift superficie / Elo)."""
+    from modules.calibration.walk_forward import format_walk_forward_banner, run_walk_forward
+
+    report = run_walk_forward(
+        n_windows=int(getattr(args, "windows", 5) or 5),
+        also_phase2_floor=not bool(getattr(args, "no_phase2", False)),
+    )
+    print(format_walk_forward_banner(report))
+    if not report.get("ok"):
+        print(json.dumps(report, indent=2, ensure_ascii=False))
+        return
+    print("Drift flags:", report.get("drift_flags") or ["none"])
+    print(json.dumps(report.get("full_sample") or {}, indent=2, ensure_ascii=False))
+    for w in report.get("windows") or []:
+        m = w.get("metrics") or {}
+        print(
+            f"  {w.get('label')}: n={m.get('n_bets')} ROI={m.get('roi')} "
+            f"hit={m.get('hit_rate')} DD={m.get('max_drawdown')}"
+        )
+    print("Report: data/processed/walk_forward_report.json")
+
+
+def cmd_health(args: argparse.Namespace) -> None:
+    """Report salute: volume bet, Telegram, BCR/close, fase 2 edge."""
+    from modules.advisor.health_report import build_health_report, format_health_banner
+
+    report = build_health_report(
+        days=int(getattr(args, "days", 14) or 14),
+        refresh_metrics=bool(getattr(args, "refresh_metrics", False)),
+    )
+    print(format_health_banner(report))
+    print(json.dumps(report.get("summary") or {}, indent=2, ensure_ascii=False))
+    print("Report: data/processed/health_report.json")
+    if getattr(args, "notify", False):
+        from modules.notify.alerts import dispatch_daily_digest
+
+        dig = dispatch_daily_digest(
+            dry_run=bool(getattr(args, "dry_run", False)),
+            force=bool(getattr(args, "force_digest", False)),
+        )
+        print("Digest:", json.dumps(dig, indent=2, ensure_ascii=False, default=str))
+
+
+def cmd_maintain_history(args: argparse.Namespace) -> None:
+    """Archivia settle vecchi + WAL checkpoint / VACUUM su our_history.sqlite."""
+    from modules.data_update.history import maintain_history
+
+    out = maintain_history(
+        retain_days=getattr(args, "retain_days", None),
+        vacuum=not bool(getattr(args, "no_vacuum", False)),
+        archive=not bool(getattr(args, "no_archive", False)),
+    )
+    print(json.dumps(out, indent=2, ensure_ascii=False, default=str))
 
 
 def cmd_scrape_oddsportal(args: argparse.Namespace) -> None:
@@ -224,19 +280,6 @@ def cmd_metrics(args: argparse.Namespace) -> None:
             f"(shadow={pipe.get('n_shadow')})"
         )
     print(f"Report: data/processed/live_metrics.json")
-
-
-def cmd_health(args: argparse.Namespace) -> None:
-    """Report salute: volume bet, Telegram, BCR/close, fase 2 edge."""
-    from modules.advisor.health_report import build_health_report, format_health_banner
-
-    report = build_health_report(
-        days=int(getattr(args, "days", 14) or 14),
-        refresh_metrics=bool(getattr(args, "refresh_metrics", False)),
-    )
-    print(format_health_banner(report))
-    print(json.dumps(report.get("summary") or {}, indent=2, ensure_ascii=False))
-    print("Report: data/processed/health_report.json")
 
 
 def cmd_predict(args: argparse.Namespace) -> None:
@@ -317,6 +360,18 @@ def main() -> None:
     sub.add_parser("train", help="Training XGBoost").set_defaults(func=cmd_train)
     sub.add_parser("backtest", help="Backtest su OOF").set_defaults(func=cmd_backtest)
 
+    p_wf = sub.add_parser(
+        "walk-forward",
+        help="Walk-forward OOF con soglie Fase 1/2 (ROI/drift superficie-Elo)",
+    )
+    p_wf.add_argument("--windows", type=int, default=5, help="Numero finestre temporali")
+    p_wf.add_argument(
+        "--no-phase2",
+        action="store_true",
+        help="Non confrontare anche PHASE2_EDGE_FLOOR (2.5%)",
+    )
+    p_wf.set_defaults(func=cmd_walk_forward)
+
     p_pred = sub.add_parser("predict", help="Genera predizioni upcoming")
     p_pred.add_argument("--notify", action="store_true", help="Invia alert Telegram")
     p_pred.add_argument("--metrics", action="store_true", help="Stampa BCR/slippage dopo predict")
@@ -346,7 +401,32 @@ def main() -> None:
         action="store_true",
         help="Ricalcola live_metrics prima del report",
     )
+    p_health.add_argument(
+        "--notify",
+        action="store_true",
+        help="Invia digest Telegram giornaliero (max 1/giorno)",
+    )
+    p_health.add_argument("--dry-run", action="store_true", help="Stampa digest senza inviare")
+    p_health.add_argument(
+        "--force-digest",
+        action="store_true",
+        help="Reinvia digest anche se già inviato oggi",
+    )
     p_health.set_defaults(func=cmd_health)
+
+    p_maint = sub.add_parser(
+        "maintain-history",
+        help="Archivia settle vecchi + WAL/VACUUM su our_history.sqlite",
+    )
+    p_maint.add_argument(
+        "--retain-days",
+        type=int,
+        default=None,
+        help="Giorni di settle da tenere nel DB operativo (default HISTORY_RETAIN_DAYS)",
+    )
+    p_maint.add_argument("--no-vacuum", action="store_true")
+    p_maint.add_argument("--no-archive", action="store_true", help="Solo checkpoint/WAL, no move")
+    p_maint.set_defaults(func=cmd_maintain_history)
 
     p_op = sub.add_parser("scrape-oddsportal", help="Scrape quote chiusura OddsPortal (Playwright)")
     p_op.add_argument("--max-matches", type=int, default=80)

@@ -40,6 +40,11 @@ Fonti dati esterne integrate / referenziate (cartelle in `lib/`):
 - **BCR / closes (Fase 2)**: `fetch_close_by_market_id` non paralizza le metriche se auth Betfair degradata (fallback prematch/LTP taggato `auth_degraded`); shadow bet ricevono closes via `ensure_shadow_closes`
 - **ITF anti-FP (Fase 2)**: densità dati baseline **12** su ITF; EV sanity più stretto (cap low **22%**); ATP/Masters restano più flessibili
 - **Health report**: `python main.py health` / pannello Streamlit «Salute modello» → volume bet, Telegram, BCR, edge Fase 2
+- **Fase 3 (bankroll / automazione)**:
+  - Cap esposizione giornaliera totale **10%** BR + player-day **3%** + moltiplicatori correlazione/fatica/superficie (`apply_portfolio_risk_limits`)
+  - `python main.py walk-forward` — validazione OOF anti-drift
+  - `python main.py health --notify` — digest Telegram (volume, stake, CB, CLV)
+  - `python main.py maintain-history` — archive settle vecchi + WAL/VACUUM
 - **Ranking pick**: Kelly-adjusted / Sharpe-like (`odds_sharpe`), **non** EV grezzo
 - **Sanity EV**: hard discard se EV > **30%** (quote ≤3, ATP/Masters) o > **25%** (quote lunghe); su **ITF** cap più basso (≈22–24%); fascia **>20%** → `action: review` (no alert auto)
 - Regole ritiro: matrice per bookmaker (1-ball, 1-set, full void) + **sotto-modello P(ritiro)** (`retirement_risk.py`) che modula EV/Kelly

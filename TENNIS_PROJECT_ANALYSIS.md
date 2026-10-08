@@ -430,6 +430,16 @@ La via corretta non è “togliere i filtri”, ma **ribilanciare esecuzione** (
 | ITF anti-FP | densità baseline 12, EV sanity ITF più stretto; ATP/Masters più flessibile |
 | Health | `python main.py health` → `data/processed/health_report.json` + pannello Streamlit |
 
+### Aggiornamento operativo — Fase 3 (2026-09-29)
+
+| Area | Cosa |
+|------|------|
+| Portfolio risk | Cap day **10%** BR, player-day **3%**, scale corr/fatica/superficie |
+| Walk-forward | `python main.py walk-forward` → `walk_forward_report.json` |
+| Digest TG | `python main.py health --notify` |
+| History ops | WAL + `maintain-history` → archive settle >730g |
+| UI | Equity bet vs shadow in Salute modello |
+
 ---
 
-*Documento generato da analisi statica + audit (2026-09-29). Fase 1 e Fase 2 applicate sul codice.*
+*Documento generato da analisi statica + audit (2026-09-29). Fasi 1–3 applicate sul codice.*

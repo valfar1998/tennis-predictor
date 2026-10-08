@@ -13,13 +13,13 @@
     "drawdown_pct": 0.2
   },
   "metrics_from": "2026-09-29",
-  "bankroll": 1.0,
+  "bankroll": 0.9563,
   "peak": 1.0,
-  "max_drawdown": 0.0,
-  "current_drawdown": 0.0,
-  "streak_loss_units": 0.0,
-  "max_streak_loss_units": 0.0,
-  "consecutive_losses": 0,
-  "n_settled": 0,
-  "updated_at": "2026-09-29T07:01:52.436282+00:00"
+  "max_drawdown": 0.0437,
+  "current_drawdown": 0.0437,
+  "streak_loss_units": 4.37,
+  "max_streak_loss_units": 4.37,
+  "consecutive_losses": 7,
+  "n_settled": 7,
+  "updated_at": "2026-10-08T09:14:39.227709+00:00"
 }

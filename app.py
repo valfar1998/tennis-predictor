@@ -380,8 +380,9 @@ with tab_cal:
         st.caption(
             "**Giocabilità 0–100**: value/EV penalizzato da varianza quota, accordo modelli/consenso, "
             "Kelly-adjusted, qualità mercato, Moneyway e dropping (assenti ≠ neutro 0.50). "
-            f"Filtri bet/Telegram (Fase 1): quota {MIN_ODDS_PLAY:.2f}–{MAX_ODDS_PLAY:.2f}, "
-            f"EV≥{MIN_EDGE:.0%}, Kelly≥{MIN_KELLY:.2%}; "
+            f"Filtri bet/Telegram: quota {MIN_ODDS_PLAY:.2f}–{MAX_ODDS_PLAY:.2f} "
+            f"(Challenger/ITF max 2.15), EV≥{MIN_EDGE:.0%} "
+            f"(underdog≥2.10 → EV≥5.5%), Kelly≥{MIN_KELLY:.2%}; "
             f"Telegram su ogni `action=bet` che passa i filtri (play floor {MIN_PLAY_ALERT}). "
             "EV >20% → review; EV >25–30% → scarto. "
             "Pick/Quota/EV/KellyAdj sono compilati anche su `no_bet` (previsione, non scommessa)."

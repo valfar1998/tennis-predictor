@@ -340,5 +340,329 @@
     "lon": -122.45664,
     "name": "Belvedere Tiburon",
     "country": "United States"
+  },
+  "tokyo": {
+    "lat": 35.6895,
+    "lon": 139.69171,
+    "name": "Tokyo",
+    "country": "Japan"
+  },
+  "maanshan": {
+    "lat": 32.66166,
+    "lon": 107.73792,
+    "name": "Maanshan",
+    "country": "China"
+  },
+  "jingshan": {
+    "lat": 39.92528,
+    "lon": 116.40411,
+    "name": "Jingshan",
+    "country": "China"
+  },
+  "beijing": {
+    "lat": 39.9075,
+    "lon": 116.39723,
+    "name": "Beijing",
+    "country": "China"
+  },
+  "slobozia": {
+    "lat": 44.5647,
+    "lon": 27.3633,
+    "name": "Slobozia",
+    "country": "Romania"
+  },
+  "sheikh": {
+    "lat": 24.5793,
+    "lon": 67.63952,
+    "name": "Goth Nasir Bakhsh Baloch",
+    "country": "Pakistan"
+  },
+  "luan": {
+    "lat": -8.83682,
+    "lon": 13.23432,
+    "name": "Luanda",
+    "country": "Angola"
+  },
+  "varna": {
+    "lat": 43.21912,
+    "lon": 27.91024,
+    "name": "Varna",
+    "country": "Bulgaria"
+  },
+  "darwin": {
+    "lat": -12.46113,
+    "lon": 130.84184,
+    "name": "Darwin",
+    "country": "Australia"
+  },
+  "baku": {
+    "lat": 40.37767,
+    "lon": 49.89201,
+    "name": "Baku",
+    "country": "Azerbaijan"
+  },
+  "reims": {
+    "lat": 49.26526,
+    "lon": 4.02853,
+    "name": "Reims",
+    "country": "France"
+  },
+  "bari": {
+    "lat": 41.12066,
+    "lon": 16.86982,
+    "name": "Bari",
+    "country": "Italy"
+  },
+  "kigali": {
+    "lat": -1.94995,
+    "lon": 30.05885,
+    "name": "Kigali",
+    "country": "Rwanda"
+  },
+  "sibenik": {
+    "lat": 43.73429,
+    "lon": 15.8942,
+    "name": "Šibenik",
+    "country": "Croatia"
+  },
+  "adana": {
+    "lat": 36.98615,
+    "lon": 35.32531,
+    "name": "Adana",
+    "country": "Republic of Türkiye"
+  },
+  "porto": {
+    "lat": 41.1485,
+    "lon": -8.61097,
+    "name": "Porto",
+    "country": "Portugal"
+  },
+  "baza": {
+    "lat": 37.49073,
+    "lon": -2.77259,
+    "name": "Baza",
+    "country": "Spain"
+  },
+  "lago": {
+    "lat": 6.45407,
+    "lon": 3.39467,
+    "name": "Lagos",
+    "country": "Nigeria"
+  },
+  "zaragoza": {
+    "lat": 41.65606,
+    "lon": -0.87734,
+    "name": "Zaragoza",
+    "country": "Spain"
+  },
+  "chengdu": {
+    "lat": 30.66667,
+    "lon": 104.06667,
+    "name": "Chengdu",
+    "country": "China"
+  },
+  "hangzhou": {
+    "lat": 30.29365,
+    "lon": 120.16142,
+    "name": "Hangzhou",
+    "country": "China"
+  },
+  "arbor": {
+    "lat": 56.5481,
+    "lon": 50.2135,
+    "name": "Arbor",
+    "country": "Russia"
+  },
+  "lincoln": {
+    "lat": 40.8,
+    "lon": -96.66696,
+    "name": "Lincoln",
+    "country": "United States"
+  },
+  "trelew": {
+    "lat": -43.24895,
+    "lon": -65.30505,
+    "name": "Trelew",
+    "country": "Argentina"
+  },
+  "columbus": {
+    "lat": 39.96118,
+    "lon": -82.99879,
+    "name": "Columbus",
+    "country": "United States"
+  },
+  "fayetteville": {
+    "lat": 35.05266,
+    "lon": -78.87836,
+    "name": "Fayetteville",
+    "country": "United States"
+  },
+  "templeton": {
+    "lat": 35.54969,
+    "lon": -120.706,
+    "name": "Templeton",
+    "country": "United States"
+  },
+  "saitama": {
+    "lat": 35.90807,
+    "lon": 139.65657,
+    "name": "Saitama",
+    "country": "Japan"
+  },
+  "wagga": {
+    "lat": 16.1525,
+    "lon": 36.2032,
+    "name": "Wagar",
+    "country": "Sudan"
+  },
+  "fra": {
+    "lat": 50.11552,
+    "lon": 8.68417,
+    "name": "Frankfurt am Main",
+    "country": "Germany"
+  },
+  "usa": {
+    "lat": 38.67351,
+    "lon": 29.4058,
+    "name": "Uşak",
+    "country": "Republic of Türkiye"
+  },
+  "ithaca": {
+    "lat": 42.44063,
+    "lon": -76.49661,
+    "name": "Ithaca",
+    "country": "United States"
+  },
+  "suzhou": {
+    "lat": 33.63611,
+    "lon": 116.97889,
+    "name": "Suzhou",
+    "country": "China"
+  },
+  "burgas": {
+    "lat": 42.50651,
+    "lon": 27.46886,
+    "name": "Burgas",
+    "country": "Bulgaria"
+  },
+  "heraklion": {
+    "lat": 35.32787,
+    "lon": 25.14341,
+    "name": "Heraklion",
+    "country": "Greece"
+  },
+  "braga": {
+    "lat": 41.5514,
+    "lon": -8.42311,
+    "name": "Braga",
+    "country": "Portugal"
+  },
+  "palermo": {
+    "lat": 38.1166,
+    "lon": 13.3636,
+    "name": "Palermo",
+    "country": "Italy"
+  },
+  "samsun": {
+    "lat": 41.27976,
+    "lon": 36.3361,
+    "name": "Samsun",
+    "country": "Republic of Türkiye"
+  },
+  "villena": {
+    "lat": 38.6373,
+    "lon": -0.86568,
+    "name": "Villena",
+    "country": "Spain"
+  },
+  "antofagasta": {
+    "lat": -23.65094,
+    "lon": -70.39752,
+    "name": "Antofagasta",
+    "country": "Chile"
+  },
+  "gre": {
+    "lat": 38.89227,
+    "lon": -89.41314,
+    "name": "Greenville",
+    "country": "United States"
+  },
+  "chisinau": {
+    "lat": 47.00902,
+    "lon": 28.85938,
+    "name": "Chișinău",
+    "country": "Moldova"
+  },
+  "rodez": {
+    "lat": 44.35258,
+    "lon": 2.57338,
+    "name": "Rodez",
+    "country": "France"
+  },
+  "serbia": {
+    "lat": 44.81892,
+    "lon": 20.45998,
+    "name": "Serbia",
+    "country": "Serbia"
+  },
+  "pontevedra": {
+    "lat": 42.431,
+    "lon": -8.64435,
+    "name": "Pontevedra",
+    "country": "Spain"
+  },
+  "cipolletti": {
+    "lat": -38.93392,
+    "lon": -67.99032,
+    "name": "Cipolletti",
+    "country": "Argentina"
+  },
+  "diego": {
+    "lat": 13.72928,
+    "lon": -7.13599,
+    "name": "Diègo",
+    "country": "Mali"
+  },
+  "islamabad": {
+    "lat": 33.72148,
+    "lon": 73.04329,
+    "name": "Islamabad",
+    "country": "Pakistan"
+  },
+  "szekesfehervar": {
+    "lat": 47.18995,
+    "lon": 18.41034,
+    "name": "Székesfehérvár",
+    "country": "Hungary"
+  },
+  "raton": {
+    "lat": 36.90336,
+    "lon": -104.43915,
+    "name": "Raton",
+    "country": "United States"
+  },
+  "quito": {
+    "lat": -0.22985,
+    "lon": -78.52495,
+    "name": "Quito",
+    "country": "Ecuador"
+  },
+  "vegas": {
+    "lat": -11.41734,
+    "lon": -75.90398,
+    "name": "Vegas",
+    "country": "Peru"
+  },
+  "bul": {
+    "lat": -7.2036,
+    "lon": 146.64014,
+    "name": "Bulolo",
+    "country": "Papua New Guinea"
+  },
+  "cordoba": {
+    "lat": -31.40648,
+    "lon": -64.18853,
+    "name": "Córdoba",
+    "country": "Argentina"
   }
 }

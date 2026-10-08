@@ -11,12 +11,15 @@ from modules.constants import (
     CIRCUIT_BREAKER_KELLY_SCALE,
     CIRCUIT_BREAKER_METRICS_FROM,
     CIRCUIT_BREAKER_MIN_EDGE,
+    DAILY_BANKROLL_CAP,
     DAILY_EXPOSURE_CAP,
     DAILY_EXPOSURE_MIN_BETS,
     DRAWDOWN_BREAKER_PCT,
     KELLY_CAP,
     KELLY_CAP_BY_LEVEL,
     MIN_EDGE,
+    PLAYER_DAY_EXPOSURE_CAP,
+    PLAYER_DAY_MIN_BETS,
     STREAK_LOSS_UNITS,
     UNIT_SIZE,
 )
@@ -255,11 +258,209 @@ def apply_daily_exposure_limits(predictions: list[dict[str, Any]]) -> list[dict[
         for i in indices:
             rec = predictions[i]["recommended"]
             old_k = float(rec["kelly"])
+            if rec.get("kelly_pre_scale") is None:
+                rec["kelly_pre_scale"] = old_k
             rec["kelly"] = round(old_k * scale, 4)
-            rec["kelly_pre_scale"] = old_k
             meta = predictions[i].setdefault("risk_controls", {})
             meta["daily_exposure_scaled"] = True
             meta["daily_exposure_scale"] = round(scale, 4)
             meta["daily_exposure_group"] = {"date": day, "tourney": tourney, "n_bets": len(indices)}
 
+    return predictions
+
+
+def _bet_indices(predictions: list[dict[str, Any]]) -> list[int]:
+    out: list[int] = []
+    for idx, pred in enumerate(predictions):
+        if pred.get("action") != "bet":
+            continue
+        rec = pred.get("recommended")
+        if not rec or float(rec.get("kelly") or 0) <= 0:
+            continue
+        out.append(idx)
+    return out
+
+
+def _pick_player(pred: dict[str, Any]) -> str:
+    rec = pred.get("recommended") or {}
+    return str(rec.get("player") or "").strip().lower()
+
+
+def _fatigue_7d(pred: dict[str, Any]) -> float:
+    """Minuti di gioco ~7d sul lato pick (live_features / retirement_context)."""
+    feats = pred.get("live_features") or pred.get("features") or {}
+    ctx = pred.get("retirement_context") or {}
+    pick = _pick_player(pred)
+    pa = str(pred.get("player_a") or "").strip().lower()
+    if pick and pa and pick == pa:
+        v = feats.get("fatigue_minutes_7d_a")
+    else:
+        v = feats.get("fatigue_minutes_7d_b")
+    if v is None:
+        v = ctx.get("fatigue_minutes_72h")
+        if v is not None:
+            return float(v) / 3.0
+    try:
+        return float(v or 0.0)
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def apply_daily_bankroll_cap(predictions: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Cap esposizione totale giornaliera (tutti i tornei) → % bankroll.
+
+    Evita giornate Masters/Slam con troppi match in parallelo che prosciugano il bankroll.
+    """
+    from collections import defaultdict
+
+    from modules.advisor.staking import scale_to_cap
+
+    by_day: dict[str, list[int]] = defaultdict(list)
+    for idx in _bet_indices(predictions):
+        day = str(predictions[idx].get("date") or "")[:10]
+        if day:
+            by_day[day].append(idx)
+
+    for day, indices in by_day.items():
+        total = sum(float(predictions[i]["recommended"]["kelly"]) for i in indices)
+        scale = scale_to_cap(total, DAILY_BANKROLL_CAP)
+        if scale >= 0.999:
+            continue
+        for i in indices:
+            rec = predictions[i]["recommended"]
+            old_k = float(rec["kelly"])
+            if rec.get("kelly_pre_bankroll_cap") is None:
+                rec["kelly_pre_bankroll_cap"] = old_k
+            rec["kelly"] = round(old_k * scale, 4)
+            meta = predictions[i].setdefault("risk_controls", {})
+            meta["daily_bankroll_capped"] = True
+            meta["daily_bankroll_scale"] = round(scale, 4)
+            meta["daily_bankroll_total_pre"] = round(total, 4)
+            meta["daily_bankroll_cap"] = DAILY_BANKROLL_CAP
+            meta["daily_bankroll_day"] = day
+    return predictions
+
+
+def apply_player_exposure_limits(predictions: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Cap stake sullo stesso giocatore nello stesso giorno (+ open unsettled in history)."""
+    from collections import defaultdict
+
+    from modules.advisor.staking import scale_to_cap
+
+    # Open exposure from history (unsettled bet sullo stesso player/day)
+    open_by_key: dict[tuple[str, str], float] = defaultdict(float)
+    try:
+        from modules.data_update.history import load_history
+
+        for row in load_history(limit=800):
+            if row.get("action") != "bet" or row.get("hit") is not None:
+                continue
+            day = str(row.get("date") or "")[:10]
+            pick = str(row.get("pick") or "").strip().lower()
+            if day and pick:
+                open_by_key[(day, pick)] += float(row.get("kelly") or 0.0)
+    except Exception:
+        pass
+
+    groups: dict[tuple[str, str], list[int]] = defaultdict(list)
+    for idx in _bet_indices(predictions):
+        pred = predictions[idx]
+        day = str(pred.get("date") or "")[:10]
+        pick = _pick_player(pred)
+        if day and pick:
+            groups[(day, pick)].append(idx)
+
+    for (day, pick), indices in groups.items():
+        if len(indices) < PLAYER_DAY_MIN_BETS and open_by_key.get((day, pick), 0) <= 0:
+            # Singola tip senza open history: ok fino al soft corr multiplier
+            slate = sum(float(predictions[i]["recommended"]["kelly"]) for i in indices)
+            prior = open_by_key.get((day, pick), 0.0)
+            if slate + prior <= PLAYER_DAY_EXPOSURE_CAP:
+                continue
+
+        slate = sum(float(predictions[i]["recommended"]["kelly"]) for i in indices)
+        prior = open_by_key.get((day, pick), 0.0)
+        room = max(0.0, PLAYER_DAY_EXPOSURE_CAP - prior)
+        scale = scale_to_cap(slate, room if room > 0 else 1e-9)
+        if scale >= 0.999:
+            continue
+        for i in indices:
+            rec = predictions[i]["recommended"]
+            old_k = float(rec["kelly"])
+            if rec.get("kelly_pre_player_cap") is None:
+                rec["kelly_pre_player_cap"] = old_k
+            rec["kelly"] = round(old_k * scale, 4)
+            meta = predictions[i].setdefault("risk_controls", {})
+            meta["player_exposure_scaled"] = True
+            meta["player_exposure_scale"] = round(scale, 4)
+            meta["player_exposure_group"] = {
+                "date": day,
+                "player": pick,
+                "n_bets": len(indices),
+                "open_prior": round(prior, 4),
+            }
+    return predictions
+
+
+def apply_correlation_kelly_scales(predictions: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Moltiplicatori Kelly per correlazione torneo / superficie / stanchezza."""
+    from collections import defaultdict
+
+    from modules.advisor.staking import correlation_kelly_multiplier
+
+    # Precompute group stakes
+    tourney_stake: dict[tuple[str, str], float] = defaultdict(float)
+    surface_n: dict[tuple[str, str], int] = defaultdict(int)
+    player_stake: dict[tuple[str, str], float] = defaultdict(float)
+
+    for idx in _bet_indices(predictions):
+        pred = predictions[idx]
+        day = str(pred.get("date") or "")[:10]
+        tourney = str(pred.get("tourney") or "").strip().lower()
+        surface = str(pred.get("surface") or "").strip().lower()
+        pick = _pick_player(pred)
+        k = float(pred["recommended"]["kelly"])
+        if day and tourney:
+            tourney_stake[(day, tourney)] += k
+        if day and surface:
+            surface_n[(day, surface)] += 1
+        if day and pick:
+            player_stake[(day, pick)] += k
+
+    for idx in _bet_indices(predictions):
+        pred = predictions[idx]
+        rec = pred["recommended"]
+        day = str(pred.get("date") or "")[:10]
+        tourney = str(pred.get("tourney") or "").strip().lower()
+        surface = str(pred.get("surface") or "").strip().lower()
+        pick = _pick_player(pred)
+        scale, reasons = correlation_kelly_multiplier(
+            same_player_day_stake=player_stake.get((day, pick), 0.0),
+            same_tourney_day_stake=tourney_stake.get((day, tourney), 0.0),
+            same_surface_day_n=surface_n.get((day, surface), 0),
+            fatigue_minutes_7d=_fatigue_7d(pred),
+        )
+        if scale >= 0.999 or not reasons:
+            continue
+        old_k = float(rec["kelly"])
+        if rec.get("kelly_pre_corr_scale") is None:
+            rec["kelly_pre_corr_scale"] = old_k
+        rec["kelly"] = round(old_k * scale, 4)
+        meta = pred.setdefault("risk_controls", {})
+        meta["correlation_scaled"] = True
+        meta["correlation_scale"] = scale
+        meta["correlation_reasons"] = reasons
+    return predictions
+
+
+def apply_portfolio_risk_limits(predictions: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Pipeline Fase 3: tourney cluster → bankroll day → player → correlazione/fatica.
+
+    Ordine: prima i large-group hard caps, poi soft multipliers.
+    Non modifica action / MIN_EDGE.
+    """
+    predictions = apply_daily_exposure_limits(predictions)
+    predictions = apply_daily_bankroll_cap(predictions)
+    predictions = apply_player_exposure_limits(predictions)
+    predictions = apply_correlation_kelly_scales(predictions)
     return predictions

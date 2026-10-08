@@ -941,7 +941,7 @@ def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[di
 
     from modules.advisor.risk_controls import (
         apply_circuit_breaker_kelly_scale,
-        apply_daily_exposure_limits,
+        apply_portfolio_risk_limits,
         get_risk_context,
     )
 
@@ -1018,12 +1018,14 @@ def build_upcoming(*, days_ahead: int = 14, use_betfair: bool = True) -> list[di
         predictions,
         kelly_scale=float(risk_ctx.get("kelly_scale") or 1.0),
     )
-    predictions = apply_daily_exposure_limits(predictions)
+    # Fase 3: bankroll day + player + correlazione/fatica (wrapping daily tourney)
+    predictions = apply_portfolio_risk_limits(predictions)
     for pred in predictions:
         pred["risk_session"] = {
             "min_edge": min_edge,
             "circuit_breaker": risk_ctx["circuit_breaker"]["active"],
             "kelly_scale": float(risk_ctx.get("kelly_scale") or 1.0),
+            "daily_bankroll_cap": True,
         }
 
     from modules.data_update.calendar_utils import normalize_predictions_calendar
