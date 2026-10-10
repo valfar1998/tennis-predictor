@@ -13776,26 +13776,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.153,
-      "category": "retirement",
-      "headline": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - WTA Tennis",
-      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQR0NSRExJNENyVmFBaGpNYi15alo3SV9MTzg4Uk40a1Y1WEREM0gwOU9JQ3ljRnRlbjltWFB0cDRzNjJ2WW1PQzNadzlIb1RhalJxLXZwaHJVYW9VaVh5Y3JVb2xSTnllcG8tMi02My1kV3I1RzJEMVRTaDNXZWN5N1hvdDBQR09aWEp1TTlheV94RzB2a3lMemZ4ZWhuc0MwTlBkYkFDbU1GX29ybGc?oc=5",
-      "source": "gnews_injury_en",
-      "severity": 0.85,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - WTA Tennis",
-          "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQR0NSRExJNENyVmFBaGpNYi15alo3SV9MTzg4Uk40a1Y1WEREM0gwOU9JQ3ljRnRlbjltWFB0cDRzNjJ2WW1PQzNadzlIb1RhalJxLXZwaHJVYW9VaVh5Y3JVb2xSTnllcG8tMi02My1kV3I1RzJEMVRTaDNXZWN5N1hvdDBQR09aWEp1TTlheV94RzB2a3lMemZ4ZWhuc0MwTlBkYkFDbU1GX29ybGc?oc=5",
-          "source": "gnews_injury_en",
-          "category": "retirement",
-          "severity": 0.85,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -13818,31 +13805,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.153,
-        "category": "retirement",
-        "headline": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - WTA Tennis",
-        "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQR0NSRExJNENyVmFBaGpNYi15alo3SV9MTzg4Uk40a1Y1WEREM0gwOU9JQ3ljRnRlbjltWFB0cDRzNjJ2WW1PQzNadzlIb1RhalJxLXZwaHJVYW9VaVh5Y3JVb2xSTnllcG8tMi02My1kV3I1RzJEMVRTaDNXZWN5N1hvdDBQR09aWEp1TTlheV94RzB2a3lMemZ4ZWhuc0MwTlBkYkFDbU1GX29ybGc?oc=5",
-        "source": "gnews_injury_en",
-        "severity": 0.85,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - WTA Tennis",
-            "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQR0NSRExJNENyVmFBaGpNYi15alo3SV9MTzg4Uk40a1Y1WEREM0gwOU9JQ3ljRnRlbjltWFB0cDRzNjJ2WW1PQzNadzlIb1RhalJxLXZwaHJVYW9VaVh5Y3JVb2xSTnllcG8tMi02My1kV3I1RzJEMVRTaDNXZWN5N1hvdDBQR09aWEp1TTlheV94RzB2a3lMemZ4ZWhuc0MwTlBkYkFDbU1GX29ybGc?oc=5",
-            "source": "gnews_injury_en",
-            "category": "retirement",
-            "severity": 0.85,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Sun, 16, upsets Bucsa in Beijing; Zheng advances after Kalinskaya retires - WTA Tennis",
-      "category": "retirement"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
