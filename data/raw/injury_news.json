@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "fetched_at": "2026-10-10T19:59:37.735297+00:00",
+  "fetched_at": "2026-10-11T10:26:22.567801+00:00",
   "n_items": 50,
   "n_raw": 130,
   "errors": [
@@ -51,8 +51,8 @@
       "severity": 0.95
     },
     {
-      "title": "Ben Shelton makes comment about the tennis schedule after being forced to withdraw from the Japan Open - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQbUZVZXB6YUZURnc1Sk1xRGhBRmxnajBITjVmY0JYTGRPbFRDcE5Tc3FCcERfRkxiMmhhZFE0c3lGSXhNM3dRUUpKWE9HVnRZRUswdmJuZjd4M1ZHZ2Radk9qcFpWZnlFMDNmWDBiS1h3U2JYb0NMc1NubFF2RDdOZWR3dzd3TVlCanc?oc=5",
+      "title": "Coco Gauff withdraws from WTA event hours after losing to Elise Mertens in Beijing, ‘I’m disappointed’ - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQd0JFYkF2LTdjdXNjeFhYaGMzYXhybWZPam5ZYjcwMkgzbDFzdHNILWs0Y0ZfRDhOMHFVNk5NMUFtd1VRdGE3OV9RbFI1bG8ySnk2UVprb2RBOFpEaTZlUlM4UUMwMzV5Nl9lVDFnT3ZHSW5oTWU4dUliUFhJbHU0U1FyZXo5UQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -101,6 +101,16 @@
       "severity": 0.92
     },
     {
+      "title": "Djokovic vince l'Atp Pechino, il suo 102° titolo: De Minaur costretto al ritiro - Corriere della Sera",
+      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQT2JpaFp6cDdhYzlIX21UTHlZbkxzU2VtbnBQTHYzREtTSjRoT1dVS0tpQWptQko4TV9fQlZJOU51RXlwV3cxOThJVWZCQlQxUk9sLUJDRGlpSkdVWmRFcUU0U194WUNtdWI2V2hqMFpkOUpIQkEzbjZZOV94VU1ONzhWcEF5RjB6dzZLcndyN21yb2JBMGxNVGxaeWFwV3BNOGZFdmNLN2Vual9GTUFvRWg4Mlg1MHNkZEJkbkJIQ3NHczZ5WFVpaFFXSVJJdzTSAdQBQVVfeXFMTlkzSmFhMjUzR01WTDRZdXdYY1FKcDdtaktBOWFUUGpDNzBQUTVpM1JTSXZ0c0lIR1hxUkJLODFiWjZtcDhWNHN3R2pUbG1IWE5aa29QSmgtZG5MZEdVay1PYnFzaXVzRjB0M3VTZFBESHMyU0dTTFRGTmF6ZV9aVlNuMVJoM2hTU0gtM1lCS3g4TzU4dmRNTHV3MzRKUEsyRmNKS3RwSE9ycjlnM1ozUnpoTXEwcGtTMWNZQndRWHhGbUhiblFWaDN0SjlIX0dNNU1UOU0?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.92
+    },
+    {
       "title": "'I kept fighting right to the end' - emotional Nishikori retires",
       "link": "https://www.bbc.co.uk/sport/tennis/articles/cwe8e81n3egeo?at_medium=RSS&at_campaign=rss",
       "summary": "",
@@ -141,16 +151,6 @@
       "severity": 0.85
     },
     {
-      "title": "Novak Djokovic wins China Open, 102nd career title, after Alex de Minaur retires injured - The New York Times",
-      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQYjJ5dTdJVE96WnFsY2F0MDRwamhpeHA0bXhwUUd3eWdlOWhlOEI1eGFIYnV3T2h4Ri1GUVNmallSQ0UyYTJmczB3aUg2VXFZYkw4NGltZV9mSjlhVFV4UkNDOFRGLWloOTBPcXRVZVBUU1R1aFBhVElXZEhSVEE5cWZlcDZFWGluUDhRMkNBV2pZY3Vlb0NUYjJXR2JUbkRzZlNDeQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "retirement",
-      "severity": 0.85
-    },
-    {
       "title": "Djokovic wins 7th China Open title after injured De Minaur retires - ESPN",
       "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNTDVidHo4QXNYNk5uRFY3RDJLeHZXdzZBU3Z3Y2JxRmFiZEhtQko5VUc5SHdYeUxDSHlJN0tOdUQwRDhMS3BNQ1pvSlFkUHRtMGFZQkJFVC03V2l4VVJlTjlfR1BKUS1haVlkN3JTeHp1bnhidGNoeXc0T3pEdWZNTXMyYkFVYTAxQ3RhV2dOYzVWX1phbmdNbWJsTjNfemVYY2c1OS1aX1BwQjln?oc=5",
       "summary": "",
@@ -161,8 +161,8 @@
       "severity": 0.85
     },
     {
-      "title": "Tennis-De Minaur heads to Shanghai for scans after Beijing retirement - The Lufkin Daily News",
-      "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxNaGN1ZGlUZEpUSngyYjJweTdCbEFDVHpaVVdPMmhjaG5OZVJJYy1GZDNGU215aUpjUkRBcnN4d2dYNExrRl9lZTl1YjdZbkJDTHdxN1JGUTVWRFRaVTIzVFFraWk1cUhReXNUNUhGcGZJbjNxd0JRX25EaWI3d2lBNUNkQU5VRWotN1VtRlJsd3pDWVdRTDBEZWtRU2phcklCVElHVFplRkJKdkdoSVVkWjB6aUVqdGhLTmJ5aU1zSDJnQjV0WGk0ZGozcXVXazJWOC1NZjNwYWlKdFJnOEVuU2dTWnNtR01YWHpISV80MXZrelBQcGhkeUhVZw?oc=5",
+      "title": "Novak Djokovic wins China Open, 102nd career title, after Alex de Minaur retires injured - The New York Times",
+      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQYjJ5dTdJVE96WnFsY2F0MDRwamhpeHA0bXhwUUd3eWdlOWhlOEI1eGFIYnV3T2h4Ri1GUVNmallSQ0UyYTJmczB3aUg2VXFZYkw4NGltZV9mSjlhVFV4UkNDOFRGLWloOTBPcXRVZVBUU1R1aFBhVElXZEhSVEE5cWZlcDZFWGluUDhRMkNBV2pZY3Vlb0NUYjJXR2JUbkRzZlNDeQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -171,8 +171,8 @@
       "severity": 0.85
     },
     {
-      "title": "Tennis-Djokovic wins China Open as de Minaur retires injured - The Lufkin Daily News",
-      "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQeVNSOEdYbjVJNWk1ZGh2eFk4bW9yOVVFVDcyLU5UQ3JmbE5EaWxxOFBfc2tNOWkwdmRQSVE4LWp2VUZmbndkVzc0YllKTHo2M3hmc3R5MWhXUW5iYjJPMm9XMGVZcm15V0pmY0QyVlo2clM4bmpuMjNNeFJVeUFpcTduRmlYMEtZVFZLMXkwbkZybGdhcDBBT3ppWnRMYkdYZ0w4b3dUUjBQV2NHQXhuendXdDVCM00wQ2l2YnRzQTJpMjF2Wmp3V1pLTFBzX0xTTGRsVGtOWTZLQzhTMHBEUmo4SjJjcHI5R1VtUnpPdw?oc=5",
+      "title": "Djokovic wins seventh Beijing title and 102nd career crown as injured de Minaur retires - Tennis Majors",
+      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOTUdtU0ZSWEpkdlFZSWhpeGhCcXZkcHVoU3Y0c3RzeFpSVFdFM0x4Ul90YXVzNGMwZ0RjMDM3NXdpNHlOTGdIM3FQck1leVJhOFE5VDctREVYQzdtZDRERHVoOVYyd1MzUnBsRVEwRXVfQ0Njd3dqYnhMcF9INnNfMnR3Q3UtOFZ1Rzl0eF9BRnYxY09ZVzlBdE8tSHBhb0R6dkp5WG5mMG45dTlLNkJQWHQyck1YSkI3VGdzb3JGMzloaGZWTGRIN0pxSXg?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -201,6 +201,16 @@
       "severity": 0.85
     },
     {
+      "title": "Novak Djokovic Wins 7th Beijing Open Title After Alex De Minaur Retirement - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPRHJGemhmQmxGdlRaalVuRThmYjZab3o1V0lsRS00Uk8wWWVKbnhNLWxnSk5JY1c0NGx0SVFQZUd2M1NQQm14Q0gwcEdYRHVBbkNTSVpoYkFUOEMzMi10Q3dDUFctZVFjbWpHdmdJMlk5RzM4aGpOTjQxc0FKRTZLYU1RT2dwRzQ?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
       "title": "Djokovic wins China Open after de Minaur retires, Alcaraz wins Japan Open - Al Jazeera",
       "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOdnRVRGpMZGRPcEZ0TFdnRXhBWVQzWEkyNktJTk9BaS1hOVhJckY1OVBGek5mb3Y2X0tfbDA1TE9JOU5kQUxsWlZjZjluSDlaV29maXN5M0VaOHU1RE9oTmpEVGJPeXVyRlhFVUtjeWJLU2swMUtXWlNOS1NVVUxzWmRoQnZRTzFTLTBuSlJrZjZpQ2RkVU5qTEU1MjlsTXl4RHhEcURmR1VYaXAxY2V3VENJcjJZZ9IBuwFBVV95cUxOUGQ2RG9kMjlWN29kZWJmckFTcXZtUWY0R3pYRzJmeHBTWTZPcUdwTlhlZzFQU0pxQlBmMTlSdGF3YnBNYlUzVWE3eGItbjJjVGFuRm15YXpxS0hZcmViTXQ0VHNHX0k0bV9tblc3NWNrbFBZbl9DdmtQblRpNkRTbVRWTVFOMXJKeWNRcWVUQTMxR2xNMTFTRWxUUldrNDg2dHJVdW5fMFIzaEM4UTVTdTBkcHYxTGM1bnRF?oc=5",
       "summary": "",
@@ -211,8 +221,8 @@
       "severity": 0.85
     },
     {
-      "title": "Canada's Shapovalov retires from Japan Open quarterfinal vs. Alcaraz due to injury - CBC",
-      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQUkZ1UlB3R1NMc2tXYkg1VGhOek1TemJXRDc1MF9JUjZJRnFKM1E1ZGhfUm9aTEI4UjZ1X2dXZ0c1QkFJb2FUSXZrLWtpNkREYmJJbGJOeExKWHN6X0EzYzJmWlo0SDFHeW1ieG1uaUJjeGVvdURueEl4WEp6aGVQdWdXOGtUMERYdzZR?oc=5",
+      "title": "Tennis-Djokovic wins China Open as de Minaur retires injured - The Lufkin Daily News",
+      "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQeVNSOEdYbjVJNWk1ZGh2eFk4bW9yOVVFVDcyLU5UQ3JmbE5EaWxxOFBfc2tNOWkwdmRQSVE4LWp2VUZmbndkVzc0YllKTHo2M3hmc3R5MWhXUW5iYjJPMm9XMGVZcm15V0pmY0QyVlo2clM4bmpuMjNNeFJVeUFpcTduRmlYMEtZVFZLMXkwbkZybGdhcDBBT3ppWnRMYkdYZ0w4b3dUUjBQV2NHQXhuendXdDVCM00wQ2l2YnRzQTJpMjF2Wmp3V1pLTFBzX0xTTGRsVGtOWTZLQzhTMHBEUmo4SjJjcHI5R1VtUnpPdw?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -281,8 +291,8 @@
       "severity": 0.75
     },
     {
-      "title": "Tennis-Sinner to miss rest of 2026 to recover from knee injury - KSL News",
-      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPS2phck5YNENBR0JCSDBLSVpHQTZZMW8xdG84SWRJd2gxVl9RV214eENpVkdMcDdRR2wwdVV1bHJEOG92bHc5b09EMmQ2ejljMXR3MlZhemtjY3lTNkhxR0dfTklMR1ZiMnhpa0wtX21tYzVFbzdpbjMwRV9lQ3dVUlpCcW9hUFJaYlptQVNnSTI0ZlZqNlZLQ0c4cGQzeVg2?oc=5",
+      "title": "Jannik Sinner announces knee injury will force him to end his 2026 season - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQVUhuUkhkVlNyUHBwRzFiam5Wb0NlX1FsYkJTcjhVWV9pU182RnQtQ2dFa29kMFdYZmt5Y0ZIeU5hbkZVZlYxQUIzd0t6WUdPQXBTcmc3S2ZIZnE3RTFHNVUtUnJ1YXRVdmxUZjFob1VsR2VDTWVMYTRkQ0M0QjA5Uk10QzlVTEhpOE5NbGFwOE56UkJQOU9wcUR6RXM5UU5qX0hSWmVMQ2RHUlZmREJvMS01bXhHWDl0bUpxT08xSkxQcjFUSUo3aldrMGVkQmFnWDNISDhiN3VMdw?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -311,8 +321,8 @@
       "severity": 0.75
     },
     {
-      "title": "Jannik Sinner announces knee injury will force him to end his 2026 season - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQVUhuUkhkVlNyUHBwRzFiam5Wb0NlX1FsYkJTcjhVWV9pU182RnQtQ2dFa29kMFdYZmt5Y0ZIeU5hbkZVZlYxQUIzd0t6WUdPQXBTcmc3S2ZIZnE3RTFHNVUtUnJ1YXRVdmxUZjFob1VsR2VDTWVMYTRkQ0M0QjA5Uk10QzlVTEhpOE5NbGFwOE56UkJQOU9wcUR6RXM5UU5qX0hSWmVMQ2RHUlZmREJvMS01bXhHWDl0bUpxT08xSkxQcjFUSUo3aldrMGVkQmFnWDNISDhiN3VMdw?oc=5",
+      "title": "Alex de Minaur reveals injury details after retiring against Novak Djokovic - Tennis World USA",
+      "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPY1VSamlsVjRFdXV2VGJBOHcwdU9jb3hGRFFqNTRQdGdsVEhuZ3BoVmh0elJjLU1DOTNGNGNZcDc5V2t1MFRoZmRkU1E1VW43NFBmVlNKTlhsRDZsRVdpN3l0ME1ySmd1cWR2dGhxaUY5NnFmOXBSNWg2bENUZ19xQVYwWkl0ODJtYUdpbHh1M241U2ZFRFdlcUc3ZUVJZVgtZVQ5WWxuX05xLWJVaXZ5b01kNm1vNU9FY212ZjlYYUdYaUd1UjdIWnNfcXhGQUllREY1Vk4taFQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -341,8 +351,8 @@
       "severity": 0.75
     },
     {
-      "title": "Novak Djokovic gives his opinion on Jannik Sinner ending his 2026 season early due to injury, ‘that’s smart’ - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOUzdRN2VNV21HRU1lMFhCUC1HeE9weEdyTkdKclRrS2xqWndCb1AxWU9ZaG9BUk9fZEEwMUZWaXUxc3ZLWWRLb2QxbG9WYWUzMkJTYkNnLXdUdFBYQS1YMWhhZjlMam1Xc2luMnBIMENwSjE3a19rNl8xWTZHVEpGVm9vcGdOZWNXdUtJeQ?oc=5",
+      "title": "Jannik Sinner: World number one ends season early with knee injury - BBC",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBWQUxhMTNjZkVjZnBXZkNGVTBveTE1MC1UNUlqbXFmdnQ3TGtBdjh3eThKYmxzVEpTUVB3SU5RM2w5eEZRY0lEVFdPVTMtQTdMbDdNZXRtdFVQb1gxaWlUemRtcEtxZw?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -361,31 +371,11 @@
       "severity": 0.75
     },
     {
-      "title": "Jannik Sinner: World number one ends season early with knee injury - BBC",
-      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBWQUxhMTNjZkVjZnBXZkNGVTBveTE1MC1UNUlqbXFmdnQ3TGtBdjh3eThKYmxzVEpTUVB3SU5RM2w5eEZRY0lEVFdPVTMtQTdMbDdNZXRtdFVQb1gxaWlUemRtcEtxZw?oc=5",
+      "title": "Novak Djokovic gives his opinion on Jannik Sinner ending his 2026 season early due to injury, ‘that’s smart’ - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOUzdRN2VNV21HRU1lMFhCUC1HeE9weEdyTkdKclRrS2xqWndCb1AxWU9ZaG9BUk9fZEEwMUZWaXUxc3ZLWWRLb2QxbG9WYWUzMkJTYkNnLXdUdFBYQS1YMWhhZjlMam1Xc2luMnBIMENwSjE3a19rNl8xWTZHVEpGVm9vcGdOZWNXdUtJeQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Alex de Minaur reveals injury details after retiring against Novak Djokovic - Tennis World USA",
-      "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPY1VSamlsVjRFdXV2VGJBOHcwdU9jb3hGRFFqNTRQdGdsVEhuZ3BoVmh0elJjLU1DOTNGNGNZcDc5V2t1MFRoZmRkU1E1VW43NFBmVlNKTlhsRDZsRVdpN3l0ME1ySmd1cWR2dGhxaUY5NnFmOXBSNWg2bENUZ19xQVYwWkl0ODJtYUdpbHh1M241U2ZFRFdlcUc3ZUVJZVgtZVQ5WWxuX05xLWJVaXZ5b01kNm1vNU9FY212ZjlYYUdYaUd1UjdIWnNfcXhGQUllREY1Vk4taFQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Infortunio Sinner, Djokovic: “Dovrà gestire più problemi del solito al rientro” - La Gazzetta dello Sport",
-      "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQekhIbmFpOFNkanl6TWFTdjBSVnhBNGtEZnVIWUFDc0VuTGxtUzhQb1c4MEFDRXd4RXROTjQwWVc1akgwallRZy0yWmhmMWdreTZrbGxUTjdkal84SUFpMGlvMnhpZkNNd0hFYjA4YzJMc0xZVU9DVWxEUURoT1VIN1NJdXU3QlFGelpISHV2VHNmNFdTRWlHYXprblJCN0pHSEJ0Z2g0eDZFTjM2XzhaRGpLYnRzWmNpVXIyeXphdEFvX3YwaGo4a1I5Q1pVRkhiVjJER19ROC1VU3lhQ3c5OWZlVEctcFN3LVZn0gHwAUFVX3lxTE5IX2RGVlk4UlZXWXpoZEhmRnh5YTN1SWtVaHNZdTV0MEpUdzR0VDA1cFlPeTlnYTVnNnpiYjVrNTVpelVGbmE3MHNJNENVcnh5c1VIcnFLT1BEdXhzLUtYWmZCYUhReWhOY2J2RG5IWlB4VG5TOGUwWkVqeU9BcUNnNGo0MGNSQkY4anZoR21iLXRrR0IwV1oxSHdSZU9oSWpQZHI1bVFYT21uMlVHS1h0M0pvZFh3QzVnQ2hFTEhDbkc5bFFIZ085YkZZQjVDZDZxcGNjaUxWWS1tc0ZqWE1JLUhWYlM0c2xfQ2Q3d3hoag?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
       "channel": "rss",
       "category": "injury",
       "severity": 0.75
@@ -403,6 +393,16 @@
     {
       "title": "Carlos Alcaraz: \"Infortunio Sinner? Il tennis sta andando nella direzione sbagliata\" - Eurosport.it",
       "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPRVphS3NKQi1hTjdKdTM4VFFBUHFkRDhqRUtkeTd0d1FYX2dHdlpQQUZ3bWo0RjdLelI2UXRsbklaRUdQZHFjQjNXVDU5cS0wbTdyd0NSZlFnb2NTWF80THVmcW1fMHdGamZ3Wk0zMnkwZDJjQVliMUxwcUg4SFR6bVE5VGVUVzBFeXd3VmRwbng0dHpjYURiUUZTWGdick1XSC1HWEphenFob0g2RzN4Sk9ucWZ5NFNmODZxRzVYNDh6amJZbm5QdmMwbEItcE80cmRLVl95ZUJ5aE5KclBydUpLYzBmMWliYWc?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Infortunio Sinner, Djokovic: “Dovrà gestire più problemi del solito al rientro” - La Gazzetta dello Sport",
+      "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQekhIbmFpOFNkanl6TWFTdjBSVnhBNGtEZnVIWUFDc0VuTGxtUzhQb1c4MEFDRXd4RXROTjQwWVc1akgwallRZy0yWmhmMWdreTZrbGxUTjdkal84SUFpMGlvMnhpZkNNd0hFYjA4YzJMc0xZVU9DVWxEUURoT1VIN1NJdXU3QlFGelpISHV2VHNmNFdTRWlHYXprblJCN0pHSEJ0Z2g0eDZFTjM2XzhaRGpLYnRzWmNpVXIyeXphdEFvX3YwaGo4a1I5Q1pVRkhiVjJER19ROC1VU3lhQ3c5OWZlVEctcFN3LVZn0gHwAUFVX3lxTE5IX2RGVlk4UlZXWXpoZEhmRnh5YTN1SWtVaHNZdTV0MEpUdzR0VDA1cFlPeTlnYTVnNnpiYjVrNTVpelVGbmE3MHNJNENVcnh5c1VIcnFLT1BEdXhzLUtYWmZCYUhReWhOY2J2RG5IWlB4VG5TOGUwWkVqeU9BcUNnNGo0MGNSQkY4anZoR21iLXRrR0IwV1oxSHdSZU9oSWpQZHI1bVFYT21uMlVHS1h0M0pvZFh3QzVnQ2hFTEhDbkc5bFFIZ085YkZZQjVDZDZxcGNjaUxWWS1tc0ZqWE1JLUhWYlM0c2xfQ2Q3d3hoag?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -451,6 +451,16 @@
       "severity": 0.75
     },
     {
+      "title": "Alcaraz sull'infortunio di Sinner: \"Siamo nella direzione sbagliata. Ecco di chi è la colpa\" - La Gazzetta dello Sport",
+      "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQSmJJS05JZnl0a0pIbTktemtKZTBYQlR1SmNHM0VZeklxM2paeUNHNG10SjFMZmVlb2twSlRMSkx3WVYzSU1KUWlpbXhwbkgxLU9jLV9RekVaOWU1Q0xDZjc4Y0h1RnA2RGJ5M0hQUDlVWFkxbkpYcGFNYmNBX1hZOVZJNWhfbnZmckRJQmlfZUNCb2dKRUFkM0t4V2xsbXBFRUxlSm84REtBQVg0YTRrWnF3XzM2aWU3YzJaTndBWWhIb3NpYU96UWtrS045azRwREHSAdcBQVVfeXFMT0pGRFA2XzY0ZzVSck92UEQ4R2IxalJUdHROTHVTb0dDcjJWYS10MjROcTk2TUhUcDV0QUpjYlV6YUNVUnozMXYxekJqREM1aVZMMU5LaEZGMDZXUktYRnBDd0xqTk9BZzdBMHIwOEdmR0ZMWVFrQVRvX2ZLRzh6dkJlQTQ5bUNZNDFPczkyS09kU2Utdlp5VXpkUFdib1NDSnJ2M0ZjeEQ0cVFHdG9lcXR4VWJoS3drMzlRWThtU1VQX3U5T25YanRCQ1N0amNnVWstRXFPMkk?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
       "title": "\"Torna così\" e \"L'anno che verrà\": i giornali commentano l'infortunio di Jannik Sinner - Eurosport.it",
       "link": "https://news.google.com/rss/articles/CBMipAJBVV95cUxQSUNHOHhvbld5MmdTeGNHY1B4ejI0NllnS1hrVzgyVkY2SllsY19MeUlxR0pfZHlUR2hmcWticEFEM3RuUVVhd1lHUFdFcGltUDVENEo2Q3QxR2VyYU9OTlJuSGxZSFZsa2d6anc1Vkk3NktDRUtMcTkyS2dCN3k5Q0VJQTlvNE04MVZWQmJfbkE4dzFLN2dJUENGelBDX1BIZVkxVngwcE52Yi1pOTZqYmdzTTd4ZTBHek5HLWVWTC0wTmVPak43b3dXMnE0VWpMZUxEM3FxQU9PcWVVYmxKSkd4WUZTSFBOZV9BdDd3ZnhfcFpLR01DNHlRUmw5TFN5UlFEbUt0YjFTamxYZFM1MEdvUGVoYTRXQ0pMaDQwUlM2cmli?oc=5",
       "summary": "",
@@ -473,16 +483,6 @@
     {
       "title": "Sinner, l’infortunio al ginocchio è il più grave della carriera: tutti gli acciacchi e i malori di Jannik - Ubitennis",
       "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNTnJ1U1RTRGVZcVlieVRURVd2UEtBMVBjekl6UEJzQ1dCWjVTTnUzZ3dHUkVwNkdtcjB6Ul9xOTM4bHhSSGhCeWtkd3ZmM1FTZXEtaTFPTGNhSlRObG1QdGpHRnA2TkhKRGhyVmVvZkVXSUYxVXUzZ1hkQ3N4U19nbWhxYjJFU25STHFlS1JDcUNsem9rQXdQWHdhZjNBdURGSlp6QnBoa1B2eFZXYkpjQVVVQVVDZm14Q05RVWRUNUlPSFhwRG4zcUFwSlhLX2FVQnpxcnhwem9LVDA2VmxUbl9fcml6YTVJ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Alcaraz sull'infortunio di Sinner: \"Siamo nella direzione sbagliata. Ecco di chi è la colpa\" - La Gazzetta dello Sport",
-      "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQSmJJS05JZnl0a0pIbTktemtKZTBYQlR1SmNHM0VZeklxM2paeUNHNG10SjFMZmVlb2twSlRMSkx3WVYzSU1KUWlpbXhwbkgxLU9jLV9RekVaOWU1Q0xDZjc4Y0h1RnA2RGJ5M0hQUDlVWFkxbkpYcGFNYmNBX1hZOVZJNWhfbnZmckRJQmlfZUNCb2dKRUFkM0t4V2xsbXBFRUxlSm84REtBQVg0YTRrWnF3XzM2aWU3YzJaTndBWWhIb3NpYU96UWtrS045azRwREHSAdcBQVVfeXFMT0pGRFA2XzY0ZzVSck92UEQ4R2IxalJUdHROTHVTb0dDcjJWYS10MjROcTk2TUhUcDV0QUpjYlV6YUNVUnozMXYxekJqREM1aVZMMU5LaEZGMDZXUktYRnBDd0xqTk9BZzdBMHIwOEdmR0ZMWVFrQVRvX2ZLRzh6dkJlQTQ5bUNZNDFPczkyS09kU2Utdlp5VXpkUFdib1NDSnJ2M0ZjeEQ0cVFHdG9lcXR4VWJoS3drMzlRWThtU1VQX3U5T25YanRCQ1N0amNnVWstRXFPMkk?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
