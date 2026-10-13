@@ -1,6 +1,10 @@
 """Policy campione ROI Telegram — solo tip allineate al metodo post-calibrazione.
 
-Esclude le tip underdog con edge grezzo vs mercato ≤ noise floor (false-edge storiche).
+Esclude le tip underdog *legacy* con edge grezzo vs mercato ≤ noise floor
+(false-edge storiche pre-calibrazione).
+
+Le tip archiviate dal deploy calibrazione in poi sono già filtrate a source
+(shrink + noise floor in advise): non si ridoppia il floor sul ROI.
 Non cancella history: filtra solo il calcolo ROI / KPI.
 """
 
@@ -34,8 +38,25 @@ def _f(row: dict[str, Any], *keys: str, default: float = 0.0) -> float:
     return default
 
 
+def _tip_day(row: dict[str, Any]) -> str:
+    for key in ("alert_frozen_at", "saved_at", "date"):
+        raw = str(row.get(key) or "").strip()
+        if len(raw) >= 10 and raw[4] == "-":
+            return raw[:10]
+    return ""
+
+
+def _is_post_calibration(row: dict[str, Any]) -> bool:
+    day = _tip_day(row)
+    return bool(day) and day >= ROI_POLICY_SINCE
+
+
 def tip_aligns_new_method(row: dict[str, Any]) -> bool:
-    """True se la tip avrebbe ancora senso sotto shrink + noise floor underdog."""
+    """True se la tip è nel campione ROI post-calibrazione.
+
+    - Tip ≥ ROI_POLICY_SINCE: già uscite da advise calibrato → filtri core + EV archiviato
+    - Tip legacy: riduce underdog false-edge con noise floor retrospectivo
+    """
     odds = _f(row, "odds_alert", "odds")
     kelly = _f(row, "kelly_alert", "kelly")
     prob = _f(row, "probability")
@@ -46,20 +67,24 @@ def tip_aligns_new_method(row: dict[str, Any]) -> bool:
     if prob < MIN_PROB_PLAY:
         return False
 
-    # Probabilità implicita grezza (1/odds): aprossimazione senza overround 2-way
+    stored_ev = _f(row, "ev")
+    if stored_ev == 0.0 and prob > 0 and odds > 1.01:
+        stored_ev = prob * odds - 1.0
+
+    # Post-calibrazione: non applicare di nuovo il noise floor (P già shrunk)
+    if _is_post_calibration(row):
+        return stored_ev >= MIN_EDGE
+
+    # Legacy: Probabilità implicita grezza (1/odds)
     p_mkt = 1.0 / odds
-    # Underdog: mercato < 45%
     if p_mkt <= UNDERDOG_MKT_MAX:
         raw_edge = prob - p_mkt
-        # Edge sotto noise floor → con il nuovo metodo P torna al mercato → no tip
         if raw_edge <= UNDERDOG_EDGE_NOISE_FLOOR:
             return False
-        # Tiene solo eccesso oltre il floor (stima conservativa del post-shrink)
         p_adj = p_mkt + (raw_edge - UNDERDOG_EDGE_NOISE_FLOOR) * 0.45
         ev = p_adj * odds - 1.0
         return ev >= MIN_EDGE
 
-    # Favorito / zona media: EV sulla P archiviata
     ev = prob * odds - 1.0
     return ev >= MIN_EDGE
 

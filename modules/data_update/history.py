@@ -434,6 +434,97 @@ def _pick_hit(pick: str, player_a: str, player_b: str, winner: str) -> int:
     return 0
 
 
+def list_pending_bets(*, limit: int = 200) -> list[dict[str, Any]]:
+    """Tip action=bet ancora aperte (per UI settle manuale)."""
+    rows = load_history(limit=max(limit * 5, 1000))
+    pending = [r for r in rows if r.get("action") == "bet" and r.get("hit") is None]
+    pending.sort(
+        key=lambda r: str(r.get("date") or r.get("saved_at") or ""),
+        reverse=True,
+    )
+    return pending[:limit]
+
+
+def manual_settle(
+    match_key: str,
+    *,
+    result: str,
+    score: str = "",
+    winner: str | None = None,
+) -> dict[str, Any]:
+    """Chiude una tip pending: result = hit | miss | void.
+
+    - hit/miss: action resta bet, hit 1/0
+    - void: action=void, hit NULL (es. WD prematch) — esclusa dal ROI
+    """
+    key = str(match_key or "").strip()
+    outcome = str(result or "").strip().lower()
+    if not key:
+        return {"ok": False, "error": "match_key mancante"}
+    if outcome not in {"hit", "miss", "void"}:
+        return {"ok": False, "error": f"result non valido: {result}"}
+
+    now = datetime.now(timezone.utc).isoformat()
+    with _conn() as c:
+        c.row_factory = sqlite3.Row
+        row = c.execute("SELECT * FROM matches WHERE match_key=?", (key,)).fetchone()
+        if not row:
+            return {"ok": False, "error": "match non trovato"}
+        rec = dict(row)
+        if rec.get("hit") is not None and outcome != "void":
+            return {"ok": False, "error": "già settle", "hit": rec.get("hit")}
+
+        pa, pb = str(rec.get("player_a") or ""), str(rec.get("player_b") or "")
+        pick = str(rec.get("pick") or "")
+        win = str(winner or "").strip()
+        if outcome == "hit":
+            hit_val = 1
+            if not win:
+                win = pick or pa
+            score_val = score or "manual hit"
+            c.execute(
+                """UPDATE matches SET hit=?, winner=?, score=?, settled_at=?, settle_source=?,
+                   retirement=COALESCE(retirement, 0)
+                   WHERE match_key=?""",
+                (hit_val, win, score_val, now, "manual_ui", key),
+            )
+        elif outcome == "miss":
+            hit_val = 0
+            if not win:
+                # Avversario del pick
+                if pick and _pick_hit(pick, pa, pb, pa) == 1:
+                    win = pb
+                else:
+                    win = pa
+            score_val = score or "manual miss"
+            c.execute(
+                """UPDATE matches SET hit=?, winner=?, score=?, settled_at=?, settle_source=?,
+                   retirement=COALESCE(retirement, 0)
+                   WHERE match_key=?""",
+                (hit_val, win, score_val, now, "manual_ui", key),
+            )
+        else:
+            hit_val = None
+            score_val = score or "void (manual)"
+            c.execute(
+                """UPDATE matches SET action='void', hit=NULL, winner=?, score=?,
+                   settled_at=?, settle_source=?, retirement=1
+                   WHERE match_key=?""",
+                (win or None, score_val, now, "void_manual_ui", key),
+            )
+        c.commit()
+
+    return {
+        "ok": True,
+        "match_key": key,
+        "result": outcome,
+        "hit": hit_val,
+        "winner": win or None,
+        "score": score_val,
+        "pick": pick,
+    }
+
+
 def settle_from_results(*, days: int = 14) -> dict[str, Any]:
     """Chiude pick pendenti con cascade risultati (TML → Sackmann → Betfair → FlashScore → tennis-data)."""
     from modules.data_update.match_results import ResultProviders, resolve_match_result

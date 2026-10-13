@@ -93,6 +93,32 @@ def alert_key(pred: dict) -> str:
     )
 
 
+def _fair_odds_for_pick(pred: dict, rec: dict) -> float | None:
+    """Quota equa del lato pick (analisi post-shrink, altrimenti 1/P)."""
+    analysis = pred.get("analysis") or {}
+    try:
+        fair = analysis.get("fair_odds")
+        if fair is not None and float(fair) > 1.01:
+            return float(fair)
+    except (TypeError, ValueError):
+        pass
+    side = str(rec.get("side") or "").upper()
+    try:
+        if side == "B" and analysis.get("fair_odds_b") is not None:
+            return float(analysis["fair_odds_b"])
+        if side == "A" and analysis.get("fair_odds_a") is not None:
+            return float(analysis["fair_odds_a"])
+    except (TypeError, ValueError):
+        pass
+    try:
+        p = float(rec.get("probability") or 0)
+        if p > 0.01:
+            return round(1.0 / p, 3)
+    except (TypeError, ValueError):
+        pass
+    return None
+
+
 def _format_bet(pred: dict) -> str:
     """Messaggio essenziale: cosa puntare, a che quota, quanto (% Kelly)."""
     rec = pred.get("recommended") or {}
@@ -115,11 +141,16 @@ def _format_bet(pred: dict) -> str:
         ev_pct = float(rec.get("ev_pct") if rec.get("ev_pct") is not None else float(rec.get("ev") or 0) * 100)
     except (TypeError, ValueError):
         ev_pct = 0.0
+    fair = _fair_odds_for_pick(pred, rec)
 
     when_bits = [x for x in (date, start[:16] if start else "", tourney) if x]
+    quota_bits = [f"Quota: {odds:.2f}"]
+    if fair is not None:
+        quota_bits.append(f"Fair: {fair:.2f}")
+    quota_bits.append(f"Stake: {kelly:.2%} del bankroll")
     lines = [
         f"PUNTA: {pick}",
-        f"Quota: {odds:.2f}  |  Stake: {kelly:.2%} del bankroll",
+        "  |  ".join(quota_bits),
         f"Match: {player_a} vs {player_b}",
     ]
     if when_bits:

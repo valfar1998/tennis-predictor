@@ -244,9 +244,9 @@ st.subheader("ROI tip Telegram")
 n_excl = int(roi.get("n_excluded") or 0)
 n_all = int(roi.get("n_bets_all") or 0)
 st.caption(
-    "Solo tip allineate al metodo calibrato (no underdog false-edge). "
-    f"Escluse {n_excl}/{n_all} tip legacy. "
-    "Quota/% Kelly congelate dal messaggio. Campione = chiuse (pending)."
+    "ROI: tip post-calibrazione + legacy filtrate (no underdog false-edge). "
+    f"Escluse {n_excl}/{n_all} tip. "
+    "Quota/% Kelly congelate dal messaggio. Campione = chiuse (pending ROI)."
 )
 
 n_settled = int(roi.get("n_settled") or 0)
@@ -320,8 +320,8 @@ if curve:
 
 st.divider()
 
-tab_cal, tab_back, tab_data, tab_elo = st.tabs([
-    "Calendario & Value", "Backtest", "Dati & Pipeline", "Elo Rankings"
+tab_cal, tab_pending, tab_back, tab_data, tab_elo = st.tabs([
+    "Calendario & Value", "Pending / Settle", "Backtest", "Dati & Pipeline", "Elo Rankings"
 ])
 
 with tab_cal:
@@ -423,6 +423,23 @@ with tab_cal:
             kelly_adj = rec.get("kelly_adj_rank")
             if kelly_adj is None or kelly_adj == -1:
                 kelly_adj = rec.get("kelly_info") or rec.get("kelly")
+            analysis = p.get("analysis") or {}
+            fair = analysis.get("fair_odds")
+            if fair is None:
+                try:
+                    side = str(rec.get("side") or "").upper()
+                    if side == "B":
+                        fair = analysis.get("fair_odds_b")
+                    else:
+                        fair = analysis.get("fair_odds_a")
+                except Exception:
+                    fair = None
+            if fair is None:
+                try:
+                    pr = float(rec.get("probability") or 0)
+                    fair = round(1.0 / pr, 3) if pr > 0.01 else None
+                except (TypeError, ValueError):
+                    fair = None
             rows.append({
                 "Data": str(p.get("date") or "")[:10],
                 "Ora": p.get("start_time_local") or "",
@@ -439,6 +456,7 @@ with tab_cal:
                 ),
                 "Pick": rec.get("player") or "",
                 "Quota": rec.get("odds"),
+                "Fair": fair,
                 "EV %": ev_pct,
                 "KellyAdj": kelly_adj,
                 "Tour": p.get("tour") or "",
@@ -469,6 +487,11 @@ with tab_cal:
                     "Giocabilità": st.column_config.NumberColumn("Giocabilità", format="%.0f"),
                     "P(A)": st.column_config.NumberColumn("P(A)", format="%.1%"),
                     "Quota": st.column_config.NumberColumn("Quota", format="%.2f"),
+                    "Fair": st.column_config.NumberColumn(
+                        "Fair",
+                        help="Quota equa del pick (1/P post-calibrazione)",
+                        format="%.2f",
+                    ),
                     "KellyAdj": st.column_config.NumberColumn(
                         "KellyAdj",
                         help="Ranking Kelly × sostenibilità quota (non EV grezzo)",
@@ -527,8 +550,18 @@ with tab_cal:
                     odds = rec.get("odds")
                     kelly = rec.get("kelly_info") if rec.get("kelly_info") is not None else rec.get("kelly")
                     label = "Value (no_bet)" if p.get("action") == "no_bet" else "Pick"
+                    fair_txt = ""
+                    try:
+                        fval = (p.get("analysis") or {}).get("fair_odds")
+                        if fval is None:
+                            pr = float(rec.get("probability") or 0)
+                            fval = 1.0 / pr if pr > 0.01 else None
+                        if fval is not None:
+                            fair_txt = f"Fair {float(fval):.2f} | "
+                    except (TypeError, ValueError, ZeroDivisionError):
+                        fair_txt = ""
                     st.success(
-                        f"**{label}: {rec.get('player')}** @ {odds} | "
+                        f"**{label}: {rec.get('player')}** @ {odds} | {fair_txt}"
                         f"EV {float(ev or 0):+.1%} | Kelly {float(kelly or 0):.2%} | "
                         f"Fonte: {p.get('odds_source', 'book')} | {p.get('playability_label', '')}"
                     )
@@ -551,6 +584,70 @@ with tab_cal:
                         )
                 else:
                     st.info("Nessuna quota/previsione disponibile")
+
+with tab_pending:
+    st.subheader("Chiudi tip pending")
+    st.caption(
+        "Tutte le `action=bet` ancora aperte (non solo il campione ROI). "
+        "Hit / Miss aggiornano il ROI; Void (WD prematch) le esclude."
+    )
+    from modules.data_update.history import list_pending_bets, manual_settle
+
+    if st.button("Ricarica pending", key="reload_pending"):
+        st.rerun()
+
+    pending_rows = list_pending_bets(limit=100)
+    if not pending_rows:
+        st.success("Nessuna tip pending.")
+    else:
+        st.metric("Pending aperte", len(pending_rows))
+        for r in pending_rows:
+            mk = str(r.get("match_key") or "")
+            pick = str(r.get("pick") or "?")
+            odds = r.get("odds_alert") if r.get("odds_alert") is not None else r.get("odds")
+            kelly = r.get("kelly_alert") if r.get("kelly_alert") is not None else r.get("kelly")
+            try:
+                odds_f = float(odds or 0)
+            except (TypeError, ValueError):
+                odds_f = 0.0
+            try:
+                kelly_f = float(kelly or 0)
+            except (TypeError, ValueError):
+                kelly_f = 0.0
+            label = (
+                f"{r.get('date') or '?'} · {pick} @ {odds_f:.2f} · "
+                f"{r.get('player_a')} vs {r.get('player_b')} · {r.get('tourney') or ''}"
+            )
+            with st.expander(label, expanded=False):
+                st.caption(f"match_key: `{mk}` · Kelly {kelly_f:.2%} · EV {float(r.get('ev') or 0):+.1%}")
+                score_in = st.text_input(
+                    "Score / nota",
+                    value="",
+                    key=f"score_{mk}",
+                    placeholder="es. 6-4 3-6 6-2 oppure ret. dopo 6 game",
+                )
+                c_hit, c_miss, c_void = st.columns(3)
+                if c_hit.button("Hit (vinta)", key=f"hit_{mk}", type="primary"):
+                    out = manual_settle(mk, result="hit", score=score_in)
+                    if out.get("ok"):
+                        st.success(f"Chiusa HIT: {pick}")
+                        st.rerun()
+                    else:
+                        st.error(out.get("error") or "errore")
+                if c_miss.button("Miss (persa)", key=f"miss_{mk}"):
+                    out = manual_settle(mk, result="miss", score=score_in)
+                    if out.get("ok"):
+                        st.warning(f"Chiusa MISS: {pick}")
+                        st.rerun()
+                    else:
+                        st.error(out.get("error") or "errore")
+                if c_void.button("Void", key=f"void_{mk}"):
+                    out = manual_settle(mk, result="void", score=score_in or "void")
+                    if out.get("ok"):
+                        st.info(f"Void: {pick} (esclusa dal ROI)")
+                        st.rerun()
+                    else:
+                        st.error(out.get("error") or "errore")
 
 with tab_back:
     cal_path = ROOT / "data" / "models" / "calibration.json"
