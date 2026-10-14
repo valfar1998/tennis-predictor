@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "fetched_at": "2026-10-13T21:10:33.457983+00:00",
-  "n_items": 56,
+  "fetched_at": "2026-10-14T09:09:30.591914+00:00",
+  "n_items": 51,
   "n_raw": 130,
   "errors": [
     "espn_tennis: fetch failed",
@@ -13,16 +13,6 @@
     {
       "title": "Zheng Qinwen withdraws from Wuhan Open with shoulder injury - ESPN",
       "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNVnNHNGVDQm55ZFlNZVJoNHJaVDYzUGoxcm1jaHF1aDBlTWZ0VWtNY1FWVWlIU252SmQwQ2tFSFJ0ZDR0cmZOTWFvTE5ndXJBUllDU1RHMTJDRkdybEc3ZFlMMVlfa1NySmlOVElhbHFud0ZWQ0JhNVJnMU1VakJvQ0VoQXk2blpLNWV2RldETHU0a3FTRFRreTdiczJzUQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.95
-    },
-    {
-      "title": "11 Players Withdraw From WTA Wuhan Open - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPNzZldUNnWjN3alBtSHdnZmlkRlcySlk3aU1fNVZsd1RoT3lYVVBlVVdGdF9mSnc3UmVydVJHYW1mbUkzSUdtaGtDams5MnpzV1pjZzRkWkhrMG02NlhEV0oxWVpzaDhUTm1sYlZveW9jbk1tVUVBbkc3YVJZMG5adktRZFo?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -53,6 +43,16 @@
     {
       "title": "China Open champ Zheng withdraws from Wuhan citing fatigue, shoulder injury - South China Morning Post",
       "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPTUU2OVZ1NDUwcUxGQmswVDBmTHZOY3Z2YjVaTVN3TWlqWFlrZjhjZmI4QWNtUWZtREpQdTBiOGVvWU5kN1dnVWt2SEFxZFhUNERfSThOal9Uc3hVWkFWN2l5eEdJLVJQajloWmcxejhDb1hhazBBXzVvUlpSVi05WjN2VFRPZy1UeXdueXdWNUxPZmVnTkRSVk9vUi1keHB2M0NCaC1DSTZRMGdLYlAwblZtMUlzYWVJSTByRS14RHlIR1V50gHEAUFVX3lxTE9NRTY5VnU0NTBxTEZCazBUMGZMdk5jdnZiNVpNU3dNaWpYWWtmOGNmYjhBY21RZm1ESlB1MGI4ZW9ZTmQ3V2dVa3ZIQXFkWFQ0RF9JOE5qX1RzeFVaQVY3aXl4R0ktUlBqOWhaZzF6OENvWGFrMEFfNW9SWlJWLTlaM3ZUVE9nLVR5d255d1Y1TE9mZWdORFJWT29SLWR4cHYzQ0JoLUNJNlEwZ0tiUDBuVm0xSXNhZUlJMHJFLXhEeUhHVXk?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.95
+    },
+    {
+      "title": "11 Players Withdraw From WTA Wuhan Open - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPNzZldUNnWjN3alBtSHdnZmlkRlcySlk3aU1fNVZsd1RoT3lYVVBlVVdGdF9mSnc3UmVydVJHYW1mbUkzSUdtaGtDams5MnpzV1pjZzRkWkhrMG02NlhEV0oxWVpzaDhUTm1sYlZveW9jbk1tVUVBbkc3YVJZMG5adktRZFo?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -151,8 +151,8 @@
       "severity": 0.92
     },
     {
-      "title": "Le finali di tennis finite per ritiro: da Pechino 2026 ai Grand Slam | DAZN News Italia - DAZN",
-      "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQcl91cnJoa0UwcXhqdHBVYXpuUDVGcXhlaDQ1OUgtS3VDN3UzcEhieE9UbXZ5RTg0TEdVRlVaU3Q1UUtmcHJyV0ktSV9KWkkxSWlJUGE4RUpDTk9FSVdIbUJJQlduNTNxYlFOY1B6ZUp6elI2bWhXM0poUzU4azhJUzRRMVJaaWZjOUR5ZHNWMzhLZTEyVkdzbnVueWZUeGh6cGJEUzhoSHdjUENZa3pFdFg2MmtFRExpRE5nWmJ0Mm1sV1gtXzhuak5CaGxqUQ?oc=5",
+      "title": "Zverev: \"Essere n.1 sarà speciale. La caviglia fa male, ma non mi ritiro\" - SuperTennis",
+      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPdUh3bWw5S2ZKWHRySGx2b1ZMa2hqMldrM0I1R01TVkotbUpjVG9pd01tUWkzUlhsQ0VwUTFEbUdKLU9lNVppTlk0RTBrZzBrMUQ1bklLamlSdDk0QTlVVTdaZEZPUW0yeVRFd1p0Qm1zbEZqTGR0cEF2Vm90bUhlVGllcTMxc3lyWXl3YlRIUkhPTGVoVmN3UEZ2ODQ2bEE?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -171,8 +171,18 @@
       "severity": 0.92
     },
     {
-      "title": "ATP Pechino 2026, Djokovic torna alla vittoria: de Minaur dà forfait - Planetwin365 news",
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNaE12Mjc1RkxFdENqRW1CdThuc2tjTkZQNldqSm9xOTdCR09NbUU0TDZhc1N0am1FTXlHSE9ITVRUTHBqaVNtU2FvQjJLQ19EOFZTeE5jTFNYNXlmQTF1Y21aYWRuM0lEd1lRcjhUeG1fM1FBMkhqLVZadGhnNTFDR20xVDZ0cXpYLUstMTRkaWxDN3hzMVVrV1FQcTBnOFhLcHRvemxTSGlSYWtrQ0tNbk1B?oc=5",
+      "title": "ATP Shanghai: Jodar vuole le Finals, ritiro per Auger-Aliassime - Ubitennis",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNWWZFYVd2VmlxT3c1X242VWVwSldHbjFQek5PMGlHa3R3WXZibnpwUnh2MEhVampBc0NvVHFkRVpuR2V2WmNkb1k0TjY4RXRSNnQyX1JzeFU0cExGdTYyNzJIT1FpZ3lURTlCVU9nUjZXbWN2ME16cGtYSUJBLW9Gc084b0p0anZmR0JaOW1ZNnFBZGhmak5vUFBOQ3FISHdNNHBBSEh1Yw?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.92
+    },
+    {
+      "title": "WTA Wuhan 2026, forfait a raffica: si ritirano Noskova, Andreeva e Zheng - Lottomatica.Sport",
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNZWtjY2ZsZjdRQ2RGeVJlZUR4c0JhMk51T01FUzFXSVBHdG1xWURHdV9UVjZKbVMxQUdPUThxLV92a2FSbTdKYWhSNDR0V1ExQzA4SW50bG56NWlwYkFMaE14Tnd3NEI3MzVKX20yZmJNdEd3cFBqc284Q1pqc1hSWHJIT2lPOTNSVnRBbUVsbERLeWFXLTR2UDg3ZHdxZDM4V1laVkFUaGtVZEdFV2FkUEpn?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -191,6 +201,16 @@
       "severity": 0.85
     },
     {
+      "title": "Zheng reaches Beijing third round after Kalinskaya retires - WTA Tennis",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxONmQwc24tSjRfRFFjRFBrWmh1ZURZUVpMb2NKQ2hsbl9RUmlmUWNhdG9NTWpBdjZqSzdQZU1kV3dmZ0w2MnlQRFYwY0Z1N281YUVoLVljT1ZTRXB4N25zR0hoaDFVekw5VDZEeWtyN1dUSEhKaWVTS2ZfMHZ6bUpBUmRrTUo3M2p4YUxpRmhzLXhmcHhvUUdfdkVSY2tTZW90MXZxOWNaXzliZTJoeTZtQw?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
       "title": "Nishikori appears alongside Federer at retirement event - The Japan Times",
       "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOZFhzOVVXbDlvRXk4TTR1YzJFN05QLUJaMzdBXzhIVEROeEotQy13VUp3ekRhNW5oeV9uV1ppZFdnYVJwUDByU01SSDdHZi1QcDBQLTE3SHh6dzMxeVoyQm5UbXg1aDY2RzRxNlkzckxFYmlMeXZxY2tyUmdUT2R6TjdmekJVTy04?oc=5",
       "summary": "",
@@ -201,8 +221,8 @@
       "severity": 0.85
     },
     {
-      "title": "Why it’s now obvious why Novak Djokovic is waiting to retire at the 2028 LA Olympics after his China Open title - Tennishead",
-      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNYmJURUJ5TVl5RWNneUhxaVdHZHM0Q0lnNHhmazJXaFI0ai1GaHlUVFh4RTQ2SHhKN3A3SE9jeWsycUZ4dDc1TFZfbVdnVVJadGdKSGZRNjRsSDk0RVR1S2ZDWm1zTU1WY19sSkFsSWw4OTBPemZob0x4UVpZRFpiWXZuT0k3TDlvT0d5U2hraGZ5eTZkbHRFZ2MwMmRNam5YdXRTYlNOX21QZy1NWDlxUVlUbkdVM2p4bHZzSEpOcnBvVU04dXNRc0RYOFkwZWs?oc=5",
+      "title": "Zverev plays through ankle pain in Shanghai: \"I don't want to retire without a reason\" - TennisTemple",
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPVGhQY1dLQWFCb3I4S2VibDlSTE40QlI2RTRIMGljYmp6MVM5VEhVbUlZRmczS2JvaHdkR21QSl9QdTJWd3lxZDRtRk9fQmlmd1M4WUZ0Z1N6bnA4QThpMDBodE5fS01GV3ZIX2h1aEZDMWc2SUx1SXU0ZUJnOGh1NXNZTFdMM051REJYd1NtYndQQQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -221,26 +241,6 @@
       "severity": 0.75
     },
     {
-      "title": "Toni Nadal explains what tennis should change after Jannik Sinner injury - Tennis World USA",
-      "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQX2tVd2hKTmlNRFRlSDN5VGZLOVVEaTFfOWpmMEtSSEcwV1lPb2lMZjZrUXpxRFZHNUE1LXBsZkJWam5qYllnLVlOMGFsLXdnaElVajhvZ05YQkRDUFhrRFBNYmNpVFNtc3NnbmpPeHlNYjh6WE50SEtxX2ZjQmQyS1VxLUlBOXk3RWJWN21RdFhJUkl5N2NIUXB2MmN3NnllV3R1b3FOaXJaZDdmTGVIZ21SVmJ3QkNObmlaQ0tJal9DWk1BSGU0RVJKT0NIdmczdUZz?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Zverev set to finish year-end No. 1 as injured Sinner is ruled out for the season - Tennis Majors",
-      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNUnpIYlRObk9FTHc1YnJPVURmY2NmNjZ6b2dXQ0JhdERIN3FSODR1VUZiNFVvalRpdl83SVd3UUQzaHVtaDBQNGY2UWFZSDV6djlZT3R1YUFVQ05oY2lBcTlvbmRQZVZqNzMtUk1iWlJzVHdia2NqdmsyRlVzSW1nMFYxdFVzbnczREZ4RWZWNGtzc2Z4Y202VEVqTmRDcTZEVXE0eTBRTnVvTFBva2p3NW9Sc3dxdmpQVk9Zak15empwcm8?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
       "title": "Jannik Sinner’s injury shows something ‘strange’ is going on in men’s tennis, says Arthur Fils - Yahoo Sports",
       "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQZTR3MjdsZDNjQzBUbFBod0VYTTI0YnAxRTlpRU1RTDFVeW5PdFY2RXZ0N2R1OUR0ejQ1bVlpcHVrMXdxVzFNSGhsS1dTcXd6QjZRVFlMM2RzWEItWGpjX1FvRWl6NC15MDlsOE41YlJrbjhJZk1kWlJEZUZfS2tIS1NmVnhwZHdnYXhDQmdn?oc=5",
       "summary": "",
@@ -251,8 +251,8 @@
       "severity": 0.75
     },
     {
-      "title": "Jannik Sinner ends 2026 season for ‘course of treatment’ on right knee injury - The Athletic - The New York Times",
-      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQU2NDemNCQVpJMGE1V1JMRExVRnQ2UlNEZmxPdVRGd2xCTlE5bzVfVUVwLXRaamNldUtmQXZURFBKRjZ0VVg5TXZyNGZxQVRKRm03VUlRZ21TZVQ0MzVpdlplb1VGYjNZYWJIVkYybmRzQlVUcGgwbXhDNW1PNmVLTXoyQlJvdU5CWUN5OVFPZldwdFFaYnpjSkdyaG1HTXFjLWc?oc=5",
+      "title": "Toni Nadal explains what tennis should change after Jannik Sinner injury - Tennis World USA",
+      "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQX2tVd2hKTmlNRFRlSDN5VGZLOVVEaTFfOWpmMEtSSEcwV1lPb2lMZjZrUXpxRFZHNUE1LXBsZkJWam5qYllnLVlOMGFsLXdnaElVajhvZ05YQkRDUFhrRFBNYmNpVFNtc3NnbmpPeHlNYjh6WE50SEtxX2ZjQmQyS1VxLUlBOXk3RWJWN21RdFhJUkl5N2NIUXB2MmN3NnllV3R1b3FOaXJaZDdmTGVIZ21SVmJ3QkNObmlaQ0tJal9DWk1BSGU0RVJKT0NIdmczdUZz?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -281,18 +281,8 @@
       "severity": 0.75
     },
     {
-      "title": "“They Are Pushing Us Too Much” – Carlos Alcaraz Blames Jannik Sinner’s Knee Injury On Grueling ATP Schedule - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNOEVLVGNkVnNfcmlqNzNzZEF3c3N0WUZ6N2w4VUNQNXF4WE9XWlZqN2k4cURyTUE2cUtNRHNzLXhjSjlOMmxFTHZ0UDQtNFpWRVhuWk96XzFMakFBa190WGVkcjNicThyYUZscnA5bWc3cnhBcVE2dUZIUW5ORm9SWg?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Alex de Minaur issues injury update after reaching the quarterfinals of the Shanghai Masters - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPWlZMcVQ3SmdHUUhpNTJVRXowcl9BeXg5VG5HZnRIbkFpWjZUd0hkNGR2anFsZ0thcWVQZEFwbHJFSEtQR3F5WTAwLWtCeDZQR1FTVVRES0lfNUNNMFBjTTlEN05zallzbjM5aXBqOHFETUNTTkZ1V3lIM1lmNEt3QWI4a0w4OXhheWpZ?oc=5",
+      "title": "“Give Us More” – Tennis Insider Urges Jannik Sinner & His Team To Go Public With The Exact Nature Of His Knee Injury - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPRXlzcDFibkNieEp4VjgxenJRR1dMRFNjX2FMTkZ0d05VUmdqRUJXZGQzWi1HV1ZQWEMxY052TFBhU2t1TEt5bWgyX1dLQ0JJOHQwRjFwRHg3cXZIZlJKSzh6dXBKVkluY0xlRjA4SXB3dGtWV2JlaElqd19mOG9XNi1TZw?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -303,6 +293,16 @@
     {
       "title": "Roger Federer’s former coach sends Jannik Sinner advice after he ended his season early due to injury - Yahoo Sports",
       "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPekN1TVg3SS1RV19jZXllSElYZ1ROUFpfSmtJR2VwdjM0TTVmSmdqQXpmSGt1eVNuRHV1VmR2UndJdGNMZGZ2cjRUc1VEVzJLLTR4QlEwdlpZMmJ1MFlVd3JRNEoxemN6NGJxQk1ydHp1NENJVDdNcXN5OHRNQThKYi0ydE9iT2w4?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Alex de Minaur issues injury update after reaching the quarterfinals of the Shanghai Masters - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPWlZMcVQ3SmdHUUhpNTJVRXowcl9BeXg5VG5HZnRIbkFpWjZUd0hkNGR2anFsZ0thcWVQZEFwbHJFSEtQR3F5WTAwLWtCeDZQR1FTVVRES0lfNUNNMFBjTTlEN05zallzbjM5aXBqOHFETUNTTkZ1V3lIM1lmNEt3QWI4a0w4OXhheWpZ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -361,8 +361,28 @@
       "severity": 0.75
     },
     {
+      "title": "Sinner, l’infortunio al ginocchio è il più grave della carriera: tutti gli acciacchi e i malori di Jannik - Ubitennis",
+      "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNTnJ1U1RTRGVZcVlieVRURVd2UEtBMVBjekl6UEJzQ1dCWjVTTnUzZ3dHUkVwNkdtcjB6Ul9xOTM4bHhSSGhCeWtkd3ZmM1FTZXEtaTFPTGNhSlRObG1QdGpHRnA2TkhKRGhyVmVvZkVXSUYxVXUzZ1hkQ3N4U19nbWhxYjJFU25STHFlS1JDcUNsem9rQXdQWHdhZjNBdURGSlp6QnBoa1B2eFZXYkpjQVVVQVVDZm14Q05RVWRUNUlPSFhwRG4zcUFwSlhLX2FVQnpxcnhwem9LVDA2VmxUbl9fcml6YTVJ?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
       "title": "Djokovic sull'infortunio di Sinner: \"Il tennis sente la sua mancanza, ma fa bene a pensare al lungo termine\" - Il Tennis Italiano",
       "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOSzFnOUxCczl2dUc4RWE2X2NQaldoRVQ4R0duam1LU3JGQVduS2Njb2t2aGlNOERnTFZIaEdEcF9UWnkyalhkODJPeElJYlVTZ2w3X3hoR2M3Wl9CM3VDclR6Q251VUVrQkd0ckhGMVNDeHlLRkVDRGY4T2pvdGk4TlV6YmVmd3d4dmhHR25rNEpzSUIzUl9pVEtaSDhjYnJ4aVJYN0VKbjlhdVZ0QkE5dDZuTmp3eFNmU0JDNlA2eHBpbkx6cTJIcmlmNDdZUjQ?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Andy Roddick: \"La mia supposizione è che Sinner sta usando l'infortunio per risolvere anche altri problemi\" - Fanpage",
+      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNbVp1eU44NEhOWUhTVjBPeHZOZHF5ZFRuaEdSZDdmMG40eWJGVGo3SnUzYVptbmFub09OMHpic21TRWxFVkNUTEl5UGt4c3RRQkhCRWpKb3NwT3hIRlZqVENqcW8yLU4zdHdUWTdyYmRvcHBZZXFjUWR5ZkdLWXA3NGtPV0NlbUFlWWFycThnYmsySDJqUU1LVkdLeEI5Rk4zMDlYWHhiZ0pUZG5ENE8yQkVvU0Q2Skp1YUZBMHdJbmZ3WHNnaHRScXRndmRHbnVxbU0zRm5Qbw?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -391,16 +411,6 @@
       "severity": 0.75
     },
     {
-      "title": "Sinner, l’infortunio al ginocchio è il più grave della carriera: tutti gli acciacchi e i malori di Jannik - Ubitennis",
-      "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNTnJ1U1RTRGVZcVlieVRURVd2UEtBMVBjekl6UEJzQ1dCWjVTTnUzZ3dHUkVwNkdtcjB6Ul9xOTM4bHhSSGhCeWtkd3ZmM1FTZXEtaTFPTGNhSlRObG1QdGpHRnA2TkhKRGhyVmVvZkVXSUYxVXUzZ1hkQ3N4U19nbWhxYjJFU25STHFlS1JDcUNsem9rQXdQWHdhZjNBdURGSlp6QnBoa1B2eFZXYkpjQVVVQVVDZm14Q05RVWRUNUlPSFhwRG4zcUFwSlhLX2FVQnpxcnhwem9LVDA2VmxUbl9fcml6YTVJ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
       "title": "Furlan: “Infortunio di Sinner più grave del previsto. Nardi si è stirato tre volte agli adduttori” - OA Sport",
       "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNNzY2VWJiaEZhRkNpbllFX21VaUFZTW1jNkY4Nm5MSUd2RXNXM3ZFQm8tLUdFZENlTmNDYWV1R25RZld2MmdONnp3ZzY0NDE2djVuRGhEWUxjWlFQb09rLS16aGMweUNVTWkzSjdjLW9KWUlOMnRUc05yNS1nWmNjekRobzJWT0JwNWRqdVlsM19nbERhZWZ5NzY5Ri1XcWVJM0ZXN29CN1h1X1RaNDdJdURfcDh4ZEgtWGdrOGNwNmREcXBCZmRUUlBuQXBlY0F4VmFmNFFLQ05QeHlEMXdn0gHkAUFVX3lxTE1DSTdpam5VUUFjWlpERzFicE5OdUtCMTB6LVJpUXZHN1JtRmFlZ1Vla3RiUXhrWVlXS2JaSC0zclFNT1hYTkhTbmw5Mms3Yk5VRjkzSE4yeks1NnJZTHNNWnJCNVFsUWd4OFpqNnk4ZkQtbEZUNVhTY2FTaEhvajVDZnNHMlY0S0RKSkV3RG9LRE93bWh5RXJ5TkZKQ0cya3JHZmdUd1ZOUjh2SjlCLXEzY3hocEltdTExa0tQaC1YTVItaWp5X0k4ZG1hc0ppRl9HWXFuakZ5OG52d1FFUEYwSWg5dQ?oc=5",
       "summary": "",
@@ -421,8 +431,8 @@
       "severity": 0.75
     },
     {
-      "title": "\"Torna così\" e \"L'anno che verrà\": i giornali commentano l'infortunio di Jannik Sinner - Eurosport.it",
-      "link": "https://news.google.com/rss/articles/CBMipAJBVV95cUxQSUNHOHhvbld5MmdTeGNHY1B4ejI0NllnS1hrVzgyVkY2SllsY19MeUlxR0pfZHlUR2hmcWticEFEM3RuUVVhd1lHUFdFcGltUDVENEo2Q3QxR2VyYU9OTlJuSGxZSFZsa2d6anc1Vkk3NktDRUtMcTkyS2dCN3k5Q0VJQTlvNE04MVZWQmJfbkE4dzFLN2dJUENGelBDX1BIZVkxVngwcE52Yi1pOTZqYmdzTTd4ZTBHek5HLWVWTC0wTmVPak43b3dXMnE0VWpMZUxEM3FxQU9PcWVVYmxKSkd4WUZTSFBOZV9BdDd3ZnhfcFpLR01DNHlRUmw5TFN5UlFEbUt0YjFTamxYZFM1MEdvUGVoYTRXQ0pMaDQwUlM2cmli?oc=5",
+      "title": "Infortunio Sinner, la spiegazione del dottor Tencone - Sky Sport",
+      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNYktncmRPd2hxZE5FUENkSW9pcHFnenB1Z3FoaXRjYW40RFROZm45Uy1Pdkc4VFpKUGhEZVItZ1dPa0xGZVhCUzFQWkRVTFh4Vjc2NmV0Q3E5MllnUmRLU09qazFTSy1aa2pEUFMyZmJOcHVUQTVOQ1pwWU8tTFpLdWpkalhPMXZjc2F1X0RqNHF0ZHU2WUdqekhZODNONEpkdzJCeQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -441,36 +451,6 @@
       "severity": 0.75
     },
     {
-      "title": "Infortunio Sinner, la spiegazione del dottor Tencone - Sky Sport",
-      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNYktncmRPd2hxZE5FUENkSW9pcHFnenB1Z3FoaXRjYW40RFROZm45Uy1Pdkc4VFpKUGhEZVItZ1dPa0xGZVhCUzFQWkRVTFh4Vjc2NmV0Q3E5MllnUmRLU09qazFTSy1aa2pEUFMyZmJOcHVUQTVOQ1pwWU8tTFpLdWpkalhPMXZjc2F1X0RqNHF0ZHU2WUdqekhZODNONEpkdzJCeQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Sinner, l'infortunio costa caro: tra premi e bonus sfumano quasi 20 milioni - Eurosport.it",
-      "link": "https://news.google.com/rss/articles/CBMinAJBVV95cUxNYWNRUVZUaU9FM000ZkZZTHgzYXRxYWdGZmhGRndadHlZNFUxU3VUYjU0MGp1aE9rX0s1VlltalFqMHdxdmVacnZXZWsyaFNMcGZ6bW1XTk05R0s2eTFYenI4QmtQUjY2Wk1zcUZzUnpnYWFsZTVFSWJfSU10Y2R6SmVXd2x3ZTFYaVNEN3pLMVdnb256dHFCaWFwVzRhMXIzb3h3SkUyNU14aWsyZk8xYjZVZkNrMHJxc1dGSUtyMkp6WEFDWUZEZUtrcUNTQlJaNVVLcE1yT240dEw4YURYY1dkQlVhUnhTYTJKczZpWFdkNDRUQWJpUDVMd1pCaEpaczZOdGk5ZWJmRGxIMWMtMWNlX1BLRjVRZklfQg?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Alexander Zverev parla dell’infortunio di Sinner: “Fa bene a prendersi il suo tempo, non sono contento della sua assenza” - OA Sport",
-      "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQelR6VWRUZ3FJaEIyZkxsTndpVm12OHdydFpjQVBETzMxRnpYbzlXQmxqRFhCQUNRYWhaU1JoaFlzV2RRX29MV2ZkTk9nblpBRF9kdWc3U3F0OHUwUTZXU3l2TkZucmdoR2tuWW1nTlhlbDFsQUNCb1BGLVkwSUtUdE5QNm1Gc0Vld0tPNW9sNUxMeWp1Q3FxV3ZDV0JWa3p4a3ZGajZwQmlUUU5DOWp0bk15SE9USWVlNGJHdmZ3dU9fdms4bFVJczZVSUhUWkprUDZoUGladFJrclNySzJjcFpfUU1SZ1HSAecBQVVfeXFMUHpUelVkVGdxSWhCMmZMbE53aVZtdjh3cnRaY0FQRE8zMUZ6WG85V0JsakRYQkFDUWFoWlNSaGhZc1dkUV9vTFdmZE5PZ25aQURfZHVnN1NxdDh1MFE2V1N5dk5GbnJnaEdrblltZ05YZWwxbEFDQm9QRi1ZMElLVHROUDZtRnNFZXdLTzVvbDVMTHlqdUNxcVd2Q1dCVmt6eGt2Rmo2cEJpVFFOQzlqdG5NeUhPVEllZTRiR3Zmd3VPX3ZrOGxVSXM2VUlIVFpKa1A2aFBpWnRSa3JTcksyY3BaX1FNUmdR?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
       "title": "Infortunio Sinner, la spiegazione del dottor Tencone: 'E' una patologia risolvibile' - Sky Sport",
       "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOVEQ1Y2ZpQjI3QllwSDN0WjZFMUFud2tfeUp4V3dFT2FVa05RSlJzWTJ2Wmpld3NrMWJIQzV6eU5HeVZWU0xYdUlzVUZ6YVd1dWpNYVVZVnQ0UE8xSTRaX1gzRXA1ckxEeTYyTmNJejlvU3JjdHI0SFN4R2FOOTdqdjNFV0d5dWs?oc=5",
       "summary": "",
@@ -481,38 +461,8 @@
       "severity": 0.75
     },
     {
-      "title": "Andy Roddick: \"La mia supposizione è che Sinner sta usando l'infortunio per risolvere anche altri problemi\" - Fanpage",
-      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNbVp1eU44NEhOWUhTVjBPeHZOZHF5ZFRuaEdSZDdmMG40eWJGVGo3SnUzYVptbmFub09OMHpic21TRWxFVkNUTEl5UGt4c3RRQkhCRWpKb3NwT3hIRlZqVENqcW8yLU4zdHdUWTdyYmRvcHBZZXFjUWR5ZkdLWXA3NGtPV0NlbUFlWWFycThnYmsySDJqUU1LVkdLeEI5Rk4zMDlYWHhiZ0pUZG5ENE8yQkVvU0Q2Skp1YUZBMHdJbmZ3WHNnaHRScXRndmRHbnVxbU0zRm5Qbw?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "L’infortunio di Jannik Sinner diventa un salasso economico da oltre 20 milioni - Fanpage",
-      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPVzRJWlljdVh0T3VObFg3WXVQTW9CZWptSEIzdmlHX0tXYm5qd19IUlpmT21wOWY4MkRFTnZTUk8tQmVrRGU3UGM3V0U2ekNiQmtDdWZfemVxRFlqQzFockh2SHZ5eFdLVi1OZm80MGNhSEswVVhoUm80X3QyRUpGTnpNRHF4d1BRZl92T21nOGtVMHAtOXV5NE1QNS00M3VnN0FyOXNyN0laSXU3czgxT1ZkNFo?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
       "title": "Sinner, l'infortunio è davvero colpa del calendario? Federer, Nadal e Djokovic giocavano di più ma ... - Ubitennis",
       "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQTklCQkNDYjFyaXUyUFFnSVZoZjFkaGZucGRHaVRhaTR3WHhqN0xZVVk1cGFOb20yR1RKd2g0MzRBazNmT3BGZW1RMERNNkNpaUZPUWFzQ1liMW1fYy1QTHlyZUhLRlRjX1B3eWlIb1N0QUdyQ2FpZnFKbFZueFI2Q2ZnSERQU0pRSy1COUp0dkhPTThSUXVKTHAwRDR2ZEFVaHMyMVZJVHd3WkRBYUtaOVB4Q2RRdmVHSnFaQzFBTjlYYjN0UHU0M29RNk5UaUNhZ1lr?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Jannik Sinner, quanto gli costerà l'infortunio? I mancati guadagni dai tornei e il nodo degli sponsor - Leggo.it",
-      "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNUFhkZWNHRUJ3ZE5tY0V5RWU1ZzZySDNyNVpnYmFLVnluMXBqbElfUXc3N0hfVXdNRjcyeFVBR3Q4ajBHRDJsdy1sLXFZME51T1g3aDl6MloySk81dDg5TXZnb0NuLXBwTjYwWDVwWHFmZGJGS1FVand0SkF1Y2dwUG9qS3FGRlRJcEcwY2Fjek5LVHktanQzaXVyR2FoeEF5U003SjhrWGpNS3kzdTNrczF1SGQ3b2lkM1VWYVJsb3hQc2NVVlHSAawBQVVfeXFMTm5RMkZRQWlNWFozUld5ZGNWbHJRTnJITWtuSTEtVkxySXNjaklXZUhacEl3ZFA2RVg5R0dNSlNaXzBGd1lzNjkxOW5uSGFkTURPVi1GSHBoMnRWWVFZQnROOEZLZVZGYmZkeGJ5eUxuZVFQNjBSbk85eXRrdTBNQkFGTG5nWTJHcG1qY0otbDlUTlFnSURpVHpuczlTWFlidEFrTXJIZGQyOWdrMA?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -541,8 +491,8 @@
       "severity": 0.75
     },
     {
-      "title": "L’infortunio di Jannik Sinner: la tendinite, il dolore e la terapia conservativa - Open",
-      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNVFZQWFdVZkdSMklqOU05MTk3NThPbGJMOGtBTXptVlFIWE9mOUk5dW0ySm92SG1aMW12NjJ5ZEcyUFFoLWhrb1ZUMlhkSGNiSUJsOHdJeGFIWXRfeERzQ1JJdm52LUJQTzRLTDJlaHlwcmFxaXZEU2o2NXRReGczTEhOd05zcFNPVGhB?oc=5",
+      "title": "ATP Shanghai, Berrettini: \"Infortunio Sinner? Abbiamo perso il miglior giocatore del mondo\" - Ubitennis",
+      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOakRkSnp6WldKUUhQU0U5aWgyTmdoVWpBNU5vQmhLMkYtUzBlbm5Td1ZTTzdUQWY3eEJKOFJUSUwxbXVZTkZjY2RGVFhqRjhhR0tMTkJUS09XQjhROC1ucjNYWnpBQ0owdFIxVDZraXpNNmlBaTFVdVp6N3VHbnBydDNCdzNFTXludlBnOFpxbUtrNXp5RlpHUWtjUzNQWlo5QjFuWWFfNEVHaTc5dVNTNFpCaXdvSEpxdXk5QUZLaFg0ZklaMHVDaQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -551,8 +501,8 @@
       "severity": 0.75
     },
     {
-      "title": "ATP Shanghai, Berrettini: \"Infortunio Sinner? Abbiamo perso il miglior giocatore del mondo\" - Ubitennis",
-      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOakRkSnp6WldKUUhQU0U5aWgyTmdoVWpBNU5vQmhLMkYtUzBlbm5Td1ZTTzdUQWY3eEJKOFJUSUwxbXVZTkZjY2RGVFhqRjhhR0tMTkJUS09XQjhROC1ucjNYWnpBQ0owdFIxVDZraXpNNmlBaTFVdVp6N3VHbnBydDNCdzNFTXludlBnOFpxbUtrNXp5RlpHUWtjUzNQWlo5QjFuWWFfNEVHaTc5dVNTNFpCaXdvSEpxdXk5QUZLaFg0ZklaMHVDaQ?oc=5",
+      "title": "Furlan su Sinner: \"Ha avuto un infortunio più grave del previsto\" - Tennis World Italia",
+      "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNdlAyYjk1VHFKTE4xV3lJcl9fd1dKLUttZW1kSGdmbVlSVjFQOFZoZGtITFRfeE9DWGFkNnFjLUNrV1dMUGJIbE9rVXF0SGxzNXdTbDQ2a1RmZk1vWlJuZVphVVNVWWRRcDlvckNWbFpfUjdwOTVCQ2xxNy05TktfUUdUQ05nY3pMQ3pnN3RnUi0zZmU3ejc1NzlWZDdNLTZyUjZETEdKSGo1cGpsYmg1REZXSFBCTkV2b080NXh5dnU4WnNGYmlpaVZJeFhvM05G?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
