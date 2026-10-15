@@ -10373,13 +10373,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Fils sounds alarm over youth injury epidemic on ATP Tour - Tennis World USA",
+      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQSW1pODBsVmhDNGlZeGlnOVVMRFB0TFBuY1hkZ1A5Z3Z3WUViQUJWQzJBVEdXcTMwdU1yZUE1UVhic2RoNGFtemV1Unh2ZVRRX1E3d0JFZHVGYnRweG43LVU0VkRuRWd5MXFwMVdUVTlFbkNwU0ZRdmJJTERONG1BR2wxZHFSbURZUm5ZS2trZGZQV3FsckVHMXBsX3Nrc2RXUzV0dUVZcGNQckhZYzM4TTE4SVktQ19ZWldYUXFYWQ?oc=5",
+      "source": "gnews_injury_en",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Fils sounds alarm over youth injury epidemic on ATP Tour - Tennis World USA",
+          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQSW1pODBsVmhDNGlZeGlnOVVMRFB0TFBuY1hkZ1A5Z3Z3WUViQUJWQzJBVEdXcTMwdU1yZUE1UVhic2RoNGFtemV1Unh2ZVRRX1E3d0JFZHVGYnRweG43LVU0VkRuRWd5MXFwMVdUVTlFbkNwU0ZRdmJJTERONG1BR2wxZHFSbURZUm5ZS2trZGZQV3FsckVHMXBsX3Nrc2RXUzV0dUVZcGNQckhZYzM4TTE4SVktQ19ZWldYUXFYWQ?oc=5",
+          "source": "gnews_injury_en",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -10393,13 +10406,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Fils sounds alarm over youth injury epidemic on ATP Tour - Tennis World USA",
+        "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQSW1pODBsVmhDNGlZeGlnOVVMRFB0TFBuY1hkZ1A5Z3Z3WUViQUJWQzJBVEdXcTMwdU1yZUE1UVhic2RoNGFtemV1Unh2ZVRRX1E3d0JFZHVGYnRweG43LVU0VkRuRWd5MXFwMVdUVTlFbkNwU0ZRdmJJTERONG1BR2wxZHFSbURZUm5ZS2trZGZQV3FsckVHMXBsX3Nrc2RXUzV0dUVZcGNQckhZYzM4TTE4SVktQ19ZWldYUXFYWQ?oc=5",
+        "source": "gnews_injury_en",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Fils sounds alarm over youth injury epidemic on ATP Tour - Tennis World USA",
+            "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQSW1pODBsVmhDNGlZeGlnOVVMRFB0TFBuY1hkZ1A5Z3Z3WUViQUJWQzJBVEdXcTMwdU1yZUE1UVhic2RoNGFtemV1Unh2ZVRRX1E3d0JFZHVGYnRweG43LVU0VkRuRWd5MXFwMVdUVTlFbkNwU0ZRdmJJTERONG1BR2wxZHFSbURZUm5ZS2trZGZQV3FsckVHMXBsX3Nrc2RXUzV0dUVZcGNQckhZYzM4TTE4SVktQ19ZWldYUXFYWQ?oc=5",
+            "source": "gnews_injury_en",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -10410,16 +10436,16 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Fils sounds alarm over youth injury epidemic on ATP Tour - Tennis World USA",
+      "category": "injury"
     },
     "p_retire": 0.45,
     "retirement_context": {
       "player_injury_risk": 0.45,
       "p_retire": 0.45,
-      "news_boost": 0.153
+      "news_boost": 0.135
     }
   },
   {
