@@ -119,8 +119,19 @@ def _fair_odds_for_pick(pred: dict, rec: dict) -> float | None:
     return None
 
 
+def _source_label(source: str) -> str:
+    key = str(source or "").strip().lower()
+    labels = {
+        "betfair": "Betfair",
+        "kambi": "Kambi",
+        "unibet": "Unibet",
+        "pinnacle": "Pinnacle",
+    }
+    return labels.get(key, source.strip() if source else "")
+
+
 def _format_bet(pred: dict) -> str:
-    """Messaggio essenziale: cosa puntare, a che quota, quanto (% Kelly)."""
+    """Messaggio essenziale: pick, quota book vs equa, stake Kelly (come calcio)."""
     rec = pred.get("recommended") or {}
     date = str(pred.get("date") or "")[:10]
     tourney = str(pred.get("tourney") or "").strip()
@@ -129,6 +140,7 @@ def _format_bet(pred: dict) -> str:
     player_b = str(pred.get("player_b") or "?")
     pick = str(rec.get("player") or "?")
     source = str(pred.get("odds_source") or "book")
+    src_label = _source_label(source)
     try:
         odds = float(rec.get("odds") or 0)
     except (TypeError, ValueError):
@@ -144,18 +156,24 @@ def _format_bet(pred: dict) -> str:
     fair = _fair_odds_for_pick(pred, rec)
 
     when_bits = [x for x in (date, start[:16] if start else "", tourney) if x]
-    quota_bits = [f"Quota: {odds:.2f}"]
-    if fair is not None:
-        quota_bits.append(f"Fair: {fair:.2f}")
-    quota_bits.append(f"Stake: {kelly:.2%} del bankroll")
+    src_bit = f" ({src_label})" if src_label else ""
+    if odds > 1.01 and fair is not None and abs(odds - fair) > 0.005:
+        quota_line = f"Quota {odds:.2f}{src_bit} · equa {fair:.2f}"
+    elif odds > 1.01:
+        quota_line = f"Quota {odds:.2f}{src_bit}"
+    elif fair is not None:
+        quota_line = f"Equa (analisi) {fair:.2f}"
+    else:
+        quota_line = "Quota n/d"
+
     lines = [
         f"PUNTA: {pick}",
-        "  |  ".join(quota_bits),
+        f"{quota_line} · Stake {kelly:.2%} del bankroll",
         f"Match: {player_a} vs {player_b}",
     ]
     if when_bits:
         lines.append(" · ".join(when_bits))
-    lines.append(f"EV {ev_pct:+.1f}% · fonte {source}")
+    lines.append(f"EV {ev_pct:+.1f}% · fonte {src_label or source}")
 
     # Solo se cambia qualcosa di concreto per l'azione
     try:
@@ -169,14 +187,6 @@ def _format_bet(pred: dict) -> str:
                 lines.append(f"Attenzione: sotto min @{min_odds:.2f} (edge {min_edge:.0%}) → skip")
     except Exception:
         pass
-
-    news = pred.get("news_alert") or {}
-    if news.get("any_alert"):
-        flag = "STOP" if news.get("hard_block_pick") or pred.get("news_hard_block") else "NEWS"
-        head = str(news.get("headline") or "")[:100]
-        lines.append(f"{flag}: {head}" if head else flag)
-    if rec.get("retirement_warning"):
-        lines.append(str(rec["retirement_warning"]))
 
     return "\n".join(lines)
 
@@ -195,7 +205,7 @@ def _pack(title: str, items: list[dict]) -> list[tuple[str, list[str]]]:
 
 
 def dispatch_alerts(predictions: list[dict] | None = None, *, dry_run: bool = False) -> dict:
-    """Invia value bet nuovi + alert news su bet/shadow (dedup)."""
+    """Invia solo value bet consigliati (quota book vs equa). Niente NEWS/INJURY."""
     rows = predictions or []
     bets = [p for p in rows if _is_telegram_bet(p)]
     sent_ids = _load_sent()
@@ -205,36 +215,15 @@ def dispatch_alerts(predictions: list[dict] | None = None, *, dry_run: bool = Fa
         fresh,
     )
 
-    # News: withdrawal/injury su bet/shadow/review o hard-block
-    news_items = []
-    for p in rows:
-        na = p.get("news_alert") or {}
-        if not na.get("any_alert"):
-            continue
-        interesting = (
-            p.get("action") in ("bet", "shadow", "review")
-            or p.get("news_hard_block")
-            or na.get("hard_block_pick")
-            or float((na.get("pick") or {}).get("severity") or 0) >= 0.70
-            or float((na.get("opponent") or {}).get("severity") or 0) >= 0.85
-        )
-        if not interesting:
-            continue
-        key = "news|" + alert_key(p)
-        if key in sent_ids:
-            continue
-        news_items.append(p)
-    news_messages = _pack("NEWS / INJURY · attenzione palinsesto", news_items)
-
     sent_n = 0
     if dry_run:
-        for msg, _ids in messages + news_messages:
+        for msg, _ids in messages:
             print(msg)
             print("---")
     else:
-        if (messages or news_messages) and not load_credentials():
+        if messages and not load_credentials():
             print("telegram skip: credenziali assenti")
-        elif messages or news_messages:
+        elif messages:
             now = _now().isoformat()
             changed = False
             for msg, ids in messages:
@@ -252,27 +241,21 @@ def dispatch_alerts(predictions: list[dict] | None = None, *, dry_run: bool = Fa
                                 log_alert(p, sent_at=now)
                     except Exception:
                         pass
-            for msg, ids in news_messages:
-                if send_message(msg):
-                    sent_n += 1
-                    for key in ids:
-                        sent_ids["news|" + key] = now
-                    changed = True
             if changed:
                 _save_sent(sent_ids)
 
     info = {
         "n_bets": len(bets),
         "n_new_bets": len(fresh),
-        "n_news_alerts": len(news_items),
-        "n_messages": len(messages) + len(news_messages),
+        "n_news_alerts": 0,
+        "n_messages": len(messages),
         "n_sent": sent_n,
         "dry_run": dry_run,
         "status": telegram_status(),
     }
     print(
         f"telegram avvisi: value {info['n_new_bets']}/{info['n_bets']} nuovi, "
-        f"news {info['n_news_alerts']}, inviati {sent_n}"
+        f"inviati {sent_n}"
     )
     return info
 
@@ -405,4 +388,3 @@ def dispatch_daily_digest(*, dry_run: bool = False, force: bool = False) -> dict
         info["error"] = "send_failed"
         print("telegram digest: invio fallito")
     return info
-
