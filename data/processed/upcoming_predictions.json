@@ -2748,11 +2748,20 @@
       "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPM3RlZi0tNlVhR3RRdm5rNHc1Qm13a1ZfY0I0bXlDdTdJWkNQdUZfZDJCeTVGRkNMS0lIWU5QMjEwTTE5c1l6a3hhWEt4eU96cTlkWTV2UnVuRVJNQWVQZkdwekJ6ekdKbU5OeU5hYzVFenVsNXFyY19Wc2tqOHNteGhaeG9ubHRwSlE3MWZiTUpobm5Kbjl5aEg5TkpOdTA3T0hWVmZnSTVlWnJjZkl3Vm5Bc240TFZRc3pFRy10ZkRwUHQ1?oc=5",
       "source": "gnews_injury_it",
       "severity": 0.75,
-      "n_hits": 1,
+      "n_hits": 2,
       "hits": [
         {
           "title": "Infortunio Sinner, Gilbert: \u201cEcco cosa mi ha svelato Cahill\u201d. Spunta l\u2019ipotesi operazione - Lottomatica.Sport",
           "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPM3RlZi0tNlVhR3RRdm5rNHc1Qm13a1ZfY0I0bXlDdTdJWkNQdUZfZDJCeTVGRkNMS0lIWU5QMjEwTTE5c1l6a3hhWEt4eU96cTlkWTV2UnVuRVJNQWVQZkdwekJ6ekdKbU5OeU5hYzVFenVsNXFyY19Wc2tqOHNteGhaeG9ubHRwSlE3MWZiTUpobm5Kbjl5aEg5TkpOdTA3T0hWVmZnSTVlWnJjZkl3Vm5Bc240TFZRc3pFRy10ZkRwUHQ1?oc=5",
+          "source": "gnews_injury_it",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        },
+        {
+          "title": "Alcaraz, Stubbs svela l\u2019origine dell\u2019infortunio al polso: \u201cColpa del nuovo servizio\u201d. La previsione sul futuro - Lottomatica.Sport",
+          "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQNmlzZVM5NlQyay1FeV9KTmdTcHpXQW9GMmJ3ME45N0prX3BMRFFjaHdQT0hNWXdROHZLVTBObVhCeDlWa1FLeVU3NEFwUTNWYjdZd1AtMEl4c1NldHU4cGpNeXQ3UnlJRWlUZzNxRkV2RjBGMTZqbENpWkNYQ3NJczdUNjNiaU5EcWwtNEpqSjgxRDlEUl9lSWZPd1BRTTRsNEIzSVdiVl9lelFKYUlibGo4NHJ4UXk4WGtWVnFZVU1aX0ZRa3RKNUsyZXcxZWRKXzVMR1JfM2xraTZWQTVv?oc=5",
           "source": "gnews_injury_it",
           "category": "injury",
           "severity": 0.75,
@@ -2781,11 +2790,20 @@
         "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPM3RlZi0tNlVhR3RRdm5rNHc1Qm13a1ZfY0I0bXlDdTdJWkNQdUZfZDJCeTVGRkNMS0lIWU5QMjEwTTE5c1l6a3hhWEt4eU96cTlkWTV2UnVuRVJNQWVQZkdwekJ6ekdKbU5OeU5hYzVFenVsNXFyY19Wc2tqOHNteGhaeG9ubHRwSlE3MWZiTUpobm5Kbjl5aEg5TkpOdTA3T0hWVmZnSTVlWnJjZkl3Vm5Bc240TFZRc3pFRy10ZkRwUHQ1?oc=5",
         "source": "gnews_injury_it",
         "severity": 0.75,
-        "n_hits": 1,
+        "n_hits": 2,
         "hits": [
           {
             "title": "Infortunio Sinner, Gilbert: \u201cEcco cosa mi ha svelato Cahill\u201d. Spunta l\u2019ipotesi operazione - Lottomatica.Sport",
             "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPM3RlZi0tNlVhR3RRdm5rNHc1Qm13a1ZfY0I0bXlDdTdJWkNQdUZfZDJCeTVGRkNMS0lIWU5QMjEwTTE5c1l6a3hhWEt4eU96cTlkWTV2UnVuRVJNQWVQZkdwekJ6ekdKbU5OeU5hYzVFenVsNXFyY19Wc2tqOHNteGhaeG9ubHRwSlE3MWZiTUpobm5Kbjl5aEg5TkpOdTA3T0hWVmZnSTVlWnJjZkl3Vm5Bc240TFZRc3pFRy10ZkRwUHQ1?oc=5",
+            "source": "gnews_injury_it",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          },
+          {
+            "title": "Alcaraz, Stubbs svela l\u2019origine dell\u2019infortunio al polso: \u201cColpa del nuovo servizio\u201d. La previsione sul futuro - Lottomatica.Sport",
+            "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQNmlzZVM5NlQyay1FeV9KTmdTcHpXQW9GMmJ3ME45N0prX3BMRFFjaHdQT0hNWXdROHZLVTBObVhCeDlWa1FLeVU3NEFwUTNWYjdZd1AtMEl4c1NldHU4cGpNeXQ3UnlJRWlUZzNxRkV2RjBGMTZqbENpWkNYQ3NJczdUNjNiaU5EcWwtNEpqSjgxRDlEUl9lSWZPd1BRTTRsNEIzSVdiVl9lelFKYUlibGo4NHJ4UXk4WGtWVnFZVU1aX0ZRa3RKNUsyZXcxZWRKXzVMR1JfM2xraTZWQTVv?oc=5",
             "source": "gnews_injury_it",
             "category": "injury",
             "severity": 0.75,
@@ -32967,11 +32985,20 @@
       "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPM3RlZi0tNlVhR3RRdm5rNHc1Qm13a1ZfY0I0bXlDdTdJWkNQdUZfZDJCeTVGRkNMS0lIWU5QMjEwTTE5c1l6a3hhWEt4eU96cTlkWTV2UnVuRVJNQWVQZkdwekJ6ekdKbU5OeU5hYzVFenVsNXFyY19Wc2tqOHNteGhaeG9ubHRwSlE3MWZiTUpobm5Kbjl5aEg5TkpOdTA3T0hWVmZnSTVlWnJjZkl3Vm5Bc240TFZRc3pFRy10ZkRwUHQ1?oc=5",
       "source": "gnews_injury_it",
       "severity": 0.75,
-      "n_hits": 1,
+      "n_hits": 2,
       "hits": [
         {
           "title": "Infortunio Sinner, Gilbert: \u201cEcco cosa mi ha svelato Cahill\u201d. Spunta l\u2019ipotesi operazione - Lottomatica.Sport",
           "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPM3RlZi0tNlVhR3RRdm5rNHc1Qm13a1ZfY0I0bXlDdTdJWkNQdUZfZDJCeTVGRkNMS0lIWU5QMjEwTTE5c1l6a3hhWEt4eU96cTlkWTV2UnVuRVJNQWVQZkdwekJ6ekdKbU5OeU5hYzVFenVsNXFyY19Wc2tqOHNteGhaeG9ubHRwSlE3MWZiTUpobm5Kbjl5aEg5TkpOdTA3T0hWVmZnSTVlWnJjZkl3Vm5Bc240TFZRc3pFRy10ZkRwUHQ1?oc=5",
+          "source": "gnews_injury_it",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        },
+        {
+          "title": "Alcaraz, Stubbs svela l\u2019origine dell\u2019infortunio al polso: \u201cColpa del nuovo servizio\u201d. La previsione sul futuro - Lottomatica.Sport",
+          "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQNmlzZVM5NlQyay1FeV9KTmdTcHpXQW9GMmJ3ME45N0prX3BMRFFjaHdQT0hNWXdROHZLVTBObVhCeDlWa1FLeVU3NEFwUTNWYjdZd1AtMEl4c1NldHU4cGpNeXQ3UnlJRWlUZzNxRkV2RjBGMTZqbENpWkNYQ3NJczdUNjNiaU5EcWwtNEpqSjgxRDlEUl9lSWZPd1BRTTRsNEIzSVdiVl9lelFKYUlibGo4NHJ4UXk4WGtWVnFZVU1aX0ZRa3RKNUsyZXcxZWRKXzVMR1JfM2xraTZWQTVv?oc=5",
           "source": "gnews_injury_it",
           "category": "injury",
           "severity": 0.75,
@@ -33000,11 +33027,20 @@
         "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPM3RlZi0tNlVhR3RRdm5rNHc1Qm13a1ZfY0I0bXlDdTdJWkNQdUZfZDJCeTVGRkNMS0lIWU5QMjEwTTE5c1l6a3hhWEt4eU96cTlkWTV2UnVuRVJNQWVQZkdwekJ6ekdKbU5OeU5hYzVFenVsNXFyY19Wc2tqOHNteGhaeG9ubHRwSlE3MWZiTUpobm5Kbjl5aEg5TkpOdTA3T0hWVmZnSTVlWnJjZkl3Vm5Bc240TFZRc3pFRy10ZkRwUHQ1?oc=5",
         "source": "gnews_injury_it",
         "severity": 0.75,
-        "n_hits": 1,
+        "n_hits": 2,
         "hits": [
           {
             "title": "Infortunio Sinner, Gilbert: \u201cEcco cosa mi ha svelato Cahill\u201d. Spunta l\u2019ipotesi operazione - Lottomatica.Sport",
             "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPM3RlZi0tNlVhR3RRdm5rNHc1Qm13a1ZfY0I0bXlDdTdJWkNQdUZfZDJCeTVGRkNMS0lIWU5QMjEwTTE5c1l6a3hhWEt4eU96cTlkWTV2UnVuRVJNQWVQZkdwekJ6ekdKbU5OeU5hYzVFenVsNXFyY19Wc2tqOHNteGhaeG9ubHRwSlE3MWZiTUpobm5Kbjl5aEg5TkpOdTA3T0hWVmZnSTVlWnJjZkl3Vm5Bc240TFZRc3pFRy10ZkRwUHQ1?oc=5",
+            "source": "gnews_injury_it",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          },
+          {
+            "title": "Alcaraz, Stubbs svela l\u2019origine dell\u2019infortunio al polso: \u201cColpa del nuovo servizio\u201d. La previsione sul futuro - Lottomatica.Sport",
+            "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQNmlzZVM5NlQyay1FeV9KTmdTcHpXQW9GMmJ3ME45N0prX3BMRFFjaHdQT0hNWXdROHZLVTBObVhCeDlWa1FLeVU3NEFwUTNWYjdZd1AtMEl4c1NldHU4cGpNeXQ3UnlJRWlUZzNxRkV2RjBGMTZqbENpWkNYQ3NJczdUNjNiaU5EcWwtNEpqSjgxRDlEUl9lSWZPd1BRTTRsNEIzSVdiVl9lelFKYUlibGo4NHJ4UXk4WGtWVnFZVU1aX0ZRa3RKNUsyZXcxZWRKXzVMR1JfM2xraTZWQTVv?oc=5",
             "source": "gnews_injury_it",
             "category": "injury",
             "severity": 0.75,
