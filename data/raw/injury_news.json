@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "fetched_at": "2026-10-17T08:08:57.589608+00:00",
-  "n_items": 61,
+  "fetched_at": "2026-10-17T18:23:30.533177+00:00",
+  "n_items": 59,
   "n_raw": 130,
   "errors": [
     "espn_tennis: fetch failed",
@@ -51,31 +51,11 @@
       "severity": 0.95
     },
     {
-      "title": "Qinwen Zheng releases statement as both she and Mirra Andreeva withdraw from the Wuhan Open, 'I'm very sorry' - Tennishead",
-      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQVGF4X3dLeGhRTS1oVENQX2c0dnVFRjhvSmpmOFRmZ1d6NUdmWHEwUlRVWmxDU3prSkVZY01NWWlzTzJwelpmWDZwYlNIN19KOVJzZnp2VzR5RnFwODVkQ2h0R2ZhSUFncG9Td0VFb3N4ZTVNNld5UkZWbHpsQzNNZFdicWYyTzhNazl0VHktclgyWVo4eHdfM1Q0RFBFMmpXSXpOOW9OUkthLVo4LXdSRnc3Zk5UTW1sb0VkanhiSEJBRkR3R3ZFRw?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.95
-    },
-    {
       "title": "Noskova pulls out of Wuhan with left calf injury - WTA Tennis",
       "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNa1ZzdDJualR5QTlfQnVpTGVqOVhXUjZaWDN4UUJjNWtVNFl0TFNNcXp4ZjhIUWxGR2ZCcF9jNnQ0YWtSYXg2SG41a2o5SVE2NGUtTlhJYzh5aEpMNDlNM3l0eUZxTUFYRmZfVl9TNjJxd3VlLUgyeEJ4UWc4OF9seWUtbld0c0xnWENXR3d4SW92R28zTG01OA?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.92
-    },
-    {
-      "title": "ATP Shanghai: Jodar vuole le Finals, ritiro per Auger-Aliassime - Ubitennis",
-      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNWWZFYVd2VmlxT3c1X242VWVwSldHbjFQek5PMGlHa3R3WXZibnpwUnh2MEhVampBc0NvVHFkRVpuR2V2WmNkb1k0TjY4RXRSNnQyX1JzeFU0cExGdTYyNzJIT1FpZ3lURTlCVU9nUjZXbWN2ME16cGtYSUJBLW9Gc084b0p0anZmR0JaOW1ZNnFBZGhmak5vUFBOQ3FISHdNNHBBSEh1Yw?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
       "channel": "rss",
       "category": "withdrawal",
       "severity": 0.92
@@ -141,38 +121,8 @@
       "severity": 0.85
     },
     {
-      "title": "Casper Ruud reacts as Felix Auger-Aliassime retires from their match in Shanghai due to injury - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPZkhfejdxalFmQ1pONVhlUU94RHhhMlJ5N1BvMV9yZHdXRG9WZV9GeV9DRk43SF9GVjg4TFBuSTM2czZPZ25ZU2RnU3duRFF1dnd0aV91WUZQVURTZDRhaExZMXZGVGp6NlJPUzRrZkUtZENfUVBIU3hwYV90cGtwZjBDLUc0UQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "retirement",
-      "severity": 0.85
-    },
-    {
-      "title": "ITIA notified of former world number six Monfils retirement - Reuters",
-      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQZnVTVEtmWVMwb24zemdaOUNTYlg1aGs2WUtDUEhHakpDbzN1WjczallzVHhxRExEQnc3Q2JmR3hvR2NlMm1xclI4dmp2OVE5MkxOV3F0QUNpN2VsN3ZjclZDV292YzJtSWw5QkQxdjlIOFloVjd4UjVOYzYxZWZScGFCVDdIbUk4aWRIZzJZZXQ2V1o5TUZ2TzZuUnJ4VlFxOXhpNGhwVVFjQQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "retirement",
-      "severity": 0.85
-    },
-    {
       "title": "Daniil Medvedev reacts after Gael Monfils appears to retire from tennis, 'it's a bit of a strange story' - Tennishead",
       "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOaUhXZC1wNEV2NURwZHVfXzV5X0ZDWTZaTTF4aTF2bDlFckNoSmJiampoYWpxdWJ1cEZ4Y29TaTg0TXpZdTEzaVpxdTFieGhWOUZTbmtERE9CaWMwbVFlSDR4N1ZWMFdKa0pzVEVfSG9Pc1psbWtIR2FzeW1QQmgwMGlaZzhnM1ZaTjF2SmliV3d5bGljUmR4aDd6aGhmZlhjTXpyQlhlOG5RZldlTWRMZVl3V2xJWndjemJoQkpwbFk4Zw?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "retirement",
-      "severity": 0.85
-    },
-    {
-      "title": "Gael Monfils’ retirement plan takes surprising twist after US Open exit - New York Post",
-      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOMGNJeGxzOFNhMF9Bc2lvLWQ4QkR1V1JjQTBOT0pxV3F2N1gtWEpFWExQcnRxSF9sMHFhZEFUTW5DRlViNVRWNzlMZnQzeUszd2NRYmNSdGlNZlU5MjV5Wl9acnZqZldiM2o4WW12WkFNajdFNHY1TkVEcXlBLV8xbk1HYXNzNU0yUGJEa1k2czBNZHQySGtWaUh2Z3I0ajFXWlJCZHhB?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -191,8 +141,48 @@
       "severity": 0.85
     },
     {
+      "title": "ITIA notified of former world number six Monfils retirement - Reuters",
+      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQZnVTVEtmWVMwb24zemdaOUNTYlg1aGs2WUtDUEhHakpDbzN1WjczallzVHhxRExEQnc3Q2JmR3hvR2NlMm1xclI4dmp2OVE5MkxOV3F0QUNpN2VsN3ZjclZDV292YzJtSWw5QkQxdjlIOFloVjd4UjVOYzYxZWZScGFCVDdIbUk4aWRIZzJZZXQ2V1o5TUZ2TzZuUnJ4VlFxOXhpNGhwVVFjQQ?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
+      "title": "Casper Ruud reacts as Felix Auger-Aliassime retires from their match in Shanghai due to injury - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPZkhfejdxalFmQ1pONVhlUU94RHhhMlJ5N1BvMV9yZHdXRG9WZV9GeV9DRk43SF9GVjg4TFBuSTM2czZPZ25ZU2RnU3duRFF1dnd0aV91WUZQVURTZDRhaExZMXZGVGp6NlJPUzRrZkUtZENfUVBIU3hwYV90cGtwZjBDLUc0UQ?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
+      "title": "Gael Monfils apparently retires before planned - Reuters",
+      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOSGktX2NLd2lFR0lzaWd4bnNONVg2MEg0eWJOMVVrLUFtRzJlTTV1N0tsM0JEVWk0QTF0eFRpS1ZwVzZLY2ZGNU9tYkdoNFp2c19rQmhBeFdFZXAtcElDWThkaldoZ19FTFJiclcxTXBzOGZFSUZPN2RZUmcxLU9kTEVTTkQwenVLYzM1SmdlUDNGS2h5S084ZFl1eFZLNVd2LVJv?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
       "title": "'Must be serious': Tennis world rocked after $25m star forced to retire immediately - Yahoo",
       "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNT2pvMTdfNUt4Nm5vaHM4bFd4OVIwdktyQllpYWY5RXBHcGRDRld1Z2N5eEMxUEd3aWFIaDh5TXhZQlIySFFYUkt4TDlxRlU5cHNOLTVvNEYydGF6bG92QUpXNEIzYk03VkVxb2djeWVoOVFhNWFWT3I1WDFKc2ZwWmFkcldPZGdORXlzcVBqczVBRUcxNjRhTmdjSWFIUkJuUTNfVkVqVW01WVE0MmFNb29FLXdtZnBJQlFwSjhhSHZhQUVneV93N0ZSZVFreHpmRmc?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
+      "title": "Gael Monfils’ retirement plan takes surprising twist after US Open exit - New York Post",
+      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOMGNJeGxzOFNhMF9Bc2lvLWQ4QkR1V1JjQTBOT0pxV3F2N1gtWEpFWExQcnRxSF9sMHFhZEFUTW5DRlViNVRWNzlMZnQzeUszd2NRYmNSdGlNZlU5MjV5Wl9acnZqZldiM2o4WW12WkFNajdFNHY1TkVEcXlBLV8xbk1HYXNzNU0yUGJEa1k2czBNZHQySGtWaUh2Z3I0ajFXWlJCZHhB?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -231,6 +221,16 @@
       "severity": 0.85
     },
     {
+      "title": "Emma Raducanu: Retired Brit Dan Evans predicts former US Open champion 'will win Wimbledon' despite injuries and fitness issues - Sky Sports",
+      "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxQckZYRDJDZ0hzdTJhTXYydGlselhMSWg1VlB2V1duV3JWT1ZYU2pEWTA2dGkza2xfM2R2X1FOUFFMRk1UODhSb0RtXzNHVExSTllWeUtjakxxOUZjRmV3WUd5bUlDTThIbkR5OW03RUdBY29oWkNMTURpT1BiRWd5bkpWckp1Rm11aDJ1djRVLTVsckZvaXVWOS1oWVo4Q2FFYjhaems0MFFfOGY4ZzJkQnA3ZkdVVjB3Sm9iYmx5TmxTQ1lIdk9kd2duWC1fYWRUQTIwakxTYzhJcnU2dlM1U2JGMjRCcHRVQ0w4a3lnQUhzNEVxYmxVOFZkXzQ3ZDk4?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
       "title": "Arthur Géa explains his Shanghai retirement: \"I'm very sad\" - TennisTemple",
       "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQa2J2VUxiZzNUYUVENy01VmY4TmVDNFRYa2dMbFVPLVpnR1RxdEpLaFdFRGVrU21CTW5RNHJWRmV4TVhSN1NsUml3Q2k3ajJVX1VKUGdDeW5XNVdUZjRLT1h4b2p1emVLOW92Q2pfM3V3OVlMdnloZ1Z0UHdqNXpETmlWSFFMV1N6TE5IdA?oc=5",
       "summary": "",
@@ -251,51 +251,21 @@
       "severity": 0.85
     },
     {
-      "title": "Géa retires after just five games against Davidovich Fokina in Shanghai - TennisTemple",
-      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOcl9ZaWcteTA4TjBLTVdLczI5azhBbmwtY0plUjFWdUVuUk41Q1JDb3pvSENDNHJYbG95QXlJS2thZlVZQ3YtT29GT3pmdGlaUjJpMFRweW5XRlpVMEg3VWFydkZERktORHpJVGxqZ1A0WUhSTUZTWXM0QjBqQS1nUzF4aGxFdw?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "retirement",
-      "severity": 0.85
-    },
-    {
-      "title": "Auger-Aliassime retires with injury in Shanghai; Fernandez advances in Wuhan - The Globe and Mail",
-      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQWW1hcHVaU0k4MGpMTUFBX2FWYW5PdVBNX2tRMzgtZFB3LUxrZkhyMXl1cF9oMVRWQXlHUmYxRlFSUkZwUkRydHVLOE5nMW55QUREcWJZRk52N3dtQS11aGZoNjFYX3pidmQ4a010Vl8yRk5jbkhDQWEyN1F4eUZpREM2ZEZKR0s5Vko3VHdqNFNmV3J2M1draUVUNTdxOHBwNmhReVBrRXV0YUFVa01Kekhaa0JtUFFndGVhQ2pUclhvQQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "retirement",
-      "severity": 0.85
-    },
-    {
-      "title": "Canada's Auger-Aliassime retires with knee injury at Shanghai Masters - TSN",
-      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPTDUxNWJsSkt5UFNINmZOcWJ1d3hnX1B1ZmRRekZvNlVZaWtVbUNZU0ZCbzZkMUlhOVg1d0ZnaElYNFdWbU5EempORXN5VjdYQlQ5MFgtTmk2T1RVaFAxSWpUU1BVMXFXZ0o5dnM4bHMyM0RrQ0pSaHRTN1pTVDFrb1NwdXhRdHMzaEE4QzZjS2JfLVpqckdNMUlpSjN4X2pIZHdQczlR?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "retirement",
-      "severity": 0.85
-    },
-    {
-      "title": "Zverev plays through ankle pain in Shanghai: \"I don't want to retire without a reason\" - TennisTemple",
-      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPVGhQY1dLQWFCb3I4S2VibDlSTE40QlI2RTRIMGljYmp6MVM5VEhVbUlZRmczS2JvaHdkR21QSl9QdTJWd3lxZDRtRk9fQmlmd1M4WUZ0Z1N6bnA4QThpMDBodE5fS01GV3ZIX2h1aEZDMWc2SUx1SXU0ZUJnOGh1NXNZTFdMM051REJYd1NtYndQQQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "retirement",
-      "severity": 0.85
-    },
-    {
       "title": "Sinner out for rest of season with knee injury",
       "link": "https://www.bbc.co.uk/sport/tennis/articles/ck78p9jl2gl5o?at_medium=RSS&at_campaign=rss",
       "summary": "",
       "published": "",
       "source": "bbc_tennis",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Injured Swiatek goes down fighting in Wuhan Open semi-final - Reuters",
+      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOLWFMdE8waHNobEdaMlNJNGtCclJHSk0xb0tMMGx5T3ZQTFRsbTV3NEh6RzZqR3J5WHJlRjNMYzlteEpITVhBWWk0QW1VaFktQjhnQ0phdjZSS3Y0NzIzZk1pZXpvSV84dS1pQ09OMjlzRXNNM2ozUFU1TEtvdldoQzdqRmVOWEY0a2dmQVpfR283Y2R0cHVHc3FVc0QzMlNJUTg2X1RzV1Nrdw?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
       "channel": "rss",
       "category": "injury",
       "severity": 0.75
@@ -311,8 +281,8 @@
       "severity": 0.75
     },
     {
-      "title": "ATP Tour proposes rule changes designed to reduce overplaying after injuries to Alcaraz and Sinner - Bozeman Daily Chronicle",
-      "link": "https://news.google.com/rss/articles/CBMipAJBVV95cUxQemFMQlY5NTJiaktFT1ZYSlVySTREZ2xYZk9PdHVRUDBkRHFkeG9pTWJQWmRSMFdlbktVNWx4WUZWRl8tY0puQnNyYXVrdk5XTzRhcFVkY1RoNlh2TjYyLXpkNXF1elJjNUMxbmk4djA3bDNHaHdMcTZMZGFXdnhYdmNIWld2NjA2c05zaHQtdEVkQ05JenZaSjN2aUNSQXJjN3F4MGFXUHpMSjBMOVRoaFFidEZnUjF1MnZ1RF9KNXlORXFLNXV1akRDMGx2MGhzN1NCMkxSQXVwS3Zpc0F1c3NyaEJIMjhNbHMtY1BKa1Bfa3MwMDVVcDRiLWNfdndHbHBWdUwyRXRrbTdkeUdCNHA1QTNpXy1hNGlOS1FRRDBwYzJV?oc=5",
+      "title": "Alexander Zverev provides an update on his ankle injury after beating Alex de Minaur to reach the Shanghai semifinals - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQYm9RVF9iYnp6cHc1TzR5U3NiZmNhemdsazJLYWVIWUl0OVJxeWtia2FkZ1dGVm5kUWxNd2gxNTlMby1pN243THZuOXZ4V3RMa2RJNnhtQ0UtRjREM1h4LTF1Q2w3RmhaY2JQZE40WmRoVDlONXlzUTAyYjNrMWRLYm0zWl9XOHdkR2VfV0o3QWE?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -321,8 +291,8 @@
       "severity": 0.75
     },
     {
-      "title": "Alexander Zverev provides an update on his ankle injury after beating Alex de Minaur to reach the Shanghai semifinals - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQYm9RVF9iYnp6cHc1TzR5U3NiZmNhemdsazJLYWVIWUl0OVJxeWtia2FkZ1dGVm5kUWxNd2gxNTlMby1pN243THZuOXZ4V3RMa2RJNnhtQ0UtRjREM1h4LTF1Q2w3RmhaY2JQZE40WmRoVDlONXlzUTAyYjNrMWRLYm0zWl9XOHdkR2VfV0o3QWE?oc=5",
+      "title": "ATP Tour proposes rule changes designed to reduce overplaying after injuries to Alcaraz and Sinner - Bozeman Daily Chronicle",
+      "link": "https://news.google.com/rss/articles/CBMipAJBVV95cUxQemFMQlY5NTJiaktFT1ZYSlVySTREZ2xYZk9PdHVRUDBkRHFkeG9pTWJQWmRSMFdlbktVNWx4WUZWRl8tY0puQnNyYXVrdk5XTzRhcFVkY1RoNlh2TjYyLXpkNXF1elJjNUMxbmk4djA3bDNHaHdMcTZMZGFXdnhYdmNIWld2NjA2c05zaHQtdEVkQ05JenZaSjN2aUNSQXJjN3F4MGFXUHpMSjBMOVRoaFFidEZnUjF1MnZ1RF9KNXlORXFLNXV1akRDMGx2MGhzN1NCMkxSQXVwS3Zpc0F1c3NyaEJIMjhNbHMtY1BKa1Bfa3MwMDVVcDRiLWNfdndHbHBWdUwyRXRrbTdkeUdCNHA1QTNpXy1hNGlOS1FRRDBwYzJV?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -351,18 +321,8 @@
       "severity": 0.75
     },
     {
-      "title": "“Give Us More” – Tennis Insider Urges Jannik Sinner & His Team To Go Public With The Exact Nature Of His Knee Injury - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPRXlzcDFibkNieEp4VjgxenJRR1dMRFNjX2FMTkZ0d05VUmdqRUJXZGQzWi1HV1ZQWEMxY052TFBhU2t1TEt5bWgyX1dLQ0JJOHQwRjFwRHg3cXZIZlJKSzh6dXBKVkluY0xlRjA4SXB3dGtWV2JlaElqd19mOG9XNi1TZw?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Alex de Minaur issues injury update after reaching the quarterfinals of the Shanghai Masters - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPWlZMcVQ3SmdHUUhpNTJVRXowcl9BeXg5VG5HZnRIbkFpWjZUd0hkNGR2anFsZ0thcWVQZEFwbHJFSEtQR3F5WTAwLWtCeDZQR1FTVVRES0lfNUNNMFBjTTlEN05zallzbjM5aXBqOHFETUNTTkZ1V3lIM1lmNEt3QWI4a0w4OXhheWpZ?oc=5",
+      "title": "Tearful Iga Swiatek flames out of Wuhan Open while battling injury - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOdEhSZno0VmFBNHFjWFlTMmE0cXZpU2otcDRXQ1JPQ2E3ak1zU2luTVZQUDB4TUVIalZBakVwc3c0NzZqa3NoZnNtSDFCSUxSb0pUc1pVOFhKT1g3OGpSM1dlb0N5eE5GQVE2N1lmWDk3a3BUMnJpSE1rWHJJYTRoVkp0d2ZuaUJU?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -401,8 +361,8 @@
       "severity": 0.75
     },
     {
-      "title": "Brad Gilbert shares worrying details about Jannik Sinner's knee injury - Tennis World USA",
-      "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNYW1haFBmajVkeFQyd1ZacURkUDg2V0NiY2ZiTnNOc3VBR05UU2lvOXNnTkpndVZSNmczOTIwZjZLY2JmbElPaVJqeUxWNUdhYTZDZlpDaEhTUTRPbnI4MW45dnJTZnMzVFJ3aVFwbWpLZ2F5ZEk4bXl3M1g2YzNISHhTX0xKZVJxUVhoU0ZyclVkYUhvM2tyenl5M1NpZHpHNnhpMXVpSFBCNEVUczUyNHlqMEdWVm5qSHVfc1pmSW4wLW5ENENCMWNDRm9aUjNY?oc=5",
+      "title": "Andy Roddick defends Jannik Sinner's silence about his knee injury - Tennis World USA",
+      "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPRlRqZjhtMGFFamlRakttOXZrUGNHVTRVUmp6cEtoUVhwRmdmQVFLSElGT210bS1iamRReFlFSm02RkNYajRXYWh3T1dYM3BnZ3JhaDBhdjQtWnpGWW82TW9DSkNad05zeG1YTEVLMFJZTFZmTUNtSWFxVUJ5WDI2bmI3UG84NVdwVTR0NWpDdXduU1lkSjY1bjRJNGZTNVoydFpDUzFicmhkdmlmci0xc1FpZHc2enprMzM4THN1TnFpY3dyR0ljbXJ2SQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -411,8 +371,8 @@
       "severity": 0.75
     },
     {
-      "title": "Wuhan Open: Sonay Kartal on recovering from back injury to reach semi-finals - Sky Sports",
-      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNcjdRazZvaWl0QzJQMTM4bWY5OG1QQTVBQ0o0MURmRWdxTTRsYThyUzJNd2NtSWZBMF9HYzFkS2JkWXlLWlV3SE4xUUtKYUpoMk56WlE5ai0xSnpxLWlfelZybHZfVGN2Y0FMeEw1dFdJQklFUXBiLW9Gb1Niek1xbUpGNmVXX29mQ3NaS2cxRDd5OFZwTERVWEYwQkkwdlRVd3ZTZ2JOVUhqUzBXNnB6T1VUVnc1dG5jSnJhWWlDNVM?oc=5",
+      "title": "Brad Gilbert shares worrying details about Jannik Sinner's knee injury - Tennis World USA",
+      "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNYW1haFBmajVkeFQyd1ZacURkUDg2V0NiY2ZiTnNOc3VBR05UU2lvOXNnTkpndVZSNmczOTIwZjZLY2JmbElPaVJqeUxWNUdhYTZDZlpDaEhTUTRPbnI4MW45dnJTZnMzVFJ3aVFwbWpLZ2F5ZEk4bXl3M1g2YzNISHhTX0xKZVJxUVhoU0ZyclVkYUhvM2tyenl5M1NpZHpHNnhpMXVpSFBCNEVUczUyNHlqMEdWVm5qSHVfc1pmSW4wLW5ENENCMWNDRm9aUjNY?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -431,8 +391,8 @@
       "severity": 0.75
     },
     {
-      "title": "Andy Roddick: \"La mia supposizione è che Sinner sta usando l'infortunio per risolvere anche altri problemi\" - Fanpage",
-      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNbVp1eU44NEhOWUhTVjBPeHZOZHF5ZFRuaEdSZDdmMG40eWJGVGo3SnUzYVptbmFub09OMHpic21TRWxFVkNUTEl5UGt4c3RRQkhCRWpKb3NwT3hIRlZqVENqcW8yLU4zdHdUWTdyYmRvcHBZZXFjUWR5ZkdLWXA3NGtPV0NlbUFlWWFycThnYmsySDJqUU1LVkdLeEI5Rk4zMDlYWHhiZ0pUZG5ENE8yQkVvU0Q2Skp1YUZBMHdJbmZ3WHNnaHRScXRndmRHbnVxbU0zRm5Qbw?oc=5",
+      "title": "Paura per Eleonora Alvisi: la tennista si accascia in campo dopo l'infortunio e urla di dolore - Il Fatto Quotidiano",
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNQVV0VGh4WTY0dmlSNVozSklzczVuS1ZINjViMEw4bTFQS0czYkFwOGpSRlVfQWNUd2FobkI0UmdYRURXSEtGZEJVVmxadFI3REdXNnlnWDBKOVNqY2tBTUNuV0ZXMmt6dUZobWh4SzFQamVYd1FPM2JfaFh5RlJKRDV0MV9yZ04weTViZjZpZkh6ZVhndTU2S0Zjeno2cnBScm5OM0YxUkVNM3N3?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -441,8 +401,8 @@
       "severity": 0.75
     },
     {
-      "title": "Paura per Eleonora Alvisi: la tennista si accascia in campo dopo l'infortunio e urla di dolore - Il Fatto Quotidiano",
-      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNQVV0VGh4WTY0dmlSNVozSklzczVuS1ZINjViMEw4bTFQS0czYkFwOGpSRlVfQWNUd2FobkI0UmdYRURXSEtGZEJVVmxadFI3REdXNnlnWDBKOVNqY2tBTUNuV0ZXMmt6dUZobWh4SzFQamVYd1FPM2JfaFh5RlJKRDV0MV9yZ04weTViZjZpZkh6ZVhndTU2S0Zjeno2cnBScm5OM0YxUkVNM3N3?oc=5",
+      "title": "Andy Roddick: \"La mia supposizione è che Sinner sta usando l'infortunio per risolvere anche altri problemi\" - Fanpage",
+      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNbVp1eU44NEhOWUhTVjBPeHZOZHF5ZFRuaEdSZDdmMG40eWJGVGo3SnUzYVptbmFub09OMHpic21TRWxFVkNUTEl5UGt4c3RRQkhCRWpKb3NwT3hIRlZqVENqcW8yLU4zdHdUWTdyYmRvcHBZZXFjUWR5ZkdLWXA3NGtPV0NlbUFlWWFycThnYmsySDJqUU1LVkdLeEI5Rk4zMDlYWHhiZ0pUZG5ENE8yQkVvU0Q2Skp1YUZBMHdJbmZ3WHNnaHRScXRndmRHbnVxbU0zRm5Qbw?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -461,8 +421,8 @@
       "severity": 0.75
     },
     {
-      "title": "Furlan: “Infortunio di Sinner più grave del previsto. Nardi si è stirato tre volte agli adduttori” - OA Sport",
-      "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNNzY2VWJiaEZhRkNpbllFX21VaUFZTW1jNkY4Nm5MSUd2RXNXM3ZFQm8tLUdFZENlTmNDYWV1R25RZld2MmdONnp3ZzY0NDE2djVuRGhEWUxjWlFQb09rLS16aGMweUNVTWkzSjdjLW9KWUlOMnRUc05yNS1nWmNjekRobzJWT0JwNWRqdVlsM19nbERhZWZ5NzY5Ri1XcWVJM0ZXN29CN1h1X1RaNDdJdURfcDh4ZEgtWGdrOGNwNmREcXBCZmRUUlBuQXBlY0F4VmFmNFFLQ05QeHlEMXdn0gHkAUFVX3lxTE1DSTdpam5VUUFjWlpERzFicE5OdUtCMTB6LVJpUXZHN1JtRmFlZ1Vla3RiUXhrWVlXS2JaSC0zclFNT1hYTkhTbmw5Mms3Yk5VRjkzSE4yeks1NnJZTHNNWnJCNVFsUWd4OFpqNnk4ZkQtbEZUNVhTY2FTaEhvajVDZnNHMlY0S0RKSkV3RG9LRE93bWh5RXJ5TkZKQ0cya3JHZmdUd1ZOUjh2SjlCLXEzY3hocEltdTExa0tQaC1YTVItaWp5X0k4ZG1hc0ppRl9HWXFuakZ5OG52d1FFUEYwSWg5dQ?oc=5",
+      "title": "Keys analizza l’infortunio di Sinner: “Non mi sorprende: se facessi come lui, mi romperei!” - OA Sport",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQZGJMWm9Kd1ZBeGoyRTJVcnpKTzNCZUVGbkpoZWZ2MFVka1BqZmNTOEFGQ2RsR0NYX2hrcmQ3V3R1XzU2YzlVSDZhdlBWRDg1U1EyMURiWEdaTjVIZHFlVFpIQTRNOUs1SGZndUJjREh2Vk01UGt0TjdwVWdKY3pQMVlaWXBQZkxWczRXSXk3UzRGbTRrbXBPcDB3MlpHYWNIRVp2OWd1M0MzeFhPMDBuWDZRcXVGT03SAbwBQVVfeXFMTzFuVllYU3pwSzNDVjVDVHNFREIxWXc0XzgzTlBaNEhqaVBtN0tLbFFNOW5JLWgzUUoyVi1TcERFb0NyLUJ3em96V0pWbm9Xd0htVFhnQXBhd2wteFdNZXhJVGNKb0E2UlVpYUJmQ3h1dTdVTjYyWTg2cjgyU0VlT2oyYWtwR1hPQ1p4ZC0xbTNQbU5IZmdPUGFKdHRKTV9mRlZ3amNmaDJhZVpOUml1a181eUVGbHB1ZkNjNUM?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -471,8 +431,8 @@
       "severity": 0.75
     },
     {
-      "title": "Ecco chi è Sonay Kartal: dall’incubo dell’infortunio alla semifinale di Wuhan - Ubitennis",
-      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNazk0eWFkTE1tM1ExdmN0bkEwYzhYYlhxWkxjMEZtRHFNOVFxUXJaOFNISWJfN004MHVwREVycGFLT2V6M2JqN2h3Nm9Ea3lZVFNtaFg3T1BTX2xDN2RHM243VzJfOXlZaXdKc1pCS2lkZFdvNTZNcUV0UjB4aTlCckJlQWJ3NDJGSUJza2lUUS1DZzFNM09XVkdUNF9PQ25UTkppSXNQdURvY2NiYlBJd1Y2dTk3bE8w?oc=5",
+      "title": "Infortunio Sinner, Keys e Pegula sicure: \"Non siamo sorprese\" - Planetwin365 news",
+      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNcWRxanJMdW1TLUlNR3E1WUVZWjJSX0k3Z2VkVU0zN2JxdG54ZnhhaTFWZ2hLWV9wWlR2bE11R2hlNFJLRTBWcWFCa0xkd3J0ZG5PSXJsNHpMdTVNSXJwU0Z0YlR2djlfbnRSdG9nSEdaNzgwOHg3emc1RkN0RE9STGhEX2tuMm5CRDI5SkpMTE10VHJNc2FsQUF5SHE3SDJzN2dXV1pR?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -491,8 +451,8 @@
       "severity": 0.75
     },
     {
-      "title": "Keys analizza l’infortunio di Sinner: “Non mi sorprende: se facessi come lui, mi romperei!” - OA Sport",
-      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQZGJMWm9Kd1ZBeGoyRTJVcnpKTzNCZUVGbkpoZWZ2MFVka1BqZmNTOEFGQ2RsR0NYX2hrcmQ3V3R1XzU2YzlVSDZhdlBWRDg1U1EyMURiWEdaTjVIZHFlVFpIQTRNOUs1SGZndUJjREh2Vk01UGt0TjdwVWdKY3pQMVlaWXBQZkxWczRXSXk3UzRGbTRrbXBPcDB3MlpHYWNIRVp2OWd1M0MzeFhPMDBuWDZRcXVGT03SAbwBQVVfeXFMTzFuVllYU3pwSzNDVjVDVHNFREIxWXc0XzgzTlBaNEhqaVBtN0tLbFFNOW5JLWgzUUoyVi1TcERFb0NyLUJ3em96V0pWbm9Xd0htVFhnQXBhd2wteFdNZXhJVGNKb0E2UlVpYUJmQ3h1dTdVTjYyWTg2cjgyU0VlT2oyYWtwR1hPQ1p4ZC0xbTNQbU5IZmdPUGFKdHRKTV9mRlZ3amNmaDJhZVpOUml1a181eUVGbHB1ZkNjNUM?oc=5",
+      "title": "Furlan: “Infortunio di Sinner più grave del previsto. Nardi si è stirato tre volte agli adduttori” - OA Sport",
+      "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNNzY2VWJiaEZhRkNpbllFX21VaUFZTW1jNkY4Nm5MSUd2RXNXM3ZFQm8tLUdFZENlTmNDYWV1R25RZld2MmdONnp3ZzY0NDE2djVuRGhEWUxjWlFQb09rLS16aGMweUNVTWkzSjdjLW9KWUlOMnRUc05yNS1nWmNjekRobzJWT0JwNWRqdVlsM19nbERhZWZ5NzY5Ri1XcWVJM0ZXN29CN1h1X1RaNDdJdURfcDh4ZEgtWGdrOGNwNmREcXBCZmRUUlBuQXBlY0F4VmFmNFFLQ05QeHlEMXdn0gHkAUFVX3lxTE1DSTdpam5VUUFjWlpERzFicE5OdUtCMTB6LVJpUXZHN1JtRmFlZ1Vla3RiUXhrWVlXS2JaSC0zclFNT1hYTkhTbmw5Mms3Yk5VRjkzSE4yeks1NnJZTHNNWnJCNVFsUWd4OFpqNnk4ZkQtbEZUNVhTY2FTaEhvajVDZnNHMlY0S0RKSkV3RG9LRE93bWh5RXJ5TkZKQ0cya3JHZmdUd1ZOUjh2SjlCLXEzY3hocEltdTExa0tQaC1YTVItaWp5X0k4ZG1hc0ppRl9HWXFuakZ5OG52d1FFUEYwSWg5dQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -503,6 +463,26 @@
     {
       "title": "Gea si ritira per infortunio: Davidovich in semifinale - Sky Sport",
       "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPWnNHMVhXMm5mOFd1bFV3cGlxU3l2WUVGMEhKVDhHZmlNS0NiUlZtSHp6bWJNVVJ2NWJ5aWVBdi1vNVE5d2ZrWXdsOW9ZcHdDUUxzQldKMjdnMmhJVWFmNWtGR1MxN0RkZXlTVW1QR2ZuVjlMM25HY2ExSXk3Mndva0swUXBBXzlYY2w4VGhyVDdOSV9GZnN6eGN3?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Sinner, sono stati gli sci a tradirlo? Keys e Pegula: \"Movimenti impossibili, l'infortunio non è una sorpresa\" - Corriere dello Sport",
+      "link": "https://news.google.com/rss/articles/CBMihwJBVV95cUxOcWZuQnE5dzVXRVNBMi1MOXlqZTExRXhTWVBBNDdaRzhmMTB4Q2pHUUJGZTMyRnR2SGdncEkyemNIVUg2QjlSTzdZdWo2dkI1ZW1Vd1NQM0NKdGdYQU0yZktUejFCSmxLNzVSeEhnZWpKb0F4NTM4cTFvdENDcENrTHQxOHotTkZ0aTlJSDVCMWttdnEzVmtYWEtXSXppdVJOcmpmNUZyODR1UVdHZ0xSSGQyOFpuc1l2d0lyVFJBckRfOE5KQnFvaHNRbGZ2NjVwRFQySXViRmdCVXJvbTJCR3k2VEJzZnlJMXdCd3E2Q0MwcVc3LTEtZ0ZyWWJhczBwYkdFblplONIBigJBVV95cUxQS3dnS0JJTFpaeVJCQVlFaG5aTEIxUG1ZX3JQc1NMNHFncXJzM0R4VlFYNXBaMFRpT2NzMkp2N090bHNJWkYwZ2RpRVhNM0czSTc5dkFUVnZmQlIzLUVGM2JSM19yVnpmS0hmVnJRODlYZWQ3MXlmaXcxaV9JaTJDbDRINTZZRHdtaklrc2tjZVcyN3lJOGVTV2ZtUEtuVGdMVUF2VVEzUVAxdkRyS0ZIR3dzd295NmtCdVM1cTBUeGZ6UkNsYm9vRWlMcEU1NUxKel9UeWN1UzluUFo4eDM2TkVoTUVLdHFuTGNCRkdxZ3JkSGFjQVVSaTlwUGY2ckVjRDdPcUNscGk4QQ?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Ecco chi è Sonay Kartal: dall’incubo dell’infortunio alla semifinale di Wuhan - Ubitennis",
+      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNazk0eWFkTE1tM1ExdmN0bkEwYzhYYlhxWkxjMEZtRHFNOVFxUXJaOFNISWJfN004MHVwREVycGFLT2V6M2JqN2h3Nm9Ea3lZVFNtaFg3T1BTX2xDN2RHM243VzJfOXlZaXdKc1pCS2lkZFdvNTZNcUV0UjB4aTlCckJlQWJ3NDJGSUJza2lUUS1DZzFNM09XVkdUNF9PQ25UTkppSXNQdURvY2NiYlBJd1Y2dTk3bE8w?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -581,6 +561,26 @@
       "severity": 0.75
     },
     {
+      "title": "Infortunio Sinner, Pegula e Keys in coro: “Non siamo sorprese”. Il motivo - Lottomatica.Sport",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOT3IwaV82N1dKMElKTi1pekc1bDBFT2E2ZlJkUWd1anZtQWZHdno1aHhoX2ttUXNOV18yaTNjVlRyQ3NOMWd4SXFOM2RLd3pSaEk3NGxzdEIza1pkLUVKYVpmd3U3MVVldlJvb25uRXY4eXRLUm1aY0pFNTJBNXhXN1pHTmhwSDVZbDU1N1ZYeVNLSERNQmNycVZhYjA3WFplbFA4UEhZVWMxQmstMHlvUg?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Infortunio Sinner, Zverev: “Vorrei che fosse nel circuito con me”. Poi lancia l’allarme per un problema alla caviglia - Lottomatica.Sport",
+      "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOeHIwMlFlOU1VaElDRGYxMk9KVjVtMzgwVnlMQ21xSG94MnhBVEpyZEIyYS1QY25fNDkyVWQxLWpiU084dF9SM2pDa3VZcWN1WEMwMExUUUNSRm9HVkhJWlc4TkRtMEZ4ZlFLX2FpdTNCZEhxZ3BDRmFjOTVzZFp4ZlhpRlp3MkEyMTBaZ1hqb1NZMDcwV2szdzlleUI1YjdLOFVfMUYwMWNnNTNuc053ZVo2TjFod0NwOV9CTWJkVEp4WXBBWjJISHBWMFlQU2JxdC1ib2NVWG04ZlpyLXV0dHJSLUotYUFuY1E?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
       "title": "Infortunio Sinner, Gilbert: “Ecco cosa mi ha svelato Cahill”. Spunta l’ipotesi operazione - Lottomatica.Sport",
       "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPM3RlZi0tNlVhR3RRdm5rNHc1Qm13a1ZfY0I0bXlDdTdJWkNQdUZfZDJCeTVGRkNMS0lIWU5QMjEwTTE5c1l6a3hhWEt4eU96cTlkWTV2UnVuRVJNQWVQZkdwekJ6ekdKbU5OeU5hYzVFenVsNXFyY19Wc2tqOHNteGhaeG9ubHRwSlE3MWZiTUpobm5Kbjl5aEg5TkpOdTA3T0hWVmZnSTVlWnJjZkl3Vm5Bc240TFZRc3pFRy10ZkRwUHQ1?oc=5",
       "summary": "",
@@ -593,26 +593,6 @@
     {
       "title": "Alcaraz, Stubbs svela l’origine dell’infortunio al polso: “Colpa del nuovo servizio”. La previsione sul futuro - Lottomatica.Sport",
       "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQNmlzZVM5NlQyay1FeV9KTmdTcHpXQW9GMmJ3ME45N0prX3BMRFFjaHdQT0hNWXdROHZLVTBObVhCeDlWa1FLeVU3NEFwUTNWYjdZd1AtMEl4c1NldHU4cGpNeXQ3UnlJRWlUZzNxRkV2RjBGMTZqbENpWkNYQ3NJczdUNjNiaU5EcWwtNEpqSjgxRDlEUl9lSWZPd1BRTTRsNEIzSVdiVl9lelFKYUlibGo4NHJ4UXk4WGtWVnFZVU1aX0ZRa3RKNUsyZXcxZWRKXzVMR1JfM2xraTZWQTVv?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Infortunio Sinner, Canè: “Il Roland Garros un campanello d’allarme”. Poi la previsione sul ritorno in campo - Lottomatica.Sport",
-      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPUFkxMGZnU0RwbXBwTDJBZFBqc2VGXzJLNXFzSm04SEdoSkVoeHByN3NQT0JmMnBLSHNEazQtUXVEUFo4ZUVqTUx6Y3J3YTRKeGxIZkp0YTJUS0RPN2hXMzNLR19LcUxjMEJLYjdrNU9XREpmLXpVUDd2R3pieFphQnFHQ1lGQjFrQmFfVFN6WE9sbVZlSTFLZ0JiNEo1UVVGU0FFQURsYUpfdFJYT3NGQzdmYjdscXVIUXpLQkV5TzdBSmpBZEFpUUotODQweGYxTnFLTFNLa0RVRnlX?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Infortunio Sinner, Volandri: “Io e Jannik ci siamo sentiti”. Ecco cosa si sono detti - Lottomatica.Sport",
-      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNYlZJRGJsNDdvc3BLeWJ6VjlvN0RwWE1WWEhHRS1IN1VvX05zek9oNzdWUUVPR2NaQjJoc3REWUlmbWtrZ1hUMVN0S29NYlI4VWJMTFdLMU9abTJRekdjNUgtRXJ0eUlkMHNLTHkzWm9HNExWbVJ6VTVfZ3RhOGRYNVRrNlI1UkF1TDJqcHlPSFpYMFp6ZlFaUDQ0RmZCS1VfMHE5aDJxRjE1TGI2ZWVrMXdWS2tUY1VEUXBUQ2k5QQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
