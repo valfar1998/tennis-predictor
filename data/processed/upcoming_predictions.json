@@ -2740,26 +2740,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.135,
-      "category": "injury",
-      "headline": "Infortunio Sinner, Gilbert: \u201cEcco cosa mi ha svelato Cahill\u201d. Spunta l\u2019ipotesi operazione - Lottomatica.Sport",
-      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPM3RlZi0tNlVhR3RRdm5rNHc1Qm13a1ZfY0I0bXlDdTdJWkNQdUZfZDJCeTVGRkNMS0lIWU5QMjEwTTE5c1l6a3hhWEt4eU96cTlkWTV2UnVuRVJNQWVQZkdwekJ6ekdKbU5OeU5hYzVFenVsNXFyY19Wc2tqOHNteGhaeG9ubHRwSlE3MWZiTUpobm5Kbjl5aEg5TkpOdTA3T0hWVmZnSTVlWnJjZkl3Vm5Bc240TFZRc3pFRy10ZkRwUHQ1?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.75,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Infortunio Sinner, Gilbert: \u201cEcco cosa mi ha svelato Cahill\u201d. Spunta l\u2019ipotesi operazione - Lottomatica.Sport",
-          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPM3RlZi0tNlVhR3RRdm5rNHc1Qm13a1ZfY0I0bXlDdTdJWkNQdUZfZDJCeTVGRkNMS0lIWU5QMjEwTTE5c1l6a3hhWEt4eU96cTlkWTV2UnVuRVJNQWVQZkdwekJ6ekdKbU5OeU5hYzVFenVsNXFyY19Wc2tqOHNteGhaeG9ubHRwSlE3MWZiTUpobm5Kbjl5aEg5TkpOdTA3T0hWVmZnSTVlWnJjZkl3Vm5Bc240TFZRc3pFRy10ZkRwUHQ1?oc=5",
-          "source": "gnews_injury_it",
-          "category": "injury",
-          "severity": 0.75,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -2773,26 +2760,13 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.135,
-        "category": "injury",
-        "headline": "Infortunio Sinner, Gilbert: \u201cEcco cosa mi ha svelato Cahill\u201d. Spunta l\u2019ipotesi operazione - Lottomatica.Sport",
-        "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPM3RlZi0tNlVhR3RRdm5rNHc1Qm13a1ZfY0I0bXlDdTdJWkNQdUZfZDJCeTVGRkNMS0lIWU5QMjEwTTE5c1l6a3hhWEt4eU96cTlkWTV2UnVuRVJNQWVQZkdwekJ6ekdKbU5OeU5hYzVFenVsNXFyY19Wc2tqOHNteGhaeG9ubHRwSlE3MWZiTUpobm5Kbjl5aEg5TkpOdTA3T0hWVmZnSTVlWnJjZkl3Vm5Bc240TFZRc3pFRy10ZkRwUHQ1?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.75,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Infortunio Sinner, Gilbert: \u201cEcco cosa mi ha svelato Cahill\u201d. Spunta l\u2019ipotesi operazione - Lottomatica.Sport",
-            "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPM3RlZi0tNlVhR3RRdm5rNHc1Qm13a1ZfY0I0bXlDdTdJWkNQdUZfZDJCeTVGRkNMS0lIWU5QMjEwTTE5c1l6a3hhWEt4eU96cTlkWTV2UnVuRVJNQWVQZkdwekJ6ekdKbU5OeU5hYzVFenVsNXFyY19Wc2tqOHNteGhaeG9ubHRwSlE3MWZiTUpobm5Kbjl5aEg5TkpOdTA3T0hWVmZnSTVlWnJjZkl3Vm5Bc240TFZRc3pFRy10ZkRwUHQ1?oc=5",
-            "source": "gnews_injury_it",
-            "category": "injury",
-            "severity": 0.75,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
       "opponent": {
         "has_alert": false,
@@ -2803,10 +2777,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Infortunio Sinner, Gilbert: \u201cEcco cosa mi ha svelato Cahill\u201d. Spunta l\u2019ipotesi operazione - Lottomatica.Sport",
-      "category": "injury"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -32959,26 +32933,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.135,
-      "category": "injury",
-      "headline": "Infortunio Sinner, Gilbert: \u201cEcco cosa mi ha svelato Cahill\u201d. Spunta l\u2019ipotesi operazione - Lottomatica.Sport",
-      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPM3RlZi0tNlVhR3RRdm5rNHc1Qm13a1ZfY0I0bXlDdTdJWkNQdUZfZDJCeTVGRkNMS0lIWU5QMjEwTTE5c1l6a3hhWEt4eU96cTlkWTV2UnVuRVJNQWVQZkdwekJ6ekdKbU5OeU5hYzVFenVsNXFyY19Wc2tqOHNteGhaeG9ubHRwSlE3MWZiTUpobm5Kbjl5aEg5TkpOdTA3T0hWVmZnSTVlWnJjZkl3Vm5Bc240TFZRc3pFRy10ZkRwUHQ1?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.75,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Infortunio Sinner, Gilbert: \u201cEcco cosa mi ha svelato Cahill\u201d. Spunta l\u2019ipotesi operazione - Lottomatica.Sport",
-          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPM3RlZi0tNlVhR3RRdm5rNHc1Qm13a1ZfY0I0bXlDdTdJWkNQdUZfZDJCeTVGRkNMS0lIWU5QMjEwTTE5c1l6a3hhWEt4eU96cTlkWTV2UnVuRVJNQWVQZkdwekJ6ekdKbU5OeU5hYzVFenVsNXFyY19Wc2tqOHNteGhaeG9ubHRwSlE3MWZiTUpobm5Kbjl5aEg5TkpOdTA3T0hWVmZnSTVlWnJjZkl3Vm5Bc240TFZRc3pFRy10ZkRwUHQ1?oc=5",
-          "source": "gnews_injury_it",
-          "category": "injury",
-          "severity": 0.75,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -32992,26 +32953,13 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.135,
-        "category": "injury",
-        "headline": "Infortunio Sinner, Gilbert: \u201cEcco cosa mi ha svelato Cahill\u201d. Spunta l\u2019ipotesi operazione - Lottomatica.Sport",
-        "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPM3RlZi0tNlVhR3RRdm5rNHc1Qm13a1ZfY0I0bXlDdTdJWkNQdUZfZDJCeTVGRkNMS0lIWU5QMjEwTTE5c1l6a3hhWEt4eU96cTlkWTV2UnVuRVJNQWVQZkdwekJ6ekdKbU5OeU5hYzVFenVsNXFyY19Wc2tqOHNteGhaeG9ubHRwSlE3MWZiTUpobm5Kbjl5aEg5TkpOdTA3T0hWVmZnSTVlWnJjZkl3Vm5Bc240TFZRc3pFRy10ZkRwUHQ1?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.75,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Infortunio Sinner, Gilbert: \u201cEcco cosa mi ha svelato Cahill\u201d. Spunta l\u2019ipotesi operazione - Lottomatica.Sport",
-            "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPM3RlZi0tNlVhR3RRdm5rNHc1Qm13a1ZfY0I0bXlDdTdJWkNQdUZfZDJCeTVGRkNMS0lIWU5QMjEwTTE5c1l6a3hhWEt4eU96cTlkWTV2UnVuRVJNQWVQZkdwekJ6ekdKbU5OeU5hYzVFenVsNXFyY19Wc2tqOHNteGhaeG9ubHRwSlE3MWZiTUpobm5Kbjl5aEg5TkpOdTA3T0hWVmZnSTVlWnJjZkl3Vm5Bc240TFZRc3pFRy10ZkRwUHQ1?oc=5",
-            "source": "gnews_injury_it",
-            "category": "injury",
-            "severity": 0.75,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
       "opponent": {
         "has_alert": false,
@@ -33022,10 +32970,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Infortunio Sinner, Gilbert: \u201cEcco cosa mi ha svelato Cahill\u201d. Spunta l\u2019ipotesi operazione - Lottomatica.Sport",
-      "category": "injury"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
