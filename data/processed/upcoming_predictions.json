@@ -70386,13 +70386,26 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.153,
+      "category": "retirement",
+      "headline": "Stefanos Tsitsipas reacts to Gael Monfils and Stan Wawrinka deciding to retire from tennis this year - The Tennis Gazette",
+      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNWE52OXUtS0ZhYXI5Y1h4S3dEam1fcU5BRkNaZWVRWUhqQ2hGOFJQbmYxSktTSW11Ymc5REd5X2lPV1AzYUxGbU5kUndpQi1kUnJRZktQTWlIcUVNU2NUS2YzSGFSa21NRE1GNWhUS0ZCTW9OZURmTE16NjNDM3BnSWlnc3k5MHBGeEx1eEttV3h4eUJNY21MbmdDeC1WY1NRU0FCbjN0YU9nbEx1dEtuNENMSWlONlhSTFhrS200R2xhelJ2czB6UVJ6em9nS0xPZEVQenBB?oc=5",
+      "source": "gnews_injury_en",
+      "severity": 0.85,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Stefanos Tsitsipas reacts to Gael Monfils and Stan Wawrinka deciding to retire from tennis this year - The Tennis Gazette",
+          "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNWE52OXUtS0ZhYXI5Y1h4S3dEam1fcU5BRkNaZWVRWUhqQ2hGOFJQbmYxSktTSW11Ymc5REd5X2lPV1AzYUxGbU5kUndpQi1kUnJRZktQTWlIcUVNU2NUS2YzSGFSa21NRE1GNWhUS0ZCTW9OZURmTE16NjNDM3BnSWlnc3k5MHBGeEx1eEttV3h4eUJNY21MbmdDeC1WY1NRU0FCbjN0YU9nbEx1dEtuNENMSWlONlhSTFhrS200R2xhelJ2czB6UVJ6em9nS0xPZEVQenBB?oc=5",
+          "source": "gnews_injury_en",
+          "category": "retirement",
+          "severity": 0.85,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_alert": {
       "pick_side": "A",
@@ -70406,18 +70419,37 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.153,
+        "category": "retirement",
+        "headline": "Stefanos Tsitsipas reacts to Gael Monfils and Stan Wawrinka deciding to retire from tennis this year - The Tennis Gazette",
+        "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNWE52OXUtS0ZhYXI5Y1h4S3dEam1fcU5BRkNaZWVRWUhqQ2hGOFJQbmYxSktTSW11Ymc5REd5X2lPV1AzYUxGbU5kUndpQi1kUnJRZktQTWlIcUVNU2NUS2YzSGFSa21NRE1GNWhUS0ZCTW9OZURmTE16NjNDM3BnSWlnc3k5MHBGeEx1eEttV3h4eUJNY21MbmdDeC1WY1NRU0FCbjN0YU9nbEx1dEtuNENMSWlONlhSTFhrS200R2xhelJ2czB6UVJ6em9nS0xPZEVQenBB?oc=5",
+        "source": "gnews_injury_en",
+        "severity": 0.85,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Stefanos Tsitsipas reacts to Gael Monfils and Stan Wawrinka deciding to retire from tennis this year - The Tennis Gazette",
+            "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNWE52OXUtS0ZhYXI5Y1h4S3dEam1fcU5BRkNaZWVRWUhqQ2hGOFJQbmYxSktTSW11Ymc5REd5X2lPV1AzYUxGbU5kUndpQi1kUnJRZktQTWlIcUVNU2NUS2YzSGFSa21NRE1GNWhUS0ZCTW9OZURmTE16NjNDM3BnSWlnc3k5MHBGeEx1eEttV3h4eUJNY21MbmdDeC1WY1NRU0FCbjN0YU9nbEx1dEtuNENMSWlONlhSTFhrS200R2xhelJ2czB6UVJ6em9nS0xPZEVQenBB?oc=5",
+            "source": "gnews_injury_en",
+            "category": "retirement",
+            "severity": 0.85,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Stefanos Tsitsipas reacts to Gael Monfils and Stan Wawrinka deciding to retire from tennis this year - The Tennis Gazette",
+      "category": "retirement"
+    },
+    "p_retire": 0.0535,
+    "retirement_context": {
+      "player_injury_risk": 0.05354999999999999,
+      "p_retire": 0.05354999999999999,
+      "news_boost": 0.05354999999999999
     }
   },
   {
