@@ -6716,14 +6716,23 @@
     "news_b": {
       "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.135,
-      "category": "injury",
-      "headline": "Bublik, il sogno di casa sfuma per un infortunio: Medvedev in finale, sfida Basilashvili - La Gazzetta dello Sport",
-      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOTG94Zk9UX2pCdGpJNFp4eWtnUl9Wb2M4cjBuUmd5RjJWWmRGN1dRRm0wSnZkUkZPUzJXRnlCczdWZGQxU3QwdFN3S051c1BZMkpZS3hiRFdRQWoyUXdYV3pvVFY0SlNUbWNQTUVjbWF1dG1lNmJibGJVNTJzLUg2VVNyVWVpZmM2MllmNnJwaE9QM29LbXhNSXJEajZiUk5teXFYNU1aYmFkd9IBrwFBVV95cUxQZGI0b2JSak5mckpTak4xMkVYbjlRR3FjTFRyNUs4dmc2NDBIZG9zSjVyUVBtRFR1ZzRTUW1MT2ZtZEpHVElPdEN2WUhVMTI5X3p2UUtfTFFQN3NWampFRGhWaFo0bmNOQUswcUlTQnRuSm5aSlNwQXo3TmRwOGpGTS1CaHFqc3d4MWxweWJha3YtdXgxYTMyeW5KM3ByTVBsT2gtQTN6UzR6bkhMazBR?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.75,
-      "n_hits": 1,
+      "p_retire_boost": 0.153,
+      "category": "retirement",
+      "headline": "Medvedev into Almaty final after Bublik retirement, faces Basilashvili for trophy - ATP Tour",
+      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9SVnlZS0VRdktVTkV4LVVaT2F6UzU5blRJQ0JWYXctcnNUQ1pONExsTnh1SktrZ3BDeWlMcTI1LWZqeUxDVTlxRnF4WTFZRHVMS1RuTWUtRnZKREM2T2phMHhsbUk3ZXRSdEo0THFDTTdMZ19nQkxv?oc=5",
+      "source": "gnews_injury_en",
+      "severity": 0.85,
+      "n_hits": 2,
       "hits": [
+        {
+          "title": "Medvedev into Almaty final after Bublik retirement, faces Basilashvili for trophy - ATP Tour",
+          "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9SVnlZS0VRdktVTkV4LVVaT2F6UzU5blRJQ0JWYXctcnNUQ1pONExsTnh1SktrZ3BDeWlMcTI1LWZqeUxDVTlxRnF4WTFZRHVMS1RuTWUtRnZKREM2T2phMHhsbUk3ZXRSdEo0THFDTTdMZ19nQkxv?oc=5",
+          "source": "gnews_injury_en",
+          "category": "retirement",
+          "severity": 0.85,
+          "published": "",
+          "channel": "rss"
+        },
         {
           "title": "Bublik, il sogno di casa sfuma per un infortunio: Medvedev in finale, sfida Basilashvili - La Gazzetta dello Sport",
           "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOTG94Zk9UX2pCdGpJNFp4eWtnUl9Wb2M4cjBuUmd5RjJWWmRGN1dRRm0wSnZkUkZPUzJXRnlCczdWZGQxU3QwdFN3S051c1BZMkpZS3hiRFdRQWoyUXdYV3pvVFY0SlNUbWNQTUVjbWF1dG1lNmJibGJVNTJzLUg2VVNyVWVpZmM2MllmNnJwaE9QM29LbXhNSXJEajZiUk5teXFYNU1aYmFkd9IBrwFBVV95cUxQZGI0b2JSak5mckpTak4xMkVYbjlRR3FjTFRyNUs4dmc2NDBIZG9zSjVyUVBtRFR1ZzRTUW1MT2ZtZEpHVElPdEN2WUhVMTI5X3p2UUtfTFFQN3NWampFRGhWaFo0bmNOQUswcUlTQnRuSm5aSlNwQXo3TmRwOGpGTS1CaHFqc3d4MWxweWJha3YtdXgxYTMyeW5KM3ByTVBsT2gtQTN6UzR6bkhMazBR?oc=5",
@@ -6749,14 +6758,23 @@
       "opponent": {
         "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.135,
-        "category": "injury",
-        "headline": "Bublik, il sogno di casa sfuma per un infortunio: Medvedev in finale, sfida Basilashvili - La Gazzetta dello Sport",
-        "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOTG94Zk9UX2pCdGpJNFp4eWtnUl9Wb2M4cjBuUmd5RjJWWmRGN1dRRm0wSnZkUkZPUzJXRnlCczdWZGQxU3QwdFN3S051c1BZMkpZS3hiRFdRQWoyUXdYV3pvVFY0SlNUbWNQTUVjbWF1dG1lNmJibGJVNTJzLUg2VVNyVWVpZmM2MllmNnJwaE9QM29LbXhNSXJEajZiUk5teXFYNU1aYmFkd9IBrwFBVV95cUxQZGI0b2JSak5mckpTak4xMkVYbjlRR3FjTFRyNUs4dmc2NDBIZG9zSjVyUVBtRFR1ZzRTUW1MT2ZtZEpHVElPdEN2WUhVMTI5X3p2UUtfTFFQN3NWampFRGhWaFo0bmNOQUswcUlTQnRuSm5aSlNwQXo3TmRwOGpGTS1CaHFqc3d4MWxweWJha3YtdXgxYTMyeW5KM3ByTVBsT2gtQTN6UzR6bkhMazBR?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.75,
-        "n_hits": 1,
+        "p_retire_boost": 0.153,
+        "category": "retirement",
+        "headline": "Medvedev into Almaty final after Bublik retirement, faces Basilashvili for trophy - ATP Tour",
+        "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9SVnlZS0VRdktVTkV4LVVaT2F6UzU5blRJQ0JWYXctcnNUQ1pONExsTnh1SktrZ3BDeWlMcTI1LWZqeUxDVTlxRnF4WTFZRHVMS1RuTWUtRnZKREM2T2phMHhsbUk3ZXRSdEo0THFDTTdMZ19nQkxv?oc=5",
+        "source": "gnews_injury_en",
+        "severity": 0.85,
+        "n_hits": 2,
         "hits": [
+          {
+            "title": "Medvedev into Almaty final after Bublik retirement, faces Basilashvili for trophy - ATP Tour",
+            "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9SVnlZS0VRdktVTkV4LVVaT2F6UzU5blRJQ0JWYXctcnNUQ1pONExsTnh1SktrZ3BDeWlMcTI1LWZqeUxDVTlxRnF4WTFZRHVMS1RuTWUtRnZKREM2T2phMHhsbUk3ZXRSdEo0THFDTTdMZ19nQkxv?oc=5",
+            "source": "gnews_injury_en",
+            "category": "retirement",
+            "severity": 0.85,
+            "published": "",
+            "channel": "rss"
+          },
           {
             "title": "Bublik, il sogno di casa sfuma per un infortunio: Medvedev in finale, sfida Basilashvili - La Gazzetta dello Sport",
             "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOTG94Zk9UX2pCdGpJNFp4eWtnUl9Wb2M4cjBuUmd5RjJWWmRGN1dRRm0wSnZkUkZPUzJXRnlCczdWZGQxU3QwdFN3S051c1BZMkpZS3hiRFdRQWoyUXdYV3pvVFY0SlNUbWNQTUVjbWF1dG1lNmJibGJVNTJzLUg2VVNyVWVpZmM2MllmNnJwaE9QM29LbXhNSXJEajZiUk5teXFYNU1aYmFkd9IBrwFBVV95cUxQZGI0b2JSak5mckpTak4xMkVYbjlRR3FjTFRyNUs4dmc2NDBIZG9zSjVyUVBtRFR1ZzRTUW1MT2ZtZEpHVElPdEN2WUhVMTI5X3p2UUtfTFFQN3NWampFRGhWaFo0bmNOQUswcUlTQnRuSm5aSlNwQXo3TmRwOGpGTS1CaHFqc3d4MWxweWJha3YtdXgxYTMyeW5KM3ByTVBsT2gtQTN6UzR6bkhMazBR?oc=5",
@@ -6770,14 +6788,14 @@
       },
       "any_alert": true,
       "hard_block_pick": false,
-      "headline": "Bublik, il sogno di casa sfuma per un infortunio: Medvedev in finale, sfida Basilashvili - La Gazzetta dello Sport",
-      "category": "injury"
+      "headline": "Medvedev into Almaty final after Bublik retirement, faces Basilashvili for trophy - ATP Tour",
+      "category": "retirement"
     },
-    "p_retire": 0.0473,
+    "p_retire": 0.1008,
     "retirement_context": {
-      "player_injury_risk": 0.04725,
-      "p_retire": 0.04725,
-      "news_boost": 0.04725
+      "player_injury_risk": 0.10085,
+      "p_retire": 0.10085,
+      "news_boost": 0.05354999999999999
     }
   },
   {
