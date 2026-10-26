@@ -2742,26 +2742,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
-      "hard_block": true,
-      "p_retire_boost": 0.2304,
-      "category": "withdrawal",
-      "headline": "Stagione finita per Bublik? Il kazako svela i tempi di recupero dopo il ritiro all\u2019ATP Almaty 2026 - Lottomatica.Sport",
-      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOU0JBaExjZk8wV0tZUnRyaHJQbUxnT2pPMUM2ZnBYN2NxM3pHV0hCYk8wcS1EQmZQUEhCblNoblNIZ2RxLXlXRG05WDF4cUZzUUkwM1BYaW5nRG9WaTVtQWc3WTNEOEtlSks3UzVJV29ja0IzUURtQm43UHRCbFhZRkJ0c3ZHYTMybUQ2SVpqVl91U242NEItX28td0NRRkRxUnNad3NCQ3EyUWphRExqVmJEWURiVkdwTVZMTUZWclhuNWdxV1pBX0d1eENuVXlqMURkcmR3?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.92,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Stagione finita per Bublik? Il kazako svela i tempi di recupero dopo il ritiro all\u2019ATP Almaty 2026 - Lottomatica.Sport",
-          "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOU0JBaExjZk8wV0tZUnRyaHJQbUxnT2pPMUM2ZnBYN2NxM3pHV0hCYk8wcS1EQmZQUEhCblNoblNIZ2RxLXlXRG05WDF4cUZzUUkwM1BYaW5nRG9WaTVtQWc3WTNEOEtlSks3UzVJV29ja0IzUURtQm43UHRCbFhZRkJ0c3ZHYTMybUQ2SVpqVl91U242NEItX28td0NRRkRxUnNad3NCQ3EyUWphRExqVmJEWURiVkdwTVZMTUZWclhuNWdxV1pBX0d1eENuVXlqMURkcmR3?oc=5",
-          "source": "gnews_injury_it",
-          "category": "withdrawal",
-          "severity": 0.92,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "has_alert": false,
+      "hard_block": false,
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -2775,26 +2762,13 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": true,
-        "hard_block": true,
-        "p_retire_boost": 0.2304,
-        "category": "withdrawal",
-        "headline": "Stagione finita per Bublik? Il kazako svela i tempi di recupero dopo il ritiro all\u2019ATP Almaty 2026 - Lottomatica.Sport",
-        "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOU0JBaExjZk8wV0tZUnRyaHJQbUxnT2pPMUM2ZnBYN2NxM3pHV0hCYk8wcS1EQmZQUEhCblNoblNIZ2RxLXlXRG05WDF4cUZzUUkwM1BYaW5nRG9WaTVtQWc3WTNEOEtlSks3UzVJV29ja0IzUURtQm43UHRCbFhZRkJ0c3ZHYTMybUQ2SVpqVl91U242NEItX28td0NRRkRxUnNad3NCQ3EyUWphRExqVmJEWURiVkdwTVZMTUZWclhuNWdxV1pBX0d1eENuVXlqMURkcmR3?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.92,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Stagione finita per Bublik? Il kazako svela i tempi di recupero dopo il ritiro all\u2019ATP Almaty 2026 - Lottomatica.Sport",
-            "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOU0JBaExjZk8wV0tZUnRyaHJQbUxnT2pPMUM2ZnBYN2NxM3pHV0hCYk8wcS1EQmZQUEhCblNoblNIZ2RxLXlXRG05WDF4cUZzUUkwM1BYaW5nRG9WaTVtQWc3WTNEOEtlSks3UzVJV29ja0IzUURtQm43UHRCbFhZRkJ0c3ZHYTMybUQ2SVpqVl91U242NEItX28td0NRRkRxUnNad3NCQ3EyUWphRExqVmJEWURiVkdwTVZMTUZWclhuNWdxV1pBX0d1eENuVXlqMURkcmR3?oc=5",
-            "source": "gnews_injury_it",
-            "category": "withdrawal",
-            "severity": 0.92,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "has_alert": false,
+        "hard_block": false,
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
       "opponent": {
         "has_alert": false,
@@ -2805,10 +2779,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": true,
-      "hard_block_pick": true,
-      "headline": "Stagione finita per Bublik? Il kazako svela i tempi di recupero dopo il ritiro all\u2019ATP Almaty 2026 - Lottomatica.Sport",
-      "category": "withdrawal"
+      "any_alert": false,
+      "hard_block_pick": false,
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -6742,35 +6716,13 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.153,
-      "category": "retirement",
-      "headline": "Medvedev into Almaty final after Bublik retirement, faces Basilashvili for trophy - ATP Tour",
-      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9SVnlZS0VRdktVTkV4LVVaT2F6UzU5blRJQ0JWYXctcnNUQ1pONExsTnh1SktrZ3BDeWlMcTI1LWZqeUxDVTlxRnF4WTFZRHVMS1RuTWUtRnZKREM2T2phMHhsbUk3ZXRSdEo0THFDTTdMZ19nQkxv?oc=5",
-      "source": "gnews_injury_en",
-      "severity": 0.85,
-      "n_hits": 2,
-      "hits": [
-        {
-          "title": "Medvedev into Almaty final after Bublik retirement, faces Basilashvili for trophy - ATP Tour",
-          "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9SVnlZS0VRdktVTkV4LVVaT2F6UzU5blRJQ0JWYXctcnNUQ1pONExsTnh1SktrZ3BDeWlMcTI1LWZqeUxDVTlxRnF4WTFZRHVMS1RuTWUtRnZKREM2T2phMHhsbUk3ZXRSdEo0THFDTTdMZ19nQkxv?oc=5",
-          "source": "gnews_injury_en",
-          "category": "retirement",
-          "severity": 0.85,
-          "published": "",
-          "channel": "rss"
-        },
-        {
-          "title": "Bublik, il sogno di casa sfuma per un infortunio: Medvedev in finale, sfida Basilashvili - La Gazzetta dello Sport",
-          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOTG94Zk9UX2pCdGpJNFp4eWtnUl9Wb2M4cjBuUmd5RjJWWmRGN1dRRm0wSnZkUkZPUzJXRnlCczdWZGQxU3QwdFN3S051c1BZMkpZS3hiRFdRQWoyUXdYV3pvVFY0SlNUbWNQTUVjbWF1dG1lNmJibGJVNTJzLUg2VVNyVWVpZmM2MllmNnJwaE9QM29LbXhNSXJEajZiUk5teXFYNU1aYmFkd9IBrwFBVV95cUxQZGI0b2JSak5mckpTak4xMkVYbjlRR3FjTFRyNUs4dmc2NDBIZG9zSjVyUVBtRFR1ZzRTUW1MT2ZtZEpHVElPdEN2WUhVMTI5X3p2UUtfTFFQN3NWampFRGhWaFo0bmNOQUswcUlTQnRuSm5aSlNwQXo3TmRwOGpGTS1CaHFqc3d4MWxweWJha3YtdXgxYTMyeW5KM3ByTVBsT2gtQTN6UzR6bkhMazBR?oc=5",
-          "source": "gnews_injury_it",
-          "category": "injury",
-          "severity": 0.75,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_alert": {
       "pick_side": "A",
@@ -6784,40 +6736,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.153,
-        "category": "retirement",
-        "headline": "Medvedev into Almaty final after Bublik retirement, faces Basilashvili for trophy - ATP Tour",
-        "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9SVnlZS0VRdktVTkV4LVVaT2F6UzU5blRJQ0JWYXctcnNUQ1pONExsTnh1SktrZ3BDeWlMcTI1LWZqeUxDVTlxRnF4WTFZRHVMS1RuTWUtRnZKREM2T2phMHhsbUk3ZXRSdEo0THFDTTdMZ19nQkxv?oc=5",
-        "source": "gnews_injury_en",
-        "severity": 0.85,
-        "n_hits": 2,
-        "hits": [
-          {
-            "title": "Medvedev into Almaty final after Bublik retirement, faces Basilashvili for trophy - ATP Tour",
-            "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9SVnlZS0VRdktVTkV4LVVaT2F6UzU5blRJQ0JWYXctcnNUQ1pONExsTnh1SktrZ3BDeWlMcTI1LWZqeUxDVTlxRnF4WTFZRHVMS1RuTWUtRnZKREM2T2phMHhsbUk3ZXRSdEo0THFDTTdMZ19nQkxv?oc=5",
-            "source": "gnews_injury_en",
-            "category": "retirement",
-            "severity": 0.85,
-            "published": "",
-            "channel": "rss"
-          },
-          {
-            "title": "Bublik, il sogno di casa sfuma per un infortunio: Medvedev in finale, sfida Basilashvili - La Gazzetta dello Sport",
-            "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOTG94Zk9UX2pCdGpJNFp4eWtnUl9Wb2M4cjBuUmd5RjJWWmRGN1dRRm0wSnZkUkZPUzJXRnlCczdWZGQxU3QwdFN3S051c1BZMkpZS3hiRFdRQWoyUXdYV3pvVFY0SlNUbWNQTUVjbWF1dG1lNmJibGJVNTJzLUg2VVNyVWVpZmM2MllmNnJwaE9QM29LbXhNSXJEajZiUk5teXFYNU1aYmFkd9IBrwFBVV95cUxQZGI0b2JSak5mckpTak4xMkVYbjlRR3FjTFRyNUs4dmc2NDBIZG9zSjVyUVBtRFR1ZzRTUW1MT2ZtZEpHVElPdEN2WUhVMTI5X3p2UUtfTFFQN3NWampFRGhWaFo0bmNOQUswcUlTQnRuSm5aSlNwQXo3TmRwOGpGTS1CaHFqc3d4MWxweWJha3YtdXgxYTMyeW5KM3ByTVBsT2gtQTN6UzR6bkhMazBR?oc=5",
-            "source": "gnews_injury_it",
-            "category": "injury",
-            "severity": 0.75,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Medvedev into Almaty final after Bublik retirement, faces Basilashvili for trophy - ATP Tour",
-      "category": "retirement"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.2078,
     "retirement_context": {
@@ -15673,26 +15603,13 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": true,
-      "hard_block": true,
-      "p_retire_boost": 0.2304,
-      "category": "withdrawal",
-      "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.92,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-          "source": "gnews_injury_it",
-          "category": "withdrawal",
-          "severity": 0.92,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "has_alert": false,
+      "hard_block": false,
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_alert": {
       "pick_side": "A",
@@ -15706,31 +15623,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
-        "hard_block": true,
-        "p_retire_boost": 0.2304,
-        "category": "withdrawal",
-        "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.92,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-            "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-            "source": "gnews_injury_it",
-            "category": "withdrawal",
-            "severity": 0.92,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "has_alert": false,
+        "hard_block": false,
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-      "category": "withdrawal"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -16020,26 +15924,13 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": true,
-      "hard_block": true,
-      "p_retire_boost": 0.2304,
-      "category": "withdrawal",
-      "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.92,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-          "source": "gnews_injury_it",
-          "category": "withdrawal",
-          "severity": 0.92,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "has_alert": false,
+      "hard_block": false,
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_alert": {
       "pick_side": "A",
@@ -16053,31 +15944,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
-        "hard_block": true,
-        "p_retire_boost": 0.2304,
-        "category": "withdrawal",
-        "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.92,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-            "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-            "source": "gnews_injury_it",
-            "category": "withdrawal",
-            "severity": 0.92,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "has_alert": false,
+        "hard_block": false,
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-      "category": "withdrawal"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -33077,26 +32955,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
-      "hard_block": true,
-      "p_retire_boost": 0.2304,
-      "category": "withdrawal",
-      "headline": "Stagione finita per Bublik? Il kazako svela i tempi di recupero dopo il ritiro all\u2019ATP Almaty 2026 - Lottomatica.Sport",
-      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOU0JBaExjZk8wV0tZUnRyaHJQbUxnT2pPMUM2ZnBYN2NxM3pHV0hCYk8wcS1EQmZQUEhCblNoblNIZ2RxLXlXRG05WDF4cUZzUUkwM1BYaW5nRG9WaTVtQWc3WTNEOEtlSks3UzVJV29ja0IzUURtQm43UHRCbFhZRkJ0c3ZHYTMybUQ2SVpqVl91U242NEItX28td0NRRkRxUnNad3NCQ3EyUWphRExqVmJEWURiVkdwTVZMTUZWclhuNWdxV1pBX0d1eENuVXlqMURkcmR3?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.92,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Stagione finita per Bublik? Il kazako svela i tempi di recupero dopo il ritiro all\u2019ATP Almaty 2026 - Lottomatica.Sport",
-          "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOU0JBaExjZk8wV0tZUnRyaHJQbUxnT2pPMUM2ZnBYN2NxM3pHV0hCYk8wcS1EQmZQUEhCblNoblNIZ2RxLXlXRG05WDF4cUZzUUkwM1BYaW5nRG9WaTVtQWc3WTNEOEtlSks3UzVJV29ja0IzUURtQm43UHRCbFhZRkJ0c3ZHYTMybUQ2SVpqVl91U242NEItX28td0NRRkRxUnNad3NCQ3EyUWphRExqVmJEWURiVkdwTVZMTUZWclhuNWdxV1pBX0d1eENuVXlqMURkcmR3?oc=5",
-          "source": "gnews_injury_it",
-          "category": "withdrawal",
-          "severity": 0.92,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "has_alert": false,
+      "hard_block": false,
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -33110,26 +32975,13 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": true,
-        "hard_block": true,
-        "p_retire_boost": 0.2304,
-        "category": "withdrawal",
-        "headline": "Stagione finita per Bublik? Il kazako svela i tempi di recupero dopo il ritiro all\u2019ATP Almaty 2026 - Lottomatica.Sport",
-        "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOU0JBaExjZk8wV0tZUnRyaHJQbUxnT2pPMUM2ZnBYN2NxM3pHV0hCYk8wcS1EQmZQUEhCblNoblNIZ2RxLXlXRG05WDF4cUZzUUkwM1BYaW5nRG9WaTVtQWc3WTNEOEtlSks3UzVJV29ja0IzUURtQm43UHRCbFhZRkJ0c3ZHYTMybUQ2SVpqVl91U242NEItX28td0NRRkRxUnNad3NCQ3EyUWphRExqVmJEWURiVkdwTVZMTUZWclhuNWdxV1pBX0d1eENuVXlqMURkcmR3?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.92,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Stagione finita per Bublik? Il kazako svela i tempi di recupero dopo il ritiro all\u2019ATP Almaty 2026 - Lottomatica.Sport",
-            "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOU0JBaExjZk8wV0tZUnRyaHJQbUxnT2pPMUM2ZnBYN2NxM3pHV0hCYk8wcS1EQmZQUEhCblNoblNIZ2RxLXlXRG05WDF4cUZzUUkwM1BYaW5nRG9WaTVtQWc3WTNEOEtlSks3UzVJV29ja0IzUURtQm43UHRCbFhZRkJ0c3ZHYTMybUQ2SVpqVl91U242NEItX28td0NRRkRxUnNad3NCQ3EyUWphRExqVmJEWURiVkdwTVZMTUZWclhuNWdxV1pBX0d1eENuVXlqMURkcmR3?oc=5",
-            "source": "gnews_injury_it",
-            "category": "withdrawal",
-            "severity": 0.92,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "has_alert": false,
+        "hard_block": false,
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
       "opponent": {
         "has_alert": false,
@@ -33140,10 +32992,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": true,
-      "hard_block_pick": true,
-      "headline": "Stagione finita per Bublik? Il kazako svela i tempi di recupero dopo il ritiro all\u2019ATP Almaty 2026 - Lottomatica.Sport",
-      "category": "withdrawal"
+      "any_alert": false,
+      "hard_block_pick": false,
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -61628,26 +61480,13 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": true,
-      "hard_block": true,
-      "p_retire_boost": 0.2304,
-      "category": "withdrawal",
-      "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.92,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-          "source": "gnews_injury_it",
-          "category": "withdrawal",
-          "severity": 0.92,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "has_alert": false,
+      "hard_block": false,
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_alert": {
       "pick_side": "A",
@@ -61661,31 +61500,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
-        "hard_block": true,
-        "p_retire_boost": 0.2304,
-        "category": "withdrawal",
-        "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.92,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-            "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-            "source": "gnews_injury_it",
-            "category": "withdrawal",
-            "severity": 0.92,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "has_alert": false,
+        "hard_block": false,
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-      "category": "withdrawal"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -62902,26 +62728,13 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": true,
-      "hard_block": true,
-      "p_retire_boost": 0.2304,
-      "category": "withdrawal",
-      "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.92,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-          "source": "gnews_injury_it",
-          "category": "withdrawal",
-          "severity": 0.92,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "has_alert": false,
+      "hard_block": false,
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_alert": {
       "pick_side": "A",
@@ -62935,31 +62748,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
-        "hard_block": true,
-        "p_retire_boost": 0.2304,
-        "category": "withdrawal",
-        "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.92,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-            "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-            "source": "gnews_injury_it",
-            "category": "withdrawal",
-            "severity": 0.92,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "has_alert": false,
+        "hard_block": false,
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-      "category": "withdrawal"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -70492,26 +70292,13 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.153,
-      "category": "retirement",
-      "headline": "Stefanos Tsitsipas reacts to Gael Monfils and Stan Wawrinka deciding to retire from tennis this year - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNQ1pTSVhjdVcxU1ExbjUzdi1RbHdLZzFsQ21GVGh6RnFqSUtyRExuQWpmZFdWUTdhWnNYdDN4Z0pCMmdickZkLTlHRENxQXZhQzdmdkROUFAtVVpyS0EySXNRanpmb0VBQlpVamNlLUJhekxTQ1ZhaXFBbUNQaUFXSy1Fckd2ZDJmZzd6TjB0ZWE?oc=5",
-      "source": "gnews_injury_en",
-      "severity": 0.85,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Stefanos Tsitsipas reacts to Gael Monfils and Stan Wawrinka deciding to retire from tennis this year - Yahoo Sports",
-          "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNQ1pTSVhjdVcxU1ExbjUzdi1RbHdLZzFsQ21GVGh6RnFqSUtyRExuQWpmZFdWUTdhWnNYdDN4Z0pCMmdickZkLTlHRENxQXZhQzdmdkROUFAtVVpyS0EySXNRanpmb0VBQlpVamNlLUJhekxTQ1ZhaXFBbUNQaUFXSy1Fckd2ZDJmZzd6TjB0ZWE?oc=5",
-          "source": "gnews_injury_en",
-          "category": "retirement",
-          "severity": 0.85,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_alert": {
       "pick_side": "A",
@@ -70525,31 +70312,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.153,
-        "category": "retirement",
-        "headline": "Stefanos Tsitsipas reacts to Gael Monfils and Stan Wawrinka deciding to retire from tennis this year - Yahoo Sports",
-        "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNQ1pTSVhjdVcxU1ExbjUzdi1RbHdLZzFsQ21GVGh6RnFqSUtyRExuQWpmZFdWUTdhWnNYdDN4Z0pCMmdickZkLTlHRENxQXZhQzdmdkROUFAtVVpyS0EySXNRanpmb0VBQlpVamNlLUJhekxTQ1ZhaXFBbUNQaUFXSy1Fckd2ZDJmZzd6TjB0ZWE?oc=5",
-        "source": "gnews_injury_en",
-        "severity": 0.85,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Stefanos Tsitsipas reacts to Gael Monfils and Stan Wawrinka deciding to retire from tennis this year - Yahoo Sports",
-            "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNQ1pTSVhjdVcxU1ExbjUzdi1RbHdLZzFsQ21GVGh6RnFqSUtyRExuQWpmZFdWUTdhWnNYdDN4Z0pCMmdickZkLTlHRENxQXZhQzdmdkROUFAtVVpyS0EySXNRanpmb0VBQlpVamNlLUJhekxTQ1ZhaXFBbUNQaUFXSy1Fckd2ZDJmZzd6TjB0ZWE?oc=5",
-            "source": "gnews_injury_en",
-            "category": "retirement",
-            "severity": 0.85,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Stefanos Tsitsipas reacts to Gael Monfils and Stan Wawrinka deciding to retire from tennis this year - Yahoo Sports",
-      "category": "retirement"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.107,
     "retirement_context": {
