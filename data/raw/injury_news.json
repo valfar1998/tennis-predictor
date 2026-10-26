@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "fetched_at": "2026-10-25T18:53:37.668567+00:00",
-  "n_items": 49,
+  "fetched_at": "2026-10-26T09:29:58.754823+00:00",
+  "n_items": 51,
   "n_raw": 130,
   "errors": [
     "espn_tennis: fetch failed",
@@ -11,28 +11,8 @@
   ],
   "items": [
     {
-      "title": "Swiatek withdraws from Ningbo, ends season to 'rest and recover' - WTA Tennis",
-      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOU1FkUTE4SVhkX0ZWMk14WjludTBObFU1UFM0ZElBeFNaYlhGblIxeWNYSnFNQ2x1VkIta1RWV2xaLXNNRGtLeFdObWhpb01PYWRkR0RCbW5PMmFHRjB1NmxBZUZOMkkwWk0yaUFLQ2xDSDlvczRiOG1oWlRJUjJ5UHlONF93emY1a0d3OURHWlM0cnlOU2c?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.95
-    },
-    {
-      "title": "Iga Swiatek withdraws from Ningbo due to injury and loses WTA Finals chances - Tennis World USA",
-      "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPT2hybk85VTdiSi15cklYN3QxQV9kZWdrbFZTVTdtVmlKNzlhYzJnNEpPR0hSV2g0MFc4QnRaWjVhcktkdEZ6T1hpMERFNjcwbFhVN1h1TkV1NGtLODVza19lMVNUU09pSjVtbVJzR2t2LS1iMjlRRG9XN1RiM0ZYS2ZVTG1EYi1ldVNrb1JPN0l2Nk5HSEJfbllJU1FNQ1F5SHVQNERxcm1RZTVCWEpWWnNFeWhlMHJDWE9zTmlxNktTVmNxR2JmbDFVb09IeWFDR3Q1YQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.95
-    },
-    {
-      "title": "6 Players Withdraw From WTA Toray Pan Pacific Open - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPRGRGUWVzNHNNa3VpemJiM051UWhTcTRianBWVXE1UWpBQTlYVmtMYm9qS1E0MEEzRUptdm9la0tHdEYydFY3aVE1SWNKRUtoUWJIbEhQck9MMW1lcnMtcXB3X2liWHFQZmJkSnhPRFhvWmRjWGRzMV9HN3dUSXozYkdnOA?oc=5",
+      "title": "Holger Rune releases statement as he withdraws from the Brussels Open and provides injury update - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOZEc4dGQtVV9WS2xqbUdXa0hKM0RacEVvcmd4V2t6RjRLX3JWUEg2SzBYcXpYd1Rka0E5RGNZNHJfNDJtOFY4Ql9JcDlLWi1wSHNicjNVcHVXQ0w5WjJTNWlscTBkM2VjRW5lR1M4ZmsyTjFIUk5EQmk2MS1CQTFJYTdTdWxrMThQQ25kV2JOdWdrdk0?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -51,6 +31,36 @@
       "severity": 0.95
     },
     {
+      "title": "Basel: Davidovich Fokina Withdraws, Arthur Fils Gets a New Opponent - TennisTemple",
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPaEtLbkNtbVE3cEhmSFF2bFdHMUZpTGI1UjBVbHN6RW51clhnVHV2NWFkN1ppd0NNY1VtWlYtSHRwV2NPVml5S1JrRkNRU2V5dVNYdGlveHRIWVV2NElPMzZvOWZpNmI1R2U5M2dIbHlKWlVDODBZZnRzUGh1bmRGYVFudk81ZngxQ0xsQ1Z3bGplUQ?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.95
+    },
+    {
+      "title": "Hong Kong boss shuts down tournament quality concerns after Zheng Qinwen withdrawal - Tennis World USA",
+      "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNSF90clpZY3ZfYUl2UHhxODB1WGNkNFV6bWlfTnNVaHN6Ukh1LURHejJqTnd6ZmR6UGtrUGw3aFdrVUlPay1YcmplY0xoSEpOdTZNanBBcm1BZzYwTk5XdmZtRU0tUjB4TFNZaGRCcUl3TGdhSUpObXhWQmdzYVJncHNzVkphWUpNMFlja1N4VlJ2TmpHV01oR3laOHBIVU1EZFBRLTFCc1JBRGJCTUFPZ3haMG5PT0tnQ1N0eXdTUUZ0T29xczY5aVphUHE2cXdCa3ZxRDdXSUF6Q2xUT2lBRDRRMA?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.95
+    },
+    {
+      "title": "Tennis: Swiatek pulls out of Ningbo Open with thigh injury - Omni sports - Sports - Ahram Online",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE42SWhDLVpibTlxUVVLcVFSbTdJVl8yN0VNSE9fY2pkOHBHZnFVYTZYRmo5bFV2Vjd3RDJMa08wU3g2S0gxNWRqYlR2emZCRlRWZEktZ0s5Vkg?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.92
+    },
+    {
       "title": "Dalla Francia: Monfils si è ritirato nel silenzio a causa del divorzio con Svitolina - Eurosport.it",
       "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQX012eUUzd3NMY29IN2dIRk1MTW9fSUtKTjFGaVo2WjloSmZ2Qmh1QmZFOHNSejNXTC02NFFoVTBIa0x3SFFYQlhLTEt1dHV5ZkhoVXZVYjlnNnJEUFpaaHE3c1ZwdVhrUlNYeVA0RXgtQVBWNjNaV0pSeDIyUmRBeldhUjRjN0twemxzZWhQY25EN1pBNHhBMzlEN2FnT1Y5cmljZGZKcGtweFB3d1hQc2QtXzN3T3d1aURHOXBReTFwbjF0U3RVcHR6WkdwS0RKNVNuNWtB?oc=5",
       "summary": "",
@@ -63,16 +73,6 @@
     {
       "title": "Iga Switek dopo il ritiro di Ningbo decide di chiudere la stagione: \"Sento di aver bisogno di riposare\" - Diretta",
       "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNZk1OZHk1OUpPalNHNXVDUE1BM20tRmFwSWdLR1Q2RFhEeHNjUmNnMzF2Q1I4bVlCSlJOTnJ6dFIwOXpla1JpSExjY2ZUa2k2XzhZYktGZy1UakhBVUoyUlFVTHlhZVNLZDN3am5sa2NzbFZSQVVWMnFkbEEwUFZrTmkyVnZmeHlJQXVmM1pIWG5NRGhOQ01GMEdlc1hWQ3psa0MwSVgtZHpMaVFSYnJpbkZkZnJHRm5INHhHRWdubi1JaVdHWm5laU5qZXNCTWUtMTF5Uw?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.92
-    },
-    {
-      "title": "WTA Ningbo e Osaka: maratona Fernandez e forfait Kostyuk, in Giappone volano ai quarti le teste di serie - Ubitennis",
-      "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNVFJwX3Q3Y0RnV3VtdldLY0FHWE1JSTdDUEtxaWdaRjk3VjlOOEZ5VjdGNFZnTlRwSUdWUTUwaTBWS0FzRXFhZjJTTDBDS3pqNHFYcFQ0TWRqU2pDN3p4Y0hxSWZSQ1hJLUplZFhDTUl2QWY3bVUzZ1lTa0hKMVRHX3ZVbVZHQXhNektMU3VEWHFUUTc3VFNMek45dk5XdHNNYWlQWHpZcnVpRC1QcnZfWHI3MWsxR0Y0ME5iV1YzNG1KTGswRDF2SGJvSml3UWFkVFVhakN3RmJnVXJxTEE?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -101,6 +101,16 @@
       "severity": 0.92
     },
     {
+      "title": "ATP 500 Basilea: forfait per Alejandro Davidovich Fokina, addio sogni di ATP Finals - sport2u.tv",
+      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOaE4zT0dSTTBtQ2Z2MEp3YXdETXN6Z0pYSWhKSUEydXA4ODR4dGVmTmVESk54Q2ZJcnBtb3E2WllYVUdQUDNSdm1oR1pEcGFQbllJUnVnTXJIeF9seE5ub2h1OHNuclhDbEZiUnhzMng3ekZuNmZPbU4yc1Ntc19WU2FqeE9Wclo1bDhjWENWZWp2QUtxWm1rSURoR1hvcjJHeXh3?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.92
+    },
+    {
       "title": "WTA Finals 2026: Iga Swiatek annuncia il ritiro anticipato e chiude la stagione - sport2u.tv",
       "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNNTBhZURjRzFqQV9DVVdGbEowcGVqaW12REREX3loaDlsZzJsd3JzY1J6R28yN0M2NXdCVlBjMTJoTHZqT2RGMExHRW1kemtialEyQVRpQXBGWkw4ZkQ3OEUxWFkyRFpWdDhiXzBRYUJYVUJtTlNTbDJhTmNYQld3RnVHbDVvdzlyNWl4REljLUxybmtEUW9kNzZGaWg4ckE?oc=5",
       "summary": "",
@@ -121,8 +131,8 @@
       "severity": 0.92
     },
     {
-      "title": "Stagione finita per Bublik? Il kazako svela i tempi di recupero dopo il ritiro all’ATP Almaty 2026 - Lottomatica.Sport",
-      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOU0JBaExjZk8wV0tZUnRyaHJQbUxnT2pPMUM2ZnBYN2NxM3pHV0hCYk8wcS1EQmZQUEhCblNoblNIZ2RxLXlXRG05WDF4cUZzUUkwM1BYaW5nRG9WaTVtQWc3WTNEOEtlSks3UzVJV29ja0IzUURtQm43UHRCbFhZRkJ0c3ZHYTMybUQ2SVpqVl91U242NEItX28td0NRRkRxUnNad3NCQ3EyUWphRExqVmJEWURiVkdwTVZMTUZWclhuNWdxV1pBX0d1eENuVXlqMURkcmR3?oc=5",
+      "title": "ATP Basilea 2026, ufficiali i forfait di Bublik, Davidovich Fokina e Tsitsipas: il tabellone aggiornato - Lottomatica.Sport",
+      "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOeGFGNE9KN3NFZFVud2RGOG5NMVBSQVZLRV9HbWp5emZkOWNXb3dQNl92M0VWQTlVQjRfZHlqQi1ndjFzYXFROGFGY3RycHVMWmQ0VEhuTm1VLThUbmdOcldvbFhBMnlVQkhjdURlRkhBcTJqNl8wcG1qRl8zeTMxV1VKYXNGbXdzeVJOWVlCNmx4dmFzNk12WDVudHgxSWRuOHVOSzBtU0FIcVBXTGhnOGpBU2ZoTXU5NTRMZ215RzhyM1pxLXdrc0VnRHdxb2IweDM4clhsYl8tX0E?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -133,6 +143,16 @@
     {
       "title": "Swiatek infortunata, forfait a Ningbo: stagione finita e niente WTA Finals 2026 - Lottomatica.Sport",
       "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQQ2xDNDdKdS1Na0JDVnA0aldaMVJtOG9PaE5QSXdBczJlNjE5b2UxelZ3SEtITjRpUGI3LVZkLTFYWjNuU0Rsa3VGVy1aTXhUTVhXaUEtMHRhdklFcUhVVGVRM1UxRi1RQ09MQU43WTZXQWhNUl9kWG9ZMVpxeGxsME5aQTdfZmdsblFaNzBMV1AwQkMtT2JmNVNLNzNOMnBlYmRadjlaUlNVR1BJcFdBdFYyOU1fNmFvczk5cg?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.92
+    },
+    {
+      "title": "Stagione finita per Bublik? Il kazako svela i tempi di recupero dopo il ritiro all’ATP Almaty 2026 - Lottomatica.Sport",
+      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOU0JBaExjZk8wV0tZUnRyaHJQbUxnT2pPMUM2ZnBYN2NxM3pHV0hCYk8wcS1EQmZQUEhCblNoblNIZ2RxLXlXRG05WDF4cUZzUUkwM1BYaW5nRG9WaTVtQWc3WTNEOEtlSks3UzVJV29ja0IzUURtQm43UHRCbFhZRkJ0c3ZHYTMybUQ2SVpqVl91U242NEItX28td0NRRkRxUnNad3NCQ3EyUWphRExqVmJEWURiVkdwTVZMTUZWclhuNWdxV1pBX0d1eENuVXlqMURkcmR3?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -181,8 +201,28 @@
       "severity": 0.85
     },
     {
-      "title": "Celebrating newly retired David Goffin: 'I gave everything until the very end' - ATP Tour",
-      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1tYTd2ZzVKUUhvOU5zdk1yYnJIdTI1TWpFMmdCUHBleC1vMTlFWnhxTHhJNWgwMnpYeXA3RW5Ja3lKc0sxSUY3SUM4OWRXYXprZUdyMU0wQ1VsLWp3ajhSQ2RKVVM5WnlZTGxsbGJkMjh4OTJObUVF?oc=5",
+      "title": "Tennis-Osaka says not far from best form despite retirement thoughts - WTVB",
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUlVIM1FuQldkMEZXZ0Y2Z3pUNEdxd21BZzZUZ0Z5OU5ndHk1Wnk0VkVzVFVuQXRTR0RocWRnX3IzM1JhS1d1WjNUSk1oVDFEbmx0ZXR6aVFiNk56X1ZEcDF4NDZPM2NZeFlGSGtDaHRJcmI0Qkx1RnJOV0x6YU03TVZmVHFrVkRwYmpZVk9waFhUN3ctaGJWMXJ3YTR6bV9s?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
+      "title": "Stefanos Tsitsipas reacts to Gael Monfils and Stan Wawrinka deciding to retire from tennis this year - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNQ1pTSVhjdVcxU1ExbjUzdi1RbHdLZzFsQ21GVGh6RnFqSUtyRExuQWpmZFdWUTdhWnNYdDN4Z0pCMmdickZkLTlHRENxQXZhQzdmdkROUFAtVVpyS0EySXNRanpmb0VBQlpVamNlLUJhekxTQ1ZhaXFBbUNQaUFXSy1Fckd2ZDJmZzd6TjB0ZWE?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
+      "title": "Daniil Medvedev makes prediction about Stan Wawrinka ahead of his retirement from tennis - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNQTJTYXc5ZnY5eEVEX0hrMjQ0X194WDNhbmxELU02NVJ0ajduSm00dnYyRVdIbWFQTnZFQml5eUJtWFd4RFp2SEQybVY5bEw3SDRkam5wUVNBR1hjTjNTQWFCUFdhcHZ0T3VoSmZuQTVrUVJFY2J6M1pPTWctdkgxTGlfT1dPVllxcThmdV9mZw?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -201,8 +241,8 @@
       "severity": 0.85
     },
     {
-      "title": "Elina Svitolina Announces Divorce with Gael Monfils, Monfils Retires Immediately - Sports Illustrated",
-      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxONFFZYUZ4Q05jRnhJWkhlWDBHR3Jla2lYcHRZdExIYlBFSkxid3d2YkFLQjlacVVtT0FyZ09aVGJUTUJ3aVZUNFhiT3dBczdodFhaX0J6VVZxOHJYUVhFT2pTMEttekdURDM3cEdELW5zX19YdGZRUnlRVXlJdk4yODk2eHhEaTNaektqX1c0M1dGM1ltbll3MWUzaVNwSk5fVkJhc18zRGNyakR4ekdPbjJfQy1ONEt3dXpvMnlxWldWUQ?oc=5",
+      "title": "Apollo the Southwest Airlines Safety Dog Retires After 7 Years of Service with Cute Tennis Ball Surprise: Watch - People.com",
+      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOQnVHaVZBeURjeTNCdzVLQkNDUncxRExrRWN3aVBBQllYTkdWTWZ5M0swSXRwNDZmV3I5eFdpVXVZWjQ5Mk43SzVSbld5Z2xlVzZzQnFvb1UydkxJbWpJX2VBRWNmV3c0Q3BpWTZEeFFHZ1lPY3B3b203alNBcEtFb0wzbjY4T0E2RFV1VGMyYVJRQ2FILTlxS0FxSzNfUWR6eHZLd2JYVmhKa2RGRWdjTGw2d2dudw?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -211,8 +251,8 @@
       "severity": 0.85
     },
     {
-      "title": "Apollo the Southwest Airlines Safety Dog Retires After 7 Years of Service with Cute Tennis Ball Surprise: Watch - People.com",
-      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOQnVHaVZBeURjeTNCdzVLQkNDUncxRExrRWN3aVBBQllYTkdWTWZ5M0swSXRwNDZmV3I5eFdpVXVZWjQ5Mk43SzVSbld5Z2xlVzZzQnFvb1UydkxJbWpJX2VBRWNmV3c0Q3BpWTZEeFFHZ1lPY3B3b203alNBcEtFb0wzbjY4T0E2RFV1VGMyYVJRQ2FILTlxS0FxSzNfUWR6eHZLd2JYVmhKa2RGRWdjTGw2d2dudw?oc=5",
+      "title": "Tennis-Djokovic wins China Open as de Minaur retires injured - The Daily News | Texas' Oldest Newspaper",
+      "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxONzhtUDduNlk5Vnd1WmsyRVlxUFpLVy1jNVU1MkVIU1RKMmUxOFFFZXZhOUV2TWY1Y25TcFEyczcxdG9GRmk5QVRUckMxQktMVDhuZnl5SS1XeGhmaXNybHMydUJ3UWhEM3RQSkFCWDZjc3FaODRkeEN6bktUNGxSR3BqWmEzQTJ6LUJPSDYtVjBpZXZaUUF2TGhCdlJlVFVmSlBiSDFrREhJT3ZRR192RUhab0l6Zkw0TVM3MUxIXzcxeFRXWG1vS2VQNzFFMG1xRHlGZTVmSmF2TnlXUG9HNWlLS1JoQ3Q2cl9N?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -231,8 +271,8 @@
       "severity": 0.85
     },
     {
-      "title": "Tennis-Osaka says not far from best form despite retirement thoughts - hi99.com",
-      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPT1JyQzRLS09pcUdubEFJOXpNLVl2SzlkdW9iZzJpeER1QldmQ0ZuM1phOURrczRnZnlzLXNmYlBuc2ZOelZpQmV4cUhYSUNIVXNBcWhLOUtaYmJST19QVVVHTDhjY2tyeXlWV3J4aUdkcGM1X3o3ZWg1RjdNcW5tVkFXNlRIblNVbXZPd0EwaWV2UHlyaWJNTG1SVVk0QQ?oc=5",
+      "title": "Gael Monfils retired from tennis after shock Elina Svitolina split 'hit him like a ton of bricks' - report - Tennis365",
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQTkxrS1NsZUxDV2dLeTBjV21kaTMwa1lXa0tWQ1RqQjhnZlFJSTdkN0QyeUlHTllpcE5ENzgtRnF2R2RvTjROaGZjbkZPdmtBZWZzV1FQT0wzZlFMM05EaWEzR2ZpOUFGT2ZzdXFpN2E2dDB0X01YSW4zNWNySUt2NElGVHQyTTFhQUt6cnZMb2loRFNpTmw0bU42ekdGVGdsUEE?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -261,8 +301,8 @@
       "severity": 0.75
     },
     {
-      "title": "Bublik reveals his recovery timeline after knee injury - claytenis.com",
-      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQelo5SEgxMjBHVDdWM0FyVGRBNzNNbDladGZGUmd5VTVHYnhoVzV1U1p4S3VLbVFjWEc2dlotRzVBYjJyUzJleks2ZGpJbzlQODktZlVLWXhiNlM2M1hEdXJZWFdEX1hGdngxLWZweXVfWmpJSnZpYzVRcHQ4OXItRWp3Wm5wMU5iU2pLbVhQem9nalpjU1M1RENVY0ZlVVNQN2ZIRmpPc0RJTXNCbXdqNHNJSU04Q0dxT29NRzZlOUc1LUlOX0FHUA?oc=5",
+      "title": "Tennis-Thigh injury ends Swiatek's season and WTA Finals bid - KSL News",
+      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNOWNxRGRRbkZVanBhdFZNbWlMR3pGaXE4RnV6dkZXV1ZvUkNqME5wOC16NXhteGt2eHJvdXB0cVgxMmxTeS1DX3JsUjNmX0FKWFJHUXFrT0Z2bHEtMDdJN2pic2FZTnRoUEtMdU0xUXpfT1BaTEoyeFJHSTM0UHpzb0pOY1NSYjdIT09WZzkxbmVyZWhGUndnSlJoNFo?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -271,18 +311,8 @@
       "severity": 0.75
     },
     {
-      "title": "Iga Swiatek risks missing WTA Finals after withdrawing injured from Ningbo Open - Bozeman Daily Chronicle",
-      "link": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxQNjAtMEY0RnktTDZ2RFluRjlaWHBzdDBVbnViYkZsLUxhQ2dRTGZ2UldPaldKb2dyMUFYRkR5T1hOZ3RqM3haMTNtNTFHeW5vMEM5WDJhRmpqeWhOODN1MHpqOGJfN2Ytcy1QanMyXzBtWFhWZUVpUl95SEc2ajlyUEJIeUhkR1YxN2RlMGRpdWJWS1VNT1pTTmtZcUxGemJLLWtTN2o2bGZWUEl1T0pySURLaW5GQXhVUk5SM05GRmEybmlLTngxLUliOGRJN251WlViT3NoQUN1YUFwZW5GTHppQlYxcF8td1RzdS13M3dyVVRJQlp2cHJsS0pUTkJGQ1NBd2dYcTV4VHc?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Thigh injury ends Swiatek's season and WTA Finals bid - Reuters",
-      "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQV3VIY3dSajEtalFLbmxMVDVaZDhDZlhGaURfQVRYMTM0bHcyWGJWeHpCMG4tNm50R3BGN0ZJS0lxWWl3SlZsUFo5VW1kejZNZXFaMnBDSGo5WURzLWxUUFVSMVl3Ums5VzdUOE94b1BsS3JYM1lxYXNYaGJHUi1GRnJYaGhXb3J5NnZVVHZMRC1LRGNHb2tTNXZUbTdOQkdYY3U2NmY3T25WSDRoQUY1X09FM2xqSm9HcVZn?oc=5",
+      "title": "Jannik Sinner's injury situation takes a new turn after latest medical reports - Tennis World USA",
+      "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQeWdsZDRhREdXWlZXZEpaUG1HV1hHdS1YNUZxZUdhWVJTbEJxTUUwRFlqWWQ1OUxrVzJtekVBYkd6N2RBY0trMFUtUEdSRXlRNlM3TFNJVnpiWmR2VUQxN3JvdTlvenlvZy05NUJNc3VwRk1UUTNyeWdoNV8xMkpwSkN6aU1YUERjNDNCNVlWZkEyaW04bmxkSmx5R3lSRnYxYm9ySGRFUEhoUjRwLXhkNTVRWTc0VVhLM3FhdG1GMEZyZEZrc1RDVjNRMHg5R2ZIcDc1TUlaTkpQaFE?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -311,48 +341,28 @@
       "severity": 0.75
     },
     {
-      "title": "Jannik Sinner's injury situation takes a new turn after latest medical reports - Tennis World USA",
-      "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQeWdsZDRhREdXWlZXZEpaUG1HV1hHdS1YNUZxZUdhWVJTbEJxTUUwRFlqWWQ1OUxrVzJtekVBYkd6N2RBY0trMFUtUEdSRXlRNlM3TFNJVnpiWmR2VUQxN3JvdTlvenlvZy05NUJNc3VwRk1UUTNyeWdoNV8xMkpwSkN6aU1YUERjNDNCNVlWZkEyaW04bmxkSmx5R3lSRnYxYm9ySGRFUEhoUjRwLXhkNTVRWTc0VVhLM3FhdG1GMEZyZEZrc1RDVjNRMHg5R2ZIcDc1TUlaTkpQaFE?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Iga Swiatek risks missing WTA Finals after withdrawing injured from Ningbo Open - ehextra.com",
-      "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxQMi1BRUxTNFRCUnZzNDJWSVZWN1dfTjFwem40TzE5dzZraFpNWFc0SUs4QkVzdDNISGJOaE5tVDFYd2E4M1lnNlkwQnp3TDFoNFE3dU1WcUxxSTY2ajZJRVV0MU5fOWVNWWQwdEdoVGs1alBDRXQ3VlRESThVNHM4cUtFZXBUdXFKdTJkTlRjeEVQTHF5ZkZhci1RMHdfbks1dTRuQWwtRTNHQm5oMmwweUZDMEN5UUZRNm1icnRaa2J5RUx3dXViYTQ2WWN6WU1hNkpwTER2bGJEak54aERqSll2SHlTbVlhS3EyaUdNY0Y2Y29GcHB4eGxwMk5tQQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Sonay Kartal: New British number one makes rapid rise after a slow recovery from back injury - BBC",
-      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1aNTNsd1VBQUFkcHZFcHpMbzFEQ0RNOTg2aVNFUW9zZGdUQV9WMW5PZlhBbklONGVBU0U4YlQ5MnNsWFFJZThWRVpOdkRRRTRZQy1LRGRvVFNGazNrTXpJMHNEMnh2QQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Iga Swiatek ends her season early due to injury, will miss WTA Finals - USA Today",
-      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNSVZxQjFKTHo5Ujl5MWM1MG5Ueld2eGVJSG9qeWJycl94YXZEdTZ3MnlnLXBKckdJYnoyTmhDamVKOEt0YnA4MENIZ2RjUEVYc091RUdYQ1NwX2hYQXl4VEdwZnJYeTN1N3UzNVdZQVJIX2hhbVNNUDJZNkhxcUVGa0FQZTZsb05PTlZOSm5qX0FIeFBNcEd5cFNBa1hoOXZ1S1pLa2ZLRVVNUEtTVTNsV0sxVUlXaHM5NlNvbA?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
       "title": "What Happens When a Tennis Player Gets Injured at the Rolex Shanghai Masters? - SmartShanghai",
       "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNTHVOT3NEVFd0OXh3eXZRMjZVRE9GZ19GeDQ0cnpaSFJkc2hubWNwOFFZMmNvTmQ4R21OY3ZpdmRtSkFLbWM3c1ljTlphVEtYYUxfR3pYeFEzLWhfSlN0ODY1a0djQS1fbHdPMFloWDJQRC1VSzZFckJsajJjUEUtek1wMW51Z2haUUdNSy00WFIxOUJFRURnVDJWMC0tRVZmNTU1cmtIaVNzQlFrMjI1VUlJT3lHZ2RNU1FGcS1BQlp2czFMNGdjWFNkMTVXVHQtd2c?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Ava Sock battles through injury to help MICDS sweep Class 1 girls tennis individual titles - STLtoday.com",
+      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQenRQU0lVSVo3d29wVzRQMTRZOUgzTld2anA2VmNvOHo5V2UtblA5RzVsQ19abHVWUnNJbWZBRDFtSk1mSnhzM1hIb3BpcEl5R1hfZzM0MElia0hMVHNmQXRWcVA0dW03S0t0V09KeWYyYnh1ckNkVHVsY2xpM2g2N19qX05QY1IxMjZ6RVU4YWhZZTNHZVE3ajFUTDhMczJrWExILUIybTJSUQ?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Tennis: Top-ranked Rybakina into Ningbo quarter-finals on return from injury - Omni sports - Sports - Ahram Online",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1BZ0t5TmJLWGNGSmllUmtxYUV1TUxNcXpPcmt3UzZKc3NxZC01d1FWTjFKNWdVaWQ5MzcySEM1WnR2OTI5bHBjajJaZ1hCall5ek5BWUVhOGU?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -401,8 +411,8 @@
       "severity": 0.75
     },
     {
-      "title": "L’ipotesi di Petkovic sull’infortunio di Sinner: “Forse nemmeno il suo team sa cos’ha” - Tennis Magazine Italia",
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOcWhlMDR5cTJLWkxPcUhGbER5cUsxb0lrUWlDclZPSkVTWkg3UVdQSzZuVXlxcl9xZkMzVkI0U3hZS3pzeUl5Tkt0RTRPTGlmWkJ5UU5DbjgwNEM2a2NBVC05SldPc0FNSWVSQk5keWlkeUFCclJwckR5X0VuNlhZYnZCb1NzVFh5Y19URUV2emhITDktRDZBQzNla0VQa0JRRGRkUFd6NUJWYVdWUE9haFZB?oc=5",
+      "title": "ATP Tennis 2026: João Fonseca chiude in anticipo la stagione per infortunio - sport2u.tv",
+      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQU1NIYXRKQW45SFlNcnpydzZWdXFzejRtOU5PTUJnMW0wekM2QnN6ZE1OMWR4UUJJTkljNFFEcDZrbmV6cWc2WldnUjk4R2o3eDVGcV9WZFc2OWFFUnFlV0xFNkF2YUw4d1VKTTVFSUI2UFFnSVY3am41VnA1eFNLMmJCYTRfSHFXTTRTajBRZUFUbnA1Skc0Z2VB?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -411,8 +421,18 @@
       "severity": 0.75
     },
     {
-      "title": "ATP Finals 2026: grave infortunio per Felix Auger-Aliassime, addio Torino - sport2u.tv",
-      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNQV81Q1RLZm1qOTNzbVd5Q1c5YmZQZHQxVXBGOGxsamZ1Z2JtZXFfUmIxZHVtZDZPQ0RCNmpnTlZIdUlkWGdta0xiaGgyLVc4SkVVRXdKQllqYnNHZDh5Y1BJM1hVUVJ5Q2lZREQ4SU9Ma1plSjlzME1Eb25MOGZDSWxiQ2JPZEJ6azJXdThUclZYX2MwT3c?oc=5",
+      "title": "Federica Brignone: «Non voglio passare tutta la vita a zoppicare. Sinner? Il suo infortunio è tra i peggiori, spero non faccia il mio... - Il Messaggero",
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOS0ttN285VExQVWhhdTFhSFNEYkdKZk5oUGU4ZG1IeHZzUlh6YUNQTXp2aG96TlJMZDJtbVZSTTU3Q1d3N1dRbk1iaUVYV25jLVRFdEhCMGxBQUg0WEt6LVhRS0g4akMyRWR0SExURkhsQzZZRXZERmNES2JIZmgtc2l2YmwySlprd2dlb3ZOZGxrekdWWlA4NUd3Ym04MmN2N29VRDJWSHAxZTB40gGyAUFVX3lxTE9aZU4yeGxCTzN1ZFJUVV9JYW5xcWNxT190Rk5sS2VvTEpsYmxCRzY5c2VOcWdyQWxBVVFUWXE4VUhJclNIWmUwQ3ZNV0dOaWdDSGdsai1ycndrWGU1aThnSzNva0lEOGpsZS1VOHQwbDlrSEo4RlRjM21PekxzYWxQVGpOcmI0TzNjUTdHcnduNWdjcnBOa3ZSdWptVmhjOUhFV1dzbC1GVl9wSFRBSHJWRUE?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "L’ipotesi di Petkovic sull’infortunio di Sinner: “Forse nemmeno il suo team sa cos’ha” - Tennis Magazine Italia",
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOcWhlMDR5cTJLWkxPcUhGbER5cUsxb0lrUWlDclZPSkVTWkg3UVdQSzZuVXlxcl9xZkMzVkI0U3hZS3pzeUl5Tkt0RTRPTGlmWkJ5UU5DbjgwNEM2a2NBVC05SldPc0FNSWVSQk5keWlkeUFCclJwckR5X0VuNlhZYnZCb1NzVFh5Y19URUV2emhITDktRDZBQzNla0VQa0JRRGRkUFd6NUJWYVdWUE9haFZB?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -443,6 +463,16 @@
     {
       "title": "Panichi sull'infortunio di Sinner: \"Infiammazione da sovraccarico, quasi nessuno si opera alla bandelletta\" - TennisTalker Magazine",
       "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQWHplMjVzV3RwTE9JcGZhQTBRRWxkSGhOMl92X2ZUSzRKd040Y2IyM1oyb1pUZ2FRRGNMWWVrUmY5S0Zsa2FDcTFvTUR4V3paZERKSTlSYjMyY3cyVW5zYllJQVJ6OVhvQkctOGUtOWsyZlVNaXotMVlFdW11cVFRLXFfdEV4dlBIa0hiZFRLVFhCWk5oSDQwSlUxam9GNldEZzMzQUV1RTFyZ0Qta2o5S1oweDNKMEZSSVR4eXB5YXVJcU1oX2VBTmRQWFdMcFNGbnppMExkd2l2Nm1JVU51ag?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Garbin su Sinner: \"Infortunio difficile, ma Jannik ha un sacco di risorse\" - Tennis World Italia",
+      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNTElJcjEwcnE1VFhTUE5vT0dweXBlcWpCR1ZjaHJBbUU0WTh5Z1ZQWkZ5UHR4N21TeEdMNTBTdEhnS21lSTQ2N2tqdVY0ZWMzd0pLTEV0V1lMMDJOc1YycnAwckN1LWNuZXdsYXZkYzJwbEctejRSUmQxcFdpN1lNRHhudF9LdVdJc3VjV0lzUURGVU8xV0ltR1drOUpsVjJCdmFQVUpBRUU3NjdyaVo0SlFuR0t3am9uVFdKTWx5RGhSeGNHQ3hjVUU1NDJldHd4QllrTFVB?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -483,16 +513,6 @@
     {
       "title": "Sinner: piano di recupero per l’infortunio al ginocchio - Cronachedi",
       "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQZW5sLUhxTVlXOXlGYXVJU1VPZVA3ODhGdUtJaXVQckpKenFaZkl1NzB4anZsWnl3bUt4cGpIYjliYjRjWmFHbmFRZ1l2d3VRMnZkUjVEQ3pEc2FrU0FoOFlCOUxMakRsaEp2YU5UcFJSMjVDcEl6U2o0bzJCU1dfS0ln?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Infortunio Sinner, Gilbert: “Ecco cosa mi ha svelato Cahill”. Spunta l’ipotesi operazione - Lottomatica.Sport",
-      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPM3RlZi0tNlVhR3RRdm5rNHc1Qm13a1ZfY0I0bXlDdTdJWkNQdUZfZDJCeTVGRkNMS0lIWU5QMjEwTTE5c1l6a3hhWEt4eU96cTlkWTV2UnVuRVJNQWVQZkdwekJ6ekdKbU5OeU5hYzVFenVsNXFyY19Wc2tqOHNteGhaeG9ubHRwSlE3MWZiTUpobm5Kbjl5aEg5TkpOdTA3T0hWVmZnSTVlWnJjZkl3Vm5Bc240TFZRc3pFRy10ZkRwUHQ1?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
