@@ -6796,10 +6796,10 @@
       "headline": "Medvedev into Almaty final after Bublik retirement, faces Basilashvili for trophy - ATP Tour",
       "category": "retirement"
     },
-    "p_retire": 0.422,
+    "p_retire": 0.45,
     "retirement_context": {
-      "player_injury_risk": 0.42205,
-      "p_retire": 0.42205,
+      "player_injury_risk": 0.45,
+      "p_retire": 0.45,
       "news_boost": 0.05354999999999999
     }
   },
