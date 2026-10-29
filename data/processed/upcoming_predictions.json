@@ -2745,13 +2745,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Jannik Sinner, la rivelazione di Tathiana Garbin: \"L'infortunio \u00e8 difficile, la pausa...\" | Libero Quotidiano.it - Libero Quotidiano",
+      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNZF9uWE01Szd2UFZlTFdUcHpsTmFwcmtLR1FkMklVVWtGTUFIZndhVHpydEtpLXNISUwtS1RCMmRyT3NUd093S3FiLTN2dUFJSFBsSXB6enI4WFlpSHZYSFFqc2hoWDRfZjFVUDlGYjF0VDZGdGs0ZVJxeGZXVS1VUERiMFBYT1MwUnplTmhYVEJOYWxPZkpvV1JkMm1EZzlLU0ZFb2hiRlp4US1WNGpMNEppWHJGc05VRVVMMWt30gHCAUFVX3lxTE82bko4X2lwdWtRY1pLVjA3YVpzVFVMNHRPTlY2aTVKWmlmN0lnMDBDb3Z5TjlWb2JmVUxuSC1FVUhiSjlFU0I2bFZYR0R0VTNJQ2h2U0hyd25IdVBxMHlmUGxpVTFhS2piSlV5X1Vxb0JGOTVTWENCbnpzODltMEw2NFczdE9lbUhMeFFaV1FLbEY3LWpfak9nM1R6MzlyWDdtY2hJT3ZKWGcyemhuSnR4WFMyVEVtQ3RDV2hLUThHcmhn?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Jannik Sinner, la rivelazione di Tathiana Garbin: \"L'infortunio \u00e8 difficile, la pausa...\" | Libero Quotidiano.it - Libero Quotidiano",
+          "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNZF9uWE01Szd2UFZlTFdUcHpsTmFwcmtLR1FkMklVVWtGTUFIZndhVHpydEtpLXNISUwtS1RCMmRyT3NUd093S3FiLTN2dUFJSFBsSXB6enI4WFlpSHZYSFFqc2hoWDRfZjFVUDlGYjF0VDZGdGs0ZVJxeGZXVS1VUERiMFBYT1MwUnplTmhYVEJOYWxPZkpvV1JkMm1EZzlLU0ZFb2hiRlp4US1WNGpMNEppWHJGc05VRVVMMWt30gHCAUFVX3lxTE82bko4X2lwdWtRY1pLVjA3YVpzVFVMNHRPTlY2aTVKWmlmN0lnMDBDb3Z5TjlWb2JmVUxuSC1FVUhiSjlFU0I2bFZYR0R0VTNJQ2h2U0hyd25IdVBxMHlmUGxpVTFhS2piSlV5X1Vxb0JGOTVTWENCbnpzODltMEw2NFczdE9lbUhMeFFaV1FLbEY3LWpfak9nM1R6MzlyWDdtY2hJT3ZKWGcyemhuSnR4WFMyVEVtQ3RDV2hLUThHcmhn?oc=5",
+          "source": "gnews_injury_it",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -2765,13 +2778,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Jannik Sinner, la rivelazione di Tathiana Garbin: \"L'infortunio \u00e8 difficile, la pausa...\" | Libero Quotidiano.it - Libero Quotidiano",
+        "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNZF9uWE01Szd2UFZlTFdUcHpsTmFwcmtLR1FkMklVVWtGTUFIZndhVHpydEtpLXNISUwtS1RCMmRyT3NUd093S3FiLTN2dUFJSFBsSXB6enI4WFlpSHZYSFFqc2hoWDRfZjFVUDlGYjF0VDZGdGs0ZVJxeGZXVS1VUERiMFBYT1MwUnplTmhYVEJOYWxPZkpvV1JkMm1EZzlLU0ZFb2hiRlp4US1WNGpMNEppWHJGc05VRVVMMWt30gHCAUFVX3lxTE82bko4X2lwdWtRY1pLVjA3YVpzVFVMNHRPTlY2aTVKWmlmN0lnMDBDb3Z5TjlWb2JmVUxuSC1FVUhiSjlFU0I2bFZYR0R0VTNJQ2h2U0hyd25IdVBxMHlmUGxpVTFhS2piSlV5X1Vxb0JGOTVTWENCbnpzODltMEw2NFczdE9lbUhMeFFaV1FLbEY3LWpfak9nM1R6MzlyWDdtY2hJT3ZKWGcyemhuSnR4WFMyVEVtQ3RDV2hLUThHcmhn?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Jannik Sinner, la rivelazione di Tathiana Garbin: \"L'infortunio \u00e8 difficile, la pausa...\" | Libero Quotidiano.it - Libero Quotidiano",
+            "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNZF9uWE01Szd2UFZlTFdUcHpsTmFwcmtLR1FkMklVVWtGTUFIZndhVHpydEtpLXNISUwtS1RCMmRyT3NUd093S3FiLTN2dUFJSFBsSXB6enI4WFlpSHZYSFFqc2hoWDRfZjFVUDlGYjF0VDZGdGs0ZVJxeGZXVS1VUERiMFBYT1MwUnplTmhYVEJOYWxPZkpvV1JkMm1EZzlLU0ZFb2hiRlp4US1WNGpMNEppWHJGc05VRVVMMWt30gHCAUFVX3lxTE82bko4X2lwdWtRY1pLVjA3YVpzVFVMNHRPTlY2aTVKWmlmN0lnMDBDb3Z5TjlWb2JmVUxuSC1FVUhiSjlFU0I2bFZYR0R0VTNJQ2h2U0hyd25IdVBxMHlmUGxpVTFhS2piSlV5X1Vxb0JGOTVTWENCbnpzODltMEw2NFczdE9lbUhMeFFaV1FLbEY3LWpfak9nM1R6MzlyWDdtY2hJT3ZKWGcyemhuSnR4WFMyVEVtQ3RDV2hLUThHcmhn?oc=5",
+            "source": "gnews_injury_it",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -2782,16 +2808,16 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Jannik Sinner, la rivelazione di Tathiana Garbin: \"L'infortunio \u00e8 difficile, la pausa...\" | Libero Quotidiano.it - Libero Quotidiano",
+      "category": "injury"
     },
     "p_retire": 0.45,
     "retirement_context": {
       "player_injury_risk": 0.45,
       "p_retire": 0.45,
-      "news_boost": 0.2304
+      "news_boost": 0.135
     },
     "shadow": false,
     "news_hard_block": true
@@ -15694,26 +15720,13 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": true,
-      "hard_block": true,
-      "p_retire_boost": 0.2304,
-      "category": "withdrawal",
-      "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.92,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-          "source": "gnews_injury_it",
-          "category": "withdrawal",
-          "severity": 0.92,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "has_alert": false,
+      "hard_block": false,
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_alert": {
       "pick_side": "A",
@@ -15727,31 +15740,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
-        "hard_block": true,
-        "p_retire_boost": 0.2304,
-        "category": "withdrawal",
-        "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.92,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-            "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-            "source": "gnews_injury_it",
-            "category": "withdrawal",
-            "severity": 0.92,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "has_alert": false,
+        "hard_block": false,
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-      "category": "withdrawal"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -16041,26 +16041,13 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": true,
-      "hard_block": true,
-      "p_retire_boost": 0.2304,
-      "category": "withdrawal",
-      "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.92,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-          "source": "gnews_injury_it",
-          "category": "withdrawal",
-          "severity": 0.92,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "has_alert": false,
+      "hard_block": false,
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_alert": {
       "pick_side": "A",
@@ -16074,31 +16061,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
-        "hard_block": true,
-        "p_retire_boost": 0.2304,
-        "category": "withdrawal",
-        "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.92,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-            "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-            "source": "gnews_injury_it",
-            "category": "withdrawal",
-            "severity": 0.92,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "has_alert": false,
+        "hard_block": false,
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-      "category": "withdrawal"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -33101,13 +33075,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Jannik Sinner, la rivelazione di Tathiana Garbin: \"L'infortunio \u00e8 difficile, la pausa...\" | Libero Quotidiano.it - Libero Quotidiano",
+      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNZF9uWE01Szd2UFZlTFdUcHpsTmFwcmtLR1FkMklVVWtGTUFIZndhVHpydEtpLXNISUwtS1RCMmRyT3NUd093S3FiLTN2dUFJSFBsSXB6enI4WFlpSHZYSFFqc2hoWDRfZjFVUDlGYjF0VDZGdGs0ZVJxeGZXVS1VUERiMFBYT1MwUnplTmhYVEJOYWxPZkpvV1JkMm1EZzlLU0ZFb2hiRlp4US1WNGpMNEppWHJGc05VRVVMMWt30gHCAUFVX3lxTE82bko4X2lwdWtRY1pLVjA3YVpzVFVMNHRPTlY2aTVKWmlmN0lnMDBDb3Z5TjlWb2JmVUxuSC1FVUhiSjlFU0I2bFZYR0R0VTNJQ2h2U0hyd25IdVBxMHlmUGxpVTFhS2piSlV5X1Vxb0JGOTVTWENCbnpzODltMEw2NFczdE9lbUhMeFFaV1FLbEY3LWpfak9nM1R6MzlyWDdtY2hJT3ZKWGcyemhuSnR4WFMyVEVtQ3RDV2hLUThHcmhn?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Jannik Sinner, la rivelazione di Tathiana Garbin: \"L'infortunio \u00e8 difficile, la pausa...\" | Libero Quotidiano.it - Libero Quotidiano",
+          "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNZF9uWE01Szd2UFZlTFdUcHpsTmFwcmtLR1FkMklVVWtGTUFIZndhVHpydEtpLXNISUwtS1RCMmRyT3NUd093S3FiLTN2dUFJSFBsSXB6enI4WFlpSHZYSFFqc2hoWDRfZjFVUDlGYjF0VDZGdGs0ZVJxeGZXVS1VUERiMFBYT1MwUnplTmhYVEJOYWxPZkpvV1JkMm1EZzlLU0ZFb2hiRlp4US1WNGpMNEppWHJGc05VRVVMMWt30gHCAUFVX3lxTE82bko4X2lwdWtRY1pLVjA3YVpzVFVMNHRPTlY2aTVKWmlmN0lnMDBDb3Z5TjlWb2JmVUxuSC1FVUhiSjlFU0I2bFZYR0R0VTNJQ2h2U0hyd25IdVBxMHlmUGxpVTFhS2piSlV5X1Vxb0JGOTVTWENCbnpzODltMEw2NFczdE9lbUhMeFFaV1FLbEY3LWpfak9nM1R6MzlyWDdtY2hJT3ZKWGcyemhuSnR4WFMyVEVtQ3RDV2hLUThHcmhn?oc=5",
+          "source": "gnews_injury_it",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -33121,13 +33108,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Jannik Sinner, la rivelazione di Tathiana Garbin: \"L'infortunio \u00e8 difficile, la pausa...\" | Libero Quotidiano.it - Libero Quotidiano",
+        "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNZF9uWE01Szd2UFZlTFdUcHpsTmFwcmtLR1FkMklVVWtGTUFIZndhVHpydEtpLXNISUwtS1RCMmRyT3NUd093S3FiLTN2dUFJSFBsSXB6enI4WFlpSHZYSFFqc2hoWDRfZjFVUDlGYjF0VDZGdGs0ZVJxeGZXVS1VUERiMFBYT1MwUnplTmhYVEJOYWxPZkpvV1JkMm1EZzlLU0ZFb2hiRlp4US1WNGpMNEppWHJGc05VRVVMMWt30gHCAUFVX3lxTE82bko4X2lwdWtRY1pLVjA3YVpzVFVMNHRPTlY2aTVKWmlmN0lnMDBDb3Z5TjlWb2JmVUxuSC1FVUhiSjlFU0I2bFZYR0R0VTNJQ2h2U0hyd25IdVBxMHlmUGxpVTFhS2piSlV5X1Vxb0JGOTVTWENCbnpzODltMEw2NFczdE9lbUhMeFFaV1FLbEY3LWpfak9nM1R6MzlyWDdtY2hJT3ZKWGcyemhuSnR4WFMyVEVtQ3RDV2hLUThHcmhn?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Jannik Sinner, la rivelazione di Tathiana Garbin: \"L'infortunio \u00e8 difficile, la pausa...\" | Libero Quotidiano.it - Libero Quotidiano",
+            "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNZF9uWE01Szd2UFZlTFdUcHpsTmFwcmtLR1FkMklVVWtGTUFIZndhVHpydEtpLXNISUwtS1RCMmRyT3NUd093S3FiLTN2dUFJSFBsSXB6enI4WFlpSHZYSFFqc2hoWDRfZjFVUDlGYjF0VDZGdGs0ZVJxeGZXVS1VUERiMFBYT1MwUnplTmhYVEJOYWxPZkpvV1JkMm1EZzlLU0ZFb2hiRlp4US1WNGpMNEppWHJGc05VRVVMMWt30gHCAUFVX3lxTE82bko4X2lwdWtRY1pLVjA3YVpzVFVMNHRPTlY2aTVKWmlmN0lnMDBDb3Z5TjlWb2JmVUxuSC1FVUhiSjlFU0I2bFZYR0R0VTNJQ2h2U0hyd25IdVBxMHlmUGxpVTFhS2piSlV5X1Vxb0JGOTVTWENCbnpzODltMEw2NFczdE9lbUhMeFFaV1FLbEY3LWpfak9nM1R6MzlyWDdtY2hJT3ZKWGcyemhuSnR4WFMyVEVtQ3RDV2hLUThHcmhn?oc=5",
+            "source": "gnews_injury_it",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -33138,16 +33138,16 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Jannik Sinner, la rivelazione di Tathiana Garbin: \"L'infortunio \u00e8 difficile, la pausa...\" | Libero Quotidiano.it - Libero Quotidiano",
+      "category": "injury"
     },
     "p_retire": 0.45,
     "retirement_context": {
       "player_injury_risk": 0.45,
       "p_retire": 0.45,
-      "news_boost": 0.2304
+      "news_boost": 0.135
     },
     "shadow": false,
     "news_hard_block": true
@@ -61626,26 +61626,13 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": true,
-      "hard_block": true,
-      "p_retire_boost": 0.2304,
-      "category": "withdrawal",
-      "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.92,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-          "source": "gnews_injury_it",
-          "category": "withdrawal",
-          "severity": 0.92,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "has_alert": false,
+      "hard_block": false,
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_alert": {
       "pick_side": "A",
@@ -61659,31 +61646,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
-        "hard_block": true,
-        "p_retire_boost": 0.2304,
-        "category": "withdrawal",
-        "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.92,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-            "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-            "source": "gnews_injury_it",
-            "category": "withdrawal",
-            "severity": 0.92,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "has_alert": false,
+        "hard_block": false,
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-      "category": "withdrawal"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -62900,26 +62874,13 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": true,
-      "hard_block": true,
-      "p_retire_boost": 0.2304,
-      "category": "withdrawal",
-      "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.92,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-          "source": "gnews_injury_it",
-          "category": "withdrawal",
-          "severity": 0.92,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "has_alert": false,
+      "hard_block": false,
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_alert": {
       "pick_side": "A",
@@ -62933,31 +62894,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
-        "hard_block": true,
-        "p_retire_boost": 0.2304,
-        "category": "withdrawal",
-        "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.92,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-            "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNY3VPVFVDdU1xYzNNeEdhN2ZKbFlPQzg0c0NjeVNHSE5jRE9yU0RHRGJrRThqYkVkdUZKcWw0M2ZVQ2NTbktVc2hwTEEzenR2aksya292RzFGVmx0MFBpRHBSOVFoMVR4Qm5YaVNiMFhSNHh1M01UVkxUOG9NbHNkVk50bUlQaG9hamFUQlpHcjFKSHU4eXB2T2tfQQ?oc=5",
-            "source": "gnews_injury_it",
-            "category": "withdrawal",
-            "severity": 0.92,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "has_alert": false,
+        "hard_block": false,
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "WTA Osaka 2026: Ann Li avanza in rimonta, ritiro per Stearns, eliminata Badosa - sport2u.tv",
-      "category": "withdrawal"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
