@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "fetched_at": "2026-10-30T20:40:07.743425+00:00",
-  "n_items": 56,
+  "fetched_at": "2026-10-31T10:03:03.037040+00:00",
+  "n_items": 60,
   "n_raw": 130,
   "errors": [
     "espn_tennis: fetch failed",
@@ -31,16 +31,6 @@
       "severity": 0.95
     },
     {
-      "title": "Tennis-Rybakina withdraws from Tokyo quarter-finals with neck injury - Taylorville Daily News",
-      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQemtNNUtNOElOeFhmQXVOOVM1UXJPMFBuQUFKMTBXbnNBVGZqbGZlbUI5VkdtOHpTaEw3YldaUXdDdWxyUUxQZkw3ZXBEa2tQVC02c0pKbE5pdmY1WGh1TkROVTRkTTB0UHhkazA5SGJWX3VTczBWWER2TFdxdVVlOGRjZGVoVGQ4bEU4UE5Id29wYkV6dVZVd3VDUGdtc2pCUnZqbU9LVTZaQQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.95
-    },
-    {
       "title": "No. 1 Rybakina withdraws from Tokyo quarterfinals with undisclosed 'little injury' - Newsday",
       "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1NX0dObXhvSEhNaHZabHZCVEpIRFJEaTByWXZzZTFlclNGa1FKSDM2TnRJVVgydS1NNksxcjZKMF9vV19DazVhbGFkeG9YdnVCdjZ1alNpWjViS3ZIbVQ2UTBZUEYxY2RPR1VzMmZlWVZiOGRKUHFKOVhHdzdRdw?oc=5",
       "summary": "",
@@ -51,8 +41,8 @@
       "severity": 0.95
     },
     {
-      "title": "Tennis-Chwalinska withdraws from Tokyo Open due to thigh injury - KWSN",
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOejhXbzVtMk51T2p2OUtzeUdsM3NNSHBnQkVuT2JzZFV5QmdTZnNtaGIxMF9PQVpXTEFtMTJSeVgybksxSVlONTFodWRFUy1keGdzRnBsYVBXaXY5OWxWNVgta29UWDlMVlVWQm5BT2YycjZfUExUcnQ4bWgwZFFmaHhiWVdTR1hKdDZIR0YwdjR3cVJYdFZn?oc=5",
+      "title": "Auger-Aliassime Withdraws from Rolex Paris Masters - Tennis Now",
+      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5Bb2dZX0JTY2FrbUw4TlZOSmJ4bm1yRkRGQlR0X0xyWmxTc1Y2NnV0d3JnblVEanhuVm1kLS1DUjZDYXNEZ3hkelBfYjZqTjdBNVNvMFNlS3g4MTEyWlZUMF9XX0JPVmFzaW9uZW8tWHlpeVRPUm9VblN0RHA2dw?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -61,8 +51,8 @@
       "severity": 0.95
     },
     {
-      "title": "Elena Rybakina releases statement as she withdraws from her Tokyo Open match vs Leylah Fernandez, ‘I’m very sorry’ - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPRU93b2s4SE5LYUozaXVKejVJSHlVMXc1MXVnNm5jdENTNFJraXJvYkwwVVd2UzdiUTNVMk9KTElBWl9kSHdBMHFELVV4a1RYckpEYlJobEZJdlhBb0tleDlBNmdsMnNQVndyQnB2a0FsTkJ2eklwUlBYY1VjT0hZcV82c2dIV0xsajI0TkVwTQ?oc=5",
+      "title": "Eala passes Stojsavljevic test in Tokyo; Chwalinska, Bencic withdraw - WTA Tennis",
+      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxORjVzWFNlNW53YlkzRk5Gc0dxRExJMzNVM2ZnX0o5bzloZTBTemk0Vm1GN1FBTTJJYXVfaUFjS3RzN2VrZXpIRXRkU2xRdTU3THJ4bmtzdXlybGJOQUNjcy1VTjBFc01WWm5RcFdqT29YWjViTGtpQl9IZjEzS1FPblc2NVRNNTBSVHZreFYwUUhPeElPTUFxZVlqUVpSdnhUcV9SMVZDaVA?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -81,8 +71,18 @@
       "severity": 0.95
     },
     {
-      "title": "Harriet Dart reaches Guangzhou Open semi-final as Elena Rybakina withdraws with injury at Pan Pacific Open - Sky Sports",
-      "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxOZ001cmowYm5JWXp3RzhFU3JnOFZWa0Q5MmgxV2JHaGs4WnpoVFhoSVdIdDQ0ZXNYa0o0XzZyeFdYNFlJT3JlUDVYRkZ6T1FyemdrVlJ3TzVLUlRuNUZ5U1YxTmVXTzZGUzFaMmZfcGVERmJCQjMyb2VXRzg0ZGNoYkwzYTg0eTBFOTlIaVNEck1fRmhsUnY2SzZjRTFfVXZpRllVWFlBaFVkLVU2T0U0TzBYMDNIZi1kUEFHWV8wb0w3VDJ4dHA2Zl9BbUh4LWZoQzF0Ri1ERXBRSTgzdFdmVHZMRi13dmN3Vjk5YjZkdkU3blY3MDhsRVdfUmtNWTA4cEE?oc=5",
+      "title": "Elena Rybakina releases statement as she withdraws from her Tokyo Open match vs Leylah Fernandez, ‘I’m very sorry’ - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPRU93b2s4SE5LYUozaXVKejVJSHlVMXc1MXVnNm5jdENTNFJraXJvYkwwVVd2UzdiUTNVMk9KTElBWl9kSHdBMHFELVV4a1RYckpEYlJobEZJdlhBb0tleDlBNmdsMnNQVndyQnB2a0FsTkJ2eklwUlBYY1VjT0hZcV82c2dIV0xsajI0TkVwTQ?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.95
+    },
+    {
+      "title": "Tennis-Rybakina withdraws from Tokyo quarter-finals with neck injury - SRN News",
+      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPUEhjWmNJSndkTUYyUHdDZzhwRVI3U2lxeHphUEluMGhsUEtUVFZ2MjZLRzRTRVhJY20zMzl5OU5tYnFyQ1Y2Yl9UZk1qWjZqS19NTG9GajhBZnNaa21mZFZ6MGJzU01vM0VsVUhhMVcxWW45Uk1ZNXM1MG1jUFVEYmI0QjNnaS1tLVF4ZTJid3ZHcFE?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -101,8 +101,8 @@
       "severity": 0.95
     },
     {
-      "title": "Canada's Fernandez reaches Japan semis after Rybakina withdraws with injury - Sportsnet.ca",
-      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQSzdaZzJ1U3N4MC1VZHlRYklOTjFzc3lzbXlPb2xwVi1OX094bFgyWHNLMFB0bFp4eUlTN016RkVMNUkxLTQtTHlkSXlia2M3TFZtUHp6VU8tODZtTFNZUU9GXzNRbW12UjNfSi1rQjNISFBMR1RQRTJqOVRjRmR5MFN0WkNBeGhZR25SUUhLb2stTW02N3I2c1RJWkJJMU05dkdBQ19LVGFoMFRCOG9BUkI1eXdobUVV?oc=5",
+      "title": "Harriet Dart reaches Guangzhou Open semi-final as Elena Rybakina withdraws with injury at Pan Pacific Open - Sky Sports",
+      "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxOZ001cmowYm5JWXp3RzhFU3JnOFZWa0Q5MmgxV2JHaGs4WnpoVFhoSVdIdDQ0ZXNYa0o0XzZyeFdYNFlJT3JlUDVYRkZ6T1FyemdrVlJ3TzVLUlRuNUZ5U1YxTmVXTzZGUzFaMmZfcGVERmJCQjMyb2VXRzg0ZGNoYkwzYTg0eTBFOTlIaVNEck1fRmhsUnY2SzZjRTFfVXZpRllVWFlBaFVkLVU2T0U0TzBYMDNIZi1kUEFHWV8wb0w3VDJ4dHA2Zl9BbUh4LWZoQzF0Ri1ERXBRSTgzdFdmVHZMRi13dmN3Vjk5YjZkdkU3blY3MDhsRVdfUmtNWTA4cEE?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -111,28 +111,18 @@
       "severity": 0.95
     },
     {
-      "title": "VIDEO. Cobolli, il ritiro in lacrime e le prime parole: 'Farò esami, conto di essere a Parigi' - Sky Sport",
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNT0laMWRrX2R3bG1jR0VRZW8wWDY3c3d3Vy1tbkFtTm5tcVN4Z1d2cUlrSVgzalVHeUFUSm5xUkF1aFFqczRnWm1yTl9fTV9uWE4yUkp4WXlCeEZudzhZU2tMMWtfUUJKeHJELTVIRTVFaXFrODRZUkJHM0F5bmp3NHBodWg?oc=5",
+      "title": "No. 1 Rybakina withdraws from Tokyo quarterfinals with undisclosed 'little injury' - Traverse City Record-Eagle",
+      "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxNV2ZIVFlsam5Zek0xTHRHVFZ3d0ZwZlUyVVJVLWk2NzdadFFtVjZmQU9ZQU5YZU9TRDhkOHJ0NDV4Tk16d1pOZGJ0R24zTmprY0hLWFVzN3J4RUJpLWxVMkxnemN5ZkVCdzFkZmVlMEpLSjhpcmw2enRLcWhSdEYtcGxQUG5uTzZWNVhXYWYxWTV4M050bkEyUUgyMWxsRVRJc2RNN2E4MERQWXU4MmpQLTgybUN2V3M1U2lQdUNhTFRObmprbEJGMVdIc19tLURDR0VBOVpVSzB5RC1RYUFUSWladGxsNE51bE5UM2ZkOGVkdVpqVUUwcnptOTA?oc=5",
       "summary": "",
       "published": "",
-      "source": "gnews_injury_it",
+      "source": "gnews_injury_en",
       "channel": "rss",
       "category": "withdrawal",
-      "severity": 0.92
+      "severity": 0.95
     },
     {
       "title": "Flavio Cobolli spiega il pianto dopo il ritiro con Berrettini: \"Quelle lacrime non erano di dolore\" - Fanpage",
       "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQdXdvR2RXUXB0TWN0TlRzeVZFWTVsREhtQzJlNmJYdG1TcEN6bVBQa0czYURHWUFEc181LVMxX3FBRDVuc2xTanpSU0lQU0VhVzMwd25takp3T2ZOOE10VkpwZjJzTjdHWVdDdWQwWnRnTElISnR1WFlVSnRRbmw0YmVjWUJ1SmIwWFhZYVZnaUxSMVhlUDdYSklpdlJMMTFxUE4tdGh3VWhlMWsxQzVNUkZRTk1kNVBybml5TmNLYWgwc2JrX1ZqclBaTm56dw?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.92
-    },
-    {
-      "title": "Wawrinka e il ritiro dal tennis: \"Domani piangerò, ma non sarà necessariamente per l'alcol\" - Eurosport.it",
-      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOUjliQW9vWVdydkdNekJDc05uTkNLTWFFM29NS0Z4aGZmVDdPbGdxeU9tRkdfbVpjRWlpdFZvS1lVTW9uazRJcEZKVnZvTG53emRlZ29Ea2FnTEpONkduelA4eTd2amRaZ2VxbWVHMktJZEUyZEZJS0oyb09iNnRhOU00c0tNQUZFZTlCOHZiMmtqTEczSGJDU2MwYkYtcTlsX0VSTDVDeWFlNnYzLVpkbXBEMVlRclRmZ2hldmZiekpwZlFDMG1TaWlZY1ZnTGFfc0JaUmdJYXNSdw?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -191,6 +181,56 @@
       "severity": 0.92
     },
     {
+      "title": "Come sta Flavio Cobolli? Gli aggiornamenti dopo il ritiro a Vienna: cos’hanno evidenziato gli esami - OA Sport",
+      "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPdDl2ODJmRE1DOWFDaWtzOXJZbWs0YWdJOGNiWHhtUVJ5Y0tyNXhhUUExd2ZzVUpfQklaY2NxdGhnaE1kSm16eVppRTNXenptaFhFUmswaU9ndGxNTUtnSVJDVHd2QnlSX3RpbEZwQUp1R2JncmVxdGRaZ0RQZjhzd05TUlA4TmpMODRqbDVjSUJBMlFkd0xmZzVVT0V0UFRfYVppUW1rUDFwdUVoSG1CLW54eWVUdWZXU0xEMXU1cjJaeXlTTkdv0gHMAUFVX3lxTE92MHpuMTlTVWtNQ3kxR1FFby1oYmtuaVpjdUJIRDV5VXBBODJqZ3ExZU9ybG84UXRtQjF3cXBoZ0ZpZll2bUVnZlEwbjZYWjl5MEVRamFfUE1VUXFyQ0E5M1ZXYW1oSnpuUjZSNjJqbjgxVzl1eXBseTkxVWg1TktkdlFpY1lHa01MVmpvM0lnanM2Y0NPRTd3c2VMM29tTmxBMjMyNHhacFJwS2pqQ3FpSzZPQ2l4TXhwVDU2ZEl5U0JMenpoVy0xLTlMcg?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.92
+    },
+    {
+      "title": "Arezzo, caos dopo il ko con la Carrarese. Squadra in ritiro, poi il club cambia idea in seguito a un confronto - La Nazione",
+      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBPYnVfQ0lhdzBxeVVFakw0cnRJRkJ1amZUeS10cEw5WjFJb1ZRZy1uLTJuN2J3MFg3TjhGVXhJb1ZfMkhBUm5ZZDlvRGo3N0RkR0pWU0o1TEFEOEl4cUd2dERsazJDdk02ZkRWTER1VkZmbTA?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.92
+    },
+    {
+      "title": "LIVE Cobolli-Berrettini 2-5 ritiro, ATP Vienna 2026 in DIRETTA: derby azzurro amaro, il numero 6 del mondo alza bandiera bianca - OA Sport",
+      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOTkhPLTFMSzdiaXJOLUNKcVFvVXBiQjJfT21jSzA4bTg5M29sbVRpVkhyV3FFWFhBUDZIbW1aRWVRcElXekFERnNlLW1GOXVIb1FROHF1cFJkbThWT0sya216aFFCNEFjT1ZOdklmaGdGSXFMZHNab01BNS1RRV8zcVZqQlE0aTdhWWd6YVNGdXhCa0pXOWNaTkRtcTM3R0ZNOGF5N2g4MmhrS3FLcFZ0QTlpWdIBuAFBVV95cUxPZ1g4OVpmbUdrdXEyM2hBRkR0ZWI4OS04blNWNTdUdFJ4LS1JRVRNbEg0azJaa3BTUWYyR2VCdXV2cVU0bmc2NXo0dHdkYzRJUFpmcFlmSTdTVWNxWTFvWlprSGdmMzRYUDNuOXJCZ2tHV2tVVElxcFAyVS1XNVhvRVJNbndmZURjd3MwQ2wtSmJhc3lZd0haN0Qyc2RfTUxmOXppeC1oU3dqZnNKbVJ1S2hpT2xRZlB2?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.92
+    },
+    {
+      "title": "WTA Guangzhou, Venus Williams allontana il ritiro: \"Non devo giustificarmi con nessuno. Deciderò io\" - Ubitennis",
+      "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxONUJTanRiMTJ6VXREM3RKLUJUTUxrNVZ3TEVNZjR0Sklwc0hqa0RDRFVIV0ktZl9zU1pDUUtuNFdIUmhXTmY2dXEzVnRlc2RHNlNMbXNTSlc2WlhlNk9WcVo4Tl9mTnp6SmRja0V6MFNDUWNMczhfNlBNQk14TkFwSzl1M3J0TmVWeEkwQWJRNHc4MWdSTVp2NFY0S05yeExVX25pZm4wWExUNW1EcDFRZUQ4ZDZaYWNvQ1VKVGJvR0NQYS02MnlnSk1EZVFjT0xXTWYxRA?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.92
+    },
+    {
+      "title": "Flavio Cobolli costretto al ritiro a Vienna nel derby contro Berrettini: cosa è successo e l’obiettivo ATP Finals… - OA Sport",
+      "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNZkdRVkRLNDBTRjZibjAzUU5USTJ5SkxERjFHMG10LWlIVE9kVTF0T29XNXBWWDdNcVVWZGNIWFZiUnd6V3A2YnlZV1diWWdVd0stMUtfQTdZcmljTDNEbUVKWldTbEZVSDZwUDdzcXQyZmNyVi0teVgwcU1QaUoxVS16OFFrWVl6YjZHTS1PWFFYV01GeWFGT2NrUkpNRm1MblU3Q3JnRFVET0FWUzlvQXBVR3FsVUFtS25qd2l5UVRaWEtOUVAySEFLNnF4S0NFY3B4WVk4S3dscnfSAeABQVVfeXFMTnBOU0xCOW1ZRW1DMUI2aGxSV3J5aE92c1pNc3VIUU5mODNuX3FTcmRGRXo4dFJ4TnJHbXhnNWNGR2R4YUNNRDB6bktHU3FybTRxZ08yTkxHSjR1TjJWVTN1aHlyNnNsMjd1LTE1V2x5NVhkQ1N3d2FuYjBsaXd2dDRDQ3NMT3FkMk9qY196U29XRkZqUDNPcGFiYVd2aEF1RGQtQm1MRkhwR1dEOGY4SXpxaU9ta3VUTmJLel96Rk5SZ0h5Y0MyU0pxUDdqeHoyQ0xwTUFWNTJOdHluOHl1UVk?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.92
+    },
+    {
       "title": "Wawrinka retires in front of home crowd after defeat to Lehecka",
       "link": "https://www.bbc.co.uk/sport/tennis/videos/c6zxj9d4rzd8o?at_medium=RSS&at_campaign=rss",
       "summary": "",
@@ -231,8 +271,18 @@
       "severity": 0.85
     },
     {
-      "title": "Zheng reaches Beijing third round after Kalinskaya retires - WTA Tennis",
-      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxONmQwc24tSjRfRFFjRFBrWmh1ZURZUVpMb2NKQ2hsbl9RUmlmUWNhdG9NTWpBdjZqSzdQZU1kV3dmZ0w2MnlQRFYwY0Z1N281YUVoLVljT1ZTRXB4N25zR0hoaDFVekw5VDZEeWtyN1dUSEhKaWVTS2ZfMHZ6bUpBUmRrTUo3M2p4YUxpRmhzLXhmcHhvUUdfdkVSY2tTZW90MXZxOWNaXzliZTJoeTZtQw?oc=5",
+      "title": "Flavio Cobolli Retires in Tears in Vienna: Berrettini Confirms Injury - TennisTemple",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPNFdMZ0tHRGRVS3JVMWxLUzZ0NG14X0lNb1BtUm51Nm5pRmJaclN1VnpsM0sxQzg0dVNSUHJuTUVLekcxVkZEbGhjeTRJVW5LWEdLVmFtSjQ5MXZEQ2J1QlpvNTZsZ3RFR0dSbGotQ1BTSkxndXlLSmVyc2x6aW0yLWNEUUVaQQ?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
+      "title": "Jacob Fearnley retires hurt against Arthur Fery at Vienna Open as Harriet Dart extends winning run - Sky Sports",
+      "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOdzE5MGFXbHJHUlBwcUZaY21lQ25VMDdWWDRGUDFtY2hUc2VweURsMEc0aEI0ZTJuVzNRQzFsandwVVlUOEVZa3JqR1JSdVJzRzNOb0xHSGJzLTBxQlNuSGt4eXZ0RjRVREl4Q291NW5qSFBUeDBaa201enZrVlI0dUluR2lGMzZZM1hoYzVqRkFmMmJtOHZoUUk5S1BNdllpRGdqLXVUVjNZcm5IVms2V2wyUnFTZVUwbVd1RGQwcFVPMHhrS1J2UHVlUUJtbU53cnIwLXBtSDBhTFphQnc?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -281,8 +331,8 @@
       "severity": 0.85
     },
     {
-      "title": "‘I was told not to play at all’: Bublik reveals knee injury behind Almaty retirement - Tennis Majors",
-      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNRzZ3Q1pKSzNZNUkyV1FQYXpHZnJxaVJSUTFPcEptSE8zZ0tQXzRraUFMMUNncS1sNC1vM2NUSHhDZDJzVzhNOHUyRjcyQ3BZQ1NNekJRSnZGTlB3Q3ZSZWxLYXJmN0g3ZmNSQ2F1UXBjUzQ3YmZKd1pqSHVuYUVxaDlEX3JqbVkwUngycFBVVTRSVEcxQ0tlQ3djNUdWSDUwV2VEbkJ4OUhwVFNqaUZBT2xQQ0taN29qaEQtekdudmFsTWNl?oc=5",
+      "title": "Fact Check: Venus Williams’ Retirement Comments Go Viral, but Did She Actually Say Them? - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOU2VVMDU3endXU1BRY2cwSXEwcFNYZHhLRk1VT2FfaENWWnJuYlRGemY0Q1YwR19Ia3dCelJJal9Tc1JITUdQWjFSRFFLclFUdzVCMk1Ga2gxNlA5M0dEOHF2LVJkNU9ydU5vODdkRlhTMnhtN1JPeW1KLVh4Q2ZGeXktVTVXbDRZaFp2c21R?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -291,8 +341,8 @@
       "severity": 0.85
     },
     {
-      "title": "Daniil Medvedev makes prediction about Stan Wawrinka ahead of his retirement from tennis - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNQTJTYXc5ZnY5eEVEX0hrMjQ0X194WDNhbmxELU02NVJ0ajduSm00dnYyRVdIbWFQTnZFQml5eUJtWFd4RFp2SEQybVY5bEw3SDRkam5wUVNBR1hjTjNTQWFCUFdhcHZ0T3VoSmZuQTVrUVJFY2J6M1pPTWctdkgxTGlfT1dPVllxcThmdV9mZw?oc=5",
+      "title": "Fritz advances to Basel SFs after his Live Race rival Fils retires - ATP Tour",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBzbDNjNWUzUnJYV1R1Y0dWSlBoUXM3ZHY1alUwNnQtTktEdzUtb0ppVWhpenVtTk9NcDgwamZmc0lTUHNUSkI2SjBFM3ZKX05ROUhwTjByc1BKOTBXc2Jpakw1MXhXYXk0VmMtZg?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -301,8 +351,8 @@
       "severity": 0.85
     },
     {
-      "title": "Gael Monfils ‘not in the best frame of mind’ as Elina Svitolina divorce forced him to retire early - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOdWREZXBpTVhIUFpoTm4wZkJqN3lzeG8zVVBLOGkxcVc1cWxYeENjVnhtYW1ZOEhxdGpOR1hodEdKY1VFN3pZaEUyREZnWkVHU3Zld2ZiZ3FvVFg5R2dPMUo1ZEpSUkFBWTBvdkxRSVlOZUZqcDI3cjZneEVSVWN2RXRn?oc=5",
+      "title": "Highlights: Fery advances in Vienna after Fearnley retires - ATP Tour",
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxON05sNkZxMndiMTZHRWJTMi1OLVp6T2lSbEFlTlpJMGZDdnlLdmNUNkE1bDYwT0tCUUJKZUxVOHcxYmM5cG42c2ZNdTc4dHdvbGMtWU84aUZ4MG1zSU9RbC05bThmd3dadFhnSGJ2cnJWSTd0OVZfUGwwaWliM0gyTHZVWjNvRnRBMkRyYUNhdUZXcWRYWnZSQXZFUQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -311,8 +361,8 @@
       "severity": 0.85
     },
     {
-      "title": "Flavio Cobolli Retires in Tears in Vienna: Berrettini Confirms Injury - TennisTemple",
-      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPNFdMZ0tHRGRVS3JVMWxLUzZ0NG14X0lNb1BtUm51Nm5pRmJaclN1VnpsM0sxQzg0dVNSUHJuTUVLekcxVkZEbGhjeTRJVW5LWEdLVmFtSjQ5MXZEQ2J1QlpvNTZsZ3RFR0dSbGotQ1BTSkxndXlLSmVyc2x6aW0yLWNEUUVaQQ?oc=5",
+      "title": "Gael Monfils ‘not in the best frame of mind’ as Elina Svitolina divorce forced him to retire early - New York Post",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOaGIzWWp2a1VUXy1pU21pMXhTNmg5TXdmaUwwN00xaVgyT01BUjR6VU5iVzJWdjVCVXA3cDRkMHhwb0hZTU5lbU1OdXd6OUJrRVBaYnd4REN1WVlOZEFWOUhkZUJMcEppU1ZNb293NFpSdnRCZk9uZko0di1ZNWRzWTBvREVjb1lCY2FBUnhqTWN2VklmVkRNOXNfZTZCdw?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -331,16 +381,6 @@
       "severity": 0.85
     },
     {
-      "title": "Stan Wawrinka retires: Three-time Grand Slam champion's career ends with Basel defeat - BBC",
-      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1NUjhPTjZJNlZJWHkxeXUtbGp5ejk2UFFjcGxyUmxjU2M3cWQtWVQxXzhTM1I1X2FsOURBa3pzZUU3eEFlbGFPbno0bGVuVzFXc3pvOVI3NlM4VDY5Y2FLWFBYYmRjUQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "retirement",
-      "severity": 0.85
-    },
-    {
       "title": "Stan Wawrinka retires from tennis, 11 years after his greatest match at the 2015 French Open - The Athletic - The New York Times",
       "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNWnFKbEFncjJKZWZlV1JEZXNzNkR2cE1JYzBQZXlKV0h6eVgxd05TamhDaERLWGpBa1duUFFBYVZqX0xiZ2ZpU2xlaXE3Q3dBb3RoVTFvanNLNHpReHphRkloczJoNi1hYzN2dlA2bXVscW03X2ExTHptUkNQV0Vxa3Bhdmc4ZzhkMU5OX3Vpbkg0SVZObTRCZUxnVmNDazFV?oc=5",
       "summary": "",
@@ -351,8 +391,38 @@
       "severity": 0.85
     },
     {
-      "title": "The tennis record Stan Wawrinka has retired holding that will never be beaten - Tennishead",
-      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOZHFlWkpkUzJlUkJ5Ql9ENUFWeFZqdXVJMjg0TFlvOF9WWGVvN2dhdElwRGJORnFZVU9TOHF0SmtHMnpJdHFmLTljMEloVnJKQ05jb3VuTGJRNmV5MjhZZXdjNnRsVkZYNWU5Zk1IUDgwZHdzaTlkZHozUjdsSTRCSjRIQmMtaE1udTkzYVoxUm5XU1JKdC15ZkZCUEF2UXIyMV9Z?oc=5",
+      "title": "‘I feel confident’: Arthur Fils retires hurt in Basel but expects to play Paris Masters - Tennis Majors",
+      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNRUlZNUdCY2hYRGZLb2hlVzlLN0ZnNkdNWWRzam5mXzVnbmdwN1Y0NnY2aHNwSjNfbUpUQU9nTU16dGdjR1R0ODBrbzBGcFZnX2ZlSlpfN1N1YWNsakw5akhwYmVCTC1KQ0NISnpsUGFDWVF5ZXRlMDlSMnhpelVvQUFxTUxBUjR3b1BxWlZLVkFCSW44Z0pReVdiZ0Z4bWVpelhEMm40NVROOFpiSnVwUV9XOGtxVUZuS1NxYzFuNnpDRUNDWWxKdA?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
+      "title": "The tennis record Stan Wawrinka has retired holding that will never be beaten - Yahoo",
+      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQb2dEWWU4OFc5OXBhOWJQTjBNaWNuRUtfa0JXUjJWV3Zzcm9sWGNrZktIYV9ZRE9FaThoUjFsWGVYTlNpRDZ3UzV2R0pXcEhRVHJ2YjZTeGJUa2diWmhmUHpDY3BDbEd2OUx5S0E4dlU5bm1feHk4MVRtU0w3RC13VW9ialgxUmVLWUE?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
+      "title": "Gael Monfils announces surprise for fans after sudden retirement and divorce - Tennis World USA",
+      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQOVgxUDdKYzRac3luSmZaQzA1N2hHVmI5R3V4Tjh1bmM0QXFsNkd3UFZvWEZSbnFZMmo1SzcxSmpvclo2QzEwQzhiT1ZJbWUzeDhTa21ra2RVRTRxd3lxU25YWUduZ1FUeENfZjdBNDN3OUhMdHJzaGNwLUdiOFZCc3RqQXl2OU05QVN6NHMtWjlqM2RwdGlfODczMFI3TDM2S1ZRa29kVk54OXhRQWVXWFQzZVFhcFQ3UnVuV2w4SkVrYzVNd1I1WEZib28tTGxvcnUtTEt6amFLdw?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
+      "title": "Stan Wawrinka retires: Three-time Grand Slam champion's career ends with Basel defeat - BBC",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1NUjhPTjZJNlZJWHkxeXUtbGp5ejk2UFFjcGxyUmxjU2M3cWQtWVQxXzhTM1I1X2FsOURBa3pzZUU3eEFlbGFPbno0bGVuVzFXc3pvOVI3NlM4VDY5Y2FLWFBYYmRjUQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -371,36 +441,6 @@
       "severity": 0.85
     },
     {
-      "title": "Former Grand Slam winner Wawrinka retires from tennis after first-round Basel exit - Flashscore.com",
-      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQQWF4NUQwcjFkUDFYeTJsU0pjM3hTbFN5aUFjZXNZcEM1cWp6VlJhM1pJTXVfSnZMUDgxTmNWMFBRQnVvdTZ2ZWxPeXhsdElyWXBHYVNMWmcwZTRYWWJqRVctOTNsTjRwRlVKZVBkS25IQVRRSUlTSENXZjkxcGwtSy1WMUJPMTQ4ZnJXbHo4a1RheFJLazBDeGdHMUpOOWQtRV9LZHB6djVtQkplRkZRb3ViX2dMWnp4?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "retirement",
-      "severity": 0.85
-    },
-    {
-      "title": "Fils Status Uncertain After Injury Retirement in Basel - Tennis Now",
-      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPME1jLS1HeDMtUWZYT2xIZXE3eHZrQnpyNVY5UUdCT1BQWE40TUJidThMZ2lrTU83S3pIcEFKeEctNHBMU1NUVy1qZ2Fnb3FFQjM3RklUVzBGZzBidFZzenpJTXdiWFpCZmRIUlRRUlcxakZ5MVd0QmNpU0ZEVkJBMUMwbw?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "retirement",
-      "severity": 0.85
-    },
-    {
-      "title": "How Serious Is Jannik Sinner’s Knee Injury? - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNVHZQVEhnT0RXMWtnYVVCTjBreUtRM1AxNzVxNGN0MEZYR0ctNzRSTXd4bFJKeFhySFl3MkN1NENmZEl4U29wT1k0WTI1U1d3T2ZlZmlQZHQ1LUxSdE9qLTlMdDdGT0NQZmZBeVFmYWc5OHh5OFFHVzdteVJELXVjenRwRDdRbmhhM3c?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
       "title": "Sinner breaks his silence on season-ending knee injury: “The body is the one opponent you can’t beat” - Tennis Majors",
       "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOOWdlankwWnhZUW93Zmprb01HaExBM2tqVWUtY1MxRE5XaFdSVXBFUGI3MW9PSVpzeVY2Y3JPdVJUUmR0NTh2Q0EyV0V3ZWQzWWl1bjB4ak5WNERyU1JCNE9oNEUxR3lKd0hnQzd1YU81YkVQVm1BRmVYUjVDbm1TWWs5cnhxdXZ2Y2lkZVZPaHlFSWpyZ0V0SzY3dXlMd3lWLUo3R2ZIQ1M1VE1qX0FMYkRXWGtNQkNBNDU0YjZoMFlzTVl2enV0M3JXeVVlSzE4bkRyREFEX0Y2UQ?oc=5",
       "summary": "",
@@ -411,8 +451,28 @@
       "severity": 0.75
     },
     {
+      "title": "Holger Rune's new ATP ranking as he takes massive jump after winning his first match since injury return - Tennishead",
+      "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNVDNiVGNBejZYZHd3NGQ1andXX3pwblg4dkFqZk1UMHozMU5lMzJKVVVEZGNPNkZGRlo4Uks2WVFVbFM5Y0RJTVFuZjdhYkhfNldzQmFsZHJ3NXZ2eE9oU05JMkFIdTE1b01ENW0xZ091VlJTS0tUbHBvX2daU3diaTRuM0FDTjhfT2pnX2dZTmN5MHBjWWlrdXFmZVdoVF9VUEJnc1ltLS1LSmZSam9tbU9qNTVSLTB5aXBvcEg2ejExXzlUU1E?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
       "title": "Cobolli Reveals Injury Diagnosis, Plans to Play Paris Masters with ATP Finals Spot on the Line - Tennis Now",
       "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQZ1ZhTm5CTEhJX0VnOUF4Q1ZPOUhnaU5zVlVQZGZLUFBrMUIteGtLOGpSeHlvZ2NGTVlZcmVVczBZWFlLXzFuMFMycHZTZTN0eE11QmdocE5nWVFuc1Ftb0FYWUVuczBOVlVBaUNudElpYmlsMjViRG1RWE4xdHF2anBqeDVySUFqRDlZTFh3YmFsNGRZajQ5S2dNYlJQTXRxUWI1cHI1a0RDN1RWVUw2MlhJLXlvc0k?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "‘You Get Fitter by Suffering’: Jack Draper on Training, Recovery and His Road Back from Injury - Men's Health",
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNMVlXNzdPMWI1QTVoX0lpSXdmOVV3LWg0NlpOSE15UlV5Zy1OUENhTmhVbGNyMDNEWEFGbFpTSVo4MnVzN2RFNnNvbDVYWkNIMnFmNlJpSFctWFBzUTZZNjFhR0J2RnZVNmtJQUZuaDZxQTZ0YnRpMlhTUU5LWXBVUXJETEZUUVVnaDEyZEJB?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -433,6 +493,16 @@
     {
       "title": "Jannik Sinner torna contro Carlos Alcaraz? Ritorno al Six Kings Slam dopo l'infortunio · Tennis - Olympics",
       "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOUnR6RVhGNmVGWUt5RHNLamFEMlFGM05yS0dTWUhCZjFMMFY3aEJYd0tLck05eGZtVFpMX1pQODU2RUdOSmxrMnJhbkhUZUxCamdyaDlkUkU4YzdKcUZRS1lBVVNYeXFPN3M0djI1bm1yR0dFZjhjVHlUTWQzUHpEVGthOUptT0lFVlIyNGNB?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Cobolli in lacrime dopo l'infortunio, Berrettini lo abbraccia e lo consola: «Ora vedi tutto nero ma... - Corriere della Sera",
+      "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxQeUlsSFdDY0oxMUZ4RjQyaEFHbEtMeHNBQjdNbDY4R2dKZUdJZjNzU1BUZEZiSlA1ZGZYWVE0M1dsU2JHNXNEQ0NlRjFVY21CaUxXOFNmdTVtVVF1LTBxdkZuYmRHdVpXM1QyM25pMnJRQXRlUFlKSld1MmpvbllmYVRLRy1yZmJjVGpzSTEtbU1tTmxRREdod0VrSmp1MzM3NUh0MFAyTEw2akVxWkp1R3UwdkhVcHIzVUNsRzVlaVlJOHJWWXB1R19wZm55RG44Nm1KSDZPV240bXBDc1Z4Z180WnN5a3RsR1Rmb0hTRUk3MEVNVmd6QkYxVllhSUdF?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -481,8 +551,8 @@
       "severity": 0.75
     },
     {
-      "title": "Cobolli in lacrime dopo l'infortunio, Berrettini lo abbraccia e lo consola: «Ora vedi tutto nero ma... - Corriere della Sera",
-      "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxQeUlsSFdDY0oxMUZ4RjQyaEFHbEtMeHNBQjdNbDY4R2dKZUdJZjNzU1BUZEZiSlA1ZGZYWVE0M1dsU2JHNXNEQ0NlRjFVY21CaUxXOFNmdTVtVVF1LTBxdkZuYmRHdVpXM1QyM25pMnJRQXRlUFlKSld1MmpvbllmYVRLRy1yZmJjVGpzSTEtbU1tTmxRREdod0VrSmp1MzM3NUh0MFAyTEw2akVxWkp1R3UwdkhVcHIzVUNsRzVlaVlJOHJWWXB1R19wZm55RG44Nm1KSDZPV240bXBDc1Z4Z180WnN5a3RsR1Rmb0hTRUk3MEVNVmd6QkYxVllhSUdF?oc=5",
+      "title": "Infortunio al piede destro, Belinda Bencic chiude la sua stagione - Corriere del Ticino",
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQdUU5Y0QwaFRXQUlvSXpCeDdKb2RfT0FlTTEtcHZBOVp4N256Tkh5VkRIM2k4TGdKVXBQS0kyVXZZWnR2WVdTUEtvc3FNdkdqN2R4UTdHOVNQZTNXWHdnVE5ZSF9TTk4wbXJ4azlYaFVhY3JDR2JpRWNoZEIyQk9NMUJiTEZ2SGV5U1o4cjVmQmpUODZwc3k5d2N2RQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -501,18 +571,8 @@
       "severity": 0.75
     },
     {
-      "title": "Infortunio al piede: Bencic chiude (in anticipo) la stagione - Ticinonline",
-      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQYjFlMk1wQW5YSGVaV3BXdHJQMW5CRFQxVF8xSXlBczRfYlJhMVlNSXVrY0kwU2tUMW45Z1BkVmVERjVBN3RDS2hCUW5FanRDcV9pUFJCWTFnQ2d4YXk0RkpIbWRtWms1ZWVDbXJ4bkVoc3pjZDc5VmM0R0xXMEVLRmxya2NrXzRKVGJRQnhfcw?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Infortunio al piede destro, Belinda Bencic chiude la sua stagione - Corriere del Ticino",
-      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQQ2VCRlFJZWdsVDRyakZzazVJa1l2amttYlltMDZ1RGFzTTFpTVVudDdaalpGZHVSNGdObE5aZlVxSEQ4SUFPdmg4RjBncXJhVl9BMTAyajZjeVRjNGVRcGFtQ0hwdHgyakpTM196Tlo5cFBrTHJZbHZMRC1nMXdCRkdOeTF5ZFAzN2stX1RHRnVWbFJKSDR4bV9TQzdNQQ?oc=5",
+      "title": "Zverev diventa numero uno e risponde a chi parla dell'infortunio di Sinner: \"La salute fa parte del tennis\" - Fanpage",
+      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOQ1FfOGh6Nm9qM0ptb1JkOU5rNjUzZ05BSDBfUU8xcTJtbFlKZmtDekFEa0xocnE3Y1FWQjFMb3FZSGdfSXdsYTA3WUZndGdmeDhVdjk2TU5kSWJjdU04M2xJYjVjRXlhaERpdTFCMnFDQzJKd2lCTkVFRHRWMW1EbWM5eHBNNmdZR1N6UG84ZEI3OWN2SzRXQUVWcnpXR2JGZ2toVzgwT3ZiLUxLbDVhaTRzTkdhcEZwaXhYaXBzbW51ODhsMTlYTmVxS3p5WFFQeHpKYnk0aw?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -523,16 +583,6 @@
     {
       "title": "Cobolli rassicura tutti dopo l'infortunio e le lacrime: \"A Parigi conto di esserci\" - Diretta",
       "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOSXljV2xDTmdpdFRCeWFBejFJdU81NTRRb2VOczBsaHh5R0VaNWZUb1FOdjIyRzFicHVVM0lHMkdwbnk0UkxNUU9SVDhwRjdQYlZlam5WcFpzeHBCQnhmQWlrdVhRX0RIcFEtZHBLS3BZSDMwWWdqYVd1UFg2THRBOFBzeWFPVFFjTUVPMUlNTllzUWZaaUhydXJoUk5xWFY4TU5HREFsWWJCWUlZNXJRekJPSDFSS3I2TkZ6MUVUbEY0OElyYmNpZ19lZlZDQ016WHdMRVlaSXJ1ekQyQVdz?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Zverev diventa numero uno e risponde a chi parla dell'infortunio di Sinner: \"La salute fa parte del tennis\" - Fanpage",
-      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOQ1FfOGh6Nm9qM0ptb1JkOU5rNjUzZ05BSDBfUU8xcTJtbFlKZmtDekFEa0xocnE3Y1FWQjFMb3FZSGdfSXdsYTA3WUZndGdmeDhVdjk2TU5kSWJjdU04M2xJYjVjRXlhaERpdTFCMnFDQzJKd2lCTkVFRHRWMW1EbWM5eHBNNmdZR1N6UG84ZEI3OWN2SzRXQUVWcnpXR2JGZ2toVzgwT3ZiLUxLbDVhaTRzTkdhcEZwaXhYaXBzbW51ODhsMTlYTmVxS3p5WFFQeHpKYnk0aw?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -553,16 +603,6 @@
     {
       "title": "Sinner giocherà il Six Kings Slam: dopo l'infortunio il rientro nella ricchissima esibizione saudita - Today",
       "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1lVlB6RDBLdUxEXy0zSTkyWlZjODJXOXFqS25zY2c2YVFKYll2blFWUnNfTkhjQWQzWDZ0azVIZndWc0NxaWc4UkwyX2gxR185WkV2R3pBZmxkX1N1akhGU3hPRDNjd1ZxWFBGUUZzd0FFYnpHRUNXRU5hQdIBe0FVX3lxTFBKU1MyX2NkWFRPMXpUSVk3a2ZMTmJ4RlVvZm95di10QVpQR2VMZVRMZUZKT0pBZEx3ck8wTWFORmNzNTZyTFR3WE5YdmM4SzlKcDU0MTBTOGZDV0k4Q0w1SHNHNkpSMVRqMjNwQXhEXzdnajhCckJFZEtfVQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Sinner racconta tutto, dal libro di 600 pagine, al rapporto con Antonelli all’infortunio: \"Il tennis mi ha fatto male\" - Corriere dello Sport",
-      "link": "https://news.google.com/rss/articles/CBMilAJBVV95cUxPRUVnZktPU3J0V0ZkRHdockNKRjdudDRmMU96bXg4UnV5R25hRjFhY2VZbTNHVzZCdzFyLWVPeWVFZm5zdnJkeGJDZkk4ajhQUkM0VEMzdTR3ZUIzRVRjbVBxdDVwSWZyRFlLNWRDbFZTVmZpNXBsR1JkQmlYOE1SMWx1eGFLV0dOdUI5SE9mU0Y4ZXNqTjFQaHpxMjVvLWdGSkJ0bTc5S1RCeTl0Y3lYaUZVZ1JTcnIyZWxHWXNiZVoxUjBQU3lpTDRHdXZQU1VpMk5paGw0MjFBTlc4UllJa0tBZ2R0X09VTVhtQmg5RzRWQ3ZrdEMxa3RMN1NaX19tak1fVG91VjRLTm0xcWg2ZnlZT2TSAZcCQVVfeXFMTlJ2MDhTNHREa3V3VXpUQ0ZmQ0FQYm1lbkF1a1AxSm1JOVZiZjJSaUJwQXZiUWFXNmc0N2p3WnFaM1JWUlg5Z0E2bEhVbGxSLU1naF9fcUI0dWFwSHlkT2FaSmh5WVhFLVNwVkZESmU1WmFMR085dEJoUDY1cEtqX1NXWWR0WTBDUHQ4SElLU2paV2l6MzR6R1d3V2FLZEg1TnpZWGU4bkh1SURMMFJBR3lUVTdRdUF5RkV4cXBhU0VqU1JpRGwzZzFXZjk5X1BHcHUtc2wtajZQWUkzRlBhVDh4U0paMm9acDNEbUNEcWxKT0liV1BpTHllSjhhOTFBQWcwRzlfd1lSR1ZVcXkyTlJjVHBwMTZF?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
