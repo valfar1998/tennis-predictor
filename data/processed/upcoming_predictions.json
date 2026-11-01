@@ -10350,7 +10350,8 @@
       "kelly_adj_rank": 0.003376,
       "action": "no_bet",
       "no_bet_reasons": [
-        "probabilit\u00e0 35% sotto minimo 38%"
+        "probabilit\u00e0 35% sotto minimo 38%",
+        "news: withdrawal \u2014 \u201cJust Withdraw, You Are Not Winning\u201d \u2013 Fans React to Naomi Osaka, Elena Rybakina, Alex Eala & Others-Led Pan Pacific Open Draw - Yahoo Sports"
       ],
       "review_reasons": []
     },
@@ -10385,27 +10386,27 @@
     },
     "news_a": {
       "has_alert": true,
-      "hard_block": false,
-      "p_retire_boost": 0.135,
-      "category": "injury",
-      "headline": "Sinner breaks his silence on season-ending knee injury: \u201cThe body is the one opponent you can\u2019t beat\u201d - Tennis Majors",
-      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOOWdlankwWnhZUW93Zmprb01HaExBM2tqVWUtY1MxRE5XaFdSVXBFUGI3MW9PSVpzeVY2Y3JPdVJUUmR0NTh2Q0EyV0V3ZWQzWWl1bjB4ak5WNERyU1JCNE9oNEUxR3lKd0hnQzd1YU81YkVQVm1BRmVYUjVDbm1TWWs5cnhxdXZ2Y2lkZVZPaHlFSWpyZ0V0SzY3dXlMd3lWLUo3R2ZIQ1M1VE1qX0FMYkRXWGtNQkNBNDU0YjZoMFlzTVl2enV0M3JXeVVlSzE4bkRyREFEX0Y2UQ?oc=5",
+      "hard_block": true,
+      "p_retire_boost": 0.234,
+      "category": "withdrawal",
+      "headline": "\u201cJust Withdraw, You Are Not Winning\u201d \u2013 Fans React to Naomi Osaka, Elena Rybakina, Alex Eala & Others-Led Pan Pacific Open Draw - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPUGttc0xlblo0U3NNOEJ4amd5dzNSNGVBVXhWYVBDZzhyenl3M3BEN1Izdy1ucTZQc3JhSWFsX2N4LXBHb0pLaUtTS0tEb0Z0M2FNU29zZ2FWRFZwY2tUUzBxQVpWSDdPZ1B1TXdxSHI3djZPY2FsZC0xTXdydk9sSkRIcW16UQ?oc=5",
       "source": "gnews_injury_en",
-      "severity": 0.75,
+      "severity": 0.95,
       "n_hits": 2,
       "hits": [
         {
-          "title": "Sinner breaks his silence on season-ending knee injury: \u201cThe body is the one opponent you can\u2019t beat\u201d - Tennis Majors",
-          "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOOWdlankwWnhZUW93Zmprb01HaExBM2tqVWUtY1MxRE5XaFdSVXBFUGI3MW9PSVpzeVY2Y3JPdVJUUmR0NTh2Q0EyV0V3ZWQzWWl1bjB4ak5WNERyU1JCNE9oNEUxR3lKd0hnQzd1YU81YkVQVm1BRmVYUjVDbm1TWWs5cnhxdXZ2Y2lkZVZPaHlFSWpyZ0V0SzY3dXlMd3lWLUo3R2ZIQ1M1VE1qX0FMYkRXWGtNQkNBNDU0YjZoMFlzTVl2enV0M3JXeVVlSzE4bkRyREFEX0Y2UQ?oc=5",
+          "title": "\u201cJust Withdraw, You Are Not Winning\u201d \u2013 Fans React to Naomi Osaka, Elena Rybakina, Alex Eala & Others-Led Pan Pacific Open Draw - Yahoo Sports",
+          "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPUGttc0xlblo0U3NNOEJ4amd5dzNSNGVBVXhWYVBDZzhyenl3M3BEN1Izdy1ucTZQc3JhSWFsX2N4LXBHb0pLaUtTS0tEb0Z0M2FNU29zZ2FWRFZwY2tUUzBxQVpWSDdPZ1B1TXdxSHI3djZPY2FsZC0xTXdydk9sSkRIcW16UQ?oc=5",
           "source": "gnews_injury_en",
-          "category": "injury",
-          "severity": 0.75,
+          "category": "withdrawal",
+          "severity": 0.95,
           "published": "",
           "channel": "rss"
         },
         {
-          "title": "\u2018You Get Fitter by Suffering\u2019: Jack Draper on Training, Recovery and His Road Back from Injury - Men's Health",
-          "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNMVlXNzdPMWI1QTVoX0lpSXdmOVV3LWg0NlpOSE15UlV5Zy1OUENhTmhVbGNyMDNEWEFGbFpTSVo4MnVzN2RFNnNvbDVYWkNIMnFmNlJpSFctWFBzUTZZNjFhR0J2RnZVNmtJQUZuaDZxQTZ0YnRpMlhTUU5LWXBVUXJETEZUUVVnaDEyZEJB?oc=5",
+          "title": "Sinner breaks his silence on season-ending knee injury: \u201cThe body is the one opponent you can\u2019t beat\u201d - Tennis Majors",
+          "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOOWdlankwWnhZUW93Zmprb01HaExBM2tqVWUtY1MxRE5XaFdSVXBFUGI3MW9PSVpzeVY2Y3JPdVJUUmR0NTh2Q0EyV0V3ZWQzWWl1bjB4ak5WNERyU1JCNE9oNEUxR3lKd0hnQzd1YU81YkVQVm1BRmVYUjVDbm1TWWs5cnhxdXZ2Y2lkZVZPaHlFSWpyZ0V0SzY3dXlMd3lWLUo3R2ZIQ1M1VE1qX0FMYkRXWGtNQkNBNDU0YjZoMFlzTVl2enV0M3JXeVVlSzE4bkRyREFEX0Y2UQ?oc=5",
           "source": "gnews_injury_en",
           "category": "injury",
           "severity": 0.75,
@@ -10427,27 +10428,27 @@
       "pick_side": "A",
       "pick": {
         "has_alert": true,
-        "hard_block": false,
-        "p_retire_boost": 0.135,
-        "category": "injury",
-        "headline": "Sinner breaks his silence on season-ending knee injury: \u201cThe body is the one opponent you can\u2019t beat\u201d - Tennis Majors",
-        "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOOWdlankwWnhZUW93Zmprb01HaExBM2tqVWUtY1MxRE5XaFdSVXBFUGI3MW9PSVpzeVY2Y3JPdVJUUmR0NTh2Q0EyV0V3ZWQzWWl1bjB4ak5WNERyU1JCNE9oNEUxR3lKd0hnQzd1YU81YkVQVm1BRmVYUjVDbm1TWWs5cnhxdXZ2Y2lkZVZPaHlFSWpyZ0V0SzY3dXlMd3lWLUo3R2ZIQ1M1VE1qX0FMYkRXWGtNQkNBNDU0YjZoMFlzTVl2enV0M3JXeVVlSzE4bkRyREFEX0Y2UQ?oc=5",
+        "hard_block": true,
+        "p_retire_boost": 0.234,
+        "category": "withdrawal",
+        "headline": "\u201cJust Withdraw, You Are Not Winning\u201d \u2013 Fans React to Naomi Osaka, Elena Rybakina, Alex Eala & Others-Led Pan Pacific Open Draw - Yahoo Sports",
+        "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPUGttc0xlblo0U3NNOEJ4amd5dzNSNGVBVXhWYVBDZzhyenl3M3BEN1Izdy1ucTZQc3JhSWFsX2N4LXBHb0pLaUtTS0tEb0Z0M2FNU29zZ2FWRFZwY2tUUzBxQVpWSDdPZ1B1TXdxSHI3djZPY2FsZC0xTXdydk9sSkRIcW16UQ?oc=5",
         "source": "gnews_injury_en",
-        "severity": 0.75,
+        "severity": 0.95,
         "n_hits": 2,
         "hits": [
           {
-            "title": "Sinner breaks his silence on season-ending knee injury: \u201cThe body is the one opponent you can\u2019t beat\u201d - Tennis Majors",
-            "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOOWdlankwWnhZUW93Zmprb01HaExBM2tqVWUtY1MxRE5XaFdSVXBFUGI3MW9PSVpzeVY2Y3JPdVJUUmR0NTh2Q0EyV0V3ZWQzWWl1bjB4ak5WNERyU1JCNE9oNEUxR3lKd0hnQzd1YU81YkVQVm1BRmVYUjVDbm1TWWs5cnhxdXZ2Y2lkZVZPaHlFSWpyZ0V0SzY3dXlMd3lWLUo3R2ZIQ1M1VE1qX0FMYkRXWGtNQkNBNDU0YjZoMFlzTVl2enV0M3JXeVVlSzE4bkRyREFEX0Y2UQ?oc=5",
+            "title": "\u201cJust Withdraw, You Are Not Winning\u201d \u2013 Fans React to Naomi Osaka, Elena Rybakina, Alex Eala & Others-Led Pan Pacific Open Draw - Yahoo Sports",
+            "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPUGttc0xlblo0U3NNOEJ4amd5dzNSNGVBVXhWYVBDZzhyenl3M3BEN1Izdy1ucTZQc3JhSWFsX2N4LXBHb0pLaUtTS0tEb0Z0M2FNU29zZ2FWRFZwY2tUUzBxQVpWSDdPZ1B1TXdxSHI3djZPY2FsZC0xTXdydk9sSkRIcW16UQ?oc=5",
             "source": "gnews_injury_en",
-            "category": "injury",
-            "severity": 0.75,
+            "category": "withdrawal",
+            "severity": 0.95,
             "published": "",
             "channel": "rss"
           },
           {
-            "title": "\u2018You Get Fitter by Suffering\u2019: Jack Draper on Training, Recovery and His Road Back from Injury - Men's Health",
-            "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNMVlXNzdPMWI1QTVoX0lpSXdmOVV3LWg0NlpOSE15UlV5Zy1OUENhTmhVbGNyMDNEWEFGbFpTSVo4MnVzN2RFNnNvbDVYWkNIMnFmNlJpSFctWFBzUTZZNjFhR0J2RnZVNmtJQUZuaDZxQTZ0YnRpMlhTUU5LWXBVUXJETEZUUVVnaDEyZEJB?oc=5",
+            "title": "Sinner breaks his silence on season-ending knee injury: \u201cThe body is the one opponent you can\u2019t beat\u201d - Tennis Majors",
+            "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOOWdlankwWnhZUW93Zmprb01HaExBM2tqVWUtY1MxRE5XaFdSVXBFUGI3MW9PSVpzeVY2Y3JPdVJUUmR0NTh2Q0EyV0V3ZWQzWWl1bjB4ak5WNERyU1JCNE9oNEUxR3lKd0hnQzd1YU81YkVQVm1BRmVYUjVDbm1TWWs5cnhxdXZ2Y2lkZVZPaHlFSWpyZ0V0SzY3dXlMd3lWLUo3R2ZIQ1M1VE1qX0FMYkRXWGtNQkNBNDU0YjZoMFlzTVl2enV0M3JXeVVlSzE4bkRyREFEX0Y2UQ?oc=5",
             "source": "gnews_injury_en",
             "category": "injury",
             "severity": 0.75,
@@ -10466,16 +10467,18 @@
         "hits": []
       },
       "any_alert": true,
-      "hard_block_pick": false,
-      "headline": "Sinner breaks his silence on season-ending knee injury: \u201cThe body is the one opponent you can\u2019t beat\u201d - Tennis Majors",
-      "category": "injury"
+      "hard_block_pick": true,
+      "headline": "\u201cJust Withdraw, You Are Not Winning\u201d \u2013 Fans React to Naomi Osaka, Elena Rybakina, Alex Eala & Others-Led Pan Pacific Open Draw - Yahoo Sports",
+      "category": "withdrawal"
     },
     "p_retire": 0.45,
     "retirement_context": {
       "player_injury_risk": 0.45,
       "p_retire": 0.45,
-      "news_boost": 0.135
-    }
+      "news_boost": 0.234
+    },
+    "shadow": false,
+    "news_hard_block": true
   },
   {
     "player_a": "J Riera",
