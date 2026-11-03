@@ -14971,6 +14971,7 @@
       "no_bet_reasons": [
         "probabilit\u00e0 29% sotto minimo 38%",
         "sanity: divergenza modello/mercato 19% > 18%",
+        "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook"
       ],
       "review_reasons": []
@@ -15073,10 +15074,10 @@
       "headline": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
       "category": "withdrawal"
     },
-    "p_retire": 0.234,
+    "p_retire": 0.45,
     "retirement_context": {
-      "player_injury_risk": 0.234,
-      "p_retire": 0.234,
+      "player_injury_risk": 0.45,
+      "p_retire": 0.45,
       "news_boost": 0.234
     },
     "shadow": false,
@@ -15670,13 +15671,35 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": false,
-      "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "has_alert": true,
+      "hard_block": true,
+      "p_retire_boost": 0.2304,
+      "category": "withdrawal",
+      "headline": "WTA Hong Kong 2026: Avanzano Cirstea ed Eala, ritiro Badosa e tonfo Samsonova - sport2u.tv",
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNLXRXTy1ObUVSZFlUUlAyWDVUcXdRNXJBZzJyZWR0MDBvUnkzdkJTV2YxeUFxeTZaRjF6ajhwOUtUU1otaFRzQjVBUGY5eWpZZ3JuYWhEMU5wNndkQVdPRG1NV1hMM3JkdmNTR2FyMjNYZl9yM2pXRW16SnJKdlg3aHZrOTBCNWpVLVBxODBjR241SE1CTTNaa1VEOA?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.92,
+      "n_hits": 2,
+      "hits": [
+        {
+          "title": "WTA Hong Kong 2026: Avanzano Cirstea ed Eala, ritiro Badosa e tonfo Samsonova - sport2u.tv",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNLXRXTy1ObUVSZFlUUlAyWDVUcXdRNXJBZzJyZWR0MDBvUnkzdkJTV2YxeUFxeTZaRjF6ajhwOUtUU1otaFRzQjVBUGY5eWpZZ3JuYWhEMU5wNndkQVdPRG1NV1hMM3JkdmNTR2FyMjNYZl9yM2pXRW16SnJKdlg3aHZrOTBCNWpVLVBxODBjR241SE1CTTNaa1VEOA?oc=5",
+          "source": "gnews_injury_it",
+          "category": "withdrawal",
+          "severity": 0.92,
+          "published": "",
+          "channel": "rss"
+        },
+        {
+          "title": "Hong Kong: Paula Badosa retires in tears after physio checks her vitals - Tennis World USA",
+          "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOUnNLZnJMUGZwQm84ejFlOG5lVnNtWlR4Uk1DeVZZWEFKVGZNZW1qd1ZMQy13ekVIWEhkaVNnalRJRFVXRlJaeGpmNUpwVWFzNUFhSnd0TXVVckRzZ2YzWVpCYkh0REdpUUFiWlQza3lSTFk3d1ViUjJDZ01YVkE0TktGUjgxcHkxZXdIM2s5amtfa1F0VU5palZOYkVYcWRJRm9FeF9lMnItejAwOEo4a2d2bS1pZXNRMXZ4QjE4clBqQTRscUx1RmpqenVqZ1JOc2ItLU1CSnVhWEhKN1E?oc=5",
+          "source": "gnews_injury_en",
+          "category": "retirement",
+          "severity": 0.85,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_alert": {
       "pick_side": "A",
@@ -15690,18 +15713,40 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": false,
-        "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "has_alert": true,
+        "hard_block": true,
+        "p_retire_boost": 0.2304,
+        "category": "withdrawal",
+        "headline": "WTA Hong Kong 2026: Avanzano Cirstea ed Eala, ritiro Badosa e tonfo Samsonova - sport2u.tv",
+        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNLXRXTy1ObUVSZFlUUlAyWDVUcXdRNXJBZzJyZWR0MDBvUnkzdkJTV2YxeUFxeTZaRjF6ajhwOUtUU1otaFRzQjVBUGY5eWpZZ3JuYWhEMU5wNndkQVdPRG1NV1hMM3JkdmNTR2FyMjNYZl9yM2pXRW16SnJKdlg3aHZrOTBCNWpVLVBxODBjR241SE1CTTNaa1VEOA?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.92,
+        "n_hits": 2,
+        "hits": [
+          {
+            "title": "WTA Hong Kong 2026: Avanzano Cirstea ed Eala, ritiro Badosa e tonfo Samsonova - sport2u.tv",
+            "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNLXRXTy1ObUVSZFlUUlAyWDVUcXdRNXJBZzJyZWR0MDBvUnkzdkJTV2YxeUFxeTZaRjF6ajhwOUtUU1otaFRzQjVBUGY5eWpZZ3JuYWhEMU5wNndkQVdPRG1NV1hMM3JkdmNTR2FyMjNYZl9yM2pXRW16SnJKdlg3aHZrOTBCNWpVLVBxODBjR241SE1CTTNaa1VEOA?oc=5",
+            "source": "gnews_injury_it",
+            "category": "withdrawal",
+            "severity": 0.92,
+            "published": "",
+            "channel": "rss"
+          },
+          {
+            "title": "Hong Kong: Paula Badosa retires in tears after physio checks her vitals - Tennis World USA",
+            "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOUnNLZnJMUGZwQm84ejFlOG5lVnNtWlR4Uk1DeVZZWEFKVGZNZW1qd1ZMQy13ekVIWEhkaVNnalRJRFVXRlJaeGpmNUpwVWFzNUFhSnd0TXVVckRzZ2YzWVpCYkh0REdpUUFiWlQza3lSTFk3d1ViUjJDZ01YVkE0TktGUjgxcHkxZXdIM2s5amtfa1F0VU5palZOYkVYcWRJRm9FeF9lMnItejAwOEo4a2d2bS1pZXNRMXZ4QjE4clBqQTRscUx1RmpqenVqZ1JOc2ItLU1CSnVhWEhKN1E?oc=5",
+            "source": "gnews_injury_en",
+            "category": "retirement",
+            "severity": 0.85,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "WTA Hong Kong 2026: Avanzano Cirstea ed Eala, ritiro Badosa e tonfo Samsonova - sport2u.tv",
+      "category": "withdrawal"
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -22967,13 +23012,26 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": false,
-      "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "has_alert": true,
+      "hard_block": true,
+      "p_retire_boost": 0.2304,
+      "category": "withdrawal",
+      "headline": "WTA Hong Kong 2026: Avanzano Cirstea ed Eala, ritiro Badosa e tonfo Samsonova - sport2u.tv",
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNLXRXTy1ObUVSZFlUUlAyWDVUcXdRNXJBZzJyZWR0MDBvUnkzdkJTV2YxeUFxeTZaRjF6ajhwOUtUU1otaFRzQjVBUGY5eWpZZ3JuYWhEMU5wNndkQVdPRG1NV1hMM3JkdmNTR2FyMjNYZl9yM2pXRW16SnJKdlg3aHZrOTBCNWpVLVBxODBjR241SE1CTTNaa1VEOA?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.92,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "WTA Hong Kong 2026: Avanzano Cirstea ed Eala, ritiro Badosa e tonfo Samsonova - sport2u.tv",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNLXRXTy1ObUVSZFlUUlAyWDVUcXdRNXJBZzJyZWR0MDBvUnkzdkJTV2YxeUFxeTZaRjF6ajhwOUtUU1otaFRzQjVBUGY5eWpZZ3JuYWhEMU5wNndkQVdPRG1NV1hMM3JkdmNTR2FyMjNYZl9yM2pXRW16SnJKdlg3aHZrOTBCNWpVLVBxODBjR241SE1CTTNaa1VEOA?oc=5",
+          "source": "gnews_injury_it",
+          "category": "withdrawal",
+          "severity": 0.92,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_alert": {
       "pick_side": "A",
@@ -22987,18 +23045,37 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": false,
-        "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "has_alert": true,
+        "hard_block": true,
+        "p_retire_boost": 0.2304,
+        "category": "withdrawal",
+        "headline": "WTA Hong Kong 2026: Avanzano Cirstea ed Eala, ritiro Badosa e tonfo Samsonova - sport2u.tv",
+        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNLXRXTy1ObUVSZFlUUlAyWDVUcXdRNXJBZzJyZWR0MDBvUnkzdkJTV2YxeUFxeTZaRjF6ajhwOUtUU1otaFRzQjVBUGY5eWpZZ3JuYWhEMU5wNndkQVdPRG1NV1hMM3JkdmNTR2FyMjNYZl9yM2pXRW16SnJKdlg3aHZrOTBCNWpVLVBxODBjR241SE1CTTNaa1VEOA?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.92,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "WTA Hong Kong 2026: Avanzano Cirstea ed Eala, ritiro Badosa e tonfo Samsonova - sport2u.tv",
+            "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNLXRXTy1ObUVSZFlUUlAyWDVUcXdRNXJBZzJyZWR0MDBvUnkzdkJTV2YxeUFxeTZaRjF6ajhwOUtUU1otaFRzQjVBUGY5eWpZZ3JuYWhEMU5wNndkQVdPRG1NV1hMM3JkdmNTR2FyMjNYZl9yM2pXRW16SnJKdlg3aHZrOTBCNWpVLVBxODBjR241SE1CTTNaa1VEOA?oc=5",
+            "source": "gnews_injury_it",
+            "category": "withdrawal",
+            "severity": 0.92,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "WTA Hong Kong 2026: Avanzano Cirstea ed Eala, ritiro Badosa e tonfo Samsonova - sport2u.tv",
+      "category": "withdrawal"
+    },
+    "p_retire": 0.0806,
+    "retirement_context": {
+      "player_injury_risk": 0.08063999999999999,
+      "p_retire": 0.08063999999999999,
+      "news_boost": 0.08063999999999999
     }
   },
   {
@@ -61205,6 +61282,7 @@
         "probabilit\u00e0 28% sotto minimo 38%",
         "sanity: divergenza modello/mercato 19% > 18%",
         "sharp consensus: quota 3.80 > 3 senza quote Betfair/Pinnacle verificate",
+        "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook"
       ],
       "review_reasons": []
@@ -61307,10 +61385,10 @@
       "headline": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
       "category": "withdrawal"
     },
-    "p_retire": 0.234,
+    "p_retire": 0.45,
     "retirement_context": {
-      "player_injury_risk": 0.234,
-      "p_retire": 0.234,
+      "player_injury_risk": 0.45,
+      "p_retire": 0.45,
       "news_boost": 0.234
     },
     "shadow": false,
@@ -61585,13 +61663,35 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": false,
-      "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "has_alert": true,
+      "hard_block": true,
+      "p_retire_boost": 0.2304,
+      "category": "withdrawal",
+      "headline": "WTA Hong Kong 2026: Avanzano Cirstea ed Eala, ritiro Badosa e tonfo Samsonova - sport2u.tv",
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNLXRXTy1ObUVSZFlUUlAyWDVUcXdRNXJBZzJyZWR0MDBvUnkzdkJTV2YxeUFxeTZaRjF6ajhwOUtUU1otaFRzQjVBUGY5eWpZZ3JuYWhEMU5wNndkQVdPRG1NV1hMM3JkdmNTR2FyMjNYZl9yM2pXRW16SnJKdlg3aHZrOTBCNWpVLVBxODBjR241SE1CTTNaa1VEOA?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.92,
+      "n_hits": 2,
+      "hits": [
+        {
+          "title": "WTA Hong Kong 2026: Avanzano Cirstea ed Eala, ritiro Badosa e tonfo Samsonova - sport2u.tv",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNLXRXTy1ObUVSZFlUUlAyWDVUcXdRNXJBZzJyZWR0MDBvUnkzdkJTV2YxeUFxeTZaRjF6ajhwOUtUU1otaFRzQjVBUGY5eWpZZ3JuYWhEMU5wNndkQVdPRG1NV1hMM3JkdmNTR2FyMjNYZl9yM2pXRW16SnJKdlg3aHZrOTBCNWpVLVBxODBjR241SE1CTTNaa1VEOA?oc=5",
+          "source": "gnews_injury_it",
+          "category": "withdrawal",
+          "severity": 0.92,
+          "published": "",
+          "channel": "rss"
+        },
+        {
+          "title": "Hong Kong: Paula Badosa retires in tears after physio checks her vitals - Tennis World USA",
+          "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOUnNLZnJMUGZwQm84ejFlOG5lVnNtWlR4Uk1DeVZZWEFKVGZNZW1qd1ZMQy13ekVIWEhkaVNnalRJRFVXRlJaeGpmNUpwVWFzNUFhSnd0TXVVckRzZ2YzWVpCYkh0REdpUUFiWlQza3lSTFk3d1ViUjJDZ01YVkE0TktGUjgxcHkxZXdIM2s5amtfa1F0VU5palZOYkVYcWRJRm9FeF9lMnItejAwOEo4a2d2bS1pZXNRMXZ4QjE4clBqQTRscUx1RmpqenVqZ1JOc2ItLU1CSnVhWEhKN1E?oc=5",
+          "source": "gnews_injury_en",
+          "category": "retirement",
+          "severity": 0.85,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_alert": {
       "pick_side": "A",
@@ -61605,18 +61705,40 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": false,
-        "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "has_alert": true,
+        "hard_block": true,
+        "p_retire_boost": 0.2304,
+        "category": "withdrawal",
+        "headline": "WTA Hong Kong 2026: Avanzano Cirstea ed Eala, ritiro Badosa e tonfo Samsonova - sport2u.tv",
+        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNLXRXTy1ObUVSZFlUUlAyWDVUcXdRNXJBZzJyZWR0MDBvUnkzdkJTV2YxeUFxeTZaRjF6ajhwOUtUU1otaFRzQjVBUGY5eWpZZ3JuYWhEMU5wNndkQVdPRG1NV1hMM3JkdmNTR2FyMjNYZl9yM2pXRW16SnJKdlg3aHZrOTBCNWpVLVBxODBjR241SE1CTTNaa1VEOA?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.92,
+        "n_hits": 2,
+        "hits": [
+          {
+            "title": "WTA Hong Kong 2026: Avanzano Cirstea ed Eala, ritiro Badosa e tonfo Samsonova - sport2u.tv",
+            "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNLXRXTy1ObUVSZFlUUlAyWDVUcXdRNXJBZzJyZWR0MDBvUnkzdkJTV2YxeUFxeTZaRjF6ajhwOUtUU1otaFRzQjVBUGY5eWpZZ3JuYWhEMU5wNndkQVdPRG1NV1hMM3JkdmNTR2FyMjNYZl9yM2pXRW16SnJKdlg3aHZrOTBCNWpVLVBxODBjR241SE1CTTNaa1VEOA?oc=5",
+            "source": "gnews_injury_it",
+            "category": "withdrawal",
+            "severity": 0.92,
+            "published": "",
+            "channel": "rss"
+          },
+          {
+            "title": "Hong Kong: Paula Badosa retires in tears after physio checks her vitals - Tennis World USA",
+            "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOUnNLZnJMUGZwQm84ejFlOG5lVnNtWlR4Uk1DeVZZWEFKVGZNZW1qd1ZMQy13ekVIWEhkaVNnalRJRFVXRlJaeGpmNUpwVWFzNUFhSnd0TXVVckRzZ2YzWVpCYkh0REdpUUFiWlQza3lSTFk3d1ViUjJDZ01YVkE0TktGUjgxcHkxZXdIM2s5amtfa1F0VU5palZOYkVYcWRJRm9FeF9lMnItejAwOEo4a2d2bS1pZXNRMXZ4QjE4clBqQTRscUx1RmpqenVqZ1JOc2ItLU1CSnVhWEhKN1E?oc=5",
+            "source": "gnews_injury_en",
+            "category": "retirement",
+            "severity": 0.85,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "WTA Hong Kong 2026: Avanzano Cirstea ed Eala, ritiro Badosa e tonfo Samsonova - sport2u.tv",
+      "category": "withdrawal"
     },
     "p_retire": 0.45,
     "retirement_context": {
