@@ -10385,13 +10385,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.153,
+      "category": "retirement",
+      "headline": "Victoria Azarenka sends message to Gael Monfils following his retirement from tennis, 'there is nobody quite like you' - The Tennis Gazette",
+      "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOY3A3Q2xlYnVmVFN5S1dBSDVPNG9FUGJOY2pWaXlSR2VnekJMTGNHOGVXOW1Ha2JIUTFILUJReVlLNFVrenBlOTNwN0s3ZkduV1VPcGhrb0RBLVRYQ1M3TnJ2RW5Pa3JJZGg3aGRCOGlMOGtuQjZUQ3hBWVEtc1NhZDVGdG1rc1NRVVRIVk5GQUNQRHRNcW0xZUszOUh5Q21VWTRDWGhKUEthQl9BOHRlTW83MFpmS2tTdWZKZ3ozck9MX01SempfT2NzdWw0UVlrVEZ2c2pyQlFzdTRzYTdWS2hacFhfdU1IY0E?oc=5",
+      "source": "gnews_injury_en",
+      "severity": 0.85,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Victoria Azarenka sends message to Gael Monfils following his retirement from tennis, 'there is nobody quite like you' - The Tennis Gazette",
+          "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOY3A3Q2xlYnVmVFN5S1dBSDVPNG9FUGJOY2pWaXlSR2VnekJMTGNHOGVXOW1Ha2JIUTFILUJReVlLNFVrenBlOTNwN0s3ZkduV1VPcGhrb0RBLVRYQ1M3TnJ2RW5Pa3JJZGg3aGRCOGlMOGtuQjZUQ3hBWVEtc1NhZDVGdG1rc1NRVVRIVk5GQUNQRHRNcW0xZUszOUh5Q21VWTRDWGhKUEthQl9BOHRlTW83MFpmS2tTdWZKZ3ozck9MX01SempfT2NzdWw0UVlrVEZ2c2pyQlFzdTRzYTdWS2hacFhfdU1IY0E?oc=5",
+          "source": "gnews_injury_en",
+          "category": "retirement",
+          "severity": 0.85,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -10405,13 +10418,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.153,
+        "category": "retirement",
+        "headline": "Victoria Azarenka sends message to Gael Monfils following his retirement from tennis, 'there is nobody quite like you' - The Tennis Gazette",
+        "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOY3A3Q2xlYnVmVFN5S1dBSDVPNG9FUGJOY2pWaXlSR2VnekJMTGNHOGVXOW1Ha2JIUTFILUJReVlLNFVrenBlOTNwN0s3ZkduV1VPcGhrb0RBLVRYQ1M3TnJ2RW5Pa3JJZGg3aGRCOGlMOGtuQjZUQ3hBWVEtc1NhZDVGdG1rc1NRVVRIVk5GQUNQRHRNcW0xZUszOUh5Q21VWTRDWGhKUEthQl9BOHRlTW83MFpmS2tTdWZKZ3ozck9MX01SempfT2NzdWw0UVlrVEZ2c2pyQlFzdTRzYTdWS2hacFhfdU1IY0E?oc=5",
+        "source": "gnews_injury_en",
+        "severity": 0.85,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Victoria Azarenka sends message to Gael Monfils following his retirement from tennis, 'there is nobody quite like you' - The Tennis Gazette",
+            "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOY3A3Q2xlYnVmVFN5S1dBSDVPNG9FUGJOY2pWaXlSR2VnekJMTGNHOGVXOW1Ha2JIUTFILUJReVlLNFVrenBlOTNwN0s3ZkduV1VPcGhrb0RBLVRYQ1M3TnJ2RW5Pa3JJZGg3aGRCOGlMOGtuQjZUQ3hBWVEtc1NhZDVGdG1rc1NRVVRIVk5GQUNQRHRNcW0xZUszOUh5Q21VWTRDWGhKUEthQl9BOHRlTW83MFpmS2tTdWZKZ3ozck9MX01SempfT2NzdWw0UVlrVEZ2c2pyQlFzdTRzYTdWS2hacFhfdU1IY0E?oc=5",
+            "source": "gnews_injury_en",
+            "category": "retirement",
+            "severity": 0.85,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -10422,16 +10448,16 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Victoria Azarenka sends message to Gael Monfils following his retirement from tennis, 'there is nobody quite like you' - The Tennis Gazette",
+      "category": "retirement"
     },
     "p_retire": 0.45,
     "retirement_context": {
       "player_injury_risk": 0.45,
       "p_retire": 0.45,
-      "news_boost": 0.135
+      "news_boost": 0.153
     },
     "shadow": false,
     "news_hard_block": true
@@ -14947,6 +14973,7 @@
         "sanity: divergenza modello/mercato 19% > 18%",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
+        "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook"
       ],
       "review_reasons": []
@@ -15647,15 +15674,24 @@
     },
     "news_b": {
       "has_alert": true,
-      "hard_block": false,
-      "p_retire_boost": 0.153,
-      "category": "retirement",
-      "headline": "Hong Kong: Paula Badosa retires in tears after physio checks her vitals - Tennis World USA",
-      "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOUnNLZnJMUGZwQm84ejFlOG5lVnNtWlR4Uk1DeVZZWEFKVGZNZW1qd1ZMQy13ekVIWEhkaVNnalRJRFVXRlJaeGpmNUpwVWFzNUFhSnd0TXVVckRzZ2YzWVpCYkh0REdpUUFiWlQza3lSTFk3d1ViUjJDZ01YVkE0TktGUjgxcHkxZXdIM2s5amtfa1F0VU5palZOYkVYcWRJRm9FeF9lMnItejAwOEo4a2d2bS1pZXNRMXZ4QjE4clBqQTRscUx1RmpqenVqZ1JOc2ItLU1CSnVhWEhKN1E?oc=5",
-      "source": "gnews_injury_en",
-      "severity": 0.85,
-      "n_hits": 1,
+      "hard_block": true,
+      "p_retire_boost": 0.2304,
+      "category": "withdrawal",
+      "headline": "Dramma Badosa, malore e ritiro a Hong Kong: il 2026 della spagnola finisce in lacrime - Lottomatica.Sport",
+      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPbm9jcloyUkYzMkZtWEtHejdxQVBfRkZvX2NWaEZvZm1IdTRVSXE1MU5UWjhYTW4xZ3pEdlp6ZkFpZ21KR0t1RFNid3FtZzZGR3hGNExQUDRKeWdwUFZZREVJZk1fN1lSOUZOOUQybU1taFVTa2txQlhkcl93TDZkZ0F6VGlfY1BWcmcyWGpSd2J1eHVDeFNyNDFfNlBqdVNQVzJJVzg4TTVqYkRhWEtxdjYwNjdTbHRNOTFjWnBjNWowZnlp?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.92,
+      "n_hits": 2,
       "hits": [
+        {
+          "title": "Dramma Badosa, malore e ritiro a Hong Kong: il 2026 della spagnola finisce in lacrime - Lottomatica.Sport",
+          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPbm9jcloyUkYzMkZtWEtHejdxQVBfRkZvX2NWaEZvZm1IdTRVSXE1MU5UWjhYTW4xZ3pEdlp6ZkFpZ21KR0t1RFNid3FtZzZGR3hGNExQUDRKeWdwUFZZREVJZk1fN1lSOUZOOUQybU1taFVTa2txQlhkcl93TDZkZ0F6VGlfY1BWcmcyWGpSd2J1eHVDeFNyNDFfNlBqdVNQVzJJVzg4TTVqYkRhWEtxdjYwNjdTbHRNOTFjWnBjNWowZnlp?oc=5",
+          "source": "gnews_injury_it",
+          "category": "withdrawal",
+          "severity": 0.92,
+          "published": "",
+          "channel": "rss"
+        },
         {
           "title": "Hong Kong: Paula Badosa retires in tears after physio checks her vitals - Tennis World USA",
           "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOUnNLZnJMUGZwQm84ejFlOG5lVnNtWlR4Uk1DeVZZWEFKVGZNZW1qd1ZMQy13ekVIWEhkaVNnalRJRFVXRlJaeGpmNUpwVWFzNUFhSnd0TXVVckRzZ2YzWVpCYkh0REdpUUFiWlQza3lSTFk3d1ViUjJDZ01YVkE0TktGUjgxcHkxZXdIM2s5amtfa1F0VU5palZOYkVYcWRJRm9FeF9lMnItejAwOEo4a2d2bS1pZXNRMXZ4QjE4clBqQTRscUx1RmpqenVqZ1JOc2ItLU1CSnVhWEhKN1E?oc=5",
@@ -15680,15 +15716,24 @@
       },
       "opponent": {
         "has_alert": true,
-        "hard_block": false,
-        "p_retire_boost": 0.153,
-        "category": "retirement",
-        "headline": "Hong Kong: Paula Badosa retires in tears after physio checks her vitals - Tennis World USA",
-        "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOUnNLZnJMUGZwQm84ejFlOG5lVnNtWlR4Uk1DeVZZWEFKVGZNZW1qd1ZMQy13ekVIWEhkaVNnalRJRFVXRlJaeGpmNUpwVWFzNUFhSnd0TXVVckRzZ2YzWVpCYkh0REdpUUFiWlQza3lSTFk3d1ViUjJDZ01YVkE0TktGUjgxcHkxZXdIM2s5amtfa1F0VU5palZOYkVYcWRJRm9FeF9lMnItejAwOEo4a2d2bS1pZXNRMXZ4QjE4clBqQTRscUx1RmpqenVqZ1JOc2ItLU1CSnVhWEhKN1E?oc=5",
-        "source": "gnews_injury_en",
-        "severity": 0.85,
-        "n_hits": 1,
+        "hard_block": true,
+        "p_retire_boost": 0.2304,
+        "category": "withdrawal",
+        "headline": "Dramma Badosa, malore e ritiro a Hong Kong: il 2026 della spagnola finisce in lacrime - Lottomatica.Sport",
+        "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPbm9jcloyUkYzMkZtWEtHejdxQVBfRkZvX2NWaEZvZm1IdTRVSXE1MU5UWjhYTW4xZ3pEdlp6ZkFpZ21KR0t1RFNid3FtZzZGR3hGNExQUDRKeWdwUFZZREVJZk1fN1lSOUZOOUQybU1taFVTa2txQlhkcl93TDZkZ0F6VGlfY1BWcmcyWGpSd2J1eHVDeFNyNDFfNlBqdVNQVzJJVzg4TTVqYkRhWEtxdjYwNjdTbHRNOTFjWnBjNWowZnlp?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.92,
+        "n_hits": 2,
         "hits": [
+          {
+            "title": "Dramma Badosa, malore e ritiro a Hong Kong: il 2026 della spagnola finisce in lacrime - Lottomatica.Sport",
+            "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPbm9jcloyUkYzMkZtWEtHejdxQVBfRkZvX2NWaEZvZm1IdTRVSXE1MU5UWjhYTW4xZ3pEdlp6ZkFpZ21KR0t1RFNid3FtZzZGR3hGNExQUDRKeWdwUFZZREVJZk1fN1lSOUZOOUQybU1taFVTa2txQlhkcl93TDZkZ0F6VGlfY1BWcmcyWGpSd2J1eHVDeFNyNDFfNlBqdVNQVzJJVzg4TTVqYkRhWEtxdjYwNjdTbHRNOTFjWnBjNWowZnlp?oc=5",
+            "source": "gnews_injury_it",
+            "category": "withdrawal",
+            "severity": 0.92,
+            "published": "",
+            "channel": "rss"
+          },
           {
             "title": "Hong Kong: Paula Badosa retires in tears after physio checks her vitals - Tennis World USA",
             "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOUnNLZnJMUGZwQm84ejFlOG5lVnNtWlR4Uk1DeVZZWEFKVGZNZW1qd1ZMQy13ekVIWEhkaVNnalRJRFVXRlJaeGpmNUpwVWFzNUFhSnd0TXVVckRzZ2YzWVpCYkh0REdpUUFiWlQza3lSTFk3d1ViUjJDZ01YVkE0TktGUjgxcHkxZXdIM2s5amtfa1F0VU5palZOYkVYcWRJRm9FeF9lMnItejAwOEo4a2d2bS1pZXNRMXZ4QjE4clBqQTRscUx1RmpqenVqZ1JOc2ItLU1CSnVhWEhKN1E?oc=5",
@@ -15702,14 +15747,14 @@
       },
       "any_alert": true,
       "hard_block_pick": false,
-      "headline": "Hong Kong: Paula Badosa retires in tears after physio checks her vitals - Tennis World USA",
-      "category": "retirement"
+      "headline": "Dramma Badosa, malore e ritiro a Hong Kong: il 2026 della spagnola finisce in lacrime - Lottomatica.Sport",
+      "category": "withdrawal"
     },
     "p_retire": 0.45,
     "retirement_context": {
       "player_injury_risk": 0.45,
       "p_retire": 0.45,
-      "news_boost": 0.05354999999999999
+      "news_boost": 0.08063999999999999
     }
   },
   {
@@ -61215,6 +61260,7 @@
         "sharp consensus: quota 3.80 > 3 senza quote Betfair/Pinnacle verificate",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
+        "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook"
       ],
       "review_reasons": []
@@ -61596,15 +61642,24 @@
     },
     "news_b": {
       "has_alert": true,
-      "hard_block": false,
-      "p_retire_boost": 0.153,
-      "category": "retirement",
-      "headline": "Hong Kong: Paula Badosa retires in tears after physio checks her vitals - Tennis World USA",
-      "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOUnNLZnJMUGZwQm84ejFlOG5lVnNtWlR4Uk1DeVZZWEFKVGZNZW1qd1ZMQy13ekVIWEhkaVNnalRJRFVXRlJaeGpmNUpwVWFzNUFhSnd0TXVVckRzZ2YzWVpCYkh0REdpUUFiWlQza3lSTFk3d1ViUjJDZ01YVkE0TktGUjgxcHkxZXdIM2s5amtfa1F0VU5palZOYkVYcWRJRm9FeF9lMnItejAwOEo4a2d2bS1pZXNRMXZ4QjE4clBqQTRscUx1RmpqenVqZ1JOc2ItLU1CSnVhWEhKN1E?oc=5",
-      "source": "gnews_injury_en",
-      "severity": 0.85,
-      "n_hits": 1,
+      "hard_block": true,
+      "p_retire_boost": 0.2304,
+      "category": "withdrawal",
+      "headline": "Dramma Badosa, malore e ritiro a Hong Kong: il 2026 della spagnola finisce in lacrime - Lottomatica.Sport",
+      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPbm9jcloyUkYzMkZtWEtHejdxQVBfRkZvX2NWaEZvZm1IdTRVSXE1MU5UWjhYTW4xZ3pEdlp6ZkFpZ21KR0t1RFNid3FtZzZGR3hGNExQUDRKeWdwUFZZREVJZk1fN1lSOUZOOUQybU1taFVTa2txQlhkcl93TDZkZ0F6VGlfY1BWcmcyWGpSd2J1eHVDeFNyNDFfNlBqdVNQVzJJVzg4TTVqYkRhWEtxdjYwNjdTbHRNOTFjWnBjNWowZnlp?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.92,
+      "n_hits": 2,
       "hits": [
+        {
+          "title": "Dramma Badosa, malore e ritiro a Hong Kong: il 2026 della spagnola finisce in lacrime - Lottomatica.Sport",
+          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPbm9jcloyUkYzMkZtWEtHejdxQVBfRkZvX2NWaEZvZm1IdTRVSXE1MU5UWjhYTW4xZ3pEdlp6ZkFpZ21KR0t1RFNid3FtZzZGR3hGNExQUDRKeWdwUFZZREVJZk1fN1lSOUZOOUQybU1taFVTa2txQlhkcl93TDZkZ0F6VGlfY1BWcmcyWGpSd2J1eHVDeFNyNDFfNlBqdVNQVzJJVzg4TTVqYkRhWEtxdjYwNjdTbHRNOTFjWnBjNWowZnlp?oc=5",
+          "source": "gnews_injury_it",
+          "category": "withdrawal",
+          "severity": 0.92,
+          "published": "",
+          "channel": "rss"
+        },
         {
           "title": "Hong Kong: Paula Badosa retires in tears after physio checks her vitals - Tennis World USA",
           "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOUnNLZnJMUGZwQm84ejFlOG5lVnNtWlR4Uk1DeVZZWEFKVGZNZW1qd1ZMQy13ekVIWEhkaVNnalRJRFVXRlJaeGpmNUpwVWFzNUFhSnd0TXVVckRzZ2YzWVpCYkh0REdpUUFiWlQza3lSTFk3d1ViUjJDZ01YVkE0TktGUjgxcHkxZXdIM2s5amtfa1F0VU5palZOYkVYcWRJRm9FeF9lMnItejAwOEo4a2d2bS1pZXNRMXZ4QjE4clBqQTRscUx1RmpqenVqZ1JOc2ItLU1CSnVhWEhKN1E?oc=5",
@@ -61629,15 +61684,24 @@
       },
       "opponent": {
         "has_alert": true,
-        "hard_block": false,
-        "p_retire_boost": 0.153,
-        "category": "retirement",
-        "headline": "Hong Kong: Paula Badosa retires in tears after physio checks her vitals - Tennis World USA",
-        "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOUnNLZnJMUGZwQm84ejFlOG5lVnNtWlR4Uk1DeVZZWEFKVGZNZW1qd1ZMQy13ekVIWEhkaVNnalRJRFVXRlJaeGpmNUpwVWFzNUFhSnd0TXVVckRzZ2YzWVpCYkh0REdpUUFiWlQza3lSTFk3d1ViUjJDZ01YVkE0TktGUjgxcHkxZXdIM2s5amtfa1F0VU5palZOYkVYcWRJRm9FeF9lMnItejAwOEo4a2d2bS1pZXNRMXZ4QjE4clBqQTRscUx1RmpqenVqZ1JOc2ItLU1CSnVhWEhKN1E?oc=5",
-        "source": "gnews_injury_en",
-        "severity": 0.85,
-        "n_hits": 1,
+        "hard_block": true,
+        "p_retire_boost": 0.2304,
+        "category": "withdrawal",
+        "headline": "Dramma Badosa, malore e ritiro a Hong Kong: il 2026 della spagnola finisce in lacrime - Lottomatica.Sport",
+        "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPbm9jcloyUkYzMkZtWEtHejdxQVBfRkZvX2NWaEZvZm1IdTRVSXE1MU5UWjhYTW4xZ3pEdlp6ZkFpZ21KR0t1RFNid3FtZzZGR3hGNExQUDRKeWdwUFZZREVJZk1fN1lSOUZOOUQybU1taFVTa2txQlhkcl93TDZkZ0F6VGlfY1BWcmcyWGpSd2J1eHVDeFNyNDFfNlBqdVNQVzJJVzg4TTVqYkRhWEtxdjYwNjdTbHRNOTFjWnBjNWowZnlp?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.92,
+        "n_hits": 2,
         "hits": [
+          {
+            "title": "Dramma Badosa, malore e ritiro a Hong Kong: il 2026 della spagnola finisce in lacrime - Lottomatica.Sport",
+            "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPbm9jcloyUkYzMkZtWEtHejdxQVBfRkZvX2NWaEZvZm1IdTRVSXE1MU5UWjhYTW4xZ3pEdlp6ZkFpZ21KR0t1RFNid3FtZzZGR3hGNExQUDRKeWdwUFZZREVJZk1fN1lSOUZOOUQybU1taFVTa2txQlhkcl93TDZkZ0F6VGlfY1BWcmcyWGpSd2J1eHVDeFNyNDFfNlBqdVNQVzJJVzg4TTVqYkRhWEtxdjYwNjdTbHRNOTFjWnBjNWowZnlp?oc=5",
+            "source": "gnews_injury_it",
+            "category": "withdrawal",
+            "severity": 0.92,
+            "published": "",
+            "channel": "rss"
+          },
           {
             "title": "Hong Kong: Paula Badosa retires in tears after physio checks her vitals - Tennis World USA",
             "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOUnNLZnJMUGZwQm84ejFlOG5lVnNtWlR4Uk1DeVZZWEFKVGZNZW1qd1ZMQy13ekVIWEhkaVNnalRJRFVXRlJaeGpmNUpwVWFzNUFhSnd0TXVVckRzZ2YzWVpCYkh0REdpUUFiWlQza3lSTFk3d1ViUjJDZ01YVkE0TktGUjgxcHkxZXdIM2s5amtfa1F0VU5palZOYkVYcWRJRm9FeF9lMnItejAwOEo4a2d2bS1pZXNRMXZ4QjE4clBqQTRscUx1RmpqenVqZ1JOc2ItLU1CSnVhWEhKN1E?oc=5",
@@ -61651,14 +61715,14 @@
       },
       "any_alert": true,
       "hard_block_pick": false,
-      "headline": "Hong Kong: Paula Badosa retires in tears after physio checks her vitals - Tennis World USA",
-      "category": "retirement"
+      "headline": "Dramma Badosa, malore e ritiro a Hong Kong: il 2026 della spagnola finisce in lacrime - Lottomatica.Sport",
+      "category": "withdrawal"
     },
     "p_retire": 0.45,
     "retirement_context": {
       "player_injury_risk": 0.45,
       "p_retire": 0.45,
-      "news_boost": 0.05354999999999999
+      "news_boost": 0.08063999999999999
     }
   },
   {
