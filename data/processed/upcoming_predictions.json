@@ -10385,26 +10385,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.153,
-      "category": "retirement",
-      "headline": "Victoria Azarenka sends message to Gael Monfils following his retirement from tennis, 'there is nobody quite like you' - The Tennis Gazette",
-      "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOY3A3Q2xlYnVmVFN5S1dBSDVPNG9FUGJOY2pWaXlSR2VnekJMTGNHOGVXOW1Ha2JIUTFILUJReVlLNFVrenBlOTNwN0s3ZkduV1VPcGhrb0RBLVRYQ1M3TnJ2RW5Pa3JJZGg3aGRCOGlMOGtuQjZUQ3hBWVEtc1NhZDVGdG1rc1NRVVRIVk5GQUNQRHRNcW0xZUszOUh5Q21VWTRDWGhKUEthQl9BOHRlTW83MFpmS2tTdWZKZ3ozck9MX01SempfT2NzdWw0UVlrVEZ2c2pyQlFzdTRzYTdWS2hacFhfdU1IY0E?oc=5",
-      "source": "gnews_injury_en",
-      "severity": 0.85,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Victoria Azarenka sends message to Gael Monfils following his retirement from tennis, 'there is nobody quite like you' - The Tennis Gazette",
-          "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOY3A3Q2xlYnVmVFN5S1dBSDVPNG9FUGJOY2pWaXlSR2VnekJMTGNHOGVXOW1Ha2JIUTFILUJReVlLNFVrenBlOTNwN0s3ZkduV1VPcGhrb0RBLVRYQ1M3TnJ2RW5Pa3JJZGg3aGRCOGlMOGtuQjZUQ3hBWVEtc1NhZDVGdG1rc1NRVVRIVk5GQUNQRHRNcW0xZUszOUh5Q21VWTRDWGhKUEthQl9BOHRlTW83MFpmS2tTdWZKZ3ozck9MX01SempfT2NzdWw0UVlrVEZ2c2pyQlFzdTRzYTdWS2hacFhfdU1IY0E?oc=5",
-          "source": "gnews_injury_en",
-          "category": "retirement",
-          "severity": 0.85,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -10418,26 +10405,13 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.153,
-        "category": "retirement",
-        "headline": "Victoria Azarenka sends message to Gael Monfils following his retirement from tennis, 'there is nobody quite like you' - The Tennis Gazette",
-        "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOY3A3Q2xlYnVmVFN5S1dBSDVPNG9FUGJOY2pWaXlSR2VnekJMTGNHOGVXOW1Ha2JIUTFILUJReVlLNFVrenBlOTNwN0s3ZkduV1VPcGhrb0RBLVRYQ1M3TnJ2RW5Pa3JJZGg3aGRCOGlMOGtuQjZUQ3hBWVEtc1NhZDVGdG1rc1NRVVRIVk5GQUNQRHRNcW0xZUszOUh5Q21VWTRDWGhKUEthQl9BOHRlTW83MFpmS2tTdWZKZ3ozck9MX01SempfT2NzdWw0UVlrVEZ2c2pyQlFzdTRzYTdWS2hacFhfdU1IY0E?oc=5",
-        "source": "gnews_injury_en",
-        "severity": 0.85,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Victoria Azarenka sends message to Gael Monfils following his retirement from tennis, 'there is nobody quite like you' - The Tennis Gazette",
-            "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOY3A3Q2xlYnVmVFN5S1dBSDVPNG9FUGJOY2pWaXlSR2VnekJMTGNHOGVXOW1Ha2JIUTFILUJReVlLNFVrenBlOTNwN0s3ZkduV1VPcGhrb0RBLVRYQ1M3TnJ2RW5Pa3JJZGg3aGRCOGlMOGtuQjZUQ3hBWVEtc1NhZDVGdG1rc1NRVVRIVk5GQUNQRHRNcW0xZUszOUh5Q21VWTRDWGhKUEthQl9BOHRlTW83MFpmS2tTdWZKZ3ozck9MX01SempfT2NzdWw0UVlrVEZ2c2pyQlFzdTRzYTdWS2hacFhfdU1IY0E?oc=5",
-            "source": "gnews_injury_en",
-            "category": "retirement",
-            "severity": 0.85,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
       "opponent": {
         "has_alert": false,
@@ -10448,10 +10422,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Victoria Azarenka sends message to Gael Monfils following his retirement from tennis, 'there is nobody quite like you' - The Tennis Gazette",
-      "category": "retirement"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -14971,6 +14945,7 @@
       "no_bet_reasons": [
         "probabilit\u00e0 29% sotto minimo 38%",
         "sanity: divergenza modello/mercato 19% > 18%",
+        "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
@@ -61261,6 +61236,7 @@
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
+        "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook"
       ],
       "review_reasons": []
@@ -72054,13 +72030,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Taranto Tennis Cup Gill avanza e Vasami si ritira per infortunio | oggi in campo Maestrelli - Zazoom Social News",
+      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOTFlXTzI5eGw3cngxV3FjVUwyV28wVmJoMWxoVEM3NFR0dDV6TEdDdWdXSjdWUDF4RXdxR01mbDV1UEI3bDhudUNEVlA5aWtYd2cwSDdHNE1LUG9rTXJvbjlmRHp2YjduY0lac010Y0ZLRUMyb3FzUG15Mi1YQkpRYzYzeG9rWFlMZDFwNF85UzJ1Rl95OEdaM0pQcWlRY0NVWHhTNi15aDZ0clJvMFV3SUtETUJKNENESVNWcWhJRFRiZ1p6RS1TQ0dRX1E?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Taranto Tennis Cup Gill avanza e Vasami si ritira per infortunio | oggi in campo Maestrelli - Zazoom Social News",
+          "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOTFlXTzI5eGw3cngxV3FjVUwyV28wVmJoMWxoVEM3NFR0dDV6TEdDdWdXSjdWUDF4RXdxR01mbDV1UEI3bDhudUNEVlA5aWtYd2cwSDdHNE1LUG9rTXJvbjlmRHp2YjduY0lac010Y0ZLRUMyb3FzUG15Mi1YQkpRYzYzeG9rWFlMZDFwNF85UzJ1Rl95OEdaM0pQcWlRY0NVWHhTNi15aDZ0clJvMFV3SUtETUJKNENESVNWcWhJRFRiZ1p6RS1TQ0dRX1E?oc=5",
+          "source": "gnews_injury_it",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -72083,18 +72072,37 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Taranto Tennis Cup Gill avanza e Vasami si ritira per infortunio | oggi in campo Maestrelli - Zazoom Social News",
+        "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOTFlXTzI5eGw3cngxV3FjVUwyV28wVmJoMWxoVEM3NFR0dDV6TEdDdWdXSjdWUDF4RXdxR01mbDV1UEI3bDhudUNEVlA5aWtYd2cwSDdHNE1LUG9rTXJvbjlmRHp2YjduY0lac010Y0ZLRUMyb3FzUG15Mi1YQkpRYzYzeG9rWFlMZDFwNF85UzJ1Rl95OEdaM0pQcWlRY0NVWHhTNi15aDZ0clJvMFV3SUtETUJKNENESVNWcWhJRFRiZ1p6RS1TQ0dRX1E?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Taranto Tennis Cup Gill avanza e Vasami si ritira per infortunio | oggi in campo Maestrelli - Zazoom Social News",
+            "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOTFlXTzI5eGw3cngxV3FjVUwyV28wVmJoMWxoVEM3NFR0dDV6TEdDdWdXSjdWUDF4RXdxR01mbDV1UEI3bDhudUNEVlA5aWtYd2cwSDdHNE1LUG9rTXJvbjlmRHp2YjduY0lac010Y0ZLRUMyb3FzUG15Mi1YQkpRYzYzeG9rWFlMZDFwNF85UzJ1Rl95OEdaM0pQcWlRY0NVWHhTNi15aDZ0clJvMFV3SUtETUJKNENESVNWcWhJRFRiZ1p6RS1TQ0dRX1E?oc=5",
+            "source": "gnews_injury_it",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Taranto Tennis Cup Gill avanza e Vasami si ritira per infortunio | oggi in campo Maestrelli - Zazoom Social News",
+      "category": "injury"
+    },
+    "p_retire": 0.0473,
+    "retirement_context": {
+      "player_injury_risk": 0.04725,
+      "p_retire": 0.04725,
+      "news_boost": 0.04725
     }
   },
   {
