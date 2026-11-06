@@ -9461,13 +9461,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
-      "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "has_alert": true,
+      "hard_block": true,
+      "p_retire_boost": 0.2304,
+      "category": "withdrawal",
+      "headline": "WTA Chennai 2026, Stefanini infortunata: arriva il ritiro con Zakharova ai quarti - Lottomatica.Sport",
+      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNNnVFTDVJOFBJV21HOEN5QzV4NlVmU1dUOTdjeC12QkNMMVZTek0tWm1rXzh4QmxOejNXM2FBdWpwWWJWc3JUeEM2RTFkaEtxSjBGRGdLZnFQb25TWDVaOTdUaC1lRDhHb2hzeXZSTEpBWW44ZjlTVk1fMFpXRjdla2t2S3l2bmZrZkN5OWg5eHJvcmY1SnFxMVB3R0tiT1Z2S1lDT2dIRDBVbmI4dEN5b0sxUm1PLWQxeEtzZnlHSQ?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.92,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "WTA Chennai 2026, Stefanini infortunata: arriva il ritiro con Zakharova ai quarti - Lottomatica.Sport",
+          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNNnVFTDVJOFBJV21HOEN5QzV4NlVmU1dUOTdjeC12QkNMMVZTek0tWm1rXzh4QmxOejNXM2FBdWpwWWJWc3JUeEM2RTFkaEtxSjBGRGdLZnFQb25TWDVaOTdUaC1lRDhHb2hzeXZSTEpBWW44ZjlTVk1fMFpXRjdla2t2S3l2bmZrZkN5OWg5eHJvcmY1SnFxMVB3R0tiT1Z2S1lDT2dIRDBVbmI4dEN5b0sxUm1PLWQxeEtzZnlHSQ?oc=5",
+          "source": "gnews_injury_it",
+          "category": "withdrawal",
+          "severity": 0.92,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -9490,18 +9503,37 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": false,
-        "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "has_alert": true,
+        "hard_block": true,
+        "p_retire_boost": 0.2304,
+        "category": "withdrawal",
+        "headline": "WTA Chennai 2026, Stefanini infortunata: arriva il ritiro con Zakharova ai quarti - Lottomatica.Sport",
+        "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNNnVFTDVJOFBJV21HOEN5QzV4NlVmU1dUOTdjeC12QkNMMVZTek0tWm1rXzh4QmxOejNXM2FBdWpwWWJWc3JUeEM2RTFkaEtxSjBGRGdLZnFQb25TWDVaOTdUaC1lRDhHb2hzeXZSTEpBWW44ZjlTVk1fMFpXRjdla2t2S3l2bmZrZkN5OWg5eHJvcmY1SnFxMVB3R0tiT1Z2S1lDT2dIRDBVbmI4dEN5b0sxUm1PLWQxeEtzZnlHSQ?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.92,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "WTA Chennai 2026, Stefanini infortunata: arriva il ritiro con Zakharova ai quarti - Lottomatica.Sport",
+            "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNNnVFTDVJOFBJV21HOEN5QzV4NlVmU1dUOTdjeC12QkNMMVZTek0tWm1rXzh4QmxOejNXM2FBdWpwWWJWc3JUeEM2RTFkaEtxSjBGRGdLZnFQb25TWDVaOTdUaC1lRDhHb2hzeXZSTEpBWW44ZjlTVk1fMFpXRjdla2t2S3l2bmZrZkN5OWg5eHJvcmY1SnFxMVB3R0tiT1Z2S1lDT2dIRDBVbmI4dEN5b0sxUm1PLWQxeEtzZnlHSQ?oc=5",
+            "source": "gnews_injury_it",
+            "category": "withdrawal",
+            "severity": 0.92,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "WTA Chennai 2026, Stefanini infortunata: arriva il ritiro con Zakharova ai quarti - Lottomatica.Sport",
+      "category": "withdrawal"
+    },
+    "p_retire": 0.0806,
+    "retirement_context": {
+      "player_injury_risk": 0.08063999999999999,
+      "p_retire": 0.08063999999999999,
+      "news_boost": 0.08063999999999999
     }
   },
   {
@@ -14951,6 +14983,7 @@
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
+        "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook"
       ],
       "review_reasons": []
@@ -15650,26 +15683,13 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": true,
-      "hard_block": true,
-      "p_retire_boost": 0.2304,
-      "category": "withdrawal",
-      "headline": "Dramma Badosa, malore e ritiro a Hong Kong: il 2026 della spagnola finisce in lacrime - Lottomatica.Sport",
-      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPbm9jcloyUkYzMkZtWEtHejdxQVBfRkZvX2NWaEZvZm1IdTRVSXE1MU5UWjhYTW4xZ3pEdlp6ZkFpZ21KR0t1RFNid3FtZzZGR3hGNExQUDRKeWdwUFZZREVJZk1fN1lSOUZOOUQybU1taFVTa2txQlhkcl93TDZkZ0F6VGlfY1BWcmcyWGpSd2J1eHVDeFNyNDFfNlBqdVNQVzJJVzg4TTVqYkRhWEtxdjYwNjdTbHRNOTFjWnBjNWowZnlp?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.92,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Dramma Badosa, malore e ritiro a Hong Kong: il 2026 della spagnola finisce in lacrime - Lottomatica.Sport",
-          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPbm9jcloyUkYzMkZtWEtHejdxQVBfRkZvX2NWaEZvZm1IdTRVSXE1MU5UWjhYTW4xZ3pEdlp6ZkFpZ21KR0t1RFNid3FtZzZGR3hGNExQUDRKeWdwUFZZREVJZk1fN1lSOUZOOUQybU1taFVTa2txQlhkcl93TDZkZ0F6VGlfY1BWcmcyWGpSd2J1eHVDeFNyNDFfNlBqdVNQVzJJVzg4TTVqYkRhWEtxdjYwNjdTbHRNOTFjWnBjNWowZnlp?oc=5",
-          "source": "gnews_injury_it",
-          "category": "withdrawal",
-          "severity": 0.92,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "has_alert": false,
+      "hard_block": false,
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_alert": {
       "pick_side": "A",
@@ -15683,31 +15703,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
-        "hard_block": true,
-        "p_retire_boost": 0.2304,
-        "category": "withdrawal",
-        "headline": "Dramma Badosa, malore e ritiro a Hong Kong: il 2026 della spagnola finisce in lacrime - Lottomatica.Sport",
-        "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPbm9jcloyUkYzMkZtWEtHejdxQVBfRkZvX2NWaEZvZm1IdTRVSXE1MU5UWjhYTW4xZ3pEdlp6ZkFpZ21KR0t1RFNid3FtZzZGR3hGNExQUDRKeWdwUFZZREVJZk1fN1lSOUZOOUQybU1taFVTa2txQlhkcl93TDZkZ0F6VGlfY1BWcmcyWGpSd2J1eHVDeFNyNDFfNlBqdVNQVzJJVzg4TTVqYkRhWEtxdjYwNjdTbHRNOTFjWnBjNWowZnlp?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.92,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Dramma Badosa, malore e ritiro a Hong Kong: il 2026 della spagnola finisce in lacrime - Lottomatica.Sport",
-            "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPbm9jcloyUkYzMkZtWEtHejdxQVBfRkZvX2NWaEZvZm1IdTRVSXE1MU5UWjhYTW4xZ3pEdlp6ZkFpZ21KR0t1RFNid3FtZzZGR3hGNExQUDRKeWdwUFZZREVJZk1fN1lSOUZOOUQybU1taFVTa2txQlhkcl93TDZkZ0F6VGlfY1BWcmcyWGpSd2J1eHVDeFNyNDFfNlBqdVNQVzJJVzg4TTVqYkRhWEtxdjYwNjdTbHRNOTFjWnBjNWowZnlp?oc=5",
-            "source": "gnews_injury_it",
-            "category": "withdrawal",
-            "severity": 0.92,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "has_alert": false,
+        "hard_block": false,
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Dramma Badosa, malore e ritiro a Hong Kong: il 2026 della spagnola finisce in lacrime - Lottomatica.Sport",
-      "category": "withdrawal"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -47662,13 +47669,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
-      "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "has_alert": true,
+      "hard_block": true,
+      "p_retire_boost": 0.2304,
+      "category": "withdrawal",
+      "headline": "WTA Chennai 2026, Stefanini infortunata: arriva il ritiro con Zakharova ai quarti - Lottomatica.Sport",
+      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNNnVFTDVJOFBJV21HOEN5QzV4NlVmU1dUOTdjeC12QkNMMVZTek0tWm1rXzh4QmxOejNXM2FBdWpwWWJWc3JUeEM2RTFkaEtxSjBGRGdLZnFQb25TWDVaOTdUaC1lRDhHb2hzeXZSTEpBWW44ZjlTVk1fMFpXRjdla2t2S3l2bmZrZkN5OWg5eHJvcmY1SnFxMVB3R0tiT1Z2S1lDT2dIRDBVbmI4dEN5b0sxUm1PLWQxeEtzZnlHSQ?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.92,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "WTA Chennai 2026, Stefanini infortunata: arriva il ritiro con Zakharova ai quarti - Lottomatica.Sport",
+          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNNnVFTDVJOFBJV21HOEN5QzV4NlVmU1dUOTdjeC12QkNMMVZTek0tWm1rXzh4QmxOejNXM2FBdWpwWWJWc3JUeEM2RTFkaEtxSjBGRGdLZnFQb25TWDVaOTdUaC1lRDhHb2hzeXZSTEpBWW44ZjlTVk1fMFpXRjdla2t2S3l2bmZrZkN5OWg5eHJvcmY1SnFxMVB3R0tiT1Z2S1lDT2dIRDBVbmI4dEN5b0sxUm1PLWQxeEtzZnlHSQ?oc=5",
+          "source": "gnews_injury_it",
+          "category": "withdrawal",
+          "severity": 0.92,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -47691,18 +47711,37 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": false,
-        "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "has_alert": true,
+        "hard_block": true,
+        "p_retire_boost": 0.2304,
+        "category": "withdrawal",
+        "headline": "WTA Chennai 2026, Stefanini infortunata: arriva il ritiro con Zakharova ai quarti - Lottomatica.Sport",
+        "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNNnVFTDVJOFBJV21HOEN5QzV4NlVmU1dUOTdjeC12QkNMMVZTek0tWm1rXzh4QmxOejNXM2FBdWpwWWJWc3JUeEM2RTFkaEtxSjBGRGdLZnFQb25TWDVaOTdUaC1lRDhHb2hzeXZSTEpBWW44ZjlTVk1fMFpXRjdla2t2S3l2bmZrZkN5OWg5eHJvcmY1SnFxMVB3R0tiT1Z2S1lDT2dIRDBVbmI4dEN5b0sxUm1PLWQxeEtzZnlHSQ?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.92,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "WTA Chennai 2026, Stefanini infortunata: arriva il ritiro con Zakharova ai quarti - Lottomatica.Sport",
+            "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNNnVFTDVJOFBJV21HOEN5QzV4NlVmU1dUOTdjeC12QkNMMVZTek0tWm1rXzh4QmxOejNXM2FBdWpwWWJWc3JUeEM2RTFkaEtxSjBGRGdLZnFQb25TWDVaOTdUaC1lRDhHb2hzeXZSTEpBWW44ZjlTVk1fMFpXRjdla2t2S3l2bmZrZkN5OWg5eHJvcmY1SnFxMVB3R0tiT1Z2S1lDT2dIRDBVbmI4dEN5b0sxUm1PLWQxeEtzZnlHSQ?oc=5",
+            "source": "gnews_injury_it",
+            "category": "withdrawal",
+            "severity": 0.92,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "WTA Chennai 2026, Stefanini infortunata: arriva il ritiro con Zakharova ai quarti - Lottomatica.Sport",
+      "category": "withdrawal"
+    },
+    "p_retire": 0.0806,
+    "retirement_context": {
+      "player_injury_risk": 0.08063999999999999,
+      "p_retire": 0.08063999999999999,
+      "news_boost": 0.08063999999999999
     }
   },
   {
@@ -61223,6 +61262,7 @@
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
+        "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook"
       ],
       "review_reasons": []
@@ -61603,26 +61643,13 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": true,
-      "hard_block": true,
-      "p_retire_boost": 0.2304,
-      "category": "withdrawal",
-      "headline": "Dramma Badosa, malore e ritiro a Hong Kong: il 2026 della spagnola finisce in lacrime - Lottomatica.Sport",
-      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPbm9jcloyUkYzMkZtWEtHejdxQVBfRkZvX2NWaEZvZm1IdTRVSXE1MU5UWjhYTW4xZ3pEdlp6ZkFpZ21KR0t1RFNid3FtZzZGR3hGNExQUDRKeWdwUFZZREVJZk1fN1lSOUZOOUQybU1taFVTa2txQlhkcl93TDZkZ0F6VGlfY1BWcmcyWGpSd2J1eHVDeFNyNDFfNlBqdVNQVzJJVzg4TTVqYkRhWEtxdjYwNjdTbHRNOTFjWnBjNWowZnlp?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.92,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Dramma Badosa, malore e ritiro a Hong Kong: il 2026 della spagnola finisce in lacrime - Lottomatica.Sport",
-          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPbm9jcloyUkYzMkZtWEtHejdxQVBfRkZvX2NWaEZvZm1IdTRVSXE1MU5UWjhYTW4xZ3pEdlp6ZkFpZ21KR0t1RFNid3FtZzZGR3hGNExQUDRKeWdwUFZZREVJZk1fN1lSOUZOOUQybU1taFVTa2txQlhkcl93TDZkZ0F6VGlfY1BWcmcyWGpSd2J1eHVDeFNyNDFfNlBqdVNQVzJJVzg4TTVqYkRhWEtxdjYwNjdTbHRNOTFjWnBjNWowZnlp?oc=5",
-          "source": "gnews_injury_it",
-          "category": "withdrawal",
-          "severity": 0.92,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "has_alert": false,
+      "hard_block": false,
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_alert": {
       "pick_side": "A",
@@ -61636,31 +61663,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
-        "hard_block": true,
-        "p_retire_boost": 0.2304,
-        "category": "withdrawal",
-        "headline": "Dramma Badosa, malore e ritiro a Hong Kong: il 2026 della spagnola finisce in lacrime - Lottomatica.Sport",
-        "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPbm9jcloyUkYzMkZtWEtHejdxQVBfRkZvX2NWaEZvZm1IdTRVSXE1MU5UWjhYTW4xZ3pEdlp6ZkFpZ21KR0t1RFNid3FtZzZGR3hGNExQUDRKeWdwUFZZREVJZk1fN1lSOUZOOUQybU1taFVTa2txQlhkcl93TDZkZ0F6VGlfY1BWcmcyWGpSd2J1eHVDeFNyNDFfNlBqdVNQVzJJVzg4TTVqYkRhWEtxdjYwNjdTbHRNOTFjWnBjNWowZnlp?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.92,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Dramma Badosa, malore e ritiro a Hong Kong: il 2026 della spagnola finisce in lacrime - Lottomatica.Sport",
-            "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPbm9jcloyUkYzMkZtWEtHejdxQVBfRkZvX2NWaEZvZm1IdTRVSXE1MU5UWjhYTW4xZ3pEdlp6ZkFpZ21KR0t1RFNid3FtZzZGR3hGNExQUDRKeWdwUFZZREVJZk1fN1lSOUZOOUQybU1taFVTa2txQlhkcl93TDZkZ0F6VGlfY1BWcmcyWGpSd2J1eHVDeFNyNDFfNlBqdVNQVzJJVzg4TTVqYkRhWEtxdjYwNjdTbHRNOTFjWnBjNWowZnlp?oc=5",
-            "source": "gnews_injury_it",
-            "category": "withdrawal",
-            "severity": 0.92,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "has_alert": false,
+        "hard_block": false,
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Dramma Badosa, malore e ritiro a Hong Kong: il 2026 della spagnola finisce in lacrime - Lottomatica.Sport",
-      "category": "withdrawal"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -72084,10 +72098,10 @@
       "headline": "Taranto Tennis Cup, Gill avanza e Vasami si ritira per infortunio: oggi in campo Maestrelli - Tarantini Time Quotidiano",
       "category": "injury"
     },
-    "p_retire": 0.1417,
+    "p_retire": 0.189,
     "retirement_context": {
-      "player_injury_risk": 0.14175,
-      "p_retire": 0.14175,
+      "player_injury_risk": 0.18895,
+      "p_retire": 0.18895,
       "news_boost": 0.04725
     }
   },
