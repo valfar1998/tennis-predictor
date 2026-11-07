@@ -9461,26 +9461,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
-      "hard_block": true,
-      "p_retire_boost": 0.2304,
-      "category": "withdrawal",
-      "headline": "WTA Chennai 2026, Stefanini infortunata: arriva il ritiro con Zakharova ai quarti - Lottomatica.Sport",
-      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNNnVFTDVJOFBJV21HOEN5QzV4NlVmU1dUOTdjeC12QkNMMVZTek0tWm1rXzh4QmxOejNXM2FBdWpwWWJWc3JUeEM2RTFkaEtxSjBGRGdLZnFQb25TWDVaOTdUaC1lRDhHb2hzeXZSTEpBWW44ZjlTVk1fMFpXRjdla2t2S3l2bmZrZkN5OWg5eHJvcmY1SnFxMVB3R0tiT1Z2S1lDT2dIRDBVbmI4dEN5b0sxUm1PLWQxeEtzZnlHSQ?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.92,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "WTA Chennai 2026, Stefanini infortunata: arriva il ritiro con Zakharova ai quarti - Lottomatica.Sport",
-          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNNnVFTDVJOFBJV21HOEN5QzV4NlVmU1dUOTdjeC12QkNMMVZTek0tWm1rXzh4QmxOejNXM2FBdWpwWWJWc3JUeEM2RTFkaEtxSjBGRGdLZnFQb25TWDVaOTdUaC1lRDhHb2hzeXZSTEpBWW44ZjlTVk1fMFpXRjdla2t2S3l2bmZrZkN5OWg5eHJvcmY1SnFxMVB3R0tiT1Z2S1lDT2dIRDBVbmI4dEN5b0sxUm1PLWQxeEtzZnlHSQ?oc=5",
-          "source": "gnews_injury_it",
-          "category": "withdrawal",
-          "severity": 0.92,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "has_alert": false,
+      "hard_block": false,
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -9503,31 +9490,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
-        "hard_block": true,
-        "p_retire_boost": 0.2304,
-        "category": "withdrawal",
-        "headline": "WTA Chennai 2026, Stefanini infortunata: arriva il ritiro con Zakharova ai quarti - Lottomatica.Sport",
-        "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNNnVFTDVJOFBJV21HOEN5QzV4NlVmU1dUOTdjeC12QkNMMVZTek0tWm1rXzh4QmxOejNXM2FBdWpwWWJWc3JUeEM2RTFkaEtxSjBGRGdLZnFQb25TWDVaOTdUaC1lRDhHb2hzeXZSTEpBWW44ZjlTVk1fMFpXRjdla2t2S3l2bmZrZkN5OWg5eHJvcmY1SnFxMVB3R0tiT1Z2S1lDT2dIRDBVbmI4dEN5b0sxUm1PLWQxeEtzZnlHSQ?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.92,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "WTA Chennai 2026, Stefanini infortunata: arriva il ritiro con Zakharova ai quarti - Lottomatica.Sport",
-            "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNNnVFTDVJOFBJV21HOEN5QzV4NlVmU1dUOTdjeC12QkNMMVZTek0tWm1rXzh4QmxOejNXM2FBdWpwWWJWc3JUeEM2RTFkaEtxSjBGRGdLZnFQb25TWDVaOTdUaC1lRDhHb2hzeXZSTEpBWW44ZjlTVk1fMFpXRjdla2t2S3l2bmZrZkN5OWg5eHJvcmY1SnFxMVB3R0tiT1Z2S1lDT2dIRDBVbmI4dEN5b0sxUm1PLWQxeEtzZnlHSQ?oc=5",
-            "source": "gnews_injury_it",
-            "category": "withdrawal",
-            "severity": 0.92,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "has_alert": false,
+        "hard_block": false,
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "WTA Chennai 2026, Stefanini infortunata: arriva il ritiro con Zakharova ai quarti - Lottomatica.Sport",
-      "category": "withdrawal"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.0806,
     "retirement_context": {
@@ -15018,26 +14992,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
-      "hard_block": true,
-      "p_retire_boost": 0.234,
-      "category": "withdrawal",
-      "headline": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
-      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOVDFCdGo2TnMtQWl2R0RqWEpqOUdjRm0xWUpfdHd2TWs4SVo0U010VjlnVE1CQXBBbDVSWlRvMzBNZFZTMENQYzA0cGRuVVVLSVA4S1kzOTdrbGg3RFNlcXRITVlVcVhEWkpuUVdlc0MtVFQwamxDSVVjYlVIbFRHRkd3T0tKYmtiTmIwdGw3MGV0MDdrWm55UHRDWVVSVnFLaW9FWk8tYy1PSTBubHpYc19md2MwdVhCTzdiOGltVzZ2ZVcyeVRTa0FoMDAyUGpHLUZ1V3gtaw?oc=5",
-      "source": "gnews_injury_en",
-      "severity": 0.95,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
-          "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOVDFCdGo2TnMtQWl2R0RqWEpqOUdjRm0xWUpfdHd2TWs4SVo0U010VjlnVE1CQXBBbDVSWlRvMzBNZFZTMENQYzA0cGRuVVVLSVA4S1kzOTdrbGg3RFNlcXRITVlVcVhEWkpuUVdlc0MtVFQwamxDSVVjYlVIbFRHRkd3T0tKYmtiTmIwdGw3MGV0MDdrWm55UHRDWVVSVnFLaW9FWk8tYy1PSTBubHpYc19md2MwdVhCTzdiOGltVzZ2ZVcyeVRTa0FoMDAyUGpHLUZ1V3gtaw?oc=5",
-          "source": "gnews_injury_en",
-          "category": "withdrawal",
-          "severity": 0.95,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "has_alert": false,
+      "hard_block": false,
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -15051,26 +15012,13 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": true,
-        "hard_block": true,
-        "p_retire_boost": 0.234,
-        "category": "withdrawal",
-        "headline": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
-        "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOVDFCdGo2TnMtQWl2R0RqWEpqOUdjRm0xWUpfdHd2TWs4SVo0U010VjlnVE1CQXBBbDVSWlRvMzBNZFZTMENQYzA0cGRuVVVLSVA4S1kzOTdrbGg3RFNlcXRITVlVcVhEWkpuUVdlc0MtVFQwamxDSVVjYlVIbFRHRkd3T0tKYmtiTmIwdGw3MGV0MDdrWm55UHRDWVVSVnFLaW9FWk8tYy1PSTBubHpYc19md2MwdVhCTzdiOGltVzZ2ZVcyeVRTa0FoMDAyUGpHLUZ1V3gtaw?oc=5",
-        "source": "gnews_injury_en",
-        "severity": 0.95,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
-            "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOVDFCdGo2TnMtQWl2R0RqWEpqOUdjRm0xWUpfdHd2TWs4SVo0U010VjlnVE1CQXBBbDVSWlRvMzBNZFZTMENQYzA0cGRuVVVLSVA4S1kzOTdrbGg3RFNlcXRITVlVcVhEWkpuUVdlc0MtVFQwamxDSVVjYlVIbFRHRkd3T0tKYmtiTmIwdGw3MGV0MDdrWm55UHRDWVVSVnFLaW9FWk8tYy1PSTBubHpYc19md2MwdVhCTzdiOGltVzZ2ZVcyeVRTa0FoMDAyUGpHLUZ1V3gtaw?oc=5",
-            "source": "gnews_injury_en",
-            "category": "withdrawal",
-            "severity": 0.95,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "has_alert": false,
+        "hard_block": false,
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
       "opponent": {
         "has_alert": false,
@@ -15081,10 +15029,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": true,
-      "hard_block_pick": true,
-      "headline": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
-      "category": "withdrawal"
+      "any_alert": false,
+      "hard_block_pick": false,
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -47669,26 +47617,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
-      "hard_block": true,
-      "p_retire_boost": 0.2304,
-      "category": "withdrawal",
-      "headline": "WTA Chennai 2026, Stefanini infortunata: arriva il ritiro con Zakharova ai quarti - Lottomatica.Sport",
-      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNNnVFTDVJOFBJV21HOEN5QzV4NlVmU1dUOTdjeC12QkNMMVZTek0tWm1rXzh4QmxOejNXM2FBdWpwWWJWc3JUeEM2RTFkaEtxSjBGRGdLZnFQb25TWDVaOTdUaC1lRDhHb2hzeXZSTEpBWW44ZjlTVk1fMFpXRjdla2t2S3l2bmZrZkN5OWg5eHJvcmY1SnFxMVB3R0tiT1Z2S1lDT2dIRDBVbmI4dEN5b0sxUm1PLWQxeEtzZnlHSQ?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.92,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "WTA Chennai 2026, Stefanini infortunata: arriva il ritiro con Zakharova ai quarti - Lottomatica.Sport",
-          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNNnVFTDVJOFBJV21HOEN5QzV4NlVmU1dUOTdjeC12QkNMMVZTek0tWm1rXzh4QmxOejNXM2FBdWpwWWJWc3JUeEM2RTFkaEtxSjBGRGdLZnFQb25TWDVaOTdUaC1lRDhHb2hzeXZSTEpBWW44ZjlTVk1fMFpXRjdla2t2S3l2bmZrZkN5OWg5eHJvcmY1SnFxMVB3R0tiT1Z2S1lDT2dIRDBVbmI4dEN5b0sxUm1PLWQxeEtzZnlHSQ?oc=5",
-          "source": "gnews_injury_it",
-          "category": "withdrawal",
-          "severity": 0.92,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "has_alert": false,
+      "hard_block": false,
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -47711,31 +47646,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
-        "hard_block": true,
-        "p_retire_boost": 0.2304,
-        "category": "withdrawal",
-        "headline": "WTA Chennai 2026, Stefanini infortunata: arriva il ritiro con Zakharova ai quarti - Lottomatica.Sport",
-        "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNNnVFTDVJOFBJV21HOEN5QzV4NlVmU1dUOTdjeC12QkNMMVZTek0tWm1rXzh4QmxOejNXM2FBdWpwWWJWc3JUeEM2RTFkaEtxSjBGRGdLZnFQb25TWDVaOTdUaC1lRDhHb2hzeXZSTEpBWW44ZjlTVk1fMFpXRjdla2t2S3l2bmZrZkN5OWg5eHJvcmY1SnFxMVB3R0tiT1Z2S1lDT2dIRDBVbmI4dEN5b0sxUm1PLWQxeEtzZnlHSQ?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.92,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "WTA Chennai 2026, Stefanini infortunata: arriva il ritiro con Zakharova ai quarti - Lottomatica.Sport",
-            "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNNnVFTDVJOFBJV21HOEN5QzV4NlVmU1dUOTdjeC12QkNMMVZTek0tWm1rXzh4QmxOejNXM2FBdWpwWWJWc3JUeEM2RTFkaEtxSjBGRGdLZnFQb25TWDVaOTdUaC1lRDhHb2hzeXZSTEpBWW44ZjlTVk1fMFpXRjdla2t2S3l2bmZrZkN5OWg5eHJvcmY1SnFxMVB3R0tiT1Z2S1lDT2dIRDBVbmI4dEN5b0sxUm1PLWQxeEtzZnlHSQ?oc=5",
-            "source": "gnews_injury_it",
-            "category": "withdrawal",
-            "severity": 0.92,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "has_alert": false,
+        "hard_block": false,
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "WTA Chennai 2026, Stefanini infortunata: arriva il ritiro con Zakharova ai quarti - Lottomatica.Sport",
-      "category": "withdrawal"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.0806,
     "retirement_context": {
@@ -61297,26 +61219,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
-      "hard_block": true,
-      "p_retire_boost": 0.234,
-      "category": "withdrawal",
-      "headline": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
-      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOVDFCdGo2TnMtQWl2R0RqWEpqOUdjRm0xWUpfdHd2TWs4SVo0U010VjlnVE1CQXBBbDVSWlRvMzBNZFZTMENQYzA0cGRuVVVLSVA4S1kzOTdrbGg3RFNlcXRITVlVcVhEWkpuUVdlc0MtVFQwamxDSVVjYlVIbFRHRkd3T0tKYmtiTmIwdGw3MGV0MDdrWm55UHRDWVVSVnFLaW9FWk8tYy1PSTBubHpYc19md2MwdVhCTzdiOGltVzZ2ZVcyeVRTa0FoMDAyUGpHLUZ1V3gtaw?oc=5",
-      "source": "gnews_injury_en",
-      "severity": 0.95,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
-          "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOVDFCdGo2TnMtQWl2R0RqWEpqOUdjRm0xWUpfdHd2TWs4SVo0U010VjlnVE1CQXBBbDVSWlRvMzBNZFZTMENQYzA0cGRuVVVLSVA4S1kzOTdrbGg3RFNlcXRITVlVcVhEWkpuUVdlc0MtVFQwamxDSVVjYlVIbFRHRkd3T0tKYmtiTmIwdGw3MGV0MDdrWm55UHRDWVVSVnFLaW9FWk8tYy1PSTBubHpYc19md2MwdVhCTzdiOGltVzZ2ZVcyeVRTa0FoMDAyUGpHLUZ1V3gtaw?oc=5",
-          "source": "gnews_injury_en",
-          "category": "withdrawal",
-          "severity": 0.95,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "has_alert": false,
+      "hard_block": false,
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -61330,26 +61239,13 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": true,
-        "hard_block": true,
-        "p_retire_boost": 0.234,
-        "category": "withdrawal",
-        "headline": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
-        "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOVDFCdGo2TnMtQWl2R0RqWEpqOUdjRm0xWUpfdHd2TWs4SVo0U010VjlnVE1CQXBBbDVSWlRvMzBNZFZTMENQYzA0cGRuVVVLSVA4S1kzOTdrbGg3RFNlcXRITVlVcVhEWkpuUVdlc0MtVFQwamxDSVVjYlVIbFRHRkd3T0tKYmtiTmIwdGw3MGV0MDdrWm55UHRDWVVSVnFLaW9FWk8tYy1PSTBubHpYc19md2MwdVhCTzdiOGltVzZ2ZVcyeVRTa0FoMDAyUGpHLUZ1V3gtaw?oc=5",
-        "source": "gnews_injury_en",
-        "severity": 0.95,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
-            "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOVDFCdGo2TnMtQWl2R0RqWEpqOUdjRm0xWUpfdHd2TWs4SVo0U010VjlnVE1CQXBBbDVSWlRvMzBNZFZTMENQYzA0cGRuVVVLSVA4S1kzOTdrbGg3RFNlcXRITVlVcVhEWkpuUVdlc0MtVFQwamxDSVVjYlVIbFRHRkd3T0tKYmtiTmIwdGw3MGV0MDdrWm55UHRDWVVSVnFLaW9FWk8tYy1PSTBubHpYc19md2MwdVhCTzdiOGltVzZ2ZVcyeVRTa0FoMDAyUGpHLUZ1V3gtaw?oc=5",
-            "source": "gnews_injury_en",
-            "category": "withdrawal",
-            "severity": 0.95,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "has_alert": false,
+        "hard_block": false,
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
       "opponent": {
         "has_alert": false,
@@ -61360,10 +61256,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": true,
-      "hard_block_pick": true,
-      "headline": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
-      "category": "withdrawal"
+      "any_alert": false,
+      "hard_block_pick": false,
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -72098,10 +71994,10 @@
       "headline": "Taranto Tennis Cup, Gill avanza e Vasami si ritira per infortunio: oggi in campo Maestrelli - Tarantini Time Quotidiano",
       "category": "injury"
     },
-    "p_retire": 0.189,
+    "p_retire": 0.2363,
     "retirement_context": {
-      "player_injury_risk": 0.18895,
-      "p_retire": 0.18895,
+      "player_injury_risk": 0.23625000000000002,
+      "p_retire": 0.23625000000000002,
       "news_boost": 0.04725
     }
   },
