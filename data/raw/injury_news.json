@@ -1,8 +1,8 @@
 {
   "ok": true,
-  "fetched_at": "2026-11-07T10:47:34.584160+00:00",
-  "n_items": 51,
-  "n_raw": 124,
+  "fetched_at": "2026-11-07T20:08:38.633487+00:00",
+  "n_items": 48,
+  "n_raw": 121,
   "errors": [
     "espn_tennis: fetch failed",
     "atp_news: fetch failed",
@@ -41,16 +41,6 @@
       "severity": 0.95
     },
     {
-      "title": "Leylah Fernandez latest Hong Kong Open withdrawal as ‘brutal’ calendar takes toll - South China Morning Post",
-      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPaU54bk04cmVTTnY5T2JfX3JrczJXX2JaakFvTlZWZjg2VGVISWZrdEkwVWFkN1RzdlVzLTg2WmpjS1V6STVBcDM2RkZsSEw1V3JvRWdRekdKU1NHbWFobDlPa0lVWWxRSEltWFVqVGdrQmlpdUVHeGNrM1hueDZSNVZ1MTNteWRVcmZwTktkQURkT3piYXNRYTdsaTZCaVlQYXlRSkx2eGpBVTAzNVNXM0FpYkdVZ21wT3VOVkhlWGhhNXZ60gHEAUFVX3lxTFBnVzRGWVl6OTNQQUNUYWJlaHZEVVNQZjdVYkxnTEY3VTNOOV9kUk9aVVVqUFExNnN1UlE3RzVuRk1QZ0ZvQmdJcW9QaGcxU1JWZjVYTy1BSjJaczVjMlJjbUpxTUdYQVdSanlsNUVvZjZTVTBKTXVXSVBIWWl4ZFkwNHd0NU85OFNJemtBM2hwVVNzWGwwcFNPbVk4T3pEaUdkYm1xcGttZ0g5cVdUUU9oUU4zamJHTHdubnpyOHVQVWl1Rlo?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.95
-    },
-    {
       "title": "Berrettini withdraws with arm pain, Alcaraz into the quarter-finals without playing! - Tennis Majors",
       "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQeWV1VHo0aXpuc2hTLW5VWFJscnE4RlJQUzc2d0ZZdk5vYnNralhPZHNGSEJXTXJ1ZkZDclBKTERhSWM1TklQZ1p0U1Npd3c2X2tiVnpQcW1TOUYxLThpeE9mMDdHM1luU3hMR0FkQnFyaVUtMHZNelpRVVFfcVQyTng5UFlVYnRkdFM0VkxOSEpiMWoxeWJUYWxXdktrUHphVURRa1czWHNSeFFjZGVaLUtPUnBwaGVuV3hwVm9zVlJZYlF5N1ZQUjZvVjVCX3NydDZTMDZSVWZ0T0JyclRJT3dR?oc=5",
       "summary": "",
@@ -81,28 +71,8 @@
       "severity": 0.95
     },
     {
-      "title": "Tennis: Alcaraz into Paris Masters quarters after Berrettini withdraws - Omni sports - Sports - Ahram Online",
-      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1zZlhSQ1YzVG53ZEU1d0NmMFYyb2VWN20yakFpMVdRZ1hzMnYwYk92M08wbE55Szc4TEo3aEZxT3owdVJDcjZ6MkV1UXk1MVNIM1VNR2IzVmc?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.95
-    },
-    {
-      "title": "Tennis-Alcaraz into Paris quarter-finals after Berrettini withdraws - The Star",
-      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPYjFzQ1VBYTZ6RjJPblNJUWxibTdOZzFfYzU5Rjh6TlhBT0w0SGFkRUFQQmUxZmJmdG9JUEdLVTYtMjU1aldDOFlheGFxa2ZYay02cVgycmJBOHpleXlxV2FHangyUmtnQWk3R3ExdDdJeWx3QzhnVGVIN2gyc0JZb3RqUlR2eS1XMnV1eDZGbWZxTEp2enJWbW1JdWQ0TWoxTVRrX05DUDZPbldxRzBmN2lKRkZwb2Z6Umc?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.95
-    },
-    {
-      "title": "HERE COMES CARLOS: Alcaraz makes quarters after Berrettini withdraws - Daily Tribune",
-      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQUVhJVlIxWmF1WnlWM3ZMUDRia0g1Qm9yV3ZzSHhNRjlZS29pNDBvRHQ5OUdCa29GZUdKZmNWd2tkeUpYZXlMUkNrM0xYc1VXVlZpVWI3RjVRWUFmME1XX25sTDZyWFZyZklTLVpOVnFxSnZqZFJCTHFLckU3cnQ3VDRBT2NFMm9PcHRpUTRYLXdMZGRUN3pCcnlBT2h3MTFGcjZ3?oc=5",
+      "title": "Elena Rybakina withdraws from 2026 WTA Finals at Indian Wells, cites medical issue - WTA Tennis",
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQeFV4UVpKNkcxVTRQY0cxbmQ5QkNpZE9aWkR0dGQ5WURJMTNnTm5NOC0teVMxTk1aMm9QNDJObVlqWTMySmlDVXpSRUFDN3I0dmgyS2tyM3ZaVnVhWjg2UnFaUmJMN25yd2lJemFseXlWMm9qQy1LNUswcU10Q2hZb2RHSzIzYTZVbEhDVDV0b0tJeHFXMlplR3ZLMVYzeE15aE52bDJkeEJfVGVWWEZN?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -121,8 +91,8 @@
       "severity": 0.92
     },
     {
-      "title": "Flavio Cobolli dà forfait a Parigi: \"Non voglio rischiare\". Resta in vantaggio nella Race alle Atp Finals - Today",
-      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5fVDVhWWlZVDRUUW83cFF0cWhqYmlnNkhhQ2RZVXV2ZnQ2OGU5QWplY3hXRkxtVVN5eElIY3VUUlFpY1hieFdtTnhaNUQ3Q1RPOHBxYVRuRHctcjRVWExIbUt5bWpSQVdBRF9CM0xR0gFuQVVfeXFMTkRQbEpnT3NkOVAtQkRMRktvY1U1bkdMRlh1Z2QzbkJzdEF0eUs1b0o3QnZUM2dXRk1YeWdmT2s4eEtPaWxOWmdJcjFqMm9nQUt2cGdMMUVfR3N2Ykd6cTdaRHViU2MycGhjSGJVZGc?oc=5",
+      "title": "Berrettini dà forfait con Alcaraz: si ritira a Parigi, niente sfida per i quarti - Today",
+      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE8wQUpPOWFxM216TTFRZDBPRTk5ZXFZVmg5SU9KSjNlSmQ3V19mRlp1WHpMcXlUeFkzTlpnNzF1WFJQS0lQcjgxQzV1UjVJYWZQQVVnMDNPN1lUS1BwZUNDcmxITDRkRVdQTUVJVG96RVcxQy1YMVUxNzZ0ONIBe0FVX3lxTE8wQUpPOWFxM216TTFRZDBPRTk5ZXFZVmg5SU9KSjNlSmQ3V19mRlp1WHpMcXlUeFkzTlpnNzF1WFJQS0lQcjgxQzV1UjVJYWZQQVVnMDNPN1lUS1BwZUNDcmxITDRkRVdQTUVJVG96RVcxQy1YMVUxNzZ0OA?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -141,8 +111,8 @@
       "severity": 0.92
     },
     {
-      "title": "Berrettini dà forfait con Alcaraz: si ritira a Parigi, niente sfida per i quarti - Today",
-      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE8wQUpPOWFxM216TTFRZDBPRTk5ZXFZVmg5SU9KSjNlSmQ3V19mRlp1WHpMcXlUeFkzTlpnNzF1WFJQS0lQcjgxQzV1UjVJYWZQQVVnMDNPN1lUS1BwZUNDcmxITDRkRVdQTUVJVG96RVcxQy1YMVUxNzZ0ONIBe0FVX3lxTE8wQUpPOWFxM216TTFRZDBPRTk5ZXFZVmg5SU9KSjNlSmQ3V19mRlp1WHpMcXlUeFkzTlpnNzF1WFJQS0lQcjgxQzV1UjVJYWZQQVVnMDNPN1lUS1BwZUNDcmxITDRkRVdQTUVJVG96RVcxQy1YMVUxNzZ0OA?oc=5",
+      "title": "Flavio Cobolli dà forfait a Parigi: \"Non voglio rischiare\". Resta in vantaggio nella Race alle Atp Finals - Today",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5fVDVhWWlZVDRUUW83cFF0cWhqYmlnNkhhQ2RZVXV2ZnQ2OGU5QWplY3hXRkxtVVN5eElIY3VUUlFpY1hieFdtTnhaNUQ3Q1RPOHBxYVRuRHctcjRVWExIbUt5bWpSQVdBRF9CM0xR0gFuQVVfeXFMTkRQbEpnT3NkOVAtQkRMRktvY1U1bkdMRlh1Z2QzbkJzdEF0eUs1b0o3QnZUM2dXRk1YeWdmT2s4eEtPaWxOWmdJcjFqMm9nQUt2cGdMMUVfR3N2Ykd6cTdaRHViU2MycGhjSGJVZGc?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -171,8 +141,8 @@
       "severity": 0.92
     },
     {
-      "title": "Entry list ATP Stoccolma 2026, partecipanti e italiani presenti: forfait di Darderi, Berrettini evita le qualificazioni - Lottomatica.Sport",
-      "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNZFJJOTcxZzZtNEtnT0Z6SDlDTC1URENTVGNPajlqR2lYVjR1ODJ2RW02cXFaNVdoWTRja2F5Q3JxX20wRy11WEE2NzRNZEFiSU1WS19NS2IxOFdkdDNnNTNzZTZ6Q0cxZUVSeTRZalBHcGpaTk1NV1FxNW1KR2wwOXNJTEdUNU84NmZMdjhhTnhSdk9ZOXlub1pzSW1UR0laVGZTN2ZLVU9GS0VNMTFNeFVYWHBXVV9aZFBsdlJIZW1ONnUyRTk5MEgwcTRrUkpmdjlYR0Z3UThIZ0RYS3hTVHlhRkJwM1FnMjJxel84eGM?oc=5",
+      "title": "Monfils resta nel mondo del tennis dopo il ritiro: diventa allenatore capo - Free Press - Слободен печат",
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQT3kwZS02YmNtU2JBd0Q4cFhpejYzRXBhbk92S2R1NUgtSXJlOFhfelo4bFVHSDg3QUVWNnBsTFdWV1RPSjl4bHJ0R1BsckNaNHZtbFJWX25ubjRtTDctcFo1aC1CbThFRHpmOGJ6czNxYTk5c0pjT2U5eXhicGViVkgxQmk3WGNUbDBESF9tMjRtYWtaLWpTaTM5bw?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -181,8 +151,8 @@
       "severity": 0.92
     },
     {
-      "title": "Parigi-Bercy, Berrettini da forfait contro Alcaraz: “troppo dolore al braccio” - SportPress24",
-      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOZk8tcFpKMnFSV3V3RXE0dFVHczUwNXB4azNueDJKRFlZVlRZcUJoVmlqQnBUUEdRSGdxTl9jaEY2OGRmZGpWMjM4WDJPWUtPTUFWTnl5VlE0alBuOW5TMjBVenU1UENoWlpQZkpoWEYxRFV0Y3BCWC1jNmU4VFV6MkZWcmlwQ0xVR1pRajRJaGEwaUtVdUlGcWtnRHJPaUt2RjdwdTFIY0RZTHRBeU9yZF91bnduNThJdm1pQVhR0gG-AUFVX3lxTE5mTy1wWkoycVJXdXdFcTR0VUdzNTA1cHhrM254MkpEWVlWVFlxQmhWaWpCcFRQR1FIZ3FOX2NoRjY4ZGZkalYyMzhYMk9ZS09NQVZOeXlWUTRqUG45blMyMFV6dTVQQ2haWlBmSmhYRjFEVXRjcEJYLWM2ZThUVXoyRlZyaXBDTFVHWlFqNEloYTBpS1V1SUZxa2dEck9pS3ZGN3B1MUhjRFlMdEF5T3JkX3Vud241OEl2bWlBWFE?oc=5",
+      "title": "Entry list ATP Stoccolma 2026, partecipanti e italiani presenti: forfait di Darderi, Berrettini evita le qualificazioni - Lottomatica.Sport",
+      "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNZFJJOTcxZzZtNEtnT0Z6SDlDTC1URENTVGNPajlqR2lYVjR1ODJ2RW02cXFaNVdoWTRja2F5Q3JxX20wRy11WEE2NzRNZEFiSU1WS19NS2IxOFdkdDNnNTNzZTZ6Q0cxZUVSeTRZalBHcGpaTk1NV1FxNW1KR2wwOXNJTEdUNU84NmZMdjhhTnhSdk9ZOXlub1pzSW1UR0laVGZTN2ZLVU9GS0VNMTFNeFVYWHBXVV9aZFBsdlJIZW1ONnUyRTk5MEgwcTRrUkpmdjlYR0Z3UThIZ0RYS3hTVHlhRkJwM1FnMjJxel84eGM?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -231,6 +201,36 @@
       "severity": 0.85
     },
     {
+      "title": "Tennis star Sorana Cirstea immediately retires from the sport after upset loss at Hong Kong Open | OutKick - Fox News",
+      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPa203bzAxTHpnU05yTU16S1RRTURvLXBpUWVYM2RQeHBfWGlJRDRFYURPRk1HTXZHOHVUYnFhd3hVZlpZcFlCbmVpY3hmR2JFZXpEUVJFQ25PYW8tQzdYMm9FXzNnU1pxMkRqaTN1UTdrWVdBTVp0bzFFLWV4UjJ2UjkwYXhaY0c5a0pVc0NBVWhNWFdtVDZrUlhVV1dZako4VVZCVHhSTjBOQWFGVE5qZnhRREdkMXR5?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
+      "title": "Tennis star Sorana Cirstea loses match — immediately retires from sport - New York Post",
+      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPY0Q0S1lFTXRZMUJFRFZxUkdVeEZRbFlHMVp4c2hwZDl4Y3hRWUEtcnpZUjQwZDdrYTRlVHVwWlBXTU1oUG5saFhLaTdwTWN2STVPaUJqRjM2UER4cC1QSTJwd1NNZHAxN1R1cVh4XzRaOS1vVXBoZ3NpR3BFR3RSWmpKY29ncnV5eW5yalNMT25FMTY2ZFk3d2RHMUR0VV9aWi00Yk1lTkhDb0NfWkk1R05fdmQzYzI0UG1XdjdVc1JpVi1o?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
+      "title": "Retired tennis star Gaël Monfils named captain of France's Davis Cup team - France 24",
+      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPWERHNDFfaGZIdk9pY2owaURJS1I1OWUyeVI4aHd6dVJCaUxLMjJYNzFlcFZHWFJBU0QwZFBHSGY0UDFSWlc0b1dqcy1xZzZlLTIzXzFJOTEteEZMY1R6T2ZmVExDdXRrYnFuMTdDUXVJRDVVYUFHc05DVGJDcG9rTUhpTkltM2tKeFFYQVVPSktpY05sTURnMlNod3lzRldoSjhzMEpONlU2MGVwekdPSTFyaFI4dWxBWW9GRFAtYw?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
       "title": "Naomi Osaka Considers Tennis Retirement for Daughter - Yahoo Sports",
       "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxObVR5a3EtVVZRbDZqMTZKWFVLSXRkR3lBdjNnNXY2RDNsQWZyTzhNNDBIWXVrVXgwSnVVM0E1cEtNVjQ5bFctZmgycjhCaXV5eTNiYWpJa1BrQzJDU2RmSjRhWWo5eEFRTUFBVXgzQ0N0Tkp6RVlRNlM2M09jS2VkcGlLRHVUNmd6eUVvLUFPa0ZlUQ?oc=5",
       "summary": "",
@@ -261,8 +261,8 @@
       "severity": 0.85
     },
     {
-      "title": "Tennis star loses match, immediately retires - News.com.au",
-      "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQRm84aklTVmZKX2ZFOWtfbG5lM3ZnTlh4dVoxT3ZEdlliamdDX1hkMmZYaVZkdEdPdnM2OGE1NzJCXzJIYlR1WUViYURrazRMR2hfZWFWR2MzMVRjWHZwdUdxSjR2MEtRWmNWZnJ6ZVN3V2hzdnBsSTRRN19XUjAtTEt1dzBuY05hdk0xNTB6QTFMRldXMTNQTVlFZFdMWVZRM2tybDloYkd4UHJ6Ry1JZHBHb2dlZWczUTA2eFZiYnl0d3IwcXg2NUowS2U4ZTNpVV9IS25ZZHNhYk0xdVh4ZFFsMzN2dkIxTkHSAe8BQVVfeXFMTlJSTkMwOHhkZTBXYnU2a2twV05wSVBES0hVSmxaZE1SaVVhb1k4Vk4wR0FqRDgtcnVybDFMWkxac3Vidk1ENmtTdGowYmlrc2FBUjZmNmRud3hjSk1UY0pfRzl5bUNJcWlONE0tcm5Hd1dlRGtMcmZqWHpzZml3WmZrOWVKaS1MTzJDSy15QndmMzktZ0lWN213OVhPNlZhNTZoa2hqNGJpRkRzd2Z0b0xTLWRxSmNEZVN2eW1WVWhzRUlHVGNKRkY2VHlzZEQ0OWN1VzZjVTJ5UzJjRm1IdDdqUWRSLXMyQmxhN3VpSXM?oc=5",
+      "title": "Shapovalov Retires in Paris Masters Opener - Tennis Canada",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQbDNmMEhSLU1IQTJZb3VLQUNnU3ROUjR5em9haUhLVHkta2xILW51djlkNFFQQWc2Qm1QR3MyY1NiTVhXeW5tMFNRUm92OUNTUXk0Q1J1Y2tjRzRTU0tTWG5nTjh3ZVJTVFZNSzVqMGFST2Iyb3I0Z3VqRmw3R2N3ZG9YdXFmOWtDcUcxNXFlYkRsU1NwSzNB?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -271,8 +271,18 @@
       "severity": 0.85
     },
     {
-      "title": "Shapovalov Retires in Paris Masters Opener - Tennis Canada",
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQbDNmMEhSLU1IQTJZb3VLQUNnU3ROUjR5em9haUhLVHkta2xILW51djlkNFFQQWc2Qm1QR3MyY1NiTVhXeW5tMFNRUm92OUNTUXk0Q1J1Y2tjRzRTU0tTWG5nTjh3ZVJTVFZNSzVqMGFST2Iyb3I0Z3VqRmw3R2N3ZG9YdXFmOWtDcUcxNXFlYkRsU1NwSzNB?oc=5",
+      "title": "Gael Monfils appointed captain of France's Davis Cup team following retirement - The Independent",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPaUJfUDhzUHlBT1Utd3hfUXdjMXFERDJwTy0wYklUUVpoSzJJaXFRUF85Rzg1T1FKUEZ3Y1NZV2RIbmFWNE81ajVKUEFmbGRtWF9WSW5TcWhEWElCcTBPT09YNjlLVG5SX0NaVGJtdUNrek92ekJfTXJZNzc2QzdEaUhpeWJSbTlsZ0Z5NnkxYkQ5STZkX0lMaDBBLURYdw?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
+      "title": "Gael Monfils lands new role shortly after his retirement from tennis - Tennishead",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQcFZHNEV1enRWUmdkam5TM0o3czREajZoUGp5WTZGaFBCWk9FdzNWRTItTWJENXZkWXFzMnNLMlNDVVVZWm1aUUlCNzRoS0J1RlI0aVJBSjlVZUdweTZ2cnNnNXZxV0poamtsenRMM0FQSm5WRXhDUGp5VXZNdFhRYnFwSGg0LXlTNHVUQjFUeThMX1E1bWdF?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -293,26 +303,6 @@
     {
       "title": "World No15 retires from tennis with immediate effect after shock loss - The Sun",
       "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQVFdzYWdGTUNDVU9Tcjh3WE5hUFBkajBlSmJiaDgyTG9hanBERWpQc2dUd2xtVGc5dFNXUUY5VXozZGdxNmdSeGNxcU5CN0o0aTZ0N0VJVE1UNi12emtIT29yYXlXcFI1VnlBMmVPR3h6TXFVVFlUTUxRTFhQSnRSUXZOblFRY2piUFFfaWZR?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "retirement",
-      "severity": 0.85
-    },
-    {
-      "title": "'A very symbolic date' - Gael Monfils pays tribute to his family following retirement from professional tennis - TNT Sports",
-      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxONFpBNWRod0ltUHppZUVqTHlhOEtTeG9iV1YwZUtGSVdUTHV1SjBIQ2p6dy1SQWZqcTFpMFZmcFpUYW5jZE44OVgtLURjN0wxV2hVakRBZXRiVjVIM0dSZVZ4X0I1T2N1ZjVXSTZVV3o1T3VHYUtILXdXaDVyM25VYVhWczRGSnBwOE9HeE5rOThwM1FzZ1dXbnlWdjNWSmpWMmpNTWk0SGxWUjdqUkkyUjl2WnFubmhERUtOQjVFMA?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "retirement",
-      "severity": 0.85
-    },
-    {
-      "title": "Harshini advances after Laxmi Siri retires in tennis semifinal - Telangana Today",
-      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNNHNSYmVJU3lHMWJyOWtGR0haY2lGdDh1clZhaVhIZkkydzdQelFzMlZmVmRvbDc2WE1KSzFwNFBKU3JlVG1iYzNyUmVoS3g2Y3NfWTBNNW9WbzZXaXNJNnd5UHkxd2duMGdieUtGMlltTFhmYzM4OEpBdTZJMHlEd183SXBoSVpwREp3R21LYTNMMXM?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -471,16 +461,6 @@
       "severity": 0.75
     },
     {
-      "title": "Infortunio Raimondo: operazione o terapia conservativa? La scelta del Frosinone - SNAI sportnews",
-      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOZ1Z3YWV3N1BtTWV1SHdYTEhOT253c0RKMzdKWHpDUldZVWMtZFRMT2F5UzRKS2J1QWxNS0xjTFpoUmI4UmFGd1Z3S3lIQ1V1LXdES3NzQTg2a0Qyd2FkRUswVFFkUnZRd1RMT2JtaUY5VnltWUljcS1vY055alhuU3RqSWhQV1RLdFk4MnM1MjdsaW1vY1NKNkw3UDlacVlfSEFpZzMxRTVYSV9kdXhv?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
       "title": "Infortunio Berrettini, salta il match con Alcaraz | Il romano si ritira da Parigi Bercy (5 novembre 2026) - IlSussidiario.net",
       "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOZFBqZkY2RXNHSVJ6c0p2TjQ2VExER0RvbmFraXkzQkJmc0hxaUJFQnJCREhHRUlvMVY3aUNITkQ2UnRjX3liRm5jVTNZU0UtcWpNME9ncWtFa052LWJxYXlxRjllXzhFcUhWUnNhbjU4c2VEQmtxV2pMWExJb1FHSnlmLTVteFJTbkUtdnk1c3JaMHdfSG5MZWF2S1QwWTNVODdlMWdJemd4RDNXY2hIVzJ0NVBLRG1ZOGRPMm4xNjIxaktXQm9OeVZxMjVlTlhmMHA0bExzLTBrRjZw0gHiAUFVX3lxTE9tNl9lMzFRZzVSOGVOMHZVT19tV0NZdVk5UnZSbHdKaWlFTGxxSS1iODJzSGw1YXRJZWFsdlV6UGVSTnZPTFZvUWhXQWZBQkx1b09ZM2szeFZ6VlpMQ1cwbHM5eGZvOENKZE44UXlwRzV6Z09ZZk5CS3lnM1pqN1l0M0RVMGtHVjBlZ2hweGpxWndJNk9KLVAtZHFjRHQ0YXdmMXNjcmNTdGNacXhZaG5teXRuTTJIYVF4bWV0Z1dJelhNWkV2Nzl0ejY2VUtnWjROTWNBVFhxZTVia24yTWQzSGc?oc=5",
       "summary": "",
@@ -493,16 +473,6 @@
     {
       "title": "Vasamì, grave infortunio per la promessa italiana all’ATP Challenger di Taranto: cosa è successo - Lottomatica.Sport",
       "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQQzg2VGR2Wkl1dVpFWlZ2MFNhaEpXS3JvZkY0UmF6bW5aQ2FaOGdwYmMwZ0pWak1Qbi1BOU5EdFQ3cDhTaXJQN1QtM0dLakR3ZHNYbzB6VFd1TXU0U1p3MkdCbjR2NGI0a3pqd3l0eTRWdmhKRUgwNWxDb2VFUHVCckg2NEdDbVBJRl9jYS03UzNDV1Nha3AxNVk2M0hETTFVVjNjMHFfc1FWaUhZUDV0dmJWc1FDRnlvcTl4Z1JkWFoxbzBRTHlmTHowcXRrd1ZmMkE?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Taranto Tennis Cup, Gill supera Walters. Vasami si ritira per infortunio, nel doppio avanzano le favorite - Eventi e News",
-      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQMjg5LV82cENkb0ZMZjhzak1UM1didHJRQVQ4VmJ6S0Q5SlN4Njd0d2RKY1pDeThjX1pwTUZNc3otRmRNMFBPbjJEdm5NRS03MnFZb3FHZWNVTF94dWZMZFc2NF94a3JHRnNqNURESGg1UzZybzFNRUNETFc4VlR3QzZHSmFkajFCWm5Yb2xpdnJET3B5eEU5NUJsSGNkUXRMM1l0dFE3a3dhRVRheDlNbVFRclp1Z0xTS2czQVZaQTdlZmRt?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",

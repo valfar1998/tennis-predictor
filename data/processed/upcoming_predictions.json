@@ -71994,10 +71994,10 @@
       "headline": "Taranto Tennis Cup, Gill avanza e Vasami si ritira per infortunio: oggi in campo Maestrelli - Tarantini Time Quotidiano",
       "category": "injury"
     },
-    "p_retire": 0.2363,
+    "p_retire": 0.2836,
     "retirement_context": {
-      "player_injury_risk": 0.23625000000000002,
-      "p_retire": 0.23625000000000002,
+      "player_injury_risk": 0.28355,
+      "p_retire": 0.28355,
       "news_boost": 0.04725
     }
   },
