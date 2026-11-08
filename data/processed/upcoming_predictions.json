@@ -13459,13 +13459,26 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Claire Liu wins first WTA title in Hong Kong as injured Alex Eala falls in final - TennisTemple",
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQZEcyRWlDU0YxeXg3b3YyVnY2UExlTm1mc1FFR3Jya25Cakc1YTVEZUFfakdGbEptNmRZZXQ3NWMzT0NLRmZvM1NZc3AzM1hYcENveHN1V2VtRWY0TEV5ZjR0ZWJaamJsR3YyM04xeDd2TW9iTEhiRTFzZUZtZjhlNElsU09hd3dPVnRTWVh3?oc=5",
+      "source": "gnews_injury_en",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Claire Liu wins first WTA title in Hong Kong as injured Alex Eala falls in final - TennisTemple",
+          "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQZEcyRWlDU0YxeXg3b3YyVnY2UExlTm1mc1FFR3Jya25Cakc1YTVEZUFfakdGbEptNmRZZXQ3NWMzT0NLRmZvM1NZc3AzM1hYcENveHN1V2VtRWY0TEV5ZjR0ZWJaamJsR3YyM04xeDd2TW9iTEhiRTFzZUZtZjhlNElsU09hd3dPVnRTWVh3?oc=5",
+          "source": "gnews_injury_en",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_alert": {
       "pick_side": "A",
@@ -13479,18 +13492,37 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Claire Liu wins first WTA title in Hong Kong as injured Alex Eala falls in final - TennisTemple",
+        "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQZEcyRWlDU0YxeXg3b3YyVnY2UExlTm1mc1FFR3Jya25Cakc1YTVEZUFfakdGbEptNmRZZXQ3NWMzT0NLRmZvM1NZc3AzM1hYcENveHN1V2VtRWY0TEV5ZjR0ZWJaamJsR3YyM04xeDd2TW9iTEhiRTFzZUZtZjhlNElsU09hd3dPVnRTWVh3?oc=5",
+        "source": "gnews_injury_en",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Claire Liu wins first WTA title in Hong Kong as injured Alex Eala falls in final - TennisTemple",
+            "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQZEcyRWlDU0YxeXg3b3YyVnY2UExlTm1mc1FFR3Jya25Cakc1YTVEZUFfakdGbEptNmRZZXQ3NWMzT0NLRmZvM1NZc3AzM1hYcENveHN1V2VtRWY0TEV5ZjR0ZWJaamJsR3YyM04xeDd2TW9iTEhiRTFzZUZtZjhlNElsU09hd3dPVnRTWVh3?oc=5",
+            "source": "gnews_injury_en",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Claire Liu wins first WTA title in Hong Kong as injured Alex Eala falls in final - TennisTemple",
+      "category": "injury"
+    },
+    "p_retire": 0.0473,
+    "retirement_context": {
+      "player_injury_risk": 0.04725,
+      "p_retire": 0.04725,
+      "news_boost": 0.04725
     }
   },
   {
@@ -54719,13 +54751,26 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Claire Liu wins first WTA title in Hong Kong as injured Alex Eala falls in final - TennisTemple",
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQZEcyRWlDU0YxeXg3b3YyVnY2UExlTm1mc1FFR3Jya25Cakc1YTVEZUFfakdGbEptNmRZZXQ3NWMzT0NLRmZvM1NZc3AzM1hYcENveHN1V2VtRWY0TEV5ZjR0ZWJaamJsR3YyM04xeDd2TW9iTEhiRTFzZUZtZjhlNElsU09hd3dPVnRTWVh3?oc=5",
+      "source": "gnews_injury_en",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Claire Liu wins first WTA title in Hong Kong as injured Alex Eala falls in final - TennisTemple",
+          "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQZEcyRWlDU0YxeXg3b3YyVnY2UExlTm1mc1FFR3Jya25Cakc1YTVEZUFfakdGbEptNmRZZXQ3NWMzT0NLRmZvM1NZc3AzM1hYcENveHN1V2VtRWY0TEV5ZjR0ZWJaamJsR3YyM04xeDd2TW9iTEhiRTFzZUZtZjhlNElsU09hd3dPVnRTWVh3?oc=5",
+          "source": "gnews_injury_en",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_alert": {
       "pick_side": "A",
@@ -54739,18 +54784,37 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Claire Liu wins first WTA title in Hong Kong as injured Alex Eala falls in final - TennisTemple",
+        "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQZEcyRWlDU0YxeXg3b3YyVnY2UExlTm1mc1FFR3Jya25Cakc1YTVEZUFfakdGbEptNmRZZXQ3NWMzT0NLRmZvM1NZc3AzM1hYcENveHN1V2VtRWY0TEV5ZjR0ZWJaamJsR3YyM04xeDd2TW9iTEhiRTFzZUZtZjhlNElsU09hd3dPVnRTWVh3?oc=5",
+        "source": "gnews_injury_en",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Claire Liu wins first WTA title in Hong Kong as injured Alex Eala falls in final - TennisTemple",
+            "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQZEcyRWlDU0YxeXg3b3YyVnY2UExlTm1mc1FFR3Jya25Cakc1YTVEZUFfakdGbEptNmRZZXQ3NWMzT0NLRmZvM1NZc3AzM1hYcENveHN1V2VtRWY0TEV5ZjR0ZWJaamJsR3YyM04xeDd2TW9iTEhiRTFzZUZtZjhlNElsU09hd3dPVnRTWVh3?oc=5",
+            "source": "gnews_injury_en",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Claire Liu wins first WTA title in Hong Kong as injured Alex Eala falls in final - TennisTemple",
+      "category": "injury"
+    },
+    "p_retire": 0.0473,
+    "retirement_context": {
+      "player_injury_risk": 0.04725,
+      "p_retire": 0.04725,
+      "news_boost": 0.04725
     }
   },
   {
@@ -71994,10 +72058,10 @@
       "headline": "Taranto Tennis Cup, Gill avanza e Vasami si ritira per infortunio: oggi in campo Maestrelli - Tarantini Time Quotidiano",
       "category": "injury"
     },
-    "p_retire": 0.2836,
+    "p_retire": 0.3309,
     "retirement_context": {
-      "player_injury_risk": 0.28355,
-      "p_retire": 0.28355,
+      "player_injury_risk": 0.33085000000000003,
+      "p_retire": 0.33085000000000003,
       "news_boost": 0.04725
     }
   },
