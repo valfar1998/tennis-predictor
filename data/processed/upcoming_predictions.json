@@ -13459,26 +13459,13 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.135,
-      "category": "injury",
-      "headline": "Claire Liu wins first WTA title in Hong Kong as injured Alex Eala falls in final - TennisTemple",
-      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQZEcyRWlDU0YxeXg3b3YyVnY2UExlTm1mc1FFR3Jya25Cakc1YTVEZUFfakdGbEptNmRZZXQ3NWMzT0NLRmZvM1NZc3AzM1hYcENveHN1V2VtRWY0TEV5ZjR0ZWJaamJsR3YyM04xeDd2TW9iTEhiRTFzZUZtZjhlNElsU09hd3dPVnRTWVh3?oc=5",
-      "source": "gnews_injury_en",
-      "severity": 0.75,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Claire Liu wins first WTA title in Hong Kong as injured Alex Eala falls in final - TennisTemple",
-          "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQZEcyRWlDU0YxeXg3b3YyVnY2UExlTm1mc1FFR3Jya25Cakc1YTVEZUFfakdGbEptNmRZZXQ3NWMzT0NLRmZvM1NZc3AzM1hYcENveHN1V2VtRWY0TEV5ZjR0ZWJaamJsR3YyM04xeDd2TW9iTEhiRTFzZUZtZjhlNElsU09hd3dPVnRTWVh3?oc=5",
-          "source": "gnews_injury_en",
-          "category": "injury",
-          "severity": 0.75,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_alert": {
       "pick_side": "A",
@@ -13492,31 +13479,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.135,
-        "category": "injury",
-        "headline": "Claire Liu wins first WTA title in Hong Kong as injured Alex Eala falls in final - TennisTemple",
-        "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQZEcyRWlDU0YxeXg3b3YyVnY2UExlTm1mc1FFR3Jya25Cakc1YTVEZUFfakdGbEptNmRZZXQ3NWMzT0NLRmZvM1NZc3AzM1hYcENveHN1V2VtRWY0TEV5ZjR0ZWJaamJsR3YyM04xeDd2TW9iTEhiRTFzZUZtZjhlNElsU09hd3dPVnRTWVh3?oc=5",
-        "source": "gnews_injury_en",
-        "severity": 0.75,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Claire Liu wins first WTA title in Hong Kong as injured Alex Eala falls in final - TennisTemple",
-            "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQZEcyRWlDU0YxeXg3b3YyVnY2UExlTm1mc1FFR3Jya25Cakc1YTVEZUFfakdGbEptNmRZZXQ3NWMzT0NLRmZvM1NZc3AzM1hYcENveHN1V2VtRWY0TEV5ZjR0ZWJaamJsR3YyM04xeDd2TW9iTEhiRTFzZUZtZjhlNElsU09hd3dPVnRTWVh3?oc=5",
-            "source": "gnews_injury_en",
-            "category": "injury",
-            "severity": 0.75,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Claire Liu wins first WTA title in Hong Kong as injured Alex Eala falls in final - TennisTemple",
-      "category": "injury"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.0473,
     "retirement_context": {
@@ -14990,6 +14964,7 @@
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
+        "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook"
       ],
       "review_reasons": []
@@ -15024,13 +14999,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
-      "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "has_alert": true,
+      "hard_block": true,
+      "p_retire_boost": 0.234,
+      "category": "withdrawal",
+      "headline": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
+      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOVDFCdGo2TnMtQWl2R0RqWEpqOUdjRm0xWUpfdHd2TWs4SVo0U010VjlnVE1CQXBBbDVSWlRvMzBNZFZTMENQYzA0cGRuVVVLSVA4S1kzOTdrbGg3RFNlcXRITVlVcVhEWkpuUVdlc0MtVFQwamxDSVVjYlVIbFRHRkd3T0tKYmtiTmIwdGw3MGV0MDdrWm55UHRDWVVSVnFLaW9FWk8tYy1PSTBubHpYc19md2MwdVhCTzdiOGltVzZ2ZVcyeVRTa0FoMDAyUGpHLUZ1V3gtaw?oc=5",
+      "source": "gnews_injury_en",
+      "severity": 0.95,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
+          "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOVDFCdGo2TnMtQWl2R0RqWEpqOUdjRm0xWUpfdHd2TWs4SVo0U010VjlnVE1CQXBBbDVSWlRvMzBNZFZTMENQYzA0cGRuVVVLSVA4S1kzOTdrbGg3RFNlcXRITVlVcVhEWkpuUVdlc0MtVFQwamxDSVVjYlVIbFRHRkd3T0tKYmtiTmIwdGw3MGV0MDdrWm55UHRDWVVSVnFLaW9FWk8tYy1PSTBubHpYc19md2MwdVhCTzdiOGltVzZ2ZVcyeVRTa0FoMDAyUGpHLUZ1V3gtaw?oc=5",
+          "source": "gnews_injury_en",
+          "category": "withdrawal",
+          "severity": 0.95,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -15044,13 +15032,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
-        "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "has_alert": true,
+        "hard_block": true,
+        "p_retire_boost": 0.234,
+        "category": "withdrawal",
+        "headline": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
+        "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOVDFCdGo2TnMtQWl2R0RqWEpqOUdjRm0xWUpfdHd2TWs4SVo0U010VjlnVE1CQXBBbDVSWlRvMzBNZFZTMENQYzA0cGRuVVVLSVA4S1kzOTdrbGg3RFNlcXRITVlVcVhEWkpuUVdlc0MtVFQwamxDSVVjYlVIbFRHRkd3T0tKYmtiTmIwdGw3MGV0MDdrWm55UHRDWVVSVnFLaW9FWk8tYy1PSTBubHpYc19md2MwdVhCTzdiOGltVzZ2ZVcyeVRTa0FoMDAyUGpHLUZ1V3gtaw?oc=5",
+        "source": "gnews_injury_en",
+        "severity": 0.95,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
+            "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOVDFCdGo2TnMtQWl2R0RqWEpqOUdjRm0xWUpfdHd2TWs4SVo0U010VjlnVE1CQXBBbDVSWlRvMzBNZFZTMENQYzA0cGRuVVVLSVA4S1kzOTdrbGg3RFNlcXRITVlVcVhEWkpuUVdlc0MtVFQwamxDSVVjYlVIbFRHRkd3T0tKYmtiTmIwdGw3MGV0MDdrWm55UHRDWVVSVnFLaW9FWk8tYy1PSTBubHpYc19md2MwdVhCTzdiOGltVzZ2ZVcyeVRTa0FoMDAyUGpHLUZ1V3gtaw?oc=5",
+            "source": "gnews_injury_en",
+            "category": "withdrawal",
+            "severity": 0.95,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -15061,10 +15062,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
-      "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "any_alert": true,
+      "hard_block_pick": true,
+      "headline": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
+      "category": "withdrawal"
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -54751,26 +54752,13 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.135,
-      "category": "injury",
-      "headline": "Claire Liu wins first WTA title in Hong Kong as injured Alex Eala falls in final - TennisTemple",
-      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQZEcyRWlDU0YxeXg3b3YyVnY2UExlTm1mc1FFR3Jya25Cakc1YTVEZUFfakdGbEptNmRZZXQ3NWMzT0NLRmZvM1NZc3AzM1hYcENveHN1V2VtRWY0TEV5ZjR0ZWJaamJsR3YyM04xeDd2TW9iTEhiRTFzZUZtZjhlNElsU09hd3dPVnRTWVh3?oc=5",
-      "source": "gnews_injury_en",
-      "severity": 0.75,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Claire Liu wins first WTA title in Hong Kong as injured Alex Eala falls in final - TennisTemple",
-          "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQZEcyRWlDU0YxeXg3b3YyVnY2UExlTm1mc1FFR3Jya25Cakc1YTVEZUFfakdGbEptNmRZZXQ3NWMzT0NLRmZvM1NZc3AzM1hYcENveHN1V2VtRWY0TEV5ZjR0ZWJaamJsR3YyM04xeDd2TW9iTEhiRTFzZUZtZjhlNElsU09hd3dPVnRTWVh3?oc=5",
-          "source": "gnews_injury_en",
-          "category": "injury",
-          "severity": 0.75,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_alert": {
       "pick_side": "A",
@@ -54784,31 +54772,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.135,
-        "category": "injury",
-        "headline": "Claire Liu wins first WTA title in Hong Kong as injured Alex Eala falls in final - TennisTemple",
-        "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQZEcyRWlDU0YxeXg3b3YyVnY2UExlTm1mc1FFR3Jya25Cakc1YTVEZUFfakdGbEptNmRZZXQ3NWMzT0NLRmZvM1NZc3AzM1hYcENveHN1V2VtRWY0TEV5ZjR0ZWJaamJsR3YyM04xeDd2TW9iTEhiRTFzZUZtZjhlNElsU09hd3dPVnRTWVh3?oc=5",
-        "source": "gnews_injury_en",
-        "severity": 0.75,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Claire Liu wins first WTA title in Hong Kong as injured Alex Eala falls in final - TennisTemple",
-            "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQZEcyRWlDU0YxeXg3b3YyVnY2UExlTm1mc1FFR3Jya25Cakc1YTVEZUFfakdGbEptNmRZZXQ3NWMzT0NLRmZvM1NZc3AzM1hYcENveHN1V2VtRWY0TEV5ZjR0ZWJaamJsR3YyM04xeDd2TW9iTEhiRTFzZUZtZjhlNElsU09hd3dPVnRTWVh3?oc=5",
-            "source": "gnews_injury_en",
-            "category": "injury",
-            "severity": 0.75,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Claire Liu wins first WTA title in Hong Kong as injured Alex Eala falls in final - TennisTemple",
-      "category": "injury"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.0473,
     "retirement_context": {
@@ -61249,6 +61224,7 @@
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
+        "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook"
       ],
       "review_reasons": []
@@ -61283,13 +61259,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
-      "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "has_alert": true,
+      "hard_block": true,
+      "p_retire_boost": 0.234,
+      "category": "withdrawal",
+      "headline": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
+      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOVDFCdGo2TnMtQWl2R0RqWEpqOUdjRm0xWUpfdHd2TWs4SVo0U010VjlnVE1CQXBBbDVSWlRvMzBNZFZTMENQYzA0cGRuVVVLSVA4S1kzOTdrbGg3RFNlcXRITVlVcVhEWkpuUVdlc0MtVFQwamxDSVVjYlVIbFRHRkd3T0tKYmtiTmIwdGw3MGV0MDdrWm55UHRDWVVSVnFLaW9FWk8tYy1PSTBubHpYc19md2MwdVhCTzdiOGltVzZ2ZVcyeVRTa0FoMDAyUGpHLUZ1V3gtaw?oc=5",
+      "source": "gnews_injury_en",
+      "severity": 0.95,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
+          "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOVDFCdGo2TnMtQWl2R0RqWEpqOUdjRm0xWUpfdHd2TWs4SVo0U010VjlnVE1CQXBBbDVSWlRvMzBNZFZTMENQYzA0cGRuVVVLSVA4S1kzOTdrbGg3RFNlcXRITVlVcVhEWkpuUVdlc0MtVFQwamxDSVVjYlVIbFRHRkd3T0tKYmtiTmIwdGw3MGV0MDdrWm55UHRDWVVSVnFLaW9FWk8tYy1PSTBubHpYc19md2MwdVhCTzdiOGltVzZ2ZVcyeVRTa0FoMDAyUGpHLUZ1V3gtaw?oc=5",
+          "source": "gnews_injury_en",
+          "category": "withdrawal",
+          "severity": 0.95,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -61303,13 +61292,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
-        "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "has_alert": true,
+        "hard_block": true,
+        "p_retire_boost": 0.234,
+        "category": "withdrawal",
+        "headline": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
+        "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOVDFCdGo2TnMtQWl2R0RqWEpqOUdjRm0xWUpfdHd2TWs4SVo0U010VjlnVE1CQXBBbDVSWlRvMzBNZFZTMENQYzA0cGRuVVVLSVA4S1kzOTdrbGg3RFNlcXRITVlVcVhEWkpuUVdlc0MtVFQwamxDSVVjYlVIbFRHRkd3T0tKYmtiTmIwdGw3MGV0MDdrWm55UHRDWVVSVnFLaW9FWk8tYy1PSTBubHpYc19md2MwdVhCTzdiOGltVzZ2ZVcyeVRTa0FoMDAyUGpHLUZ1V3gtaw?oc=5",
+        "source": "gnews_injury_en",
+        "severity": 0.95,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
+            "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOVDFCdGo2TnMtQWl2R0RqWEpqOUdjRm0xWUpfdHd2TWs4SVo0U010VjlnVE1CQXBBbDVSWlRvMzBNZFZTMENQYzA0cGRuVVVLSVA4S1kzOTdrbGg3RFNlcXRITVlVcVhEWkpuUVdlc0MtVFQwamxDSVVjYlVIbFRHRkd3T0tKYmtiTmIwdGw3MGV0MDdrWm55UHRDWVVSVnFLaW9FWk8tYy1PSTBubHpYc19md2MwdVhCTzdiOGltVzZ2ZVcyeVRTa0FoMDAyUGpHLUZ1V3gtaw?oc=5",
+            "source": "gnews_injury_en",
+            "category": "withdrawal",
+            "severity": 0.95,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -61320,10 +61322,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
-      "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "any_alert": true,
+      "hard_block_pick": true,
+      "headline": "Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
+      "category": "withdrawal"
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -72058,10 +72060,10 @@
       "headline": "Taranto Tennis Cup, Gill avanza e Vasami si ritira per infortunio: oggi in campo Maestrelli - Tarantini Time Quotidiano",
       "category": "injury"
     },
-    "p_retire": 0.3309,
+    "p_retire": 0.3782,
     "retirement_context": {
-      "player_injury_risk": 0.33085000000000003,
-      "p_retire": 0.33085000000000003,
+      "player_injury_risk": 0.37815000000000004,
+      "p_retire": 0.37815000000000004,
       "news_boost": 0.04725
     }
   },
