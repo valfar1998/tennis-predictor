@@ -13459,13 +13459,26 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
+      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQcjdQM1AwOW5YVl9oVnhzRmgyaUNTOTh0M2J2WWxobS1kZlJlYnVERFZVR0Znci1ZNjZTVzRnSGI2UlFfTnUxa1RrekJvdGVQd1Qwbi0yVVdZbUQyZzFqS2tVSS10SXJKZzZ5Zm1wTGxfSGVZZmVPOG43RG5OS0NIaFVzWUhhYWtVVkY1Z3RDeXhPNDVhTXVreHNMU1R6Zmh6VTZCVHJSLV9qQ2YtRUdLakw4OHNrUWRUS0loeFktS3VDcmFIdTRPY09wZ18yeFBLeG5fYXduaGZQaWV2?oc=5",
+      "source": "gnews_injury_en",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
+          "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQcjdQM1AwOW5YVl9oVnhzRmgyaUNTOTh0M2J2WWxobS1kZlJlYnVERFZVR0Znci1ZNjZTVzRnSGI2UlFfTnUxa1RrekJvdGVQd1Qwbi0yVVdZbUQyZzFqS2tVSS10SXJKZzZ5Zm1wTGxfSGVZZmVPOG43RG5OS0NIaFVzWUhhYWtVVkY1Z3RDeXhPNDVhTXVreHNMU1R6Zmh6VTZCVHJSLV9qQ2YtRUdLakw4OHNrUWRUS0loeFktS3VDcmFIdTRPY09wZ18yeFBLeG5fYXduaGZQaWV2?oc=5",
+          "source": "gnews_injury_en",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_alert": {
       "pick_side": "A",
@@ -13479,23 +13492,36 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
+        "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQcjdQM1AwOW5YVl9oVnhzRmgyaUNTOTh0M2J2WWxobS1kZlJlYnVERFZVR0Znci1ZNjZTVzRnSGI2UlFfTnUxa1RrekJvdGVQd1Qwbi0yVVdZbUQyZzFqS2tVSS10SXJKZzZ5Zm1wTGxfSGVZZmVPOG43RG5OS0NIaFVzWUhhYWtVVkY1Z3RDeXhPNDVhTXVreHNMU1R6Zmh6VTZCVHJSLV9qQ2YtRUdLakw4OHNrUWRUS0loeFktS3VDcmFIdTRPY09wZ18yeFBLeG5fYXduaGZQaWV2?oc=5",
+        "source": "gnews_injury_en",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
+            "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQcjdQM1AwOW5YVl9oVnhzRmgyaUNTOTh0M2J2WWxobS1kZlJlYnVERFZVR0Znci1ZNjZTVzRnSGI2UlFfTnUxa1RrekJvdGVQd1Qwbi0yVVdZbUQyZzFqS2tVSS10SXJKZzZ5Zm1wTGxfSGVZZmVPOG43RG5OS0NIaFVzWUhhYWtVVkY1Z3RDeXhPNDVhTXVreHNMU1R6Zmh6VTZCVHJSLV9qQ2YtRUdLakw4OHNrUWRUS0loeFktS3VDcmFIdTRPY09wZ18yeFBLeG5fYXduaGZQaWV2?oc=5",
+            "source": "gnews_injury_en",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
+      "category": "injury"
     },
-    "p_retire": 0.0473,
+    "p_retire": 0.0945,
     "retirement_context": {
-      "player_injury_risk": 0.04725,
-      "p_retire": 0.04725,
+      "player_injury_risk": 0.09455,
+      "p_retire": 0.09455,
       "news_boost": 0.04725
     }
   },
@@ -14957,6 +14983,7 @@
       "no_bet_reasons": [
         "probabilit\u00e0 29% sotto minimo 38%",
         "sanity: divergenza modello/mercato 19% > 18%",
+        "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
@@ -54752,13 +54779,26 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
+      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQcjdQM1AwOW5YVl9oVnhzRmgyaUNTOTh0M2J2WWxobS1kZlJlYnVERFZVR0Znci1ZNjZTVzRnSGI2UlFfTnUxa1RrekJvdGVQd1Qwbi0yVVdZbUQyZzFqS2tVSS10SXJKZzZ5Zm1wTGxfSGVZZmVPOG43RG5OS0NIaFVzWUhhYWtVVkY1Z3RDeXhPNDVhTXVreHNMU1R6Zmh6VTZCVHJSLV9qQ2YtRUdLakw4OHNrUWRUS0loeFktS3VDcmFIdTRPY09wZ18yeFBLeG5fYXduaGZQaWV2?oc=5",
+      "source": "gnews_injury_en",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
+          "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQcjdQM1AwOW5YVl9oVnhzRmgyaUNTOTh0M2J2WWxobS1kZlJlYnVERFZVR0Znci1ZNjZTVzRnSGI2UlFfTnUxa1RrekJvdGVQd1Qwbi0yVVdZbUQyZzFqS2tVSS10SXJKZzZ5Zm1wTGxfSGVZZmVPOG43RG5OS0NIaFVzWUhhYWtVVkY1Z3RDeXhPNDVhTXVreHNMU1R6Zmh6VTZCVHJSLV9qQ2YtRUdLakw4OHNrUWRUS0loeFktS3VDcmFIdTRPY09wZ18yeFBLeG5fYXduaGZQaWV2?oc=5",
+          "source": "gnews_injury_en",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_alert": {
       "pick_side": "A",
@@ -54772,23 +54812,36 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
+        "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQcjdQM1AwOW5YVl9oVnhzRmgyaUNTOTh0M2J2WWxobS1kZlJlYnVERFZVR0Znci1ZNjZTVzRnSGI2UlFfTnUxa1RrekJvdGVQd1Qwbi0yVVdZbUQyZzFqS2tVSS10SXJKZzZ5Zm1wTGxfSGVZZmVPOG43RG5OS0NIaFVzWUhhYWtVVkY1Z3RDeXhPNDVhTXVreHNMU1R6Zmh6VTZCVHJSLV9qQ2YtRUdLakw4OHNrUWRUS0loeFktS3VDcmFIdTRPY09wZ18yeFBLeG5fYXduaGZQaWV2?oc=5",
+        "source": "gnews_injury_en",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
+            "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQcjdQM1AwOW5YVl9oVnhzRmgyaUNTOTh0M2J2WWxobS1kZlJlYnVERFZVR0Znci1ZNjZTVzRnSGI2UlFfTnUxa1RrekJvdGVQd1Qwbi0yVVdZbUQyZzFqS2tVSS10SXJKZzZ5Zm1wTGxfSGVZZmVPOG43RG5OS0NIaFVzWUhhYWtVVkY1Z3RDeXhPNDVhTXVreHNMU1R6Zmh6VTZCVHJSLV9qQ2YtRUdLakw4OHNrUWRUS0loeFktS3VDcmFIdTRPY09wZ18yeFBLeG5fYXduaGZQaWV2?oc=5",
+            "source": "gnews_injury_en",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
+      "category": "injury"
     },
-    "p_retire": 0.0473,
+    "p_retire": 0.0945,
     "retirement_context": {
-      "player_injury_risk": 0.04725,
-      "p_retire": 0.04725,
+      "player_injury_risk": 0.09455,
+      "p_retire": 0.09455,
       "news_boost": 0.04725
     }
   },
@@ -61217,6 +61270,7 @@
         "probabilit\u00e0 28% sotto minimo 38%",
         "sanity: divergenza modello/mercato 19% > 18%",
         "sharp consensus: quota 3.80 > 3 senza quote Betfair/Pinnacle verificate",
+        "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
@@ -71982,20 +72036,11 @@
       "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNcF9MUEdETW1FSEdNSEpBYmNqWG42T3Z3SUhhUmEzbEl5QUU5VldieUdvYldQR3FnQWdhVzdIaFRja0t3NHFpOTBUcUxveXl5eXlmd2lETGJJcXBiUzZzQzdyZVlxU0E1dWJ0Q3A2c3d0MHVqdjIzaWl4eUxISG5tc3Q2bE9mZlpCQWY3ZWlVX3pYNVRXcHhyOXR0U0swalhDeFlFeGJmZFRLbHQ0T215QzhTOC0yNGtyZVVQMDI3djhLa20ydTdUczRn0gHPAUFVX3lxTE1ibXVEeThRZXdaOU5rNFg4djAza2xPcTZYMVdkLWJhTUlyNHNIaV9LQ3hXMUZldkduU3IwR1pCbTJFUlJMdUFsUm52UHRxS19vUjIyMmVNMHFYaDBnaUJXMkIxY0FYdC1HbVp5ZFhyR0oxY0xfcXBYV2M0YkZObzZpYWJvT0VueHRIaWtpUUQ4ZkpNWjB3TlJrTTU4WXJlM05ySXRKT3FxQ0VUcmhJTXFWT09LMTQ2alpxSUV5UUk0SlcwQWZuRWhVZm5Td19jMA?oc=5",
       "source": "gnews_injury_it",
       "severity": 0.75,
-      "n_hits": 2,
+      "n_hits": 1,
       "hits": [
         {
           "title": "Taranto Tennis Cup, Gill avanza e Vasami si ritira per infortunio: oggi in campo Maestrelli - Tarantini Time Quotidiano",
           "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNcF9MUEdETW1FSEdNSEpBYmNqWG42T3Z3SUhhUmEzbEl5QUU5VldieUdvYldQR3FnQWdhVzdIaFRja0t3NHFpOTBUcUxveXl5eXlmd2lETGJJcXBiUzZzQzdyZVlxU0E1dWJ0Q3A2c3d0MHVqdjIzaWl4eUxISG5tc3Q2bE9mZlpCQWY3ZWlVX3pYNVRXcHhyOXR0U0swalhDeFlFeGJmZFRLbHQ0T215QzhTOC0yNGtyZVVQMDI3djhLa20ydTdUczRn0gHPAUFVX3lxTE1ibXVEeThRZXdaOU5rNFg4djAza2xPcTZYMVdkLWJhTUlyNHNIaV9LQ3hXMUZldkduU3IwR1pCbTJFUlJMdUFsUm52UHRxS19vUjIyMmVNMHFYaDBnaUJXMkIxY0FYdC1HbVp5ZFhyR0oxY0xfcXBYV2M0YkZObzZpYWJvT0VueHRIaWtpUUQ4ZkpNWjB3TlJrTTU4WXJlM05ySXRKT3FxQ0VUcmhJTXFWT09LMTQ2alpxSUV5UUk0SlcwQWZuRWhVZm5Td19jMA?oc=5",
-          "source": "gnews_injury_it",
-          "category": "injury",
-          "severity": 0.75,
-          "published": "",
-          "channel": "rss"
-        },
-        {
-          "title": "Taranto Tennis Cup Gill avanza e Vasami si ritira per infortunio | oggi in campo Maestrelli - Zazoom Social News",
-          "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOTFlXTzI5eGw3cngxV3FjVUwyV28wVmJoMWxoVEM3NFR0dDV6TEdDdWdXSjdWUDF4RXdxR01mbDV1UEI3bDhudUNEVlA5aWtYd2cwSDdHNE1LUG9rTXJvbjlmRHp2YjduY0lac010Y0ZLRUMyb3FzUG15Mi1YQkpRYzYzeG9rWFlMZDFwNF85UzJ1Rl95OEdaM0pQcWlRY0NVWHhTNi15aDZ0clJvMFV3SUtETUJKNENESVNWcWhJRFRiZ1p6RS1TQ0dRX1E?oc=5",
           "source": "gnews_injury_it",
           "category": "injury",
           "severity": 0.75,
@@ -72033,20 +72078,11 @@
         "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNcF9MUEdETW1FSEdNSEpBYmNqWG42T3Z3SUhhUmEzbEl5QUU5VldieUdvYldQR3FnQWdhVzdIaFRja0t3NHFpOTBUcUxveXl5eXlmd2lETGJJcXBiUzZzQzdyZVlxU0E1dWJ0Q3A2c3d0MHVqdjIzaWl4eUxISG5tc3Q2bE9mZlpCQWY3ZWlVX3pYNVRXcHhyOXR0U0swalhDeFlFeGJmZFRLbHQ0T215QzhTOC0yNGtyZVVQMDI3djhLa20ydTdUczRn0gHPAUFVX3lxTE1ibXVEeThRZXdaOU5rNFg4djAza2xPcTZYMVdkLWJhTUlyNHNIaV9LQ3hXMUZldkduU3IwR1pCbTJFUlJMdUFsUm52UHRxS19vUjIyMmVNMHFYaDBnaUJXMkIxY0FYdC1HbVp5ZFhyR0oxY0xfcXBYV2M0YkZObzZpYWJvT0VueHRIaWtpUUQ4ZkpNWjB3TlJrTTU4WXJlM05ySXRKT3FxQ0VUcmhJTXFWT09LMTQ2alpxSUV5UUk0SlcwQWZuRWhVZm5Td19jMA?oc=5",
         "source": "gnews_injury_it",
         "severity": 0.75,
-        "n_hits": 2,
+        "n_hits": 1,
         "hits": [
           {
             "title": "Taranto Tennis Cup, Gill avanza e Vasami si ritira per infortunio: oggi in campo Maestrelli - Tarantini Time Quotidiano",
             "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNcF9MUEdETW1FSEdNSEpBYmNqWG42T3Z3SUhhUmEzbEl5QUU5VldieUdvYldQR3FnQWdhVzdIaFRja0t3NHFpOTBUcUxveXl5eXlmd2lETGJJcXBiUzZzQzdyZVlxU0E1dWJ0Q3A2c3d0MHVqdjIzaWl4eUxISG5tc3Q2bE9mZlpCQWY3ZWlVX3pYNVRXcHhyOXR0U0swalhDeFlFeGJmZFRLbHQ0T215QzhTOC0yNGtyZVVQMDI3djhLa20ydTdUczRn0gHPAUFVX3lxTE1ibXVEeThRZXdaOU5rNFg4djAza2xPcTZYMVdkLWJhTUlyNHNIaV9LQ3hXMUZldkduU3IwR1pCbTJFUlJMdUFsUm52UHRxS19vUjIyMmVNMHFYaDBnaUJXMkIxY0FYdC1HbVp5ZFhyR0oxY0xfcXBYV2M0YkZObzZpYWJvT0VueHRIaWtpUUQ4ZkpNWjB3TlJrTTU4WXJlM05ySXRKT3FxQ0VUcmhJTXFWT09LMTQ2alpxSUV5UUk0SlcwQWZuRWhVZm5Td19jMA?oc=5",
-            "source": "gnews_injury_it",
-            "category": "injury",
-            "severity": 0.75,
-            "published": "",
-            "channel": "rss"
-          },
-          {
-            "title": "Taranto Tennis Cup Gill avanza e Vasami si ritira per infortunio | oggi in campo Maestrelli - Zazoom Social News",
-            "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOTFlXTzI5eGw3cngxV3FjVUwyV28wVmJoMWxoVEM3NFR0dDV6TEdDdWdXSjdWUDF4RXdxR01mbDV1UEI3bDhudUNEVlA5aWtYd2cwSDdHNE1LUG9rTXJvbjlmRHp2YjduY0lac010Y0ZLRUMyb3FzUG15Mi1YQkpRYzYzeG9rWFlMZDFwNF85UzJ1Rl95OEdaM0pQcWlRY0NVWHhTNi15aDZ0clJvMFV3SUtETUJKNENESVNWcWhJRFRiZ1p6RS1TQ0dRX1E?oc=5",
             "source": "gnews_injury_it",
             "category": "injury",
             "severity": 0.75,
@@ -72060,10 +72096,10 @@
       "headline": "Taranto Tennis Cup, Gill avanza e Vasami si ritira per infortunio: oggi in campo Maestrelli - Tarantini Time Quotidiano",
       "category": "injury"
     },
-    "p_retire": 0.3782,
+    "p_retire": 0.4254,
     "retirement_context": {
-      "player_injury_risk": 0.37815000000000004,
-      "p_retire": 0.37815000000000004,
+      "player_injury_risk": 0.42545,
+      "p_retire": 0.42545,
       "news_boost": 0.04725
     }
   },
