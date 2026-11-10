@@ -13518,10 +13518,10 @@
       "headline": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
       "category": "injury"
     },
-    "p_retire": 0.0945,
+    "p_retire": 0.1417,
     "retirement_context": {
-      "player_injury_risk": 0.09455,
-      "p_retire": 0.09455,
+      "player_injury_risk": 0.14175,
+      "p_retire": 0.14175,
       "news_boost": 0.04725
     }
   },
@@ -14983,6 +14983,7 @@
       "no_bet_reasons": [
         "probabilit\u00e0 29% sotto minimo 38%",
         "sanity: divergenza modello/mercato 19% > 18%",
+        "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
@@ -54838,10 +54839,10 @@
       "headline": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
       "category": "injury"
     },
-    "p_retire": 0.0945,
+    "p_retire": 0.1417,
     "retirement_context": {
-      "player_injury_risk": 0.09455,
-      "p_retire": 0.09455,
+      "player_injury_risk": 0.14175,
+      "p_retire": 0.14175,
       "news_boost": 0.04725
     }
   },
@@ -61270,6 +61271,7 @@
         "probabilit\u00e0 28% sotto minimo 38%",
         "sanity: divergenza modello/mercato 19% > 18%",
         "sharp consensus: quota 3.80 > 3 senza quote Betfair/Pinnacle verificate",
+        "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
         "news: withdrawal \u2014 Alycia Parks has withdrawn from the Hong Kong Tennis Open due to a right shoulder injury. Lucky loser Emerson Jones of Australia steps in to play Alex Eala in the first round. | Dyan Castillejo, ABS-CBN News - Facebook",
@@ -72096,10 +72098,10 @@
       "headline": "Taranto Tennis Cup, Gill avanza e Vasami si ritira per infortunio: oggi in campo Maestrelli - Tarantini Time Quotidiano",
       "category": "injury"
     },
-    "p_retire": 0.4254,
+    "p_retire": 0.45,
     "retirement_context": {
-      "player_injury_risk": 0.42545,
-      "p_retire": 0.42545,
+      "player_injury_risk": 0.45,
+      "p_retire": 0.45,
       "news_boost": 0.04725
     }
   },
