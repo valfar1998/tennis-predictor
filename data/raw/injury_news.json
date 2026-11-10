@@ -1,8 +1,8 @@
 {
   "ok": true,
-  "fetched_at": "2026-11-10T11:57:11.906479+00:00",
-  "n_items": 54,
-  "n_raw": 117,
+  "fetched_at": "2026-11-10T21:46:43.869438+00:00",
+  "n_items": 56,
+  "n_raw": 120,
   "errors": [
     "espn_tennis: fetch failed",
     "atp_news: fetch failed",
@@ -31,16 +31,6 @@
       "severity": 0.95
     },
     {
-      "title": "Elena Rybakina withdraws from 2026 WTA Finals at Indian Wells with viral illness - WTA Tennis",
-      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQeFV4UVpKNkcxVTRQY0cxbmQ5QkNpZE9aWkR0dGQ5WURJMTNnTm5NOC0teVMxTk1aMm9QNDJObVlqWTMySmlDVXpSRUFDN3I0dmgyS2tyM3ZaVnVhWjg2UnFaUmJMN25yd2lJemFseXlWMm9qQy1LNUswcU10Q2hZb2RHSzIzYTZVbEhDVDV0b0tJeHFXMlplR3ZLMVYzeE15aE52bDJkeEJfVGVWWEZN?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.95
-    },
-    {
       "title": "Tennis world number one Rybakina withdraws from WTA Finals due to virus - Al Jazeera",
       "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPRTNWWFNIdnRVS01SQXBmZ3doSGRwUlFaRFNya0htNE5uel9EaFA0RUMzN2QzZTBFcElzVG8tS0xCcXJHQ216dmhub0gwc3Q3TkQ5dlBCdGdFOVFSUGlMU2hzSHBxRkRDbkFaOTZ4UWxRT2hyZzlZWU5sTlBQVXA3SVM3Z085cW51SnlMX3hfaGNLXzYtZTYtSjZ0bFhMRG0zeHdYUmh5ZllMZ3VNMzYtVGV1N1jSAboBQVVfeXFMTUJTS2tNYU9uZHdsTUsyZUFmM1E2LWJZcWowQW1kNUtlUHRia0hUWUtOVzFTSGhhRmNkX2NnNU9QMm1hQjhIY3U5NzFwekdySFNZVzNGS0lCYmRDRXlheXlKZ3NwSVNLc0M5OTZqOXMyZUVDcUVuYU5fME5pNml1OXYtZVlHY0pWLXdtOEFmTjFjYTVEa0xXRnNOQldhR19PekNwckdUVW9QQnp4NGVienhseVVlSjgwWVpB?oc=5",
       "summary": "",
@@ -51,8 +41,8 @@
       "severity": 0.95
     },
     {
-      "title": "PTPA presses player fatigue concerns after Rybakina's WTA Finals withdrawal - Reuters",
-      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNOUZvdHNPaXFJVEN2RDloS3pXd3ZuTkxMNFQ0aDBqQ0E2NWczanRxd1dINkpiTWgzRkRZZ19FZXA4WDNSY0hzOVo1Z29wQVpNNFRVeXB4UUVlanlVaWxZWUE2WXhzblpiV1ZtN0N5aFJfeHNKeDdoelJLSXhQaVR3NUg0RjlxUDVrYWhwWFlZLUlWWVdmcGc3X3hOaVRCclIzeTBCX0RTaFc4NkJNNEM5YjA4cUdIckNoeFIxam9zRVJqQQ?oc=5",
+      "title": "Elena Rybakina withdraws from 2026 WTA Finals at Indian Wells with viral illness - WTA Tennis",
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQeFV4UVpKNkcxVTRQY0cxbmQ5QkNpZE9aWkR0dGQ5WURJMTNnTm5NOC0teVMxTk1aMm9QNDJObVlqWTMySmlDVXpSRUFDN3I0dmgyS2tyM3ZaVnVhWjg2UnFaUmJMN25yd2lJemFseXlWMm9qQy1LNUswcU10Q2hZb2RHSzIzYTZVbEhDVDV0b0tJeHFXMlplR3ZLMVYzeE15aE52bDJkeEJfVGVWWEZN?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -61,8 +51,8 @@
       "severity": 0.95
     },
     {
-      "title": "Tennis-Alcaraz into Paris quarter-finals after Berrettini withdraws - The Mighty 790 KFGO",
-      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPSlN6UUthbkRzQWZacFdlcERxWjVvRHF5RlBidGVtQzhUZFBYeGtzODJCX0VEczhMWE9QVDhEbUtyOXpEZWh2VHRJbUw1NWtyUG1rLXF1UkxyVlAtOXBvZFRVZkZJekhQRldFZHBJXzBpSkh0WTB2SHRqREhNZkJ5eTFhc2pva283bmxrMEdKeUxiS2NLcXlCbVNhTGg?oc=5",
+      "title": "PTPA presses player fatigue concerns after Rybakina's WTA Finals withdrawal - Reuters",
+      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNOUZvdHNPaXFJVEN2RDloS3pXd3ZuTkxMNFQ0aDBqQ0E2NWczanRxd1dINkpiTWgzRkRZZ19FZXA4WDNSY0hzOVo1Z29wQVpNNFRVeXB4UUVlanlVaWxZWUE2WXhzblpiV1ZtN0N5aFJfeHNKeDdoelJLSXhQaVR3NUg0RjlxUDVrYWhwWFlZLUlWWVdmcGc3X3hOaVRCclIzeTBCX0RTaFc4NkJNNEM5YjA4cUdIckNoeFIxam9zRVJqQQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -141,18 +131,8 @@
       "severity": 0.95
     },
     {
-      "title": "Elena Rybakina withdraws from WTA Finals, Marta Kostyuk takes her place - The Desert Sun",
-      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNX1VGSlo2NVFqTktFTG1iREpNMFN0SHAzTkZZWnFyV0pHeC1XbXR5ckJ6eEVpV1h2eWFDcnFKZkltSlNIZWx5TEFtZV8yd1JXRlpPdVVIdXlUTndIWlRPZzZBQ085dTFLNkFRcmFWQTg0TFN2a0RnYzlFYzZNQXk2aDA1XzZYLXJ4aTRnVkhOaDg3bTlrZ1hSVmdLVUpLX3FuandadkZUaXktVnUyWWhjOTIzOURMQ0tOYUQzNWxvaEF6Z3JzTFFXQUJQZk1LU1E2V1NtazhSMA?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.95
-    },
-    {
-      "title": "World No.1 Elena Rybakina withdraws from WTA Finals | Tennis News - Hindustan Times",
-      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOVGktdVpIYjNBa1BlTUhjRFZSNVlOR3pmeWRVMEtKX2xsclpoRzNhTWJZMEVYMVpHUTdFNWxjV2liQkdibExtU3JzWWxGTmhweTFUQVhsd2ltNzNRNDdyMnJURExNb1EwVVc5Y0ROMTdsN3cxUk04Zi1oU0NlZTFhWFpwZ0VPUVZjbmVadzM3ZUJkSDJqWkI2Sk1xc1Y1cmotSWRUNXFsOWhnLU9JU1MzeDJGb05WRG9h0gG-AUFVX3lxTFBKYjM2aUIwTXBrMWl6NkR3MkRxMVd4N3A0eUtZdVVGRkZmR3dlLUJLVE1KUVNxdjlyQ01JNkR2QXRNcnIwYjBaNzdxakN2N1dTdW1yay1ta1ZsT283RE1kaFZYY1JQS193UW1kUEdLNm9nM1B0ZHY5QzRiXzRndDYtQ05SVktxbXRtZ21VQmxZU2xpNHZZRVVUMndiMHpnTGhJdUVMLXZCa2pyand1RHk4dzV5Ym0tX0JrYnVlM0E?oc=5",
+      "title": "Tennis player Maja Chwalińska withdraws from Billie Jean King Cup in Włocławek — Interia Sport - UA.NEWS",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQcnB5QjRPV01FMUVBVmtEZm5DdGZDVlMyOTJtUEp6bEk3UmF1Qkk0VjhwUEF4aFJZWFlnRjVQeWJRcTV5cmhpYWlnY3BnZzUtQVNyYl9UNl9hZTNKTXd5ejlZc3Q5QlJZY1BkTU9YejNnaFVacHd1LW9BN0RQUFdTTkZSWXU1U0dJajNpZmpwVkVubGo3NlJDUVgxbDdZZEtlYkRWY0l3RkdlOUMtQ1pFN3NjU3dMRzJWdlRzWA?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -201,18 +181,8 @@
       "severity": 0.92
     },
     {
-      "title": "Berrettini dà forfait con Alcaraz: si ritira a Parigi, niente sfida per i quarti - Today",
-      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFB1aHQycm1pZTBuRktKZzMyZnZ1ZnFoYzB6V0E2LU1WWm5VZElUYUhxSVRKSHA3a1lxRUM0SWZWSENTRUsyYVRlbjZ0MGxBeWp1TDB3bEk5MVJqb3c1emRqck1FbkRibl9GQXdiV0VnOHRvc3BQU3VmNFk3SdIBe0FVX3lxTE8wQUpPOWFxM216TTFRZDBPRTk5ZXFZVmg5SU9KSjNlSmQ3V19mRlp1WHpMcXlUeFkzTlpnNzF1WFJQS0lQcjgxQzV1UjVJYWZQQVVnMDNPN1lUS1BwZUNDcmxITDRkRVdQTUVJVG96RVcxQy1YMVUxNzZ0OA?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.92
-    },
-    {
-      "title": "Il peggior ritiro della storia del tennis - Tennis Magazine Italia",
-      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOdGl3U0liUEViVXgyNmo1aDNaTjFQYkZ3R291X1Y3T0dLY1FwN0cwMHoxcFQzSHNGZlVrVG5PaWc0akF0VWJfdmNCc0NORU8yV20zMlNiNHh1YnBZS01KaFdjYmxRTkZQRVdqb19FNzNpWTlUQnJEelR1VVlMSkdhRUNLblRnZw?oc=5",
+      "title": "Zaniolo lascia il ritiro della Nazionale per motivi personali: cosa è successo - Corriere dello Sport",
+      "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQc2NRYkd0bTluNWZXSEdkLURLUUlham1tNF9nSDNLZ1JaU0lJcXkwMGVmZ3hxYTZnQUt5cDJIMUlYaDRTUFVZTk00ZUI5bHRyTDU3TlFNNUtVZGtzSGlWZWJrUTgwNV9xaFl6Sl9QVVNXUDBIZ2VnNGZVZUY4Z0JRMkVZZGpubm9RVWprV0Fha0RZbGxGd0pFa2NVZUxPTm9fWHZhdkpBdk1ON0RrNXl2cV9QVGt1bXlBTjlvbEdGa2l3MHA1V2FxQnpOODJxUG82a05oNU13eXFSRVgtcmkxczFPd9IB5gFBVV95cUxNM25aR1k3NGpieU5fdWJqQnF3U19lbFBwRDRvRWh2RVVJMzhyX0x6ckY5OXhuQ0loaVE4UlA3dWw3QmR4T1NkV0VlUklmMWxtSFhVdUNfT1BrSkYxd2lWNWV0YXdpakY1Ymg3bGZDZFFrYUh2cGFDUmFhY2M5TmF1N0JoN0dLNzZKX0Ryb2RSUEtBWXpoeVJYME9GQXN3aHl5dWVwVUJMTW42ZzU2VVgyOW9Db0lHZnJkTExiRUZpLXJBRHo0X1JqS3VZajNlNEVtZ3dsLWZYVk1mUGpFX2pNUFpuT1JGZw?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -241,8 +211,28 @@
       "severity": 0.92
     },
     {
-      "title": "Il calendario del tennis femminile è al centro di polemiche dopo il ritiro di Elena Rybakina dalle WTA Finals del 2026. - Vietnam.vn",
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPc3FzNm9EY1hNY1lnRjFSc0xrdF9IbmlZWTMwSm9OX0w5SjdpWm0xZXZyd3lqQkl2ZnNYSVVmTHJYWlJMb0REOGw2clZFYmNNZ0oyZ2d0ODVKLW1KWXlWckpMR3RfSWZnSllFdGJlSy1VUnVvNndGUG5fN1UwYWhFNWgzSGZCUVczVWI1ME5WbUJsZGpjcEZ2cjM1T0h3MmNobWFyOVlST2hlUDkzWkZTNzJ3?oc=5",
+      "title": "Berrettini dà forfait con Alcaraz: si ritira a Parigi, niente sfida per i quarti - Today",
+      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFB1aHQycm1pZTBuRktKZzMyZnZ1ZnFoYzB6V0E2LU1WWm5VZElUYUhxSVRKSHA3a1lxRUM0SWZWSENTRUsyYVRlbjZ0MGxBeWp1TDB3bEk5MVJqb3c1emRqck1FbkRibl9GQXdiV0VnOHRvc3BQU3VmNFk3SdIBe0FVX3lxTE8wQUpPOWFxM216TTFRZDBPRTk5ZXFZVmg5SU9KSjNlSmQ3V19mRlp1WHpMcXlUeFkzTlpnNzF1WFJQS0lQcjgxQzV1UjVJYWZQQVVnMDNPN1lUS1BwZUNDcmxITDRkRVdQTUVJVG96RVcxQy1YMVUxNzZ0OA?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.92
+    },
+    {
+      "title": "Il peggior ritiro della storia del tennis - Tennis Magazine Italia",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOdGl3U0liUEViVXgyNmo1aDNaTjFQYkZ3R291X1Y3T0dLY1FwN0cwMHoxcFQzSHNGZlVrVG5PaWc0akF0VWJfdmNCc0NORU8yV20zMlNiNHh1YnBZS01KaFdjYmxRTkZQRVdqb19FNzNpWTlUQnJEelR1VVlMSkdhRUNLblRnZw?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "withdrawal",
+      "severity": 0.92
+    },
+    {
+      "title": "Convocati Italia Under 21, in quattro lasciano il ritiro - Sky Sport",
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQUUtnaUJvNklVdnE4MkZtRFBIQWFDUU5vMU9Xd2Y2dDVqU0RDX3pZblNnRzJsWHpTczFGZHd0ZDNwaGlxRDdjNUxUV3VBNDJ0dFRVaHN2dW9ZSDl3ODdxOVFGRkR4eDl3WkpyLUlEMWFiaThXZlVIZ29waGZiei1TQWRwbnkyaHRIRGZRanpueGQ5X183RmNwbmFuSVVVUy1RVmc?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -263,36 +253,6 @@
     {
       "title": "Non c’è pace per Berrettini: forfait prima di giocare contro Alcaraz - QS Quotidiano Sportivo",
       "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPOTMwVnRoMFdvSGt6cU50bTIyVzFPaThXWERpZTFPZzB6OGhsOHo4T2VnVDRrQ1lPQ25acHgycU03cHBrazJpTXVJV1lGVnY0NGhEZllibGxNSUNIXzJLcE03NDFnRm95b2Rja0w2NjMwczBXZ2JiRDV5OVhGQ3diNnpUdXhrbHUxV2V0LThIdTBDNlZQUHotSlhCNHBkZ0k1ZFdtZnZPLVpscnVhZGVHeg?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.92
-    },
-    {
-      "title": "Wta Finals, Elena Rybakina costretta al ritiro: entra al suo posto Marta Kostyuk - Tennis World Italia",
-      "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQU21BQlRhN0REMFFaOENXb0FQZjd2UmV5NDJaVzdCXzRxWm1iTFBneERnN3A0ZmlXSlR4LXpYeS05MGlHdzZTSldKSDh1ZGxWQnEtNmpvVlpCV2JvelBGNlRDV21MNWhpYmlabFNzOGZhZ0xwQmgtd25DX3hmNlFXanN6V3ppYWxaUm5Qa2V0V1NVSEVFVjJ2Z2ZEVW5mRXNORG1ZclF6eEtBRlUwRmR4aUFZRnNmdlk2TUVlLU56eTkzcFdTc2VCOGhFQnFyTG1KOWVRQUp6QlFRSnc?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.92
-    },
-    {
-      "title": "Rybakina, ufficiale il forfait alle WTA Finals 2026: al suo posto c’è Kostyuk - Lottomatica.Sport",
-      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNSmlFWXUydlduZ0VpVlNGUmk5RHA1eDJHNm84SjRqMURON3RZclFtTEEtcDVma3FMRDJzcmw4OUFoUV9OU1NYSldkaUdnUG9JYVA2SmlOV1BQaVhsOUttTklrTGxVWXZvYU0zWjU1bGdHcEdBbk9ERVVsVnhfa0dEQU9ZOHR1YTl0dFp2WXcxTXA4YlphWFV0Yko0VDZiRTRmMThETkliYXFXLWwyNkdRbHdGNkhUZ3E4?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.92
-    },
-    {
-      "title": "ATP Stoccolma 2026, pioggia di forfait: wild card per Musetti e Rune - Lottomatica.Sport",
-      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOLTRjbTd4ZHRXTktCUmViNmg2VlJVZ0dQcUI1eXdJclFsLUZCa19mdFJtS2NTMUNtR2ZLcE5TZGxkcmI3eWtSR3d6RF9BVmZyS1c2S0Q3TlRkMEw4NEo1SlA5NnZCTzRBVy1INGxUaUhoZjliRjVqWklKWlJ5WEhoVnZ1RE84SUN1T2o1ODd6OHZhUnVDX05mekNuejBYUk00dmNwQWpkcFh0NDhmM2c?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -391,6 +351,16 @@
       "severity": 0.75
     },
     {
+      "title": "Jannik Sinner: World No 2 confirms aim to return to tennis at Australian Open after lengthy absence with knee injury - Sky Sports",
+      "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxQcUpjdE50WTZOeTExcWRoa0d1TEhfdEhjbElCcWZDODJzOHZ2S2JJUUNyVE9vYWFLRWY4TlpTRXJaRGQwV1dwZUpxbDFURFh3VEtLMHFSWFVpUFJZcnVJeTRUY1UyQXpLMjNhTDNLS1dNaTFpLU9NQmVZdEQ1czZPRHhsb19DeEp5djdqU1NhNHQ4ZjRBNnlpblFjVVo5bTktVTRYXzdTUnhjYzV6VGQtRmZwSnA1VDRmb1NVX2drU21QWE5qVllkdlRoMWFyV3dSaElTMXZvRnhIR1V2ZXlwbWlMSXVydGlWOWpCRUNoWUhRbFlw?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
       "title": "Varsity Tennis Lineup Changes: Perseverance through Injury - Kennedy Torch",
       "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQVmVCa3piMXhNY3Y5MmdfQ0VNakhKR1ZiTUFocFhQZHlTaFNDZElsbWY2N2JuT0FWbjJ3M2JoV0JUcm9UbXpoMjdQVk5RRVp5aEV5UjVZekRTYTlIX3NTempGSEludHY5WC0zSEZSVEhPamFDZklzV0JiWUVkanlWTHFWOERsdERfZWNyb3VEYUxKWmtTZlNzRzdndmQ?oc=5",
       "summary": "",
@@ -421,16 +391,6 @@
       "severity": 0.75
     },
     {
-      "title": "Injury Taught Robin Montgomery Life Beyond The Court - Rediff",
-      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNQzdfSWJLZjZNdUF3Tkc0ZHVTakxlaUxjb0dlUktUcGk4YmRucmhwQWlPTFZ5TWMtd1A5VFpMTDlZbXNkcXJKbU1YazJpbEd1Sk40YlBSUXNnbU92XzRZVUV3OXhiT3NJd2xuX0VCQmh6aEt4TVBvdXlXb1hCd0xPLWxBQzVoSjROc1pSVlRJUWVhY1U5V3hILUZ0a2l3R084UjU4SEtB0gGoAUFVX3lxTE1UZWZXN09TOFhvYUtpck9vZmg0UmVna016LUpTblZWUExqM3k1SjllWDhJa0VVZk1oaFhmWFZvY2thQmNBWGlnNE1GNFc3WmdFQVZGbTh3ZDVZYTktYno0dVNDTmhKOGJuWkZwUFZ5cy1feFBrMlpSSUY1WjNTckpPOVJhNHdicHBmZjNLdk0xcUkycDBYRzRpTDJHeDhjOTljbVN3aVZZQg?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
       "title": "From Paris to Paris: after a foot injury, Machac earns his reward, Fils in a packed arena - Tennis Majors",
       "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQYTFwUlVnTkRrWVVud1p4LTFpTHhnOVlhNDI5WldwbHB0QVVHcW9yZnRmN29wUnp0T09TdWI0blRiTy0wVndxN1VjQmZJYlJDY3hDbzZvZEFtWXQySEpxeDVzN1FYRWN4OE1aOWFOelpPbEhnbW9DeU5hRGhOb3VnRXNGUS1LVUU3RUxxZ2hRTVNuaURMajRiSE12NnNRTy1PeDhtV2FMRmxuOEZTaUlDZF92ZjBOeWlXOWxSVUJja2JrVkFwZ1VaS0VaU1dJR2VlLUlpOEo1czZ4WkxyUUFsM2UxdDctVGM?oc=5",
       "summary": "",
@@ -441,8 +401,18 @@
       "severity": 0.75
     },
     {
-      "title": "Emma Raducanu finally reveals when she plans to return to tennis after injury - Tennis World USA",
-      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQVHVYS0cxVlBqel9JTlRTMmpwYk45OFcyX0FfSC02RUUycVhjNy1oc1lkZDFHdzBneXVQY1VobkdFaTVlTXFxZmJqclJuY0dpNDM3eERiWU5zVWkyZkMzNnZnNWptWllOMEduR0kwX2lWbURyR0M4S0hoMldKbFM2N2tRQ1UtaFNQSWdabGZWNGJVN1ZseDRuOW90aWtiV2VjUnlwMkFUcTlOZlZZTDFzY1NWV2VqMVFtZ0gzVi1TWEFQZXo0Skw5MWVNWUR3UXpsSTJpNnZn?oc=5",
+      "title": "Stockholm: Rune back where he was injured, Ruud arrives from Paris - Tennis Majors",
+      "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQVVV1OXJqNjZwZUN0UWREOVdYZTZEQkpycmJUb0J5bXFNLV81TEtCcnIydnYzUTBxcVhhNHhfME9OVXhCWGNma2xINHhBNXpLaGU2WENyXy1vWnN4WWdIeUkzMXJDcTNZSk5zdlhlbll3WkpkQmJvbGtsanpJMTFSVjM5ZkpmcXJfSHBjUEhfNmpQZ1BvNW9DWkVWUHpPRnh2ZWxlUGMtS0tPSmVsN1p0cjRjTkJacmwtNjJJNzlQaDVMbmRBdWtmbkt1NFVDS1dPdC14U2FZRnJ5V2h6SEk5THM3R2k?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Injury Taught Robin Montgomery Life Beyond The Court - Rediff",
+      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNQzdfSWJLZjZNdUF3Tkc0ZHVTakxlaUxjb0dlUktUcGk4YmRucmhwQWlPTFZ5TWMtd1A5VFpMTDlZbXNkcXJKbU1YazJpbEd1Sk40YlBSUXNnbU92XzRZVUV3OXhiT3NJd2xuX0VCQmh6aEt4TVBvdXlXb1hCd0xPLWxBQzVoSjROc1pSVlRJUWVhY1U5V3hILUZ0a2l3R084UjU4SEtB0gGoAUFVX3lxTE1UZWZXN09TOFhvYUtpck9vZmg0UmVna016LUpTblZWUExqM3k1SjllWDhJa0VVZk1oaFhmWFZvY2thQmNBWGlnNE1GNFc3WmdFQVZGbTh3ZDVZYTktYno0dVNDTmhKOGJuWkZwUFZ5cy1feFBrMlpSSUY1WjNTckpPOVJhNHdicHBmZjNLdk0xcUkycDBYRzRpTDJHeDhjOTljbVN3aVZZQg?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -461,8 +431,18 @@
       "severity": 0.75
     },
     {
-      "title": "‘The old body requires time and patience’: Nadal on injury recovery and return to tennis - Sportstar",
-      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPRkpOd1REVExiRTk5MnpKYlFSV0hfRXBpS1Jfc29pdjBzZHNvTG9pcHRmNVNjOHhySnVNQzJvblZhLV9SMkNuLUM5bER6MnE1TlJURWFEN05ObzdNQkF1akJJSGM3dDhZc0ppOWt6OUxHNXkxRVFyY0x5V1RnWHdoS2xpRE1OcHFWLV9CanBRbWppaldGNlNDaE5oVkZjY2tJT0J0cFdXdWE3emlqT0QzR3BSb1l6OWViMXItN080ZTg0SHBsS0Y4c1ZGaFF3bUhZSEJQUlJ30gHcAUFVX3lxTE92dGV2WDNud2h3SVVkZjF0RnQyWWYwbm1zSWt3U2ZrM05sSjlPX09GWjdScm9XTi0yRjZQNzB5ZHZLWTBRQ1dGd0RBbHdxRTE3X3huOC1xektLeTBHRUJtY29EVHNWTVR6M0g4UkJUeDhHQTZSNVZrM1o3M3c4a1FJLU9PQUk5VjhSWWtxVjRuX0FvWVp5NGJkNko2X3Y4Tk16ME1Cd2pXN3ZSamR3WG5hTnlxTmpwTUpUbVZVcW1wdG8xZEt4SFVyeDJ5aW5QLWJJS0ZzVTk1emNMTXo?oc=5",
+      "title": "Emma Raducanu finally reveals when she plans to return to tennis after injury - Tennis World USA",
+      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQVHVYS0cxVlBqel9JTlRTMmpwYk45OFcyX0FfSC02RUUycVhjNy1oc1lkZDFHdzBneXVQY1VobkdFaTVlTXFxZmJqclJuY0dpNDM3eERiWU5zVWkyZkMzNnZnNWptWllOMEduR0kwX2lWbURyR0M4S0hoMldKbFM2N2tRQ1UtaFNQSWdabGZWNGJVN1ZseDRuOW90aWtiV2VjUnlwMkFUcTlOZlZZTDFzY1NWV2VqMVFtZ0gzVi1TWEFQZXo0Skw5MWVNWUR3UXpsSTJpNnZn?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Jannik Sinner receives worrying knee injury update as recovery continues - Tennis World USA",
+      "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNbE85VUd2aWJ5VEtPc2t3WWJqNk5ad2l0MnBXc3d0VEZwOWlaNDg2Z29JNXJWR1JVaFRjZUdaRmUyS1hfOFRDLUlFWWo1a3MtSHBIU1JZWWM0SERNSzhqTVpkVl9YZ0Rrei1fWmV4WC15Z25DYU56UFJYYmJzV09Gb0lMRm9BcEM5WGFrX2UzSXVsczRyeUlsMkI3UG1xNC1qcUhVMlVJVHB0STV4cGZGdG9oUHQ1N3pYQTRHbFNJdGNFbWtuOXlwOUtoU0NGQ3lDYnd3?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -481,8 +461,18 @@
       "severity": 0.75
     },
     {
-      "title": "Niente BJK Cup per Belinda Bencic a causa dell'infortunio al piede destro - blue News",
-      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNNElGZnZDUkt1d3g5UTNwLXMxSi1VNjk4SUYwSnQtWW5BT2F5cFUzbDlqdlhaaXBtaTg2VjFqOHA2YmVJTnY2SzJpUlFaUXdIVi0wWkpnUU9yQ3RrckxmVWpmdHRDaGY4cl93VEdNcExPVFNzUm9jeVluUjBqYzVqcTZsa240Wk5pdl9neXVzTHN3dlFCTzFYal9zWlhzZnV2VlJJNHh4WWE1a0tHdGE2czZ6YXJTcmRVMmY1T1NaS18?oc=5",
+      "title": "Sinner e l'infortunio, l'annuncio sul possibile rientro: \"Mi sto fidando tanto\" - DAZN",
+      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxObzc4SnNHc0diekptR3RNSnhfYU5HZmR4ZlFqV3NjRU83SW90LVp2REJwM1Q4UDc5NE83NTdPV2cxcEFSSHBYWjQyc3VxcUdSU1hpSTc4MTRMSjYzam1fM19sbFp3U2N4bzdSOFVhcEdPTVNZZXp2dmZCUjVKdjljTmlxakU0Y2M5a2s0RXFmcERBdzg0cXN3bi1uT2Y5MG9LVUxZVmNsdTV2YUl4eUxVTmVobEFQMjR0WmtPRElxQVRWRWVjeFRWeHJzMTM1VE81UDdhYmRfS0JGZw?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Tennis, Jannik Sinner: infortunio, condizioni, stato d’animo. E l’Australia - Il Cittadino di Monza e Brianza",
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxORWZDMkR2T2d1WEszcFZxWkFvQlQzVnByeEVDUmdXdVh5NjVsNUpudFZFUjlfOWR2aUpJb2VrNUdfamZWQWZTWkQ1UGIxYUZJMXc3dTFNTDFVM25SMXFQTTBrTHVydzdEOExiRkxzVzNfZXh4SF9yNG5WTVl2d0xxU3FQeGhOSERWVjVMTElkVVlMWkFIamxhV2U2LVZUNmotUXdLelEtbTY1M2xjbUE?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -531,8 +521,38 @@
       "severity": 0.75
     },
     {
+      "title": "UFFICIALE. Inter, si fermano Thuram e Stankovic per infortunio - Sky Sport",
+      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQb2VEOEtFcjk1OE41U0F0UzNNM3o3bHFaWE1uTzFfdXJUWHBlWHMwaGhWMEJrNzQtN3F1aDhIXzFJdHcyZkxjZktXY0VqZDdLdkttVzJJU2dMempxSjNnUUVPOWhYUzExZkdLclNpc1ZTQU4tZmJTUGxKWm1nWGVWbGJieXZiTkQycEQ4?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Sinner e l'infortunio: «Non è il momento più difficile della mia carriera». Ecco perché il rientro richiede tempo - Il Messaggero",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZGZGWUx2SmxJb2x2OXpESlRxeEFwb2ZZWUZhMG5FamJ1bTg0UVl1RDRuR3ZGLWU5WVdMbWx5OTNsN3F4MzdCSVZhdFN2TlNfTW1EQVNoTTdjX2xFZkRHZUl1cXlRMElVZE9kck9FR3RPV0IxUmw1eW9lTm0xenVDNkc0alpDSzJnSG1LZ3RDb1BFTGpTbXFic3VrZkJaa3I1MFdkS3BOelIwZ3VZX2l2MtIBrgFBVV95cUxNWnZoNmREVDNkOF9ERkxMbmJwNGtyZ2E1Z2k0ak5weG0xWXlJMXNFRDZPcmRCMTBnZ3U4M05DUFR3NW1UUEpmNXFueVoyYnp5RXdTa2JBNXBjdXRsc25adlJYeTVYVjV4WkNsWDE0STB3U2gySHc5enFhUnRlYkEtazc0VXhhSVZPN2lBVUtBU0NIQXJaS29fdmRhOEFoemJ0T3BTdFhwWHhVWW5yYUE?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
       "title": "Sinner, l’ammissione dolorosa sull’infortunio: le parole su Cahill, Norman e Antonelli. Cosa è emerso dalla conferenza - Virgilio",
-      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOVW9Ud1hVYXhhRlMxSEFfVjd1SkxLWThWLXg5LTQ1cEtKTWlGSFFQU1hGSzZFV3NOcmFmeV9mNUoxU1haRTBXMTVmbFRBNGRxYTBhalpoTHBzVVVDT2lUYVV0Uk1uRnlPUVRjZ0MwRGFzcGc4RXI4di1NWUE1WldyVWJtZzd5SlVUa0VUdThlNTM1cFlnUXZRag?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOVW9Ud1hVYXhhRlMxSEFfVjd1SkxLWThWLXg5LTQ1cEtKTWlGSFFQU1hGSzZFV3NOcmFmeV9mNUoxU1haRTBXMTVmbFRBNGRxYTBhalpoTHBzVVVDT2lUYVV0Uk1uRnlPUVRjZ0MwRGFzcGc4RXI4di1NWUE1WldyVWJtZzd5SlVUa0VUdThlNTM1cFlnUXZRatIBnwFBVV95cUxOeDAwdENMY3ZFMlZTelZveDRWbnVnc1hYYmpKbktHVkJZY19ONkhCRDlCSzJ5enpscl92bk5HV09VLUZQNXFMTEo5UnpaVEI4OU4xZzZpck5VR1BJUDVsZVdKYW4wQkdDeVhwYmhYd3JxdUdTeGFwdWgyM29nbkVIT2FzZXUwZDYyaG5DNFdGb3M5WHl5RUFiWGJoVWZUZk0?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Sinner, le novità sul rientro: l'infortunio, Norman e l'addio a Cahill - https://tennis-open.it/",
+      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5vTV9SQVBOMEtlQ0xGay1UeldFNFo4OTFIRTNuRTFlN2JtZnd4QjVFWUJ0b1lLU0htY1lWSC1oblplV2JBV1VHTW9CaDdhMmFYTy0zTEwxcmdaWVE0aDBwNGREbmpManRXN2U1c0pCXzlyQ1hhQzdwUWZmTkhpRkU?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",

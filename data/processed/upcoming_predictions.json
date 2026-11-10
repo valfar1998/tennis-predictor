@@ -10701,13 +10701,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Sinner e l'infortunio: \u00abNon \u00e8 il momento pi\u00f9 difficile della mia carriera\u00bb. Ecco perch\u00e9 il rientro richiede tempo - Il Messaggero",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZGZGWUx2SmxJb2x2OXpESlRxeEFwb2ZZWUZhMG5FamJ1bTg0UVl1RDRuR3ZGLWU5WVdMbWx5OTNsN3F4MzdCSVZhdFN2TlNfTW1EQVNoTTdjX2xFZkRHZUl1cXlRMElVZE9kck9FR3RPV0IxUmw1eW9lTm0xenVDNkc0alpDSzJnSG1LZ3RDb1BFTGpTbXFic3VrZkJaa3I1MFdkS3BOelIwZ3VZX2l2MtIBrgFBVV95cUxNWnZoNmREVDNkOF9ERkxMbmJwNGtyZ2E1Z2k0ak5weG0xWXlJMXNFRDZPcmRCMTBnZ3U4M05DUFR3NW1UUEpmNXFueVoyYnp5RXdTa2JBNXBjdXRsc25adlJYeTVYVjV4WkNsWDE0STB3U2gySHc5enFhUnRlYkEtazc0VXhhSVZPN2lBVUtBU0NIQXJaS29fdmRhOEFoemJ0T3BTdFhwWHhVWW5yYUE?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Sinner e l'infortunio: \u00abNon \u00e8 il momento pi\u00f9 difficile della mia carriera\u00bb. Ecco perch\u00e9 il rientro richiede tempo - Il Messaggero",
+          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZGZGWUx2SmxJb2x2OXpESlRxeEFwb2ZZWUZhMG5FamJ1bTg0UVl1RDRuR3ZGLWU5WVdMbWx5OTNsN3F4MzdCSVZhdFN2TlNfTW1EQVNoTTdjX2xFZkRHZUl1cXlRMElVZE9kck9FR3RPV0IxUmw1eW9lTm0xenVDNkc0alpDSzJnSG1LZ3RDb1BFTGpTbXFic3VrZkJaa3I1MFdkS3BOelIwZ3VZX2l2MtIBrgFBVV95cUxNWnZoNmREVDNkOF9ERkxMbmJwNGtyZ2E1Z2k0ak5weG0xWXlJMXNFRDZPcmRCMTBnZ3U4M05DUFR3NW1UUEpmNXFueVoyYnp5RXdTa2JBNXBjdXRsc25adlJYeTVYVjV4WkNsWDE0STB3U2gySHc5enFhUnRlYkEtazc0VXhhSVZPN2lBVUtBU0NIQXJaS29fdmRhOEFoemJ0T3BTdFhwWHhVWW5yYUE?oc=5",
+          "source": "gnews_injury_it",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -10721,13 +10734,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Sinner e l'infortunio: \u00abNon \u00e8 il momento pi\u00f9 difficile della mia carriera\u00bb. Ecco perch\u00e9 il rientro richiede tempo - Il Messaggero",
+        "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZGZGWUx2SmxJb2x2OXpESlRxeEFwb2ZZWUZhMG5FamJ1bTg0UVl1RDRuR3ZGLWU5WVdMbWx5OTNsN3F4MzdCSVZhdFN2TlNfTW1EQVNoTTdjX2xFZkRHZUl1cXlRMElVZE9kck9FR3RPV0IxUmw1eW9lTm0xenVDNkc0alpDSzJnSG1LZ3RDb1BFTGpTbXFic3VrZkJaa3I1MFdkS3BOelIwZ3VZX2l2MtIBrgFBVV95cUxNWnZoNmREVDNkOF9ERkxMbmJwNGtyZ2E1Z2k0ak5weG0xWXlJMXNFRDZPcmRCMTBnZ3U4M05DUFR3NW1UUEpmNXFueVoyYnp5RXdTa2JBNXBjdXRsc25adlJYeTVYVjV4WkNsWDE0STB3U2gySHc5enFhUnRlYkEtazc0VXhhSVZPN2lBVUtBU0NIQXJaS29fdmRhOEFoemJ0T3BTdFhwWHhVWW5yYUE?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Sinner e l'infortunio: \u00abNon \u00e8 il momento pi\u00f9 difficile della mia carriera\u00bb. Ecco perch\u00e9 il rientro richiede tempo - Il Messaggero",
+            "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZGZGWUx2SmxJb2x2OXpESlRxeEFwb2ZZWUZhMG5FamJ1bTg0UVl1RDRuR3ZGLWU5WVdMbWx5OTNsN3F4MzdCSVZhdFN2TlNfTW1EQVNoTTdjX2xFZkRHZUl1cXlRMElVZE9kck9FR3RPV0IxUmw1eW9lTm0xenVDNkc0alpDSzJnSG1LZ3RDb1BFTGpTbXFic3VrZkJaa3I1MFdkS3BOelIwZ3VZX2l2MtIBrgFBVV95cUxNWnZoNmREVDNkOF9ERkxMbmJwNGtyZ2E1Z2k0ak5weG0xWXlJMXNFRDZPcmRCMTBnZ3U4M05DUFR3NW1UUEpmNXFueVoyYnp5RXdTa2JBNXBjdXRsc25adlJYeTVYVjV4WkNsWDE0STB3U2gySHc5enFhUnRlYkEtazc0VXhhSVZPN2lBVUtBU0NIQXJaS29fdmRhOEFoemJ0T3BTdFhwWHhVWW5yYUE?oc=5",
+            "source": "gnews_injury_it",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -10738,10 +10764,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Sinner e l'infortunio: \u00abNon \u00e8 il momento pi\u00f9 difficile della mia carriera\u00bb. Ecco perch\u00e9 il rientro richiede tempo - Il Messaggero",
+      "category": "injury"
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -13518,10 +13544,10 @@
       "headline": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
       "category": "injury"
     },
-    "p_retire": 0.189,
+    "p_retire": 0.2363,
     "retirement_context": {
-      "player_injury_risk": 0.18895,
-      "p_retire": 0.18895,
+      "player_injury_risk": 0.23625000000000002,
+      "p_retire": 0.23625000000000002,
       "news_boost": 0.04725
     }
   },
@@ -54813,10 +54839,10 @@
       "headline": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
       "category": "injury"
     },
-    "p_retire": 0.189,
+    "p_retire": 0.2363,
     "retirement_context": {
-      "player_injury_risk": 0.18895,
-      "p_retire": 0.18895,
+      "player_injury_risk": 0.23625000000000002,
+      "p_retire": 0.23625000000000002,
       "news_boost": 0.04725
     }
   },
