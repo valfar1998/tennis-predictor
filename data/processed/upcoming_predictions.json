@@ -2745,13 +2745,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Sinner, i retroscena sull\u2019infortunio al ginocchio e la rivelazione sulla recente operazione: \u201cHo perso un sacco di muscoli\u201d - Virgilio",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOTXF4R1lCSndWZWZaM0RBVnJXUElmQ2g2c21ia1N5VkJvNzNfVXpXQ3M4bkpDVnAzX3NyRTlCa1Y0T1FleWgzX0xoZEtiNEZUOTZoMHpLX2tjUVloQ1RsUXlDSVJNQVN6R2NoNVFkUWo0aWVPOGtWSENCOGtXeHg1SHNHRW5UYVo2b1lyNlJfSG5vdnF00gGbAUFVX3lxTE5RR2NuTjZtcGZOanJtdG9wNEZfT3ZaWGwxVl9MeGFuZWdIcWxyMm44RUU5bjJrdGNYUkhOV1VQaDR6RlZNSmQxV1QzYVZRcnpzaFFENER6UE9JZ2VQMlgxUlJrR1U2bm9GT3FBcHZucTVYSDAtek1tWTd4anZyenpEbnJfVGlIT19qV2J1YUdpS3hSaTUwNHgtQzJj?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Sinner, i retroscena sull\u2019infortunio al ginocchio e la rivelazione sulla recente operazione: \u201cHo perso un sacco di muscoli\u201d - Virgilio",
+          "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOTXF4R1lCSndWZWZaM0RBVnJXUElmQ2g2c21ia1N5VkJvNzNfVXpXQ3M4bkpDVnAzX3NyRTlCa1Y0T1FleWgzX0xoZEtiNEZUOTZoMHpLX2tjUVloQ1RsUXlDSVJNQVN6R2NoNVFkUWo0aWVPOGtWSENCOGtXeHg1SHNHRW5UYVo2b1lyNlJfSG5vdnF00gGbAUFVX3lxTE5RR2NuTjZtcGZOanJtdG9wNEZfT3ZaWGwxVl9MeGFuZWdIcWxyMm44RUU5bjJrdGNYUkhOV1VQaDR6RlZNSmQxV1QzYVZRcnpzaFFENER6UE9JZ2VQMlgxUlJrR1U2bm9GT3FBcHZucTVYSDAtek1tWTd4anZyenpEbnJfVGlIT19qV2J1YUdpS3hSaTUwNHgtQzJj?oc=5",
+          "source": "gnews_injury_it",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -2765,13 +2778,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Sinner, i retroscena sull\u2019infortunio al ginocchio e la rivelazione sulla recente operazione: \u201cHo perso un sacco di muscoli\u201d - Virgilio",
+        "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOTXF4R1lCSndWZWZaM0RBVnJXUElmQ2g2c21ia1N5VkJvNzNfVXpXQ3M4bkpDVnAzX3NyRTlCa1Y0T1FleWgzX0xoZEtiNEZUOTZoMHpLX2tjUVloQ1RsUXlDSVJNQVN6R2NoNVFkUWo0aWVPOGtWSENCOGtXeHg1SHNHRW5UYVo2b1lyNlJfSG5vdnF00gGbAUFVX3lxTE5RR2NuTjZtcGZOanJtdG9wNEZfT3ZaWGwxVl9MeGFuZWdIcWxyMm44RUU5bjJrdGNYUkhOV1VQaDR6RlZNSmQxV1QzYVZRcnpzaFFENER6UE9JZ2VQMlgxUlJrR1U2bm9GT3FBcHZucTVYSDAtek1tWTd4anZyenpEbnJfVGlIT19qV2J1YUdpS3hSaTUwNHgtQzJj?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Sinner, i retroscena sull\u2019infortunio al ginocchio e la rivelazione sulla recente operazione: \u201cHo perso un sacco di muscoli\u201d - Virgilio",
+            "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOTXF4R1lCSndWZWZaM0RBVnJXUElmQ2g2c21ia1N5VkJvNzNfVXpXQ3M4bkpDVnAzX3NyRTlCa1Y0T1FleWgzX0xoZEtiNEZUOTZoMHpLX2tjUVloQ1RsUXlDSVJNQVN6R2NoNVFkUWo0aWVPOGtWSENCOGtXeHg1SHNHRW5UYVo2b1lyNlJfSG5vdnF00gGbAUFVX3lxTE5RR2NuTjZtcGZOanJtdG9wNEZfT3ZaWGwxVl9MeGFuZWdIcWxyMm44RUU5bjJrdGNYUkhOV1VQaDR6RlZNSmQxV1QzYVZRcnpzaFFENER6UE9JZ2VQMlgxUlJrR1U2bm9GT3FBcHZucTVYSDAtek1tWTd4anZyenpEbnJfVGlIT19qV2J1YUdpS3hSaTUwNHgtQzJj?oc=5",
+            "source": "gnews_injury_it",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -2782,10 +2808,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Sinner, i retroscena sull\u2019infortunio al ginocchio e la rivelazione sulla recente operazione: \u201cHo perso un sacco di muscoli\u201d - Virgilio",
+      "category": "injury"
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -33027,13 +33053,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Sinner, i retroscena sull\u2019infortunio al ginocchio e la rivelazione sulla recente operazione: \u201cHo perso un sacco di muscoli\u201d - Virgilio",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOTXF4R1lCSndWZWZaM0RBVnJXUElmQ2g2c21ia1N5VkJvNzNfVXpXQ3M4bkpDVnAzX3NyRTlCa1Y0T1FleWgzX0xoZEtiNEZUOTZoMHpLX2tjUVloQ1RsUXlDSVJNQVN6R2NoNVFkUWo0aWVPOGtWSENCOGtXeHg1SHNHRW5UYVo2b1lyNlJfSG5vdnF00gGbAUFVX3lxTE5RR2NuTjZtcGZOanJtdG9wNEZfT3ZaWGwxVl9MeGFuZWdIcWxyMm44RUU5bjJrdGNYUkhOV1VQaDR6RlZNSmQxV1QzYVZRcnpzaFFENER6UE9JZ2VQMlgxUlJrR1U2bm9GT3FBcHZucTVYSDAtek1tWTd4anZyenpEbnJfVGlIT19qV2J1YUdpS3hSaTUwNHgtQzJj?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Sinner, i retroscena sull\u2019infortunio al ginocchio e la rivelazione sulla recente operazione: \u201cHo perso un sacco di muscoli\u201d - Virgilio",
+          "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOTXF4R1lCSndWZWZaM0RBVnJXUElmQ2g2c21ia1N5VkJvNzNfVXpXQ3M4bkpDVnAzX3NyRTlCa1Y0T1FleWgzX0xoZEtiNEZUOTZoMHpLX2tjUVloQ1RsUXlDSVJNQVN6R2NoNVFkUWo0aWVPOGtWSENCOGtXeHg1SHNHRW5UYVo2b1lyNlJfSG5vdnF00gGbAUFVX3lxTE5RR2NuTjZtcGZOanJtdG9wNEZfT3ZaWGwxVl9MeGFuZWdIcWxyMm44RUU5bjJrdGNYUkhOV1VQaDR6RlZNSmQxV1QzYVZRcnpzaFFENER6UE9JZ2VQMlgxUlJrR1U2bm9GT3FBcHZucTVYSDAtek1tWTd4anZyenpEbnJfVGlIT19qV2J1YUdpS3hSaTUwNHgtQzJj?oc=5",
+          "source": "gnews_injury_it",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -33047,13 +33086,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Sinner, i retroscena sull\u2019infortunio al ginocchio e la rivelazione sulla recente operazione: \u201cHo perso un sacco di muscoli\u201d - Virgilio",
+        "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOTXF4R1lCSndWZWZaM0RBVnJXUElmQ2g2c21ia1N5VkJvNzNfVXpXQ3M4bkpDVnAzX3NyRTlCa1Y0T1FleWgzX0xoZEtiNEZUOTZoMHpLX2tjUVloQ1RsUXlDSVJNQVN6R2NoNVFkUWo0aWVPOGtWSENCOGtXeHg1SHNHRW5UYVo2b1lyNlJfSG5vdnF00gGbAUFVX3lxTE5RR2NuTjZtcGZOanJtdG9wNEZfT3ZaWGwxVl9MeGFuZWdIcWxyMm44RUU5bjJrdGNYUkhOV1VQaDR6RlZNSmQxV1QzYVZRcnpzaFFENER6UE9JZ2VQMlgxUlJrR1U2bm9GT3FBcHZucTVYSDAtek1tWTd4anZyenpEbnJfVGlIT19qV2J1YUdpS3hSaTUwNHgtQzJj?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Sinner, i retroscena sull\u2019infortunio al ginocchio e la rivelazione sulla recente operazione: \u201cHo perso un sacco di muscoli\u201d - Virgilio",
+            "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOTXF4R1lCSndWZWZaM0RBVnJXUElmQ2g2c21ia1N5VkJvNzNfVXpXQ3M4bkpDVnAzX3NyRTlCa1Y0T1FleWgzX0xoZEtiNEZUOTZoMHpLX2tjUVloQ1RsUXlDSVJNQVN6R2NoNVFkUWo0aWVPOGtWSENCOGtXeHg1SHNHRW5UYVo2b1lyNlJfSG5vdnF00gGbAUFVX3lxTE5RR2NuTjZtcGZOanJtdG9wNEZfT3ZaWGwxVl9MeGFuZWdIcWxyMm44RUU5bjJrdGNYUkhOV1VQaDR6RlZNSmQxV1QzYVZRcnpzaFFENER6UE9JZ2VQMlgxUlJrR1U2bm9GT3FBcHZucTVYSDAtek1tWTd4anZyenpEbnJfVGlIT19qV2J1YUdpS3hSaTUwNHgtQzJj?oc=5",
+            "source": "gnews_injury_it",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -33064,10 +33116,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Sinner, i retroscena sull\u2019infortunio al ginocchio e la rivelazione sulla recente operazione: \u201cHo perso un sacco di muscoli\u201d - Virgilio",
+      "category": "injury"
     },
     "p_retire": 0.45,
     "retirement_context": {
