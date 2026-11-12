@@ -27222,13 +27222,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Basket: Virtus Bologna vincente su Verona nel posticipo, ma preoccupa l\u2019infortunio di Casarin - OA Sport",
+      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQTmRmRDdxR0RQVkxVeDFCckFrTlB2dUF5QVVPYnBqMmhBaGh5cU9LWkxhVHFNdUVxc0JrZ1ktcW1IWjJLY184blRPazdubXlDTGNOU1hNSG1SWFY5VlZRaUQyeUtudy1ma1JpTVE1Zk5iZV93MHh2VlhCS1RfZkFRLWRJRDhOSlNsRHBsRXVyNWUxWXpBOU9TWTJHQ1ZyYlBSLXhMamk5R3FVR01PcGFlWFlBUGZpanMzMkpmSDNCa9IBxAFBVV95cUxPRmwxSWxWWWlaeF9BLUFCZGpvMlZxcTFPVkdrOFF5Z0dFaHc4ZkE5Q0tJQVVWbGI0T2hfT05hUXZ2a2pacFhHb1paTUhFb0tpZXBleGhRTjRlV2dRWV9SV1lrblhaXzV5SWJiaDRpbk02QVlWbXFGUXZiSXM1UDFJeV9lcW1wZS1HWXhkbXJBeWllNXl1Q3RfNFZSdVhMVko5R0o5OUxRaE40NG85LWVSc3VFMVhIcEswc3JKV2pNeml0c1BU?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Basket: Virtus Bologna vincente su Verona nel posticipo, ma preoccupa l\u2019infortunio di Casarin - OA Sport",
+          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQTmRmRDdxR0RQVkxVeDFCckFrTlB2dUF5QVVPYnBqMmhBaGh5cU9LWkxhVHFNdUVxc0JrZ1ktcW1IWjJLY184blRPazdubXlDTGNOU1hNSG1SWFY5VlZRaUQyeUtudy1ma1JpTVE1Zk5iZV93MHh2VlhCS1RfZkFRLWRJRDhOSlNsRHBsRXVyNWUxWXpBOU9TWTJHQ1ZyYlBSLXhMamk5R3FVR01PcGFlWFlBUGZpanMzMkpmSDNCa9IBxAFBVV95cUxPRmwxSWxWWWlaeF9BLUFCZGpvMlZxcTFPVkdrOFF5Z0dFaHc4ZkE5Q0tJQVVWbGI0T2hfT05hUXZ2a2pacFhHb1paTUhFb0tpZXBleGhRTjRlV2dRWV9SV1lrblhaXzV5SWJiaDRpbk02QVlWbXFGUXZiSXM1UDFJeV9lcW1wZS1HWXhkbXJBeWllNXl1Q3RfNFZSdVhMVko5R0o5OUxRaE40NG85LWVSc3VFMVhIcEswc3JKV2pNeml0c1BU?oc=5",
+          "source": "gnews_injury_it",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -27242,13 +27255,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Basket: Virtus Bologna vincente su Verona nel posticipo, ma preoccupa l\u2019infortunio di Casarin - OA Sport",
+        "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQTmRmRDdxR0RQVkxVeDFCckFrTlB2dUF5QVVPYnBqMmhBaGh5cU9LWkxhVHFNdUVxc0JrZ1ktcW1IWjJLY184blRPazdubXlDTGNOU1hNSG1SWFY5VlZRaUQyeUtudy1ma1JpTVE1Zk5iZV93MHh2VlhCS1RfZkFRLWRJRDhOSlNsRHBsRXVyNWUxWXpBOU9TWTJHQ1ZyYlBSLXhMamk5R3FVR01PcGFlWFlBUGZpanMzMkpmSDNCa9IBxAFBVV95cUxPRmwxSWxWWWlaeF9BLUFCZGpvMlZxcTFPVkdrOFF5Z0dFaHc4ZkE5Q0tJQVVWbGI0T2hfT05hUXZ2a2pacFhHb1paTUhFb0tpZXBleGhRTjRlV2dRWV9SV1lrblhaXzV5SWJiaDRpbk02QVlWbXFGUXZiSXM1UDFJeV9lcW1wZS1HWXhkbXJBeWllNXl1Q3RfNFZSdVhMVko5R0o5OUxRaE40NG85LWVSc3VFMVhIcEswc3JKV2pNeml0c1BU?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Basket: Virtus Bologna vincente su Verona nel posticipo, ma preoccupa l\u2019infortunio di Casarin - OA Sport",
+            "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQTmRmRDdxR0RQVkxVeDFCckFrTlB2dUF5QVVPYnBqMmhBaGh5cU9LWkxhVHFNdUVxc0JrZ1ktcW1IWjJLY184blRPazdubXlDTGNOU1hNSG1SWFY5VlZRaUQyeUtudy1ma1JpTVE1Zk5iZV93MHh2VlhCS1RfZkFRLWRJRDhOSlNsRHBsRXVyNWUxWXpBOU9TWTJHQ1ZyYlBSLXhMamk5R3FVR01PcGFlWFlBUGZpanMzMkpmSDNCa9IBxAFBVV95cUxPRmwxSWxWWWlaeF9BLUFCZGpvMlZxcTFPVkdrOFF5Z0dFaHc4ZkE5Q0tJQVVWbGI0T2hfT05hUXZ2a2pacFhHb1paTUhFb0tpZXBleGhRTjRlV2dRWV9SV1lrblhaXzV5SWJiaDRpbk02QVlWbXFGUXZiSXM1UDFJeV9lcW1wZS1HWXhkbXJBeWllNXl1Q3RfNFZSdVhMVko5R0o5OUxRaE40NG85LWVSc3VFMVhIcEswc3JKV2pNeml0c1BU?oc=5",
+            "source": "gnews_injury_it",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -27259,10 +27285,16 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Basket: Virtus Bologna vincente su Verona nel posticipo, ma preoccupa l\u2019infortunio di Casarin - OA Sport",
+      "category": "injury"
+    },
+    "p_retire": 0.135,
+    "retirement_context": {
+      "player_injury_risk": 0.135,
+      "p_retire": 0.135,
+      "news_boost": 0.135
     }
   },
   {
@@ -72004,26 +72036,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.135,
-      "category": "injury",
-      "headline": "Taranto Tennis Cup, Gill avanza e Vasami si ritira per infortunio: oggi in campo Maestrelli - Tarantini Time Quotidiano",
-      "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNcF9MUEdETW1FSEdNSEpBYmNqWG42T3Z3SUhhUmEzbEl5QUU5VldieUdvYldQR3FnQWdhVzdIaFRja0t3NHFpOTBUcUxveXl5eXlmd2lETGJJcXBiUzZzQzdyZVlxU0E1dWJ0Q3A2c3d0MHVqdjIzaWl4eUxISG5tc3Q2bE9mZlpCQWY3ZWlVX3pYNVRXcHhyOXR0U0swalhDeFlFeGJmZFRLbHQ0T215QzhTOC0yNGtyZVVQMDI3djhLa20ydTdUczRn0gHPAUFVX3lxTE1ibXVEeThRZXdaOU5rNFg4djAza2xPcTZYMVdkLWJhTUlyNHNIaV9LQ3hXMUZldkduU3IwR1pCbTJFUlJMdUFsUm52UHRxS19vUjIyMmVNMHFYaDBnaUJXMkIxY0FYdC1HbVp5ZFhyR0oxY0xfcXBYV2M0YkZObzZpYWJvT0VueHRIaWtpUUQ4ZkpNWjB3TlJrTTU4WXJlM05ySXRKT3FxQ0VUcmhJTXFWT09LMTQ2alpxSUV5UUk0SlcwQWZuRWhVZm5Td19jMA?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.75,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Taranto Tennis Cup, Gill avanza e Vasami si ritira per infortunio: oggi in campo Maestrelli - Tarantini Time Quotidiano",
-          "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNcF9MUEdETW1FSEdNSEpBYmNqWG42T3Z3SUhhUmEzbEl5QUU5VldieUdvYldQR3FnQWdhVzdIaFRja0t3NHFpOTBUcUxveXl5eXlmd2lETGJJcXBiUzZzQzdyZVlxU0E1dWJ0Q3A2c3d0MHVqdjIzaWl4eUxISG5tc3Q2bE9mZlpCQWY3ZWlVX3pYNVRXcHhyOXR0U0swalhDeFlFeGJmZFRLbHQ0T215QzhTOC0yNGtyZVVQMDI3djhLa20ydTdUczRn0gHPAUFVX3lxTE1ibXVEeThRZXdaOU5rNFg4djAza2xPcTZYMVdkLWJhTUlyNHNIaV9LQ3hXMUZldkduU3IwR1pCbTJFUlJMdUFsUm52UHRxS19vUjIyMmVNMHFYaDBnaUJXMkIxY0FYdC1HbVp5ZFhyR0oxY0xfcXBYV2M0YkZObzZpYWJvT0VueHRIaWtpUUQ4ZkpNWjB3TlJrTTU4WXJlM05ySXRKT3FxQ0VUcmhJTXFWT09LMTQ2alpxSUV5UUk0SlcwQWZuRWhVZm5Td19jMA?oc=5",
-          "source": "gnews_injury_it",
-          "category": "injury",
-          "severity": 0.75,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -72046,31 +72065,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.135,
-        "category": "injury",
-        "headline": "Taranto Tennis Cup, Gill avanza e Vasami si ritira per infortunio: oggi in campo Maestrelli - Tarantini Time Quotidiano",
-        "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNcF9MUEdETW1FSEdNSEpBYmNqWG42T3Z3SUhhUmEzbEl5QUU5VldieUdvYldQR3FnQWdhVzdIaFRja0t3NHFpOTBUcUxveXl5eXlmd2lETGJJcXBiUzZzQzdyZVlxU0E1dWJ0Q3A2c3d0MHVqdjIzaWl4eUxISG5tc3Q2bE9mZlpCQWY3ZWlVX3pYNVRXcHhyOXR0U0swalhDeFlFeGJmZFRLbHQ0T215QzhTOC0yNGtyZVVQMDI3djhLa20ydTdUczRn0gHPAUFVX3lxTE1ibXVEeThRZXdaOU5rNFg4djAza2xPcTZYMVdkLWJhTUlyNHNIaV9LQ3hXMUZldkduU3IwR1pCbTJFUlJMdUFsUm52UHRxS19vUjIyMmVNMHFYaDBnaUJXMkIxY0FYdC1HbVp5ZFhyR0oxY0xfcXBYV2M0YkZObzZpYWJvT0VueHRIaWtpUUQ4ZkpNWjB3TlJrTTU4WXJlM05ySXRKT3FxQ0VUcmhJTXFWT09LMTQ2alpxSUV5UUk0SlcwQWZuRWhVZm5Td19jMA?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.75,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Taranto Tennis Cup, Gill avanza e Vasami si ritira per infortunio: oggi in campo Maestrelli - Tarantini Time Quotidiano",
-            "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNcF9MUEdETW1FSEdNSEpBYmNqWG42T3Z3SUhhUmEzbEl5QUU5VldieUdvYldQR3FnQWdhVzdIaFRja0t3NHFpOTBUcUxveXl5eXlmd2lETGJJcXBiUzZzQzdyZVlxU0E1dWJ0Q3A2c3d0MHVqdjIzaWl4eUxISG5tc3Q2bE9mZlpCQWY3ZWlVX3pYNVRXcHhyOXR0U0swalhDeFlFeGJmZFRLbHQ0T215QzhTOC0yNGtyZVVQMDI3djhLa20ydTdUczRn0gHPAUFVX3lxTE1ibXVEeThRZXdaOU5rNFg4djAza2xPcTZYMVdkLWJhTUlyNHNIaV9LQ3hXMUZldkduU3IwR1pCbTJFUlJMdUFsUm52UHRxS19vUjIyMmVNMHFYaDBnaUJXMkIxY0FYdC1HbVp5ZFhyR0oxY0xfcXBYV2M0YkZObzZpYWJvT0VueHRIaWtpUUQ4ZkpNWjB3TlJrTTU4WXJlM05ySXRKT3FxQ0VUcmhJTXFWT09LMTQ2alpxSUV5UUk0SlcwQWZuRWhVZm5Td19jMA?oc=5",
-            "source": "gnews_injury_it",
-            "category": "injury",
-            "severity": 0.75,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Taranto Tennis Cup, Gill avanza e Vasami si ritira per infortunio: oggi in campo Maestrelli - Tarantini Time Quotidiano",
-      "category": "injury"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
