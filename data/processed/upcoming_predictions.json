@@ -27290,10 +27290,10 @@
       "headline": "Basket: Virtus Bologna vincente su Verona nel posticipo, ma preoccupa l\u2019infortunio di Casarin - OA Sport",
       "category": "injury"
     },
-    "p_retire": 0.135,
+    "p_retire": 0.27,
     "retirement_context": {
-      "player_injury_risk": 0.135,
-      "p_retire": 0.135,
+      "player_injury_risk": 0.27,
+      "p_retire": 0.27,
       "news_boost": 0.135
     }
   },
