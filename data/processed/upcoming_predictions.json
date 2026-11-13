@@ -10727,26 +10727,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.135,
-      "category": "injury",
-      "headline": "Sinner e l'infortunio: \u00abNon \u00e8 il momento pi\u00f9 difficile della mia carriera\u00bb. Ecco perch\u00e9 il rientro richiede tempo - Il Messaggero",
-      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZGZGWUx2SmxJb2x2OXpESlRxeEFwb2ZZWUZhMG5FamJ1bTg0UVl1RDRuR3ZGLWU5WVdMbWx5OTNsN3F4MzdCSVZhdFN2TlNfTW1EQVNoTTdjX2xFZkRHZUl1cXlRMElVZE9kck9FR3RPV0IxUmw1eW9lTm0xenVDNkc0alpDSzJnSG1LZ3RDb1BFTGpTbXFic3VrZkJaa3I1MFdkS3BOelIwZ3VZX2l2MtIBrgFBVV95cUxNWnZoNmREVDNkOF9ERkxMbmJwNGtyZ2E1Z2k0ak5weG0xWXlJMXNFRDZPcmRCMTBnZ3U4M05DUFR3NW1UUEpmNXFueVoyYnp5RXdTa2JBNXBjdXRsc25adlJYeTVYVjV4WkNsWDE0STB3U2gySHc5enFhUnRlYkEtazc0VXhhSVZPN2lBVUtBU0NIQXJaS29fdmRhOEFoemJ0T3BTdFhwWHhVWW5yYUE?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.75,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Sinner e l'infortunio: \u00abNon \u00e8 il momento pi\u00f9 difficile della mia carriera\u00bb. Ecco perch\u00e9 il rientro richiede tempo - Il Messaggero",
-          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZGZGWUx2SmxJb2x2OXpESlRxeEFwb2ZZWUZhMG5FamJ1bTg0UVl1RDRuR3ZGLWU5WVdMbWx5OTNsN3F4MzdCSVZhdFN2TlNfTW1EQVNoTTdjX2xFZkRHZUl1cXlRMElVZE9kck9FR3RPV0IxUmw1eW9lTm0xenVDNkc0alpDSzJnSG1LZ3RDb1BFTGpTbXFic3VrZkJaa3I1MFdkS3BOelIwZ3VZX2l2MtIBrgFBVV95cUxNWnZoNmREVDNkOF9ERkxMbmJwNGtyZ2E1Z2k0ak5weG0xWXlJMXNFRDZPcmRCMTBnZ3U4M05DUFR3NW1UUEpmNXFueVoyYnp5RXdTa2JBNXBjdXRsc25adlJYeTVYVjV4WkNsWDE0STB3U2gySHc5enFhUnRlYkEtazc0VXhhSVZPN2lBVUtBU0NIQXJaS29fdmRhOEFoemJ0T3BTdFhwWHhVWW5yYUE?oc=5",
-          "source": "gnews_injury_it",
-          "category": "injury",
-          "severity": 0.75,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -10760,26 +10747,13 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.135,
-        "category": "injury",
-        "headline": "Sinner e l'infortunio: \u00abNon \u00e8 il momento pi\u00f9 difficile della mia carriera\u00bb. Ecco perch\u00e9 il rientro richiede tempo - Il Messaggero",
-        "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZGZGWUx2SmxJb2x2OXpESlRxeEFwb2ZZWUZhMG5FamJ1bTg0UVl1RDRuR3ZGLWU5WVdMbWx5OTNsN3F4MzdCSVZhdFN2TlNfTW1EQVNoTTdjX2xFZkRHZUl1cXlRMElVZE9kck9FR3RPV0IxUmw1eW9lTm0xenVDNkc0alpDSzJnSG1LZ3RDb1BFTGpTbXFic3VrZkJaa3I1MFdkS3BOelIwZ3VZX2l2MtIBrgFBVV95cUxNWnZoNmREVDNkOF9ERkxMbmJwNGtyZ2E1Z2k0ak5weG0xWXlJMXNFRDZPcmRCMTBnZ3U4M05DUFR3NW1UUEpmNXFueVoyYnp5RXdTa2JBNXBjdXRsc25adlJYeTVYVjV4WkNsWDE0STB3U2gySHc5enFhUnRlYkEtazc0VXhhSVZPN2lBVUtBU0NIQXJaS29fdmRhOEFoemJ0T3BTdFhwWHhVWW5yYUE?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.75,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Sinner e l'infortunio: \u00abNon \u00e8 il momento pi\u00f9 difficile della mia carriera\u00bb. Ecco perch\u00e9 il rientro richiede tempo - Il Messaggero",
-            "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZGZGWUx2SmxJb2x2OXpESlRxeEFwb2ZZWUZhMG5FamJ1bTg0UVl1RDRuR3ZGLWU5WVdMbWx5OTNsN3F4MzdCSVZhdFN2TlNfTW1EQVNoTTdjX2xFZkRHZUl1cXlRMElVZE9kck9FR3RPV0IxUmw1eW9lTm0xenVDNkc0alpDSzJnSG1LZ3RDb1BFTGpTbXFic3VrZkJaa3I1MFdkS3BOelIwZ3VZX2l2MtIBrgFBVV95cUxNWnZoNmREVDNkOF9ERkxMbmJwNGtyZ2E1Z2k0ak5weG0xWXlJMXNFRDZPcmRCMTBnZ3U4M05DUFR3NW1UUEpmNXFueVoyYnp5RXdTa2JBNXBjdXRsc25adlJYeTVYVjV4WkNsWDE0STB3U2gySHc5enFhUnRlYkEtazc0VXhhSVZPN2lBVUtBU0NIQXJaS29fdmRhOEFoemJ0T3BTdFhwWHhVWW5yYUE?oc=5",
-            "source": "gnews_injury_it",
-            "category": "injury",
-            "severity": 0.75,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
       "opponent": {
         "has_alert": false,
@@ -10790,10 +10764,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Sinner e l'infortunio: \u00abNon \u00e8 il momento pi\u00f9 difficile della mia carriera\u00bb. Ecco perch\u00e9 il rientro richiede tempo - Il Messaggero",
-      "category": "injury"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -27222,13 +27196,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Basket: Virtus Bologna vincente su Verona nel posticipo, ma preoccupa l\u2019infortunio di Casarin - OA Sport",
+      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQTmRmRDdxR0RQVkxVeDFCckFrTlB2dUF5QVVPYnBqMmhBaGh5cU9LWkxhVHFNdUVxc0JrZ1ktcW1IWjJLY184blRPazdubXlDTGNOU1hNSG1SWFY5VlZRaUQyeUtudy1ma1JpTVE1Zk5iZV93MHh2VlhCS1RfZkFRLWRJRDhOSlNsRHBsRXVyNWUxWXpBOU9TWTJHQ1ZyYlBSLXhMamk5R3FVR01PcGFlWFlBUGZpanMzMkpmSDNCa9IBxAFBVV95cUxPRmwxSWxWWWlaeF9BLUFCZGpvMlZxcTFPVkdrOFF5Z0dFaHc4ZkE5Q0tJQVVWbGI0T2hfT05hUXZ2a2pacFhHb1paTUhFb0tpZXBleGhRTjRlV2dRWV9SV1lrblhaXzV5SWJiaDRpbk02QVlWbXFGUXZiSXM1UDFJeV9lcW1wZS1HWXhkbXJBeWllNXl1Q3RfNFZSdVhMVko5R0o5OUxRaE40NG85LWVSc3VFMVhIcEswc3JKV2pNeml0c1BU?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Basket: Virtus Bologna vincente su Verona nel posticipo, ma preoccupa l\u2019infortunio di Casarin - OA Sport",
+          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQTmRmRDdxR0RQVkxVeDFCckFrTlB2dUF5QVVPYnBqMmhBaGh5cU9LWkxhVHFNdUVxc0JrZ1ktcW1IWjJLY184blRPazdubXlDTGNOU1hNSG1SWFY5VlZRaUQyeUtudy1ma1JpTVE1Zk5iZV93MHh2VlhCS1RfZkFRLWRJRDhOSlNsRHBsRXVyNWUxWXpBOU9TWTJHQ1ZyYlBSLXhMamk5R3FVR01PcGFlWFlBUGZpanMzMkpmSDNCa9IBxAFBVV95cUxPRmwxSWxWWWlaeF9BLUFCZGpvMlZxcTFPVkdrOFF5Z0dFaHc4ZkE5Q0tJQVVWbGI0T2hfT05hUXZ2a2pacFhHb1paTUhFb0tpZXBleGhRTjRlV2dRWV9SV1lrblhaXzV5SWJiaDRpbk02QVlWbXFGUXZiSXM1UDFJeV9lcW1wZS1HWXhkbXJBeWllNXl1Q3RfNFZSdVhMVko5R0o5OUxRaE40NG85LWVSc3VFMVhIcEswc3JKV2pNeml0c1BU?oc=5",
+          "source": "gnews_injury_it",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -27242,13 +27229,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Basket: Virtus Bologna vincente su Verona nel posticipo, ma preoccupa l\u2019infortunio di Casarin - OA Sport",
+        "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQTmRmRDdxR0RQVkxVeDFCckFrTlB2dUF5QVVPYnBqMmhBaGh5cU9LWkxhVHFNdUVxc0JrZ1ktcW1IWjJLY184blRPazdubXlDTGNOU1hNSG1SWFY5VlZRaUQyeUtudy1ma1JpTVE1Zk5iZV93MHh2VlhCS1RfZkFRLWRJRDhOSlNsRHBsRXVyNWUxWXpBOU9TWTJHQ1ZyYlBSLXhMamk5R3FVR01PcGFlWFlBUGZpanMzMkpmSDNCa9IBxAFBVV95cUxPRmwxSWxWWWlaeF9BLUFCZGpvMlZxcTFPVkdrOFF5Z0dFaHc4ZkE5Q0tJQVVWbGI0T2hfT05hUXZ2a2pacFhHb1paTUhFb0tpZXBleGhRTjRlV2dRWV9SV1lrblhaXzV5SWJiaDRpbk02QVlWbXFGUXZiSXM1UDFJeV9lcW1wZS1HWXhkbXJBeWllNXl1Q3RfNFZSdVhMVko5R0o5OUxRaE40NG85LWVSc3VFMVhIcEswc3JKV2pNeml0c1BU?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Basket: Virtus Bologna vincente su Verona nel posticipo, ma preoccupa l\u2019infortunio di Casarin - OA Sport",
+            "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQTmRmRDdxR0RQVkxVeDFCckFrTlB2dUF5QVVPYnBqMmhBaGh5cU9LWkxhVHFNdUVxc0JrZ1ktcW1IWjJLY184blRPazdubXlDTGNOU1hNSG1SWFY5VlZRaUQyeUtudy1ma1JpTVE1Zk5iZV93MHh2VlhCS1RfZkFRLWRJRDhOSlNsRHBsRXVyNWUxWXpBOU9TWTJHQ1ZyYlBSLXhMamk5R3FVR01PcGFlWFlBUGZpanMzMkpmSDNCa9IBxAFBVV95cUxPRmwxSWxWWWlaeF9BLUFCZGpvMlZxcTFPVkdrOFF5Z0dFaHc4ZkE5Q0tJQVVWbGI0T2hfT05hUXZ2a2pacFhHb1paTUhFb0tpZXBleGhRTjRlV2dRWV9SV1lrblhaXzV5SWJiaDRpbk02QVlWbXFGUXZiSXM1UDFJeV9lcW1wZS1HWXhkbXJBeWllNXl1Q3RfNFZSdVhMVko5R0o5OUxRaE40NG85LWVSc3VFMVhIcEswc3JKV2pNeml0c1BU?oc=5",
+            "source": "gnews_injury_it",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -27259,15 +27259,15 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Basket: Virtus Bologna vincente su Verona nel posticipo, ma preoccupa l\u2019infortunio di Casarin - OA Sport",
+      "category": "injury"
     },
-    "p_retire": 0.27,
+    "p_retire": 0.405,
     "retirement_context": {
-      "player_injury_risk": 0.27,
-      "p_retire": 0.27,
+      "player_injury_risk": 0.405,
+      "p_retire": 0.405,
       "news_boost": 0.135
     }
   },
