@@ -13518,10 +13518,10 @@
       "headline": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
       "category": "injury"
     },
-    "p_retire": 0.2836,
+    "p_retire": 0.3309,
     "retirement_context": {
-      "player_injury_risk": 0.28355,
-      "p_retire": 0.28355,
+      "player_injury_risk": 0.33085000000000003,
+      "p_retire": 0.33085000000000003,
       "news_boost": 0.04725
     }
   },
@@ -54845,10 +54845,10 @@
       "headline": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
       "category": "injury"
     },
-    "p_retire": 0.2836,
+    "p_retire": 0.3309,
     "retirement_context": {
-      "player_injury_risk": 0.28355,
-      "p_retire": 0.28355,
+      "player_injury_risk": 0.33085000000000003,
+      "p_retire": 0.33085000000000003,
       "news_boost": 0.04725
     }
   },
@@ -65306,13 +65306,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.153,
+      "category": "retirement",
+      "headline": "Novak Djokovic 'astonishing' retirement verdict as Serb handed 'painful' family dilemma - Daily Express",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQMnVEeVN4SWNlUzl1amE3ZVJxa29uXzVoZWMtSlRLcGx6WWJ0T1hqOFptM3BBb2FGaVk0eDZwMlh5NVhaM3VaNXk4TWhnSUt5bjVJazVlT2NLeV92X3A4aWxmeDhhZm0xZ3J4VnRpVzFSZzM1cVFQZm5iLVFONTZFdjdRS3R1ZWR3ajJuZktkQ0HSAZYBQVVfeXFMUElEUE5wbDNGUlNQck5BM2NuUmxsdXZ5dTd5dnZ2STVKSVlDbDlFSjE2VXBxc01HNHlLcWZZdkp4MXB6RnBSQWZUTFdQMkZhS3dxV3ptZldPWWNCZEpDZjJYYnFZajBPZXFDdVg2VGl5dDJrejF5eGVNUkVObllsT2hoRldNc2VMWkJzMWVDc0oxSFRaR19R?oc=5",
+      "source": "gnews_injury_en",
+      "severity": 0.85,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Novak Djokovic 'astonishing' retirement verdict as Serb handed 'painful' family dilemma - Daily Express",
+          "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQMnVEeVN4SWNlUzl1amE3ZVJxa29uXzVoZWMtSlRLcGx6WWJ0T1hqOFptM3BBb2FGaVk0eDZwMlh5NVhaM3VaNXk4TWhnSUt5bjVJazVlT2NLeV92X3A4aWxmeDhhZm0xZ3J4VnRpVzFSZzM1cVFQZm5iLVFONTZFdjdRS3R1ZWR3ajJuZktkQ0HSAZYBQVVfeXFMUElEUE5wbDNGUlNQck5BM2NuUmxsdXZ5dTd5dnZ2STVKSVlDbDlFSjE2VXBxc01HNHlLcWZZdkp4MXB6RnBSQWZUTFdQMkZhS3dxV3ptZldPWWNCZEpDZjJYYnFZajBPZXFDdVg2VGl5dDJrejF5eGVNUkVObllsT2hoRldNc2VMWkJzMWVDc0oxSFRaR19R?oc=5",
+          "source": "gnews_injury_en",
+          "category": "retirement",
+          "severity": 0.85,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -65335,18 +65348,37 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.153,
+        "category": "retirement",
+        "headline": "Novak Djokovic 'astonishing' retirement verdict as Serb handed 'painful' family dilemma - Daily Express",
+        "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQMnVEeVN4SWNlUzl1amE3ZVJxa29uXzVoZWMtSlRLcGx6WWJ0T1hqOFptM3BBb2FGaVk0eDZwMlh5NVhaM3VaNXk4TWhnSUt5bjVJazVlT2NLeV92X3A4aWxmeDhhZm0xZ3J4VnRpVzFSZzM1cVFQZm5iLVFONTZFdjdRS3R1ZWR3ajJuZktkQ0HSAZYBQVVfeXFMUElEUE5wbDNGUlNQck5BM2NuUmxsdXZ5dTd5dnZ2STVKSVlDbDlFSjE2VXBxc01HNHlLcWZZdkp4MXB6RnBSQWZUTFdQMkZhS3dxV3ptZldPWWNCZEpDZjJYYnFZajBPZXFDdVg2VGl5dDJrejF5eGVNUkVObllsT2hoRldNc2VMWkJzMWVDc0oxSFRaR19R?oc=5",
+        "source": "gnews_injury_en",
+        "severity": 0.85,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Novak Djokovic 'astonishing' retirement verdict as Serb handed 'painful' family dilemma - Daily Express",
+            "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQMnVEeVN4SWNlUzl1amE3ZVJxa29uXzVoZWMtSlRLcGx6WWJ0T1hqOFptM3BBb2FGaVk0eDZwMlh5NVhaM3VaNXk4TWhnSUt5bjVJazVlT2NLeV92X3A4aWxmeDhhZm0xZ3J4VnRpVzFSZzM1cVFQZm5iLVFONTZFdjdRS3R1ZWR3ajJuZktkQ0HSAZYBQVVfeXFMUElEUE5wbDNGUlNQck5BM2NuUmxsdXZ5dTd5dnZ2STVKSVlDbDlFSjE2VXBxc01HNHlLcWZZdkp4MXB6RnBSQWZUTFdQMkZhS3dxV3ptZldPWWNCZEpDZjJYYnFZajBPZXFDdVg2VGl5dDJrejF5eGVNUkVObllsT2hoRldNc2VMWkJzMWVDc0oxSFRaR19R?oc=5",
+            "source": "gnews_injury_en",
+            "category": "retirement",
+            "severity": 0.85,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Novak Djokovic 'astonishing' retirement verdict as Serb handed 'painful' family dilemma - Daily Express",
+      "category": "retirement"
+    },
+    "p_retire": 0.0535,
+    "retirement_context": {
+      "player_injury_risk": 0.05354999999999999,
+      "p_retire": 0.05354999999999999,
+      "news_boost": 0.05354999999999999
     }
   },
   {
