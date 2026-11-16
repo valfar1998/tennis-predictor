@@ -13459,26 +13459,13 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.135,
-      "category": "injury",
-      "headline": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
-      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQcjdQM1AwOW5YVl9oVnhzRmgyaUNTOTh0M2J2WWxobS1kZlJlYnVERFZVR0Znci1ZNjZTVzRnSGI2UlFfTnUxa1RrekJvdGVQd1Qwbi0yVVdZbUQyZzFqS2tVSS10SXJKZzZ5Zm1wTGxfSGVZZmVPOG43RG5OS0NIaFVzWUhhYWtVVkY1Z3RDeXhPNDVhTXVreHNMU1R6Zmh6VTZCVHJSLV9qQ2YtRUdLakw4OHNrUWRUS0loeFktS3VDcmFIdTRPY09wZ18yeFBLeG5fYXduaGZQaWV2?oc=5",
-      "source": "gnews_injury_en",
-      "severity": 0.75,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
-          "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQcjdQM1AwOW5YVl9oVnhzRmgyaUNTOTh0M2J2WWxobS1kZlJlYnVERFZVR0Znci1ZNjZTVzRnSGI2UlFfTnUxa1RrekJvdGVQd1Qwbi0yVVdZbUQyZzFqS2tVSS10SXJKZzZ5Zm1wTGxfSGVZZmVPOG43RG5OS0NIaFVzWUhhYWtVVkY1Z3RDeXhPNDVhTXVreHNMU1R6Zmh6VTZCVHJSLV9qQ2YtRUdLakw4OHNrUWRUS0loeFktS3VDcmFIdTRPY09wZ18yeFBLeG5fYXduaGZQaWV2?oc=5",
-          "source": "gnews_injury_en",
-          "category": "injury",
-          "severity": 0.75,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_alert": {
       "pick_side": "A",
@@ -13492,31 +13479,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.135,
-        "category": "injury",
-        "headline": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
-        "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQcjdQM1AwOW5YVl9oVnhzRmgyaUNTOTh0M2J2WWxobS1kZlJlYnVERFZVR0Znci1ZNjZTVzRnSGI2UlFfTnUxa1RrekJvdGVQd1Qwbi0yVVdZbUQyZzFqS2tVSS10SXJKZzZ5Zm1wTGxfSGVZZmVPOG43RG5OS0NIaFVzWUhhYWtVVkY1Z3RDeXhPNDVhTXVreHNMU1R6Zmh6VTZCVHJSLV9qQ2YtRUdLakw4OHNrUWRUS0loeFktS3VDcmFIdTRPY09wZ18yeFBLeG5fYXduaGZQaWV2?oc=5",
-        "source": "gnews_injury_en",
-        "severity": 0.75,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
-            "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQcjdQM1AwOW5YVl9oVnhzRmgyaUNTOTh0M2J2WWxobS1kZlJlYnVERFZVR0Znci1ZNjZTVzRnSGI2UlFfTnUxa1RrekJvdGVQd1Qwbi0yVVdZbUQyZzFqS2tVSS10SXJKZzZ5Zm1wTGxfSGVZZmVPOG43RG5OS0NIaFVzWUhhYWtVVkY1Z3RDeXhPNDVhTXVreHNMU1R6Zmh6VTZCVHJSLV9qQ2YtRUdLakw4OHNrUWRUS0loeFktS3VDcmFIdTRPY09wZ18yeFBLeG5fYXduaGZQaWV2?oc=5",
-            "source": "gnews_injury_en",
-            "category": "injury",
-            "severity": 0.75,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
-      "category": "injury"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.3309,
     "retirement_context": {
@@ -17206,7 +17180,8 @@
       "no_bet_reasons": [
         "probabilit\u00e0 28% sotto minimo 38%",
         "sanity: divergenza modello/mercato 27% > 18%",
-        "sharp consensus: quota 3.85 > 3 senza quote Betfair/Pinnacle verificate"
+        "sharp consensus: quota 3.85 > 3 senza quote Betfair/Pinnacle verificate",
+        "news: withdrawal \u2014 Shapovalov and Diallo Withdraw from Davis Cup Final 8; Galarneau and\u2026 - Tennis Canada"
       ],
       "review_reasons": []
     },
@@ -17245,24 +17220,50 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": false,
-      "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "has_alert": true,
+      "hard_block": true,
+      "p_retire_boost": 0.234,
+      "category": "withdrawal",
+      "headline": "Shapovalov and Diallo Withdraw from Davis Cup Final 8; Galarneau and\u2026 - Tennis Canada",
+      "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOY3F6dkVfdkg2QjZ3eFRDdWFWZjVXSnVzUVlCbXdTNG1aYlprMXA3UV9zdXNEQ2dnOHFFdUJ4d0Q0U2tVMTFkVHUtWnd0SzlIU0o4Z0JfZzVMWGVSSkRuZmxOZXBDYVJNQXIwbVVqQWM0UmtucE9ma3Q0WGpnSGszeGplOGF4SVJGdXlEU1JNYURoSkRoWnRkY2VhM1ljb3pPLWhYRWZ6YV9Nc21kdmdFS2NBWHgzb01adDg5UXdSR3RWUGd3bDJBZ05VTXNZQnU4?oc=5",
+      "source": "gnews_injury_en",
+      "severity": 0.95,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Shapovalov and Diallo Withdraw from Davis Cup Final 8; Galarneau and\u2026 - Tennis Canada",
+          "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOY3F6dkVfdkg2QjZ3eFRDdWFWZjVXSnVzUVlCbXdTNG1aYlprMXA3UV9zdXNEQ2dnOHFFdUJ4d0Q0U2tVMTFkVHUtWnd0SzlIU0o4Z0JfZzVMWGVSSkRuZmxOZXBDYVJNQXIwbVVqQWM0UmtucE9ma3Q0WGpnSGszeGplOGF4SVJGdXlEU1JNYURoSkRoWnRkY2VhM1ljb3pPLWhYRWZ6YV9Nc21kdmdFS2NBWHgzb01adDg5UXdSR3RWUGd3bDJBZ05VTXNZQnU4?oc=5",
+          "source": "gnews_injury_en",
+          "category": "withdrawal",
+          "severity": 0.95,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_alert": {
       "pick_side": "B",
       "pick": {
-        "has_alert": false,
-        "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "has_alert": true,
+        "hard_block": true,
+        "p_retire_boost": 0.234,
+        "category": "withdrawal",
+        "headline": "Shapovalov and Diallo Withdraw from Davis Cup Final 8; Galarneau and\u2026 - Tennis Canada",
+        "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOY3F6dkVfdkg2QjZ3eFRDdWFWZjVXSnVzUVlCbXdTNG1aYlprMXA3UV9zdXNEQ2dnOHFFdUJ4d0Q0U2tVMTFkVHUtWnd0SzlIU0o4Z0JfZzVMWGVSSkRuZmxOZXBDYVJNQXIwbVVqQWM0UmtucE9ma3Q0WGpnSGszeGplOGF4SVJGdXlEU1JNYURoSkRoWnRkY2VhM1ljb3pPLWhYRWZ6YV9Nc21kdmdFS2NBWHgzb01adDg5UXdSR3RWUGd3bDJBZ05VTXNZQnU4?oc=5",
+        "source": "gnews_injury_en",
+        "severity": 0.95,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Shapovalov and Diallo Withdraw from Davis Cup Final 8; Galarneau and\u2026 - Tennis Canada",
+            "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOY3F6dkVfdkg2QjZ3eFRDdWFWZjVXSnVzUVlCbXdTNG1aYlprMXA3UV9zdXNEQ2dnOHFFdUJ4d0Q0U2tVMTFkVHUtWnd0SzlIU0o4Z0JfZzVMWGVSSkRuZmxOZXBDYVJNQXIwbVVqQWM0UmtucE9ma3Q0WGpnSGszeGplOGF4SVJGdXlEU1JNYURoSkRoWnRkY2VhM1ljb3pPLWhYRWZ6YV9Nc21kdmdFS2NBWHgzb01adDg5UXdSR3RWUGd3bDJBZ05VTXNZQnU4?oc=5",
+            "source": "gnews_injury_en",
+            "category": "withdrawal",
+            "severity": 0.95,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -17273,11 +17274,19 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
-      "hard_block_pick": false,
-      "headline": null,
-      "category": null
-    }
+      "any_alert": true,
+      "hard_block_pick": true,
+      "headline": "Shapovalov and Diallo Withdraw from Davis Cup Final 8; Galarneau and\u2026 - Tennis Canada",
+      "category": "withdrawal"
+    },
+    "p_retire": 0.234,
+    "retirement_context": {
+      "player_injury_risk": 0.234,
+      "p_retire": 0.234,
+      "news_boost": 0.234
+    },
+    "shadow": false,
+    "news_hard_block": true
   },
   {
     "player_a": "Laura Boehner",
@@ -54786,26 +54795,13 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.135,
-      "category": "injury",
-      "headline": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
-      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQcjdQM1AwOW5YVl9oVnhzRmgyaUNTOTh0M2J2WWxobS1kZlJlYnVERFZVR0Znci1ZNjZTVzRnSGI2UlFfTnUxa1RrekJvdGVQd1Qwbi0yVVdZbUQyZzFqS2tVSS10SXJKZzZ5Zm1wTGxfSGVZZmVPOG43RG5OS0NIaFVzWUhhYWtVVkY1Z3RDeXhPNDVhTXVreHNMU1R6Zmh6VTZCVHJSLV9qQ2YtRUdLakw4OHNrUWRUS0loeFktS3VDcmFIdTRPY09wZ18yeFBLeG5fYXduaGZQaWV2?oc=5",
-      "source": "gnews_injury_en",
-      "severity": 0.75,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
-          "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQcjdQM1AwOW5YVl9oVnhzRmgyaUNTOTh0M2J2WWxobS1kZlJlYnVERFZVR0Znci1ZNjZTVzRnSGI2UlFfTnUxa1RrekJvdGVQd1Qwbi0yVVdZbUQyZzFqS2tVSS10SXJKZzZ5Zm1wTGxfSGVZZmVPOG43RG5OS0NIaFVzWUhhYWtVVkY1Z3RDeXhPNDVhTXVreHNMU1R6Zmh6VTZCVHJSLV9qQ2YtRUdLakw4OHNrUWRUS0loeFktS3VDcmFIdTRPY09wZ18yeFBLeG5fYXduaGZQaWV2?oc=5",
-          "source": "gnews_injury_en",
-          "category": "injury",
-          "severity": 0.75,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_alert": {
       "pick_side": "A",
@@ -54819,31 +54815,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.135,
-        "category": "injury",
-        "headline": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
-        "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQcjdQM1AwOW5YVl9oVnhzRmgyaUNTOTh0M2J2WWxobS1kZlJlYnVERFZVR0Znci1ZNjZTVzRnSGI2UlFfTnUxa1RrekJvdGVQd1Qwbi0yVVdZbUQyZzFqS2tVSS10SXJKZzZ5Zm1wTGxfSGVZZmVPOG43RG5OS0NIaFVzWUhhYWtVVkY1Z3RDeXhPNDVhTXVreHNMU1R6Zmh6VTZCVHJSLV9qQ2YtRUdLakw4OHNrUWRUS0loeFktS3VDcmFIdTRPY09wZ18yeFBLeG5fYXduaGZQaWV2?oc=5",
-        "source": "gnews_injury_en",
-        "severity": 0.75,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
-            "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQcjdQM1AwOW5YVl9oVnhzRmgyaUNTOTh0M2J2WWxobS1kZlJlYnVERFZVR0Znci1ZNjZTVzRnSGI2UlFfTnUxa1RrekJvdGVQd1Qwbi0yVVdZbUQyZzFqS2tVSS10SXJKZzZ5Zm1wTGxfSGVZZmVPOG43RG5OS0NIaFVzWUhhYWtVVkY1Z3RDeXhPNDVhTXVreHNMU1R6Zmh6VTZCVHJSLV9qQ2YtRUdLakw4OHNrUWRUS0loeFktS3VDcmFIdTRPY09wZ18yeFBLeG5fYXduaGZQaWV2?oc=5",
-            "source": "gnews_injury_en",
-            "category": "injury",
-            "severity": 0.75,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Injury-riddled Alex Eala powered through the pain but still fell to Claire Liu of the United States, 3-6, 0-6, missing out on her second pro title at the WTA 250 Prudential Hong Kong Tennis Open on Sunday at Victoria Park Tennis Stadium. http://tiny.cc/1ecd101 - Facebook",
-      "category": "injury"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.3309,
     "retirement_context": {
@@ -65374,10 +65357,10 @@
       "headline": "Novak Djokovic 'astonishing' retirement verdict as Serb handed 'painful' family dilemma - Daily Express",
       "category": "retirement"
     },
-    "p_retire": 0.0535,
+    "p_retire": 0.107,
     "retirement_context": {
-      "player_injury_risk": 0.05354999999999999,
-      "p_retire": 0.05354999999999999,
+      "player_injury_risk": 0.10704999999999999,
+      "p_retire": 0.10704999999999999,
       "news_boost": 0.05354999999999999
     }
   },
