@@ -2745,13 +2745,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
+      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
+          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
+          "source": "gnews_injury_it",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -2765,13 +2778,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
+        "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
+            "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
+            "source": "gnews_injury_it",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -2782,10 +2808,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
+      "category": "injury"
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -4892,13 +4918,26 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPWmxyZ3pOUTYwakpBWllWdUhpNDczeTlVQUJnUmZjVnRsOFltQ2k4aEE0REVjZzdMRVdWRDhVZXFlV1ZqaEcycDhEZjlLT0ExSlFwUzMtaG1waDJwd2tCeVp0Y29NVjJwdmk3WHdybHdkajduTDFJellMcExqaGNUUGd4MHhSc0c0WHJrZVhlM1BZNm1nWU9Z?oc=5",
+      "source": "gnews_injury_en",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPWmxyZ3pOUTYwakpBWllWdUhpNDczeTlVQUJnUmZjVnRsOFltQ2k4aEE0REVjZzdMRVdWRDhVZXFlV1ZqaEcycDhEZjlLT0ExSlFwUzMtaG1waDJwd2tCeVp0Y29NVjJwdmk3WHdybHdkajduTDFJellMcExqaGNUUGd4MHhSc0c0WHJrZVhlM1BZNm1nWU9Z?oc=5",
+          "source": "gnews_injury_en",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_alert": {
       "pick_side": "A",
@@ -4912,18 +4951,37 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
+        "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPWmxyZ3pOUTYwakpBWllWdUhpNDczeTlVQUJnUmZjVnRsOFltQ2k4aEE0REVjZzdMRVdWRDhVZXFlV1ZqaEcycDhEZjlLT0ExSlFwUzMtaG1waDJwd2tCeVp0Y29NVjJwdmk3WHdybHdkajduTDFJellMcExqaGNUUGd4MHhSc0c0WHJrZVhlM1BZNm1nWU9Z?oc=5",
+        "source": "gnews_injury_en",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
+            "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPWmxyZ3pOUTYwakpBWllWdUhpNDczeTlVQUJnUmZjVnRsOFltQ2k4aEE0REVjZzdMRVdWRDhVZXFlV1ZqaEcycDhEZjlLT0ExSlFwUzMtaG1waDJwd2tCeVp0Y29NVjJwdmk3WHdybHdkajduTDFJellMcExqaGNUUGd4MHhSc0c0WHJrZVhlM1BZNm1nWU9Z?oc=5",
+            "source": "gnews_injury_en",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
+      "category": "injury"
+    },
+    "p_retire": 0.0473,
+    "retirement_context": {
+      "player_injury_risk": 0.04725,
+      "p_retire": 0.04725,
+      "news_boost": 0.04725
     }
   },
   {
@@ -17181,6 +17239,7 @@
         "probabilit\u00e0 28% sotto minimo 38%",
         "sanity: divergenza modello/mercato 27% > 18%",
         "sharp consensus: quota 3.85 > 3 senza quote Betfair/Pinnacle verificate",
+        "news: withdrawal \u2014 Shapovalov and Diallo Withdraw from Davis Cup Final 8; Galarneau and\u2026 - Tennis Canada",
         "news: withdrawal \u2014 Shapovalov and Diallo Withdraw from Davis Cup Final 8; Galarneau and\u2026 - Tennis Canada",
         "news: withdrawal \u2014 Shapovalov and Diallo Withdraw from Davis Cup Final 8; Galarneau and\u2026 - Tennis Canada",
         "news: withdrawal \u2014 Shapovalov and Diallo Withdraw from Davis Cup Final 8; Galarneau and\u2026 - Tennis Canada",
@@ -33046,13 +33105,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
+      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
+          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
+          "source": "gnews_injury_it",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -33066,13 +33138,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
+        "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
+            "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
+            "source": "gnews_injury_it",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -33083,10 +33168,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
+      "category": "injury"
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -68888,13 +68973,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPWmxyZ3pOUTYwakpBWllWdUhpNDczeTlVQUJnUmZjVnRsOFltQ2k4aEE0REVjZzdMRVdWRDhVZXFlV1ZqaEcycDhEZjlLT0ExSlFwUzMtaG1waDJwd2tCeVp0Y29NVjJwdmk3WHdybHdkajduTDFJellMcExqaGNUUGd4MHhSc0c0WHJrZVhlM1BZNm1nWU9Z?oc=5",
+      "source": "gnews_injury_en",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPWmxyZ3pOUTYwakpBWllWdUhpNDczeTlVQUJnUmZjVnRsOFltQ2k4aEE0REVjZzdMRVdWRDhVZXFlV1ZqaEcycDhEZjlLT0ExSlFwUzMtaG1waDJwd2tCeVp0Y29NVjJwdmk3WHdybHdkajduTDFJellMcExqaGNUUGd4MHhSc0c0WHJrZVhlM1BZNm1nWU9Z?oc=5",
+          "source": "gnews_injury_en",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -68908,13 +69006,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
+        "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPWmxyZ3pOUTYwakpBWllWdUhpNDczeTlVQUJnUmZjVnRsOFltQ2k4aEE0REVjZzdMRVdWRDhVZXFlV1ZqaEcycDhEZjlLT0ExSlFwUzMtaG1waDJwd2tCeVp0Y29NVjJwdmk3WHdybHdkajduTDFJellMcExqaGNUUGd4MHhSc0c0WHJrZVhlM1BZNm1nWU9Z?oc=5",
+        "source": "gnews_injury_en",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
+            "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPWmxyZ3pOUTYwakpBWllWdUhpNDczeTlVQUJnUmZjVnRsOFltQ2k4aEE0REVjZzdMRVdWRDhVZXFlV1ZqaEcycDhEZjlLT0ExSlFwUzMtaG1waDJwd2tCeVp0Y29NVjJwdmk3WHdybHdkajduTDFJellMcExqaGNUUGd4MHhSc0c0WHJrZVhlM1BZNm1nWU9Z?oc=5",
+            "source": "gnews_injury_en",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -68925,10 +69036,16 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
+      "category": "injury"
+    },
+    "p_retire": 0.135,
+    "retirement_context": {
+      "player_injury_risk": 0.135,
+      "p_retire": 0.135,
+      "news_boost": 0.135
     }
   },
   {
