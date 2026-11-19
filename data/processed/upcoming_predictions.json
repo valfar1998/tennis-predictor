@@ -4977,10 +4977,10 @@
       "headline": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
       "category": "injury"
     },
-    "p_retire": 0.0473,
+    "p_retire": 0.0945,
     "retirement_context": {
-      "player_injury_risk": 0.04725,
-      "p_retire": 0.04725,
+      "player_injury_risk": 0.09455,
+      "p_retire": 0.09455,
       "news_boost": 0.04725
     }
   },
@@ -17239,6 +17239,7 @@
         "probabilit\u00e0 28% sotto minimo 38%",
         "sanity: divergenza modello/mercato 27% > 18%",
         "sharp consensus: quota 3.85 > 3 senza quote Betfair/Pinnacle verificate",
+        "news: withdrawal \u2014 Shapovalov and Diallo Withdraw from Davis Cup Final 8; Galarneau and\u2026 - Tennis Canada",
         "news: withdrawal \u2014 Shapovalov and Diallo Withdraw from Davis Cup Final 8; Galarneau and\u2026 - Tennis Canada",
         "news: withdrawal \u2014 Shapovalov and Diallo Withdraw from Davis Cup Final 8; Galarneau and\u2026 - Tennis Canada",
         "news: withdrawal \u2014 Shapovalov and Diallo Withdraw from Davis Cup Final 8; Galarneau and\u2026 - Tennis Canada",
@@ -69041,10 +69042,10 @@
       "headline": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
       "category": "injury"
     },
-    "p_retire": 0.135,
+    "p_retire": 0.27,
     "retirement_context": {
-      "player_injury_risk": 0.135,
-      "p_retire": 0.135,
+      "player_injury_risk": 0.27,
+      "p_retire": 0.27,
       "news_boost": 0.135
     }
   },
