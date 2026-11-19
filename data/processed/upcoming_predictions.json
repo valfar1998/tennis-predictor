@@ -4918,26 +4918,13 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.135,
-      "category": "injury",
-      "headline": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPWmxyZ3pOUTYwakpBWllWdUhpNDczeTlVQUJnUmZjVnRsOFltQ2k4aEE0REVjZzdMRVdWRDhVZXFlV1ZqaEcycDhEZjlLT0ExSlFwUzMtaG1waDJwd2tCeVp0Y29NVjJwdmk3WHdybHdkajduTDFJellMcExqaGNUUGd4MHhSc0c0WHJrZVhlM1BZNm1nWU9Z?oc=5",
-      "source": "gnews_injury_en",
-      "severity": 0.75,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
-          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPWmxyZ3pOUTYwakpBWllWdUhpNDczeTlVQUJnUmZjVnRsOFltQ2k4aEE0REVjZzdMRVdWRDhVZXFlV1ZqaEcycDhEZjlLT0ExSlFwUzMtaG1waDJwd2tCeVp0Y29NVjJwdmk3WHdybHdkajduTDFJellMcExqaGNUUGd4MHhSc0c0WHJrZVhlM1BZNm1nWU9Z?oc=5",
-          "source": "gnews_injury_en",
-          "category": "injury",
-          "severity": 0.75,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_alert": {
       "pick_side": "A",
@@ -4951,31 +4938,18 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.135,
-        "category": "injury",
-        "headline": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
-        "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPWmxyZ3pOUTYwakpBWllWdUhpNDczeTlVQUJnUmZjVnRsOFltQ2k4aEE0REVjZzdMRVdWRDhVZXFlV1ZqaEcycDhEZjlLT0ExSlFwUzMtaG1waDJwd2tCeVp0Y29NVjJwdmk3WHdybHdkajduTDFJellMcExqaGNUUGd4MHhSc0c0WHJrZVhlM1BZNm1nWU9Z?oc=5",
-        "source": "gnews_injury_en",
-        "severity": 0.75,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
-            "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPWmxyZ3pOUTYwakpBWllWdUhpNDczeTlVQUJnUmZjVnRsOFltQ2k4aEE0REVjZzdMRVdWRDhVZXFlV1ZqaEcycDhEZjlLT0ExSlFwUzMtaG1waDJwd2tCeVp0Y29NVjJwdmk3WHdybHdkajduTDFJellMcExqaGNUUGd4MHhSc0c0WHJrZVhlM1BZNm1nWU9Z?oc=5",
-            "source": "gnews_injury_en",
-            "category": "injury",
-            "severity": 0.75,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
-      "category": "injury"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.0945,
     "retirement_context": {
@@ -17284,50 +17258,24 @@
       "hits": []
     },
     "news_b": {
-      "has_alert": true,
-      "hard_block": true,
-      "p_retire_boost": 0.234,
-      "category": "withdrawal",
-      "headline": "Shapovalov and Diallo Withdraw from Davis Cup Final 8; Galarneau and\u2026 - Tennis Canada",
-      "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOY3F6dkVfdkg2QjZ3eFRDdWFWZjVXSnVzUVlCbXdTNG1aYlprMXA3UV9zdXNEQ2dnOHFFdUJ4d0Q0U2tVMTFkVHUtWnd0SzlIU0o4Z0JfZzVMWGVSSkRuZmxOZXBDYVJNQXIwbVVqQWM0UmtucE9ma3Q0WGpnSGszeGplOGF4SVJGdXlEU1JNYURoSkRoWnRkY2VhM1ljb3pPLWhYRWZ6YV9Nc21kdmdFS2NBWHgzb01adDg5UXdSR3RWUGd3bDJBZ05VTXNZQnU4?oc=5",
-      "source": "gnews_injury_en",
-      "severity": 0.95,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Shapovalov and Diallo Withdraw from Davis Cup Final 8; Galarneau and\u2026 - Tennis Canada",
-          "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOY3F6dkVfdkg2QjZ3eFRDdWFWZjVXSnVzUVlCbXdTNG1aYlprMXA3UV9zdXNEQ2dnOHFFdUJ4d0Q0U2tVMTFkVHUtWnd0SzlIU0o4Z0JfZzVMWGVSSkRuZmxOZXBDYVJNQXIwbVVqQWM0UmtucE9ma3Q0WGpnSGszeGplOGF4SVJGdXlEU1JNYURoSkRoWnRkY2VhM1ljb3pPLWhYRWZ6YV9Nc21kdmdFS2NBWHgzb01adDg5UXdSR3RWUGd3bDJBZ05VTXNZQnU4?oc=5",
-          "source": "gnews_injury_en",
-          "category": "withdrawal",
-          "severity": 0.95,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "has_alert": false,
+      "hard_block": false,
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_alert": {
       "pick_side": "B",
       "pick": {
-        "has_alert": true,
-        "hard_block": true,
-        "p_retire_boost": 0.234,
-        "category": "withdrawal",
-        "headline": "Shapovalov and Diallo Withdraw from Davis Cup Final 8; Galarneau and\u2026 - Tennis Canada",
-        "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOY3F6dkVfdkg2QjZ3eFRDdWFWZjVXSnVzUVlCbXdTNG1aYlprMXA3UV9zdXNEQ2dnOHFFdUJ4d0Q0U2tVMTFkVHUtWnd0SzlIU0o4Z0JfZzVMWGVSSkRuZmxOZXBDYVJNQXIwbVVqQWM0UmtucE9ma3Q0WGpnSGszeGplOGF4SVJGdXlEU1JNYURoSkRoWnRkY2VhM1ljb3pPLWhYRWZ6YV9Nc21kdmdFS2NBWHgzb01adDg5UXdSR3RWUGd3bDJBZ05VTXNZQnU4?oc=5",
-        "source": "gnews_injury_en",
-        "severity": 0.95,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Shapovalov and Diallo Withdraw from Davis Cup Final 8; Galarneau and\u2026 - Tennis Canada",
-            "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOY3F6dkVfdkg2QjZ3eFRDdWFWZjVXSnVzUVlCbXdTNG1aYlprMXA3UV9zdXNEQ2dnOHFFdUJ4d0Q0U2tVMTFkVHUtWnd0SzlIU0o4Z0JfZzVMWGVSSkRuZmxOZXBDYVJNQXIwbVVqQWM0UmtucE9ma3Q0WGpnSGszeGplOGF4SVJGdXlEU1JNYURoSkRoWnRkY2VhM1ljb3pPLWhYRWZ6YV9Nc21kdmdFS2NBWHgzb01adDg5UXdSR3RWUGd3bDJBZ05VTXNZQnU4?oc=5",
-            "source": "gnews_injury_en",
-            "category": "withdrawal",
-            "severity": 0.95,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "has_alert": false,
+        "hard_block": false,
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
       "opponent": {
         "has_alert": false,
@@ -17338,10 +17286,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": true,
-      "hard_block_pick": true,
-      "headline": "Shapovalov and Diallo Withdraw from Davis Cup Final 8; Galarneau and\u2026 - Tennis Canada",
-      "category": "withdrawal"
+      "any_alert": false,
+      "hard_block_pick": false,
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -68974,26 +68922,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.135,
-      "category": "injury",
-      "headline": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPWmxyZ3pOUTYwakpBWllWdUhpNDczeTlVQUJnUmZjVnRsOFltQ2k4aEE0REVjZzdMRVdWRDhVZXFlV1ZqaEcycDhEZjlLT0ExSlFwUzMtaG1waDJwd2tCeVp0Y29NVjJwdmk3WHdybHdkajduTDFJellMcExqaGNUUGd4MHhSc0c0WHJrZVhlM1BZNm1nWU9Z?oc=5",
-      "source": "gnews_injury_en",
-      "severity": 0.75,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
-          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPWmxyZ3pOUTYwakpBWllWdUhpNDczeTlVQUJnUmZjVnRsOFltQ2k4aEE0REVjZzdMRVdWRDhVZXFlV1ZqaEcycDhEZjlLT0ExSlFwUzMtaG1waDJwd2tCeVp0Y29NVjJwdmk3WHdybHdkajduTDFJellMcExqaGNUUGd4MHhSc0c0WHJrZVhlM1BZNm1nWU9Z?oc=5",
-          "source": "gnews_injury_en",
-          "category": "injury",
-          "severity": 0.75,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -69007,26 +68942,13 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.135,
-        "category": "injury",
-        "headline": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
-        "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPWmxyZ3pOUTYwakpBWllWdUhpNDczeTlVQUJnUmZjVnRsOFltQ2k4aEE0REVjZzdMRVdWRDhVZXFlV1ZqaEcycDhEZjlLT0ExSlFwUzMtaG1waDJwd2tCeVp0Y29NVjJwdmk3WHdybHdkajduTDFJellMcExqaGNUUGd4MHhSc0c0WHJrZVhlM1BZNm1nWU9Z?oc=5",
-        "source": "gnews_injury_en",
-        "severity": 0.75,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
-            "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPWmxyZ3pOUTYwakpBWllWdUhpNDczeTlVQUJnUmZjVnRsOFltQ2k4aEE0REVjZzdMRVdWRDhVZXFlV1ZqaEcycDhEZjlLT0ExSlFwUzMtaG1waDJwd2tCeVp0Y29NVjJwdmk3WHdybHdkajduTDFJellMcExqaGNUUGd4MHhSc0c0WHJrZVhlM1BZNm1nWU9Z?oc=5",
-            "source": "gnews_injury_en",
-            "category": "injury",
-            "severity": 0.75,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
       "opponent": {
         "has_alert": false,
@@ -69037,10 +68959,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Tennis Star Sachia Vickery: OnlyFans Supported Me After Injury, Says Players Are Tired of the Tour's 'Financial Abuse' - Fashion Times UK",
-      "category": "injury"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.27,
     "retirement_context": {
