@@ -2753,11 +2753,20 @@
       "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
       "source": "gnews_injury_it",
       "severity": 0.75,
-      "n_hits": 1,
+      "n_hits": 2,
       "hits": [
         {
           "title": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
           "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
+          "source": "gnews_injury_it",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        },
+        {
+          "title": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
+          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNYmpQa1YtRjVvamNNcnRmZUtpNEt0RTlJNjMwWWU5NTdLSWNRblBvcW02TkNWaUd1dXBOWjhnMG1xWmRXR2Y3UGJuR18xMDVhRXdfOFplRS12Zldid1IxTmdQYThqNkRUWGJ5U0h6ZlQ2VVR5NVJQYTJUZTBUUE45Y1R3cDByR0xVNElhclJ6T2dPNXpFVHdBOTJtN0RHUVFUNDl1ZDBlNy1WSUZMRE1wTkRibVMyVjl4dFMyeA?oc=5",
           "source": "gnews_injury_it",
           "category": "injury",
           "severity": 0.75,
@@ -2786,11 +2795,20 @@
         "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
         "source": "gnews_injury_it",
         "severity": 0.75,
-        "n_hits": 1,
+        "n_hits": 2,
         "hits": [
           {
             "title": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
             "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
+            "source": "gnews_injury_it",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          },
+          {
+            "title": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
+            "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNYmpQa1YtRjVvamNNcnRmZUtpNEt0RTlJNjMwWWU5NTdLSWNRblBvcW02TkNWaUd1dXBOWjhnMG1xWmRXR2Y3UGJuR18xMDVhRXdfOFplRS12Zldid1IxTmdQYThqNkRUWGJ5U0h6ZlQ2VVR5NVJQYTJUZTBUUE45Y1R3cDByR0xVNElhclJ6T2dPNXpFVHdBOTJtN0RHUVFUNDl1ZDBlNy1WSUZMRE1wTkRibVMyVjl4dFMyeA?oc=5",
             "source": "gnews_injury_it",
             "category": "injury",
             "severity": 0.75,
@@ -33062,11 +33080,20 @@
       "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
       "source": "gnews_injury_it",
       "severity": 0.75,
-      "n_hits": 1,
+      "n_hits": 2,
       "hits": [
         {
           "title": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
           "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
+          "source": "gnews_injury_it",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        },
+        {
+          "title": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
+          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNYmpQa1YtRjVvamNNcnRmZUtpNEt0RTlJNjMwWWU5NTdLSWNRblBvcW02TkNWaUd1dXBOWjhnMG1xWmRXR2Y3UGJuR18xMDVhRXdfOFplRS12Zldid1IxTmdQYThqNkRUWGJ5U0h6ZlQ2VVR5NVJQYTJUZTBUUE45Y1R3cDByR0xVNElhclJ6T2dPNXpFVHdBOTJtN0RHUVFUNDl1ZDBlNy1WSUZMRE1wTkRibVMyVjl4dFMyeA?oc=5",
           "source": "gnews_injury_it",
           "category": "injury",
           "severity": 0.75,
@@ -33095,11 +33122,20 @@
         "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
         "source": "gnews_injury_it",
         "severity": 0.75,
-        "n_hits": 1,
+        "n_hits": 2,
         "hits": [
           {
             "title": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
             "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
+            "source": "gnews_injury_it",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          },
+          {
+            "title": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
+            "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNYmpQa1YtRjVvamNNcnRmZUtpNEt0RTlJNjMwWWU5NTdLSWNRblBvcW02TkNWaUd1dXBOWjhnMG1xWmRXR2Y3UGJuR18xMDVhRXdfOFplRS12Zldid1IxTmdQYThqNkRUWGJ5U0h6ZlQ2VVR5NVJQYTJUZTBUUE45Y1R3cDByR0xVNElhclJ6T2dPNXpFVHdBOTJtN0RHUVFUNDl1ZDBlNy1WSUZMRE1wTkRibVMyVjl4dFMyeA?oc=5",
             "source": "gnews_injury_it",
             "category": "injury",
             "severity": 0.75,
