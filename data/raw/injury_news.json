@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "fetched_at": "2026-11-21T21:35:26.444295+00:00",
-  "n_items": 69,
+  "fetched_at": "2026-11-22T12:08:58.011530+00:00",
+  "n_items": 63,
   "n_raw": 130,
   "errors": [
     "espn_tennis: fetch failed",
@@ -16,16 +16,6 @@
       "summary": "",
       "published": "",
       "source": "bbc_tennis",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.95
-    },
-    {
-      "title": "World No. 1 Elena Rybakina withdraws from WTA Finals - The New York Times",
-      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQUy16Z28tcFVZMlBzWnpIdTNORjFtVTVVcGtPZGpOWnZfUnZ5YlFrYmZTbG1zeHpjSEh5TGxRSXlVQ3lEaWdwOVVwNmktTlBYTTY1X0p4U2VCOTNlTEVhMmFFa1BWZ1Y3MzQxUTMzV3BmUDNfNHJoSW9TcWxBWURRMndGenpCSjFTSGtZMGtMMmt3TWlWODQ3MXhR?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
       "channel": "rss",
       "category": "withdrawal",
       "severity": 0.95
@@ -101,8 +91,28 @@
       "severity": 0.85
     },
     {
-      "title": "Retired at 25, inducted at 30! Ash Barty admits 'imposter syndrome' ahead of Hall of Fame honour - The Times of India",
-      "link": "https://news.google.com/rss/articles/CBMijAJBVV95cUxPWDhzelJLenA2WmRLSG9fLXpvb3lZeDF2SjJUWWVZR0NCUnJJQkdBX21Ndms2ZWZ2WXp5dUdxUTBYbUVNWTBEal96dkYyVU9RSTNRQ3VsaEM1Y1lxR2dVSEUxUWNuT3RucWhDaE5QOUVxVHFqUHM2eGhmTlBLZUFLT2h1aUR5d1hHQlZoaTVpbGNvUHdjVVpCRERDbU1RbWpORUIyTmN3c09mdkVXbFpIcklrMWlEbFhOc2FwaFRjZHRsdkZ2dXdUWUdjSTFVeUp5NEpyZzB3NlF3eDN0YmhpOWV0S09XVG0xYkFCU29Tek1tMzVRQUhLbklUY0FyLS1yUjFCRTFJLWx6VzNu0gGSAkFVX3lxTE5LT3k0LUpFb2x4TnZuVUJ1WDRtYkdreU1qb0xoUHBrbi1UM3M2T19xckYtVnlzVktNTlpVd3JpdnhraHZ5QWh2TDJtaGg0RGdNYURILWxVTUpqUjBzaDZ0Qk5BMUJ3SnY4a3RDQmdrbWZYOEgtY0N3TjREUkk2ajBVaXVmZ0FNelZnWVFwVUQ3eE5BLUJrT1dqMmFwaXlNUWhlb2VUVEgzUThpV0lxd2xsSUJ1Z3BkakFybGF2Z0ktaG5uMkJvSU5iNjVYanNpMW4xRUl5V1FJVmRXZFNYWWE0bmtTVzl0VUhHbUstWTlHX3YzS0RYNXVXZzNkTjNPaVBNbDJNYnNybE9RR1g3bGhYNnc?oc=5",
+      "title": "Tennis world reacts to Ash Barty announcement as retired Aussie superstar puts family first - Yahoo News Australia",
+      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPWkV0cW5tSVlCTERKTHdrYjRRVXN6WmVwX1pXU3pSaEJzLVZnU0tJQm5IWnFMNUh1T3dXLTlVbFNZaDByUzAzLUUyTXBSR2h4azl3eVU1S19kTWowOURPSGVWSU1seHhDTENRWEU0R2h2MlFCNFVWVkZCN3o0ajRVMDM2ZDdnT0F6TmFLMlcyN21JUEtuMV9RZ05keUFId2lyWnY3Yjk3dTdRa3dSNUQ0UnlOZk1nUjB3cXdOU1FYa1NhOTIwX0ZpSzIzX3o?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
+      "title": "Lesia Tsurenko retires from pro tennis, admits 'I didn't fulfill my childhood dreams' - Tennis World USA",
+      "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNOXc5X3VOeHFyeTFFbDNuTThLZFktUW1KZ3ZnczU4VkJ6ZzFfWWxmaUZaa2I0OVJ6UlZNMGtzamMyU3NaZHFGcWhOOGpfZXlaakh2LVF0YUpwZ3AxS0ZJQ0tyU3hlNG1yQzM1WW9VQWV6TFcyWnVGbE1qWVpBbmVneTFKNmJQdWtlSHlSUUljZUZhZFpoVU5QaWo4cFJZMkJJRjFTbUlxbHB3RmFvbXhzR3l5V09FNGVxbWsyZDhyQVMyQW9RcENsOUNjTzVhRHJOcWF5dlE2ZXA1UGtPMGc?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "retirement",
+      "severity": 0.85
+    },
+    {
+      "title": "Novak Djokovic must retire immediately and your latest results prove it - Daily Express",
+      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPWmY5bmYyZ2RYM1I2MEhnTU1xMVpfekNUU2pCNWs3YnJwMHlZbzN0SHFTZXpvdUs4ZHYydEJGdGNPRUtYQzFOVTItb1dPOXliSk5MTWVmMkl4OTFRZkh0RWxwLTh4ZjNQM3RhWVgyd3E1WElBR21BYnVjX0ptZVVubUh3LVI1dG1GUHlWdjlXZElhMTDSAZgBQVVfeXFMT29rT3J1eU12d0t6U1FQVzBVemRsVTM1VWlnNXBReVhkOTAxZGdYd1U3eVRBWnRjOFljS1UydHRmMjNGM3V6TFI1N1VJWXdlYVJZWlpSVEtHTlhKcXlWSUc0MEdQY29SS2tDWTNtbWNzeERyNUZ2RlJ3UnRQbmctT0EtWVd3dFBKb1AyOVU2QnZ0UW5oQXlzMlI?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -181,8 +191,38 @@
       "severity": 0.75
     },
     {
+      "title": "Carlos Alcaraz is one match from the ATP Finals title as his technique shines through injury - The Athletic - The New York Times",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQa0dHWGZVWWNaQzVfTVZVcENmczAtVHBVREw0UDVvN2ZKYTM0eHpTb2hST09XbFF2dVdoeVdSNTgtR2xYYUotMk4tcnJtNldyVGVsWFB6c3pFMlhtLS1Yc3NQT0ViUkljN3VpeF9vbW1XT2VWdklGcHYzWUVsaVNkbDByX1l3Qk1TWEktdFhRc05hdEtp?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Tennis-Alcaraz eases injury concerns with Cobolli win to complete perfect ATP Finals group stage - Taylorville Daily News",
+      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPem5XZTdNSVR5R19odDFXemFWZ1loRnF0bGNmVEZTOFJCNDJmTy1zTkt6RXQ3OVpZemJrX3VxTmFaUXZMZldHOFdBOWNfQnZmQ1pTUTlTZDRKUDJSTTNjbktHMW04Y0c5SXVVOU5GYWg1dXp5RXJCR0g2Q0daV1kxbUhwZ2NBZHh0NHhfWVpnMTN2MS1IbE11MlI1OXdMRklRVVgtV2g0QW1yejhHWlRjZGxOdldmSExBRV9fWl90cHkxYkRrOGdDRmlWcXIzTFk?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
       "title": "Brad Gilbert agrees with Rafael Nadal's call for major tennis rule change after Jannik Sinner’s injury - Tennishead",
       "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNbUZDN09XbU9EU2JUbldEZ2NSMldUZGxzSEYxYkZ5RXk3Mkl5bkVpSUFjOGJSQ0FzNlQ0VmY5M3oxcVdhOUxSbktwb0lkWHFTMG5LRFd4dllrX2lnMXhFZzZlR0lwNno3cEZERzNYc19jVkJodllJcjZmV1RlUWxQWkdyYnVROF9VLWpuQ1JCazZaQkIxTndxTS1PNWVsbkUzajRkT09oODhmREhrV0FHa2hacGhCV21aT0kxdFBiNklwdw?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Alcaraz shakes off thigh injury to beat Shelton and reach championship match at ATP Finals - WTNH.com",
+      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNUWtVQlAxNkZsUzJBRVRGd0x3aF9wTFNVaVFsRVM4Q19feHZZUnk3SmN6QURCdDhRYnhxT0NtV3JMRkw1SHoyZUZGdFJTU3duS3V3aGJTendmWTdtOXB5eURQTTNhTWhpRDVvVEoyS0tvT0NCNV9nOHo2RFd6UnJxUF9BLWZIamxNVFRwMmxScnRURkRWUnRqT3lTZ3VjeFZIYXdIV09CMExvSjdUZHBjV192V2pDSkhwcEZQYVhXTdIBxAFBVV95cUxNSm1TQzAzOUNrOE0wc294YTFjWWh1QU9POUdQUGRKMzgxV1duM0xUWXRiTGpqRFFHZ0xGQVM0ZFIzQUNZQXJzSHVBaWlhYWhCdmV4cldfX0ZDc016RUFNRHpTT1hBdFY5SGpfMEJjVkhqeUkzbDF0VXFzOXQ2WXMweDRWMGExdUNlUWowdzNpUGhhYjZVcDA0TjZ3aUt4dm1lYkNfX0lNdXVpU3EwRXJTQ2IzLTJLOEQ0cmF5dC1JVVcxbVpk?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -201,38 +241,8 @@
       "severity": 0.75
     },
     {
-      "title": "Carlos Alcaraz is one match from the ATP Finals title as his technique shines through injury - The New York Times",
-      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQa0dHWGZVWWNaQzVfTVZVcENmczAtVHBVREw0UDVvN2ZKYTM0eHpTb2hST09XbFF2dVdoeVdSNTgtR2xYYUotMk4tcnJtNldyVGVsWFB6c3pFMlhtLS1Yc3NQT0ViUkljN3VpeF9vbW1XT2VWdklGcHYzWUVsaVNkbDByX1l3Qk1TWEktdFhRc05hdEtp?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Tennis-Alcaraz eases injury concerns with Cobolli win to complete perfect ATP Finals group stage - Dewitt Daily News",
-      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQR2tuOUZYbEM3QXQ3S0F6V2JBa2NYa1JYanlRb2dNSVVhV21XeDlCT3JzVTEzMm1uYklkaEh4UGpnX05NU3N3a2ZTaHNPLWVUdS12VGhOR3RaeWkzbEZtQ2YxWHpFbURqdnExMlB0TTRRcnp5MHVELVRtTlUxZU16NTBpS1RjM3luX2xVRUFTaEJXeFJEdlpEMnFLTXdPcThNR1VNbjZQbXpBZE9uVWNadENrS2ZRWUs5LV9fRnM1ZGx2UUgxNUdxWQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
       "title": "Carlos Alcaraz Gets 100% Real About His Newfound ‘Mature’ Perspective On Life After Injury Struggles In 2026 - Yahoo Sports",
       "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPSkx4SDQ0cUJSeWI2aldCR2txSWx2SzZvTUQwdzFjNm00NVN6ZGJJNm5lMUJOVnR4ZnJlWHVUZUtkUDFTZHZpUUx3SmlzNjdvN0U1UHBETUJVZ3cyMFFqeDd2TWVyempGaGlyWEdOR0JyWkRCcHMyTEVHQ1Y3UVlIdVZzQQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Lorenzo Musetti sends message to Jannik Sinner after he ended his season early due to a knee injury - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOcTh0OGZKTENENUpzWXRnb21GVU0tVnN6aHBORzRpQ213Vjl0WGhzUzNUN2NLRDFKNzZHbFpRNUtMQmVKM2RUc1B1U3o1SnVYczhmdzBCLU1fejRyQmhPd2ZxN3J6cWcxczdieGZVa3poQmhzWUF4d2M2TlZOcXNSdUphckoyVUhnRW9Hbk13?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -251,8 +261,8 @@
       "severity": 0.75
     },
     {
-      "title": "Jannik Sinner Injury Layoff: Coco Gauff’s Ex-Coach Issues Harsh Reality Check - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOdENxRGUwdlFMRkI0Rjc3QWVzVkI3Z01IRzJocGFRZDNWWGZHSC00OEwwaEF2SlNZcjVQUDMtTl9ZSUJzc0dGbzhiUlNpMnlaV25OOExnSUN5SFphU0ZCdGlhcnZGTngwSWZ1MUF2LWxaR1JCTmdfZFFEdkRjTDgyQmNPNVFqbDZf?oc=5",
+      "title": "Jannik Sinner told he won’t be able to copy Novak Djokovic’s ‘miraculous’ injury comeback if he has knee surgery - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9fWEktdGl0SHdveFZ5SW5NX3NmVnpRZXpFV0hJOUlfTWZ5eWRqNDNaSFVhTk1maGdGMlZsbUIzQnlCRHhuSzdVcFA3YjJsVS1DODBnd3ZMbVFKRDg4SUptdnpFZjNYUTFDUkkzZmxsODZzaURvNFVvVTVxSXQ0QQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -281,16 +291,6 @@
       "severity": 0.75
     },
     {
-      "title": "Alcaraz shakes off thigh injury to beat Shelton and reach championship match at ATP Finals - Laredo Morning Times",
-      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOYk9RcmJpanlldmdKRnVVZk1zUF9INUNQdkduZmRFTnZMamhVcURJNTAwbTdVOG5XX1lBOEg0bnd3c0VQQzJZTEg1aUxnbmxlUXk1clAyTVM2MF9jUEkwVTF0TmI1bER3RWp6OHpGTEFJaERValE0SklLcmpHeFYtOXRTMFB2WW5vdDRaNW1JRWtKVVJvUXBpeEluVmdIVmJrVGVj?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
       "title": "ATP Finals: Carlos Alcaraz defies injury concerns to continue flawless run with win vs Daniil Medvedev - Sky Sports",
       "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPVXhMWUIta1dOU3F0YXR3X2xaem96Tm0zNHAyNlozZkFaWWtuQ0kzNGFweTZiN05PdEY1aS1CcmhVRzFUODVDVXEteXpEajZfRjBJdzRRWFBrNlVOZ1pZUGZjWUdHSXNYTUZIekZ3Nm51T2tYcFAxbV9Zb2ZTb2Fxdi0wVUhxRXIyTWtMVUhOdURRU3RJcGZVSGUzRC1MM2hlQWxDb25IS215dVYwWWN3ZUtOd2tiNnJmN0VKUkljRVp5M2NXVGFtMllFcDlqR1BMSFdnTnhTRzh5UGNOT2NrVjR3?oc=5",
       "summary": "",
@@ -301,18 +301,8 @@
       "severity": 0.75
     },
     {
-      "title": "Alcaraz shakes off thigh injury to beat Shelton and reach championship match at ATP Finals - Toronto Star",
-      "link": "https://news.google.com/rss/articles/CBMiigJBVV95cUxPSmhpOUNjY21HVjQ0bldaZmxEdURKRjRfYm81bmZLeGVMQTRYRGpCUlk1ajd0bjhDRlUyV05rZjl0N2xieHRBcDJpWUxSZkVqSFNsYklLUmdZRmFGcm5Ub3FCSzg0YzZUZjUybDhUb0hrVExFYkdjZy1sS2NXX1pwTmZsOGN6Q1pjMVJVOHE4M0N1UkluQVBoOVZOSGxmQjBSV21SRC1zVEFzQXpsczY2OE84NWRCUDlxMkt1b3F0c0FReTA4ZE9ZS3RkTG9ENlNrUlZfWFZXMXlmaGtaWHVrSGJQbE1SOElDdlhneU1wMTdKQ3I2UlBmT2ZsSGIxN0pTaHgyZmhrY28wUQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Alcaraz shakes off thigh injury to beat Shelton and reach championship match at ATP Finals - Bluefield Daily Telegraph",
-      "link": "https://news.google.com/rss/articles/CBMimAJBVV95cUxNRkNkWmtUOGNHNTVtaUY2b3hDc0M1MmJqVDA3QlN0N0lIVmVjMGtvcGIyNjkxUnNHb0VEeDZJUHpVVTRmeHJlc1pQd1FBWmlSUUJQb2NuRFpnd25GQTZ3UkYwcXBsOVg3NFdyUjBNZXBLVERrNU5XYXZCdDcwNzlXd2ZXV29EVFlOaWxtZzYyVkNiOUNKZ05pWTVmSW4tc1BQdVZ5SGhKVFhBZ1pyOVk1ZE53VmluSF9CbEJOOHA3dHNZeEM2NEpEVWhnclppTWtQVnBtNERQVHRrZUFmQlFEcEcyR3EzcGNrREp1MGJ6YjM5V2VsbV9vUnVUSWFfLXBvSlNUajJmY0lMS0VRR1doYXlPTlVzMWZC?oc=5",
+      "title": "Carlos Alcaraz Shrugs Off Injury Concerns To Reach ATP Finals Semifinals - NDTV Sports",
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxObWtjYUwwMzczUlRSUHlIb0VsNXZmU3JyYUY5Q3NkdlkweG1ZUy1ZMTdZVDBTMTlzMmtBMC1vSWVnT0Y4bVRJbVg1SUlBVEwxWi1GTFpuMTROc1lhQ1dkeFpNejFmSTJ0LVpndXVjbWFaenBpU1ZkSE1jWmdOQmtnbmFScmxCN1N5ZXVWTHBKLU9XNXJNdXJ0MWhtcmdSSGhib3IyTG1sUldJa2lDR1VjNUxn?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -331,8 +321,8 @@
       "severity": 0.75
     },
     {
-      "title": "Carlos Alcaraz Shrugs Off Injury Concerns To Reach ATP Finals Semifinals - NDTV Sports",
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxObWtjYUwwMzczUlRSUHlIb0VsNXZmU3JyYUY5Q3NkdlkweG1ZUy1ZMTdZVDBTMTlzMmtBMC1vSWVnT0Y4bVRJbVg1SUlBVEwxWi1GTFpuMTROc1lhQ1dkeFpNejFmSTJ0LVpndXVjbWFaenBpU1ZkSE1jWmdOQmtnbmFScmxCN1N5ZXVWTHBKLU9XNXJNdXJ0MWhtcmdSSGhib3IyTG1sUldJa2lDR1VjNUxn?oc=5",
+      "title": "Tennis: Fils edges injury-hit Jodar at ATP Finals - Omni sports - Sports - Ahram Online",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5fTVh1VnF2c2dKdHo5NldOeGREck5qNHkxcXJDbW1FZnh0d3Z0SVdxeEJsTl9DejhiU0pJUnVTUE40YmRFc1RUR3Z1eUZKcGZzTWQyTlQwLWk?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -361,6 +351,16 @@
       "severity": 0.75
     },
     {
+      "title": "Alcaraz brushes off injury to down Cobolli at ATP Finals, Medvedev advances - SuperSport",
+      "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQRWpoRFhFczMtTFpzOUhnVGplUGVNOHVuX3ZQeUpKRVRaZTRVOUpIZ0VYTENYRVpvb1IzbjY5TDZYcWxTYUlEVkxiODQtT1N0WkVjcUpieWJLdWNoaUpuOHhYYU1YWXVrWkltRGNCeG1SQ2xyNFFIWHRTV245cVZ4RTVYeXZ4bUlxWEM1V0lodVhYc1ZjM0J2NVA5c0RqczRNYkJMSHp3ZXBfdDN5YnVUZU96cUdrRGo0ck5XX2xVTjcwR0FlX056YlVQVnB1b0gtbndxRUM2Wk1EQjNFcF9Z?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_en",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
       "title": "Tennis: Alcaraz puts an elastic band on his injured thigh and eases past Cobolli at the ATP Finals - Omni sports - Sports - Ahram Online",
       "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQbDlCSk54dHlTZlEtUmpSdlZIRGNiS2xSMjdUT2ZYTFBmUW5kdU0wTXNUeU9pT2lLYjlBc2pRM1JoRS1EdEJRa2dMdk5oWFJuNlFIakx1RWhOT0tnRUFKdnJTdU95SEFqTVRYLVZzOGpzVGZMaVp1R05aanZFSHpwSHB2dHB4Qzd5ZEh4MTNvZ3J1S3AxWHROblZOVlVsck5NdG5rXzlkcU1qeUZEY0p2TVBXSnNodFNiclRURlN4WkQtdDRqTEE?oc=5",
       "summary": "",
@@ -371,38 +371,8 @@
       "severity": 0.75
     },
     {
-      "title": "Tennis: Alcaraz brushes off injury to down Cobolli at ATP Finals, sets up Shelton clash - RTL Today",
-      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPVy1fOW1hWm9FRy1jMFVNLUVMeDZscWloai1rdGlGRXZ3N010THRZYzJZZEI0MlJiWUlPVFdZQnh3Rjl3TXlWQUpYMFExcWtHRkg0ajJ3VzR3VU5UR0loMHZTWm9iRzlMMUNjMnA1WnVQcDRtVWRUc1NGNmhKSnNlUkwtaVVhUF9MMlpWTnk4aWgtRWlBanZBQWdFcHBxYno4bWhoSEVMZXJ5cExYemZHbHJadlhLdjBtb1VrVUlHcjd6d0JqdkNqeA?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Jannik Sinner’s latest decision sparks concern as new injury update emerges - Tennis365",
-      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNNXhySm9HX1hWWXBWYlNzYVVNSWRWcURwUGlxVk94Zy14eDg5aWFPNlRYV08zdmhRNEFWNVktb0NQb3otUVdCQ3hhdG5xSG16LU8wYmxUWmNtQmd2YU5ZeFZWMXFvYUQ2d1pTMWdKdVg3SlBPQWEwQlBqTEhOVUxyQkpieWVubHp1Tmh5UTdXNzk2ZHktVFd1TQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
       "title": "Alexander Zverev gets brutally honest on his injury after ATP Finals scare ahead of semi-finals - Tennis365",
       "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPLUdCZG5GQU13MmdHb0xLUF9VM1FTM19mNTNocl9tbWkwbWxDYlRWRFR1YUk5WThreTh1LUx0S2RoOWZlNy1JQ2NvNXREclBQWTd3Z0E0M0M2MUJnYkRsWU1YMThPYllnZlpqQnlCajlveml0VDhkMmZEM1puUUMyUEhibzZ0emJMWFlXcjc2OUUtd2pZcnB6a2hESzhFUQ?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_en",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Alexander Zverev admits 2022 horror ankle injury may haunt him for rest of career - Tennis World USA",
-      "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQdVdvbktRUmZkRS1PbTVrU211UTJKSW5JZ18xSHFwM0VraHVkbDJtalhNSHlEa2REd1JNNXdiVUxhcEp5YThhLWR6Z0dMVU43NmN0SDdIdEotTzZJX3N1LVpmSldzU0tmZnEwclI4OEJOSVNPQ2hRV1VHQTBLc0htb3Nwc0VkSThzcnFDbzVBdlprSW5iUlljSVE3emdraWpHRUdTcmFtLUg4TktpQl9zdmhCRU43eS1ZUC04SlJlOERaRjRJRmtYVmZCMmMyRm0xWm1LVHVNRmZfcTQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_en",
@@ -431,11 +401,11 @@
       "severity": 0.75
     },
     {
-      "title": "Infortunio Alcaraz, cosa dice il regolamento Atp Finals - Sky Sport",
-      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPbzB3dWhiRFVLVmd6MVdwWWNNblRSYXp5MERXenFJQWE3TkFueWpJajh4SnlJS1VqbnJmOG5RX0JoQUxDY0x4Y2wxTWVsbGUybHZ0RWdqMTFsaXhvWG54YVR5Nk11LTk4VW1kWWZtS0JOZS1nRlh1UkFUMzhwRWNlY2h2WktXYS1UY2l6bUhpZU5qZ1JVeVktM0dQMWpLWVZHNWc?oc=5",
+      "title": "Cahill admits Sinner's knee injury is 'frustrating' - TennisTemple",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNN0FBeFNidmRjZVUtUjQ0MTZ2Sm5MT1hhdlhsVzN3MGJ4OVYwZHBWZ3Ywd2VBNXIwY1RuNkdBYnZyTy1SWGN4Um15bmRWSGFHV19vakJKSnlDRGVfdVF5YmJoWkU3VFhCNWtYVVpJVnBaak1ITElSNVRNZXloZDFJQXBOdkRZb0o0NDlNOVp5VQ?oc=5",
       "summary": "",
       "published": "",
-      "source": "gnews_injury_it",
+      "source": "gnews_injury_en",
       "channel": "rss",
       "category": "injury",
       "severity": 0.75
@@ -471,6 +441,26 @@
       "severity": 0.75
     },
     {
+      "title": "Alcaraz oltre l'infortunio, ossessione Atp Finals: le due risonanze magnetiche, cosa succede se si ritira con Cobolli - Corriere della Sera",
+      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNZkhaOWdMVmwxUV93ZzJsZ1lXZDdzVWxGZWlJOXd3X2hjbGE4eHh0alJtU3B0a3FocHNkWUtxc0RnZ2h2WEhaY3NoLWZRVXJYYzhpRU44ZXdUcjNfUXc1Nm9odk9iMmhzX3djempZZWtpcVVSQ0RJSHA1OTUyQjNCcUhRSnhmQTlDNWpEb25uckxMVi1YVW9WYk1FZ0RUT2FjaHEyeFhkWkZTd09BMGFVUHRwTEZ2ZjBXNmtET25reHUtZ9IBxwFBVV95cUxPVllOcG9xYmtURmo4RFNHQ0JCVlhtSlFETHM5MkVhTERCVk1XdzRGeld1bnBDT21kV0IzcHg4Vm9QbXhOMFg5RXVWY21UOXJ1UWt6R0JtLXIxbDhuVlZvQ0pNeVFOWTVNcGdjdFhON3FsckFIYThKWkFkTHZBMTZLbGk5ZWlubkJvSzQ3bTJvMUdPQzZaQ0NNLWJCbXZIV2NhVHl3NEJYd281Y0dwM3lpbUpfcUNYdFJvNEw1WkpYYTNjS3VUMXJV?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Infortunio Alcaraz, cosa dice il regolamento Atp Finals - Sky Sport",
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPbzB3dWhiRFVLVmd6MVdwWWNNblRSYXp5MERXenFJQWE3TkFueWpJajh4SnlJS1VqbnJmOG5RX0JoQUxDY0x4Y2wxTWVsbGUybHZ0RWdqMTFsaXhvWG54YVR5Nk11LTk4VW1kWWZtS0JOZS1nRlh1UkFUMzhwRWNlY2h2WktXYS1UY2l6bUhpZU5qZ1JVeVktM0dQMWpLWVZHNWc?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
       "title": "Alcaraz: 'Mesi duri per infortunio, ora sto bene' - Sky Sport",
       "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOWTdqUXBkWFVQLTBVbFpvaHhaNGtpSGZJc2tRZmZfeGFtNGFtTTR4TmktRklwMTNaYlFLUFpBNUdDZFpoejdiNmtnc3Y4ZDV2N0hHRHQ1UTJMaWVza0tYSE1NNWdCSDk5N3N0dzE1WEZRTzItQ3lmMzZZNVNyY2N1Nk1NZHZfRXdJTmg0bw?oc=5",
       "summary": "",
@@ -491,58 +481,8 @@
       "severity": 0.75
     },
     {
-      "title": "Alcaraz: \"Infortunio mi ha fatto capire cosa è importante\" - Sky Sport",
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOTVBSWmdnMEEwZVZ3QUZ1NUktcXJUNXpOeU4tdnEwbUlEd0RteUNPb3RfTXBpNzBpSGNMS0tBeTFFVE8xckJla3Z4MzFvVnJWczFzNm1GajROUHk3VGVOSHFPMVlLZ1MweGVfM0tzOWhfRUlpSFBsa19XaU54QWJaNEt3WUtYTVRhQjB1ekVYdGNtNkhvYnRF?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Infortunio Alcaraz: gli esami, la giornata e la sua volontà - Sky Sport",
-      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPTmxsMVJCcV9iaE5KVVZMNDRmVUhqU2V5blFYUEh2bXh4NkU3TmJyTFNqOXRPVE43aEVXZTYxUGFpMVBRU3JOaVU2dzZUX2JaOVhabmJCUk1RQXVIbjlQbmxrRjk1SkFWdFJYbEJNNXQ5SkhHWXZTTExSMk9PMS1YMm9oN3djRTF4bjhnRk5JQ0VhVG5QYmI0RnQyZDBiZw?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "VIDEO. Alcaraz: 'Infortunio? Penso sia solo un fastidio' - Sky Sport",
-      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPdndqenhBQldyOWpvZHlmdTU2b29uTG1hRjBPb296NXd4Mk93ajFFTVZXTDhTeTBxWkJ3UkV4ZHl5Z0VEMlBUdW9lWE8zdk9VZmVlWGRGMHdCR2cyNnlidlVNanBNV0o1dzNKYWVVdmx4eGM0bmkyTkNqVVl3emxoVENFOFhCT1ozWXBfUTBqVjNjZ3FuV1RDZV9ET2EwNlZfWFE?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
       "title": "Inter, Lautaro Martinez in gruppo dopo l'infortunio - Sky Sport",
       "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNaktGUDAydXRMRDRfTHc2VXo0NkFOdWIwanEzb2JPMTRzbV9wdFVNLW9QVFZ0Q1ZIYlV6clNLQVlDbENyQTRndERZcEhkajhpSWN4bGJhbkx1LXNNNFlfeVEwNWlnZVhkRC1Ucl9KXzJVbWtma01jV0hoUVZ2NlZZRGFyVFI3OTNsblh2TUdfVjRteG8?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Infortunio Inacio, lungo stop: lesione al menisco - Sky Sport",
-      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQa2Nka3hKYll2VTAwdDhlbmVfWnVBZ0VDTXFPbDhMTkY0djZGUmhnVllWY0RtbmVlX0UteldHbFhIWEluN2pyb3NUUGktaUlmQ2hxSXNHSFdWM1JfSlFlOXFMZTNndHBPc1RjeFNhQUZQWThENWxfMFVMQ0ZXZzhsS21weW5BZVhkcHVrTUs5dlhuTlpsZWZNaXhGUXA0bzVBRWc?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Alcaraz oltre l'infortunio, ossessione Atp Finals: le due risonanze magnetiche, cosa succede se si ritira con Cobolli - Corriere della Sera",
-      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNZkhaOWdMVmwxUV93ZzJsZ1lXZDdzVWxGZWlJOXd3X2hjbGE4eHh0alJtU3B0a3FocHNkWUtxc0RnZ2h2WEhaY3NoLWZRVXJYYzhpRU44ZXdUcjNfUXc1Nm9odk9iMmhzX3djempZZWtpcVVSQ0RJSHA1OTUyQjNCcUhRSnhmQTlDNWpEb25uckxMVi1YVW9WYk1FZ0RUT2FjaHEyeFhkWkZTd09BMGFVUHRwTEZ2ZjBXNmtET25reHUtZ9IBxwFBVV95cUxPVllOcG9xYmtURmo4RFNHQ0JCVlhtSlFETHM5MkVhTERCVk1XdzRGeld1bnBDT21kV0IzcHg4Vm9QbXhOMFg5RXVWY21UOXJ1UWt6R0JtLXIxbDhuVlZvQ0pNeVFOWTVNcGdjdFhON3FsckFIYThKWkFkTHZBMTZLbGk5ZWlubkJvSzQ3bTJvMUdPQzZaQ0NNLWJCbXZIV2NhVHl3NEJYd281Y0dwM3lpbUpfcUNYdFJvNEw1WkpYYTNjS3VUMXJV?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -571,8 +511,8 @@
       "severity": 0.75
     },
     {
-      "title": "Kane, brutto infortunio: rottura del legamento della caviglia sinistra. VIDEO - Sky Sport",
-      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNYzVRZHRpRkllTXhjcE5vVFVwbzliR1AxbGttVmVjaG5lZVVtQzBjSnMtWG1OSlJEZ2F1aTdwVkZKV1l5RjZwNENabjZWRmxhUWFCMkgyaDk5QVRkWkdnanlWN2hDbmhocllNTVVkb3czTFl6eTFDdHRVeC02YjByZDVKMVNsQUVwbHFWWF9R?oc=5",
+      "title": "Psg, grave infortunio al ginocchio per Douè: esce in barella in lacrime - Sky Sport",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNZUtvUDMyT0JPY2diYkc0MTlBUTY4TjkxNzVvNmRlMWZQeFZKWG1YZHZVZ081ZlIxRU81eWhZRFJvSlByeC1oWnI5RU1tMXQ3eUZWVXpVa2N1U2xCVzR1QnFwWGlTa1B4c2NvZUticVpKOERBczI5NDZZVFdaY0pfdlc3WQ?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -583,6 +523,16 @@
     {
       "title": "Infortunio Maignan, escluse lesioni: quando può tornare il portiere del Milan - Sky Sport",
       "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQbU9MN1FJb1V6YVZZUU9uTXBiOEJTc2g3MzBiaHpDcWxRQkNjRFlKYXNlcUR5NkZ0SmdCcEtZWEkybFhLMS1BWF9vekdRenN1a0RaOW5NNWJVMkp0Q1RERW9SVWtudzRBM0g5RThDeDZNVy1pRWF5U2htLXE1TGlsdHZhUGM2MGVjM2p2Zg?oc=5",
+      "summary": "",
+      "published": "",
+      "source": "gnews_injury_it",
+      "channel": "rss",
+      "category": "injury",
+      "severity": 0.75
+    },
+    {
+      "title": "Kane, brutto infortunio: rottura del legamento della caviglia sinistra. VIDEO - Sky Sport",
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNYzVRZHRpRkllTXhjcE5vVFVwbzliR1AxbGttVmVjaG5lZVVtQzBjSnMtWG1OSlJEZ2F1aTdwVkZKV1l5RjZwNENabjZWRmxhUWFCMkgyaDk5QVRkWkdnanlWN2hDbmhocllNTVVkb3czTFl6eTFDdHRVeC02YjByZDVKMVNsQUVwbHFWWF9R?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
@@ -643,16 +593,6 @@
     {
       "title": "ATP Finals - Alcaraz, il segreto è nella testa: \"L'infortunio mi ha fatto capire che giocare a tennis è un regalo\" - Il Tennis Italiano",
       "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOWWhxVEFLQThXbFZHZkhfUmxsczJKcENXUFZxbTNWZ205YVNPUVZ1UVctYXJXUUlValc5eVhtTThqVXZsaVl0TGRyTUpIbnJyd3NwYnpNeU9DV1oxOWduNjhMaC1ERWxsNlQ3cThiQmtHM1lyQkxoa3BjSlpNY3hyRmVwdWd3TWVqUlhrZmhDOUVoN0RHaDhkSXYtUVYyRHBqbVpNRzhTaWQ5S3VROTN6Y1g3ZHRUMHY0aXN3UzVVRTFnV3VCNi15dGF4LW1GMHhWTDA0Nw?oc=5",
-      "summary": "",
-      "published": "",
-      "source": "gnews_injury_it",
-      "channel": "rss",
-      "category": "injury",
-      "severity": 0.75
-    },
-    {
-      "title": "Berrettini: «Cobolli merita il meglio. L'infortunio di Sinner? Quando superi il limite, ti devi fermare» - Il Messaggero",
-      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxONnBLbHRmVlJVRzRKNHN3ZkJ5d1FyVHNkVklrN3FUTEM4dko4WGZib3ZxYXM0UUluUGhYZjFxSFJVLXQySUF5ejhrMDJyeElDenZkeWxwb0xMVmVQcFczOGFvMmVHWVcyT3B2Y1VuM29QSDUyUnF4eDBRUVZIUDRDRlR4eDB0NnpUWjJGMHN5Q0V0aUdub3dzT0Z0OFFSRUZETHdvUkstZmU1cWp6MVVvVC1LOTFBd3Q0Y3fSAbYBQVVfeXFMUEhEMWJVNFpqOHV6aXctVUpTQ19lTUU1UXlZU2cxVXlHRk5hSW8ySWtFWEZPZ3lRSnpobVBKWjlIbUxkZ2h1aWEybG1GNk9uVFRkZkVuYTVfR2t4TDNvZXRiT2VpTGNZVUhNbW56aHV0ank0bGJ5WTRHcG5HNlhIYkpoQmpPc1FSN1BsaURsTUV2SV9pUERGOTk0dGtGVW04XzdWckltZUF0OG1CbGxSYkhJSjFiM0E?oc=5",
       "summary": "",
       "published": "",
       "source": "gnews_injury_it",
