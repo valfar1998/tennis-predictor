@@ -2745,26 +2745,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.135,
-      "category": "injury",
-      "headline": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
-      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNYmpQa1YtRjVvamNNcnRmZUtpNEt0RTlJNjMwWWU5NTdLSWNRblBvcW02TkNWaUd1dXBOWjhnMG1xWmRXR2Y3UGJuR18xMDVhRXdfOFplRS12Zldid1IxTmdQYThqNkRUWGJ5U0h6ZlQ2VVR5NVJQYTJUZTBUUE45Y1R3cDByR0xVNElhclJ6T2dPNXpFVHdBOTJtN0RHUVFUNDl1ZDBlNy1WSUZMRE1wTkRibVMyVjl4dFMyeA?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.75,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
-          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNYmpQa1YtRjVvamNNcnRmZUtpNEt0RTlJNjMwWWU5NTdLSWNRblBvcW02TkNWaUd1dXBOWjhnMG1xWmRXR2Y3UGJuR18xMDVhRXdfOFplRS12Zldid1IxTmdQYThqNkRUWGJ5U0h6ZlQ2VVR5NVJQYTJUZTBUUE45Y1R3cDByR0xVNElhclJ6T2dPNXpFVHdBOTJtN0RHUVFUNDl1ZDBlNy1WSUZMRE1wTkRibVMyVjl4dFMyeA?oc=5",
-          "source": "gnews_injury_it",
-          "category": "injury",
-          "severity": 0.75,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -2778,26 +2765,13 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.135,
-        "category": "injury",
-        "headline": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
-        "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNYmpQa1YtRjVvamNNcnRmZUtpNEt0RTlJNjMwWWU5NTdLSWNRblBvcW02TkNWaUd1dXBOWjhnMG1xWmRXR2Y3UGJuR18xMDVhRXdfOFplRS12Zldid1IxTmdQYThqNkRUWGJ5U0h6ZlQ2VVR5NVJQYTJUZTBUUE45Y1R3cDByR0xVNElhclJ6T2dPNXpFVHdBOTJtN0RHUVFUNDl1ZDBlNy1WSUZMRE1wTkRibVMyVjl4dFMyeA?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.75,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
-            "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNYmpQa1YtRjVvamNNcnRmZUtpNEt0RTlJNjMwWWU5NTdLSWNRblBvcW02TkNWaUd1dXBOWjhnMG1xWmRXR2Y3UGJuR18xMDVhRXdfOFplRS12Zldid1IxTmdQYThqNkRUWGJ5U0h6ZlQ2VVR5NVJQYTJUZTBUUE45Y1R3cDByR0xVNElhclJ6T2dPNXpFVHdBOTJtN0RHUVFUNDl1ZDBlNy1WSUZMRE1wTkRibVMyVjl4dFMyeA?oc=5",
-            "source": "gnews_injury_it",
-            "category": "injury",
-            "severity": 0.75,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
       "opponent": {
         "has_alert": false,
@@ -2808,10 +2782,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
-      "category": "injury"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -10423,26 +10397,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.153,
-      "category": "retirement",
-      "headline": "Novak Djokovic must retire immediately and your latest results prove it - Daily Express",
-      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPWmY5bmYyZ2RYM1I2MEhnTU1xMVpfekNUU2pCNWs3YnJwMHlZbzN0SHFTZXpvdUs4ZHYydEJGdGNPRUtYQzFOVTItb1dPOXliSk5MTWVmMkl4OTFRZkh0RWxwLTh4ZjNQM3RhWVgyd3E1WElBR21BYnVjX0ptZVVubUh3LVI1dG1GUHlWdjlXZElhMTDSAZgBQVVfeXFMT29rT3J1eU12d0t6U1FQVzBVemRsVTM1VWlnNXBReVhkOTAxZGdYd1U3eVRBWnRjOFljS1UydHRmMjNGM3V6TFI1N1VJWXdlYVJZWlpSVEtHTlhKcXlWSUc0MEdQY29SS2tDWTNtbWNzeERyNUZ2RlJ3UnRQbmctT0EtWVd3dFBKb1AyOVU2QnZ0UW5oQXlzMlI?oc=5",
-      "source": "gnews_injury_en",
-      "severity": 0.85,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Novak Djokovic must retire immediately and your latest results prove it - Daily Express",
-          "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPWmY5bmYyZ2RYM1I2MEhnTU1xMVpfekNUU2pCNWs3YnJwMHlZbzN0SHFTZXpvdUs4ZHYydEJGdGNPRUtYQzFOVTItb1dPOXliSk5MTWVmMkl4OTFRZkh0RWxwLTh4ZjNQM3RhWVgyd3E1WElBR21BYnVjX0ptZVVubUh3LVI1dG1GUHlWdjlXZElhMTDSAZgBQVVfeXFMT29rT3J1eU12d0t6U1FQVzBVemRsVTM1VWlnNXBReVhkOTAxZGdYd1U3eVRBWnRjOFljS1UydHRmMjNGM3V6TFI1N1VJWXdlYVJZWlpSVEtHTlhKcXlWSUc0MEdQY29SS2tDWTNtbWNzeERyNUZ2RlJ3UnRQbmctT0EtWVd3dFBKb1AyOVU2QnZ0UW5oQXlzMlI?oc=5",
-          "source": "gnews_injury_en",
-          "category": "retirement",
-          "severity": 0.85,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -10456,26 +10417,13 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.153,
-        "category": "retirement",
-        "headline": "Novak Djokovic must retire immediately and your latest results prove it - Daily Express",
-        "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPWmY5bmYyZ2RYM1I2MEhnTU1xMVpfekNUU2pCNWs3YnJwMHlZbzN0SHFTZXpvdUs4ZHYydEJGdGNPRUtYQzFOVTItb1dPOXliSk5MTWVmMkl4OTFRZkh0RWxwLTh4ZjNQM3RhWVgyd3E1WElBR21BYnVjX0ptZVVubUh3LVI1dG1GUHlWdjlXZElhMTDSAZgBQVVfeXFMT29rT3J1eU12d0t6U1FQVzBVemRsVTM1VWlnNXBReVhkOTAxZGdYd1U3eVRBWnRjOFljS1UydHRmMjNGM3V6TFI1N1VJWXdlYVJZWlpSVEtHTlhKcXlWSUc0MEdQY29SS2tDWTNtbWNzeERyNUZ2RlJ3UnRQbmctT0EtWVd3dFBKb1AyOVU2QnZ0UW5oQXlzMlI?oc=5",
-        "source": "gnews_injury_en",
-        "severity": 0.85,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Novak Djokovic must retire immediately and your latest results prove it - Daily Express",
-            "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPWmY5bmYyZ2RYM1I2MEhnTU1xMVpfekNUU2pCNWs3YnJwMHlZbzN0SHFTZXpvdUs4ZHYydEJGdGNPRUtYQzFOVTItb1dPOXliSk5MTWVmMkl4OTFRZkh0RWxwLTh4ZjNQM3RhWVgyd3E1WElBR21BYnVjX0ptZVVubUh3LVI1dG1GUHlWdjlXZElhMTDSAZgBQVVfeXFMT29rT3J1eU12d0t6U1FQVzBVemRsVTM1VWlnNXBReVhkOTAxZGdYd1U3eVRBWnRjOFljS1UydHRmMjNGM3V6TFI1N1VJWXdlYVJZWlpSVEtHTlhKcXlWSUc0MEdQY29SS2tDWTNtbWNzeERyNUZ2RlJ3UnRQbmctT0EtWVd3dFBKb1AyOVU2QnZ0UW5oQXlzMlI?oc=5",
-            "source": "gnews_injury_en",
-            "category": "retirement",
-            "severity": 0.85,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
       "opponent": {
         "has_alert": false,
@@ -10486,10 +10434,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Novak Djokovic must retire immediately and your latest results prove it - Daily Express",
-      "category": "retirement"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -33080,26 +33028,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.135,
-      "category": "injury",
-      "headline": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
-      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNYmpQa1YtRjVvamNNcnRmZUtpNEt0RTlJNjMwWWU5NTdLSWNRblBvcW02TkNWaUd1dXBOWjhnMG1xWmRXR2Y3UGJuR18xMDVhRXdfOFplRS12Zldid1IxTmdQYThqNkRUWGJ5U0h6ZlQ2VVR5NVJQYTJUZTBUUE45Y1R3cDByR0xVNElhclJ6T2dPNXpFVHdBOTJtN0RHUVFUNDl1ZDBlNy1WSUZMRE1wTkRibVMyVjl4dFMyeA?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.75,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
-          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNYmpQa1YtRjVvamNNcnRmZUtpNEt0RTlJNjMwWWU5NTdLSWNRblBvcW02TkNWaUd1dXBOWjhnMG1xWmRXR2Y3UGJuR18xMDVhRXdfOFplRS12Zldid1IxTmdQYThqNkRUWGJ5U0h6ZlQ2VVR5NVJQYTJUZTBUUE45Y1R3cDByR0xVNElhclJ6T2dPNXpFVHdBOTJtN0RHUVFUNDl1ZDBlNy1WSUZMRE1wTkRibVMyVjl4dFMyeA?oc=5",
-          "source": "gnews_injury_it",
-          "category": "injury",
-          "severity": 0.75,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -33113,26 +33048,13 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.135,
-        "category": "injury",
-        "headline": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
-        "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNYmpQa1YtRjVvamNNcnRmZUtpNEt0RTlJNjMwWWU5NTdLSWNRblBvcW02TkNWaUd1dXBOWjhnMG1xWmRXR2Y3UGJuR18xMDVhRXdfOFplRS12Zldid1IxTmdQYThqNkRUWGJ5U0h6ZlQ2VVR5NVJQYTJUZTBUUE45Y1R3cDByR0xVNElhclJ6T2dPNXpFVHdBOTJtN0RHUVFUNDl1ZDBlNy1WSUZMRE1wTkRibVMyVjl4dFMyeA?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.75,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
-            "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNYmpQa1YtRjVvamNNcnRmZUtpNEt0RTlJNjMwWWU5NTdLSWNRblBvcW02TkNWaUd1dXBOWjhnMG1xWmRXR2Y3UGJuR18xMDVhRXdfOFplRS12Zldid1IxTmdQYThqNkRUWGJ5U0h6ZlQ2VVR5NVJQYTJUZTBUUE45Y1R3cDByR0xVNElhclJ6T2dPNXpFVHdBOTJtN0RHUVFUNDl1ZDBlNy1WSUZMRE1wTkRibVMyVjl4dFMyeA?oc=5",
-            "source": "gnews_injury_it",
-            "category": "injury",
-            "severity": 0.75,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
       "opponent": {
         "has_alert": false,
@@ -33143,10 +33065,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
-      "category": "injury"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
