@@ -1,8 +1,8 @@
 {
   "ok": true,
-  "fetched_at": "2026-11-23T13:51:49.063772+00:00",
-  "n_items": 5,
-  "n_raw": 73,
+  "fetched_at": "2026-11-24T02:52:40.284817+00:00",
+  "n_items": 4,
+  "n_raw": 72,
   "errors": [
     "atp_news: fetch failed",
     "wta_news: fetch failed",
@@ -11,16 +11,6 @@
     "reddit: fetch failed"
   ],
   "items": [
-    {
-      "title": "Muchova (illness) becomes 2nd player to withdraw from WTA Finals",
-      "link": "https://www.espn.com/tennis/story/_/id/50474113/karolina-muchova-withdraws-wta-finals-due-illness",
-      "summary": "",
-      "published": "",
-      "source": "espn_tennis",
-      "channel": "rss",
-      "category": "withdrawal",
-      "severity": 0.95
-    },
     {
       "title": "Wawrinka retires in front of home crowd after defeat to Lehecka",
       "link": "https://www.bbc.co.uk/sport/tennis/videos/c6zxj9d4rzd8o?at_medium=RSS&at_campaign=rss",
