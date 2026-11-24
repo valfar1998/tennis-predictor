@@ -2745,13 +2745,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNYmpQa1YtRjVvamNNcnRmZUtpNEt0RTlJNjMwWWU5NTdLSWNRblBvcW02TkNWaUd1dXBOWjhnMG1xWmRXR2Y3UGJuR18xMDVhRXdfOFplRS12Zldid1IxTmdQYThqNkRUWGJ5U0h6ZlQ2VVR5NVJQYTJUZTBUUE45Y1R3cDByR0xVNElhclJ6T2dPNXpFVHdBOTJtN0RHUVFUNDl1ZDBlNy1WSUZMRE1wTkRibVMyVjl4dFMyeA?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
+          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNYmpQa1YtRjVvamNNcnRmZUtpNEt0RTlJNjMwWWU5NTdLSWNRblBvcW02TkNWaUd1dXBOWjhnMG1xWmRXR2Y3UGJuR18xMDVhRXdfOFplRS12Zldid1IxTmdQYThqNkRUWGJ5U0h6ZlQ2VVR5NVJQYTJUZTBUUE45Y1R3cDByR0xVNElhclJ6T2dPNXpFVHdBOTJtN0RHUVFUNDl1ZDBlNy1WSUZMRE1wTkRibVMyVjl4dFMyeA?oc=5",
+          "source": "gnews_injury_it",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -2765,13 +2778,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
+        "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNYmpQa1YtRjVvamNNcnRmZUtpNEt0RTlJNjMwWWU5NTdLSWNRblBvcW02TkNWaUd1dXBOWjhnMG1xWmRXR2Y3UGJuR18xMDVhRXdfOFplRS12Zldid1IxTmdQYThqNkRUWGJ5U0h6ZlQ2VVR5NVJQYTJUZTBUUE45Y1R3cDByR0xVNElhclJ6T2dPNXpFVHdBOTJtN0RHUVFUNDl1ZDBlNy1WSUZMRE1wTkRibVMyVjl4dFMyeA?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
+            "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNYmpQa1YtRjVvamNNcnRmZUtpNEt0RTlJNjMwWWU5NTdLSWNRblBvcW02TkNWaUd1dXBOWjhnMG1xWmRXR2Y3UGJuR18xMDVhRXdfOFplRS12Zldid1IxTmdQYThqNkRUWGJ5U0h6ZlQ2VVR5NVJQYTJUZTBUUE45Y1R3cDByR0xVNElhclJ6T2dPNXpFVHdBOTJtN0RHUVFUNDl1ZDBlNy1WSUZMRE1wTkRibVMyVjl4dFMyeA?oc=5",
+            "source": "gnews_injury_it",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -2782,10 +2808,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
+      "category": "injury"
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -33028,13 +33054,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.135,
+      "category": "injury",
+      "headline": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNYmpQa1YtRjVvamNNcnRmZUtpNEt0RTlJNjMwWWU5NTdLSWNRblBvcW02TkNWaUd1dXBOWjhnMG1xWmRXR2Y3UGJuR18xMDVhRXdfOFplRS12Zldid1IxTmdQYThqNkRUWGJ5U0h6ZlQ2VVR5NVJQYTJUZTBUUE45Y1R3cDByR0xVNElhclJ6T2dPNXpFVHdBOTJtN0RHUVFUNDl1ZDBlNy1WSUZMRE1wTkRibVMyVjl4dFMyeA?oc=5",
+      "source": "gnews_injury_it",
+      "severity": 0.75,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
+          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNYmpQa1YtRjVvamNNcnRmZUtpNEt0RTlJNjMwWWU5NTdLSWNRblBvcW02TkNWaUd1dXBOWjhnMG1xWmRXR2Y3UGJuR18xMDVhRXdfOFplRS12Zldid1IxTmdQYThqNkRUWGJ5U0h6ZlQ2VVR5NVJQYTJUZTBUUE45Y1R3cDByR0xVNElhclJ6T2dPNXpFVHdBOTJtN0RHUVFUNDl1ZDBlNy1WSUZMRE1wTkRibVMyVjl4dFMyeA?oc=5",
+          "source": "gnews_injury_it",
+          "category": "injury",
+          "severity": 0.75,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -33048,13 +33087,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.135,
+        "category": "injury",
+        "headline": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
+        "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNYmpQa1YtRjVvamNNcnRmZUtpNEt0RTlJNjMwWWU5NTdLSWNRblBvcW02TkNWaUd1dXBOWjhnMG1xWmRXR2Y3UGJuR18xMDVhRXdfOFplRS12Zldid1IxTmdQYThqNkRUWGJ5U0h6ZlQ2VVR5NVJQYTJUZTBUUE45Y1R3cDByR0xVNElhclJ6T2dPNXpFVHdBOTJtN0RHUVFUNDl1ZDBlNy1WSUZMRE1wTkRibVMyVjl4dFMyeA?oc=5",
+        "source": "gnews_injury_it",
+        "severity": 0.75,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
+            "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNYmpQa1YtRjVvamNNcnRmZUtpNEt0RTlJNjMwWWU5NTdLSWNRblBvcW02TkNWaUd1dXBOWjhnMG1xWmRXR2Y3UGJuR18xMDVhRXdfOFplRS12Zldid1IxTmdQYThqNkRUWGJ5U0h6ZlQ2VVR5NVJQYTJUZTBUUE45Y1R3cDByR0xVNElhclJ6T2dPNXpFVHdBOTJtN0RHUVFUNDl1ZDBlNy1WSUZMRE1wTkRibVMyVjl4dFMyeA?oc=5",
+            "source": "gnews_injury_it",
+            "category": "injury",
+            "severity": 0.75,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -33065,10 +33117,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Sinner, l\u2019infortunio e la rivelazione di Cahill: cos\u2019\u00e8 il \u201cpiccolo problema\u201d al ginocchio che ferma Jannik da oltre 4 mesi - Quotidiano Nazionale",
+      "category": "injury"
     },
     "p_retire": 0.45,
     "retirement_context": {
