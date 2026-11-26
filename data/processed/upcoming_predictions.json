@@ -2745,26 +2745,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.135,
-      "category": "injury",
-      "headline": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
-      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.75,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
-          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
-          "source": "gnews_injury_it",
-          "category": "injury",
-          "severity": 0.75,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -2778,26 +2765,13 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.135,
-        "category": "injury",
-        "headline": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
-        "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.75,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
-            "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
-            "source": "gnews_injury_it",
-            "category": "injury",
-            "severity": 0.75,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
       "opponent": {
         "has_alert": false,
@@ -2808,10 +2782,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
-      "category": "injury"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
@@ -25382,13 +25356,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.153,
+      "category": "retirement",
+      "headline": "Virginia to Retire Emma Navarro\u2019s Jersey - Virginia Sports",
+      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTFB2S0t3cDM5X294Y1Ezd1F6czVhMUhfS0kxME1qMldTdEw3eHpmQW9yQlVhcEQ4OG9vVmxQS2V3TkdiYVkxYXhzSFVMQXZsVkxfQ3dnbnBfUFlZN0p3bVRxcS1IcFhvZWZRQVE2aUJWdHlUS0E?oc=5",
+      "source": "gnews_injury_en",
+      "severity": 0.85,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Virginia to Retire Emma Navarro\u2019s Jersey - Virginia Sports",
+          "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTFB2S0t3cDM5X294Y1Ezd1F6czVhMUhfS0kxME1qMldTdEw3eHpmQW9yQlVhcEQ4OG9vVmxQS2V3TkdiYVkxYXhzSFVMQXZsVkxfQ3dnbnBfUFlZN0p3bVRxcS1IcFhvZWZRQVE2aUJWdHlUS0E?oc=5",
+          "source": "gnews_injury_en",
+          "category": "retirement",
+          "severity": 0.85,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -25411,24 +25398,37 @@
         "hits": []
       },
       "opponent": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.153,
+        "category": "retirement",
+        "headline": "Virginia to Retire Emma Navarro\u2019s Jersey - Virginia Sports",
+        "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTFB2S0t3cDM5X294Y1Ezd1F6czVhMUhfS0kxME1qMldTdEw3eHpmQW9yQlVhcEQ4OG9vVmxQS2V3TkdiYVkxYXhzSFVMQXZsVkxfQ3dnbnBfUFlZN0p3bVRxcS1IcFhvZWZRQVE2aUJWdHlUS0E?oc=5",
+        "source": "gnews_injury_en",
+        "severity": 0.85,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Virginia to Retire Emma Navarro\u2019s Jersey - Virginia Sports",
+            "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTFB2S0t3cDM5X294Y1Ezd1F6czVhMUhfS0kxME1qMldTdEw3eHpmQW9yQlVhcEQ4OG9vVmxQS2V3TkdiYVkxYXhzSFVMQXZsVkxfQ3dnbnBfUFlZN0p3bVRxcS1IcFhvZWZRQVE2aUJWdHlUS0E?oc=5",
+            "source": "gnews_injury_en",
+            "category": "retirement",
+            "severity": 0.85,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Virginia to Retire Emma Navarro\u2019s Jersey - Virginia Sports",
+      "category": "retirement"
     },
     "p_retire": 0.45,
     "retirement_context": {
       "player_injury_risk": 0.45,
       "p_retire": 0.45,
-      "news_boost": 0.0819
+      "news_boost": 0.05354999999999999
     }
   },
   {
@@ -33054,26 +33054,13 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": true,
+      "has_alert": false,
       "hard_block": false,
-      "p_retire_boost": 0.135,
-      "category": "injury",
-      "headline": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
-      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
-      "source": "gnews_injury_it",
-      "severity": 0.75,
-      "n_hits": 1,
-      "hits": [
-        {
-          "title": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
-          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
-          "source": "gnews_injury_it",
-          "category": "injury",
-          "severity": 0.75,
-          "published": "",
-          "channel": "rss"
-        }
-      ]
+      "p_retire_boost": 0.0,
+      "category": null,
+      "headline": null,
+      "n_hits": 0,
+      "hits": []
     },
     "news_b": {
       "has_alert": false,
@@ -33087,26 +33074,13 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": true,
+        "has_alert": false,
         "hard_block": false,
-        "p_retire_boost": 0.135,
-        "category": "injury",
-        "headline": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
-        "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
-        "source": "gnews_injury_it",
-        "severity": 0.75,
-        "n_hits": 1,
-        "hits": [
-          {
-            "title": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
-            "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNURGQjQ2bkd6eVhqWThjTGhpa2JHU01Xd0hEXzIzZzZrMThHcmpMZ09aS28zaTFYdjNRbGtSbUFiVElMc3N0Y0lySkxxWlNxbngyTnAwS0Q1S3JkdzdZelFwVDVkaXdFOE9Vek1qV0JNZVZBVElJNkpxWm5KRlYzMHdqMGRSM0RiZG9lQVV3cWRWWTNQN2lWVUdGRE9XS3Rta2gzb3NRXzJWVE5vTXZXanQ2aE9GZ9IBvAFBVV95cUxPaDg5UFF0dWlIOUs3RGtDUmU4Nm1VTGhsSUhJbXNPd0FuQml2bmlzQTFvQ2lrREpSbHZSdnRBNUVyWVZSWHVVS1lTbndMUzNjaGRNVnM2Zi03NURka29lbmRSQ0R4Rmhlb1FrNkpqYW1wSnVaRDF4NEpDWFBmUU9OeXI1VHRIbWtsSjdaZlpuMmRpUjY5a1VacWJWcFRmWDJjUVVKdi1lRFFmSFRyUjZRQUtYbjQ3cUg4UGpQeg?oc=5",
-            "source": "gnews_injury_it",
-            "category": "injury",
-            "severity": 0.75,
-            "published": "",
-            "channel": "rss"
-          }
-        ]
+        "p_retire_boost": 0.0,
+        "category": null,
+        "headline": null,
+        "n_hits": 0,
+        "hits": []
       },
       "opponent": {
         "has_alert": false,
@@ -33117,10 +33091,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": true,
+      "any_alert": false,
       "hard_block_pick": false,
-      "headline": "Come Alcaraz ha sfruttato l\u2019infortunio a suo favore: il retroscena svelato a Fognini - Virgilio",
-      "category": "injury"
+      "headline": null,
+      "category": null
     },
     "p_retire": 0.45,
     "retirement_context": {
