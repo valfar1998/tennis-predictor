@@ -10397,13 +10397,26 @@
       "circuit_breaker": true
     },
     "news_a": {
-      "has_alert": false,
+      "has_alert": true,
       "hard_block": false,
-      "p_retire_boost": 0.0,
-      "category": null,
-      "headline": null,
-      "n_hits": 0,
-      "hits": []
+      "p_retire_boost": 0.153,
+      "category": "retirement",
+      "headline": "Novak Djokovic must retire immediately and your latest results prove it - Daily Express",
+      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPWmY5bmYyZ2RYM1I2MEhnTU1xMVpfekNUU2pCNWs3YnJwMHlZbzN0SHFTZXpvdUs4ZHYydEJGdGNPRUtYQzFOVTItb1dPOXliSk5MTWVmMkl4OTFRZkh0RWxwLTh4ZjNQM3RhWVgyd3E1WElBR21BYnVjX0ptZVVubUh3LVI1dG1GUHlWdjlXZElhMTDSAZgBQVVfeXFMT29rT3J1eU12d0t6U1FQVzBVemRsVTM1VWlnNXBReVhkOTAxZGdYd1U3eVRBWnRjOFljS1UydHRmMjNGM3V6TFI1N1VJWXdlYVJZWlpSVEtHTlhKcXlWSUc0MEdQY29SS2tDWTNtbWNzeERyNUZ2RlJ3UnRQbmctT0EtWVd3dFBKb1AyOVU2QnZ0UW5oQXlzMlI?oc=5",
+      "source": "gnews_injury_en",
+      "severity": 0.85,
+      "n_hits": 1,
+      "hits": [
+        {
+          "title": "Novak Djokovic must retire immediately and your latest results prove it - Daily Express",
+          "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPWmY5bmYyZ2RYM1I2MEhnTU1xMVpfekNUU2pCNWs3YnJwMHlZbzN0SHFTZXpvdUs4ZHYydEJGdGNPRUtYQzFOVTItb1dPOXliSk5MTWVmMkl4OTFRZkh0RWxwLTh4ZjNQM3RhWVgyd3E1WElBR21BYnVjX0ptZVVubUh3LVI1dG1GUHlWdjlXZElhMTDSAZgBQVVfeXFMT29rT3J1eU12d0t6U1FQVzBVemRsVTM1VWlnNXBReVhkOTAxZGdYd1U3eVRBWnRjOFljS1UydHRmMjNGM3V6TFI1N1VJWXdlYVJZWlpSVEtHTlhKcXlWSUc0MEdQY29SS2tDWTNtbWNzeERyNUZ2RlJ3UnRQbmctT0EtWVd3dFBKb1AyOVU2QnZ0UW5oQXlzMlI?oc=5",
+          "source": "gnews_injury_en",
+          "category": "retirement",
+          "severity": 0.85,
+          "published": "",
+          "channel": "rss"
+        }
+      ]
     },
     "news_b": {
       "has_alert": false,
@@ -10417,13 +10430,26 @@
     "news_alert": {
       "pick_side": "A",
       "pick": {
-        "has_alert": false,
+        "has_alert": true,
         "hard_block": false,
-        "p_retire_boost": 0.0,
-        "category": null,
-        "headline": null,
-        "n_hits": 0,
-        "hits": []
+        "p_retire_boost": 0.153,
+        "category": "retirement",
+        "headline": "Novak Djokovic must retire immediately and your latest results prove it - Daily Express",
+        "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPWmY5bmYyZ2RYM1I2MEhnTU1xMVpfekNUU2pCNWs3YnJwMHlZbzN0SHFTZXpvdUs4ZHYydEJGdGNPRUtYQzFOVTItb1dPOXliSk5MTWVmMkl4OTFRZkh0RWxwLTh4ZjNQM3RhWVgyd3E1WElBR21BYnVjX0ptZVVubUh3LVI1dG1GUHlWdjlXZElhMTDSAZgBQVVfeXFMT29rT3J1eU12d0t6U1FQVzBVemRsVTM1VWlnNXBReVhkOTAxZGdYd1U3eVRBWnRjOFljS1UydHRmMjNGM3V6TFI1N1VJWXdlYVJZWlpSVEtHTlhKcXlWSUc0MEdQY29SS2tDWTNtbWNzeERyNUZ2RlJ3UnRQbmctT0EtWVd3dFBKb1AyOVU2QnZ0UW5oQXlzMlI?oc=5",
+        "source": "gnews_injury_en",
+        "severity": 0.85,
+        "n_hits": 1,
+        "hits": [
+          {
+            "title": "Novak Djokovic must retire immediately and your latest results prove it - Daily Express",
+            "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPWmY5bmYyZ2RYM1I2MEhnTU1xMVpfekNUU2pCNWs3YnJwMHlZbzN0SHFTZXpvdUs4ZHYydEJGdGNPRUtYQzFOVTItb1dPOXliSk5MTWVmMkl4OTFRZkh0RWxwLTh4ZjNQM3RhWVgyd3E1WElBR21BYnVjX0ptZVVubUh3LVI1dG1GUHlWdjlXZElhMTDSAZgBQVVfeXFMT29rT3J1eU12d0t6U1FQVzBVemRsVTM1VWlnNXBReVhkOTAxZGdYd1U3eVRBWnRjOFljS1UydHRmMjNGM3V6TFI1N1VJWXdlYVJZWlpSVEtHTlhKcXlWSUc0MEdQY29SS2tDWTNtbWNzeERyNUZ2RlJ3UnRQbmctT0EtWVd3dFBKb1AyOVU2QnZ0UW5oQXlzMlI?oc=5",
+            "source": "gnews_injury_en",
+            "category": "retirement",
+            "severity": 0.85,
+            "published": "",
+            "channel": "rss"
+          }
+        ]
       },
       "opponent": {
         "has_alert": false,
@@ -10434,10 +10460,10 @@
         "n_hits": 0,
         "hits": []
       },
-      "any_alert": false,
+      "any_alert": true,
       "hard_block_pick": false,
-      "headline": null,
-      "category": null
+      "headline": "Novak Djokovic must retire immediately and your latest results prove it - Daily Express",
+      "category": "retirement"
     },
     "p_retire": 0.45,
     "retirement_context": {
